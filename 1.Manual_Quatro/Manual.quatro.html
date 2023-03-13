@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez Barrios">
+<meta name="dcterms.date" content="2024-01-03">
+
+<title>Manual General de Quatro</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Manual.quatro_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Manual.quatro_files/libs/quarto-html/quarto.js"></script>
+<script src="Manual.quatro_files/libs/quarto-html/popper.min.js"></script>
+<script src="Manual.quatro_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Manual.quatro_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Manual.quatro_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Manual.quatro_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Manual.quatro_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Manual.quatro_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Manual.quatro_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#generaliades" id="toc-generaliades" class="nav-link active" data-scroll-target="#generaliades">Generaliades</a>
+  <ul class="collapse">
+  <li><a href="#descarga-de-la-aplicación-quatro" id="toc-descarga-de-la-aplicación-quatro" class="nav-link" data-scroll-target="#descarga-de-la-aplicación-quatro">Descarga de la aplicación Quatro</a></li>
+  </ul></li>
+  <li><a href="#renderización-con-la-consola-de-r" id="toc-renderización-con-la-consola-de-r" class="nav-link" data-scroll-target="#renderización-con-la-consola-de-r">Renderización con la consola de R</a></li>
+  <li><a href="#tabla-de-renderizado-en-cuarto" id="toc-tabla-de-renderizado-en-cuarto" class="nav-link" data-scroll-target="#tabla-de-renderizado-en-cuarto">Tabla de renderizado en cuarto</a>
+  <ul class="collapse">
+  <li><a href="#mtcars" id="toc-mtcars" class="nav-link" data-scroll-target="#mtcars">MTCars</a></li>
+  </ul></li>
+  <li><a href="#gráfico-de-renderizado-con-cuarto" id="toc-gráfico-de-renderizado-con-cuarto" class="nav-link" data-scroll-target="#gráfico-de-renderizado-con-cuarto">Gráfico de renderizado con cuarto</a></li>
+  <li><a href="#exportar-los-documentos-de-r-quatro" id="toc-exportar-los-documentos-de-r-quatro" class="nav-link" data-scroll-target="#exportar-los-documentos-de-r-quatro">Exportar los documentos de R Quatro</a>
+  <ul class="collapse">
+  <li><a href="#documentos-word." id="toc-documentos-word." class="nav-link" data-scroll-target="#documentos-word."><strong>1) Documentos Word</strong>.</a></li>
+  <li><a href="#documentos-pdf." id="toc-documentos-pdf." class="nav-link" data-scroll-target="#documentos-pdf."><strong>2) Documentos pdf</strong>.</a></li>
+  <li><a href="#documentos-html" id="toc-documentos-html" class="nav-link" data-scroll-target="#documentos-html"><strong>3) Documentos html</strong></a></li>
+  <li><a href="#libros-html" id="toc-libros-html" class="nav-link" data-scroll-target="#libros-html"><strong>4) Libros html</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Manual General de Quatro</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez Barrios </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 3, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="generaliades" class="level1">
+<h1>Generaliades</h1>
+<p>Tomado de <a href="https://appsilon.com/r-quarto-tutorial/#get-started">Tutorial de Dario Radecic</a></p>
+<p><a href="https://quarto.org/docs/guide/">Manuales con opciones de edición de Quatro</a></p>
+<section id="descarga-de-la-aplicación-quatro" class="level2">
+<h2 class="anchored" data-anchor-id="descarga-de-la-aplicación-quatro">Descarga de la aplicación Quatro</h2>
+<p>Dirigirse al sitio web y descargar la opción del sistema operativo requerido, en este <a href="https://quarto.org/docs/get-started/">enlace</a></p>
+<p>La aplicación queda alojada en este directorio:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\USER\AppData\Local\Programs\Quarto\</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="https://quarto.org/docs/get-started/">página de descarga de quatro</a></p>
+<p><a href="https://appsilon.com/r-quarto-tutorial/#get-started">tutorial de quatro</a></p>
+<p>Una vez instalado, iniciar <strong>RStudio</strong> y crear un archivo de texto <code>text file</code> guardar el documento en extensión <code>qmd</code> como <code>quatro.qmd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Incluir el siguiente YAML</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Manual General de Quatro"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Javier Rodríguez Barrios"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"13/03/2023"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>lang<span class="sc">:</span> <span class="st">"es-ES"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Con el botón <strong>Render</strong> se obtiene la vista previa del documento. Con la casilla de verificación <strong>“Procesar al guardar”</strong> se obtienen las previsualizaciones de forma automática.</p>
+</section>
+</section>
+<section id="renderización-con-la-consola-de-r" class="level1">
+<h1>Renderización con la consola de R</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"notebook.Rmd"</span>)  <span class="co"># Este comando falla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tabla-de-renderizado-en-cuarto" class="level1">
+<h1>Tabla de renderizado en cuarto</h1>
+<section id="mtcars" class="level2">
+<h2 class="anchored" data-anchor-id="mtcars">MTCars</h2>
+<p>Table below shows the first six rows from the MTCars dataset</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="gráfico-de-renderizado-con-cuarto" class="level1">
+<h1>Gráfico de renderizado con cuarto</h1>
+<ul>
+<li><p>Hacer referencia a la figura con: <code>@figure-name</code> en el texto y luego la leyenda.</p></li>
+<li><p>Agregar títulos a las figuras con: <code>#| label: fig-mtscatter</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>fig<span class="sc">-</span>mtscatter shows a relationship between <span class="st">`</span><span class="at">wt</span><span class="st">`</span> and <span class="st">`</span><span class="at">mpg</span><span class="st">`</span> features <span class="cf">in</span> the MTCars dataset.</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">````</span>{r}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-mtscatter</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Weight of vehicle per 1000lbs (wt) vs. Miles/Gallon (mpg)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#0099f9"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <a href="#fig-mtscatter">Figura&nbsp;1</a> muestra la relación entre las características <code>wt</code> y <code>mpg</code> en la base de datos MTCars.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#0099f9"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-mtscatter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Manual.quatro_files/figure-html/fig-mtscatter-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Peso de vehículos por 1000lbs (wt) vs.&nbsp;Millas/Galón (mpg)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="https://appsilon.com/ggplot-scatter-plots/">Guía para figuras en ggplot2</a></p>
+</section>
+<section id="exportar-los-documentos-de-r-quatro" class="level1">
+<h1>Exportar los documentos de R Quatro</h1>
+<section id="documentos-word." class="level2">
+<h2 class="anchored" data-anchor-id="documentos-word."><strong>1) Documentos Word</strong>.</h2>
+<p>Más opciones de referencias aquí: <a href="https://quarto.org/docs/reference/formats/docx.html">manual de referencia completo</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Manual General de Quatro"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Javier Rodríguez Barrios"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">'actualizado: `r Sys.Date()`'</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>lang<span class="sc">:</span> <span class="st">"es-ES"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    docx<span class="sc">:</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        toc<span class="sc">:</span> true</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        toc<span class="sc">-</span>depth<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        toc<span class="sc">-</span>title<span class="sc">:</span> Table of contents</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        number<span class="sc">-</span>sections<span class="sc">:</span> true</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        highlight<span class="sc">-</span>style<span class="sc">:</span> github</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otras opciones de ajustes del YAML y del documento, en los siguientes enlaces:</p>
+<p><a href="https://quarto.org/docs/output-formats/ms-word.html">WORD Basicos</a></p>
+<p><a href="https://quarto.org/docs/reference/formats/docx.html">WORD Opciones generales</a></p>
+</section>
+<section id="documentos-pdf." class="level2">
+<h2 class="anchored" data-anchor-id="documentos-pdf."><strong>2) Documentos pdf</strong>.</h2>
+<p>Se recomienda instalar TinyTeX, se recomienda ejecutar esta línea desde el shell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>quarto tools install tinytex</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luego se requiere ajustar el YAML cambiando <strong>docx</strong> por <strong>pdf</strong></p>
+<p>Otras opciones de ajustes del YAML y del documento, en los siguientes enlaces:</p>
+<p><a href="https://quarto.org/docs/output-formats/pdf-basics.html">PDF Basicos</a></p>
+<p><a href="https://quarto.org/docs/reference/formats/pdf.html">PDF Opciones generales</a></p>
+</section>
+<section id="documentos-html" class="level2">
+<h2 class="anchored" data-anchor-id="documentos-html"><strong>3) Documentos html</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Manual General de Quatro"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Javier Rodríguez Barrios"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">'actualizado: `r Sys.Date()`'</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>lang<span class="sc">:</span> <span class="st">"es-ES"</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    html<span class="sc">-</span>math<span class="sc">-</span>method<span class="sc">:</span> katex</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    css<span class="sc">:</span> styles.css</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otras opciones de ajustes del YAML y del documento, en los siguientes enlaces:</p>
+<p><a href="https://quarto.org/docs/output-formats/html-basics.html">HTML Basicos</a></p>
+<p><a href="https://quarto.org/docs/reference/formats/html.html#figures">HTML Opciones generales</a></p>
+</section>
+<section id="libros-html" class="level2">
+<h2 class="anchored" data-anchor-id="libros-html"><strong>4) Libros html</strong></h2>
+<p>Admiten las mismas funciones de las páginas web <a href="https://quarto.org/docs/publishing/">Ver enlace páginas web</a>, excepto que usan números de capítulos y por lo cual usan referencias cruzadas. Ejemplo de libro en quatro</p>
+<p><a href="https://es.r4ds.hadley.nz/">R para ciencia de datos</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  type<span class="sc">:</span> book</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>book<span class="sc">:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">"Manual General de Quatro"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  author<span class="sc">:</span> <span class="st">"Javier Rodríguez"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  date<span class="sc">:</span> <span class="st">"8/18/2021"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  chapters<span class="sc">:</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> index.qmd</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> intro.qmd</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> summary.qmd</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> references.qmd</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>bibliography<span class="sc">:</span> references.bib</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> cosmo</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  pdf<span class="sc">:</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    documentclass<span class="sc">:</span> scrreport</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  epub<span class="sc">:</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    cover<span class="sc">-</span>image<span class="sc">:</span> cover.png</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otras opciones de ajustes del YAML y del documento, en los siguientes enlaces:</p>
+<p><a href="https://quarto.org/docs/books/">BOOK Basicos</a></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

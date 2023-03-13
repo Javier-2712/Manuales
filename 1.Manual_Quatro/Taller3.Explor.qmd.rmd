@@ -1,0 +1,622 @@
+---
+title: "Taller 3. Exploración Multivariada - Insectos"
+author: "Javier Rodríguez Barrios"
+date: 'Actualizado: `r Sys.Date()`'
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 4
+  pdf_document: 
+    toc: yes
+  html_notebook: 
+    toc: yes
+    toc_depth: 4
+---
+
+<b style='color:#1f78b4;'>
+
+# Exploración gráfica multivariada - base *Insectos*
+
+</b>
+
+
+<b style='color:#1f78b4;'>
+
+**Objetivo de la actividad:**
+
+</b>
+
+Poner en práctica el manejo de bases de datos y la visualización de datos uni, bi, tri y multivariados, para responder principalmente a dos tipos de objetivos:
+
+1. **Relaciones** entre variables biológicas y de estas con las ambientales (ej. figuras de elipses, pares, dispersión y coplot).
+
+2. **Diferencias** para el caso en el que contemos con variables agrupadoras (factores o v. cualitativas), orientado a evaluar las diferencias entre variables biológicas en gradientes espaciales o temporales (ej. entre grupos de sitios).
+
+La base de datos a utilizar se presenta en dos formatos: **Insectos.csv** e **Insectos.xlsx**. Esta base cuenta con 2 variables ambientales y 6 biológicas, así como con un factor o variable agrupadora (cuencas), todo esto distribuido en las columnas. Además cuenta con y 20 localidades o quebradas (filas).
+
+
+<b style='color:#1f78b4;'>
+
+## Procedimiento de la exploración
+
+</b>
+
+- Cargar librerías requeridas
+
+- Cargar la base `Insectos` (usar diferentes opciones para practicar)
+
+- Explorar al **objetivo 1** (figuras de elipses, pares, dispersión y coplot).
+
+- Explorar al **objetivo 2** (figuras de elipses, pares, dispersión y coplot).
+
+- Realizar las opciones gráficas relacionadas a los objetivos.
+
+- Realizar transformaciones de los datos, para mejorar la visualización de patrones.
+
+- Practicar con leyendas y resultados de la visualización realizada.
+
+
+
+
+<b style='color:#1f78b4;'>
+
+#### Cargar las librerías requeridas
+
+</b>
+
+```{r, eval = FALSE}
+# Librerías requeridas
+library(tidyverse)
+library(xtable)       # Importar y exportar
+library(openxlsx)     # exportar "*.xlsx" 
+library(readxl)       # Importar y exportar
+
+library(stats)        # Para las figuras de pares
+library(lattice)      # No se requiere instalar
+library(ggplot2)      # gráfica en ggplot2
+library(ggrepel)      # insertar rótulos a los puntos
+require(SciViews)     # Fig. dispersión con coef. de pearson
+library(plotrix)      # Figuras de cajas con múltiples variables
+library(reshape)      # Figuras de cajas con múltiples variables
+library(corrplot)     # Figuras de elipses
+
+```
+
+**Nota**: `ggcorrplot2` requiere instalarse de la siguiente manera, debido a que está en proceso de ajuste para las nuevas plataformas de R.
+[ver_enlace_procedimiento](https://rdrr.io/github/caijun/ggcorrplot2/)
+
+```{r, eval = FALSE}
+# Instalar "ggcorrplot2", solo por una vez
+install.packages("remotes")
+remotes::install_github("caijun/ggcorrplot2")
+```
+
+- **Nota**: `gganimate` requiere instalarse de la siguiente manera:
+[ver_enlace_procedimiento](https://spcanelon.notion.site/gganimate-How-to-Create-Plots-with-Beautiful-Animation-in-R-Datanovia-7193ba557c4345c3bbb6578b2b40e41f)
+
+```{r, eval = FALSE}
+install.packages('gganimate')
+devtools::install_github('thomasp85/gganimate')
+```
+
+
+<b style='color:#1f78b4;'>
+
+#### Cargar o importar la base de datos
+
+</b>
+
+```{r, eval = FALSE}
+#------------
+datos <- read.csv2("Insectos.csv")      # paquete "utils"
+head(datos)
+
+```
+
+
+<b style='color:#1f78b4;'>
+
+### 1. Figuras de elipses
+
+</b>
+
+El Paquete **corrplot** es el que permite realizar las opciones gráficas de elipses a color, ingresar a este enlace:
+
+[**corrplot**](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram)
+
+Otro enlace a **corrplot**:
+
+[**corrplot**](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+
+```{r, eval = FALSE}
+#---
+# 1. Elipses
+library(corrplot)
+
+# Elipses con colores
+M <- cor(datos[,3:10])            # Matriz de Correlación (M)
+
+# Elipses con colores
+x11()                            # Panel gráfico adicional
+corrplot(M, method = "ellipse")  # Figura de correlaciones con elipses
+
+# Elipses con colores
+X11()
+corrplot(M, method = "circle")   # Figura de correlaciones con circulos
+
+# Elipses con colores
+X11()
+corrplot.mixed(M, upper="ellipse")
+```
+
+
+```{r, eval = FALSE}
+# Figura de elipses con coeficientes de correlación
+x11()
+corrplot(M,  method = "circle",            # Correlaciones con circulos
+         type = "lower", insig="blank",    # Forma del panel
+         order = "AOE", diag = FALSE,      # Ordenar por nivel de correlación
+         addCoef.col ="black",             # Color de los coeficientes
+         number.cex = 0.8,                 # Tamaño del texto
+         col = COL2("RdYlBu", 200))        # Transparencia de los circulos
+
+```
+
+
+
+<b style='color:#1f78b4;'>
+
+### 3. Figuras de Dispersión por pares de variables (pairs)
+
+</b>
+
+El Paquete **pairs** es el que permite realizar las opciones gráficas de dispersión por parejas de variables, ingresar a este enlace:
+
+[**pairs**](https://r-charts.com/es/correlacion/pairs/)
+
+Otro enlace a **pairs**:
+
+[**pairs**](https://r-coder.com/grafico-correlacion-r/)
+
+```{r, eval = FALSE}
+# Figuras de pares
+x11()
+pairs ((datos[,c(3:9)]),panel=function(x,y)
+{abline(lsfit(x,y)$coef,lwd=2,col=3)    # lwd = Ancho de la línea
+  lines(lowess(x,y),lty=1,lwd=3,col=2)    # col= Color de la línea
+  points(x,y,cex=1)}) 
+```
+
+
+```{r, eval = FALSE}
+# Incluir el factor (cuenca)
+# **requiere a cuenca como factor
+pairs ((datos[,c(3,7,8,10)]),panel=function(x,y)
+{abline(lsfit(x,y)$coef,lwd=2,col=3)
+  lines(lowess(x,y),lty=2,lwd=2,col=2)
+  points(x,y,col=datos$cuenca, cex=1.4,pch=19)})
+```
+
+
+```{r, eval = FALSE}
+# Correlaciones de Pearson
+library(SciViews)
+x11()
+pairs(datos[,c(3,7,8,10)], diag.panel = panel.hist, 
+      upper.panel = panel.cor, lower.panel = panel.smooth)
+```
+
+
+```{r, eval = FALSE}
+# Incluir histogramas
+pairs(datos[, 3:10], diag.panel = panel.hist, 
+      upper.panel = panel.cor, lower.panel = panel.smooth)
+```
+
+
+### 3. Histogramas
+
+</b>
+
+```{r, eval = FALSE}
+# Frecuencias de abundancias 
+histogram (~Ab,data=datos, ylab="Porcentaje del Total",
+           xlab="Abundancia de insectos")
+
+# Frecuencias de abundancias por cuencas
+histogram (~Ab|cuenca,data=datos, ylab="Porcentaje del Total",
+           xlab="Abundancia de insectos")
+```
+
+
+```{r, eval = FALSE}
+# Frecuencias por densidad
+densityplot(~Ab,data=datos, ylab="Porcentaje del Total",
+            xlab="Abundancia de insectos")  
+
+densityplot(~Ab|cuenca,data=datos, ylab="Porcentaje del Total",
+            xlab="Abundancia de insectos")
+```
+
+
+```{r, eval = FALSE}
+# Frecuencias de abundancias por densidad
+ggplot(data = datos, aes(x = Ab, color = cuenca)) +
+  geom_density(aes(fill = cuenca), alpha = 0.5) +
+  labs( y="Frecuencia", x="Abundancia")
+
+```
+
+
+```{r, eval = FALSE}
+# Otra opción
+ggplot(data = datos, aes(x = Ab, color = cuenca)) +
+  geom_density(aes(fill = cuenca)) + 
+  facet_wrap(~ cuenca)
+
+```
+
+
+<b style='color:#1f78b4;'>
+
+### 4. Dispersión X-Y
+
+</b>
+
+El Paquete **`lattice`** es uno de los que permite realizar las opciones gráficas de dispersión, ingresar a este enlace:
+
+[**lattice**](http://www.sthda.com/english/wiki/lattice-graphs)
+
+```{r, eval = FALSE}
+# Regresión lineal (esquema básico) 
+library(lattice)
+datos$cuenca <- as.factor (datos$cuenca)  # cuenca como factor
+
+x11()
+plot(Efem~pH,                         # Relación pH vs. Efem
+     col=as.integer(cuenca),          # Colores por tipo de cuencas
+     data=datos, pch=19)              # Base de datos
+legend(5.5,25,                        # Coordenadas de la leyenda
+       legend=levels(datos$cuenca),   # Grupos de la leyenda
+       pch=19,col=1:4,cex=1.2)
+lines(abline(lm(datos$Efem~datos$pH), # regresión lineal
+             lwd=2,col=2, lty=2))
+```
+
+<b style='color:#1f78b4;'>
+
+#### Dispersión X-Y con **ggplot2**
+
+</b>
+
+El Paquete **ggplot2** es el que permite realizar las opciones gráficas de dispersión bivariados, ingresar a este enlace:
+
+[**RPubs**](https://rpubs.com/odenipinedo/introduction-to-data-visualization-with-ggplot2#:~:text=The%20diamonds%20dataset%20contains%20details,as%20in%20a%20scatter%20plot).
+
+Otro enlace a **ggplot2**:
+
+[**ggplot2**](https://r-graph-gallery.com/scatterplot.html)
+
+```{r, eval = FALSE}
+# Regresiones lineales (Esquema ggplot2) 
+ggplot(datos,aes(x = pH,y = Efem)) +   
+  geom_point(aes(color = cuenca), size = 3) +  
+  geom_smooth(method= "lm") +
+  theme_classic()
+```
+
+
+```{r, eval = FALSE}
+# Regresiones suavizadas - Loess o Lowess (Esquema ggplot2) 
+ggplot(datos,aes(x = pH, y = Efem)) +   
+  geom_point(aes(color = cuenca), size = 3) +  
+  geom_smooth()
+```
+
+
+```{r, eval = FALSE}
+# Regresiones suavizadas (Loess)
+ggplot(datos,aes(x = pH, y = Efem)) +   
+  geom_point(aes(color = cuenca), size = 3) +  
+  geom_smooth(se = FALSE, span = 0.4)
+```
+
+
+<b style='color:#1f78b4;'>
+
+### 5. Cajas y Bigotes
+
+</b>
+
+El Paquete **`lattice`** es uno de los que permite realizar las opciones gráficas de cajas, ingresar a este enlace:
+
+[**How to make a boxplot in R**](https://www.r-bloggers.com/2022/04/how-to-make-a-boxplot-in-r/?utm_source=phpList&utm_medium=email&utm_campaign=R-bloggers-daily&utm_content=HTML)
+
+El Paquete **`ggplot2`** presenta opciones más estéticas y robustas para estas y muchas más figuras, ingresar a este enlace:
+
+[**Enlace1**](https://r-charts.com/es/correlacion/grafico-dispersion-ggplot2/)
+
+[**Enlace2**](https://soka.gitlab.io/blog/post/2019-04-25-r-ggplot2-scatterplot/)
+
+
+```{r, eval = FALSE}
+# Figuras de Cajas y bigotes
+datos$cuenca<-factor(datos$cuenca, 
+                     levels=c("cuen1","cuen2","cuen3","cuen4"))
+
+# Cajas y Bigotes con muescas
+boxplot(Ab~cuenca,data=datos,notch=TRUE,
+        xlab="Cuencas",ylab="Abundancia",
+        col="lightgray", cex.lab=1.3)     # Probar con otros colores
+```
+
+
+Enlaces de **paletas de colores** para la edición de las figuras:
+
+[colorbrewer](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=4)
+
+[coolors](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=4)
+
+
+```{r, eval = FALSE}
+# Buscar en google: colorbrewer2
+ggplot(datos, aes(x=cuenca, y=Ab)) + 
+  geom_boxplot(aes(fill = cuenca)) +
+  scale_fill_manual(values = c('#fc8d59','#ffffbf','#99d594','#377eb8'))
+```
+
+
+```{r, eval = FALSE}
+# Organización por nivel de magnitud
+ggplot(datos, aes(x = fct_reorder(cuenca, Ab),y=Ab)) + 
+  geom_boxplot(notch = T, aes(fill = cuenca)) +
+  scale_fill_manual(values = c('#fc8d59','#ffffbf','#99d594','#377eb8'))
+```
+
+
+**Paréntesis** Base de datos de lirios (iris) para figura de violín
+
+```{r, eval = FALSE}
+# violin: como histograma acostado
+ggplot(iris, aes(x = Species, y = Sepal.Length)) + 
+  geom_violin(aes(fill = Species)) + 
+  geom_jitter() +
+  scale_fill_manual(values = c('#fc8d59','#ffffbf','#99d594')) +
+  theme_bw()
+```
+
+<b style='color:#1f78b4;'>
+
+### 6. Coplot
+
+</b>
+
+```{r, eval = FALSE}
+# Coplot con líneas de ajuste suavizado (loess)
+with(datos, {
+  coplot(Efem~pH|temp,
+         panel = panel.smooth)})
+```
+
+
+```{r, eval = FALSE}
+# Categorización de dos variables contínuas (pH y Temp)
+summary(datos[,2:8])
+
+clasetemp <- cut(datos$temp,seq(15,20,1.2),include.lowest=T,
+                 labels = c("t.baja", "t.media1","t.media2", "t.alta"))
+
+clasepH <- cut(datos$pH,seq(5,8,1),include.lowest=T,
+               labels = c("pH.bajo", "pH.medio","pH.alto"))
+```
+
+
+```{r, eval = FALSE}
+# Función para el coplot 
+panel.lm = function(x, y, ...) {
+  tmp<-lm(y~x,na.action=na.omit)
+  abline(tmp, lwd = 1.5, col= 2)
+  points(x,y, ...)}
+
+```
+
+
+```{r, eval = FALSE}
+# Relación trivariada - Lineal
+coplot(Efem~pH | clasetemp, pch=19,
+       panel = panel.lm, data=datos)
+
+coplot(Efem~pH | clasetemp, pch=19,
+       panel = panel.smooth, data=datos)
+```
+
+<b style='color:#1f78b4;'>
+
+### 7. Figuras con estadísticos (promedios, errores, ...)
+
+</b>
+
+El Paquete **`ggplot2`** es uno de los que permite realizar las opciones gráficas de barras con estadísticos, ingresar a este enlace:
+
+[**Exploratory Data Analysis with ggplot**](https://rstudio-pubs-static.s3.amazonaws.com/355851_52530dca7f8a4355aad5f5ba46c88b42.html)
+
+Existen otros enlaces en los que se puede encontrar información complementaria para figuras de barras, como los siguientes
+
+[**ggplot2 barplots**](https://rstudio-pubs-static.s3.amazonaws.com/355851_52530dca7f8a4355aad5f5ba46c88b42.html)
+
+[**Stunning Bar Charts**](https://appsilon.com/ggplot2-bar-charts/)
+
+
+```{r, eval = FALSE}
+# Resumen estadístico "datos_resum"
+datos_resum <- datos %>%        # Base de datos resumida
+  group_by(cuenca) %>%          # Factor o variable agrupadora
+  summarise(datos.m = mean(Ab),   # Media de cada grupo del factor
+            datos.de  = sd(Ab),   # Desviacioes estándar de cada grupo
+            datos.var = var(Ab),  # Varianzas de cada grupo
+            n.Ab = n(),           # Tamaño de cada grupo
+            datos.ee = sd(Ab)/sqrt(n()))   # Error estándar de cada grupo
+datos_resum
+```
+
+
+```{r, eval = FALSE}
+# Figura de promedios y errores estándar
+DatosPlot<-
+  ggplot(datos_resum, aes(cuenca, datos.m, dev.off())) + 
+  geom_bar(stat="identity", col="blue", fill="lightblue") +  
+  geom_errorbar(aes(ymin=datos.m-datos.ee, 
+                    ymax=datos.m+datos.ee),width=0.2) 
+```
+
+```{r, eval = FALSE}
+# Imprimir la figura de promedios con errores estándar
+print (DatosPlot + 
+       labs(y="Abundancia ± e.e.", 
+            x = "cuenca") + 
+        scale_fill_manual(values= c("#A1D5D5")) +
+        theme_classic())
+
+```
+
+
+***Nota:*** Para las figuras de **Cajas y Bigotes**, el comando `stat_boxplot(geom = "errorbar",...)` permite realizar gráficas sin necesidad de extraer algunos estadísticos previamente.
+
+
+```{r, eval = FALSE}
+# Opción de cajas y bigotes con errores estándar
+ggplot(datos, aes(x=cuenca, y= Ab, fill= cuenca)) +
+  stat_boxplot(geom = "errorbar",width = 0.05) + 
+  geom_boxplot(width = 0.4, 
+        notchwidth = 0.9, outlier.colour="red",
+        outlier.fill="red",
+        outlier.size=3, outlier.alpha = 0.2) + 
+  theme_classic() + 
+  scale_fill_manual(values=c('#fc8d59','#ffffbf','#99d594','#377eb8')) + 
+  labs(x = "Cuencas", y = "Abundancia ± e.e.")+ 
+  scale_y_continuous(limits = c(40,90))
+```
+
+
+
+<b style='color:#1f78b4;'>
+
+#### Base de datos con múltiples factores
+
+</b>
+
+```{r, eval = FALSE}
+# Base de datos multifactorial (insectos1)
+datos1<-read_csv2("Insectos2.csv")    # Formato *xlsx
+head(datos1)  # Encabezado
+```
+
+
+```{r, eval = FALSE}
+# Resumen estadístico "datos_resum"
+datos_resum <- datos1 %>%        # Base de datos resumida
+  group_by(Lluvia,GF) %>%          # Factor o variable agrupadora
+  summarise(datos.m = mean(Biom),   # Media de cada grupo del factor
+            datos.de  = sd(Biom),   # Desviacioes estándar de cada grupo
+            datos.var = var(Biom),  # Varianzas de cada grupo
+            n.Biom = n(),           # Tamaño de cada grupo
+            datos.ee = sd(Biom)/sqrt(n()))   # Error estándar de cada grupo
+datos_resum
+
+
+```
+
+
+```{r, eval = FALSE}
+# Figura 1 (f1)
+f1 = ggplot(datos_resum, aes(x=GF, y=datos.m, fill=Lluvia)) + 
+     geom_bar(stat="identity", color="black", 
+              position=position_dodge()) +
+     geom_errorbar(aes(ymin=datos.m, ymax=datos.m+datos.de), width=.2,
+              position=position_dodge(.9)) 
+
+# f2: Otro formato de figura bifactorial - theme_classic
+f2 = f1+labs(title="Biomasa por GF", 
+             x="Grupos Funcionales - GF", 
+             y = "Biomasa")+
+     theme_classic() +
+     scale_fill_manual(values=c('#E69F00','#999999'))
+
+# Impresión de un panel con las dos figuras (p1 y p2)
+grid.arrange (f1, f2, ncol=2)
+
+```
+
+
+```{r, eval = FALSE}
+# Inserción de las figuras en columna (figuras p1 y p2)
+f3 <- ggplotGrob(f1)
+f4 <- ggplotGrob(f2)
+g <- rbind(f3, f4, size="first")
+g$widths <- unit.pmax(f3$widths, f4$widths)
+grid.newpage()
+grid.draw(g)
+
+```
+
+
+
+
+<b style='color:#1f78b4;'>
+
+#### **parentesis** Figuras de dispersión animadas
+
+</b>
+
+[Enlace](https://spcanelon.notion.site/gganimate-How-to-Create-Plots-with-Beautiful-Animation-in-R-Datanovia-7193ba557c4345c3bbb6578b2b40e41f)
+
+```{r, eval = FALSE}
+library(ggplot2)
+library(gganimate)
+theme_set(theme_bw())   # Tema o fondo de la figura por default
+```
+
+```{r, eval = FALSE}
+# Demo
+library(gapminder)
+
+p <- ggplot(
+  gapminder, 
+  aes(x = gdpPercap, y=lifeExp, size = pop, colour = country)
+  ) +
+  geom_point(show.legend = FALSE, alpha = 0.7) +
+  scale_color_viridis_d() +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  labs(x = "GDP per capita", y = "Life expectancy")
+p
+
+
+p + transition_time(year) +
+  labs(title = "Year: {frame_time}")
+```
+
+
+
+<b style='color:#1f78b4;'>
+
+## **Taller de entrenamiento**
+
+</b>
+
+**Objetivo:** Poner en práctica los conceptos vistos en el módulo de exploratorios multivariados, realizando las siguientes opciones gráficas en las bases de datos asignadas para los estdios de caso:
+
+1. Figuras de elipses
+
+2. Figuras de Dispersión por pares de variables (pairs)
+
+3. Histogramas
+
+4. Dispersión X-Y
+
+5. Cajas y Bigotes
+
+6. Coplot
+
+7. Figuras con estadísticos (promedios, errores, …)
+
