@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Talleres de Análisis Multivariados en R - 11&nbsp; Taller 7.1 Análisis de Redundancia - RDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Clasificación_cla.html" rel="next">
+<link href="./Ordenación_mca.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Talleres de Análisis Multivariados en R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introducción_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 1. Introducción a R y a Tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Algebra_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller 2.1 Operaciones matriciales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exploratorios.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Taller 3. Exploración Univariada y Multivariada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Taller 4.1 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Taller 4.2 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_nmds.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Taller 5.1 Análisis de Escalamiento Multidimensional no Métrico - NMDS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_mca.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_rda.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_cla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Taller 8.1 Análisis de Clúster - CLA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_lda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Taller 9.1 Análisis Discriminante Lineal - LDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Manova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#doce-pasos-para-el-análisis-de-redundancia---rda." id="toc-doce-pasos-para-el-análisis-de-redundancia---rda." class="nav-link active" data-scroll-target="#doce-pasos-para-el-análisis-de-redundancia---rda."><span class="toc-section-number">11.0.1</span>  Doce pasos para el análisis de redundancia - RDA.</a></li>
+  <li><a href="#taller-de-entrenamiento" id="toc-taller-de-entrenamiento" class="nav-link" data-scroll-target="#taller-de-entrenamiento"><span class="toc-section-number">11.0.2</span>  <strong>Taller de entrenamiento</strong></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/Ordenación_rda.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La siguiente base de datos es tomada del trabajo de (Osorio, 2021), relacionado a un estudio sobre la composición de microalgas de la ciénaga Sevillano en el complejo lagunar de la Ciénaga Grande de Santa Marta (Colombia). La información contiene a 21 géneros de microalgas (matriz Y) y 10 variables ambientales (matriz X) medidas en 24 observaciones (localidades y campañas de muestreo). El propósito del ejercicio consiste en determinar la relación entre la composición de las microalgas y las variables fisicoquímicas de su ambiente, aplicando un análisis de redundancia (RDA) y un Análisis de Correspondencia Canónica (ACC), para finalmente comparar la aplicación de cada técnica. Se utilizará el siguiente archivo: <strong>Microalgas.csv</strong></p>
+<p>Ejercicio tomado de: Rodríguez-Barrios (2023) <a href="https://www.editdiazdesantos.com/libros/9788490524817/Rodr%C3%ADguez-Barrios-An%C3%A1lisis-de-datos-ecol%C3%B3gicos-y-ambientales-aplicaciones-con-el-programa-R.html?isbn=978849052481">Enlace del libro</a></p>
+<p><a href="https://www.editdiazdesantos.com/libros/lanza_anejo.php?isbn=9788490524817&amp;formato=.zip">Enlace de los archivos del libro</a> Revisar el capitulo de Análisis de Redundancia - RDA</p>
+<p><a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/chapter/10.1007/978-3-319-71404-2_6#Sec3">Numerical Ecology With R - Borcard et al.&nbsp;2018</a> Capítulo de Análisis de Redundancia - RDA</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="procedimiento-resumido-de-la-ordenación-con-el-rda" class="level4" data-number="11.0.0.1"><b style="color:#1f78b4;">
+<h4 data-number="11.0.0.1" class="anchored" data-anchor-id="procedimiento-resumido-de-la-ordenación-con-el-rda"><span class="header-section-number">11.0.0.1</span> Procedimiento resumido de la ordenación con el RDA</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<ul>
+<li><p>Cargar librerías y funciones requeridas</p></li>
+<li><p>Cargar la base <code>Microalgas.csv</code></p></li>
+<li><p>Realizar los ajustes a las variables y factores</p></li>
+<li><p>Correr el RDA con todas las variables</p></li>
+<li><p>Correr el RDA con las variables ambientales seleccionadas</p></li>
+<li><p>Figuras de BIPLOT y TRIPLOT con librerías <code>"vegan"</code> y <code>"ggplot2"</code>.</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="cargar-las-librerías-requeridas" class="level4" data-number="11.0.0.2"><b style="color:#1f78b4;">
+<h4 data-number="11.0.0.2" class="anchored" data-anchor-id="cargar-las-librerías-requeridas"><span class="header-section-number">11.0.0.2</span> Cargar las librerías requeridas</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adegraphics)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adespatial)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cocorresp)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellipse)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rrcov)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="funciones-adicionales-bordcard-et-al.-2018" class="level4" data-number="11.0.0.3"><b style="color:#1f78b4;">
+<h4 data-number="11.0.0.3" class="anchored" data-anchor-id="funciones-adicionales-bordcard-et-al.-2018"><span class="header-section-number">11.0.0.3</span> Funciones adicionales (Bordcard et al.&nbsp;2018)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones a cargar</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"hcoplot.R"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"triplot.rda.R"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"plot.lda.R"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"polyvars.R"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"screestick.R"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="cargar-o-importar-la-base-de-datos" class="level4" data-number="11.0.0.4"><b style="color:#1f78b4;">
+<h4 data-number="11.0.0.4" class="anchored" data-anchor-id="cargar-o-importar-la-base-de-datos"><span class="header-section-number">11.0.0.4</span> Cargar o importar la base de datos</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Esta base de datos cuenta con una variable agrupadora o factor (Tributario), 10 variables ambientales y 21 taxones de microalgas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">"Microalgas.csv"</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ajuste-de-las-bases-de-datos-biológica-tax.hel-y-ambiental-amb" class="level4" data-number="11.0.0.5"><b style="color:#1f78b4;">
+<h4 data-number="11.0.0.5" class="anchored" data-anchor-id="ajuste-de-las-bases-de-datos-biológica-tax.hel-y-ambiental-amb"><span class="header-section-number">11.0.0.5</span> Ajuste de las bases de datos biológica (tax.hel) y Ambiental (amb)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>A continuación se realizará un ajuste de la base de datos, primero convirtiendo a la columna <code>Tributario</code> como un factor, luego transformando a las variables ambientales <code>amb</code> con logaritmo en base 10 y finalmente ajustando a los taxones <code>tax.hel</code> con la transformación de Hellinger. Las abreviaturas en las filas <code>T1.1, ..., T1.6, ...</code> Representan el número del tributario (<code>T1</code>) y el numero de la visita realizada al lugar de muestreo (<code>1</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste de factores</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Tributario <span class="ot">=</span> <span class="fu">as.factor</span> (datos<span class="sc">$</span>Tributario)     </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># str(datos)    # Nueva estructura de la base de datos</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>amb<span class="ot">=</span>(datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>)]<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(amb),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Amonio Nitrito Nitrato Oxigeno    pH Conductividad Caudal Vel_Corriente
+T1.1   1.30    1.84    1.90    8.68  9.10            77   1.51          1.73
+T1.2   1.30    1.78    1.83    7.54  8.45            77   2.59          1.37
+T1.3   2.11    2.18    4.43    6.62  8.81            77   2.48          2.15
+T1.4   2.02    1.88    3.67    7.08 10.21            77   2.24          2.33
+T1.5   1.19    1.15    1.52    6.10 10.24            77   2.32          2.32
+T1.6   1.21    1.47    1.90    6.60 10.63            78   2.25          2.29
+     Luz Temp
+T1.1 801 18.6
+T1.2 401 19.3
+T1.3 301 18.1
+T1.4 101 19.6
+T1.5 801 18.9
+T1.6 201 18.8</code></pre>
+</div>
+</div>
+<p>Los datos de abundancia de los taxones están en cifras decimales, debido a la transformación logarítmica que se les aplicó.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables biológicas linealizadas - Taxones con Hellinger</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tax.hel<span class="ot">=</span><span class="fu">decostand</span>(datos[,<span class="fu">c</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">32</span>)],<span class="st">"hellinger"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(tax.hel),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Fragillaria Lyngbya Chamaepinnularia Achnantes Amphora Caloneis Closterium
+T1.1        0.00    0.62             0.10      0.00    0.15     0.00       0.23
+T1.2        0.10    0.49             0.07      0.00    0.12     0.00       0.22
+T1.3        0.34    0.16             0.20      0.00    0.00     0.00       0.18
+T1.4        0.31    0.21             0.23      0.05    0.07     0.14       0.11
+T1.5        0.28    0.14             0.22      0.08    0.10     0.12       0.09
+T1.6        0.25    0.18             0.19      0.09    0.11     0.19       0.06
+     Cocconeis Cymbella Eolimna Epithemia Eunotia Frustulia Girosigma
+T1.1      0.22        0    0.27      0.00    0.00      0.00      0.00
+T1.2      0.30        0    0.33      0.00    0.17      0.17      0.00
+T1.3      0.33        0    0.32      0.00    0.09      0.11      0.00
+T1.4      0.29        0    0.26      0.05    0.00      0.00      0.15
+T1.5      0.44        0    0.29      0.07    0.10      0.00      0.16
+T1.6      0.44        0    0.28      0.08    0.09      0.00      0.13
+     Gomphonema Melosira Navicula Nitzchia Planothidium Surilella Pinnularia
+T1.1       0.00     0.51     0.00     0.24         0.15      0.10       0.25
+T1.2       0.00     0.49     0.20     0.29         0.17      0.00       0.19
+T1.3       0.09     0.50     0.11     0.37         0.32      0.00       0.22
+T1.4       0.18     0.49     0.20     0.33         0.33      0.12       0.20
+T1.5       0.20     0.43     0.20     0.25         0.35      0.19       0.12
+T1.6       0.19     0.49     0.20     0.21         0.31      0.19       0.09</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="doce-pasos-para-el-análisis-de-redundancia---rda." class="level3" data-number="11.0.1"><b style="color:#1f78b4;">
+<h3 data-number="11.0.1" class="anchored" data-anchor-id="doce-pasos-para-el-análisis-de-redundancia---rda."><span class="header-section-number">11.0.1</span> Doce pasos para el análisis de redundancia - RDA.</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="paso-1.-ordenación-de-los-taxones-y-las-variables-ambientales." class="level4" data-number="11.0.1.1"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.1" class="anchored" data-anchor-id="paso-1.-ordenación-de-los-taxones-y-las-variables-ambientales."><span class="header-section-number">11.0.1.1</span> Paso 1. Ordenación de los taxones y las variables ambientales.</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>En el siguiente analisis se relaciona a la matriz de datos biológicos (abundancia de taxones) con la matriz de datos ambientales. A continuación se determinan los insumos generales del análisis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Realización del RDA</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tax.rda<span class="ot">&lt;-</span><span class="fu">rda</span>(tax.hel <span class="sc">~</span>.,amb)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tax.rda <span class="co"># Resultados resumidos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: rda(formula = tax.hel ~ Amonio + Nitrito + Nitrato + Oxigeno + pH
++ Conductividad + Caudal + Vel_Corriente + Luz + Temp, data = amb)
+
+              Inertia Proportion Rank
+Total         0.14283    1.00000     
+Constrained   0.07804    0.54640   10
+Unconstrained 0.06479    0.45360   13
+Inertia is variance 
+
+Eigenvalues for constrained axes:
+    RDA1     RDA2     RDA3     RDA4     RDA5     RDA6     RDA7     RDA8 
+0.028864 0.019400 0.009741 0.006291 0.004905 0.003407 0.002132 0.001938 
+    RDA9    RDA10 
+0.000927 0.000440 
+
+Eigenvalues for unconstrained axes:
+     PC1      PC2      PC3      PC4      PC5      PC6      PC7      PC8 
+0.026487 0.015199 0.009607 0.004206 0.002286 0.002040 0.001779 0.001226 
+     PC9     PC10     PC11     PC12     PC13 
+0.000826 0.000485 0.000303 0.000258 0.000088 </code></pre>
+</div>
+</div>
+<p><em>Matriz 1</em>. <code>Partición de la varianza</code>. La inercia restringida es la que define el ajuste (restringida) en la relación entre las dos matrices de variables. Para este caso es de 0.54 (54%). Más adelante se aplicará el R2 de Ezequiel (1930), para encontrar el ajuste sin restricción (ajuste final del RDA). A continuación se muestra el comando para presentar los resultados detallados del RDA.</p>
+<p><em>Matriz 2</em>. <code>Importancia de los componentes</code>. Muestra que se requiere de 10 ejes canónidos (RDA) para explicar el 54% de la varianza explicada por la inercia restringida. La inercia restante se explica por los ejes de los 12 componentes principales PC.</p>
+<p><em>Matriz 3</em>. <code>Species scores</code>, muestra las coordenadas de las especies en los ejes canónicos, de los cuales se graficarán los dos primeros.</p>
+<p><em>Matriz 4</em>. <code>Site scores</code>, Muestra las coordenadas de los sitios</p>
+<p><em>Matriz 5</em>. <code>Site constraints</code>, muestra a las coordenadas de los sitos en el espacio de los taxones.</p>
+<p><em>Matriz 6</em>. <code>Biplot scores</code>, muestra las coordenadas de las variables ambientales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tax.rda) <span class="co"># Resultados completos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+rda(formula = tax.hel ~ Amonio + Nitrito + Nitrato + Oxigeno +      pH + Conductividad + Caudal + Vel_Corriente + Luz + Temp,      data = amb) 
+
+Partitioning of variance:
+              Inertia Proportion
+Total         0.14283     1.0000
+Constrained   0.07804     0.5464
+Unconstrained 0.06479     0.4536
+
+Eigenvalues, and their contribution to the variance 
+
+Importance of components:
+                         RDA1   RDA2     RDA3     RDA4     RDA5     RDA6
+Eigenvalue            0.02886 0.0194 0.009741 0.006291 0.004905 0.003407
+Proportion Explained  0.20208 0.1358 0.068195 0.044042 0.034342 0.023850
+Cumulative Proportion 0.20208 0.3379 0.406096 0.450138 0.484481 0.508331
+                          RDA7     RDA8      RDA9     RDA10     PC1    PC2
+Eigenvalue            0.002132 0.001938 0.0009267 0.0004403 0.02649 0.0152
+Proportion Explained  0.014928 0.013566 0.0064878 0.0030829 0.18544 0.1064
+Cumulative Proportion 0.523259 0.536825 0.5433124 0.5463953 0.73183 0.8382
+                           PC3      PC4      PC5     PC6      PC7      PC8
+Eigenvalue            0.009607 0.004206 0.002286 0.00204 0.001779 0.001226
+Proportion Explained  0.067262 0.029449 0.016001 0.01428 0.012454 0.008585
+Cumulative Proportion 0.905501 0.934951 0.950952 0.96524 0.977690 0.986274
+                            PC9      PC10      PC11      PC12      PC13
+Eigenvalue            0.0008263 0.0004854 0.0003026 0.0002579 8.835e-05
+Proportion Explained  0.0057854 0.0033982 0.0021184 0.0018053 6.186e-04
+Cumulative Proportion 0.9920595 0.9954577 0.9975762 0.9993814 1.000e+00
+
+Accumulated constrained eigenvalues
+Importance of components:
+                         RDA1   RDA2     RDA3     RDA4     RDA5     RDA6
+Eigenvalue            0.02886 0.0194 0.009741 0.006291 0.004905 0.003407
+Proportion Explained  0.36984 0.2486 0.124809 0.080605 0.062853 0.043650
+Cumulative Proportion 0.36984 0.6184 0.743228 0.823833 0.886685 0.930335
+                          RDA7     RDA8      RDA9     RDA10
+Eigenvalue            0.002132 0.001938 0.0009267 0.0004403
+Proportion Explained  0.027321 0.024828 0.0118739 0.0056423
+Cumulative Proportion 0.957656 0.982484 0.9943577 1.0000000
+
+Scaling 2 for species and site scores
+* Species are scaled proportional to eigenvalues
+* Sites are unscaled: weighted dispersion equal on all dimensions
+* General scaling constant of scores:  1.346293 
+
+
+Species scores
+
+                     RDA1      RDA2      RDA3       RDA4      RDA5       RDA6
+Fragillaria       0.13772 -0.142031  0.176943  0.0562043 -0.063697  0.0736817
+Lyngbya          -0.45345  0.075392  0.055651  0.0747107 -0.007676 -0.0088353
+Chamaepinnularia  0.11821  0.067633  0.002487 -0.0394544 -0.046828 -0.0453373
+Achnantes         0.12193 -0.007016 -0.005199 -0.0579162  0.007942  0.0004642
+Amphora           0.07641 -0.055694 -0.073152  0.0983283  0.009532 -0.0447069
+Caloneis          0.10235  0.100918  0.010924 -0.0128037 -0.110912 -0.0484938
+Closterium       -0.13921 -0.049866 -0.040879 -0.1396354  0.023961 -0.0356380
+Cocconeis         0.08230  0.111537 -0.116166 -0.0253457  0.078588  0.0767795
+Cymbella          0.05167 -0.055582  0.016607 -0.0439576 -0.006371  0.0316069
+Eolimna          -0.04478  0.040748  0.035461  0.0316799 -0.075134 -0.0244236
+Epithemia         0.07696  0.053827  0.045227  0.0438611  0.041962 -0.0432302
+Eunotia          -0.05858  0.073250 -0.007121 -0.0114420 -0.009144 -0.0119924
+Frustulia         0.02272 -0.199618 -0.124568  0.0131044  0.025406 -0.0360106
+Girosigma         0.02634  0.128337 -0.026327 -0.0387420 -0.032438  0.0447555
+Gomphonema        0.07341  0.161492  0.025849  0.0627397  0.022804  0.0060812
+Melosira         -0.05697  0.080419  0.113156 -0.1522371 -0.010332 -0.0211294
+Navicula          0.06661  0.024720  0.170748  0.0007566  0.147542 -0.0024464
+Nitzchia         -0.01762 -0.146199 -0.006291 -0.0369694 -0.062184  0.0808324
+Planothidium      0.19033  0.088406  0.005299  0.0107074 -0.019909 -0.0672288
+Surilella        -0.01394  0.225111 -0.076448  0.0277918 -0.025008  0.0725367
+Pinnularia       -0.07301 -0.071644 -0.012235  0.0131215 -0.014800 -0.0209236
+
+
+Site scores (weighted sums of species scores)
+
+         RDA1     RDA2      RDA3     RDA4     RDA5     RDA6
+T1.1 -1.07703  0.01888 -0.336999 -0.09191 -0.07613 -0.45253
+T1.2 -0.84054 -0.20049 -0.141839 -0.17384  0.41711 -0.36452
+T1.3 -0.21890 -0.28606  0.057019 -0.41733 -0.19777  0.18328
+T1.4 -0.10950  0.13679  0.237775 -0.15358 -0.27403  0.24129
+T1.5  0.03167  0.36875 -0.068462 -0.02417  0.03290  0.45435
+T1.6 -0.02467  0.44011 -0.025990 -0.07247  0.04603  0.29248
+T1.7  0.16166  0.39197 -0.238118 -0.11707  0.09933 -0.03318
+T1.8  0.10948  0.45084 -0.180997 -0.02135  0.13711  0.57389
+T2.1 -0.26911 -0.30806 -0.767805  0.87397 -0.04427  0.98553
+T2.2 -0.09952 -0.13226  0.772156  0.70675  0.69534  0.25746
+T2.3 -0.22223 -0.20709  0.295607  0.34609 -0.52442  0.03893
+T2.4 -0.10695  0.08534  0.088760  0.27482 -0.62125 -0.25749
+T2.5 -0.01470  0.16145  0.362241  0.26382 -0.47381 -0.22220
+T2.6  0.16730  0.34242  0.051480  0.06839 -0.07649 -0.30779
+T2.7  0.32172  0.27478 -0.097778  0.15784  0.11343 -0.39605
+T2.8  0.34014  0.40401 -0.109732  0.25509  0.06223 -0.44183
+T3.1  0.20708 -0.87754 -0.685639  0.93999 -0.34090  0.42622
+T3.2  0.15556 -0.56176  0.588049 -0.31921 -0.28143  0.64658
+T3.3  0.19044 -0.31732  0.423720 -0.29719 -0.08333  0.35854
+T3.4  0.26461 -0.20676 -0.026922 -0.24747 -0.14614 -0.28402
+T3.5  0.26567 -0.07627 -0.007015 -0.51250 -0.24973 -0.40467
+T3.6  0.26294 -0.02789 -0.060279 -0.54987  0.29896 -0.27382
+T3.7  0.27363  0.07944 -0.083931 -0.34491  0.49386 -0.54819
+T3.8  0.23124  0.04670 -0.045299 -0.54391  0.99339 -0.47227
+
+
+Site constraints (linear combinations of constraining variables)
+
+          RDA1      RDA2       RDA3     RDA4     RDA5     RDA6
+T1.1 -0.608094  0.069700 -0.2659805  0.04600 -0.09435 -0.06431
+T1.2 -0.672062 -0.282194 -0.1487709 -0.10561  0.35054 -0.16350
+T1.3 -0.356768 -0.237330  0.2273373 -0.54749 -0.12603  0.04596
+T1.4  0.009029  0.394109  0.1840858 -0.36486 -0.01351 -0.26989
+T1.5 -0.018557  0.506317 -0.0001257 -0.12165 -0.12484  0.38849
+T1.6 -0.084608  0.400060  0.0271550 -0.29946 -0.05580  0.08539
+T1.7 -0.058104  0.306643 -0.2006076  0.20594  0.15177  0.29384
+T1.8 -0.160580  0.192429 -0.4894293  0.01713  0.14478  0.50417
+T2.1  0.059599 -0.099508 -0.1636965  0.23651 -0.09396  0.42975
+T2.2 -0.152474 -0.181670  0.7823215  0.65227  0.57180  0.22938
+T2.3 -0.135133  0.072656  0.1381488  0.31328 -0.15771 -0.26812
+T2.4  0.080845  0.150351  0.1744033  0.11732 -0.18811 -0.19088
+T2.5 -0.031560 -0.016833  0.3379676  0.09039 -0.71895 -0.07707
+T2.6  0.223424  0.286614  0.0244991  0.13025  0.03622 -0.30461
+T2.7  0.162822  0.261848 -0.0774071  0.33031 -0.01031 -0.18129
+T2.8  0.214704  0.144374 -0.1007849  0.12653  0.16237 -0.32115
+T3.1  0.276688 -0.515338 -0.5875697  0.21567  0.03745 -0.21428
+T3.2 -0.078309 -0.261042  0.0094046  0.01194 -0.09537  0.23117
+T3.3  0.445486 -0.242713  0.3772510 -0.37955  0.05636  0.29527
+T3.4 -0.128534 -0.394367  0.1125166 -0.31742  0.01463 -0.11643
+T3.5  0.206039 -0.409549 -0.1202982  0.19481 -0.60608  0.19190
+T3.6  0.512665 -0.044235 -0.0726911 -0.31755  0.36432  0.26933
+T3.7  0.092435 -0.008915 -0.0763885 -0.02302  0.01115 -0.43913
+T3.8  0.201048 -0.091407 -0.0913406 -0.21175  0.38361 -0.35399
+
+
+Biplot scores for constraining variables
+
+                  RDA1     RDA2     RDA3    RDA4     RDA5     RDA6
+Amonio        -0.05176 -0.12017  0.67080  0.2933  0.41466  0.27637
+Nitrito       -0.58706 -0.22830  0.29302 -0.3920 -0.10474 -0.33554
+Nitrato        0.11287 -0.04070  0.34885 -0.4042 -0.26078 -0.02453
+Oxigeno        0.10513 -0.04085 -0.64672  0.1262  0.55134 -0.18159
+pH             0.22497  0.26189 -0.03689 -0.5123 -0.15576 -0.46422
+Conductividad -0.61873  0.43117 -0.22737 -0.3900  0.06681  0.25390
+Caudal        -0.32017  0.13247 -0.28194 -0.5026  0.08692  0.36194
+Vel_Corriente  0.03368  0.27010 -0.30589 -0.4551 -0.06465  0.51914
+Luz            0.30256 -0.52037 -0.35636  0.2878 -0.31339 -0.01181
+Temp          -0.32332  0.77248 -0.07647  0.2202  0.25887 -0.12217</code></pre>
+</div>
+</div>
+<p>A continuación se muestra una manera de extraer algunos insumos por separado del anterior comando <code>summary(tax.rda)</code>. Las coordenadas de los taxonesy de los sitios serán tenidas en cuenta más adelante, para las figuras de <code>ggplot2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz 3. Escores o coordenadas de los taxones</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>species.scores <span class="ot">&lt;-</span> <span class="fu">scores</span>(tax.rda, <span class="at">display =</span> <span class="st">"species"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Escores o coordenadas de los sitios</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>site.scores <span class="ot">&lt;-</span> <span class="fu">scores</span>(tax.rda, <span class="at">display =</span> <span class="st">"sites"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Escores de las variables restringidas</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>biplot.scores <span class="ot">&lt;-</span> <span class="fu">scores</span>(tax.rda, <span class="at">display =</span> <span class="st">"bp"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-2.-coeficientes-de-las-variables-regresoras-ambientales-en-el-modelo-lineal." class="level4" data-number="11.0.1.2"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.2" class="anchored" data-anchor-id="paso-2.-coeficientes-de-las-variables-regresoras-ambientales-en-el-modelo-lineal."><span class="header-section-number">11.0.1.2</span> Paso 2. Coeficientes de las variables regresoras (ambientales), en el modelo lineal.</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Solo se mostrarán los tres primeros ejes canónicos <code>[,1:3]</code>, para facilidad de su interpretación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(tax.rda),<span class="dv">2</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               RDA1  RDA2  RDA3
+Amonio         0.01 -0.01  0.10
+Nitrito       -0.18 -0.32  0.18
+Nitrato        0.04  0.03  0.01
+Oxigeno        0.03 -0.04 -0.11
+pH             0.07  0.07  0.04
+Conductividad -0.02  0.01 -0.01
+Caudal         0.10 -0.28  0.00
+Vel_Corriente  0.37  0.21  0.02
+Luz            0.00  0.00  0.00
+Temp           0.06  0.14  0.01</code></pre>
+</div>
+</div>
+<p>Se puede pensar en un modelo lineal, que tiene en cuenta a los coeficientes descritos en el primer eje canónico:</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p>Distribución de los taxones de microalgas (<strong>Matriz Y</strong>) = 0.01(<strong>Amonio</strong>) – 0.18(<strong>Nitrito</strong>) + … + 0.06(<strong>Temp</strong>)</p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-3.-r2-sin-ajuste-vs.-r2-ajustado-ezequiel-1930" class="level4" data-number="11.0.1.3"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.3" class="anchored" data-anchor-id="paso-3.-r2-sin-ajuste-vs.-r2-ajustado-ezequiel-1930"><span class="header-section-number">11.0.1.3</span> Paso 3. R2 sin ajuste vs.&nbsp;R2 ajustado (Ezequiel 1930)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La nueva inercia no sesgada (sin restricción) calculada con la formula de Ezequiel es de 0.19 o del 19%.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R^2 sin ajuste (inercia restringida)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>(R2 <span class="ot">&lt;-</span> <span class="fu">RsquareAdj</span>(tax.rda)<span class="sc">$</span>r.squared)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5463953</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R^2 ajustado</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>(R2adj <span class="ot">&lt;-</span> <span class="fu">RsquareAdj</span>(tax.rda)<span class="sc">$</span>adj.r.squared)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1974686</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-4.-figura-de-triplot" class="level4" data-number="11.0.1.4"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.4" class="anchored" data-anchor-id="paso-4.-figura-de-triplot"><span class="header-section-number">11.0.1.4</span> Paso 4. Figura de Triplot</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>A continuación, se realizará la gráfica del RDA (figura Triplot) (<a href="Manova.html#fig-figura1">Figura&nbsp;<span>14.1</span></a>), que relaciona a los tres elementos: taxones, variables ambientales y sitios de muestreo mediante dos tipos de escalamiento (Scalings 1 y 2).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.new</span>(<span class="at">title =</span> <span class="st">"RDA scaling 1 y 2"</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">16</span>,<span class="at">height =</span> <span class="dv">8</span>,<span class="at">noRStudioGD =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Scaling 1</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tax.rda,<span class="at">scaling=</span><span class="dv">1</span>, <span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sp"</span>, <span class="st">"lc"</span>, <span class="st">"cn"</span>), <span class="at">main=</span><span class="st">"RDA - scaling 1"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Scaling 2</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tax.rda, <span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sp"</span>, <span class="st">"lc"</span>, <span class="st">"cn"</span>), <span class="at">main=</span><span class="st">"RDA - scaling 2"</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-5.-prueba-global-del-rda" class="level4" data-number="11.0.1.5"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.5" class="anchored" data-anchor-id="paso-5.-prueba-global-del-rda"><span class="header-section-number">11.0.1.5</span> Paso 5. Prueba global del RDA</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Esta prueba obtiene un valor p = 0.04296 *, por lo cual se valida que el modelo de regresión múltiple de este RDA presenta un ajuste apropiado ( a pesar de la poca inercia encontrada).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba global del RDA (dos opciones)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ho= no hay relación entre las variables X y las Y</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(tax.rda, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">1000</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for rda under reduced model
+Permutation: free
+Number of permutations: 1000
+
+Model: rda(formula = tax.hel ~ Amonio + Nitrito + Nitrato + Oxigeno + pH + Conductividad + Caudal + Vel_Corriente + Luz + Temp, data = amb)
+         Df Variance      F  Pr(&gt;F)  
+Model    10 0.078044 1.5659 0.03596 *
+Residual 13 0.064790                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>A continuación se muestra que ninguno de los ejes canónicos prsenta significancia para la ordenación de las variables y de las observaciones de este análisis (valor p &gt; 0.05), sin embargo se continuará con el procedimiento.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de los ejes canónicos</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(tax.rda, <span class="at">by =</span> <span class="st">"axis"</span>, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">1000</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for rda under reduced model
+Forward tests for axes
+Permutation: free
+Number of permutations: 1000
+
+Model: rda(formula = tax.hel ~ Amonio + Nitrito + Nitrato + Oxigeno + pH + Conductividad + Caudal + Vel_Corriente + Luz + Temp, data = amb)
+         Df Variance      F Pr(&gt;F)
+RDA1      1 0.028864 5.7914 0.1329
+RDA2      1 0.019400 3.8926 0.3596
+RDA3      1 0.009741 1.9544 0.9411
+RDA4      1 0.006291 1.2622 0.9960
+RDA5      1 0.004905 0.9842 0.9970
+RDA6      1 0.003407 0.6835 1.0000
+RDA7      1 0.002132 0.4278 1.0000
+RDA8      1 0.001938 0.3888 1.0000
+RDA9      1 0.000927 0.1859 1.0000
+RDA10     1 0.000440 0.0884 1.0000
+Residual 13 0.064790              </code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-6.-factor-de-inflación-de-la-varianza-vif-del-rda" class="level4" data-number="11.0.1.6"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.6" class="anchored" data-anchor-id="paso-6.-factor-de-inflación-de-la-varianza-vif-del-rda"><span class="header-section-number">11.0.1.6</span> Paso 6. Factor de inflación de la varianza (VIF) del RDA</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor de inflación</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">vif.cca</span>(tax.rda), <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Amonio       Nitrito       Nitrato       Oxigeno            pH 
+         1.40          2.02          1.61          1.22          1.47 
+Conductividad        Caudal Vel_Corriente           Luz          Temp 
+         9.28          7.46          4.85          2.04          2.31 </code></pre>
+</div>
+</div>
+<p>Los resultados están por debajo de un VIF de 10, por lo que todas las variables son importantes para el análisis.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-7.-criterios-de-selección-de-variables-ambientales-x" class="level4" data-number="11.0.1.7"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.7" class="anchored" data-anchor-id="paso-7.-criterios-de-selección-de-variables-ambientales-x"><span class="header-section-number">11.0.1.7</span> Paso 7. Criterios de selección de variables ambientales (X)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+</section>
+<section id="forward-selection-usando-forward.sel" class="level4" data-number="11.0.1.8">
+<h4 data-number="11.0.1.8" class="anchored" data-anchor-id="forward-selection-usando-forward.sel"><span class="header-section-number">11.0.1.8</span> 7.1 Forward selection usando forward.sel()</h4>
+<p>El comando <code>forward.sel</code>permitirá definir a las variables ambientales con importancia para ser relacionadas con los taxones en el RDA. Para este caso define a la <em>Conductividad</em> y a la <em>Velocidad del la Corriente</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor de inflación</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">forward.sel</span>(tax.hel, amb, <span class="at">adjR2thresh =</span> R2adj)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Testing variable 1
+Testing variable 2
+Testing variable 3
+Procedure stopped (adjR2thresh criteria) adjR2cum = 0.200960 with 3 variables (&gt; 0.197469)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      variables order         R2     R2Cum   AdjR2Cum        F pvalue
+1 Conductividad     6 0.11614724 0.1161472 0.07597211 2.891024  0.009
+2 Vel_Corriente     8 0.09924816 0.2153954 0.14067115 2.656384  0.024</code></pre>
+</div>
+</div>
+</section>
+<section id="eliminación-anticipada-backward-usando-ordistep-de-vegan" class="level4" data-number="11.0.1.9">
+<h4 data-number="11.0.1.9" class="anchored" data-anchor-id="eliminación-anticipada-backward-usando-ordistep-de-vegan"><span class="header-section-number">11.0.1.9</span> 7.2 Eliminación anticipada (Backward) usando “ordistep()” de vegan</h4>
+<p>El anterior resultado es validado por esta función <code>ordistep</code>, la cual luego de varias corridas, define a las mismas variables ambientales <em>Conductividad</em> y a la <em>Velocidad del la Corriente</em>, pero incluye a la <em>Temperatura</em> como las significativas para el análisis RDA. Para continuar el ejercicio, a continuación se realizará un nuevo RDA (RDA parsimonioso) con estas tres variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.2 Eliminación anticipada (Backward) usando "ordistep()" de vegan</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>step.backward <span class="ot">&lt;-</span> <span class="fu">ordistep</span>(tax.rda,<span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">499</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Start: tax.hel ~ Amonio + Nitrito + Nitrato + Oxigeno + pH + Conductividad +      Caudal + Vel_Corriente + Luz + Temp 
+
+                Df     AIC      F Pr(&gt;F)  
+- Nitrato        1 -45.747 0.5267  0.836  
+- Nitrito        1 -45.375 0.7380  0.626  
+- Luz            1 -45.164 0.8591  0.536  
+- Caudal         1 -45.084 0.9053  0.476  
+- Amonio         1 -44.961 0.9770  0.386  
+- Oxigeno        1 -44.667 1.1492  0.340  
+- pH             1 -44.738 1.1072  0.332  
+- Vel_Corriente  1 -44.412 1.3001  0.254  
+- Temp           1 -44.020 1.5356  0.138  
+- Conductividad  1 -43.286 1.9875  0.084 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Amonio + Nitrito + Oxigeno + pH + Conductividad + Caudal +      Vel_Corriente + Luz + Temp 
+
+                Df     AIC      F Pr(&gt;F)  
+- Nitrito        1 -46.555 0.7127  0.658  
+- Caudal         1 -46.216 0.9222  0.408  
+- Amonio         1 -46.112 0.9867  0.374  
+- Luz            1 -45.947 1.0903  0.362  
+- pH             1 -45.915 1.1104  0.354  
+- Oxigeno        1 -45.753 1.2124  0.262  
+- Temp           1 -45.284 1.5132  0.154  
+- Vel_Corriente  1 -44.698 1.8963  0.120  
+- Conductividad  1 -43.786 2.5121  0.042 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Amonio + Oxigeno + pH + Conductividad + Caudal + Vel_Corriente +      Luz + Temp 
+
+                Df     AIC      F Pr(&gt;F)  
+- Caudal         1 -47.100 0.9375  0.444  
+- Amonio         1 -46.967 1.0261  0.352  
+- pH             1 -46.802 1.1365  0.340  
+- Luz            1 -46.842 1.1100  0.322  
+- Oxigeno        1 -46.620 1.2591  0.286  
+- Temp           1 -45.383 2.1193  0.052 .
+- Vel_Corriente  1 -44.635 2.6618  0.052 .
+- Conductividad  1 -43.968 3.1590  0.018 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Amonio + Oxigeno + pH + Conductividad + Vel_Corriente +      Luz + Temp 
+
+                Df     AIC      F Pr(&gt;F)   
+- Amonio         1 -47.616 1.0204  0.382   
+- Luz            1 -47.525 1.0854  0.362   
+- pH             1 -47.448 1.1398  0.330   
+- Oxigeno        1 -47.387 1.1836  0.288   
+- Temp           1 -45.715 2.4235  0.040 * 
+- Vel_Corriente  1 -44.448 3.4221  0.004 **
+- Conductividad  1 -42.714 4.8773  0.004 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Oxigeno + pH + Conductividad + Vel_Corriente + Luz +      Temp 
+
+                Df     AIC      F Pr(&gt;F)   
+- Luz            1 -48.000 1.1841  0.276   
+- pH             1 -47.803 1.3343  0.240   
+- Oxigeno        1 -47.714 1.4020  0.182   
+- Temp           1 -46.427 2.4162  0.042 * 
+- Vel_Corriente  1 -45.170 3.4595  0.004 **
+- Conductividad  1 -43.486 4.9469  0.002 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Oxigeno + pH + Conductividad + Vel_Corriente + Temp 
+
+                Df     AIC      F Pr(&gt;F)   
+- pH             1 -48.202 1.4002  0.206   
+- Oxigeno        1 -48.138 1.4525  0.184   
+- Temp           1 -46.244 3.0499  0.012 * 
+- Vel_Corriente  1 -45.949 3.3094  0.010 **
+- Conductividad  1 -44.266 4.8576  0.004 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Oxigeno + Conductividad + Vel_Corriente + Temp 
+
+                Df     AIC      F Pr(&gt;F)   
+- Oxigeno        1 -48.466 1.4257  0.210   
+- Temp           1 -47.010 2.7027  0.014 * 
+- Vel_Corriente  1 -46.238 3.4121  0.006 **
+- Conductividad  1 -44.954 4.6440  0.002 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Step: tax.hel ~ Conductividad + Vel_Corriente + Temp 
+
+                Df     AIC      F Pr(&gt;F)   
+- Temp           1 -47.549 2.5845  0.016 * 
+- Vel_Corriente  1 -46.730 3.3681  0.004 **
+- Conductividad  1 -45.444 4.6545  0.002 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-8.-r2-ajustado" class="level4" data-number="11.0.1.10"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.10" class="anchored" data-anchor-id="paso-8.-r2-ajustado"><span class="header-section-number">11.0.1.10</span> Paso 8. R2 ajustado</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Al validar el ajuste del RDA con las dos variables seleccionadas, se obtiene un valor de 0.3 o 30% de ajuste.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se define un R^2: 0.3 (30% de relación)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">RsquareAdj</span>(step.backward)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$r.squared
+[1] 0.3051824
+
+$adj.r.squared
+[1] 0.2009598</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-9.-rda-parsimonioso-rda.par" class="level4" data-number="11.0.1.11"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.11" class="anchored" data-anchor-id="paso-9.-rda-parsimonioso-rda.par"><span class="header-section-number">11.0.1.11</span> Paso 9. RDA Parsimonioso (rda.par)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>RDA Parsimonioso significa que se realizará un nuevo RDA con las dos variables ambientales seleccionadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RDA resumido</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>(rda.pars <span class="ot">&lt;-</span> <span class="fu">rda</span>(tax.hel <span class="sc">~</span> Temp <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Conductividad, <span class="at">data =</span> amb))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: rda(formula = tax.hel ~ Temp + Vel_Corriente + Conductividad,
+data = amb)
+
+              Inertia Proportion Rank
+Total         0.14283    1.00000     
+Constrained   0.04359    0.30518    3
+Unconstrained 0.09924    0.69482   20
+Inertia is variance 
+
+Eigenvalues for constrained axes:
+    RDA1     RDA2     RDA3 
+0.025917 0.013517 0.004157 
+
+Eigenvalues for unconstrained axes:
+    PC1     PC2     PC3     PC4     PC5     PC6     PC7     PC8 
+0.03482 0.01676 0.01396 0.00973 0.00677 0.00518 0.00252 0.00220 
+(Showing 8 of 20 unconstrained eigenvalues)</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-10.-coeficientes-del-modelo-lineal-parsimonioso" class="level4" data-number="11.0.1.12"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.12" class="anchored" data-anchor-id="paso-10.-coeficientes-del-modelo-lineal-parsimonioso"><span class="header-section-number">11.0.1.12</span> Paso 10. Coeficientes del modelo lineal parsimonioso</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RDA resumido</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">coef</span>(rda.pars),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               RDA1  RDA2  RDA3
+Temp           0.04  0.23  0.08
+Vel_Corriente  0.47  0.36 -0.36
+Conductividad -0.02 -0.01  0.00</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-11.-dos-triplots-del-rda-parsimonioso-scaling-1-y-scaling-2" class="level4" data-number="11.0.1.13"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.13" class="anchored" data-anchor-id="paso-11.-dos-triplots-del-rda-parsimonioso-scaling-1-y-scaling-2"><span class="header-section-number">11.0.1.13</span> Paso 11. Dos Triplots del RDA parsimonioso (Scaling 1 y Scaling 2)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.new</span>(<span class="at">title =</span> <span class="st">"RDA Parsimonioso scaling 1 y 2"</span>,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">16</span>,<span class="at">height =</span> <span class="dv">8</span>,<span class="at">noRStudioGD =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Scaling 1</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rda.pars,<span class="at">scaling =</span> <span class="dv">1</span>,<span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sp"</span>, <span class="st">"lc"</span>, <span class="st">"cn"</span>),</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Triplot RDA taxa.hel ~ amb - scaling 1"</span>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>spe.sc1 <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda.pars, <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">scaling =</span> <span class="dv">1</span>, <span class="at">display =</span> <span class="st">"sp"</span>)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, spe.sc1[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.92</span>,spe.sc1[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.92</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">length =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Scaling 2</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rda.pars,<span class="at">scaling =</span> <span class="dv">2</span>,<span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sp"</span>, <span class="st">"lc"</span>, <span class="st">"cn"</span>),</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Triplot RDA taxa.hel ~ amb - scaling 2"</span>)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>spe.sc1 <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda.pars, <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">scaling =</span> <span class="dv">2</span>, <span class="at">display =</span> <span class="st">"sp"</span>)</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, spe.sc1[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.92</span>,spe.sc1[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.92</span>,</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">length =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#—-</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-12.-rda-con-paquete-ggplot2" class="level4" data-number="11.0.1.14"><b style="color:#1f78b4;">
+<h4 data-number="11.0.1.14" class="anchored" data-anchor-id="paso-12.-rda-con-paquete-ggplot2"><span class="header-section-number">11.0.1.14</span> Paso 12. RDA con paquete ggplot2</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Se realizará la figura del RDA con el paquete <code>ggplot2</code>, dada su mejor presentación, comparado a las figuras anteriores, realizadas con el paquete <code>vegan</code>. Los siguientes comandos sirven para identificar las coorddenadas de los sitios (“<code>sites</code>”), los taxones (“<code>sp</code>”) y las variables ambientales (“<code>vectors</code>”).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insumos del RDA parsimonioso o que resume a las tres variables</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>(rda.pars <span class="ot">&lt;-</span> <span class="fu">rda</span>(tax.hel <span class="sc">~</span> Temp <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Conductividad, <span class="at">data =</span> amb))   <span class="co"># RDA resumido.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: rda(formula = tax.hel ~ Temp + Vel_Corriente + Conductividad,
+data = amb)
+
+              Inertia Proportion Rank
+Total         0.14283    1.00000     
+Constrained   0.04359    0.30518    3
+Unconstrained 0.09924    0.69482   20
+Inertia is variance 
+
+Eigenvalues for constrained axes:
+    RDA1     RDA2     RDA3 
+0.025917 0.013517 0.004157 
+
+Eigenvalues for unconstrained axes:
+    PC1     PC2     PC3     PC4     PC5     PC6     PC7     PC8 
+0.03482 0.01676 0.01396 0.00973 0.00677 0.00518 0.00252 0.00220 
+(Showing 8 of 20 unconstrained eigenvalues)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">summary</span>(rda.pars))    <span class="co"># Insumos del RDA parsimonioso</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "species"     "sites"       "constraints" "biplot"      "call"       
+ [6] "tot.chi"     "constr.chi"  "unconst.chi" "cont"        "concont"    
+[11] "scaling"     "digits"      "inertia"     "method"     </code></pre>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="coordenadas-de-los-sitios-y-el-factor-coord.sit" class="level5" data-number="11.0.1.14.1"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.1" class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-el-factor-coord.sit"><span class="header-section-number">11.0.1.14.1</span> 12.1 Coordenadas de los sitios y el factor “coord.sit”</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Coordenadas de los sitios y el factor (coord.sit)</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(rda.pars,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">display =</span> <span class="st">"sites"</span>))     <span class="co"># Coordenadas de los sitios</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Tributario               <span class="co"># Adicionar columna de grupos por Tributario</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            RDA1        RDA2 sitio grp
+T1.1 -1.11971663 -0.30601405  T1.1  T1
+T1.2 -0.85825274 -0.42028232  T1.2  T1
+T1.3 -0.18370421 -0.36439466  T1.3  T1
+T1.4 -0.12410643  0.08403049  T1.4  T1
+T1.5 -0.02273675  0.46138698  T1.5  T1
+T1.6 -0.10175889  0.47796564  T1.6  T1</code></pre>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="coordenadas-de-los-taxones-coord.tax" class="level5" data-number="11.0.1.14.2"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.2" class="anchored" data-anchor-id="coordenadas-de-los-taxones-coord.tax"><span class="header-section-number">11.0.1.14.2</span> 12.2 Coordenadas de los taxones “coord.tax”</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Coordenadasde las especies (coord.tax) </span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>coord.tax <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(rda.pars,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">display =</span> <span class="st">"sp"</span>))    <span class="co"># Dos primeros ejes</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>coord.tax<span class="sc">$</span>especies <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.tax)       <span class="co"># Insertar columna con nombres de las especies</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.tax) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        RDA1         RDA2         especies
+Fragillaria       0.18835404 -0.111108636      Fragillaria
+Lyngbya          -0.41883579  0.006822599          Lyngbya
+Chamaepinnularia  0.09146325  0.064258294 Chamaepinnularia
+Achnantes         0.09957281 -0.021272988        Achnantes
+Amphora           0.08594521 -0.039656846          Amphora
+Caloneis          0.07482072  0.043049919         Caloneis</code></pre>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="coordenadas-de-las-ambientales-coord.amb" class="level5" data-number="11.0.1.14.3"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.3" class="anchored" data-anchor-id="coordenadas-de-las-ambientales-coord.amb"><span class="header-section-number">11.0.1.14.3</span> 12.3 Coordenadas de las ambientales “coord.amb”</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Coordenadasde las especies (coord.tax) </span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">&lt;-</span> <span class="fu">envfit</span>(tax.rda, amb) <span class="co"># Se pueden seleccionar variables con, p.max = 0.05</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(amb1, <span class="st">"vectors"</span>))</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>amb <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las ambientales</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">=</span> coord.amb[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>),] <span class="co"># La 3 variables seleccionadas</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     RDA1      RDA2           amb
+Conductividad -0.51073374 0.4101799 Conductividad
+Vel_Corriente -0.00143185 0.2248100 Vel_Corriente
+Temp          -0.32050590 0.6553301          Temp</code></pre>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="figura-del-rda-con-vectores-de-especies" class="level5" data-number="11.0.1.14.4"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.4" class="anchored" data-anchor-id="figura-del-rda-con-vectores-de-especies"><span class="header-section-number">11.0.1.14.4</span> 12.4 Figura del RDA con vectores de especies</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  </span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> RDA1, <span class="at">yend =</span> RDA2), </span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor </span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>RDA1,<span class="at">y=</span>RDA2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_rda_files/figure-html/fig-figura3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;11.1: Figuras del RDA con las variables biológicas y los sitios</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="figura-con-vectores-de-especies-sin-flechas" class="level5" data-number="11.0.1.14.5"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.5" class="anchored" data-anchor-id="figura-con-vectores-de-especies-sin-flechas"><span class="header-section-number">11.0.1.14.5</span> 12.5 Figura con vectores de especies (sin flechas)</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> RDA1, <span class="at">yend =</span> RDA2), </span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor </span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>RDA1,<span class="at">y=</span>RDA2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_rda_files/figure-html/fig-figura4-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;11.2: Figuras del RDA con las variables biológicas y los sitios</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="figura-con-vectores-de-especies-y-ambientales" class="level5" data-number="11.0.1.14.6"><b style="color:#fc8d62;">
+<h5 data-number="11.0.1.14.6" class="anchored" data-anchor-id="figura-con-vectores-de-especies-y-ambientales"><span class="header-section-number">11.0.1.14.6</span> 12.6 Figura con vectores de especies y ambientales</h5>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># especies  </span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> RDA1, <span class="at">yend =</span> RDA2), </span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ambiental  </span></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> RDA1, <span class="at">yend =</span> RDA2), </span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(RDA1,RDA2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor </span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>RDA1,<span class="at">y=</span>RDA2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_rda_files/figure-html/fig-figura5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;11.3: Figuras del RDA con las variables biológicas, las ambientales y los sitios</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="taller-de-entrenamiento" class="level3" data-number="11.0.2"><b style="color:#1f78b4;">
+<h3 data-number="11.0.2" class="anchored" data-anchor-id="taller-de-entrenamiento"><span class="header-section-number">11.0.2</span> <strong>Taller de entrenamiento</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Objetivo:</strong> Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un RDA con las variables biológicas (taxones) y variables ambientales. Enviar los resultados al <em>Teams</em> del profesor. ### P</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ordenación_mca.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Clasificación_cla.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Taller 8.1 Análisis de Clúster - CLA</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

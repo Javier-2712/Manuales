@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Talleres de Análisis Multivariados en R - 5&nbsp; Taller 2.1 Operaciones matriciales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Exploratorios.html" rel="next">
+<link href="./Introducción_R.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller 2.1 Operaciones matriciales</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Talleres de Análisis Multivariados en R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introducción_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 1. Introducción a R y a Tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Algebra_R.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller 2.1 Operaciones matriciales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exploratorios.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Taller 3. Exploración Univariada y Multivariada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Taller 4.1 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Taller 4.2 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_nmds.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Taller 5.1 Análisis de Escalamiento Multidimensional no Métrico - NMDS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_mca.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_rda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_cla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Taller 8.1 Análisis de Clúster - CLA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_lda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Taller 9.1 Análisis Discriminante Lineal - LDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Manova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#producto-matricial" id="toc-producto-matricial" class="nav-link active" data-scroll-target="#producto-matricial"><span class="toc-section-number">5.0.1</span>  1.1 producto matricial</a></li>
+  <li><a href="#determinantes" id="toc-determinantes" class="nav-link" data-scroll-target="#determinantes"><span class="toc-section-number">5.0.2</span>  1.2 Determinantes</a></li>
+  <li><a href="#matriz-inversa" id="toc-matriz-inversa" class="nav-link" data-scroll-target="#matriz-inversa"><span class="toc-section-number">5.0.3</span>  1.3 Matriz inversa</a></li>
+  <li><a href="#matriz-de-varianza---covarianza" id="toc-matriz-de-varianza---covarianza" class="nav-link" data-scroll-target="#matriz-de-varianza---covarianza"><span class="toc-section-number">5.0.4</span>  1.4 Matriz de varianza - covarianza*</a></li>
+  <li><a href="#covarianza-generalizada-s" id="toc-covarianza-generalizada-s" class="nav-link" data-scroll-target="#covarianza-generalizada-s"><span class="toc-section-number">5.0.5</span>  1.5 Covarianza generalizada (S)</a></li>
+  <li><a href="#aplicación-de-matrices-en-un-análisis-de-componentes-principales---pca" id="toc-aplicación-de-matrices-en-un-análisis-de-componentes-principales---pca" class="nav-link" data-scroll-target="#aplicación-de-matrices-en-un-análisis-de-componentes-principales---pca"><span class="toc-section-number">6</span>  Aplicación de matrices en un Análisis de Componentes Principales - PCA</a>
+  <ul class="collapse">
+  <li><a href="#matriz-centrada-m.c-y-matriz-rotada-m.r" id="toc-matriz-centrada-m.c-y-matriz-rotada-m.r" class="nav-link" data-scroll-target="#matriz-centrada-m.c-y-matriz-rotada-m.r"><span class="toc-section-number">6.0.1</span>  1. Matriz centrada (m.c) y matriz rotada (m.r)</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-componentes-principales---pca-en-librería-vegan" id="toc-análisis-de-componentes-principales---pca-en-librería-vegan" class="nav-link" data-scroll-target="#análisis-de-componentes-principales---pca-en-librería-vegan"><span class="toc-section-number">7</span>  Análisis de Componentes principales - PCA en librería <strong><code>"vegan"</code></strong></a></li>
+  <li><a href="#operaciones-matriciales---base-caimanes" id="toc-operaciones-matriciales---base-caimanes" class="nav-link" data-scroll-target="#operaciones-matriciales---base-caimanes"><span class="toc-section-number">8</span>  Operaciones matriciales - base <em>Caimanes</em></a>
+  <ul class="collapse">
+  <li><a href="#procedimiento-del-pca" id="toc-procedimiento-del-pca" class="nav-link" data-scroll-target="#procedimiento-del-pca"><span class="toc-section-number">8.1</span>  Procedimiento del PCA</a>
+  <ul class="collapse">
+  <li><a href="#análisis-de-componentes-principales---pca-en-librería-vegan-1" id="toc-análisis-de-componentes-principales---pca-en-librería-vegan-1" class="nav-link" data-scroll-target="#análisis-de-componentes-principales---pca-en-librería-vegan-1"><span class="toc-section-number">8.1.1</span>  Análisis de Componentes principales - PCA en librería <strong><code>"vegan"</code></strong></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/Algebra_R.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller 2.1 Operaciones matriciales</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Poner en práctica operaciones matriciales, para resolver un ejercicio de ordenación multivariada, denominado “<strong><code>Análisis de Componentes Principales - PCA</code>“</strong>, cuyo objetivo es relacionar a las observaciones de las matrices o de las bases de datos (filas de la matriz), de acuerdo a las variables definidas (columnas de la matriz). Finalmente se realizará la misma técnica con la librería <strong><code>vegan</code></strong> de R.</p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="producto-matricial" class="level3" data-number="5.0.1"><b style="color:#d95f02;">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="producto-matricial"><span class="header-section-number">5.0.1</span> 1.1 producto matricial</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A (2,1,1,3)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B (1,4,2,5,0,3)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular: (1) B'.A' (2) (A.B)' (3) Demostrar que B'.A' = (A'.B')</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># R./</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)      <span class="co"># Matriz A</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)  <span class="co"># Matriz B</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="respuestas" class="level4" data-number="5.0.1.1"><b style="color:#d95f02;">
+<h4 data-number="5.0.1.1" class="anchored" data-anchor-id="respuestas"><span class="header-section-number">5.0.1.1</span> <em>Respuestas</em></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) B'.A'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(B)<span class="sc">%*%</span><span class="fu">t</span>(A)    <span class="co"># %*%  representa el producto matricial, </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># "t" corresponde a la transpuesta de una matriz</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) (A.B)'</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A<span class="sc">%*%</span>B)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) B'.A' = (A.B)'</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>(<span class="fu">t</span>(B)<span class="sc">%*%</span><span class="fu">t</span>(A)) <span class="sc">==</span> <span class="fu">t</span>(A<span class="sc">%*%</span>B)   <span class="co"># Demostración</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="determinantes" class="level3" data-number="5.0.2"><b style="color:#d95f02;">
+<h3 data-number="5.0.2" class="anchored" data-anchor-id="determinantes"><span class="header-section-number">5.0.2</span> 1.2 Determinantes</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A (2,3,3,2)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B (1,4,2,5,0,3)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cacular: Determinante de A y de B</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#R./</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">3</span>,<span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>A     </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="respuestas-1" class="level4" data-number="5.0.2.1"><b style="color:#d95f02;">
+<h4 data-number="5.0.2.1" class="anchored" data-anchor-id="respuestas-1"><span class="header-section-number">5.0.2.1</span> <em>Respuestas</em></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determinantes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(A)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="matriz-inversa" class="level3" data-number="5.0.3"><b style="color:#d95f02;">
+<h3 data-number="5.0.3" class="anchored" data-anchor-id="matriz-inversa"><span class="header-section-number">5.0.3</span> 1.3 Matriz inversa</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A (5,2,2,2)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular inversa de A</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># R./</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="dv">2</span>,<span class="dv">2</span>, <span class="at">byrow=</span> T)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="respuestas-2" class="level4" data-number="5.0.3.1"><b style="color:#d95f02;">
+<h4 data-number="5.0.3.1" class="anchored" data-anchor-id="respuestas-2"><span class="header-section-number">5.0.3.1</span> <em>Respuestas</em></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz inversa (solve)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(A)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="matriz-de-varianza---covarianza" class="level3" data-number="5.0.4"><b style="color:#d95f02;">
+<h3 data-number="5.0.4" class="anchored" data-anchor-id="matriz-de-varianza---covarianza"><span class="header-section-number">5.0.4</span> 1.4 Matriz de varianza - covarianza*</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A (2,2,4,3,6,9), 3 x 2</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># B (2:10), 5 x 2</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># R./</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>),<span class="dv">3</span>,<span class="dv">2</span>, <span class="at">byrow=</span> T)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">5</span>,<span class="dv">2</span>, <span class="at">byrow=</span>T)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="respuestas-3" class="level4" data-number="5.0.4.1"><b style="color:#d95f02;">
+<h4 data-number="5.0.4.1" class="anchored" data-anchor-id="respuestas-3"><span class="header-section-number">5.0.4.1</span> <em>Respuestas</em></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Covarianzas de cada matriz (c/grupo)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cov.A <span class="ot">=</span> <span class="fu">cov</span>(A)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>cov.B <span class="ot">=</span> <span class="fu">cov</span>(B)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>cov.A</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cov.B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="covarianza-generalizada-s" class="level3" data-number="5.0.5"><b style="color:#d95f02;">
+<h3 data-number="5.0.5" class="anchored" data-anchor-id="covarianza-generalizada-s"><span class="header-section-number">5.0.5</span> 1.5 Covarianza generalizada (S)</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cov.g <span class="ot">=</span> (<span class="dv">3</span><span class="sc">*</span>(cov.A) <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>(cov.B))<span class="sc">/</span><span class="dv">8</span>  <span class="co"># cov.g corresponde a la covarianza generalizada</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cov.g</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="respuestas-4" class="level4" data-number="5.0.5.1"><b style="color:#d95f02;">
+<h4 data-number="5.0.5.1" class="anchored" data-anchor-id="respuestas-4"><span class="header-section-number">5.0.5.1</span> <em>Respuestas</em></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Covarianza generalizada invertida (S-1)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cov.g.i <span class="ot">=</span> <span class="fu">solve</span>(cov.g)   <span class="co"># cov.g.i representa a la covarianza gralizada invertida</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>cov.g.i</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.g.i,<span class="dv">2</span>)   <span class="co"># round corresponde al redondeo de decimales</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="aplicación-de-matrices-en-un-análisis-de-componentes-principales---pca" class="level1" data-number="6"><b style="color:#1f78b4;">
+<h1 data-number="6"><span class="header-section-number">6</span> Aplicación de matrices en un Análisis de Componentes Principales - PCA</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="matriz-centrada-m.c-y-matriz-rotada-m.r" class="level3" data-number="6.0.1"><b style="color:#d95f02;">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="matriz-centrada-m.c-y-matriz-rotada-m.r"><span class="header-section-number">6.0.1</span> 1. Matriz centrada (m.c) y matriz rotada (m.r)</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><strong>Pasos:</strong></p>
+<ul>
+<li><p>Cargar librerías requeridas</p></li>
+<li><p>Crear una matriz (o un dataframe)</p></li>
+<li><p>Hallar el vector de medias (v.m)</p></li>
+<li><p>Hallar la matriz centrada (m.c)</p></li>
+<li><p>Hallar la matriz de covarianzas de m.c (s.c)</p></li>
+<li><p>Hallar la matriz de autovectores o vectores propios (v.p)</p></li>
+<li><p>Hallar la matriz rotada de A (m.r)</p></li>
+<li><p>Graficar (stats y ggplot2)</p></li>
+<li><p>Comparar con el PCA realizado en el paquete <code>vegan</code></p></li>
+</ul>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="cargar-las-librerías-requeridas" class="level4" data-number="6.0.1.1"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.1" class="anchored" data-anchor-id="cargar-las-librerías-requeridas"><span class="header-section-number">6.0.1.1</span> 2. Cargar las librerías requeridas</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)       <span class="co"># Importar y exportar</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)     <span class="co"># exportar "*.xlsx" </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Importar y exportar</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)       <span class="co"># gráfica en ggplot2</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)      <span class="co"># insertar rótulos a los puntos</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)        <span class="co"># para realizar el pca con vegan</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="vector-de-medias-v.m-y-matriz-centrada-m.c" class="level4" data-number="6.0.1.2"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.2" class="anchored" data-anchor-id="vector-de-medias-v.m-y-matriz-centrada-m.c"><span class="header-section-number">6.0.1.2</span> 3. Vector de medias (v.m) y matriz centrada (m.c)</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Var1=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fl">0.8</span>,<span class="fl">2.4</span>,<span class="fl">1.8</span>,<span class="fl">1.5</span>,<span class="fl">1.6</span>,<span class="fl">2.1</span>,<span class="fl">1.2</span>,<span class="fl">0.8</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">Var2=</span> <span class="fu">c</span>(<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                        <span class="fl">1.6</span>,<span class="fl">4.8</span>,<span class="fl">3.6</span>,<span class="fl">3.0</span>,<span class="fl">3.2</span>,<span class="fl">4.2</span>,<span class="fl">2.4</span>,<span class="fl">1.6</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">Var3=</span> <span class="fu">c</span>(<span class="fl">4.4</span>,<span class="fl">10.8</span>,<span class="fl">19.0</span>,<span class="fl">21.2</span>,<span class="fl">12.4</span>,<span class="fl">16.8</span>,<span class="fl">19.0</span>,<span class="fl">21.2</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                        <span class="fl">11.6</span>,<span class="fl">14.8</span>,<span class="fl">13.6</span>,<span class="fl">13.0</span>,<span class="fl">13.2</span>,<span class="fl">14.2</span>,<span class="fl">12.4</span>,<span class="fl">11.6</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>v.m <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(A)   <span class="co"># Vector de medias</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>v.m</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>m.c <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(A) <span class="sc">-</span> v.m) <span class="co"># Centralización de datos = Matriz centrada</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.c , <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="vectores-própios-v.p" class="level4" data-number="6.0.1.3"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.3" class="anchored" data-anchor-id="vectores-própios-v.p"><span class="header-section-number">6.0.1.3</span> 4. Vectores própios (v.p)</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m.c <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(A) <span class="sc">-</span> v.m)  <span class="co"># Matriz centrada</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.c , <span class="dv">2</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>s.c <span class="ot">&lt;-</span> <span class="fu">var</span>(m.c)       <span class="co"># Covarianza de la matriz centrada</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(s.c , <span class="dv">2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>vv.p <span class="ot">&lt;-</span> <span class="fu">eigen</span>(s.c)    <span class="co"># Vectores y valores propios de m.centrada</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(vv.p, <span class="dv">2</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>v.p  <span class="ot">&lt;-</span> vv.p<span class="sc">$</span>vectors   <span class="co"># Matriz de vectores propios </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(v.p, <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="matriz-rotada-m.r" class="level4" data-number="6.0.1.4"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.4" class="anchored" data-anchor-id="matriz-rotada-m.r"><span class="header-section-number">6.0.1.4</span> 5. Matriz Rotada (m.r)</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m.c <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m.c)   <span class="co"># Matriz centrada (m.c)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.c, <span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>m.r <span class="ot">&lt;-</span> m.c <span class="sc">%*%</span> v.p      <span class="co"># Matriz rotada (m.r)</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.r, <span class="dv">2</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">n=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, A)  <span class="co"># matriz A como dataframe</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(A, <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="figura-paquete---stats" class="level4" data-number="6.0.1.5"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.5" class="anchored" data-anchor-id="figura-paquete---stats"><span class="header-section-number">6.0.1.5</span> 6. figura (paquete - stats)</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.r[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"PC1"</span>, <span class="at">ylab=</span><span class="st">"PC2"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(m.r,               <span class="co"># Rótulos de los datos (filas)</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">row.names</span>(A),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">pos=</span><span class="dv">3</span>, <span class="at">cex=</span><span class="fl">0.7</span>)    </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="figura" class="level4" data-number="6.0.1.6"><b style="color:#d95f02;">
+<h4 data-number="6.0.1.6" class="anchored" data-anchor-id="figura"><span class="header-section-number">6.0.1.6</span> 7. figura</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>m.r <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m.r)   <span class="co"># matriz rotada como data.frame </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m.r, <span class="fu">aes</span>(<span class="at">x=</span> X1 ,<span class="at">y=</span> X2)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span> (<span class="fu">aes</span> (<span class="at">label =</span> A<span class="sc">$</span>n)) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">2</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">2</span>,<span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="análisis-de-componentes-principales---pca-en-librería-vegan" class="level1" data-number="7"><b style="color:#1f78b4;">
+<h1 data-number="7"><span class="header-section-number">7</span> Análisis de Componentes principales - PCA en librería <strong><code>"vegan"</code></strong></h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Objetivo:</strong> Comparar los resultados del PCA anterior con los generados por un paquete o librería de R</p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="realización-del-pca" class="level4" data-number="7.0.0.1"><b style="color:#d95f02;">
+<h4 data-number="7.0.0.1" class="anchored" data-anchor-id="realización-del-pca"><span class="header-section-number">7.0.0.1</span> 1. Realización del PCA</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)          <span class="co"># Librería requerida</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>A </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(A[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])             <span class="co"># Variables y observaciones (columnas y filas)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">rda</span>(A[,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])       <span class="co"># Realización del pca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="figura-del-pca" class="level4" data-number="7.0.0.2"><b style="color:#d95f02;">
+<h4 data-number="7.0.0.2" class="anchored" data-anchor-id="figura-del-pca"><span class="header-section-number">7.0.0.2</span> 2. Figura del PCA</h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca)                   <span class="co"># Figura del pca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="operaciones-matriciales---base-caimanes" class="level1" data-number="8"><b style="color:#1f78b4;">
+<h1 data-number="8"><span class="header-section-number">8</span> Operaciones matriciales - base <em>Caimanes</em></h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Poner en práctica operaciones matriciales, para resolver un ejercicio de ordenación multivariada, denominado “<strong><code>Análisis de Componentes Principales - PCA</code>“</strong>, cuyo objetivo es relacionar a las observaciones de las matrices o de las bases de datos (filas de la matriz), de acuerdo a las variables definidas (columnas de la matriz). Finalmente se realizará la misma técnica con la librería <strong><code>vegan</code></strong> de R. La base de datos a utilizar se presenta en dos formatos: <strong>caimanes.csv</strong> y <strong>caimanes.xlsx</strong>. Esta base cuenta con 3 variables morfométricas (columnas) y 17 individuos evaluados (filas).</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="procedimiento-del-pca" class="level2" data-number="8.1"><b style="color:#1f78b4;">
+<h2 data-number="8.1" class="anchored" data-anchor-id="procedimiento-del-pca"><span class="header-section-number">8.1</span> Procedimiento del PCA</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<ul>
+<li><p>Cargar librerías requeridas</p></li>
+<li><p>Cargar la base <code>datos</code> (usar diferentes opciones para practicar)</p></li>
+<li><p>Hallar el vector de medias (v.m) y la matriz centrada (m.c)</p></li>
+<li><p>Hallar la matriz de covarianzas de m.c (s.c)</p></li>
+<li><p>Hallar la matriz de autovectores o vectores propios (v.p)</p></li>
+<li><p>Hallar la matriz rotada de A (m.r)</p></li>
+<li><p>Graficar (stats y ggplot2)</p></li>
+<li><p>Comparar con el PCA realizado en el paquete <code>vegan</code></p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="cargar-las-librerías-requeridas-1" class="level4" data-number="8.1.0.1"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.1" class="anchored" data-anchor-id="cargar-las-librerías-requeridas-1"><span class="header-section-number">8.1.0.1</span> 1. Cargar las librerías requeridas</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)       <span class="co"># Importar y exportar</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)     <span class="co"># exportar "*.xlsx" </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Importar y exportar</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)       <span class="co"># gráfica en ggplot2</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)      <span class="co"># insertar rótulos a los puntos</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)        <span class="co"># para realizar el pca con vegan</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="cargar-o-importar-la-base-de-datos" class="level4" data-number="8.1.0.2"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.2" class="anchored" data-anchor-id="cargar-o-importar-la-base-de-datos"><span class="header-section-number">8.1.0.2</span> 2. Cargar o importar la base de datos</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"caimanes.xlsx"</span>)    <span class="co"># paquete "readxl" </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"caimanes.csv"</span>)      <span class="co"># paquete "readxl"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"caimanes.csv"</span>)      <span class="co"># paquete "utils"</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Ajustar la base de datos</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumir los rótulos de las columnas</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"Sexo"</span>,<span class="st">"LT"</span>,<span class="st">"CD"</span>,<span class="st">"CS"</span>)       <span class="co"># Rótulos de la base de datos</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)          <span class="co"># Base de datos abreviada</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="hallar-el-vector-de-medias-v.m-y-la-matriz-centrada-m.c" class="level4" data-number="8.1.0.3"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.3" class="anchored" data-anchor-id="hallar-el-vector-de-medias-v.m-y-la-matriz-centrada-m.c"><span class="header-section-number">8.1.0.3</span> 3. Hallar el vector de medias (v.m) y la matriz centrada (m.c)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>v.m <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>])   <span class="co"># Vector de medias</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>v.m</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>m.c <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">-</span> v.m) <span class="co"># Centralización de datos = Matriz centrada</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.c , <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="vectores-própios-v.p-1" class="level4" data-number="8.1.0.4"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.4" class="anchored" data-anchor-id="vectores-própios-v.p-1"><span class="header-section-number">8.1.0.4</span> 4. Vectores própios (v.p)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>s.c <span class="ot">&lt;-</span> <span class="fu">var</span>(m.c)       <span class="co"># Covarianza de la matriz centrada</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(s.c , <span class="dv">2</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>vv.p <span class="ot">&lt;-</span> <span class="fu">eigen</span>(s.c)    <span class="co"># Vectores y valores propios de m.centrada</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(vv.p, <span class="dv">2</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>v.p  <span class="ot">&lt;-</span> vv.p<span class="sc">$</span>vectors   <span class="co"># Matriz de vectores propios </span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(v.p , <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="matriz-rotada-m.r-1" class="level4" data-number="8.1.0.5"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.5" class="anchored" data-anchor-id="matriz-rotada-m.r-1"><span class="header-section-number">8.1.0.5</span> 5. Matriz Rotada (m.r)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m.c <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(m.c)   <span class="co"># Matriz centrada (m.c)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.c, <span class="dv">2</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>m.r <span class="ot">&lt;-</span> m.c <span class="sc">%*%</span> v.p      <span class="co"># Matriz rotada (m.r)</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(m.r, <span class="dv">2</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">data.frame</span> (<span class="at">n=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, A)  <span class="co"># matriz A como dataframe</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(A, <span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-paquete---stats-1" class="level4" data-number="8.1.0.6"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.6" class="anchored" data-anchor-id="figura-paquete---stats-1"><span class="header-section-number">8.1.0.6</span> 6. figura (paquete - stats)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.r[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"PC1"</span>, <span class="at">ylab=</span><span class="st">"PC2"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(m.r,               <span class="co"># Rótulos de los datos (caimanes)</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">row.names</span>(datos),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">pos=</span><span class="dv">3</span>, <span class="at">cex=</span><span class="fl">0.7</span>)    </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">col=</span> <span class="st">"blue"</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">col=</span> <span class="st">"blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-1" class="level4" data-number="8.1.0.7"><b style="color:#1f78b4;">
+<h4 data-number="8.1.0.7" class="anchored" data-anchor-id="figura-1"><span class="header-section-number">8.1.0.7</span> 7. figura)</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>m.r <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m.r)   <span class="co"># matriz rotada como data.frame </span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m.r, <span class="fu">aes</span>(<span class="at">x=</span> X1 ,<span class="at">y=</span> X2)) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span> (<span class="fu">aes</span> (<span class="at">label =</span> datos<span class="sc">$</span>ID)) <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">2</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">2</span>,<span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="análisis-de-componentes-principales---pca-en-librería-vegan-1" class="level3" data-number="8.1.1"><b style="color:#1f78b4;">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="análisis-de-componentes-principales---pca-en-librería-vegan-1"><span class="header-section-number">8.1.1</span> Análisis de Componentes principales - PCA en librería <strong><code>"vegan"</code></strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Objetivo:</strong> Comparar los resultados del PCA anterior con los generados por un paquete o librería de R</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="realización-del-pca-1" class="level4" data-number="8.1.1.1"><b style="color:#1f78b4;">
+<h4 data-number="8.1.1.1" class="anchored" data-anchor-id="realización-del-pca-1"><span class="header-section-number">8.1.1.1</span> 1. Realización del PCA</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar con el Análisis de Componentes Principales - pca</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>])             <span class="co"># Variables y observaciones (caimanes)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>])       <span class="co"># Realización del pca</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-del-pca-1" class="level4" data-number="8.1.1.2"><b style="color:#1f78b4;">
+<h4 data-number="8.1.1.2" class="anchored" data-anchor-id="figura-del-pca-1"><span class="header-section-number">8.1.1.2</span> 2. Figura del PCA</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Introducción_R.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 1. Introducción a R y a Tidyverse</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Exploratorios.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Taller 3. Exploración Univariada y Multivariada</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
