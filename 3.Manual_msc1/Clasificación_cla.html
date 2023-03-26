@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Manova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></a>
+  <a href="./Manova.html" class="sidebar-item-text sidebar-link">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -392,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>])            <span class="co"># Matriz de Correlación (M)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>La <a href="Manova.html#fig-figura1">Figura&nbsp;<span>4.1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
+<p>La <a href="Manova.html#fig-figura1">Figura&nbsp;<span>1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
@@ -410,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>La <a href="Manova.html#fig-figura2">Figura&nbsp;<span>4.2</span></a> es otra posigilidad para visualizar la relación entre las parejas de variables, pero además incluye páneles que visualizan la dispersión de los datos.</p>
+<p>La <a href="Manova.html#fig-figura2">Figura&nbsp;<span>2</span></a> es otra posigilidad para visualizar la relación entre las parejas de variables, pero además incluye páneles que visualizan la dispersión de los datos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
@@ -429,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>La <a href="Manova.html#fig-figura3">Figura&nbsp;<span>4.3</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
+<p>La <a href="Manova.html#fig-figura3">Figura&nbsp;<span>3</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>

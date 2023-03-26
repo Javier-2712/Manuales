@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Manova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></a>
+  <a href="./Manova.html" class="sidebar-item-text sidebar-link">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -389,7 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>peces1 <span class="ot">&lt;-</span> peces[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">20</span>)]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(peces1)            <span class="co"># Matriz de Correlación (M)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>La <a href="Manova.html#fig-figura1">Figura&nbsp;<span>4.1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
+<p>La <a href="Manova.html#fig-figura1">Figura&nbsp;<span>1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
@@ -407,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>La <a href="Manova.html#fig-figura2">Figura&nbsp;<span>4.2</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
+<p>La <a href="Manova.html#fig-figura2">Figura&nbsp;<span>2</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>peces1 <span class="ot">&lt;-</span> peces[,<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">20</span>)]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>peces<span class="sc">$</span>Especie <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(peces<span class="sc">$</span>Especie)</span>
@@ -426,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>La <a href="Manova.html#fig-figura3">Figura&nbsp;<span>4.3</span></a> permite visualizar la resolución de cada variable para diferenciar o discriminar a las diferentes especies de peces. Esta figura sirve de insumo para descartar aquellas variables con poco potencial de discriminación de las especies.</p>
+<p>La <a href="Manova.html#fig-figura3">Figura&nbsp;<span>3</span></a> permite visualizar la resolución de cada variable para diferenciar o discriminar a las diferentes especies de peces. Esta figura sirve de insumo para descartar aquellas variables con poco potencial de discriminación de las especies.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figuras multivariadas de Cajas y bigotes</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape)</span>
@@ -1028,7 +1028,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Manova.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
