@@ -269,6 +269,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Permanova.html" class="sidebar-item-text sidebar-link">Taller 11.1 Análisis de Varianza Multivariado No Paramétricos</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias</a>
   </div>
 </li>
@@ -331,178 +336,304 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="r-como-calculadora" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="r-como-calculadora">R como calculadora</h2>
+<section id="r-como-calculadora" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="r-como-calculadora">R como calculadora</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Operaciones aritméticas básicas</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">7</span>   <span class="co"># Suma</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span>   <span class="co"># Resta</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">7</span>   <span class="co"># Multiplicación</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">/</span><span class="dv">3</span>     <span class="co"># División</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span>     <span class="co"># Exponentes</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Operaciones aritméticas básicas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">7</span>   <span class="do">## Suma</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span>   <span class="do">## Resta</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">7</span>   <span class="do">## Multiplicación</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">/</span><span class="dv">3</span>     <span class="do">## División</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.666667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span><span class="dv">3</span>     <span class="do">## Exponentes</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logarítmos y exponenciales</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)     <span class="co"># Logarítmo en base 2 de x</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(x)    <span class="co"># Logarítmo en base 10 de x</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(x)      <span class="co"># Exponencial de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Logarítmos y exponenciales</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(x)     <span class="do">## Logarítmo en base 2 de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7369656</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(x)    <span class="do">## Logarítmo en base 10 de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2218487</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(x)      <span class="do">## Exponencial de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.29449</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones trigonométricas :</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(x)    <span class="co"># Coseno de x</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(x)    <span class="co"># Seno de x</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tan</span>(x)    <span class="co"># Tangente de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Funciones trigonométricas :</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(x)    <span class="do">## Coseno de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.09572355</code></pre>
 </div>
-</section>
-<section id="asignaciones" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="asignaciones">Asignaciones</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Asignaciín de valores a objetos o a variables</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="dv">2</span>         <span class="co"># Número de sitios = 2</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">=</span> <span class="dv">2</span>          <span class="co"># Otra forma</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>n.sitios <span class="ot">&lt;-</span> <span class="st">"dos"</span>   <span class="co"># Número de sitios como un caracter</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dos.sitios <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># Objeto lógico</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(x)    <span class="do">## Seno de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.995408</code></pre>
 </div>
-</section>
-<section id="algebra" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="algebra">Algebra</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectores</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)   <span class="co"># Vector sitios</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sitios                    <span class="co"># Imprimir el vector</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dos"</span>, <span class="st">"tres"</span>, <span class="st">"dos"</span>, <span class="st">"dos"</span>)    <span class="co"># Vector como caracter</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sitios</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>abundancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)    <span class="co"># vector con elementos lógicos</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>abundancia</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tan</span>(x)    <span class="do">## Tangente de x</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -10.39878</code></pre>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectores (continuación)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)   <span class="co"># Vector sitios</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sitios) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dos"</span>, <span class="st">"tres"</span>, <span class="st">"dos"</span>, <span class="st">"dos"</span>)   <span class="co"># Nombres de los elementos </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">dos=</span> <span class="dv">2</span>, <span class="at">tres=</span> <span class="dv">3</span>, <span class="at">dos=</span> <span class="dv">2</span>, <span class="at">dos=</span> <span class="dv">2</span>)      <span class="co"># Otra forma</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sitios</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectores (continuación)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sitios [<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]      <span class="co"># Tres primeros elementos del vector sitios</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sitios[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]    <span class="co"># Primer y cuarto elemento del vector</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sitios [<span class="sc">-</span><span class="dv">1</span>]       <span class="co"># Eliminar el primer elemento del vector</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrices</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>),<span class="dv">5</span>,<span class="dv">3</span>, <span class="at">byrow=</span> <span class="cn">FALSE</span>)   <span class="co"># 5,3: Número de filas y columnas</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Matriz</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrices (continuación)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(Matriz)         <span class="co"># Transpuesta de la Matriz</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="dv">2</span>,]        <span class="co"># Ver la segunda fila (coma a la derecha del dato)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Matriz[,<span class="dv">2</span>]        <span class="co"># Ver la segunda columna (coma a la izquierda del dato)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>,]      <span class="co"># Filas 2 a la 4</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),]   <span class="co"># Filas 2 y 4</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>Matriz[ ... ]     <span class="co"># Valores de la fila 3 y de las columnas 1:3</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>Matriz[ ... ]     <span class="co"># Excluye a la 3a fila</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="bases-de-datos-data.frames---cbind" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bases-de-datos-data.frames---cbind">Bases de datos (data.frames - cbind)</h2>
+<section id="asignaciones" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="asignaciones">Asignaciones</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos (datos)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"n"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,                                   <span class="co"># filas</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"indiv."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>),            <span class="co"># Individuos</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"sexo"</span>   <span class="ot">=</span>  <span class="fu">c</span>(<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>),              <span class="co"># Sexo</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"variable"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">5.6</span>))          <span class="co"># Valor de la variable</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>datos      <span class="co"># Ver asinación del data.frame</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos (continuación)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)     <span class="co"># Muestra las primeras filas</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)    <span class="co"># Nombres de las columnas</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)      <span class="co"># Estructura de la base de datos</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(datos)        <span class="co"># Transpuesta de la base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 2) Asignaciín de valores a objetos o a variables</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="dv">2</span>         <span class="do">## Número de sitios = 2</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">=</span> <span class="dv">2</span>          <span class="do">## Otra forma</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>n.sitios <span class="ot">&lt;-</span> <span class="st">"dos"</span>   <span class="do">## Número de sitios como un caracter</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>dos.sitios <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="do">## Objeto lógico</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="enlaces-de-operaiciones-en-r" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="enlaces-de-operaiciones-en-r">Enlaces de operaiciones en R</h2>
+<section id="algebra" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="algebra">Algebra</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vectores</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)   <span class="do">## Vector sitios</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sitios                    <span class="do">## Imprimir el vector</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dos"</span>, <span class="st">"tres"</span>, <span class="st">"dos"</span>, <span class="st">"dos"</span>)    <span class="do">## Vector como caracter</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sitios</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "dos"  "tres" "dos"  "dos" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>abundancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)    <span class="do">## vector con elementos lógicos</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>abundancia</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vectores (continuación)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)   <span class="do">## Vector sitios</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sitios) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dos"</span>, <span class="st">"tres"</span>, <span class="st">"dos"</span>, <span class="st">"dos"</span>)   <span class="do">## Nombres de los elementos </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">dos=</span> <span class="dv">2</span>, <span class="at">tres=</span> <span class="dv">3</span>, <span class="at">dos=</span> <span class="dv">2</span>, <span class="at">dos=</span> <span class="dv">2</span>)      <span class="do">## Otra forma</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>sitios</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> dos tres  dos  dos 
+   2    3    2    2 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vectores (continuación)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sitios [<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]      <span class="do">## Tres primeros elementos del vector sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> dos tres  dos 
+   2    3    2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sitios[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]    <span class="do">## Primer y cuarto elemento del vector</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dos dos 
+  2   2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sitios [<span class="sc">-</span><span class="dv">1</span>]       <span class="do">## Eliminar el primer elemento del vector</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tres  dos  dos 
+   3    2    2 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Matrices</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>Matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>),<span class="dv">5</span>,<span class="dv">3</span>, <span class="at">byrow=</span> <span class="cn">FALSE</span>)   <span class="do">## 5,3: Número de filas y columnas</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>Matriz</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    6   11
+[2,]    2    7   12
+[3,]    3    8   13
+[4,]    4    9   14
+[5,]    5   10   15</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Matrices (continuación)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(Matriz)         <span class="do">## Transpuesta de la Matriz</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    6    7    8    9   10
+[3,]   11   12   13   14   15</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="dv">2</span>,]        <span class="do">## Ver la segunda fila (coma a la derecha del dato)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  7 12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Matriz[,<span class="dv">2</span>]        <span class="do">## Ver la segunda columna (coma a la izquierda del dato)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>,]      <span class="do">## Filas 2 a la 4</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    2    7   12
+[2,]    3    8   13
+[3,]    4    9   14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Matriz[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),]   <span class="do">## Filas 2 y 4</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    2    7   12
+[2,]    4    9   14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz[ ... ]     ## Valores de la fila 3 y de las columnas 1:3</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz[ ... ]     ## Excluye a la 3a fila</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bases-de-datos-data.frames---cbind" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="bases-de-datos-data.frames---cbind">Bases de datos (data.frames - cbind)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Base de datos (datos)</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"n"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,                                   <span class="do">## filas</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"indiv."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>),            <span class="do">## Individuos</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"sexo"</span>   <span class="ot">=</span>  <span class="fu">c</span>(<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>),              <span class="do">## Sexo</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"variable"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>, <span class="fl">5.6</span>))          <span class="do">## Valor de la variable</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>datos      <span class="do">## Ver asinación del data.frame</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n indiv. sexo variable
+1 1      a    f      1.2
+2 2      b    f      3.4
+3 3      c    m      4.5
+4 4      d    m      5.6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Base de datos (continuación)</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)     <span class="do">## Muestra las primeras filas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n indiv. sexo variable
+1 1      a    f      1.2
+2 2      b    f      3.4
+3 3      c    m      4.5
+4 4      d    m      5.6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)    <span class="do">## Nombres de las columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "n"        "indiv."   "sexo"     "variable"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)      <span class="do">## Estructura de la base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ n       : int  1 2 3 4
+ $ indiv.  : chr  "a" "b" "c" "d"
+ $ sexo    : chr  "f" "f" "m" "m"
+ $ variable: num  1.2 3.4 4.5 5.6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(datos)        <span class="do">## Transpuesta de la base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         [,1]  [,2]  [,3]  [,4] 
+n        "1"   "2"   "3"   "4"  
+indiv.   "a"   "b"   "c"   "d"  
+sexo     "f"   "f"   "m"   "m"  
+variable "1.2" "3.4" "4.5" "5.6"</code></pre>
+</div>
+</div>
+</section>
+<section id="enlaces-de-operaiciones-en-r" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlaces-de-operaiciones-en-r">Enlaces de operaiciones en R</h3>
 <p><a href="https://miriamll.github.io/Curso_CIAD/Clase1#1">Diapositivas Intro a R</a></p>
 <p><a href="https://miriamll.github.io/Curso_CIAD/Clase3Parte1#1">Diapositivas Operaciones en R</a></p>
 <p><a href="https://posit.co/resources/cheatsheets/">Trucos en R</a></p>
 <p><a href="https://rpubs.com/odenipinedo/introduction-to-R">RPubs-Intro</a></p>
 <p><a href="https://rpubs.com/odenipinedo/intermediate-R">RPubs-Intermed</a></p>
 </section>
-<section id="importar-y-exportar-bases-de-datos-read-y-write" class="level1 unnumbered">
-<h1 class="unnumbered">Importar y exportar bases de datos (read y write)</h1>
-<section id="complementos-requeridos" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="complementos-requeridos">Complementos requeridos</h2>
+<section id="importar-y-exportar-bases-de-datos-read-y-write" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="importar-y-exportar-bases-de-datos-read-y-write">Importar y exportar bases de datos (read y write)</h2>
+<section id="complementos-requeridos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="complementos-requeridos">Complementos requeridos</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)       <span class="co"># Importar y exportar</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)     <span class="co"># exportar "*.xlsx" </span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Importar y exportar</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)         <span class="co"># Importar y exportar "*.xlsx" </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Librerías requeridas</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)       <span class="do">## Importar y exportar</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)     <span class="do">## exportar "*.xlsx" </span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="do">## Importar y exportar" </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="base-de-datos-del-ejercicio" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="base-de-datos-del-ejercicio">Base de datos del ejercicio</h2>
+<section id="base-de-datos-del-ejercicio" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="base-de-datos-del-ejercicio">Base de datos del ejercicio</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos (datos)</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> <span class="fu">data.frame</span> (<span class="at">meses =</span> <span class="fu">c</span>(<span class="st">"enero"</span>, <span class="st">"junio"</span>, <span class="st">"octubre"</span>),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">periodos =</span> <span class="fu">c</span>(<span class="st">"sequía"</span>, <span class="st">"lluvias1"</span>, <span class="st">"lluvias2"</span>),</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    taxón1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                    taxón2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                    taxón3 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>datos  <span class="co"># Ejecutar la asignación (datos)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Base de datos (datos)</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">=</span> <span class="fu">data.frame</span> (<span class="at">meses =</span> <span class="fu">c</span>(<span class="st">"enero"</span>, <span class="st">"junio"</span>, <span class="st">"octubre"</span>),</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">periodos =</span> <span class="fu">c</span>(<span class="st">"sequía"</span>, <span class="st">"lluvias1"</span>, <span class="st">"lluvias2"</span>),</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>                    taxón1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>                    taxón2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>),</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>                    taxón3 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>datos  <span class="do">## Ejecutar la asignación (datos)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    meses periodos taxón1 taxón2 taxón3
+1   enero   sequía      2     20      4
+2   junio lluvias1      1     25      4
+3 octubre lluvias2      3     30      4</code></pre>
+</div>
 </div>
 </section>
-<section id="exportación" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="exportación">Exportación</h2>
+<section id="exportación" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exportación">Exportación</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar bases de datos como "datos1"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(datos, <span class="st">"datos1.csv"</span>)   <span class="co"># paquete "utils" </span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(datos, <span class="st">"datos1.csv"</span>)   <span class="co"># paquete "readxl" </span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(datos, <span class="st">"datos1.xlsx"</span>)  <span class="co"># paquete "openxlsx" y "xlsx"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Exportar bases de datos como "datos1"</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(datos, <span class="st">"datos1.csv"</span>)   <span class="do">## paquete "utils" </span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(datos, <span class="st">"datos1.csv"</span>)   <span class="do">## paquete "readxl" </span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(datos, <span class="st">"datos1.xlsx"</span>)  <span class="do">## paquete "openxlsx" y "xlsx"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importación" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="importación">Importación</h2>
+<section id="importación" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="importación">Importación</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar bases de datos como "datos1"</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"datos1.csv"</span>, <span class="at">row.names =</span> <span class="dv">1</span>)    <span class="co"># paquete "utils" </span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="fu">file.choose</span>(), <span class="at">row.names =</span> <span class="dv">1</span>)   <span class="co"># paquete "utils" </span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos1.csv"</span>)     <span class="co"># paquete "readxl" </span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="fu">file.choose</span>())    <span class="co"># paquete "readxl" </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos1.xlsx"</span>)    <span class="co"># paquete "readxl" </span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">file.choose</span>())    <span class="co"># paquete "readxl" </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"datos1.xlsx"</span>)    <span class="co"># paquete "openxlsx"</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="fu">file.choose</span>())    <span class="co"># paquete "openxlsx"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Importar bases de datos como "datos1"</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"datos1.csv"</span>, <span class="at">row.names =</span> <span class="dv">1</span>)    <span class="do">## paquete "utils" </span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="fu">file.choose</span>(), <span class="at">row.names =</span> <span class="dv">1</span>)   <span class="do">## paquete "utils" </span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos1.csv"</span>)     <span class="do">## paquete "readxl" </span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="fu">file.choose</span>())    <span class="do">## paquete "readxl" </span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos1.xlsx"</span>)    <span class="do">## paquete "readxl" </span></span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">file.choose</span>())    <span class="do">## paquete "readxl" </span></span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"datos1.xlsx"</span>)    <span class="do">## paquete "openxlsx"</span></span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="fu">file.choose</span>())    <span class="do">## paquete "openxlsx"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos1.xlsx"</span>)    <span class="do">## paquete "readxl" </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importación-desde-internet" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="importación-desde-internet">Importación desde internet</h2>
+<section id="importación-desde-internet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="importación-desde-internet">Importación desde internet</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar archivo *.csv desde la web</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"https://javier-2712.github.io/Multivariados/Insectos.csv"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://javier-2712.github.io/Multivariados/Insectos.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Importar archivo *.csv desde la web</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"https://javier-2712.github.io/Multivariados_MSc/Insectos.csv"</span>)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://javier-2712.github.io/Multivariados_MSc/Insectos.csv"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="enlaces-de-importación-y-exportación-de-datos" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="enlaces-de-importación-y-exportación-de-datos">Enlaces de importación y Exportación de datos</h2>
+<section id="enlaces-de-importación-y-exportación-de-datos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlaces-de-importación-y-exportación-de-datos">Enlaces de importación y Exportación de datos</h3>
 <p><a href="http://www.sthda.com/english/wiki/importing-data-into-r">Importación de datos1</a></p>
 <p><a href="http://www.sthda.com/english/wiki/reading-data-from-excel-files-xls-xlsx-into-r">Importación de datos2</a></p>
 <p><a href="https://miriamll.github.io/Curso_CIAD/Clase3Parte2#1">Diapositivas</a></p>
@@ -510,121 +641,238 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>/page()</p>
 </section>
 </section>
-<section id="introductorio-a-tidyverse" class="level1 unnumbered">
-<h1 class="unnumbered">Introductorio a Tidyverse</h1>
-<section id="importar-la-base-de-datos-datos" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="importar-la-base-de-datos-datos">Importar la base de datos (datos)</h2>
+<section id="introductorio-a-tidyverse" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introductorio-a-tidyverse">Introductorio a Tidyverse</h2>
+<section id="importar-la-base-de-datos-datos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="importar-la-base-de-datos-datos">Importar la base de datos (datos)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">file.choose</span>())    <span class="co"># paquete "readxl" </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">file.choose</span>())    <span class="do">## paquete "readxl" </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="manipulación-de-los-datos-.unnumbered-enlace" class="level2">
-<h2 class="anchored" data-anchor-id="manipulación-de-los-datos-.unnumbered-enlace">Manipulación de los datos {.unnumbered} <a href="https://derek-corcoran-barrios.github.io/Libro/_book/tidydata.html">enlace</a></h2>
+<section id="manipulación-de-los-datos-.unnumbered-enlace" class="level3">
+<h3 class="anchored" data-anchor-id="manipulación-de-los-datos-.unnumbered-enlace">Manipulación de los datos {.unnumbered} <a href="https://derek-corcoran-barrios.github.io/Libro/_book/tidydata.html">enlace</a></h3>
 <ul>
 <li><p>comando <code>gather</code> para visualizar bases de datos alargadas</p></li>
 <li><p>comando <code>spread</code> para visualizar bases de datos a lo ancho</p></li>
 <li><p>comando <code>%&gt;%</code> tuberías o pippelines.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos alargada (datos.l)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>datos.l <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key=</span> Columnas, <span class="at">value=</span> Valores)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>datos.l</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Base de datos alargada (datos.l)</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>datos.l <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key=</span> Columnas, <span class="at">value=</span> Valores)</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos.l)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Columnas  Valores
+1    meses    enero
+2    meses    junio
+3    meses  octubre
+4 periodos   sequía
+5 periodos lluvias1
+6 periodos lluvias2</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Excluir la columna periodo en formato alargado (-periodos)</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>datos.l <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key=</span> columnas, <span class="at">value=</span> valores, <span class="sc">-</span>periodos)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>datos.l</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Excluir la columna periodo en formato alargado (-periodos)</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>datos.l <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key=</span> columnas, <span class="at">value=</span> valores, <span class="sc">-</span>periodos)</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos.l)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  periodos columnas valores
+1   sequía    meses   enero
+2 lluvias1    meses   junio
+3 lluvias2    meses octubre
+4   sequía   taxón1       2
+5 lluvias1   taxón1       1
+6 lluvias2   taxón1       3</code></pre>
+</div>
 </div>
 </section>
-<section id="nueva-base-de-datos-con-factor" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="nueva-base-de-datos-con-factor">Nueva base de datos con factor</h2>
+<section id="nueva-base-de-datos-con-factor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="nueva-base-de-datos-con-factor">Nueva base de datos con factor</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos para 4 estudiantes (con 4 replicas)</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a los que se les midieron dos variables en cuatro ocasiones.</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Estudiante=</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>, <span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Sexo=</span> <span class="fu">c</span>(<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>),</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Variable1=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">0.8</span>,<span class="fl">2.4</span>,<span class="fl">1.8</span>,<span class="fl">1.5</span>,<span class="fl">1.6</span>,<span class="fl">2.1</span>,<span class="fl">1.2</span>,<span class="fl">0.8</span>),</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Variable2=</span> <span class="fu">c</span>(<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">1.6</span>,<span class="fl">4.8</span>,<span class="fl">3.6</span>,<span class="fl">3.0</span>,<span class="fl">3.2</span>,<span class="fl">4.2</span>,<span class="fl">2.4</span>,<span class="fl">1.6</span>))</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>datos</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Base de datos para 4 estudiantes (con 4 replicas)</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="do">## a los que se les midieron dos variables en cuatro ocasiones.</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>,</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Estudiante=</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>, <span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>),</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Sexo=</span> <span class="fu">c</span>(<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,<span class="st">"f"</span>,</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>,<span class="st">"m"</span>),</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Variable1=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,<span class="fl">1.2</span>,<span class="fl">3.4</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>,</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">0.8</span>,<span class="fl">2.4</span>,<span class="fl">1.8</span>,<span class="fl">1.5</span>,<span class="fl">1.6</span>,<span class="fl">2.1</span>,<span class="fl">1.2</span>,<span class="fl">0.8</span>),</span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Variable2=</span> <span class="fu">c</span>(<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,<span class="fl">2.4</span>,<span class="fl">6.8</span>,<span class="fl">9.0</span>,<span class="fl">11.2</span>,</span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">1.6</span>,<span class="fl">4.8</span>,<span class="fl">3.6</span>,<span class="fl">3.0</span>,<span class="fl">3.2</span>,<span class="fl">4.2</span>,<span class="fl">2.4</span>,<span class="fl">1.6</span>))</span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 1          a    f       1.2       2.4
+2 2          a    f       3.4       6.8
+3 3          a    f       4.5       9.0
+4 4          a    f       5.6      11.2
+5 5          b    f       1.2       2.4
+6 6          b    f       3.4       6.8</code></pre>
+</div>
 </div>
 </section>
-<section id="filtrando-elementos-del-dataframe-filter" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="filtrando-elementos-del-dataframe-filter">Filtrando elementos del dataframe (filter)</h2>
+<section id="filtrando-elementos-del-dataframe-filter" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="filtrando-elementos-del-dataframe-filter">Filtrando elementos del dataframe (filter)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitrado por sexos "f" y "m"</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>datos.f <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"f"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>datos.f  <span class="co"># Base de datos para mujeres</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>datos.h <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"m"</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>datos.h  <span class="co"># Base de datos para hombres</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fitrado por sexos "f" y "m"</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>datos.f <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"f"</span>)</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>datos.f  <span class="do">## Base de datos para mujeres</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 1          a    f       1.2       2.4
+2 2          a    f       3.4       6.8
+3 3          a    f       4.5       9.0
+4 4          a    f       5.6      11.2
+5 5          b    f       1.2       2.4
+6 6          b    f       3.4       6.8
+7 7          b    f       4.5       9.0
+8 8          b    f       5.6      11.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>datos.h <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"m"</span>)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>datos.h  <span class="do">## Base de datos para hombres</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   n Estudiante Sexo Variable1 Variable2
+1  9          c    m       0.8       1.6
+2 10          c    m       2.4       4.8
+3 11          c    m       1.8       3.6
+4 12          c    m       1.5       3.0
+5 13          d    m       1.6       3.2
+6 14          d    m       2.1       4.2
+7 15          d    m       1.2       2.4
+8 16          d    m       0.8       1.6</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitrado por sexos y estudiantes "f" y "m"</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>datos.a <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span><span class="st">"f"</span>, Estudiante <span class="sc">==</span><span class="st">"a"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>datos.a  <span class="co"># Datos de la estudiante a</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>datos.a <span class="ot">&lt;-</span> datos.f <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Estudiante <span class="sc">==</span><span class="st">"a"</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>datos.a <span class="co"># Datos de la estudiante a</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Fitrado por sexos y estudiantes "f" y "m"</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>datos.a <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexo <span class="sc">==</span><span class="st">"f"</span>, Estudiante <span class="sc">==</span><span class="st">"a"</span>)</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>datos.a  <span class="do">## Datos de la estudiante a</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 1          a    f       1.2       2.4
+2 2          a    f       3.4       6.8
+3 3          a    f       4.5       9.0
+4 4          a    f       5.6      11.2</code></pre>
 </div>
-</section>
-<section id="filtrando-en-orden-descendente-o-ascendente-arrange" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="filtrando-en-orden-descendente-o-ascendente-arrange">Filtrando en orden descendente o ascendente (arrange)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrando en orden descendente y ascendente</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>datos.des <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Variable1))</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>datos.des  <span class="co"># Variable asignada</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>datos.asc <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Variable1)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>datos.asc  <span class="co"># Variable asignada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>datos.a <span class="ot">&lt;-</span> datos.f <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Estudiante <span class="sc">==</span><span class="st">"a"</span>)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>datos.a <span class="do">## Datos de la estudiante a</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 1          a    f       1.2       2.4
+2 2          a    f       3.4       6.8
+3 3          a    f       4.5       9.0
+4 4          a    f       5.6      11.2</code></pre>
 </div>
-</section>
-<section id="combinación-de-filtrado-y-orden-filter-arrange" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="combinación-de-filtrado-y-orden-filter-arrange">Combinación de filtrado y orden (filter + arrange)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar mujeres en orden descendente. </span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>datos.des.f <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"f"</span>)  <span class="sc">%&gt;%</span> </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Variable1))</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>datos.des.f  <span class="co"># Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="generación-de-variables-derivadas-arrange" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="generación-de-variables-derivadas-arrange">Generación de variables derivadas (arrange)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar nuevas variables (mutate)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.3</span> <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Variable3 =</span> Variable1 <span class="sc">*</span> Variable2)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.3</span>  <span class="co"># Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="combinación-de-filtrado-nuevas-variables-y-orden-filter-mutate-arrange" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="combinación-de-filtrado-nuevas-variables-y-orden-filter-mutate-arrange">Combinación de filtrado, nuevas variables y orden (filter + mutate + arrange)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinación de funciones (filter, mutate, arrange)</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>  <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (Sexo <span class="sc">==</span> <span class="st">"f"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Variable3 =</span> Variable2 <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(Variable3))</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>   <span class="co"># Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinación de funciones (filter, mutate, arrange)</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>  <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (Sexo <span class="sc">==</span> <span class="st">"f"</span>, Estudiante <span class="sc">==</span> <span class="st">"b"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Variable3 =</span> Variable2 <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(Variable3))</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="enlaces-de-operaiciones-en-tidyverse" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="enlaces-de-operaiciones-en-tidyverse">Enlaces de operaiciones en Tidyverse</h2>
+<section id="filtrando-en-orden-descendente-o-ascendente-arrange" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="filtrando-en-orden-descendente-o-ascendente-arrange">Filtrando en orden descendente o ascendente (arrange)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Filtrando en orden descendente y ascendente</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>datos.des <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Variable1))</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos.des)  <span class="do">## Variable asignada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 4          a    f       5.6      11.2
+2 8          b    f       5.6      11.2
+3 3          a    f       4.5       9.0
+4 7          b    f       4.5       9.0
+5 2          a    f       3.4       6.8
+6 6          b    f       3.4       6.8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>datos.asc <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Variable1)</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos.asc)  <span class="do">## Variable asignada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   n Estudiante Sexo Variable1 Variable2
+1  9          c    m       0.8       1.6
+2 16          d    m       0.8       1.6
+3  1          a    f       1.2       2.4
+4  5          b    f       1.2       2.4
+5 15          d    m       1.2       2.4
+6 12          c    m       1.5       3.0</code></pre>
+</div>
+</div>
+</section>
+<section id="combinación-de-filtrado-y-orden-filter-arrange" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="combinación-de-filtrado-y-orden-filter-arrange">Combinación de filtrado y orden (filter + arrange)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Filtrar mujeres en orden descendente. </span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>datos.des.f <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sexo <span class="sc">==</span> <span class="st">"f"</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Variable1))</span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>datos.des.f  <span class="do">## Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2
+1 4          a    f       5.6      11.2
+2 8          b    f       5.6      11.2
+3 3          a    f       4.5       9.0
+4 7          b    f       4.5       9.0
+5 2          a    f       3.4       6.8
+6 6          b    f       3.4       6.8
+7 1          a    f       1.2       2.4
+8 5          b    f       1.2       2.4</code></pre>
+</div>
+</div>
+</section>
+<section id="generación-de-variables-derivadas-arrange" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="generación-de-variables-derivadas-arrange">Generación de variables derivadas (arrange)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Insertar nuevas variables (mutate)</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.3</span> <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Variable3 =</span> Variable1 <span class="sc">*</span> Variable2)</span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos<span class="fl">.3</span>)  <span class="do">## Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2 Variable3
+1 1          a    f       1.2       2.4      2.88
+2 2          a    f       3.4       6.8     23.12
+3 3          a    f       4.5       9.0     40.50
+4 4          a    f       5.6      11.2     62.72
+5 5          b    f       1.2       2.4      2.88
+6 6          b    f       3.4       6.8     23.12</code></pre>
+</div>
+</div>
+</section>
+<section id="combinación-de-filtrado-nuevas-variables-y-orden-filter-mutate-arrange" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="combinación-de-filtrado-nuevas-variables-y-orden-filter-mutate-arrange">Combinación de filtrado, nuevas variables y orden (filter + mutate + arrange)</h3>
+<div class="cell" data-ewarning="false">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Combinación de funciones (filter, mutate, arrange)</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>  <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (Sexo <span class="sc">==</span> <span class="st">"f"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Variable3 =</span> Variable2 <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(Variable3))</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>   <span class="do">## Asignación </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2 Variable3
+1 4          a    f       5.6      11.2     134.4
+2 8          b    f       5.6      11.2     134.4
+3 3          a    f       4.5       9.0     108.0
+4 7          b    f       4.5       9.0     108.0
+5 2          a    f       3.4       6.8      81.6
+6 6          b    f       3.4       6.8      81.6
+7 1          a    f       1.2       2.4      28.8
+8 5          b    f       1.2       2.4      28.8</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Combinación de funciones (filter, mutate, arrange)</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span>  <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (Sexo <span class="sc">==</span> <span class="st">"f"</span>, Estudiante <span class="sc">==</span> <span class="st">"b"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">Variable3 =</span> Variable2 <span class="sc">*</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(Variable3))</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>datos<span class="fl">.4</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  n Estudiante Sexo Variable1 Variable2 Variable3
+1 8          b    f       5.6      11.2     134.4
+2 7          b    f       4.5       9.0     108.0
+3 6          b    f       3.4       6.8      81.6
+4 5          b    f       1.2       2.4      28.8</code></pre>
+</div>
+</div>
+</section>
+<section id="enlaces-de-operaiciones-en-tidyverse" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enlaces-de-operaiciones-en-tidyverse">Enlaces de operaiciones en Tidyverse</h3>
 <p><a href="https://gonzalezgouveia.com/que-es-tidyverse-8-paquetes-para-ciencia-de-datos/">Videos de Tidyverse</a></p>
 <p><a href="https://dominicroye.github.io/en/2020/a-very-short-introduction-to-tidyverse/#table-and-vector-manipulation">Introducción al Tidyverse</a></p>
 <p><a href="https://www.r-bloggers.com/2020/06/a-very-short-introduction-to-tidyverse/">Introducción al Tidyverse</a></p>
@@ -638,8 +886,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>/page()</p>
 </section>
 </section>
-<section id="taller-práctico-para-la-casa" class="level1 unnumbered">
-<h1 class="unnumbered">Taller práctico para la casa</h1>
+<section id="taller-práctico-para-la-casa" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="taller-práctico-para-la-casa">Taller práctico para la casa</h2>
 <ol type="1">
 <li>Realizar los ejemplos del siguiente <a href="https://rpubs.com/odenipinedo/introduction-to-the-Tidyverse"><strong>enlace</strong></a>, utilizando las siguientes opciones de tidyverse:</li>
 </ol>
