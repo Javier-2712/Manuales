@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Talleres de Análisis Multivariados en R - 10&nbsp; Taller 6.1 Análisis de Correspondencias Múltiples - MCA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ordenación_rda.html" rel="next">
+<link href="./Ordenación_nmds.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Talleres de Análisis Multivariados en R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Libro-Prueba.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introducción_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Taller 1. Introducción a R y a Tidyverse</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Algebra_R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Taller 2.1 Operaciones matriciales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exploratorios.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Taller 3. Exploración Univariada y Multivariada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Taller 4.1 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_pca2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Taller 4.2 Análisis de Componentes Principales - PCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_nmds.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Taller 5.1 Análisis de Escalamiento Multidimensional no Métrico - NMDS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_mca.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ordenación_rda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_cla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Taller 8.1 Análisis de Clúster - CLA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Clasificación_lda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Taller 9.1 Análisis Discriminante Lineal - LDA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Manova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Taller 10.1 Análisis de Varianza Multivariado - MANOVA</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referencias</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#procedimiento-de-la-exploración" id="toc-procedimiento-de-la-exploración" class="nav-link active" data-scroll-target="#procedimiento-de-la-exploración"><span class="toc-section-number">10.0.1</span>  Procedimiento de la exploración</a></li>
+  <li><a href="#ajuste-de-la-base-de-datos-de-bagres." id="toc-ajuste-de-la-base-de-datos-de-bagres." class="nav-link" data-scroll-target="#ajuste-de-la-base-de-datos-de-bagres."><span class="toc-section-number">10.0.2</span>  1) Ajuste de la base de datos de <strong>bagres</strong>.</a></li>
+  <li><a href="#primera-ordenación-de-las-variables-cualitativas-activas-mca1." id="toc-primera-ordenación-de-las-variables-cualitativas-activas-mca1." class="nav-link" data-scroll-target="#primera-ordenación-de-las-variables-cualitativas-activas-mca1."><span class="toc-section-number">10.0.3</span>  2) Primera ordenación de las variables cualitativas activas (mca1).</a></li>
+  <li><a href="#segunda-ordenación-de-las-variables-cualitativas-activas-mca2." id="toc-segunda-ordenación-de-las-variables-cualitativas-activas-mca2." class="nav-link" data-scroll-target="#segunda-ordenación-de-las-variables-cualitativas-activas-mca2."><span class="toc-section-number">10.0.4</span>  3) Segunda ordenación de las variables cualitativas activas (mca2).</a></li>
+  <li><a href="#taller-de-entrenamiento" id="toc-taller-de-entrenamiento" class="nav-link" data-scroll-target="#taller-de-entrenamiento"><span class="toc-section-number">10.0.5</span>  <strong>Taller de entrenamiento</strong></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/Ordenación_mca.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Taller 6.1 Análisis de Correspondencias Múltiples - MCA</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>El siguiente ejercicio analizará los datos de un proyecto de <strong><em>SEPEC (2021)</em></strong>, basado en 100 registros tomados aleatoriamente de encuestas realizadas a pescadores y comercializadores de diferentes especies de bagres en Colombia.</p>
+<p>El <strong>objetivo</strong> de este ejercicio consiste en valorar la relación entre las variables categóricas producto de las encuestas y la información relacionada a la comercialización de los bagres censados. Se utilizará el siguiente archivo como base de datos: <strong>bagres.xlsx</strong></p>
+<p>Ejercicio tomado de: Rodríguez-Barrios (2023) <a href="https://www.editdiazdesantos.com/libros/9788490524817/Rodr%C3%ADguez-Barrios-An%C3%A1lisis-de-datos-ecol%C3%B3gicos-y-ambientales-aplicaciones-con-el-programa-R.html?isbn=978849052481">Enlace del libro</a></p>
+<p><a href="https://www.editdiazdesantos.com/libros/lanza_anejo.php?isbn=9788490524817&amp;formato=.zip">Enlace de los archivos del libro</a></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="procedimiento-de-la-exploración" class="level3" data-number="10.0.1"><b style="color:#1f78b4;">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="procedimiento-de-la-exploración"><span class="header-section-number">10.0.1</span> Procedimiento de la exploración</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Análisis de Correspondencia múltiple (MCA)</strong>. A partir de la muestra de 100 registros de bagres y de variables cualitativas o categóricas obtenidas mediante las encuestas realizadas, se identifican los siguientes elementos de los datos seleccionados:</p>
+<p>• <strong>Individuos activos</strong>: Filas de la base de datos (100 registros de bagres).</p>
+<p>• <strong>Variables activas</strong>: Variables categóricas que se utilizarán en el primer mca, que corresponden a las categóricas que han sido encuestadas.</p>
+<p>• <strong>Variables cuantitativas suplementarias (quanti.sup)</strong>: Son las variables cuantitativas que presenta la base de datos de bagres (venta en kg y precio de venta de los bagres).</p>
+<p>• <strong>Variables cualitativas suplementarias (quali.sup)</strong>: corresponden a las que se requieran analizar por separado, en este caso serán los nombres vernaculares de los bagres. Las variables cuantitativas y cualitativas suplementarias serán evaluadas al final del ejercicio con un mca adicional.</p>
+<p>Más detalles de este procedimiento se pueden revisaar en el siguiente enlace: <a href="http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/114-mca-multiple-correspondence-analysis-in-r-essentials/">MCA - Multiple Correspondence Analysis in R</a></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="librerías-requeridas" class="level4" data-number="10.0.1.1"><b style="color:#1f78b4;">
+<h4 data-number="10.0.1.1" class="anchored" data-anchor-id="librerías-requeridas"><span class="header-section-number">10.0.1.1</span> Librerías requeridas</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)       <span class="co"># Importar y exportar</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)     <span class="co"># exportar "*.xlsx" </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Importar y exportar</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)   <span class="co"># Para realizar el MCA</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)   <span class="co"># Para realizar el MCA</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># Para pasar variables a factor</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="cargar-o-importar-la-base-de-datos" class="level4" data-number="10.0.1.2"><b style="color:#1f78b4;">
+<h4 data-number="10.0.1.2" class="anchored" data-anchor-id="cargar-o-importar-la-base-de-datos"><span class="header-section-number">10.0.1.2</span> Cargar o importar la base de datos</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bagres <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"bagres.xlsx"</span>)    <span class="co"># paquete "readxl" </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bagres) </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bagres)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(bagres)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ajuste-de-la-base-de-datos-de-bagres." class="level3" data-number="10.0.2"><b style="color:#1f78b4;">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="ajuste-de-la-base-de-datos-de-bagres."><span class="header-section-number">10.0.2</span> 1) Ajuste de la base de datos de <strong>bagres</strong>.</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Para la realización del primer mca, que solo incluirá a las variables activas (excluye a las suplementarias), se escogerán solo las variables categóricas requeridas para este análisis (columnas 1, 9 a la 22).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de variables activas</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bagres <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"bagres.xlsx"</span>)    <span class="co"># paquete "readxl" </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>datos.activos <span class="ot">=</span> bagres[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span><span class="sc">:</span><span class="dv">22</span>)]  <span class="co"># selección de columnas 1, 9 a 22 </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos.activos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Al analizar la estructura de la base <code>datos activos</code>, a excepción de las columnas 4 y 5 (variables cuantitativas o cuantitativas suplementarias) <code>Venta.kg</code> y <code>Precio.venta</code>, el resto son de tipología caracter (chr) y se deben pasar a factores, para que el MCA pueda ejecutarse de forma apropiada. Es importante aclarar que las columnas 1 a la 4 no corresponden a variables activas, pero serán tabuladas en el siguiente data.frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiar todas las variables cualitativas a factor</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>datos.activos <span class="ot">&lt;-</span> datos.activos <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">mutate_all</span>(factor)      <span class="co"># Pasar a factores excepto variables 5 y 6</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(datos.activos))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  ...1   Import…¹ Origen Destino Tipo.…² Prove…³ Sit.c…⁴ Frec.…⁵ Trans…⁶ Conserv
+  &lt;fct&gt;  &lt;fct&gt;    &lt;fct&gt;  &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+1 1.Psdo Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+2 2.Psdo Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+3 3.Psdm Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+4 4.Psdp Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+5 5.Psdp Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+6 6.Psdm Importa… Orige… Destin… Tipo.p… Provee… Sitio.… Frec.c… Transf… Conser…
+# … with 5 more variables: Empaque &lt;fct&gt;, Transporte &lt;fct&gt;,
+#   Cliente.prim. &lt;fct&gt;, Cliente.sec. &lt;fct&gt;, Cliente.ter. &lt;fct&gt;, and
+#   abbreviated variable names ¹​Importado, ²​Tipo.prod, ³​Proveedor, ⁴​Sit.comp,
+#   ⁵​Frec.compra, ⁶​Transform</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos.activos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="primera-ordenación-de-las-variables-cualitativas-activas-mca1." class="level3" data-number="10.0.3"><b style="color:#1f78b4;">
+<h3 data-number="10.0.3" class="anchored" data-anchor-id="primera-ordenación-de-las-variables-cualitativas-activas-mca1."><span class="header-section-number">10.0.3</span> 2) Primera ordenación de las variables cualitativas activas (mca1).</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Las variables consideradas para esta ordenación, son las cualitativas (tipo factor) que pueden ejercer un efecto en la comercialización de los bagres.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Ordenación de las variables acualitativas activas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Las columnas 5 a 18 son las requeridas por el mca</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos.activos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [100 × 15] (S3: tbl_df/tbl/data.frame)
+ $ ...1         : Factor w/ 100 levels "1.Psdo","10.Psdo",..: 1 13 24 35 46 57 68 79 90 2 ...
+ $ Importado    : Factor w/ 2 levels "Importado.F",..: 1 1 1 1 2 1 1 1 1 1 ...
+ $ Origen       : Factor w/ 2 levels "Origen.i","Origen.n": 2 2 2 2 1 2 2 2 2 2 ...
+ $ Destino      : Factor w/ 2 levels "Destino.c","Destino.i": 2 2 2 2 2 2 2 2 2 2 ...
+ $ Tipo.prod    : Factor w/ 1 level "Tipo.prod.p": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Proveedor    : Factor w/ 3 levels "Proveedor.i",..: 1 1 1 1 3 1 1 1 1 1 ...
+ $ Sit.comp     : Factor w/ 6 levels "Sit.comp.c","Sit.comp.o",..: 3 3 3 3 6 3 3 3 4 4 ...
+ $ Frec.compra  : Factor w/ 3 levels "Frec.compra.d",..: 3 3 1 3 3 3 3 3 3 3 ...
+ $ Transform    : Factor w/ 3 levels "Transform.c",..: 2 2 2 1 2 1 2 1 1 1 ...
+ $ Conserv      : Factor w/ 2 levels "Conserv.c","Conserv.sa": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Empaque      : Factor w/ 3 levels "Empaque.b","Empaque.cc",..: 1 1 1 1 3 1 1 1 1 1 ...
+ $ Transporte   : Factor w/ 3 levels "Transporte.m",..: 3 3 2 3 3 3 3 2 3 3 ...
+ $ Cliente.prim.: Factor w/ 3 levels "Cliente.prim.c",..: 1 3 1 1 3 1 1 1 1 1 ...
+ $ Cliente.sec. : Factor w/ 5 levels "Cliente.sec.c",..: 2 2 2 4 3 4 2 2 2 2 ...
+ $ Cliente.ter. : Factor w/ 5 levels "Cliente.ter.c",..: 3 4 3 3 3 3 4 3 3 3 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos.activos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">15</span>)])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mca1 <span class="ot">&lt;-</span> <span class="fu">MCA</span>(datos.activos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">15</span>)], <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mca1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+MCA(X = datos.activos[, c(2:15)], graph = FALSE) 
+
+
+Eigenvalues
+                       Dim.1   Dim.2   Dim.3   Dim.4   Dim.5   Dim.6   Dim.7
+Variance               0.391   0.197   0.172   0.161   0.139   0.111   0.105
+% of var.             18.874   9.525   8.307   7.768   6.700   5.348   5.073
+Cumulative % of var.  18.874  28.399  36.706  44.474  51.174  56.522  61.596
+                       Dim.8   Dim.9  Dim.10  Dim.11  Dim.12  Dim.13  Dim.14
+Variance               0.102   0.091   0.087   0.077   0.068   0.062   0.052
+% of var.              4.928   4.404   4.197   3.712   3.291   3.000   2.504
+Cumulative % of var.  66.523  70.928  75.125  78.837  82.128  85.128  87.632
+                      Dim.15  Dim.16  Dim.17  Dim.18  Dim.19  Dim.20  Dim.21
+Variance               0.046   0.040   0.037   0.029   0.025   0.020   0.018
+% of var.              2.243   1.937   1.774   1.381   1.223   0.958   0.850
+Cumulative % of var.  89.875  91.812  93.585  94.966  96.189  97.147  97.997
+                      Dim.22  Dim.23  Dim.24  Dim.25  Dim.26  Dim.27  Dim.28
+Variance               0.015   0.009   0.008   0.005   0.003   0.001   0.000
+% of var.              0.728   0.453   0.395   0.251   0.148   0.027   0.000
+Cumulative % of var.  98.726  99.179  99.574  99.825  99.973 100.000 100.000
+                      Dim.29
+Variance               0.000
+% of var.              0.000
+Cumulative % of var. 100.000
+
+Individuals (the 10 first)
+                Dim.1    ctr   cos2    Dim.2    ctr   cos2    Dim.3    ctr
+1            | -0.171  0.075  0.086 | -0.077  0.030  0.017 |  0.022  0.003
+2            | -0.066  0.011  0.004 | -0.427  0.925  0.180 |  0.265  0.407
+3            | -0.024  0.002  0.000 |  0.116  0.068  0.009 |  0.325  0.614
+4            | -0.342  0.299  0.220 | -0.037  0.007  0.003 | -0.305  0.542
+5            |  1.905  9.283  0.692 | -0.242  0.297  0.011 | -0.472  1.293
+6            | -0.342  0.299  0.220 | -0.037  0.007  0.003 | -0.305  0.542
+7            | -0.207  0.109  0.065 | -0.157  0.124  0.037 |  0.200  0.233
+8            | -0.300  0.230  0.090 | -0.046  0.011  0.002 |  0.053  0.016
+9            | -0.310  0.245  0.111 |  0.071  0.025  0.006 | -0.250  0.363
+10           | -0.310  0.245  0.111 |  0.071  0.025  0.006 | -0.250  0.363
+               cos2  
+1             0.001 |
+2             0.069 |
+3             0.073 |
+4             0.175 |
+5             0.042 |
+6             0.175 |
+7             0.061 |
+8             0.003 |
+9             0.072 |
+10            0.072 |
+
+Categories (the 10 first)
+                Dim.1    ctr   cos2 v.test    Dim.2    ctr   cos2 v.test  
+Importado.F  | -0.241  0.984  0.770 -8.730 | -0.013  0.005  0.002 -0.457 |
+Importado.v  |  3.198 13.079  0.770  8.730 |  0.167  0.071  0.002  0.457 |
+Origen.i     |  3.198 13.079  0.770  8.730 |  0.167  0.071  0.002  0.457 |
+Origen.n     | -0.241  0.984  0.770 -8.730 | -0.013  0.005  0.002 -0.457 |
+Destino.c    |  0.126  0.012  0.001  0.255 |  2.133  6.589  0.190  4.332 |
+Destino.i    | -0.005  0.000  0.001 -0.255 | -0.089  0.275  0.190 -4.332 |
+Tipo.prod.p  |  0.000  0.000    NaN    NaN |  0.000  0.000    NaN    NaN |
+Proveedor.i  | -0.250  1.018  0.506 -7.080 | -0.112  0.404  0.102 -3.170 |
+Proveedor.o  | -0.571  0.179  0.010 -0.999 |  1.092  1.295  0.037  1.911 |
+Proveedor.pa |  2.997 13.129  0.781  8.794 |  0.837  2.027  0.061  2.455 |
+              Dim.3    ctr   cos2 v.test  
+Importado.F   0.083  0.264  0.091  2.997 |
+Importado.v  -1.098  3.503  0.091 -2.997 |
+Origen.i     -1.098  3.503  0.091 -2.997 |
+Origen.n      0.083  0.264  0.091  2.997 |
+Destino.c     1.601  4.255  0.107  3.251 |
+Destino.i    -0.067  0.177  0.107 -3.251 |
+Tipo.prod.p   0.000  0.000    Inf   -Inf |
+Proveedor.i   0.015  0.008  0.002  0.412 |
+Proveedor.o  -0.005  0.000  0.000 -0.009 |
+Proveedor.pa -0.160  0.085  0.002 -0.470 |
+
+Categorical variables (eta2)
+               Dim.1 Dim.2 Dim.3  
+Importado    | 0.770 0.002 0.091 |
+Origen       | 0.770 0.002 0.091 |
+Destino      | 0.001 0.190 0.107 |
+Tipo.prod    | 0.000 0.000 0.000 |
+Proveedor    | 0.784 0.103 0.002 |
+Sit.comp     | 0.798 0.317 0.338 |
+Frec.compra  | 0.350 0.235 0.107 |
+Transform    | 0.303 0.249 0.181 |
+Conserv      | 0.047 0.024 0.102 |
+Empaque      | 0.494 0.321 0.398 |</code></pre>
+</div>
+</div>
+<p>El anterior insumo es importante, porque define el orcentaje de varianza que capturan los 29 ejes canónicos - <code>Eigenvalues</code> y selecciona a las 10 variables de mayor relevancia para el análisis de ordenación - <code>mca Categories (the 10 first)</code> en los tres primeros ejes canónicos - <code>Categorical variables (eta2)</code>.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="ajuste-de-la-ordenación-definida-por-los-autovalores" class="level4" data-number="10.0.3.1"><b style="color:#1f78b4;">
+<h4 data-number="10.0.3.1" class="anchored" data-anchor-id="ajuste-de-la-ordenación-definida-por-los-autovalores"><span class="header-section-number">10.0.3.1</span> 2.1) Ajuste de la ordenación definida por los autovalores</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>A continuación se calcula el componente tabular, para identificar la varianza que captira cada eje canónico o <code>Dim.i</code>, en donde <code>i</code> es cada uno de los ejes de la ordenación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Matriz de autovalores de los seis primeros ejes canónicos</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mca1<span class="sc">$</span>eig)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      eigenvalue percentage of variance cumulative percentage of variance
+dim 1  0.3909689              18.874360                          18.87436
+dim 2  0.1972939               9.524535                          28.39889
+dim 3  0.1720808               8.307348                          36.70624
+dim 4  0.1609039               7.767773                          44.47401
+dim 5  0.1387903               6.700220                          51.17423
+dim 6  0.1107851               5.348244                          56.52248</code></pre>
+</div>
+</div>
+<p>En la <a href="Manova.html#fig-figura1">Figura&nbsp;<span>14.1</span></a>, se grafican los resultados de la tabla anterior.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de autovalores (para la escogencia de variables)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_screeplot</span>(mca1, <span class="at">addlabels =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">"% Varianza explicada"</span>, <span class="at">xlab =</span> <span class="st">"Dimensiones"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">col=</span><span class="st">"steelblue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.1: Varianza capturada por cada eje canónico</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figuras-generales-del-mca1" class="level4" data-number="10.0.3.2"><b style="color:#1f78b4;">
+<h4 data-number="10.0.3.2" class="anchored" data-anchor-id="figuras-generales-del-mca1"><span class="header-section-number">10.0.3.2</span> 2.2) Figuras generales del mca1</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La <a href="Manova.html#fig-figura2">Figura&nbsp;<span>14.2</span></a> muestra la relación de las 14 variables categoricas del análisis, el nivel de relación o cercanía es definido por la distancia chi cuadrado. <code>fviz_mca_var</code> representa a la grafica de variables, <code>mca.cor</code> muestra solo a las variables que más contribuyen a la ordenación, <code>repel = TRUE</code> permite visualizar los elementos sin solapamientos. ior.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de relación de las variables categóricas</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_var</span>(mca1, <span class="at">choice =</span> <span class="st">"mca.cor"</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.2: Ordenación de las variables que más contribuyen al análisis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="Manova.html#fig-figura3">Figura&nbsp;<span>14.3</span></a> muestra el biplot integrado por los 100 registros de peces y las variables categóricas que los caracterizan. <code>fviz_mca_biplot</code> permite visualizar a las observaciones o filas de la base de datos (números en azul) y a las variables con mayor contribución al análisis (en rojo).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura del Biplot de ordenación registros de peces y de variables</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_biplot</span>(mca1, <span class="at">choice =</span> <span class="st">"mca.cor"</span>,<span class="at">repel =</span> <span class="cn">TRUE</span>,         </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.3: Ordenación de las variables que más contribuyen al análisis y de las observaciones (registros de peces)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="Clasificación_lda.html#fig-figura4">Figura&nbsp;<span>13.4</span></a> define a l00 registros de peces con todas las variables activas y sus categorías (no incluye al comando “mca.cor”).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura del Biplot de ordenación para registros de peces y categoricas de las variables</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_biplot</span>(mca1, <span class="at">repel =</span> <span class="cn">TRUE</span>,       </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura4-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.4: Ordenación de todas las variables activas y de las observaciones (registros de peces)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figuras-del-mca-con-ponderaciones" class="level4" data-number="10.0.3.3"><b style="color:#1f78b4;">
+<h4 data-number="10.0.3.3" class="anchored" data-anchor-id="figuras-del-mca-con-ponderaciones"><span class="header-section-number">10.0.3.3</span> 2.3) Figuras del mca con ponderaciones</h4>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>A continuación se visualiza la ordenación de las observaciones (100 registros de peces) y su nivel de importancia (observaciones en rojo son las más importantes). <code>fviz_mca_ind</code>, permite visualizar a los individuos u observaciones (<a href="Clasificación_lda.html#fig-figura5">Figura&nbsp;<span>13.5</span></a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contribuciones de las observaciones (filas de la la base de bagres)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_ind</span>(mca1, <span class="at">col.ind =</span> <span class="st">"cos2"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.5: Ordenación de las observaciones (registros de peces) y su nivel de contribución al análisis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En la <a href="Clasificación_lda.html#fig-figura6">Figura&nbsp;<span>13.6</span></a> se muestra la ordenación de las variables activas y su nivel de contribución (variables en rojo son las más importantes).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contribuciones de las variables categóricas (columnas de variables activas)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_var</span>(mca1, <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura6-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.6: Ordenación de las variables activas y su nivel de contribución al análisis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="segunda-ordenación-de-las-variables-cualitativas-activas-mca2." class="level3" data-number="10.0.4"><b style="color:#1f78b4;">
+<h3 data-number="10.0.4" class="anchored" data-anchor-id="segunda-ordenación-de-las-variables-cualitativas-activas-mca2."><span class="header-section-number">10.0.4</span> 3) Segunda ordenación de las variables cualitativas activas (mca2).</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>A continuación se realiza un mca con dos elementos adicionales a a las variables activas ordenadas anteriormente:</p>
+<ul>
+<li><p><strong>Variables cuantitativas suplementarias (quanti.sup)</strong>, correspondientes a la venta en kilogramos y el precio de venta de los bagres.</p></li>
+<li><p><strong>Variables cualitativas suplementarias (quali.sup)</strong>, representadas por los nombres o tipos de bagres (columna: Nombre.vernacular)</p></li>
+</ul>
+<p>Esto con el objetivo de visualizar aspectos asociados a la comercialización de los bagres (variables cuantitativas y tipos de bagres), en respuesta a las variables categóricas producto de las encuestas (variables activas).</p>
+<p><strong>Paso 1</strong>. Incluir los nombres de los bagres a la base “datos.activos” (datos.activos.2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pasar nombres de los bagres a factor</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bagres <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"bagres.xlsx"</span>)    <span class="co"># paquete "readxl"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>bagres<span class="sc">$</span>Nombre.vernacular <span class="ot">=</span> <span class="fu">as.factor</span>(bagres<span class="sc">$</span>Nombre.vernacular)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear data frame con los nombres de los bagres y variables cuantitativas.</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>datos.activos<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">bagres =</span> bagres[,<span class="dv">6</span>], </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">venta.kg =</span> bagres[,<span class="dv">7</span>],</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Precio.venta =</span> bagres[,<span class="dv">8</span>], </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                              datos.activos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">15</span>])</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos.activos<span class="fl">.1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   100 obs. of  17 variables:
+ $ Nombre.vernacular: Factor w/ 4 levels "B.Ray.o.Tigr",..: 4 4 3 2 2 2 2 4 4 4 ...
+ $ Venta.kg         : num  150 1000 150 50 2200 20 30 20 50 35 ...
+ $ Precio.venta     : num  18000 14000 16000 19000 13000 24000 24000 22000 22000 18000 ...
+ $ Importado        : Factor w/ 2 levels "Importado.F",..: 1 1 1 1 2 1 1 1 1 1 ...
+ $ Origen           : Factor w/ 2 levels "Origen.i","Origen.n": 2 2 2 2 1 2 2 2 2 2 ...
+ $ Destino          : Factor w/ 2 levels "Destino.c","Destino.i": 2 2 2 2 2 2 2 2 2 2 ...
+ $ Tipo.prod        : Factor w/ 1 level "Tipo.prod.p": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Proveedor        : Factor w/ 3 levels "Proveedor.i",..: 1 1 1 1 3 1 1 1 1 1 ...
+ $ Sit.comp         : Factor w/ 6 levels "Sit.comp.c","Sit.comp.o",..: 3 3 3 3 6 3 3 3 4 4 ...
+ $ Frec.compra      : Factor w/ 3 levels "Frec.compra.d",..: 3 3 1 3 3 3 3 3 3 3 ...
+ $ Transform        : Factor w/ 3 levels "Transform.c",..: 2 2 2 1 2 1 2 1 1 1 ...
+ $ Conserv          : Factor w/ 2 levels "Conserv.c","Conserv.sa": 1 1 1 1 1 1 1 1 1 1 ...
+ $ Empaque          : Factor w/ 3 levels "Empaque.b","Empaque.cc",..: 1 1 1 1 3 1 1 1 1 1 ...
+ $ Transporte       : Factor w/ 3 levels "Transporte.m",..: 3 3 2 3 3 3 3 2 3 3 ...
+ $ Cliente.prim.    : Factor w/ 3 levels "Cliente.prim.c",..: 1 3 1 1 3 1 1 1 1 1 ...
+ $ Cliente.sec.     : Factor w/ 5 levels "Cliente.sec.c",..: 2 2 2 4 3 4 2 2 2 2 ...
+ $ Cliente.ter.     : Factor w/ 5 levels "Cliente.ter.c",..: 3 4 3 3 3 3 4 3 3 3 ...</code></pre>
+</div>
+</div>
+<p><strong>Paso 2</strong>. Nuevo mca, que incluye a las variables suplementarias (quali.sup y quanti.sup)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mca con nombres de los bagres (quali.sup) y variables cuantitativas (cuanti sub)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mca2  <span class="ot">&lt;-</span> <span class="fu">MCA</span> (datos.activos<span class="fl">.1</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">quali.sup =</span> <span class="dv">1</span>,            <span class="co"># Registros de peces (X)</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">quanti.sup =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>,         <span class="co"># 2 y 3 son Variables cuantitativas</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">graph=</span><span class="cn">FALSE</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Paso 3</strong>. Gráfica de las variables cuantitativas suplementarias (quanti.sup) (<a href="Clasificación_lda.html#fig-figura7">Figura&nbsp;<span>13.7</span></a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de las variables suplementarias (azul) y las activas (rojo)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_var</span>(mca2, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">choice =</span> <span class="st">"mca.cor"</span>,    <span class="co"># Principales variables cualitativas</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>)          <span class="co"># Quita el solapamiento de las variables.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura7-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.7: Ordenación de las variables activas y su nivel de contribución al análisis.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Paso 4</strong>. Grafica de las variables cualitativas suplementarias (quali.sup) (<a href="Clasificación_cla.html#fig-figura8">Figura&nbsp;<span>12.8</span></a>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de las variables suplementarias (verde), las activas (rojo) y los individuos (azul)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_mca_biplot</span>(mca2, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">geom.ind =</span> <span class="fu">c</span>(<span class="st">"n"</span>, <span class="st">"n"</span>),    <span class="co"># No mostrar a los individuos</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">ggtheme =</span> <span class="fu">theme_bw</span>())      <span class="co"># Puede usar temas de "ggplot2"    </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura8-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.8: Ordenación de todas las variables activas que más contribuyen al análisis (rojo) y su relación co las variables cualitativas suplementarias (verde).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="Clasificación_cla.html#fig-figura9">Figura&nbsp;<span>12.9</span></a> muestra las elipses que representan a los intervalos de confianza de cada grupo de bagres, para medir el tipo de relación o de colapamiento entre estos, basado en las variables activas que los caracterizan.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses por cada tipo de bagre</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_ellipses</span>(mca2, <span class="st">"Nombre.vernacular"</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-figura9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Ordenación_mca_files/figure-html/fig-figura9-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10.9: Relación entre las especies de bagres y con sus observaciones (registros de peces).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="taller-de-entrenamiento" class="level3" data-number="10.0.5"><b style="color:#1f78b4;">
+<h3 data-number="10.0.5" class="anchored" data-anchor-id="taller-de-entrenamiento"><span class="header-section-number">10.0.5</span> <strong>Taller de entrenamiento</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Objetivo:</strong> Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un MCA con las variables biológicas (taxones). Enviar los resultados al <em>Teams</em> del profesor.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ordenación_nmds.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Taller 5.1 Análisis de Escalamiento Multidimensional no Métrico - NMDS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Ordenación_rda.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Taller 7.1 Análisis de Redundancia - RDA</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
