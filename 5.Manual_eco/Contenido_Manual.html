@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bladimir Zuñiga y Javier Rodríguez">
+<meta name="dcterms.date" content="2023-04-14">
+
+<title>Manual de Ecología General</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Contenido_Manual_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Contenido_Manual_files/libs/quarto-html/quarto.js"></script>
+<script src="Contenido_Manual_files/libs/quarto-html/popper.min.js"></script>
+<script src="Contenido_Manual_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Contenido_Manual_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Contenido_Manual_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Contenido_Manual_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Contenido_Manual_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Contenido_Manual_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Contenido_Manual_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#análisis-de-datos-ambientales" id="toc-análisis-de-datos-ambientales" class="nav-link active" data-scroll-target="#análisis-de-datos-ambientales">1) Análisis de Datos Ambientales</a>
+  <ul>
+  <li><a href="#análisis-y-visualización-de-datos-ambientales-en-excel" id="toc-análisis-y-visualización-de-datos-ambientales-en-excel" class="nav-link" data-scroll-target="#análisis-y-visualización-de-datos-ambientales-en-excel">1.1) Análisis y Visualización de Datos Ambientales en Excel</a></li>
+  <li><a href="#análisis-y-visualización-de-datos-ambientales-en-r" id="toc-análisis-y-visualización-de-datos-ambientales-en-r" class="nav-link" data-scroll-target="#análisis-y-visualización-de-datos-ambientales-en-r">1.2) Análisis y Visualización de datos ambientales en R</a></li>
+  </ul></li>
+  <li><a href="#ecología-de-poblaciones" id="toc-ecología-de-poblaciones" class="nav-link" data-scroll-target="#ecología-de-poblaciones">3) Ecología de Poblaciones</a>
+  <ul>
+  <li><a href="#modelos-generales" id="toc-modelos-generales" class="nav-link" data-scroll-target="#modelos-generales">3.1) Modelos generales</a></li>
+  <li><a href="#tablas-de-vida-y-modelos-matriciales" id="toc-tablas-de-vida-y-modelos-matriciales" class="nav-link" data-scroll-target="#tablas-de-vida-y-modelos-matriciales">3.2) Tablas de Vida y Modelos matriciales</a></li>
+  </ul></li>
+  <li><a href="#ecología-de-comunidades" id="toc-ecología-de-comunidades" class="nav-link" data-scroll-target="#ecología-de-comunidades">4) Ecología de Comunidades</a></li>
+  <li><a href="#tareas---próximo-encuentro." id="toc-tareas---próximo-encuentro." class="nav-link" data-scroll-target="#tareas---próximo-encuentro.">Tareas - Próximo encuentro.</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Manual de Ecología General</h1>
+<p class="subtitle lead">Aplicaciones de R para ecología de poblaciones y comunidades</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Bladimir Zuñiga y Javier Rodríguez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 14, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="análisis-de-datos-ambientales" class="level1"><b style="color:#1f78b4;">
+<h1>1) Análisis de Datos Ambientales</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="análisis-y-visualización-de-datos-ambientales-en-excel" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="análisis-y-visualización-de-datos-ambientales-en-excel">1.1) Análisis y Visualización de Datos Ambientales en Excel</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<ul>
+<li><p>Taller 1. Taller introductorio al Excel</p></li>
+<li><p>Taller 2. Análisis climático de ecosistemas</p></li>
+<li><p>Taller 3. Valoración de un ambiente acuático</p></li>
+<li><p>Taller 4. Valoración de un ambiente terrestre</p></li>
+</ul>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="análisis-y-visualización-de-datos-ambientales-en-r" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="análisis-y-visualización-de-datos-ambientales-en-r">1.2) Análisis y Visualización de datos ambientales en R</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<ul>
+<li><p>Taller 1. Introducción al RStudio</p></li>
+<li><p>Taller 2. Gramática del Tydiverse y ggplot2.</p></li>
+<li><p>Taller 3. Análisis climático de ecosistemas</p></li>
+<li><p>Taller 4. Valoración de un ambiente acuático</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ecología-de-poblaciones" class="level1"><b style="color:#1f78b4;">
+<h1>3) Ecología de Poblaciones</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="modelos-generales" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="modelos-generales">3.1) Modelos generales</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<ul>
+<li><p>Taller 1. Modelo exponencial</p></li>
+<li><p>Taller 2. Modelo logístico</p></li>
+</ul>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="tablas-de-vida-y-modelos-matriciales" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="tablas-de-vida-y-modelos-matriciales">3.2) Tablas de Vida y Modelos matriciales</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<ul>
+<li><p>Tallar 1. Tablas de Vida</p></li>
+<li><p>Taller 2. Modelos por edades</p></li>
+<li><p>Taller 3. Modelos por estados</p></li>
+<li><p>Taller 4. Distribución de poblaciones</p></li>
+<li><p>Taller 5. Valoración de una población vegetal</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ecología-de-comunidades" class="level1"><b style="color:#1f78b4;">
+<h1>4) Ecología de Comunidades</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<ul>
+<li><p>Taller 1. Estructura de comunidades (diversidad alfa)</p></li>
+<li><p>Taller 2. Estructura de comunidades (diversidad beta)</p></li>
+<li><p>Taller 3. Distribución de especies</p></li>
+<li><p>Taller 4. Valoración de comunidades acuáticas</p></li>
+<li><p>Taller 5. Valoración de comunidades terrestres</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="tareas---próximo-encuentro." class="level1"><b style="color:#1f78b4;">
+<h1>Tareas - Próximo encuentro.</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<ol type="1">
+<li><p>Definir espacios de encuentro (viernes 5 pm)</p></li>
+<li><p>Opción de invitar a un profe de apoyo (ej. <em>Profe Argenis</em>)</p></li>
+<li><p>Avanzar: Talleres 4. (<strong>Javier</strong>)</p></li>
+<li><p>Avanzar: <em>Pendiente de definir</em>. (<strong>Bladimir</strong>)</p></li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
