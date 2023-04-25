@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez_Barrios y Kenedith Méndez">
+<meta name="dcterms.date" content="2023-04-24">
+
+<title>Taller 6. Visualización de Poblaciones</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Taller6.poblaciones_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller6.poblaciones_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller6.poblaciones_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller6.poblaciones_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller6.poblaciones_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller6.poblaciones_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller6.poblaciones_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller6.poblaciones_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller6.poblaciones_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller6.poblaciones_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a>
+  <ul>
+  <li><a href="#modelos-de-crecimiento-exponencial" id="toc-modelos-de-crecimiento-exponencial" class="nav-link" data-scroll-target="#modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Modelos de crecimiento exponencial </b></a></li>
+  <li><a href="#modelos-de-crecimiento-logístico" id="toc-modelos-de-crecimiento-logístico" class="nav-link" data-scroll-target="#modelos-de-crecimiento-logístico"><b style="color:#d95f02;"> Modelos de crecimiento logístico </b></a></li>
+  <li><a href="#librerías-requeridas" id="toc-librerías-requeridas" class="nav-link" data-scroll-target="#librerías-requeridas"><b style="color:#1f78b4;"> Librerías requeridas </b></a></li>
+  <li><a href="#respuestas-al-cuestionario" id="toc-respuestas-al-cuestionario" class="nav-link" data-scroll-target="#respuestas-al-cuestionario"><b style="color:#1f78b4;"> Respuestas al cuestionario </b></a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 6. Visualización de Poblaciones</h1>
+<p class="subtitle lead">Datos de …</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez_Barrios y Kenedith Méndez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/pinguino.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption"><n style="color:#1f78b4;"> Imágen tomada de <a href="https://www.pexels.com/es-es/foto/naturaleza-pajaro-animal-mono-4147986/">Foto de Vladimir Blyufer</a> </n></figcaption><p></p>
+</figure>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="introducción" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><em>Pendiente de documentar …</em></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="objetivo-de-la-actividad" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="objetivo-de-la-actividad">Objetivo de la actividad</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Dar respuesa con procedimientos de visualización gráfica en R, a las siguientes preguntas, asociadas a modelos exponenciales y logísticos de poblaciones:</p>
+<section id="modelos-de-crecimiento-exponencial" class="level3">
+<h3 class="anchored" data-anchor-id="modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Modelos de crecimiento exponencial </b></h3>
+<ol type="1">
+<li><p>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</p></li>
+<li><p>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que vuelvan a doblar? Redondea tu respuesta a la centésima más cercana.</p></li>
+<li><p>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población de 227 gramos para llegar a 93 gramos de biomasa?</p></li>
+<li><p>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que llegue a 18000?</p></li>
+<li><p>Una población silvestre crece a una tasa anual del 7%. Si la población aumenta a 2000 en 7 años, ¿Cuál sería el tamaño de la población inicial?</p></li>
+<li><p>Una población de curíes de interés para consumo, crece a una tasa anual del 3%. Si la población actual es de 3.000 individuos, ¿cuántos años se tardará para que doble su densidad?</p></li>
+<li><p>Una población endémica de mariposas declina su densidad anual en 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</p></li>
+<li><p>De acuerdo al artículo que titular “U.S. reaching the 300 million person milestone”, se destaca en unos de sus apartes, que la población de U.S. alcanzó 200 millones de personas en 1967. De acuerdo a lo anterior:</p></li>
+</ol>
+<ol type="a">
+<li><p>Asumiendo que en 2007 la población alcanza los 303 millones (303.106), calcular la tasa de incremento instantáneo por año.</p></li>
+<li><p>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en el año 2027?</p></li>
+</ol>
+<ol start="9" type="1">
+<li><p>La proyección de naciones unidas para la población mundial, se da en un rango basado en diferentes escenarios posibles que pueden darse en el futuro. El menor estimador global para la población de 2050 es de 7.3 billones de personas y el mayor estimador es de 10.7 billones. ¿Cuál será la tasa de incremento anual en cada estimador, asumiendo que la población inicia con 6,6 billones en 2007? <a href="https://countrymeters.info/es/World">ENLACE</a></p></li>
+<li><p>¿Cuánto tiempo puede tomar para que un par de individuos produzcan la población mundial actual (cerca de 10 billones de personas) con la presente tasa de crecimiento poblacional (r = 2,8% por año)? ¿En qué tiempo se doblaría esta población? Discuta el resultado.</p></li>
+<li><p>En el momento en el que un libro de cabecera fue escrito se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años. (a) calcule r para la población humana. Si la población en 1993 era de 5400 millones, (b) ¿cuál es el tamaño proyectado para el año 2010?</p></li>
+<li><p>Usted estudia una población de escarabajos de tamaño 3.000. Durante el periodo de un mes usted registra 400 nacimientos y 150 muertes en esta población. (a) Estime r y (b) proyecte el tamaño poblacional en 6 meses.</p></li>
+<li><p>Usted estudia una población de orquídeas en peligro para las cuales b= 0.0021 nacimientos/individuo.año y d= 0.0020 muertes/individuo.año. La población actual es de 40 plantas. Un nuevo centro comercial eliminará parte del hábitat de las orquídeas y reducirá la población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</p></li>
+<li><p>Si una población de E. coli crece de 1000 células a 2x109 células en 6 h, ¿Cuál será su tasa intrínseca de incremento? ¿Está doblando su tiempo?</p></li>
+</ol>
+</section>
+<section id="modelos-de-crecimiento-logístico" class="level3">
+<h3 class="anchored" data-anchor-id="modelos-de-crecimiento-logístico"><b style="color:#d95f02;"> Modelos de crecimiento logístico </b></h3>
+<ol start="15" type="1">
+<li><p>Suponga que una población de mariposas crece de acuerdo a la ecuación logística. Si la capacidad de carga es de 500 mariposas y r= 0.1 ind/ind.més ¿cuál es la tasa de crecimiento para la población?</p></li>
+<li><p>Un biólogo pesquero quiere maximizar la producción de trucha manteniendo la población de truchas en exactamente 500 individuos (el biólogo asume que este es el tamaño conducente a la máxima tasa de crecimiento poblacional y que su población crece en forma logística). Prediga la tasa de crecimiento poblacional inicial al adicionar a la población 600 peces y explique su significado. Asuma que r para las truchas es de 0.005 individuos/individuo.día</p></li>
+<li><p>Se estudia una población de tortugas denso-dependiente que tienen las siguientes relaciones para las tasas de nacimiento (b’) y mortalidad (d’) en función del tamaño poblacional, N:</p>
+<p>b’= 0.10 + 0.03N – 0.0005N2</p>
+<p>d’ = 0.20 + 0.01N</p></li>
+</ol>
+<p>Grafique estas funciones en el mismo gráfico y discuta la dinámica poblacional de la tortuga. ¿En qué difiere este modelo del modelo simple logístico con funciones lineales de nacimientos y muertes?</p>
+<ol start="18" type="1">
+<li>Averiguar por los siguientes conceptos ecológicos y mencionar un ejemplo de cada uno: (1) Autoadelgazamiento (selfthining), modelo de competencia scramble, y competencia context.</li>
+</ol>
+</section>
+<section id="librerías-requeridas" class="level3">
+<h3 class="anchored" data-anchor-id="librerías-requeridas"><b style="color:#1f78b4;"> Librerías requeridas </b></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="respuestas-al-cuestionario" class="level3">
+<h3 class="anchored" data-anchor-id="respuestas-al-cuestionario"><b style="color:#1f78b4;"> Respuestas al cuestionario </b></h3>
+<p><b style="color:#d95f02;"> Pregunta 1. </b> Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000:</p>
+<ol type="1">
+<li><p>¿Cuál será en 7 años?</p></li>
+<li><p>Graficar la proyección de esta población en 10 periodos de tiempo.</p></li>
+</ol>
+<p><strong>R./</strong> Primero hay que utilizar la fórmula para el crecimiento exponencial de una población biológica:</p>
+<p><b style="color:#1f78b4;"> Nt = N0 * e^(r*t) </b></p>
+<p><em>Donde</em>:</p>
+<p><strong>Nt</strong>= densidad de la población después de un tiempo t</p>
+<p><strong>N0</strong>= densidad inicial de la población (en el tiempo 0)</p>
+<p><strong>r</strong>= tasa de crecimiento intrinsico o instantaneo.</p>
+<p><strong>t</strong>= tiempo transcurrido (expresado en años)</p>
+<p>En este caso, se tiene que:</p>
+<p><strong>N0</strong>= 5000 individuos</p>
+<p><strong>r</strong>= 0.06 indv./indv.*t (6% expresado como un decimal)</p>
+<p><strong>t</strong>= 7 años</p>
+<p><em>Preguntas a resolver:</em></p>
+<ol type="1">
+<li><p><strong>N7</strong>= ?</p></li>
+<li><p>Proyección exponencial en 10 periodos de tiempo</p></li>
+</ol>
+<p><em>Procedimiento</em></p>
+<ol type="1">
+<li>Calculo de la densidad de la población después de 7 años.</li>
+</ol>
+<ul>
+<li>Función asignada como <code>población</code> (<code>Nt</code>) la cual permite estimar el crecimiento de la población Nt, basado en la densidad inicial <code>N0</code>, en la tasa de crecimiento intrisico o instantánea <code>r</code> en periodos de tiempo especificos <code>t</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para el crecimiento exponencial</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>poblacion <span class="ot">&lt;-</span> <span class="cf">function</span>(N0, r, t) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  N0 <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>poblacion</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function(N0, r, t) {
+  N0 * exp(r * t)
+}</code></pre>
+</div>
+</div>
+<ul>
+<li>Cálculo del tamaño de la población en 7 periodos de tiempo <code>N7</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimación la densidad de la población (Nt) después de 7 años (N7)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>N7 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">poblacion</span>(<span class="at">N0 =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="fl">0.06</span>, <span class="at">t =</span> <span class="dv">7</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>N7</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7610</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura del modelo de proyección de la población en 10 periodos de tiempo.</li>
+</ol>
+<ul>
+<li>Base de datos o data frame <code>datos</code>, en 10 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame con los valores de población para varios tiempos</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">tiempo =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">poblacion =</span> <span class="fu">poblacion</span>(<span class="at">N0 =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="fl">0.06</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(datos,<span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tiempo poblacion
+1       0      5000
+2       1      5309
+3       2      5637
+4       3      5986
+5       4      6356
+6       5      6749
+7       6      7167
+8       7      7610
+9       8      8080
+10      9      8580
+11     10      9111</code></pre>
+</div>
+</div>
+<ul>
+<li>Figura del modelo de proyección de la población en 10 periodos de tiempo.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> poblacion)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">y =</span> N7), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">y =</span> N7, <span class="at">label =</span> N7), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Densidad Poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Crecimiento Exponencial"</span>) <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller6.poblaciones_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura resultante, se observa cómo la población crece exponencialmente a lo largo de los 10 periodos de tiempo, y cómo después de 7 periodos, la población alcanza un valor de aproximadamente 7,764 individuos.</p>
+<p><b style="color:#d95f02;"> Pregunta 2. </b> Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000,</p>
+<ol type="1">
+<li><p>¿cuántos años se tardará para que vuelvan a doblar? Redondea tu respuesta a la centésima más cercana.</p></li>
+<li><p>Graficar la proyección de esta población en 20 periodos de tiempo.</p></li>
+</ol>
+<p><strong>R./</strong> Se requiere utilizar la fórmula para el crecimiento exponencial:</p>
+<p><b style="color:#1f78b4;"> Nt = N0 * e^(r*t) </b></p>
+<p><em>Ver los elementos de esta ecuación en el ejercicio anterior.</em></p>
+<p>En este caso, se tiene que:</p>
+<p><strong>N0</strong>= 2000 individuos</p>
+<p><strong>r</strong>= 0.05 indv./indv.*t (aumento del 5%)</p>
+<p><strong>t</strong>= 7 años</p>
+<p><em>Preguntas a resolver:</em></p>
+<ol type="1">
+<li><p><strong>tdoble</strong>= ?</p></li>
+<li><p>Proyección exponencial en 10 periodos de tiempo</p></li>
+</ol>
+<p><em>Procedimiento</em></p>
+<ol type="1">
+<li>En este caso, se requiere saber cuántos años tardará la población en duplicarse. Para hacer esto, tenemos que:</li>
+</ol>
+<p><b style="color:#1f78b4;"> tdoble = ln(2) / r </b></p>
+<p>En este caso:</p>
+<p>N0 = 2000 r = 0.05 indv./indv.*t (5%)</p>
+<ul>
+<li>Función asignada como <code>población</code> (<code>Nt</code>) la cual permite estimar el crecimiento de la población Nt, basado en la densidad inicial <code>N0</code>, en la tasa de crecimiento intrisico o instantánea <code>r</code> en periodos de tiempo especificos <code>t</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos la función para el crecimiento exponencial</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>poblacion <span class="ot">&lt;-</span> <span class="cf">function</span>(N0, r, t) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  N0 <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>poblacion</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function(N0, r, t) {
+  N0 * exp(r * t)
+}</code></pre>
+</div>
+</div>
+<ul>
+<li>Cálculo del tiempo de duplicación de la población <code>tdoble</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tiempo que tardará la población en duplicarse redondeado a dos decimales</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tdoble <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">2</span>) <span class="sc">/</span> <span class="fl">0.05</span>, <span class="dv">2</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>tdoble</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.86</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura de la proyección poblacional en 20 periodos de tiempo o 20 años.</li>
+</ol>
+<ul>
+<li>Base de datos o data frame <code>datos</code>, en 20 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un data frame con los valores de población para varios tiempos</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">tiempo =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">poblacion =</span> <span class="fu">round</span>(<span class="fu">poblacion</span>(<span class="at">N0 =</span> <span class="dv">2000</span>, <span class="at">r =</span> <span class="fl">0.05</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>)))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  tiempo poblacion
+1      0      2000
+2      1      2103
+3      2      2210
+4      3      2324
+5      4      2443
+6      5      2568</code></pre>
+</div>
+</div>
+<ul>
+<li>Figura del modelo de proyección de la población en 20 periodos de tiempo.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> poblacion)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tdoble, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> tdoble <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fu">max</span>(datos<span class="sc">$</span>poblacion) <span class="sc">/</span> <span class="dv">2</span>, </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"Duplicación</span><span class="sc">\n</span><span class="st">en"</span>, tdoble, <span class="st">"años"</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Población (N)"</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Crecimiento exponencial de la población de aves"</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller6.poblaciones_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura, se observa cómo la población crece exponencialmente a lo largo del tiempo, y cómo la línea vertical roja indica el momento en que la población se duplica. El tiempo que tardará la población en duplicarse es de aproximadamente 13.86 años.</p>
+<p><b style="color:#d95f02;"> Pregunta 3. </b> Una población de hormigas presenta una tasa de disminución anual del 7,2%.</p>
+<ol type="1">
+<li><p>¿Cuántos años le tomará a esta población de 227 gramos para llegar a 93 gramos de biomasa?</p></li>
+<li><p>Graficar la proyección de esta población en 20 periodos de tiempo.</p></li>
+</ol>
+<p><strong>R./</strong> Se requiere utilizar la fórmula para el crecimiento exponencial:</p>
+<p><b style="color:#1f78b4;"> Nt = N0 * e^(r*t) </b></p>
+<p><em>Ver los elementos de esta ecuación en el ejercicio anterior.</em></p>
+<p>En este caso, se tiene que:</p>
+<p><strong>N0</strong>= 227 gramos</p>
+<p><strong>Nt</strong>= 93 gramos</p>
+<p><strong>t</strong>= ?</p>
+<p><strong>r</strong>= -0.072 indv./indv.*t (disminución del 7.2%)</p>
+<p><em>Preguntas a resolver:</em></p>
+<ol type="1">
+<li><p><strong>t</strong>= ?</p></li>
+<li><p>Proyección exponencial en 10 periodos de tiempo</p></li>
+</ol>
+<p><em>Procedimiento</em></p>
+<ol type="1">
+<li>En este caso, si: <b style="color:#1f78b4;"> Nt = N0 * e^(r*t) </b>.</li>
+</ol>
+<p>De acuerdo a diferentes despejes logarítmicos:</p>
+<p><b style="color:#1f78b4;"> t= [ln(Nt/No)]/[r * ln(e)] </b></p>
+<p><strong>t</strong>= [ln(93/227)]/[-0.072 * 1]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos la función para la disminución exponencial</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>biomasa <span class="ot">&lt;-</span> <span class="cf">function</span>(N0, r, t) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  N0 <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>r <span class="sc">*</span> t)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>biomasa</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function(N0, r, t) {
+  N0 * exp(-r * t)
+}</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">93</span><span class="sc">/</span><span class="dv">227</span>)<span class="sc">/</span>(<span class="sc">-</span><span class="fl">0.072</span> <span class="sc">*</span> <span class="dv">1</span>), <span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.39</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura de la proyección poblacional en 20 periodos de tiempo o 20 años.</li>
+</ol>
+<ul>
+<li>Base de datos o data frame <code>datos</code>, en 20 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un data frame con los valores de población para varios tiempos</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">tiempo =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">biomasa =</span> <span class="fu">biomasa</span>(<span class="at">N0 =</span> <span class="dv">227</span>, <span class="at">r =</span> <span class="fl">0.072</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  tiempo  biomasa
+1      0 227.0000
+2      1 211.2305
+3      2 196.5565
+4      3 182.9019
+5      4 170.1959
+6      5 158.3725</code></pre>
+</div>
+</div>
+<ul>
+<li>Figura del modelo de proyección de la población en 20 periodos de tiempo.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> biomasa)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">93</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="fu">max</span>(datos<span class="sc">$</span>tiempo) <span class="sc">/</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="dv">100</span>, </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"Llegada</span><span class="sc">\n</span><span class="st">a 93g</span><span class="sc">\n</span><span class="st">en"</span>, t, <span class="st">"años"</span>),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Biomasa (g)"</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Disminución exponencial de una población de hormigas"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller6.poblaciones_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura resultante, podemos observar cómo la biomasa disminuye exponencialmente a lo largo del tiempo, y cómo la línea horizontal roja nos indica el momento en que la biomasa alcanza los 93 gramos. El tiempo que tardará la biomasa en llegar a 93 gramos es de aproximadamente 12.39 años.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
