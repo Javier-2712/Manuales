@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Talleres de Análisis Multivariados en R - Videos clases</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller1.Introducción.eco.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Videos clases</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Talleres de Análisis Multivariados en R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Eco1.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Eco1.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link active">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">Taller4.1 Intro. Poblaciones</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">Taller5. Demog.Humana</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller8. Diversidad Alfa</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller9. Sub.unidades.comunidades</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">Salida de campo</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#videos-de-las-semanas-1---3" id="toc-videos-de-las-semanas-1---3" class="nav-link" data-scroll-target="#videos-de-las-semanas-1---3">Videos de las semanas 1 - 3</a>
+  <ul class="collapse">
+  <li><a href="#análisis-climático-de-ecosistemas" id="toc-análisis-climático-de-ecosistemas" class="nav-link" data-scroll-target="#análisis-climático-de-ecosistemas">1. Análisis Climático de ecosistemas</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-4-a-6" id="toc-videos-de-la-semanas-4-a-6" class="nav-link" data-scroll-target="#videos-de-la-semanas-4-a-6">Videos de la semanas 4 a 6</a>
+  <ul class="collapse">
+  <li><a href="#manejo-de-programas-ramas-y-rstudio-para-modelos-exponenciales-parte-1" id="toc-manejo-de-programas-ramas-y-rstudio-para-modelos-exponenciales-parte-1" class="nav-link" data-scroll-target="#manejo-de-programas-ramas-y-rstudio-para-modelos-exponenciales-parte-1">1. Manejo de programas Ramas y RStudio para modelos exponenciales (parte 1)</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-6-a-7" id="toc-videos-de-la-semanas-6-a-7" class="nav-link" data-scroll-target="#videos-de-la-semanas-6-a-7">Videos de la semanas 6 a 7</a>
+  <ul class="collapse">
+  <li><a href="#manejo-de-rstudio-para-modelos-logísticos" id="toc-manejo-de-rstudio-para-modelos-logísticos" class="nav-link" data-scroll-target="#manejo-de-rstudio-para-modelos-logísticos">1. Manejo de RStudio para modelos logísticos</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-8-y-9" id="toc-videos-de-la-semanas-8-y-9" class="nav-link" data-scroll-target="#videos-de-la-semanas-8-y-9">Videos de la semanas 8 y 9</a>
+  <ul class="collapse">
+  <li><a href="#tablas-de-vida-y-modelos-matriciales-de-poblaciones" id="toc-tablas-de-vida-y-modelos-matriciales-de-poblaciones" class="nav-link" data-scroll-target="#tablas-de-vida-y-modelos-matriciales-de-poblaciones">1. Tablas de vida y modelos matriciales de poblaciones</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-10-y-11" id="toc-videos-de-la-semanas-10-y-11" class="nav-link" data-scroll-target="#videos-de-la-semanas-10-y-11">Videos de la semanas 10 y 11</a>
+  <ul class="collapse">
+  <li><a href="#tablas-de-vida-y-modelos-matriciales-de-calotropis" id="toc-tablas-de-vida-y-modelos-matriciales-de-calotropis" class="nav-link" data-scroll-target="#tablas-de-vida-y-modelos-matriciales-de-calotropis">1. Tablas de vida y modelos matriciales de <em>Calotropis</em></a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#tabulación-de-datos---salida-de-campo" id="toc-tabulación-de-datos---salida-de-campo" class="nav-link" data-scroll-target="#tabulación-de-datos---salida-de-campo">2. Tabulación de datos - salida de campo</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-12-y-13" id="toc-videos-de-la-semanas-12-y-13" class="nav-link" data-scroll-target="#videos-de-la-semanas-12-y-13">Videos de la semanas 12 y 13</a>
+  <ul class="collapse">
+  <li><a href="#teoría-patrones-de-distribución-de-poblaciones" id="toc-teoría-patrones-de-distribución-de-poblaciones" class="nav-link" data-scroll-target="#teoría-patrones-de-distribución-de-poblaciones">1. Teoría patrones de distribución de poblaciones</a></li>
+  </ul></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a>
+  <ul class="collapse">
+  <li><a href="#ejemplos-patrones-de-distribución-aleatoria" id="toc-ejemplos-patrones-de-distribución-aleatoria" class="nav-link" data-scroll-target="#ejemplos-patrones-de-distribución-aleatoria">2. Ejemplos patrones de distribución aleatoria</a></li>
+  </ul></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a>
+  <ul class="collapse">
+  <li><a href="#ejemplos-patrones-de-distribución-agrupada" id="toc-ejemplos-patrones-de-distribución-agrupada" class="nav-link" data-scroll-target="#ejemplos-patrones-de-distribución-agrupada">3. Ejemplos patrones de distribución agrupada</a></li>
+  </ul></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a>
+  <ul class="collapse">
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12"></a></li>
+  </ul></li>
+  <li><a href="#videos-de-la-semanas-14-a-15" id="toc-videos-de-la-semanas-14-a-15" class="nav-link" data-scroll-target="#videos-de-la-semanas-14-a-15">Videos de la semanas 14 a 15</a>
+  <ul class="collapse">
+  <li><a href="#introducción-a-la-ecología-de-comunidades" id="toc-introducción-a-la-ecología-de-comunidades" class="nav-link" data-scroll-target="#introducción-a-la-ecología-de-comunidades"><b style="color:#d95f02;"> 1. Introducción a la Ecología de Comunidades </b></a></li>
+  <li><a href="#taller-de-computo-ecología-de-comunidades" id="toc-taller-de-computo-ecología-de-comunidades" class="nav-link" data-scroll-target="#taller-de-computo-ecología-de-comunidades"><b style="color:#d95f02;"> 2. Taller de computo Ecología de Comunidades </b></a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13"></a>
+  <ul class="collapse">
+  <li><a href="#bibliografía-recomendada-de-la-biblioteca-virtual" id="toc-bibliografía-recomendada-de-la-biblioteca-virtual" class="nav-link" data-scroll-target="#bibliografía-recomendada-de-la-biblioteca-virtual">Bibliografía recomendada de la Biblioteca Virtual:</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/videos.clases.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Videos clases</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://images.pexels.com/photos/827209/pexels-photo-827209.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://www.pexels.com/es-es/@indeedsaeed/">Saeid Anvar</a> </n>]</p>
+<p>Los videos que se presentan a continuación, son el resultado de sesiones realizadas a partir del 2020 hasta la fecha y se encuentran alojadas en el repositorio de videos “Stream” de la universidad.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-las-semanas-1---3" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de las semanas 1 - 3</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="análisis-climático-de-ecosistemas" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="análisis-climático-de-ecosistemas">1. Análisis Climático de ecosistemas</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://t3.ftcdn.net/jpg/05/78/65/98/240_F_578659816_v2ZJMwlpFisEE66gWt6h3POodHeLYseI.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/images/earth-day-concept-on-white-background-world-environment-day-generative-ai/578659816">CYB3RUSS</a> </n>]</p>
+<ul>
+<li><a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/EQdo0S8a_GlGl_oHp-9JYRIB6kv5z4iFngJxTFVKWZjRuw?e=XzcKMQ">Organización de los datos climáticos</a></li>
+</ul>
+<p><n style="color:#fc8d62;"> <strong>Grupo 1</strong> </n></p>
+<ul>
+<li><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EVNEzo8tMXFMubjrlxcgqu4B2OpJWRWCE8pd6iUoy5Erxg?e=MuM3Ct">Semana 2. Clase datos climáticos - parte 1 y 2 (Eco1.Grupo1)</a></li>
+</ul>
+<p><n style="color:#fc8d62;"> <strong>Grupo 2</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EWxRAc-HXRxDvLsAUdHUmVcBnvS2dFJ2xTbuxOz4YsGXYg?e=9RjAM9">Semana 2. Clase datos climáticos - parte 1 (Eco1.Grupo2)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EX8eEGGSjbdPng82n_RCUccBEAkaCrzrn0doaZotgAJCQw?e=KcnHIS">Semana 3. Clase datos climáticos - parte 2.1 (Eco1.Grupo2)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EX8eEGGSjbdPng82n_RCUccBEAkaCrzrn0doaZotgAJCQw?e=KcnHIS">Semana 3. Clase datos climáticos - parte 2.2 (Eco1.Grupo2)</a></p></li>
+</ul>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-4-a-6" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 4 a 6</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="manejo-de-programas-ramas-y-rstudio-para-modelos-exponenciales-parte-1" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="manejo-de-programas-ramas-y-rstudio-para-modelos-exponenciales-parte-1">1. Manejo de programas Ramas y RStudio para modelos exponenciales (parte 1)</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/Exponencial.png" class="img-fluid" width="410"></p>
+<p><n style="color:#fc8d62;"> <strong>Grupo 1</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/ESf3KTrP11tJheiGUk26Bs0B1NQtkSxnoNa_0ERXIKdDGA?e=JcsO5M">Semana 4. Taller en Clase modelos exponenciales de poblaciones (parte 1) (Eco1.Grupo1)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EUdHP13HUAtJg6l9mjacZJEBXdGji2TGfT-o5wwDFMNIGQ?e=JBBGX0">Semana 5. Taller en Clase modelos exponenciales de poblaciones (parte 2) (Eco1.Grupo1)</a></p></li>
+</ul>
+<p><n style="color:#fc8d62;"> <strong>Grupo 2</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EZZ3w57Z8-lKopOj_THRe54BTMzwEaAKOoSKkDEW8HEp9w?e=xqGCiU">Semana 5. Taller en Clase modelos exponenciales de poblaciones (parte 1) (Eco1.Grupo2)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EZrMvmYqrOJFsDKt53FSRy8BSsBjrPgp0uf94LkzDLjBZw?e=WGNe6L">Semana 6. Taller en Clase modelos exponenciales de poblaciones (parte 2) (Eco1.Grupo2)</a></p></li>
+</ul>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-6-a-7" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 6 a 7</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="manejo-de-rstudio-para-modelos-logísticos" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="manejo-de-rstudio-para-modelos-logísticos">1. Manejo de RStudio para modelos logísticos</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/logistico.png" class="img-fluid" width="391"></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/logistico2.png" class="img-fluid" width="382"></p>
+<p><n style="color:#fc8d62;"> <strong>Grupo 1</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EdW0RMV4ozFKijqnS0mKF1IBpsqhga67vC9KGaUutHJLDQ?e=P3QJOe">Semana 6. Taller en Clase modelos logísticos de poblaciones (parte 1) (Eco1.Grupo1)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EezPUXgFPJ5KqdSB6502-CcBnpRITDnGlW6HAEIoXM6GQg?e=UhNvou">Semana 7. Taller en Clase modelos logísticos de poblaciones (parte 2) (Eco1.Grupo1)</a></p></li>
+</ul>
+<p><n style="color:#fc8d62;"> <strong>Grupo 2</strong> </n></p>
+<ul>
+<li><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/ERrbriLzYohDrhNry-nE9g4BhjBFzD2UWguVqXbXwX0_pw?e=0QDaLT">Semana 7. Taller en Clase modelos logísticos de poblaciones (parte 1) (Eco1.Grupo2)</a></li>
+</ul>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-8-y-9" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 8 y 9</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="tablas-de-vida-y-modelos-matriciales-de-poblaciones" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="tablas-de-vida-y-modelos-matriciales-de-poblaciones">1. Tablas de vida y modelos matriciales de poblaciones</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/mod.edad.JPG" class="img-fluid" width="539"></p>
+<p><n style="color:#fc8d62;"> <strong>Grupo 1</strong> </n></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/Eci8r2vNlRRGp2WnDsx2yXsBXH454aXHoomnB2bdxkOSjg?e=12RNzZ">Semana 9. Taller de computo tablas de vida y matrices (parte 1) 2023-II</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EWhV8FPAIlxOrvbjZIfZkdYBDmNchqQoak2Mt0dy34Vyxg?e=aUhhsY">Semana 11. Taller de computo tablas de vida y matrices (parte 2) 2023-II</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EVNEzo8tMXFMubjrlxcgqu4B2OpJWRWCE8pd6iUoy5Erxg?e=ssSyYd">Semana 8. Sesión 1 - Ejercicio en clase con Pizarra Virtual - Tablas de vida (parte 1)</a></p>
+<section id="teoría-tablas-de-vida" class="level5">
+<h5 class="anchored" data-anchor-id="teoría-tablas-de-vida"><n style="color:#2ca25f;"> <strong>Teoría Tablas de vida</strong> </n></h5>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/tabla.vida1.PNG" class="img-fluid" width="464"></p>
+</section>
+<section id="semana-8.-sesión-1---tablas-de-vida-y-modelos-de-estado-en-poblaciones" class="level5">
+<h5 class="anchored" data-anchor-id="semana-8.-sesión-1---tablas-de-vida-y-modelos-de-estado-en-poblaciones"><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/ERwmwgwNWitCtQZt6wRXSO0BN2C2gXIaoA85fVpAbVhG4A?e=Yda5pI">Semana 8. Sesión 1 - Tablas de vida y Modelos de estado en poblaciones</a></h5>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EdGH5tPkx0xFusi5cjY5DkUBM3-bJ-x0isWI979cKx9TcA?e=wcOcTe">Semana 8. Sesión 2 - Modelos de estado en poblaciones</a></p>
+</section>
+<section id="taller-pizarra---modelo-de-estado" class="level5">
+<h5 class="anchored" data-anchor-id="taller-pizarra---modelo-de-estado"><n style="color:#2ca25f;"> <strong>Taller pizarra - modelo de estado</strong> </n></h5>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/taller.modelo.estado.PNG" class="img-fluid" width="482"></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EVEpfssKZfNPm9H0qsC03k0BGlHmJy_K9K9_P0JqhtVqkg?e=KlVUlV">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 1</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EeKXqr7WstNDtWOmf0XLtggByqXiYtBW7rRKPJAwmnXdMw?e=3qUp7j">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 2</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EURnZTdS4whNmMbTcpHEkC8BQRU0n0sbZbk2EvunpDvkuw?e=BV9Hy7">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 3</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EbFbi-oh5K9Frx74-HZ0078BWGCKcYdeo96Dn8lvsRUYmA?e=XDwg1u">Semana 11. Tablas de vida y modelos de edad y de estado - poblaciones-Teoría</a></p>
+</section>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"></h2>
+<p><n style="color:#fc8d62;"> <strong>Grupo 2</strong> </n></p>
+<p><a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/EQQhdJY3c69MupjFoGTEkRABKl5PPGH3bsrW4Yu_yB9qWw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=KiVZH0">Semana 9. Taller de computo tablas de vida y matrices (parte 1) 2023-II</a></p>
+<p><a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/Efl2GIJyulBIlecAovzA9jkBqfCUgCwqFClrf6BbHywsTQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=7BNFAi">Semana 9. Taller de computo tablas de vida y matrices (parte 2) 2023-II</a></p>
+<section id="teoría-tablas-de-vida-1" class="level5">
+<h5 class="anchored" data-anchor-id="teoría-tablas-de-vida-1"><n style="color:#2ca25f;"> <strong>Teoría Tablas de vida</strong> </n></h5>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/tabla.vida1.PNG" class="img-fluid" width="505"></p>
+</section>
+<section id="semana-8.-sesión-1---tablas-de-vida-y-modelos-de-estado-en-poblaciones-1" class="level5">
+<h5 class="anchored" data-anchor-id="semana-8.-sesión-1---tablas-de-vida-y-modelos-de-estado-en-poblaciones-1"><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/ERDAZvnuqNBLqhb5kN9jCIABnj3g5aAJjUuXFgIIDRtwjw?e=noXLHB">Semana 8. Sesión 1 - Tablas de vida y Modelos de estado en poblaciones</a></h5>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/ESMUuMKIEkxMmvY6aCjgAu0BA0v2qDW16I6k8xARkwu04Q?e=fvUFc7">Semana 8. Sesión 2 - Modelos de estado en poblaciones</a></p>
+</section>
+<section id="taller-pizarra---modelo-de-estado-1" class="level5">
+<h5 class="anchored" data-anchor-id="taller-pizarra---modelo-de-estado-1"><n style="color:#2ca25f;"> <strong>Taller pizarra - modelo de estado</strong> </n></h5>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/taller.modelo.estado.PNG" class="img-fluid" width="502"></p>
+</section>
+<section id="semana-9.-sesión-3-ejercicio-en-la-pizarra-modelos-de-estado-parte-1" class="level5">
+<h5 class="anchored" data-anchor-id="semana-9.-sesión-3-ejercicio-en-la-pizarra-modelos-de-estado-parte-1"><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EbwzJ_WbFdpJg1GVDTFNfeYB3SWcuQfKowatCHnb1WPlmA?e=qyEe4J">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 1</a></h5>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EZRNizVTgylCvsC4bwPoxoYB6GD9e1XG8hXfgz-0n3-ClA?e=vIoUt8">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 2</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/ERnNi_NUIaBDsr3LBm6G8uAB99DD3dcIGYUq5AJwOS_Y6A?e=IPtN2N">Semana 9. Sesión 3 – Ejercicio en la pizarra – Modelos de estado – parte 3</a></p>
+</section>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-10-y-11" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 10 y 11</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="tablas-de-vida-y-modelos-matriciales-de-calotropis" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="tablas-de-vida-y-modelos-matriciales-de-calotropis">1. Tablas de vida y modelos matriciales de <em>Calotropis</em></h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src=".\Figuras/calotropis1.jpg" class="img-fluid" width="477"></p>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 1</strong> </n></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EWUpaw0rb-ZNmX9tFUwjTYgBroHnTXxg6hgxO3C6mrU7nA?e=e48MZk">Semana 11. Pautas del taller de Calotropis en la Granja</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EVcd395zmJZNuSaIc2JNVroBsiv29Pdr1k4NRUYDcnmKNQ?e=HAd4N8">Semana 11. Taller de cómputo. <em>Calotropis</em> (parte 1)</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EWhV8FPAIlxOrvbjZIfZkdYBDmNchqQoak2Mt0dy34Vyxg?e=3Bileq">Semana 11. Taller de cómputo. <em>Calotropis</em> (parte 2)</a></p>
+<hr>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 2</strong> </n></p>
+<p><a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/ER19hXjFSilEptWwLO_SqisBV0i5-2LPFVbtXmuPP3hgvw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=d4xM2e">Semana 10. Taller de cómputo. <em>Calotropis</em> (parte 1)</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EUaIbGbSOuVDiJRsTXHMCLUBJbzWdftyupaqZYvK1SbgDw?e=mIzYAG">Semana 11. Taller de cómputo. <em>Calotropis</em> (parte 2)</a></p>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6"></h2>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="tabulación-de-datos---salida-de-campo" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="tabulación-de-datos---salida-de-campo">2. Tabulación de datos - salida de campo</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src=".\Fotos.campo/imagen16.jpg" class="img-fluid" width="498"></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EVzR0x1bu5xLoeJp81syh1wB7nSbBva7ADgAtmLwTEizmQ?e=eiDokt">Semana 10. Tabulación_ Datos de campo-Batimetría</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EdxOwu01jJpAmglRvGPICFMBMQKtUJQeWwY4EKcYtny_UA?e=b8kcD1">Semana 10. Tabulación_ Datos de campo - Hidrología (parte 1) Objeto flotador</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EU_drKmPQpFMpTg-2qHXDLQBFX_DMKdIXxHlX32ttyctaw?e=gqBCu1">Semana 10. Tabulación_ Datos de campo - Hidrología (parte 2) Objeto flotador</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EYCU2tbyeDFLtf6KdhSseQIBx3ITb9thZSsmYCxleJxI-g?e=JdRO9o">Semana 10. Tabulación_ Datos de campo - Hidrología (parte 3) Trazador con sal</a></p>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-12-y-13" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 12 y 13</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="Figuras/calotropis3.jpg" class="img-fluid" width="556"></p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="teoría-patrones-de-distribución-de-poblaciones" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="teoría-patrones-de-distribución-de-poblaciones">1. Teoría patrones de distribución de poblaciones</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><a href="https://youtu.be/wnhYWn4Nook">Teoría - Distribución de poblaciones (parte 1)</a></p>
+<p><a href="https://youtu.be/5l5-i26MA6g">Teoría - Distribución de poblaciones (parte 2)</a></p>
+</section>
+</section>
+<section id="section-8" class="level1">
+<h1></h1>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="ejemplos-patrones-de-distribución-aleatoria" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="ejemplos-patrones-de-distribución-aleatoria">2. Ejemplos patrones de distribución aleatoria</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/distrib.%20poisson.png" class="img-fluid" width="460"></p>
+<p><a href="https://youtu.be/Zvixu1C2vwM">1. Ejemplo - Distribución aleatoria de poblaciones (parte 1)</a></p>
+<p><a href="https://youtu.be/NHSXw2golb4">2. Ejemplo - Distribución aleatoria de poblaciones (parte 2)</a></p>
+<p><a href="https://youtu.be/YEJVWntc0iw">3. Ejemplo - Distribución aleatoria de poblaciones (parte 3)</a></p>
+</section>
+</section>
+<section id="section-9" class="level1">
+<h1></h1>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="ejemplos-patrones-de-distribución-agrupada" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="ejemplos-patrones-de-distribución-agrupada">3. Ejemplos patrones de distribución agrupada</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/distrib.%20binomial.png" class="img-fluid" width="491"></p>
+<p><a href="https://youtu.be/IofWdfs149g">1. Ejemplo - Distribución Binomial negativa de poblaciones (parte 1)</a></p>
+<p><a href="https://youtu.be/1PW4v5QV070">2. Ejemplo - Distribución Binomial negativa de poblaciones (parte 2)</a></p>
+<p><a href="https://youtu.be/YEJVWntc0iw">3. Ejemplo - Distribución Binomial negativa de poblaciones (parte 3)</a></p>
+</section>
+</section>
+<section id="section-10" class="level1">
+<h1></h1>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 1</strong> </n></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EQGGGMhdSlFLq5lggxqls-wBWCj_wonDVlYMFs8t5QqNVg?e=LuTFb1">Semana 13. Pautas para la tabulación y cálculos de distribución de Calotropis en la granja Unimagdalena (2023-II)</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/Eelu3Ygso6dIozJlHAOUh78BXIMTV2o1vl4eyk351_Drlg?e=j6EQBE">Semana 13. Ejercicio en clase (2023-II). Distribuciones aleatoria y agrupada</a></p>
+</section>
+<section id="section-11" class="level1">
+<h1></h1>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 2</strong> </n></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EQiDqd7C_jFGrx-9gkW2AbEBRLzjpph6aGPUSIgIE4hmxQ?e=h057AQ">Semana 13. Pautas para la tabulación y cálculos de distribución de Calotropis en la granja Unimagdalena (2023-II)</a></p>
+<p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EdQHMDk_bERCtzv6PAyWerMBYsLtSox1l4EbEftjWUZKkw?e=jqOypf">Semana 13. Ejercicio en clase (2023-II). Distribuciones aleatoria y agrupada</a></p>
+<section id="section-12" class="level2">
+<h2 class="anchored" data-anchor-id="section-12"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="videos-de-la-semanas-14-a-15" class="level1"><b style="color:#1f78b4;">
+<h1>Videos de la semanas 14 a 15</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://as1.ftcdn.net/v2/jpg/01/00/52/60/1000_F_100526045_MvUWojA5GiDfAgdXvMcDTeH6NFncWn2j.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/202079861/vlad61-61?load_type=author&amp;prev_url=detail">vlad61_61</a> </n>]</p>
+<section id="introducción-a-la-ecología-de-comunidades" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-a-la-ecología-de-comunidades"><b style="color:#d95f02;"> 1. Introducción a la Ecología de Comunidades </b></h2>
+<p><n style="color:#fc8d62;"> <strong>Teoría de comunidades</strong> </n></p>
+<ul>
+<li><p><a href="https://youtu.be/3ohV2e-6kZo">Clase de 2020 - Introducción al módulo de Communidades(parte 1)</a></p></li>
+<li><p><a href="https://youtu.be/yOwmVx7oSmo">Clase de 2020 - Introducción al módulo de Communidades(parte 2)</a></p></li>
+<li><p><a href="https://youtu.be/uSQPtCgtpUY">Clase de 2020 - Introducción al módulo de Communidades(parte 3)</a></p></li>
+</ul>
+<p>–</p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-II/EeXi6vvXgjJIiw8HNGrIpaUB4Y9W8IwPf6-ptDrzzMRajA?e=R3zCgQ">Clase de 2021 - Introducción al módulo de Communidades(1)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-II/ETZzraLp2FJMt0m8XfD2SdMB2L_MgtMWcM6RVa5UzfFPeQ?e=uVjPLZ">Clase de 2021 - Introducción al módulo de Communidades(2)</a></p></li>
+</ul>
+</section>
+<section id="taller-de-computo-ecología-de-comunidades" class="level2">
+<h2 class="anchored" data-anchor-id="taller-de-computo-ecología-de-comunidades"><b style="color:#d95f02;"> 2. Taller de computo Ecología de Comunidades </b></h2>
+<p><img src="https://javier-2712.github.io/Ecologia1/Taller7.diversidad.macroinv/taller7.macroinv_files/figure-html/fig-figura3-1.png" class="img-fluid" width="410"></p>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 1</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EZUcb75lcd9AqkfMJt846joBSC7Lxt2VV8SvFUqYAc2fkw?e=uAkZ3b">Semana 14. Taller visto en clase de 2023-II - Taller comunidades - PAST</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EZKrZBeRyi1JlPxL4sC0kKgBfg5mFsCT4aWuBnZx_MWF8Q?e=BZeeEb">Semana 14. Taller visto en clase de 2023-II - Taller comunidades - vegan e iNEXT</a></p></li>
+</ul>
+<p>–</p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-II/ESPTJyZ6utpHlKHTOyh1POgBsKgZaBOdT0jxiYqf7CxxjA?e=h9xUTO">Taller visto en clase de 2021-II - Taller comunidades - PAST e iNEXT</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-I/EfES0kH_w75KjQqlKewC5XQBW06B4wwgE8bTJrAysxtqWw?e=q6e0cd">Taller visto en clase de 2021-I - Taller comunidades - PAST (parte 1)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-I/Ec6cwXDZoglFhHWEHjFi2g8Bn3w9q5d2XV4SSOOmbjKr1g?e=gIFcB2">Taller visto en clase de 2021-I - Taller comunidades - iNEXT (parte 2)</a></p></li>
+</ul>
+<p><n style="color:#fc8d62;"> <strong>Taller de computo - Grupo 2</strong> </n></p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EUslA-EZLkBFhM50a56AKQEBQtnCveNPvJ44F0tsUPpd6Q?e=1h4Z3H">Semana 14. Taller visto en clase de 2023-II - Taller comunidades - PAST</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/ESzFvqfkiHJFqq1_Fmru75oBD3JWNq43QStagC0qS0rs5A?e=wnQR7S">Semana 14. Taller visto en clase de 2023-II - Taller comunidades - vegan e iNEXT</a></p></li>
+</ul>
+<p>–</p>
+<ul>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-II/ESPTJyZ6utpHlKHTOyh1POgBsKgZaBOdT0jxiYqf7CxxjA?e=h9xUTO">Taller visto en clase de 2021-II - Taller comunidades - PAST e iNEXT</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-I/EfES0kH_w75KjQqlKewC5XQBW06B4wwgE8bTJrAysxtqWw?e=q6e0cd">Taller visto en clase de 2021-I - Taller comunidades - PAST (parte 1)</a></p></li>
+<li><p><a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1-2021-I/Ec6cwXDZoglFhHWEHjFi2g8Bn3w9q5d2XV4SSOOmbjKr1g?e=gIFcB2">Taller visto en clase de 2021-I - Taller comunidades - iNEXT (parte 2)</a></p></li>
+</ul>
+</section>
+<section id="section-13" class="level2">
+<h2 class="anchored" data-anchor-id="section-13"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="bibliografía-recomendada-de-la-biblioteca-virtual" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="bibliografía-recomendada-de-la-biblioteca-virtual">Bibliografía recomendada de la Biblioteca Virtual:</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=7286&amp;pg=66">Ecología (Diana Fernández, 2017)</a> Módulo de diversidad, abundancia y estratificación</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figuras/Diana.jpg" class="img-fluid figure-img" style="width:40.0%"></p>
+<p></p><figcaption class="figure-caption"><n style="color:#1f78b4;"> <em>[Ecología (Diana Fernández, 2017)]</em> </n></figcaption><p></p>
+</figure>
+</div>
+<p><a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=6804&amp;pg=354">Elementos de Ecología (Thomas Smith, 2015)</a> Módulo de Estructura de la Comunidad.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://m.media-amazon.com/images/I/41a2pM-QSeL.jpg" class="img-fluid figure-img" style="width:40.0%"></p>
+<p></p><figcaption class="figure-caption"><n style="color:#1f78b4;"> <em>[Elementos de Ecología (Thomas Smith, 2015)]</em> </n></figcaption><p></p>
+</figure>
+</div>
+<p><a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=9960&amp;pg=366">Ecología (Manuel Moles, 2019)</a> Módulo de especies, abundancia y diversidad.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.ingebook.com/ib/pimg/Ingebook/00100_0000002660_4145.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p></p><figcaption class="figure-caption"><n style="color:#1f78b4;"> <em>[Ecología (Manuel Moles, 2019)]</em> </n></figcaption><p></p>
+</figure>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Resumen</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller1.Introducción.eco.html" class="pagination-link">
+        <span class="nav-page-text">Taller1. Introducción</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
