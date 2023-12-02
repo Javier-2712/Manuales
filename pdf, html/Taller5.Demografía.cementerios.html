@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Talleres de Análisis Multivariados en R - Taller5. Demog.Humana</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller6.Modeación-matricial.html" rel="next">
+<link href="./Taller4.2.Poblaciones.log.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller5. Demog.Humana</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Talleres de Análisis Multivariados en R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Eco1.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Eco1.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">Taller4.1 Intro. Poblaciones</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link active">Taller5. Demog.Humana</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller8. Diversidad Alfa</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller9. Sub.unidades.comunidades</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">Salida de campo</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><strong>Introducción</strong></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#requerimientos-del-informe" id="toc-requerimientos-del-informe" class="nav-link" data-scroll-target="#requerimientos-del-informe"><strong>Requerimientos del Informe</strong></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#discusión-de-los-resultados." id="toc-discusión-de-los-resultados." class="nav-link" data-scroll-target="#discusión-de-los-resultados."><strong>Discusión de los resultados.</strong></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#citas-bibliográficas" id="toc-citas-bibliográficas" class="nav-link" data-scroll-target="#citas-bibliográficas"><strong>Citas Bibliográficas</strong></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/Taller5.Demografía.cementerios.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller5. Demog.Humana</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b><section id="introducción" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="introducción"><strong>Introducción</strong></h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/20200101_Life_expectancy_increases_with_age_already_achieved_-_chart.svg/1280px-20200101_Life_expectancy_increases_with_age_already_achieved_-_chart.svg.png" class="img-fluid" width="406"></p>
+<p>[Imágen tomada de <a href="https://commons.wikimedia.org/w/index.php?curid=134781849">RCraig09</a>]</p>
+<div style="text-align: justify">
+
+<p>La <strong>demografía</strong>, la ciencia que se dedica al estudio de las poblaciones humanas, desempeña un papel fundamental en la comprensión de la historia y evolución de nuestra especie, Homo sapiens. Uno de los métodos más fascinantes para analizar la demografía de poblaciones pasadas es el uso de <strong>tablas de vida</strong> estáticas, las cuales proporcionan un vistazo detallado a la mortalidad y la esperanza de vida en un momento particular en la historia.</p>
+<p>Las <strong>tablas de vida</strong> son herramientas esenciales para la demografía, desempeñan un papel fundamental en la comprensión de la dinámica de poblaciones y de su calidad de vida. Estas tablas proporcionan un retrato detallado de la mortalidad y la esperanza de vida en diferentes grupos de edad, lo que permite a los investigadores analizar y comparar las características demográficas de poblaciones humanas a lo largo del tiempo y en diversas regiones geográficas.</p>
+<p>Como señala <em>Coale (1972)</em>, pionero en el campo de la demografía, “las tablas de vida son un registro histórico de la experiencia de una población con respecto a su mortalidad” y, por lo tanto, son una herramienta invaluable para rastrear la evolución de las poblaciones. Además, las tablas de vida estánticas, que se centran en una cohorte específica en un período dado, ofrecen una visión única de la estructura de edad y los patrones de mortalidad en un momento concreto.</p>
+<p>Como señala <em>Wachter (2014)</em>, “las tablas de vida estáticas son herramientas esenciales en la investigación demográfica, permitiéndonos desentrañar los misterios de cómo las poblaciones humanas han evolucionado a lo largo del tiempo”. En palabras de <em>Carey (2001)</em> “las tablas de vida estáticas nos brindan una visión instantánea y detallada de cómo las poblaciones están estructuradas por edades y géneros en un momento particular, lo que es fundamental para comprender los desafíos demográficos y sociales que enfrenta una sociedad en un período histórico específico”.</p>
+<p>El presente taller tiene como <strong>objetivo</strong> elaborar tablas de vida estáticas y analizar su aplicación en el análisis de poblaciones humanas, centrándose en su capacidad para revelar tendencias históricas y diferencias en la esperanza de vida y las tasas de mortalidad, siguiendo los principios definidos por la Sociedad Ecológica de América (ESA) en su enfoque interdisciplinario para la investigación demográfica (<em>Ellis et al., 2012</em>). A través de este análisis, se valorará la demografía de <em>Homo sapiens</em>, en un período específico en el pasado, en muestras tomadas de cementerios, para brindar información sobre las tasas de mortalidad, la distribución por grupos de edad y la esperanza de vida al nacer.</p>
+</div></section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="requerimientos-del-informe" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="requerimientos-del-informe"><strong>Requerimientos del Informe</strong></h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="Figuras/Cementerio.PNG" class="img-fluid" width="341"></p>
+<p>[Imágen tomada de González et al.&nbsp;(2023)]</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="paso-1-resumen-introducción-y-metodología-del-informe." class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-1-resumen-introducción-y-metodología-del-informe."><strong>Paso 1: Resumen, introducción y metodología del informe.</strong></h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<ul>
+<li><p><strong><em>Título del taller.</em></strong> Redactar un título, acorde al ejercicio realizdo.</p></li>
+<li><p><strong><em>Resumen</em></strong>. Resumir en un párrafo, la ubicación de los cementerios evaluados, el objetivo del trabajo, la metodología empleada y los resultados encontrados. Incluir tres palabras clave al final del resumen.</p></li>
+<li><p><strong><em>Introducción.</em></strong> Relacionar estudios realizados sobre el tema, a nivel mundial, nacional y local. Finalizar con el objetivo del trabajo (pude incluir las hipótesis a evaluar).</p></li>
+<li><p><strong>Metodología del informe.</strong> Explicar cómo fue el diseño de muestreo en cada cementerio, así como el análisis de datos realizado. Incluir fotos y un dibujo del croquis realizado en los sitios censados.</p></li>
+</ul>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-2-recopilación-de-datos-del-cementerio" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-2-recopilación-de-datos-del-cementerio"><strong>Paso 2: Recopilación de datos del cementerio</strong></h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p><img src="https://jardinesdepazdesantamarta.com/assets/images/dsc-0041-600x400-32.jpg" class="img-fluid" width="482"></p>
+<p>[Imágen tomada de <a href="https://www.google.com/maps/contrib/101734373420225176745/photos/@28.9255791,-35.9690406,4z/data=!3m1!4b1!4m3!8m2!3m1!1e1?entry=ttu">Rafael Barras Rodriguez</a>]</p>
+<div style="text-align: justify">
+
+<p>Se requieren datos de las fechas de nacimiento y defunción, así como el género de las personas censadas. Organizarse en grupos de tres estudiantes, tomar datos de mínimo 200 tumbas seleccionadas al azar. Si es un mausoleo (tumbas familiares), tomar datos de una sola tumba. Tabular los siguientes datos:</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>No</th>
+<th>Año de nacimiento</th>
+<th>Año de Muerte</th>
+<th>Edad de muerte</th>
+<th><p>Sexo</p>
+<p>F (Fem), M (Masc)</p></th>
+<th>Observaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1960</td>
+<td>1980</td>
+<td>20</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1970</td>
+<td>2010</td>
+<td>30</td>
+<td>M</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1950</td>
+<td>2020</td>
+<td>70</td>
+<td>M</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cada grupo debe tabular los datos en el siguiente enlace, posteriormente se debe descargar la tabla en formato&nbsp;<em><code>xlsx</code></em>&nbsp;y anexarla al informe: <a href="https://universidadmag-my.sharepoint.com/:x:/g/personal/jrodriguez_unimagdalena_edu_co/EYwVnNlnz6ZGnMLiNeRMqdMBgSDJdnn9yhOT-LRmCYH8vg?e=2z7R3R">Enlace_tabla</a></p>
+<p>Diseñar un croquis del cementerio, con la ubicación de las tumbas censadas. Este documento debe ser cargado en la asignación del taller.</p>
+<p><img src="Figuras/Cementerio1.png" class="img-fluid" width="373"></p>
+<p><span class="smallcaps">Ejemplo del diseño de muestreo del cementerio Jardines de Jerusalen de Santa Marta. [Imágen tomada de González et al.&nbsp;(2023)]</span></p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex." class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex."><strong>Paso 3: Resultados del informe. Estimadores demográficos por cada cementerio (q<sub>x</sub>, l<sub>x</sub>, S<sub>x</sub>, e<sub>x</sub>).</strong></h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>Para construir la <strong><em>tabla de vida estática</em></strong>, hay que clasificar a las personas fallecidas en diferentes grupos de edad. Esto puede hacerse en rangos de 10 años. Son tres tablas de vida (tv): (1) tv general, (2) tv de hombres y (3) tv de mujeres. <strong>Ej. para hombres:</strong></p>
+<ul>
+<li><p>Grupo de edad 0-9 años</p></li>
+<li><p>Grupo de edad 10-19 años, hasta 90-99 años</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 33%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Clase de Edad</th>
+<th>Frecuencia de Hombres</th>
+<th>Cohorte Ficticia<br>
+(Número de vivos)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 - 9</td>
+<td>10</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>10 - 19</td>
+<td>30</td>
+<td>500 - 10 = 490</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>90 - 99</td>
+<td>5 (Total: 500)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Insertar columnas adicionales para calcular los siguientes estimadores:</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<ul>
+<li><strong>Proporción de sobrevivientes (<code>lx</code>).</strong></li>
+</ul>
+</b><p><b style="color:#1f78b4;"></b></p>
+<!-- -->
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<ul>
+<li><strong>Probabilidad de sobrevivientes (<code>Sx</code>). &lt;/b&gt;</strong></li>
+</ul>
+</b><p><b style="color:#1f78b4;"></b></p>
+<!-- -->
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<ul>
+<li><strong>Esperanza de vida (<code>ex</code>)</strong></li>
+</ul>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Nota:</strong> Para cada cementerio, analizar los siguientes insumos:</p>
+<ul>
+<li><p><strong><em>Supervivencia y esperanza de vida de la población total.</em></strong> Analizar cómo se presentó la supervivencia y la esperanza de vida, para los sexos combinados. Incluir figuras con sus leyendas (párrafo 1) y la explicación de patrones encontrados (párrafo 2).</p></li>
+<li><p><strong>Supervivencia y esperanza de vida en hombres y en mujeres.</strong> Hacer lo mismo que lo anterior, pero por cada sexo.</p></li>
+</ul>
+<p><strong>Graficar</strong> las siguientes curvas de sobrevivencia (<code>lx</code>) para:</p>
+<ul>
+<li><p>Población total</p></li>
+<li><p>Muestra de Hombres</p></li>
+<li><p>Muestra de Mujeres</p></li>
+</ul>
+<p>Incluir figuras con sus leyendas (párrafo 1) y la explicación de patrones encontrados (párrafo 2). Analizar la gráficas e interpretar las relaciones y las diferencias.</p>
+</div></section>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="proporción-de-sobrevivientes-para-cada-clase-de-edad-lx." class="level5"><b style="color:#1f78b4;">
+<h5 class="anchored" data-anchor-id="proporción-de-sobrevivientes-para-cada-clase-de-edad-lx."><strong>Proporción de sobrevivientes para cada clase de edad (l<sub>x</sub>).</strong></h5>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Se calcula dividiendo el número de personas sobrervivientes en su clase de edad, por el número total de personas nacidas en ese grupo. <strong>Ej</strong>: grupo de edad 0-9 y de 10-19 años:</p>
+<ul>
+<li><p>Tamaño inicial de la población (<strong>No</strong>)</p></li>
+<li><p>Tamaño de la población en la clase de edad evaluada (<strong>N<sub>x</sub></strong>)</p></li>
+<li><p>Probabilidad de supervivientes <code>lx = Nx  / No</code></p></li>
+</ul>
+<p><strong>l<sub>x</sub>(0-9 años) =</strong> N<sub>x</sub> / No = 500 / 500 = 1 (100%)</p>
+<p><strong>l<sub>x</sub>(10-19 años) =</strong> N<sub>x</sub> / No = 490 / 500 = 0.98 (98%)</p>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="probabilidad-de-supervivencia-ara-cada-clase-de-edad-sx." class="level5"><b style="color:#1f78b4;">
+<h5 class="anchored" data-anchor-id="probabilidad-de-supervivencia-ara-cada-clase-de-edad-sx."><strong>Probabilidad de supervivencia ara cada clase de edad (S<sub>x</sub>).</strong></h5>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La probabilidad de sobrevivientes (Sx) hasta una determinada edad se calcula multiplicando las proporciones de sobrevivientes de cada grupo de edad sucesiva. <strong>Ej:</strong> probabilidad de sobrevivir hasta los 10-19 años:</p>
+<ul>
+<li><p>Tamaño de la población en la clase de edad evaluada (<strong>N<sub>x</sub></strong>)</p></li>
+<li><p>Tamaño de la población en la clase siguiente (<strong>N<sub>x+1</sub></strong>)</p></li>
+<li><p>Probabilidad de superviviencia <code>Sx = Nx+1 / Nx</code></p></li>
+</ul>
+<p><strong>S<sub>x</sub>(10-19 años) =</strong> Nx<sub>+1</sub> / N<sub>x</sub> = 490 / 500 = 0.98</p>
+<p><em>Otra forma de calcular Sx:</em></p>
+<p><strong>S<sub>x</sub>(10-19 años) =</strong> &nbsp;l<sub>x</sub>(10-19 años) = 1 * 0.98 = 0.98</p>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="esperanza-de-vida-al-nacer-ex" class="level5"><b style="color:#1f78b4;">
+<h5 class="anchored" data-anchor-id="esperanza-de-vida-al-nacer-ex"><strong>Esperanza de vida al nacer (e<sub>x</sub>):</strong></h5>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La esperanza de vida al nacer (<code>ex</code>) se calcula sumando las probabilidades de sobrevivir a todas las edades y luego invirtiendo el resultado. <strong>Ej:</strong> Supongamos que hemos calculado N<sub>x</sub> hasta los 100 años.</p>
+<ul>
+<li><p>Promedio de individuos de cada clase de edad <em>x</em> a la siguiente clase <em>x +1 (</em><strong>L<sub>x</sub></strong>)</p></li>
+<li><p>Sumatoria de los L<sub>x</sub> (<strong>T<sub>x</sub></strong>)</p></li>
+<li><p>Esperanza de vida <code>ex = Tx / Lx</code></p></li>
+</ul>
+<p><strong>L<sub>x</sub>(10-19 años) =</strong> L<sub>x</sub> = (Nx + Nx+1)/2 = (500 + 490) / 2 = 495</p>
+<p>e<sub>x</sub> = (⅀ L<sub>x</sub>) / L<sub>x</sub>.</p>
+</section>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4"></h2>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="discusión-de-los-resultados." class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="discusión-de-los-resultados."><strong>Discusión de los resultados.</strong></h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/ea/89/0c/san-miguel-cemetery.jpg?w=1200&amp;h=-1&amp;s=1" class="img-fluid" width="382"></p>
+<p>[Imágen tomada de <a href="https://www.google.com/maps/contrib/100767267100033862050/photos/@11.2537289,-74.2050285,14z/data=!3m1!4b1!4m3!8m2!3m1!1e1?entry=ttu">Andres Acosta</a>]</p>
+<p>Discutir los resultados encontrados, con los de otros estudios locales y en Colombia. De igual forma, la diacusión debe dar respuesta a las siguientes interrogantes y discutirlas con otros interlocutores nacionales o internacionales:</p>
+<ul>
+<li><p>¿Cuál de los dos sexos es más longevo?</p></li>
+<li><p>¿En cuáles clases de edad hay mayor esperanza de vida?</p></li>
+<li><p>¿Qué disciplinas complementarias a la ecología analizan estos trabajos y que han encontrado?</p></li>
+<li><p>¿Qué estrategias sugiere que se pueden inplementar para mejorar la supervivencia y la esperanza de vida en la ciudad?</p></li>
+</ul>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"></h2>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="citas-bibliográficas" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="citas-bibliográficas"><strong>Citas Bibliográficas</strong></h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Acsádi, G. Y., &amp; Nemeskéri, J. (1970)</strong>. History of human life span. Budapest.</p>
+<p><strong>Bonilla, M. y Guillot, G. (2003)</strong>. Notas de clase: Prácticas de Ecología. Universidad Nacional de Colombia.</p>
+<p><strong>Ellis, E. C., Kaplan, J. O., Fuller, D. Q., Vavrus, S., Klein Goldewijk, K., &amp; Verburg, P. H. (2013)</strong>. Used planet: A global history. Proceedings of the National Academy of Sciences, 110(20), 7978-7985.</p>
+<p><strong>Coale, A. J. (1972).</strong> Growth and Structure of Human Populations: A Mathematical Investigation. Princeton University Press.</p>
+<p><strong>Coale, A. J. (2015).</strong> Growth and structure of human populations: a mathematical investigation (Vol. 1333). Princeton University Press.</p>
+<p><strong>Dong, X., Milholland, B., &amp; Vijg, J. (2016).</strong> Evidence for a limit to human lifespan. Nature, 538(7624), 257-259.</p>
+<p><strong>González-Narváez, S., Peñafiel, L., Ríos, A., Ruíz, J. 2023</strong>. Historia a través de las tablas de vida: Análisis demográfico del Homo sapiens en cementerios de Santa Marta, Colombia. Informe de la asignatura Ecología 1. Programa de Biología. Universidad del Magdalena. 28 p.</p>
+<p><strong>Manton, K. G., Stallard, E., &amp; Tolley, H. D. (1991).</strong> Limits to human life expectancy: evidence, prospects, and implications. Population and Development Review, 603-637.</p>
+<p><strong>Murdock, S. H. (2008).</strong> Applied demography in the 21st century. D. Swanson (Ed.). Netherlands: Springer.</p>
+
+
+</div></section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller4.2.Poblaciones.log.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller4.2 Mod. Logísticos</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller6.Modeación-matricial.html" class="pagination-link">
+        <span class="nav-page-text">Taller6. Mod.Matricial</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
