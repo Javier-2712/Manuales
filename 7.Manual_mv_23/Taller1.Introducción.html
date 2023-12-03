@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Multivariados - 2023-II - Taller1. Intro_multivariados</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller2.1.Introducción.html" rel="next">
+<link href="./Videos_clases.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller1. Intro_multivariados</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Multivariados - 2023-II</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">Videos_clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.html" class="sidebar-item-text sidebar-link active">Taller1. Intro_multivariados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.1.Introducción.html" class="sidebar-item-text sidebar-link">Taller2.1 Intro_RStudio</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.2.Introd.matrices.html" class="sidebar-item-text sidebar-link">Taller2.2 Intro_Matrices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.1.exploratorios.html" class="sidebar-item-text sidebar-link">Taller3. Exploratorios_mv</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.pca.marino.html" class="sidebar-item-text sidebar-link">Taller4.1 PCA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.pca.tayrona.html" class="sidebar-item-text sidebar-link">Taller4.2 PCA PNNTayrona</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.1.nmds.malezas.html" class="sidebar-item-text sidebar-link">Taller5. NMDS Malezas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">Taller6.1 CLA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">Taller6.2 CLA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.1.lda.peces.html" class="sidebar-item-text sidebar-link">Taller7. LDA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.1.manova.peces.html" class="sidebar-item-text sidebar-link">Taller8. MANOVA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.1.permanova.peces.html" class="sidebar-item-text sidebar-link">Taller9. PERMANOVAS Peces</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#resumen-de-las-actividades" id="toc-resumen-de-las-actividades" class="nav-link active" data-scroll-target="#resumen-de-las-actividades">Resumen de las actividades</a></li>
+  <li><a href="#actividad-1.-conducta-de-entrada" id="toc-actividad-1.-conducta-de-entrada" class="nav-link" data-scroll-target="#actividad-1.-conducta-de-entrada">Actividad 1. Conducta de entrada</a></li>
+  <li><a href="#actividad-2.-taller-introductorio-asignación-1" id="toc-actividad-2.-taller-introductorio-asignación-1" class="nav-link" data-scroll-target="#actividad-2.-taller-introductorio-asignación-1">Actividad 2. Taller Introductorio (Asignación 1)</a></li>
+  <li><a href="#actividad-3.-estudio-de-caso-asignación-2" id="toc-actividad-3.-estudio-de-caso-asignación-2" class="nav-link" data-scroll-target="#actividad-3.-estudio-de-caso-asignación-2">Actividad 3. Estudio de caso (Asignación 2)</a></li>
+  <li><a href="#videos-de-la-asignatura" id="toc-videos-de-la-asignatura" class="nav-link" data-scroll-target="#videos-de-la-asignatura">Videos de la asignatura</a></li>
+  <li><a href="#referencias-bibliográficas-para-el-módulo-introductorio" id="toc-referencias-bibliográficas-para-el-módulo-introductorio" class="nav-link" data-scroll-target="#referencias-bibliográficas-para-el-módulo-introductorio">Referencias bibliográficas para el módulo introductorio</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller1. Intro_multivariados</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="resumen-de-las-actividades" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="resumen-de-las-actividades">Resumen de las actividades</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://images.pexels.com/photos/5474028/pexels-photo-5474028.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://www.pexels.com/es-es/@cottonbro/">cottonbro studio</a> </n>]</p>
+<div style="text-align: justify">
+
+<p>El presente documento es el resultado de ajustes que de manera periódica se han venido realizando, para optimizar el tiempo de trabajo en las primeras semanas del curso, que corresponden a los módulos de <strong>Introducción a Multivariados y el Estudio semestral de caso</strong>. En este sentido, a continuación se presentarán las pautas de tres actividades, relacionadas a continuación:</p>
+<p><b style="color:#d95f02;"> 1. Conducta de entrada. </b>. Orientada a valorar los conocimientos previos, requeridos para empalmar con los primeros temas de la asignatura. Esto brindará orientaciones generales al docente, para saber en que aspectos se debe enfatizar el trabajo grupal e individual.</p>
+<p><b style="color:#d95f02;"> 2. Taller introductorio. </b> Se utilizará el libro guía del docente, para que los estudiantes realicen una reflexión general sobre los principales elementos de la estadística multivariada y de su papel en las ciencias biológicas, plasmando la información en un mapa conceptual.</p>
+<p><b style="color:#d95f02;"> 3. Informe semestral. </b> Este ejercicio se realizará por seguimientos y para el primero se requiere que los estudiantes se organicen en grupos de hasta tres (3) integrantes, seleccionar el tema de trabajo y realizar una organización general de la información (con la ayuda de tablas dinámicas y exploración general en Excel y en R).</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="actividad-1.-conducta-de-entrada" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-1.-conducta-de-entrada">Actividad 1. Conducta de entrada</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://as2.ftcdn.net/v2/jpg/06/15/93/83/1000_F_615938343_5hmovijafs6WZiCAFoRh936n9KJbdw3y.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/206467774/designpics?load_type=author&amp;prev_url=detail">Designpics</a> </n>]</p>
+<div style="text-align: justify">
+
+<p>El objetivo de esta actividad consiste en que los estudiantes realicen un ejercicio reflexivo en donde brinden información sobre su percepción en cuanto a la importancia del análisis multivariado. Para ello es necesario ingresar al siguiente <a href="https://forms.gle/kgkhzKaeiGANRJtx9">Enlace</a></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="actividad-2.-taller-introductorio-asignación-1" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-2.-taller-introductorio-asignación-1">Actividad 2. Taller Introductorio (Asignación 1)</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://as2.ftcdn.net/v2/jpg/02/42/53/47/1000_F_242534750_iSrJStH1JEAkGkJtBjcVAb6hZOcALwUt.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/201956995/polarpx?load_type=author&amp;prev_url=detail">Polarpx</a> </n>]</p>
+<div style="text-align: justify">
+
+<p>Esta actividad debe ser realizada y cargada en la plataforma de Brightspace (Asignación 1), la cual servirá de soporte para una valoración individual que será realizada en una de las sesiones de clase (valoración de 10 puntos).</p>
+<p>Apoyándose en la lectura introductoria de Rodríguez-Barrios, J. (2023) <a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=26489&amp;pg=15">Enlace del capítulo</a> y revisión de literatura, referenciada al final de este taller, realice un mapa conceptual en una página de Power Point, Word, o una imagen bien elaborada a mano, en donde identifique una problemática biológica local (en la Universidad, en la ciudad o en algún lugar del el departamento), que sirva para relacionar <strong>las etapas</strong>, <strong>los requisitos</strong> y los <strong>objetivos</strong> del análisis multivariado enfocado al análisis de los datos obtenidos de ese trabajo identificado.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="actividad-3.-estudio-de-caso-asignación-2" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-3.-estudio-de-caso-asignación-2">Actividad 3. Estudio de caso (Asignación 2)</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://as2.ftcdn.net/v2/jpg/06/12/21/35/1000_F_612213584_v6dov2bk4lXrzzEE6NY82NDCalub1lzP.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/208723837/cagkan?load_type=author&amp;prev_url=detail">Cagkan</a> </n>]</p>
+<div style="text-align: justify">
+
+<p>El presente ejercicio, pretende ofrecer un entrenamiento en el uso de herramientas estadísticas, para el análisis de preguntas biológicas en el contexto multivariado. Adicionalmente se busca aplicar los conceptos vistos en las clases, a través de un estudio de caso que se irá construyendo a lo largo de las semanas restantes. Se realizará un trabajo en grupos de tres estudiantes, enfatizado en el enfoque estadístico. Se realizarán encuentros semanales en donde cada grupo deberá Informar al docente sobre sus avances en los siguientes aspectos:</p>
+<ol type="1">
+<li><p><strong>Seleccionar una base de datos</strong> de las relacionadas en el siguiente enlace: <a href="https://forms.gle/7CSR6YfFJCexbyUD7" class="uri">https://forms.gle/7CSR6YfFJCexbyUD7</a></p></li>
+<li><p>Para los <strong>encuentros semanales</strong> con el docente, es necesario iniciar con la elaboración de una <strong>introducción</strong>, que contextualice a la base de datos escogida, <strong>plantear objetivos</strong> y la <strong>pregunta de análisis a realizar</strong>.</p></li>
+<li><p>Se deberá avanzar en la elaboración de <strong>un diagrama de flujo</strong> que defina en un paso a paso del diseño experimental para la evaluación multivariada del grupo biológico o tema ambiental de la base seleccionada (artrópodos, vertebrados, vegetación y ambiente asociado), <strong>identificar las variables, observaciones y factores de sus datos</strong>. En caso de que haya variables ambientales, incluirlas en el diagrama.</p></li>
+<li><p>Entregar documento con el análisis realizado - <strong>Exploratorio multivariado en RMarkdown o Quarto</strong>. Los análisis deben estar relacionados con los objetivos.</p></li>
+<li><p>Al final del primer seguimiento, se debe entregar los siguientes archivos: <strong>(1) informe en RMarkdown (máximo 7 páginas), (2) cálculos realizados en Excel, (3) Comandos en RStudio con su base de datos csv</strong>.</p></li>
+<li><p>Este informe debe ser <strong>sustentado por grupos de 2, máximo 3 estudiantes</strong>. Los avances serán revisados semanalmente por el docente.</p></li>
+</ol>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></div></section><b style="color:#d95f02;">
+</b><section id="videos-de-la-asignatura" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="videos-de-la-asignatura">Videos de la asignatura</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://as2.ftcdn.net/v2/jpg/01/04/00/89/1000_F_104008900_SrXQLwegaebPhWWI9HpvPOX9eTKPnr56.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/200914827/vegefox-com?load_type=author&amp;prev_url=detail">Vegefox.Com</a> </n>]</p>
+<ol type="1">
+<li><strong>VIDEOS DEL DOCENTE:</strong> Videos realizados hasta el 2023-I. Revisar los de la semana 1. De: Rodríguez-Barrios, J. (2023). Asignatura Estadística Multivariada. <a href="https://javier-2712.github.io/Multivariados/Videos_clases/Complementos.videos_clases.html" class="uri">https://javier-2712.github.io/Multivariados/Videos_clases/Complementos.videos_clases.html</a></li>
+</ol>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="referencias-bibliográficas-para-el-módulo-introductorio" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="referencias-bibliográficas-para-el-módulo-introductorio">Referencias bibliográficas para el módulo introductorio</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><img src="https://as2.ftcdn.net/v2/jpg/01/42/91/41/1000_F_142914186_rAu2hbyNHdLulAPzUZb8kzUABO8I6aZn.jpg" width="60%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/202493008/momius?load_type=author&amp;prev_url=detail">momius</a> </n>]</p>
+<div style="text-align: justify">
+
+<ol type="1">
+<li><strong>CAPÍTULO:</strong> 1. Conceptos básicos para el análisis de datos ecológicos y ambientales. De: Rodríguez-Barrios, J. (2023). Análisis de datos ecológicos y ambientales: aplicaciones con programa R. Ediciones Díaz de Santos. <a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=26489&amp;pg=15" class="uri">https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=26489&amp;pg=15</a></li>
+</ol>
+<p><img src="https://m.media-amazon.com/images/I/51ooXRKQSrL._SY344_BO1,204,203,200_QL70_ML2_.jpg" class="img-fluid" style="width:30.0%"></p>
+<ol start="2" type="1">
+<li><strong>CAPÍTULO:</strong> Introduction. De: Legendre, P., and Loic F J Legendre. Numerical Ecology. Vol. V.Volume 24. Amsterdam: Elsevier Science &amp; Technology, 1998. Developments in Environmental Modelling (20). Web. <a href="https://unimagdalena-primo.hosted.exlibrisgroup.com/permalink/f/197o0rb/TN_cdi_askewsholts_vlebooks_9780080537870" class="uri">https://unimagdalena-primo.hosted.exlibrisgroup.com/permalink/f/197o0rb/TN_cdi_askewsholts_vlebooks_9780080537870</a></li>
+</ol>
+<p><img src="https://m.media-amazon.com/images/I/41d8iZ5Cf3L.jpg" class="img-fluid" style="width:30.0%"></p>
+<ol start="3" type="1">
+<li><strong>CAPÍTULO:</strong> Introduction. De: Borcard, D., Gillet, F., Legendre, P. (2018). Introduction. In: Numerical Ecology with R. Use R!. Springer, Cham. https://doi-org.biblioteca.unimagdalena.edu.co/10.1007/978-3-319-71404-2_1. <a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/chapter/10.1007/978-3-319-71404-2_1" class="uri">https://link-springer-com.biblioteca.unimagdalena.edu.co/chapter/10.1007/978-3-319-71404-2_1</a></li>
+</ol>
+<p><img src="https://m.media-amazon.com/images/I/61yid0os1WL.jpg" class="img-fluid" style="width:30.0%"></p>
+<ol start="4" type="1">
+<li><strong>CAPÍTULO:</strong> Introducción: pasos elementales de las técnicas multivariadas. De: Palacio, Facundo &amp; Apodaca, María &amp; Crisci, Jorge. (2020). ANÁLISIS MULTIVARIADO PARA DATOS BIOLÓGICOS Teoría y su aplicación utilizando el lenguaje R. <a href="https://www.researchgate.net/publication/341446029_ANALISIS_MULTIVARIADO_PARA_DATOS_BIOLOGICOS_Teoria_y_su_aplicacion_utilizando_el_lenguaje_R/citation/download" class="uri">https://www.researchgate.net/publication/341446029_ANALISIS_MULTIVARIADO_PARA_DATOS_BIOLOGICOS_Teoria_y_su_aplicacion_utilizando_el_lenguaje_R/citation/download</a>.</li>
+</ol>
+<p><img src="https://fundacionazara.org.ar/wp-content/uploads/2020/05/analisis-multivariado-para-datos-biologicos.jpg" class="img-fluid" style="width:50.0%"></p>
+
+
+</div></section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/7\.Manual_mv/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Videos_clases.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Videos_clases</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller2.1.Introducción.html" class="pagination-link">
+        <span class="nav-page-text">Taller2.1 Intro_RStudio</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
