@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Talleres de Análisis Multivariados en R - Taller2. A. Climático</title>
+<title>Repositorio de Talleres de Ecología 1 - 2023-II - Taller2. A. Climático</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,19 +88,18 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Talleres de Análisis Multivariados en R</a> 
-        <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/Javier-2712/Manuales" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2023-II</a> 
+        <div class="sidebar-tools-main">
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Talleres-de-Análisis-Multivariados-en-R.pdf">
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
             <i class="bi bi-bi-file-pdf pe-1"></i>
           Download PDF
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Talleres-de-Análisis-Multivariados-en-R.epub">
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
             <i class="bi bi-bi-journal pe-1"></i>
           Download ePub
           </a>
@@ -186,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller8. Diversidad Alfa</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -213,11 +215,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#pautas-del-taller-en-casa" id="toc-pautas-del-taller-en-casa" class="nav-link active" data-scroll-target="#pautas-del-taller-en-casa">Pautas del taller en casa</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivo-del-taller" id="toc-objetivo-del-taller" class="nav-link" data-scroll-target="#objetivo-del-taller">Objetivo del taller</a></li>
+  <li><a href="#procedimiento-del-taller" id="toc-procedimiento-del-taller" class="nav-link" data-scroll-target="#procedimiento-del-taller"><strong>Procedimiento del taller</strong></a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-descarga-de-datos-del-ideam" id="toc-paso-1.-descarga-de-datos-del-ideam" class="nav-link" data-scroll-target="#paso-1.-descarga-de-datos-del-ideam"><strong>Paso 1. Descarga de datos del IDEAM</strong></a></li>
+  <li><a href="#paso-2.-tabla-dinámica" id="toc-paso-2.-tabla-dinámica" class="nav-link" data-scroll-target="#paso-2.-tabla-dinámica"><strong>Paso 2. Tabla dinámica</strong></a></li>
+  <li><a href="#paso-3.-resultado-1---climatograma-e-índice-de-lang" id="toc-paso-3.-resultado-1---climatograma-e-índice-de-lang" class="nav-link" data-scroll-target="#paso-3.-resultado-1---climatograma-e-índice-de-lang"><strong>Paso 3. Resultado 1 - Climatograma e índice de Lang</strong></a></li>
+  <li><a href="#paso-4.-resultado-2.-balance-hídrico" id="toc-paso-4.-resultado-2.-balance-hídrico" class="nav-link" data-scroll-target="#paso-4.-resultado-2.-balance-hídrico"><strong>Paso 4. Resultado 2. Balance hídrico</strong></a></li>
+  <li><a href="#paso-5.-resultados-3-y-4.-biomas-pisos-térmicos-y-formaciones-vegetales" id="toc-paso-5.-resultados-3-y-4.-biomas-pisos-térmicos-y-formaciones-vegetales" class="nav-link" data-scroll-target="#paso-5.-resultados-3-y-4.-biomas-pisos-térmicos-y-formaciones-vegetales"><strong>Paso 5. Resultados 3 y 4. Biomas, pisos térmicos y formaciones vegetales</strong></a></li>
+  <li><a href="#paso-6.-pautas-del-taller-en-casa" id="toc-paso-6.-pautas-del-taller-en-casa" class="nav-link" data-scroll-target="#paso-6.-pautas-del-taller-en-casa"><strong>Paso 6. Pautas del taller en casa</strong></a></li>
+  </ul></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/edit/main/Taller2.Análisis.climático.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -241,36 +253,195 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="Figuras/Climatograma.png" class="img-fluid figure-img" width="427"></p>
-<p></p><figcaption class="figure-caption">Figura 1. Ejemplo de un climatograma del taller en clase</figcaption><p></p>
+<p><img src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid figure-img" width="555"></p>
+<p></p><figcaption class="figure-caption">Imagen tomada de <a href="https://www.pexels.com/es-es/@jplenio/">Johannes Plenio</a></figcaption><p></p>
 </figure>
 </div>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b><section id="pautas-del-taller-en-casa" class="level2"><b style="color:#1f78b4;">
-<h2 class="anchored" data-anchor-id="pautas-del-taller-en-casa">Pautas del taller en casa</h2>
+</b><section id="introducción" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>En el siguiente enlace se encuentran las pautas en pdf, de la asignación: 2. Taller de Cómputo. Análisis Climático (<a href="Talleres_pdf/Taller2.Análisis.climático.pdf">Enlace_taller</a>), pendientes de ser elaboradas en un <code>html</code>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="Talleres_pdf/Taller2.Análisis.climático.pdf" class="img-fluid"></p>
-<p></p><figcaption class="figure-caption">Otro enlace:<a href="Talleres_pdf/Taller2.Análisis.climático.pdf">Taller2.Análisis.climático 2023-II</a></figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
+<div style="text-align: justify">
+
+<p>El <strong><em>clima</em></strong> puede definirse como el conjunto de parámetros atmosféricos que predominan en un lugar determinado (Ecosistema, Paisaje, Región, etc.). Estos parámetros generan un conjunto de condiciones determinantes para diversos servicios ecosistémicos, como en la ganadería, la recreación o la agricultura. De igual forma, el clima se constituye en el factor del medio físico que más influye en la distribución de los organismos de los ecosistemas. El clima hace que una región geográfica en particular sea una selva tropical, un bosque sub-xerofítico, un páramo, entre otros tipos de ecosistemas.</p>
+<p><b style="color:#fc8d62;"> <u><strong>Precipitación</strong></u>. </b> Corresponde a la cantidad de lluvia expresada en <em>mm</em>, en donde un mm de precipitación equivale a un litro de agua/m<sup>2</sup>. Algunos indicadores de este parámetro son <u><em>la precipitación mensual (ppm)</em></u> que representa la suma de <em>precipitaciones promedio diarias</em>. <u><em>La precipitación media mensual multianual (pmm)</em></u> es el resultado de promediar a las precipitaciones mensuales por varios años.</p>
+<p><b style="color:#fc8d62;"> <u><strong>Temperatura</strong></u>. </b> Se considera a la temperatura, como la cantidad de calor que llega a la superficie de la tierra.&nbsp; <u><em>La temperatura media mensual</em></u> es el promedio de las temperaturas medias diarias, y las <u><em>temperaturas máxima media y mínima media</em></u> son el promedio de las temperaturas máximas y mínimas diarias.</p>
+<p>De forma similar a la precipitación, <u><em>la temperatura media anual</em></u> es el promedio de las temperaturas medias mensuales y <u><em>la temperatura media mensual multianual</em></u> es el promedio de las temperaturas para el mes en cuestión a lo largo del período de tiempo estudiado.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="objetivo-del-taller" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="objetivo-del-taller">Objetivo del taller</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<ul>
+<li><p>Aprender el manejo de la plataforma <a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> utilizada por el IDEAM, como repositorio de datos climáticos de nuestro país.</p></li>
+<li><p>Desarrollar destrezas en el procesamiento de datos en Excel, para la tabulación, uso de tablas dinámicas, el el procesamiento eficiente de información climática.</p></li>
+<li><p>Incorporar herramientas de análisis climático como son los climatogramas, índices de aridez, los modelos de balance hídrico, el análisis de biomas y de formaciones vegetales, asociadas a datos climáticos.</p></li>
+<li><p>Desarrollar capacidades para la interpretación y el análisis de datos climáticos en contextos ecológicos y ambientales, para un mejor entendimiento de nuestro contexto ambiental.</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="procedimiento-del-taller" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="procedimiento-del-taller"><strong>Procedimiento del taller</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Nota</strong>: Previo a la sesión del taller de cómputo, es necesario que revisen el video de la clase en donde se explica el procedimiento (ver <a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa_G1_2023-II/EVNEzo8tMXFMubjrlxcgqu4B2OpJWRWCE8pd6iUoy5Erxg?e=XlRunx&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">enlace del video</a>), el día de la sesión, el docente evaluará la revisión que se haya hecho de ese material. Esta información también se puede consultar en los videos de la semana que están en el repositorio del docente (ver <a href="https://javier-2712.github.io/Manuales/6.Manual_eco1/videos.clases.html">enlace del repositorio</a>).</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="paso-1.-descarga-de-datos-del-ideam" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-1.-descarga-de-datos-del-ideam"><strong>Paso 1. Descarga de datos del IDEAM</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="Figuras/Balance.hídrico.png" class="img-fluid figure-img" alt="Figura 2. Ejemplo de un modelo de balance hídrico del taller en clase" width="475"></p>
-<p></p><figcaption class="figure-caption">Figura 2. Ejemplo de un modelo de balance hídrico del taller en clase</figcaption><p></p>
+<p><img src="dhime.JPG" class="img-fluid figure-img" width="560"></p>
+<p></p><figcaption class="figure-caption">Figura 1. Plataforma <a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> del IDEAM, para descarga de datos metereológicos.</figcaption><p></p>
 </figure>
 </div>
+<div style="text-align: justify">
+
+<p>Se realizará un entrenamiento en la sala de cómputo, orientado a la descarga de datos de la plataforma <a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> utilizada por el IDEAM. Las variables a descargar para los periodos de 1993 a 2024 son:</p>
+<ul>
+<li><strong>La temperatura máxima media mensual</strong> de tres estaciones que se referencian en la <strong>tabla 1</strong>, las cuales presentan un contraste espacial y altitudinal y que se encuentran en lugares cercanos a Santa Marta.</li>
+<li><strong>La precipitación total mensual</strong> de las mismas estaciones metereológicas.</li>
+</ul>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla 1. Información de las estaciones pluviométricas y climáticas que deben utilizarse en el estudio.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> No </th>
+   <th style="text-align:left;"> Nombre.de.la.Estación </th>
+   <th style="text-align:left;"> Años.de.observación </th>
+   <th style="text-align:left;"> Periodicidad.de.la.información. </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Aeropuerto Simón Bolívar* (Apto) </td>
+   <td style="text-align:left;"> 1980 - 2023 </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> San Lorenzo (SLrzo) </td>
+   <td style="text-align:left;"> 1980 – 2023 </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Parque Nacional Nat. Tayrona (PNNT) </td>
+   <td style="text-align:left;"> 1980 - 2023 </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><em>*Datos promedios totales mensuales, dependiendo de su disponibilidad.</em></p>
+<p>Los archivos generados (extensión <em>*.csv</em>) serán guardados en una carpeta de trabajo en el escritorio del computador, titulada: “<strong><em>taller_datos_climáticos_eco1</em></strong>”. Allí debe reposar un formato para la tabulación y procesamiento de los datos, titulado: “formato.datos.xlsx” (<a href="Manual.eco1/formato.datos.xlsx">descargar</a>), en donde se pegarán los datos de temperatura y de precipitación.</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="paso-2.-tabla-dinámica" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-2.-tabla-dinámica"><strong>Paso 2. Tabla dinámica</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div style="text-align: justify">
+
+<p>A continuación, se construirán dos tablas dinámicas: una para los datos de precipitación y otra para los datos de temperatura. El objetivo será, extraer los promedios mensuales multianuales, para pegarlos en la pestaña del climatográma e índice de aridez de Lang.</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="paso-3.-resultado-1---climatograma-e-índice-de-lang" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-3.-resultado-1---climatograma-e-índice-de-lang"><strong>Paso 3. Resultado 1 - Climatograma e índice de Lang</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Figuras/Climatograma.png" class="img-fluid figure-img" width="428"></p>
+<p></p><figcaption class="figure-caption"><em>Figura 1. Ejemplo de un climatograma del taller en clase</em></figcaption><p></p>
+</figure>
+</div>
+<div style="text-align: justify">
+
+<p>En esta pestaña se realizará el procedimiento indicado para la construcción del climatograma e índice de aridez de Lang, de cada estación. *El procedimiento llega hasta la elaboración, pero cada estudiante deberá investigar en qué consiste cada uno de estos insumos y discutir los resultados obtenidos.</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="paso-4.-resultado-2.-balance-hídrico" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-4.-resultado-2.-balance-hídrico"><strong>Paso 4. Resultado 2. Balance hídrico</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Figuras/Balance.hídrico.png" class="img-fluid figure-img" alt="Figura 2. Ejemplo de un modelo de balance hídrico del taller en clase" width="416"></p>
+<p></p><figcaption class="figure-caption"><em>Figura 2. Ejemplo de un modelo de balance hídrico del taller en clase</em></figcaption><p></p>
+</figure>
+</div>
+<div style="text-align: justify">
+
+<p>Para este procedimiento, se cuenta con una plantilla en donde se requiere incluir los datos de temperatura y de precipitación promedio multianual, utilizadas en el resultado anterior, junto a los datos de brillo solar, que pueden descargarse en google (buscar: <em>Anexo Promedios mensuales de brillo solar</em> <a href="https://www.metrodebogota.gov.co/sites/default/files/Brillo-Solar_Promedios-Mes.pdf">descarga</a>). A partir de ello se construyen los modelos gráficos de balance hídrico, en donde se pueden viasualizar periodos de recargas, deficit, excedentes o uso de reservas de agua en los lugares evaluados.</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="paso-5.-resultados-3-y-4.-biomas-pisos-térmicos-y-formaciones-vegetales" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-5.-resultados-3-y-4.-biomas-pisos-térmicos-y-formaciones-vegetales"><strong>Paso 5. Resultados 3 y 4. Biomas, pisos térmicos y formaciones vegetales</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tabla.biomas.JPG" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Figura 3. Tabla para relacionar datos de los resultados resumidos del taller</em></figcaption><p></p>
+</figure>
+</div>
+<div style="text-align: justify">
+
+<p>Con los datos de temperatura, de precipitación promedio multianual y de evapotranspiración real, utilizadas en los resultados anteriores, se asociarán en las tablas referenciadas en el resultado 3, para clasificar las zonas evaluadas a su bioma, piso térmico y formación vegetal correspondiente. Finalmente en el resultado 4, se realizará la tabulación que resume a todos los insumos calculados.</p>
+<p>Los pasos 1 a 5, deben revisarse previo a la sesión de cómputo, en el módulo de videos del repositorio (<a href="https://javier-2712.github.io/Manuales/6.Manual_eco1/videos.clases.html">enlace</a>), especificamente en el video <a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/EQdo0S8a_GlGl_oHp-9JYRIB6kv5z4iFngJxTFVKWZjRuw?e=XzcKMQ">Organización de los datos climáticos</a>, intentar realizar el ejercicio en casa, para avanzar de forma más eficiente en esta sesión de cómputo. Para las tablas citadas en este paso, se puede reforzar el componente teórico con los referentes bibliográficos de este taller (Espinal (1977), Halffter &amp; Ezcurra (1992), Tamarís-Turizo &amp; López-Salgado (2006)).</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="paso-6.-pautas-del-taller-en-casa" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="paso-6.-pautas-del-taller-en-casa"><strong>Paso 6. Pautas del taller en casa</strong></h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/798916/pexels-photo-798916.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid figure-img" width="511"></p>
+<p></p><figcaption class="figure-caption">Imagen tomada de <a href="https://www.pexels.com/es-es/@nathan-timblin-260952/">Nathan Timblin</a></figcaption><p></p>
+</figure>
+</div>
+<div style="text-align: justify">
+
+<ol type="1">
+<li><p>Para la entrega y socialización (si el tiempo lo permite se socializa) del taller, cada grupo (máximo 4 estudiantes) debe seleccionar 3 estaciones diferentes a las de la sesión de cómputo (preferiblemente que sean diferentes a los otros grupos) y entregar un documento en pdf (máximo 5 páginas) que incluya a los procedimientos (paso a paso) vistos en el taller de cómputo y en el repositorio del docente (videos de este taller). Entregar los cálculos en el formato de Excel, como archivo complementario.</p></li>
+<li><p>Preparar máximo 5 diapositivas para socializar los resultados (duración de la presentación de máx. 8 minutos).</p></li>
+<li><p>La valoración de esta actividad ponderará los siguientes aspectos:</p>
+<ul>
+<li><p>Trabajo realizado en la sala de cómputo.</p></li>
+<li><p>La puntualidad en la entrega del informe y de la sustentación del trabajo (en caso de ser posible).</p></li>
+<li><p>Todas las tablas y figuras deben tener su leyenda numerada y adicionalmente un párrafo de análisis de los resultados.</p></li>
+<li><p>Incorporar en el análisis, elementos del contexto de cada localidad evaluada, en cuanto a las condiciones ecológicas y/o ambientales asociadas al clima y resto de aspectos evaluados.</p></li>
+</ul></li>
+</ol>
+</div></section>
+</div></section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="referencias-bibliográficas" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="referencias-bibliográficas">Referencias bibliográficas</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Espinal, S.</strong> (1977).&nbsp;<em>Zonas de vida o formaciones vegetales de Colombia: Memoria explicativa sobre el mapa ecológico</em>. (<a href="Manual.eco1/Formaciones_vegetales_Espinal_1977.pdf">enlace</a>)</p>
+<p><strong>Halffter, G.</strong>, &amp; Ezcurra, E. (1992).&nbsp;<em>La diversidad biológica de Iberoamérica</em>&nbsp;(Vol. 1). CYTED-D, Programa Iberoamericano de Ciencia y Tecnologia para el Desarollo, Instituto de Ecologia, AC, Secretaria de Desarrollo Social. (<a href="https://www.rds.org.co/apc-aa-files/ba03645a7c069b5ed406f13122a61c07/diversidad_biologica_iberoamerica.pdf">enlace</a>)</p>
+<p><strong>Tamarís-Turizo, C.</strong> <strong>E.</strong>, &amp; López-Salgado, H. J. (2006). Aproximación a la zonificación climática de la cuenca del río Gaira. Intropica, 69-76. (<a href="https://revistas.unimagdalena.edu.co/index.php/intropica/article/download/128/112">enlace</a>)</p>
 
 
-</section>
+</div></section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -405,7 +576,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1/);
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
