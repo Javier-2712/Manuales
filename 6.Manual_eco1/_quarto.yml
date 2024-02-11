@@ -1,0 +1,66 @@
+project:
+  type: book
+  output-dir: pdf, html
+  
+book:
+  title: "Repositorio de Talleres de Ecología 1 - 2024-I"
+  subtitle: "Programa de Biología - Universidad del Magdalena"
+  date: 2023-12-01
+  author: "Javier Rodríguez-Barrios"
+  search: true
+  site-url: https://github.com/Javier-2712/Manuales/tree/main/6.Manual_eco1
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [linkedin, twitter, facebook]
+  comments:
+    hypothesis: true
+  sidebar:               # Opciones de barra lateral
+    style: docked
+    background: light
+  cover-image: imagen4.png
+  cover-image-alt: |
+    Alternative text describing the book cover
+  output-file: "Manual.eco1"  
+
+  chapters:
+    - index.qmd
+    - videos.clases.qmd
+    - Taller1.Introducción.eco.qmd
+    - Taller2.Análisis.climático.qmd
+    - Taller3.Ambiente.eco.qmd
+    - Taller4.1.Poblaciones.exp.qmd
+    - Taller4.2.Poblaciones.log.qmd
+    - Taller5.Demografía.cementerios.qmd
+    - Taller6.Modeación-matricial.qmd
+    - Taller7.Calotropis.qmd
+    - Taller8.Diversidad.alfa.qmd
+    - Taller9.subunidades.comunidades.qmd
+    - Salida.campo.eco1.qmd
+    - Anexos.qmd
+
+lang: "es-ES"
+  
+bibliography: references.bib
+
+format:
+  html:
+    cover-image: imagen4.png
+    theme: [flatly, theme.scss]
+    html-math-method: katex
+    css: styles.css  
+    link-external-icon: true
+    link-external-newwindow: true
+    
+  epub: 
+    css: epub-styles.css
+    epub-cover-image: imagen4.png
+
+  pdf:
+    documentclass: scrreprt  # scrbook otra (documento KOMA Script)
+    include-in-header: preamble.tex
+    fontfamily: libertinus
+
+editor: visual
+
+
+
