@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Ecología 1 - 2023-II - Taller8. Diversidad Alfa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller9.subunidades.comunidades.html" rel="next">
+<link href="./Taller7.Calotropis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller8. Diversidad Alfa</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2023-II</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Javier-2712/Manuales/tree/main/6.Manual_eco1" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">Taller4.1 Intro. Poblaciones</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">Taller5. Demog.Humana</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link active">Taller8. Diversidad Alfa</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller9. Sub.unidades.comunidades</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">Salida de campo</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción"><strong>Introducción</strong></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#referentes-bibliográficos" id="toc-referentes-bibliográficos" class="nav-link" data-scroll-target="#referentes-bibliográficos">Referentes bibliográficos</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a>
+  <ul class="collapse">
+  <li><a href="#referentes-bibliográficos-de-estimadores-paramétricos" id="toc-referentes-bibliográficos-de-estimadores-paramétricos" class="nav-link" data-scroll-target="#referentes-bibliográficos-de-estimadores-paramétricos">Referentes bibliográficos de estimadores paramétricos</a></li>
+  </ul></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a>
+  <ul class="collapse">
+  <li><a href="#referentes-bibliográficos-de-estimadores-no-paramétricos-inext" id="toc-referentes-bibliográficos-de-estimadores-no-paramétricos-inext" class="nav-link" data-scroll-target="#referentes-bibliográficos-de-estimadores-no-paramétricos-inext">Referentes bibliográficos de estimadores no paramétricos (iNEXT)</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#ejercicio-1.-base-de-datos-de-macroinvertebrados-acuáticos-tomados-del-río-gaira-2020" id="toc-ejercicio-1.-base-de-datos-de-macroinvertebrados-acuáticos-tomados-del-río-gaira-2020" class="nav-link" data-scroll-target="#ejercicio-1.-base-de-datos-de-macroinvertebrados-acuáticos-tomados-del-río-gaira-2020">Ejercicio 1. Base de datos de macroinvertebrados acuáticos, tomados del río Gaira (2020)</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#valoración-de-diversidad-a-partir-de-estimadores-paramétricos." id="toc-valoración-de-diversidad-a-partir-de-estimadores-paramétricos." class="nav-link" data-scroll-target="#valoración-de-diversidad-a-partir-de-estimadores-paramétricos.">1. <strong>Valoración de diversidad a partir de estimadores paramétricos.</strong></a>
+  <ul class="collapse">
+  <li><a href="#diagramas-de-rangos-de-abundancia-de-whittaker." id="toc-diagramas-de-rangos-de-abundancia-de-whittaker." class="nav-link" data-scroll-target="#diagramas-de-rangos-de-abundancia-de-whittaker.">1.1 Diagramas de rangos de abundancia de Whittaker.</a></li>
+  </ul></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a>
+  <ul class="collapse">
+  <li><a href="#modelos-de-rango---riqueza---abundancia-rad" id="toc-modelos-de-rango---riqueza---abundancia-rad" class="nav-link" data-scroll-target="#modelos-de-rango---riqueza---abundancia-rad">1.2 Modelos de rango - riqueza - abundancia (RAD)</a></li>
+  </ul></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a></li>
+  <li><a href="#valoración-de-diversidad-a-partir-de-estimadores-no-paramétricos." id="toc-valoración-de-diversidad-a-partir-de-estimadores-no-paramétricos." class="nav-link" data-scroll-target="#valoración-de-diversidad-a-partir-de-estimadores-no-paramétricos.">2. <strong>Valoración de diversidad a partir de estimadores no paramétricos.</strong></a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a>
+  <ul class="collapse">
+  <li><a href="#cuatro-pasos-para-valorar-la-diversidad-de-los-sitios-en-comparación" id="toc-cuatro-pasos-para-valorar-la-diversidad-de-los-sitios-en-comparación" class="nav-link" data-scroll-target="#cuatro-pasos-para-valorar-la-diversidad-de-los-sitios-en-comparación">2.1 Cuatro pasos para valorar la diversidad de los sitios en comparación</a></li>
+  </ul></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a></li>
+  <li><a href="#fuente-de-los-cálculos" id="toc-fuente-de-los-cálculos" class="nav-link" data-scroll-target="#fuente-de-los-cálculos"><strong>Fuente de los cálculos</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Javier-2712/Manuales/tree/main/6.Manual_eco1/edit/main/Taller8.Diversidad.alfa.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller8. Diversidad Alfa</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="introducción" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="introducción"><strong>Introducción</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p>Según Whittaker (1972) la diversidad en las comunidades ecológicas, se divide en componentes <em>alfa, beta</em>&nbsp;y&nbsp;<em>gamma</em>. La diversidad&nbsp;<strong><em>alfa</em></strong>&nbsp;se refiere al número de especies obtenidas en una muestra relativamente homogénea, tomada de una comunidad. La diversidad&nbsp;<strong><em>beta</em></strong>&nbsp;corresponde al grado de recambio o reemplazo de especies entre diferentes comunidades en una escala de paisaje, y la diversidad&nbsp;<strong><em>gamma</em></strong>&nbsp;se refiere al número de especies de un grupo de comunidades que integran uno o varios paisajes (diversidad regional) y es el resultado de la suma de las diversidades alfa y beta. Para el caso de la diversidad <strong><em>alfa</em></strong>, se pueden estimar tres formas de medirla: (1) la riqueza, (2) la equidad y (3) la diversidad.</p>
+<p>(1) <strong><em>La riqueza</em></strong> (S o q=0), corresponde al número de especies en la muestra evaluada de la comunidad.</p>
+<p>(2) <strong><em>La equidad</em></strong> (q=1, q=2), corresponde a la variación en las abundancias relativas de las especies, de la muestra tomada de la comunidad. Permite entender cómo se reparten los recursos las especies y por ello la forma en que cada una de ellas aporta individuos a la comunidad. Para este caso, los índices de Shannon-Weaber y de Simpson son los más utilizados. Debido a que este estimador incorpora tanto a los taxones como a su número de individuos, se considera a la equidad, como una medida menos sesgada que la riqueza para valorar (3) <strong><em>la diversidad</em></strong> en muestras tomadas de una comunidad.</p>
+<p>(3) <strong><em>La diversidad</em></strong>, tiene diferentes formas de evaluarse y para este taller, será utilizada la propuesta de Chao et al (2020), basada en 4 pasos, a partir de los números efectivos de Hill (q=0, q=1, q=2), teniendo en cuenta la completitud de las muestras tomadas de la comunidad (paso 1), la diversidad asintótica: la estimada (asintótica) y la observada (empírica) (paso 2), la diversidad no asintótica: la interpolada y la extrapolada (paso 3) y el perfil de uniformidad de cada muestra (paso 4).</p>
+<p><strong>1.Estimadores de riqueza o número de especies (S o q=0).</strong> Si bien, es un estimador sencillo de calcular, lo más complejo es alcanzar el valor máximo que represente a la riqueza completa de taxones de la muestra o muestras de una comunidad, por lo cual, es una medida que depende del esfuerzo de muestreo (tamaño mínimo requerido en la muestra evaluada). Esto constituye un reto importante, para asegurar que los muestreos sean comparables en cuanto al número de individuos y de taxones o de especies censadas. La <strong><em>rarefacción</em></strong> utiliza estrategias de remuestreo, para corregir el número de especies o taxones, tomados de muestras de diferente tamaño.</p>
+<p><strong>2.Estimadores de equidad y de diversidad (q=1 y q=2)</strong>. Para medir la diversidad de especies o de taxones de muestras tomadas de una comunidad, existen modelos <em>paramétricos</em> y <em>no paramétricos</em>. (1) <strong><em>Paramétricos</em></strong>, valoran el nivel de ajuste entre la riqueza de especies y sus abundancias de individuos, obtenida de las muestras (series logarítmica, log-normal, entre otras). (2) <strong><em>no Paramétricos</em></strong>, son estimadores de especies no detectadas (nuevas especies) a partir de las especies censadas.</p>
+<p>Para el cálculo de <strong><em>estimadores paramétricos</em></strong> de diversidad, se utilizan (1) <strong><em>modelos de abundancia de especies</em></strong>, utilizando diagramas de rangos de abundancia, que relaicionan a las abundancias relativas en escalas logaritmicas (eje y) vs.&nbsp;los rangos de abundancias las especies (eje x) (Whittaker, 1965). Estos estimadores paramétricos se visualizan inicialmente con <em><code>diagramas de rango-abundancia de Whittaker</code></em> y su ajuste a modelos se evalúa con el comando <code>radfit</code> la librería <code>vegan</code>, que contiene algunos patrónes de diversidad como el <em><code>Broken stick</code></em> (vara quebrada), <em><code>Preemtion</code></em>, <em><code>Log-normal</code></em>, <em><code>Zipf</code></em> y <em><code>Zipf-Mandelbrot</code></em>.</p>
+<p>(2) Los <strong><em>estimadores no paramétricos</em></strong> de diversidad se evaluarán con un análisis de completitud, asintóticos y no asintóticos, utilizando la librería <code>iNEXT</code>. Esto se basa en la propuesta de <em>Chao et al.&nbsp;(2020)</em>, con la valoración de la diversidad de ensamblajes o muestras de comunidades, a partir de un procedimiento en cuatro (4) pasos y de los estimadores de Hill: q=0, q=1 y q=2.</p>
+</div></section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo del taller</strong>.</p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p>Valoración de la diversidad de tres muestras (tramos) tomadas de del río Gaira - Santa Marta, correspondientes a tramos alto (A), medio (B) y bajo (C), mediante (1) <strong><em>estimadores paramétricos</em></strong> (diagramas y modelos de abundancia) y (2) de <strong><em>estimadores no paramétricos</em></strong> (números de Hill q=0, q=1 y q=2; curvas de completitud, asintóticas, no asintóticas y de uniformidad).</p>
+</div></section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="referentes-bibliográficos" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="referentes-bibliográficos">Referentes bibliográficos</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="referentes-bibliográficos-de-estimadores-paramétricos" class="level2"><b style="color:#fc8d62;">
+<h2 class="anchored" data-anchor-id="referentes-bibliográficos-de-estimadores-paramétricos">Referentes bibliográficos de estimadores paramétricos</h2>
+</b><p><b style="color:#fc8d62;"></b></p>
+<ol type="1">
+<li><p><a href="https://ciespinosa.github.io/AlphaDiversidad/">A Minimal Book Example (2019)</a> Contiene información sobre estimadores de riqueza, de equidad y de diversidad de comunidades, con estimadores paramétricos y no paramétricos.</p></li>
+<li><p><a href="https://rpubs.com/dsfernandez/468964">Laboratorio de Ecología de Comunidades: Biodiversidad (2019)</a> Describe a paquetes y funciones de R para el análisis básico de la biodiversidad.</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5183127/">An extensive comparison of species-abundance distribution models - Baldridge et al.&nbsp;(2016)</a> Comparativo en los modelos de distribución de abundancia de especies (SAD).</p></li>
+<li><p><a href="https://www.herpconbio.org/Volume_13/Issue_3/Crane_etal_2018.pdf">Herpetofaunal Species Abundance - Crane et al.&nbsp;(2018)</a> Describe Modelos de rango - riqueza - abundancia (RAD), incluyendo curvas de Whittaker y análisis no asintóticos para anfibios y reptiles.</p></li>
+</ol>
+</section>
+</section>
+<section id="section-4" class="level1">
+<h1></h1>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="referentes-bibliográficos-de-estimadores-no-paramétricos-inext" class="level2"><b style="color:#fc8d62;">
+<h2 class="anchored" data-anchor-id="referentes-bibliográficos-de-estimadores-no-paramétricos-inext">Referentes bibliográficos de estimadores no paramétricos (iNEXT)</h2>
+</b><p><b style="color:#fc8d62;"></b></p>
+<ol type="1">
+<li><p><a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102">Quantifying sample completeness and comparing diversities among assemblages - Chao et al.&nbsp;(2020)</a> Describe el protocolo para la valoración de la diversidad verdadera (true diversity) en cuatro pasos.</p></li>
+<li><p><a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12349">Estimating diversity and entropy profiles via discovery rates of new species - Chao y Jost (2015)</a> Valoración de la diversidad por perfiles de entropía y estimación de especies no detectadas.</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/iNEXT/vignettes/Introduction.pdf">A Quick Introduction to iNEXT via Examples - Hsieh et al (2022)</a></p></li>
+</ol>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ejercicio-1.-base-de-datos-de-macroinvertebrados-acuáticos-tomados-del-río-gaira-2020" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="ejercicio-1.-base-de-datos-de-macroinvertebrados-acuáticos-tomados-del-río-gaira-2020">Ejercicio 1. Base de datos de macroinvertebrados acuáticos, tomados del río Gaira (2020)</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.istockphoto.com/id/1125894116/es/foto/escarabajo-menor-de-buceo.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=UqFM-ONfGyzMQf-ReW7ADiZE020f6MJEK5QosmoizdU=" class="img-fluid figure-img" style="width:60.0%"></p>
+<p></p><figcaption class="figure-caption">Imágen tomada de phototrip</figcaption><p></p>
+</figure>
+</div>
+<p>Escarabajo buceador (<em>Acilius sulcatus</em>)</p>
+</div></section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="valoración-de-diversidad-a-partir-de-estimadores-paramétricos." class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="valoración-de-diversidad-a-partir-de-estimadores-paramétricos.">1. <strong>Valoración de diversidad a partir de estimadores paramétricos.</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="diagramas-de-rangos-de-abundancia-de-whittaker." class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="diagramas-de-rangos-de-abundancia-de-whittaker.">1.1 Diagramas de rangos de abundancia de Whittaker.</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div style="text-align: justify">
+
+<p>Para propósitos de este ejercicio se realizarán los diagramas con los diez (10) taxones de macroinvertebrados acuáticos más abundantes. Este diagrama permite hacer una exploración de los patrones de abundancia de los principales taxones de las muestras en comparación, como complemento a los modelos paraétricos a realizar.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="cargar-las-librerías" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="cargar-las-librerías"><strong>Cargar las librerías</strong></h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías para el tema 1 (perfil de diversidad)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar el siguiente comando, en caso de no contar con las librerías instaladas</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("tidyverse","ggplot2","ggrepel","dplyr"))</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)   </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-1.-cargar-la-base-de-datos-datos.csv" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-1.-cargar-la-base-de-datos-datos.csv">Paso 1. Cargar la base de datos “datos.csv”</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>La base de datos es entregada por el docente y a continuación se muestra el procedimiento para cargarla en RStudio y visualizar las seis primeras filas de las 107 en total, con el comando <code>head(datos)</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la base de datos y asignarla como "datos"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"datos.csv"</span>) </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print.Date(datos)   # Muestra a toda la base de datos</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos) <span class="co"># head permite mostrar solo 6 filas de la base de datos (datos).</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           TAXA    A   B   C
+1      Simulium 1586 323  99
+2 Chironominae   901 451 756
+3 Orthocladinae  473  54  79
+4      Baetodes  346 248  42
+5    Diamesinae  170  37  10
+6     Atopsyche  159  18   1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(datos)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-2.-cargar-la-base-de-datos-alargada-datos1" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-2.-cargar-la-base-de-datos-alargada-datos1">Paso 2. Cargar la base de datos alargada “datos1”</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>El formato alargado se genera con la librería tidyverse. En los pasos posteriores se insertarán las columnas de rangos de abundancias (eje x) y de abundancias relativas (eje y).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos en formato alargado (gather)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> Tramos, <span class="at">value =</span> Abundancia, <span class="sc">-</span>TAXA)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Rotulos de las columnas</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Taxones"</span>, <span class="st">"Tramos"</span>, <span class="st">"Abundancia"</span>) </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># seis primeras filas de la base de datos</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Taxones Tramos Abundancia
+1      Simulium      A       1586
+2 Chironominae       A        901
+3 Orthocladinae      A        473
+4      Baetodes      A        346
+5    Diamesinae      A        170
+6     Atopsyche      A        159</code></pre>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-3.-insertar-una-columna-de-rangos-de-abundancia---eje-x" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-3.-insertar-una-columna-de-rangos-de-abundancia---eje-x">Paso 3. Insertar una columna de “rangos” de abundancia - eje x</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>Los rangos de abundancia son requeridos para definir el eje x del diagrama a graficar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rango de las especies para cada tramo (eje x de la figura)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se inserta una columna "rango" que ranquea a las abundancias de c/spp</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>datos1<span class="sc">$</span>Rango <span class="ot">&lt;-</span> <span class="fu">ave</span>(datos1<span class="sc">$</span>Abundancia, datos1<span class="sc">$</span>Tramos, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">FUN =</span> rank, <span class="at">ties.method =</span> <span class="st">"min"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Taxones Tramos Abundancia Rango
+1      Simulium      A       1586   107
+2 Chironominae       A        901   106
+3 Orthocladinae      A        473   105
+4      Baetodes      A        346   104
+5    Diamesinae      A        170   103
+6     Atopsyche      A        159   102</code></pre>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-4.-insertar-una-columna-de-abundancias-relativas---eje-y" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-4.-insertar-una-columna-de-abundancias-relativas---eje-y">Paso 4. Insertar una columna de “abundancias relativas” - eje y</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Abundancia relativa (Abundancia_rel) de los taxones para cada tramo</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>datos1<span class="sc">$</span>Abundancia_rel <span class="ot">&lt;-</span> datos1<span class="sc">$</span>Abundancia <span class="sc">/</span> <span class="fu">sum</span>(datos1<span class="sc">$</span>Abundancia)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Redondeo a tres decimales para resumir los valores de esta variable</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>datos1<span class="sc">$</span>Abundancia_rel <span class="ot">&lt;-</span> <span class="fu">round</span>(datos1<span class="sc">$</span>Abundancia_rel,<span class="dv">3</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrado de los datos de manera descendente por cada rango de abundancia</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> datos1[<span class="fu">order</span>(datos1<span class="sc">$</span>Rango, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Taxones Tramos Abundancia Rango Abundancia_rel
+1        Simulium      A       1586   107          0.142
+109 Chironominae       B        451   107          0.040
+216 Chironominae       C        756   107          0.068
+2   Chironominae       A        901   106          0.081
+137 Staphylinidae      B        347   106          0.031
+227   Leptohyphes      C        349   106          0.031</code></pre>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-5.-filtrado-de-los-10-taxones-más-abundantes" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-5.-filtrado-de-los-10-taxones-más-abundantes">Paso 5. Filtrado de los 10 taxones más abundantes</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>En datos de diversidad como este que cuenta con más de 100 taxones, es recomendable resumirlos con algún criterio, para que el diagrama de ragos de abundancia sea facil de interpretar, para lo cual se realiza a continuación un filtrado de los 10 taxones más abundantes. En caso de que se quiera graficar a todos los taxones, se puede omitir este paso.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre de los 10 principales taxones por sus abundancias relativas</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>principales_taxones <span class="ot">&lt;-</span> <span class="fu">head</span>(<span class="fu">unique</span>(datos1<span class="sc">$</span>Taxones), <span class="dv">10</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos con 10 taxones de mayor abundancia relativa</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>datos_filtrados <span class="ot">&lt;-</span> datos1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Taxones <span class="sc">%in%</span> principales_taxones)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_filtrados)  <span class="co"># Tabla resumen de las 6 primeras filas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Taxones Tramos Abundancia Rango Abundancia_rel
+1      Simulium      A       1586   107          0.142
+2 Chironominae       B        451   107          0.040
+3 Chironominae       C        756   107          0.068
+4 Chironominae       A        901   106          0.081
+5 Staphylinidae      B        347   106          0.031
+6   Leptohyphes      C        349   106          0.031</code></pre>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-6.-figura-de-los-10-taxones-más-abundantes-para-cada-tramo-evaluado" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-6.-figura-de-los-10-taxones-más-abundantes-para-cada-tramo-evaluado">Paso 6. Figura de los 10 taxones más abundantes para cada tramo evaluado</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_filtrados, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Rango, <span class="at">y =</span> Abundancia_rel, <span class="at">color =</span> Taxones, <span class="at">label =</span> Taxones)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> Taxones), <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">box.padding =</span> <span class="fl">0.5</span>, <span class="at">point.padding =</span> <span class="fl">0.2</span>, <span class="at">segment.color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>() <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Rango de las especies"</span>, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"log10(Abundancia relativa)"</span>, </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Taxones"</span>) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Tramos, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</div></section>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7"></h2>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="modelos-de-rango---riqueza---abundancia-rad" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="modelos-de-rango---riqueza---abundancia-rad">1.2 Modelos de rango - riqueza - abundancia (RAD)</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div style="text-align: justify">
+
+<p>Son cuatro los modelos en los que se diagnostican los patrones de diversidad de cada muestra: <code>nulo</code> o de <code>vara quebrada</code> (brokenstick), <code>geométrico</code> o de preferencia (premption), <code>log-normal</code>, y los modelos <code>lineales generalizados</code> (glm) de taxones abundantes o dominantes son: los <code>modelos logarítmicos o Zipf</code> y <code>Zipf-Mandelbrot</code>.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="cargar-las-librerías-1" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="cargar-las-librerías-1"><strong>Cargar las librerías</strong></h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías para el tema 1 (perfil de diversidad)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-1.-cargar-la-base-de-datos-datos.csv-1" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-1.-cargar-la-base-de-datos-datos.csv-1">Paso 1. Cargar la base de datos “datos.csv”</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>La base de datos es entregada por el docente y a continuación se muestra el procedimiento para cargarla en RStudio y visualizar las seis primeras filas de las 107 en total, con el comando <code>head(datos)</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la base de datos y asignarla como "datos"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"datos.csv"</span>, <span class="at">row.names=</span><span class="dv">1</span>) </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print.Date(datos)   # Muestra a toda la base de datos</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos) <span class="co"># head permite mostrar solo 6 filas de la base de datos (datos).</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 A   B   C
+Simulium      1586 323  99
+Chironominae   901 451 756
+Orthocladinae  473  54  79
+Baetodes       346 248  42
+Diamesinae     170  37  10
+Atopsyche      159  18   1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(datos)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-2.-modelos-paramétricos" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-2.-modelos-paramétricos">Paso 2. modelos paramétricos</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Modelos del tramo Alto - A</strong>. El comando <code>radfit</code> (ajuste de Modelos de rango - riqueza - abundancia - RAD), compara los modelos: Nulo (vara quebrada), Preemption, log-normal, Zipf y Mandelbrot. definiendo el mejor ajuste, utilizando los criterios de información de Akaike (<code>AIC</code>) y los Bayesianos o de Schwartz (<code>BIC</code>). Los modelos RAD que se ajustan mejor a los datos, son los que presenten <strong>menor AIC y BIC</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelos paramétricos de rango - abndancia RAD</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo Alto - A</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>mod.A  <span class="ot">&lt;-</span> <span class="fu">radfit</span>(datos[,<span class="dv">1</span>])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>mod.A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+RAD models, family poisson 
+No. of species 83, total abundance 5034
+
+           par1     par2    par3    Deviance AIC     BIC    
+Null                                6517.35  6849.02 6849.02
+Preemption  0.14509                 2232.51  2566.19 2568.61
+Lognormal   1.938    2.1935          210.30   545.97  550.81
+Zipf        0.37373 -1.4012          396.13   731.80  736.64
+Mandelbrot  1.3859  -1.8252  1.2403  219.55   557.22  564.48</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo medio - B</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mod.B  <span class="ot">&lt;-</span> <span class="fu">radfit</span>(datos[,<span class="dv">2</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mod.B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+RAD models, family poisson 
+No. of species 78, total abundance 3501
+
+           par1        par2    par3    Deviance AIC      BIC     
+Null                                   1875.389 2197.150 2197.150
+Preemption  0.10316                     175.579  499.340  501.696
+Lognormal   2.5739      1.6202          436.598  762.359  767.072
+Zipf        0.23655    -1.0852         1027.269 1353.030 1357.743
+Mandelbrot  5.8515e+05 -4.664   25.758   33.836  361.597  368.667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo bajo - C</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mod.C  <span class="ot">&lt;-</span> <span class="fu">radfit</span>(datos[,<span class="dv">3</span>])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>mod.C</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+RAD models, family poisson 
+No. of species 65, total abundance 2632
+
+           par1     par2    par3    Deviance AIC      BIC     
+Null                                2212.106 2471.242 2471.242
+Preemption  0.14177                  703.178  964.315  966.489
+Lognormal   2.0205   1.9231           57.541  320.677  325.026
+Zipf        0.33661 -1.3027          216.532  479.669  484.017
+Mandelbrot  2.6592  -1.9571  2.2373   82.897  348.033  354.556</code></pre>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>Los menores valores de los criterios AIC y BIC, definen al modelo <strong>lognormal</strong> como el que mejor se ajusta a los tramos A y C (modelo asociado a altos niveles de diversidad de taxones). De acuerdo a <a href="https://www.madrimasd.org/blogs/universo/2006/01/07/11693">Ibañez et al.&nbsp;(2006)</a>, las distribuciones lognormales, aplican a comuniadades estables (sin perturbaciones) y/o a oportunistas.</p>
+<p>Por su parte, el tramo B se ajusta mejor al modelo lineal generalizado (glm) <strong>Mandelbrot</strong>. De acuerdo a <a href="https://cienciasforestales.inifap.gob.mx/index.php/forestales/article/view/591/2056">Alanís-Rodríguez et al.&nbsp;(2020)</a>, el ajuste <em>Mandelbrot,</em> se asocia a comunidades con algunos taxones que dominan por sus mayores densidades de indiviuos, especialmente en etapas iniciales de las sucesiones. Hay que tener en cuenta este aspecto del tramo B, porque si bien, se ajusta a un modelo con cierta dominancia de especies, es el lugar con mayor diversidad, en terminos de su mayor cobertura, equidad y uniformidad (ver a continuación: <strong>2. Valoración de diversidad a partir de estimadores no paramétricos</strong>).</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></div></section><b style="color:#4daf4a;">
+</b><section id="paso-3.-figuras-de-los-modelos-paramétricos" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-3.-figuras-de-los-modelos-paramétricos">Paso 3. Figuras de los modelos paramétricos</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.A, <span class="at">main=</span><span class="st">"Tramo A"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.B, <span class="at">main=</span><span class="st">"Tramo B"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.C, <span class="at">main=</span><span class="st">"Tramo C"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>La línea de mayor grosor es la que representa al modelo de mayor ajuste para cada tramo evaluado. A continuación se grafican los diagramas de mayor ajuste.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.A<span class="sc">$</span>models<span class="sc">$</span>Lognormal, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Tramo A - log-normal"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.B<span class="sc">$</span>models<span class="sc">$</span>Preemption, </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Tramo B - Mandelbrot"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod.C<span class="sc">$</span>models<span class="sc">$</span>Lognormal, </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"Tramo C - log-normal"</span>, <span class="at">ylab=</span> <span class="st">"log10(Ab. relativa)"</span>, <span class="at">xlab=</span><span class="st">"Rangos"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div></section>
+</div></section>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="valoración-de-diversidad-a-partir-de-estimadores-no-paramétricos." class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="valoración-de-diversidad-a-partir-de-estimadores-no-paramétricos.">2. <strong>Valoración de diversidad a partir de estimadores no paramétricos.</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>3.Valoración de la diversidad en cuatro pasos, propuesta por Chao et al.&nbsp;(2020).</strong> Este ejercicio, tiene por objeto, aprender a utilizar la plataforma iNEXT de cuatro pasos <code>iNEXT.4steps</code>, el cual consiste en la valoración de la diversidad en localidades o muestras. Este procedimiento permite calcular los siguientes cuatro insumos: <strong>(1) la completitud o integridad de la muestra</strong>, <strong>(2) la diversidad asintótica</strong>, <strong>(3) la diversidad no asintótica</strong> y <strong>(4) la uniformidad de las abundancias</strong> (<a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102">Chao et al.&nbsp;2020</a>).</p>
+<p>Hay una plataforma generada por Chao y colaboradores <a href="https://chao.shinyapps.io/iNEXT_4steps/">Enlace de la Plataforma</a>, pero en este caso se trabajará con los comandos de R con el paquete <code>iNEXT.4steps</code>, para calcular los estimadores de diversidad <a href="https://github.com/KaiHsiangHu/iNEXT.4steps">Enlace de los comandos de R</a>.</p>
+<p><strong>¿Qué es iNEXT?</strong> Herramienta que infiere sobre la diversidad esperada de uno o más lugares, a partir de <code>datos observados</code> (tabulados de campo), por medio de <code>interpolación</code> (iN) y de <code>extrapolación</code> (EXT) de los datos de cada muestra tomada en campo. Los detalles se muestran en el artículo de Chao et al.&nbsp;2020 (<a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102">enlace</a>), especialmente la <strong>tabla 2</strong> y la plataforma de iNEXT en 4 pasos (<a href="https://chao.shinyapps.io/iNEXT_4steps/">enlace</a>), que aplica a lo mencionado en el artículo.</p>
+<p>A continuación se describen los cuatro pasos para valorar la diversidad de una o varias muestras tomadas de comunidades:</p>
+<p>• <strong>Paso 1: Perfil de completitud</strong>. Muestra que tan completa es la muestra evaluada dependiendo de que la pendiente de la curva (eje y) se aproxime a cero para los tres órdenes de diversidad (eje x). Normalmente esa pendiente se estabiliza en los órdenes q= 1 (especies frecuentes o dominantes registradas) y q= 2 (especies muy frecuentes). No sucede lo mismo con el orden q= 0 (número de especies) donde la pendiente es mayor lo cual indica que el esfuerzo debe aumentar.</p>
+<p>• <strong>Paso 2: Rarefacción y extrapolación y perfil asintótico de diversidad</strong>. El primero hace relación a la proyección de los órdenes q= 0, q= 1 y q= 2 (línea punteada), hasta el doble de los individuos observados (eje x). Normalmente en q=0 la curva punteada no alcanza a estabilizarse (pendiente =0), lo cual impide una estimación precisa de la diversidad verdadera. En caso de que lo anterior se estime con precisión, el perfil asintótico permitirá reportar la diversidad no detectada (perfil estimado - empírico u observado), de lo contrario se debe analizar el siguiente paso.</p>
+<p>• <strong>Paso 3. Perfil no asintótico</strong>. Se aplica estandarizando coberturas, para muestras en las que no se puede estimar la diversidad con precisión. Se extrae una fracción de la muestra de forma aleatoria. Entonces se analiza el nivel de diversidad (eje y), para una cobertura máxima que tienda a 1 (eje x).</p>
+<p>• <strong>Paso 4. Perfil de uniformidad</strong>. Permite evaluar la uniformidad en las abundancias de las especies registradas por las muestras comparadas para una cobertura máxima. Allí se sugiere a la plataforma iNEXT en 4 pasos (enlace) para ejecutar todo el análisis.</p>
+<hr>
+<p><strong>Objetivo</strong> Realizar los cuatro pasos para la valoración de la diversidad de taxones presentes en los tres sitios en comparación (A: Tramo alto, B: Tramo Medio, C: Tramo Bajo del río). Para más detalles de esta base de datos, se puede consultar a <a href="https://www.scielo.sa.cr/scielo.php?script=sci_arttext&amp;pid=S0034-77442011000400009">Rodríguez-Barrios et. al (2011)</a></p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="cargar-librerías" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="cargar-librerías">Cargar librerías</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p>Para poder ejecutar estas librerías, es recomendable utilizar la plataforma <a href="https://posit.cloud/">posit.cloud</a>, debido a que el programa R instalado en el computador, puede presentar errores de instalación de estos complementos. Se requiere crear una cuenta en la página en mención.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install the latest version from github</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('devtools')</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install_github('AnneChao/iNEXT.3D')</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT<span class="fl">.3</span>D)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># install_github('AnneChao/iNEXT.4steps')</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT<span class="fl">.4</span>steps)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="cargar-la-base-de-datos-datos.csv" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="cargar-la-base-de-datos-datos.csv">Cargar la base de datos “datos.csv”</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>Esta base de datos será entregada por el docente, en el material correspondiente a la actividad de cómputo. El presente video muestra de una manera resumida, la forma de iniciar el trabajo en esta plataforma <strong>posit.cloud</strong> (anteriormente <em>rstudio.clod</em>) <a href="https://www.yresultube.com/watch?v=QZZztojF9X0">ver video</a>. Realizar los pasos para cargar la base de datos, que para este caso es: <code>datos.csv</code> (entregada por el docente).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la base de datos y asignarla como "datos"</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"datos.csv"</span>, <span class="at">row.names=</span><span class="dv">1</span>) </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)   <span class="co"># head permite mostrar solo 6 filas de la base de datos (datos).</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 A   B   C
+Simulium      1586 323  99
+Chironominae   901 451 756
+Orthocladinae  473  54  79
+Baetodes       346 248  42
+Diamesinae     170  37  10
+Atopsyche      159  18   1</code></pre>
+</div>
+</div>
+<p>La base de datos, también se puede cargar desde el icono “<code>Import Dataset</code>” ubicado a la derecha del panel de <code>posit.cloud</code> y seleccionar “<code>From text (base)</code>”</p>
+<p>Con el siguiente resumen estadístico se definen las abundancias para cada sitio evaluado (<code>Max.</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de estadísticos de las muestras evaluadas (A, B y C)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       A                 B                C        
+ Min.   :   0.00   Min.   :  0.00   Min.   :  0.0  
+ 1st Qu.:   1.00   1st Qu.:  0.00   1st Qu.:  0.0  
+ Median :   2.00   Median :  2.00   Median :  1.0  
+ Mean   :  47.05   Mean   : 32.72   Mean   : 24.6  
+ 3rd Qu.:  18.50   3rd Qu.: 18.50   3rd Qu.: 10.0  
+ Max.   :1586.00   Max.   :451.00   Max.   :756.0  </code></pre>
+</div>
+</div>
+</div></section>
+</div></section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9"></h2>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="cuatro-pasos-para-valorar-la-diversidad-de-los-sitios-en-comparación" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="cuatro-pasos-para-valorar-la-diversidad-de-los-sitios-en-comparación">2.1 Cuatro pasos para valorar la diversidad de los sitios en comparación</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="resumen-tabular-de-los-cuatro-pasos" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="resumen-tabular-de-los-cuatro-pasos">Resumen tabular de los cuatro pasos</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>A continuación se calcula la diversidad alfa en 4 pasos, de acuerdo a la propuesta de <code>Chao et al. (2020)</code>. Este procedimiento puede tardar algunos minutos y dependerá de la velocidad de conexión a internet y al tamaño de la base de datos evaluada. <code>diversity = "TD"</code> corresponde a la diversidad taxonómica calculada. El comando <code>names(result1)</code>, muestra a los diferentes insumos del análisis.</p>
+<ul>
+<li><strong>Resultados resumidos</strong>. El comando <code>result1$summary</code>, permite mostrar a todos los insumos tabulares de los 4 pasos del análisis de divversidad.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insumos tabulares de la diversidad en 4 pasos</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT<span class="fl">.4</span>steps)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">iNEXT4steps</span>(<span class="at">data =</span> datos, <span class="at">diversity =</span> <span class="st">"TD"</span>, <span class="at">datatype =</span> <span class="st">"abundance"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>summary</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`STEP1. Sample completeness profiles`
+  Assemblage q = 0 q = 1 q = 2
+1          A  0.85     1     1
+2          B  0.90     1     1
+3          C  0.86     1     1
+
+$`STEP2. Asymptotic analysis`
+  Assemblage         Diversity Observed Estimator  s.e.   LCL    UCL
+1          A  Species richness    83.00     98.04 10.02 83.00 117.68
+2          A Shannon diversity    13.91     14.05  0.28 13.51  14.59
+3          A Simpson diversity     6.66      6.66  0.14  6.38   6.95
+4          B  Species richness    78.00     86.65  8.03 78.00 102.38
+5          B Shannon diversity    24.31     24.64  0.48 23.70  25.57
+6          B Simpson diversity    16.03     16.10  0.39 15.34  16.86
+7          C  Species richness    65.00     75.56 11.32 65.00  97.74
+8          C Shannon diversity    15.56     15.80  0.48 14.86  16.75
+9          C Simpson diversity     7.97      7.99  0.27  7.46   8.52
+
+$`STEP3. Non-asymptotic coverage-based rarefaction and extrapolation analysis`
+  Cmax = 0.999 q = 0 q = 1 q = 2
+1            A 92.29 13.98  6.66
+2            B 83.74 24.47 16.06
+3            C 72.48 15.71  7.98
+
+$`STEP4. Evenness among species abundances`
+  Pielou J' q = 1 q = 2
+A      0.58  0.14  0.06
+B      0.72  0.28  0.18
+C      0.64  0.21  0.10</code></pre>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>Los cuatro pasos de este análisis se detallan a continuación.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></div></section><b style="color:#4daf4a;">
+</b><section id="paso-1.-perfil-de-completitud" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-1.-perfil-de-completitud">Paso 1. Perfil de completitud</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p>$<code>STEP1. Sample completeness profiles</code>, Perfil de completitud. Muestra que tan completa es cada muestra evaluada para los órdenes <code>q= 0</code> (riqueza), <code>q= 1</code> (especies frecuentes o abundantes), <code>q= 2</code> (especies muy frecuentes o dominantes). Normalmente <code>q=0</code> es de menor completitud (muestra insuficiente) debido a los <code>f1</code> (cantidad de singletons), entre otros factores.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 1. Perfil de completitud</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>summary<span class="sc">$</span><span class="st">"STEP1. Sample completeness profiles"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Assemblage q = 0 q = 1 q = 2
+1          A  0.85     1     1
+2          B  0.90     1     1
+3          C  0.86     1     1</code></pre>
+</div>
+</div>
+<p>Para este caso, solo <code>q = 0</code> presenta una proporción &lt; 1, los cual puede indicar que si se aumenta el esfuerzo de muestreo o el tamaño de la muestra, pueden encontrarse nuevos taxones.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-2.-perfil-asintótico" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-2.-perfil-asintótico">Paso 2. Perfil asintótico</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p>$<code>STEP2. Asymptotic analysis</code>, Perfil asintótico. Diversidad proyectada (<em>estimada</em>) asumiendo que las muestras tienen tamaño suficiente (coberturas superiores a 0.9), <code>q= 0</code> (riqueza), <code>q= 1</code> (especies frecuentes o diversidad de Shannon), <code>q= 2</code> (especies muy frecuentes o diversidad de Simpson).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 2. Perfil Asintótico</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>summary<span class="sc">$</span><span class="st">"STEP2. Asymptotic analysis"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Assemblage         Diversity Observed Estimator  s.e.   LCL    UCL
+1          A  Species richness    83.00     98.04 10.02 83.00 117.68
+2          A Shannon diversity    13.91     14.05  0.28 13.51  14.59
+3          A Simpson diversity     6.66      6.66  0.14  6.38   6.95
+4          B  Species richness    78.00     86.65  8.03 78.00 102.38
+5          B Shannon diversity    24.31     24.64  0.48 23.70  25.57
+6          B Simpson diversity    16.03     16.10  0.39 15.34  16.86
+7          C  Species richness    65.00     75.56 11.32 65.00  97.74
+8          C Shannon diversity    15.56     15.80  0.48 14.86  16.75
+9          C Simpson diversity     7.97      7.99  0.27  7.46   8.52</code></pre>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>La diferencia entre la diversidad estimada y la observada define al número de especies o taxones faltantes (no detectados). <code>s.e.</code> y <code>LCL</code>, son los errores estándar y los límites de confianza, respectivamente, para las proyecciones gráficas que se definen a continuación.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="paso-3.-perfil-no-asintótico-basado-en-interpolación-y-extrapolación" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-3.-perfil-no-asintótico-basado-en-interpolación-y-extrapolación">Paso 3. Perfil no asintótico basado en interpolación y extrapolación</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p>$<code>STEP3. Non-asymptotic coverage-based rarefaction and extrapolation analysis,</code> Perfil no asintótico basado en interpolación y extrapolación. Cobertura (<code>eje x</code>) obtenida de una muestra aleatoria, extrapolada para aumentar su representación (<code>Cmax</code>).Este paso es apropiado cuando hay demasiados tazones no detectados o faltantes y la diversidad no se puede calcular con precisión.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 3. Perfil no asintótico basado en interpolación y extrapolación</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>summary<span class="sc">$</span><span class="st">"STEP3. Non-asymptotic coverage-based rarefaction and extrapolation analysis"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Cmax = 0.999 q = 0 q = 1 q = 2
+1            A 92.29 13.98  6.66
+2            B 83.74 24.47 16.06
+3            C 72.48 15.71  7.98</code></pre>
+</div>
+</div>
+<p>Para este caso, el número de taxones de la muestra aleatoria <code>q = 0</code>, está entre 72 y 92. El número de taxones frecuentes <code>q = 1</code> se encuentra entre 14 y 25 y el número de taxones muy frecuentes <code>q = 2</code>, está entre 7 y 16.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></section><b style="color:#4daf4a;">
+</b><section id="paso-4.-perfil-de-uniformidad" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="paso-4.-perfil-de-uniformidad">Paso 4. Perfil de uniformidad</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<p>$<code>STEP4. Evenness among species abundances</code> <code>Perfil de uniformidad</code>. Permite evaluar la uniformidad en las abundancias de los taxones por las muestras comparadas para una cobertura máxima. Sirve para comprar entre el patrón de uniformidad en las abundancias de los taxones para los dos lugares evaluados.</p>
+<p>La Uniformidad (Evenness) se calcula mediante el índice de <code>Piellou (J’)</code>, donde: <code>J' = H/log(S)</code>, donde <code>H</code> denota la diversidad de Shannon y <code>S</code> es el número de taxones de la muestra.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 4. Perfil de uniformidad</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>summary<span class="sc">$</span><span class="st">"STEP4. Evenness among species abundances"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Pielou J' q = 1 q = 2
+A      0.58  0.14  0.06
+B      0.72  0.28  0.18
+C      0.64  0.21  0.10</code></pre>
+</div>
+</div>
+<p>El anterior insumo indica que la uniformidad <code>J'</code> se mueve entre 58% y 64% (muestras poco uniformes en las abundancias de los taxones).</p>
+</section>
+</section>
+</section>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10"></h2>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b><section id="insumos-gráficos-de-los-cuatro-pasos" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="insumos-gráficos-de-los-cuatro-pasos">Insumos gráficos de los cuatro pasos</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>El comando <code>figure[[6]]</code> relaciona a las seis figuras que resumen el proceso de los cuatro pasos para valorar la diversidad de los tres sitios evaluados, descritos por <a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102">Chao et al.&nbsp;2020</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figuras generadas por los cuatro pasos de la valoración de la diversidad.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>result1<span class="sc">$</span>figure[[<span class="dv">6</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Las figuras generadas se describen de forma individual en los siguientes comandos, permitiendo a su vez, editar los rótulos de sus ejes y los titulos de cada una, mejorando de esta forma su interpretación y presentación.</p>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="figura-del-paso-1.-completitud-de-las-muestras" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="figura-del-paso-1.-completitud-de-las-muestras">Figura del Paso 1. Completitud de las muestras</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>El comando <code>Completeness</code>, se utiliza para graficar la integridad de cada muestra (tramos a, B y C), a través del perfil de completitud. Para este caso se observa Que la muestra más completa es la del tramo medio (B), debido a que presenta menos pendiente en q = 0 que el resto. Entonces, a mayor pendiente, menos completitud de las muestras. Al analizar el eje X (q = 0, 1 y 2) se observa que la menor completitud se presenta en el orden q = 0, lo cual indica que hay taxones no detectados en las tres muestras evaluadas. Para eliminar el titulo de la figura, se puede colocar el siguiente comando <code>title = ""</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura del paso 1. Completitud de las muestras.</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> result1<span class="sc">$</span>figure[[<span class="dv">1</span>]]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Orden q"</span>, <span class="at">y=</span><span class="st">"Completitud de la muestra"</span>, </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 1. </span><span class="sc">\n</span><span class="st">Perfil de Completitud"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Otra forma de hallar el perfil de completitud es mediante el comando <code>Completeness</code>. La siguiente figura del paso 2, se obtiene con el comando <code>ggCompleteness</code> descrito en el repositorio GitHub de <strong>iNEXT.4steps (R package)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perfil de completitud de las muestras</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># result2 &lt;- Completeness(data = datos, datatype = "abundance")</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura del perfil de completitud</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># p &lt;- ggCompleteness(result2)</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># p+labs(x="Orden q", y="Completitud de la muestra", </span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co">#        title = "Paso 1. \nPerfil de Completitud")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="figura-del-paso-2.-perfil-asintótico" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="figura-del-paso-2.-perfil-asintótico">Figura del Paso 2. Perfil asintótico</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Paso 2.1</strong> El comando <code>result1$figure[[2]]</code>, permite graficar la “Diversidad asintótica” basada en rarefacción y extrapolación (paso 2.1). En este sentido la <em>asintota de las curvas</em>, se obtiene cuando por más que aumente la abundancia de individuos, no aumenta la diversidad (la curva se vuelve asintótica o con pendiente = 0). Estos perfiles son útiles para comparar la diversidad de muestras de diferentes tamaños y preferiblemente que sean grandes, lo cual no es el caso del presente ejercicio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 2.1. Figura del tamaño basado en rarefacción / extrapolación</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> result1<span class="sc">$</span>figure[[<span class="dv">2</span>]]</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Número de Individuos"</span>, <span class="at">y=</span><span class="st">"Diversidad de taxones"</span>, </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 2.1. </span><span class="sc">\n</span><span class="st">Tamaño basado en rarefacción/extrapolación"</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="st">""</span>,<span class="at">values =</span>  <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Empírica"</span>,<span class="st">"Asintótica"</span>)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>Para este caso, se observa que q = 0 (riqueza de taxones) no alcanza la asintota en ninguno de los tramos (líneas sólidas), tampoco al extrapolar la abundancia al doble de lo registrado (líneas punteadas), lo cual indica que se requiere aumentar el esfuerzo de muestreo o que los lugares tienen una elevada diversidad esperada. Otro aspecto es el solapamiento de las bandas de colores, que representan los valores de los límites de confianza, lo cual puede indicar que entre los tramos A y B no se esperan diferencias significativas de la riqueza de taxones (solapamiento importante de la bandas).</p>
+<p>Con la librería <code>iNEXT</code> de R, también se puede realizar la figura anterior. Para mayores detalles de esta opción, se puede consultar al <a href="https://cran.r-project.org/web/packages/iNEXT/vignettes/Introduction.pdf">Manual_iNEXT</a> y el procedimiento en esa plataforma se describe a continuación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(iNEXT)</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># out=iNEXT(datos,q=c(0,1,2),datatype="abundance")</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># datos_plot = ggiNEXT(out, type=3, facet.var="Order.q")</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># datos_plot + labs(x = "Cobertura de la muestra", y = "Diversidad")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Paso 2.2</strong> El comando <code>result1$figure[[3]]</code>, permite graficar la <em>“Diversidad asintótica”</em> basada en el comparativo entre la diversidad estimada (asintótica) y la onservada (empírica) de los tramos en comparación (paso 2.2). En la Figura, se muestra que entre más se aproximen estas curvas, se tendrá una mayor aproximación a la diversidad esperada. Al analizar la intersección de los ejes x, y, se observa que en el orden q = 0 (riqueza de taxones) es donde se alejan las curvas, lo cual se complementa con la figura anterior, para este estimador.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 2.2. Figura del perfil asintótico y empírico</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> result1<span class="sc">$</span>figure[[<span class="dv">3</span>]]</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Orden q"</span>, <span class="at">y=</span><span class="st">"Diversidad Taxonómica"</span>, </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 2.2. </span><span class="sc">\n</span><span class="st">Perfil de diversidad asintótico y empírico"</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="st">""</span>,<span class="at">values =</span>  <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Empírica"</span>,<span class="st">"Asintótica"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></div></section><b style="color:#4daf4a;">
+</b><section id="figura-del-paso-3.-perfil-no-asintótico-basado-en-interpolación-y-extrapolación" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="figura-del-paso-3.-perfil-no-asintótico-basado-en-interpolación-y-extrapolación">Figura del Paso 3. Perfil no asintótico basado en interpolación y extrapolación</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>El comando <code>result1$figure[[3]]</code>, permite graficar la “Diversidad no asintótica” basada en curvas de rarefacción y de extrapolación, asumiendo tamaños de muestra insuficiente o de muestras pequeñas, mediante la extracción de una submuestra del total evaluado (Cmax). En la Figura, todas las curvas alcanzan la cobbertuura esperada (Cobertura = 1), lo cual vuelve consistente su comparación. Para este caso se observa que la mayor riqueza de taxones se presenta en el tramo medio o B (panel q =0) seguido de los tramos B y C, respectivamente. Para el caso de los taxones abundantes (q = 1) y muy abundantes (q = 2), la mayor diversidad se presenta en el tramo B.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 3. Figura del perfil no asintótico basado en rarefacción/extrapolación</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> result1<span class="sc">$</span>figure[[<span class="dv">4</span>]]</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Cobertura de la muestra"</span>, <span class="at">y=</span><span class="st">"Diversidad Taxonómica"</span>, </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 3. </span><span class="sc">\n</span><span class="st">Perfil de cobertura basada en rarefacción/extrapolación"</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="st">""</span>,<span class="at">values =</span>  <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Empírica"</span>,<span class="st">"Asintótica"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><b style="color:#4daf4a;"></b></p><b style="color:#4daf4a;">
+</b></div></section><b style="color:#4daf4a;">
+</b><section id="figura-del-paso-4.-uniformidad-de-las-muestras-tramos-evaluados" class="level4"><b style="color:#4daf4a;">
+<h4 class="anchored" data-anchor-id="figura-del-paso-4.-uniformidad-de-las-muestras-tramos-evaluados">Figura del Paso 4. Uniformidad de las muestras (tramos evaluados)</h4>
+</b><p><b style="color:#4daf4a;"></b></p>
+<div style="text-align: justify">
+
+<p>Este perfil, permite realizar un comparativo en la uniformidad de las muestras comparadas (tramos A, B y C), en los tres órdenes de diversidad (q = 0, 1 y 2), lo cual permite valorar la proporcionalidad de las abundancias para los diferentes taxones encontrados en cada lugar. Para este caso, a excepción del estimador q = 0 (en donde las tres curvas se unen), la mayor uniformidad se presenta en el tramo medio o B (curva de mayor magnitud y bandas de sus límites de confianza no se solapan con el resto), seguido de los tramos C y A, respectivamente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 4. Figura del perfil de uniformidad</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> result1<span class="sc">$</span>figure[[<span class="dv">5</span>]]</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Orden q"</span>, <span class="at">y=</span><span class="st">"Uniformidad"</span>, </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 4. </span><span class="sc">\n</span><span class="st">Perfil de Uniformidad"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Otra forma de calcular el perfil de uniformidad se realiza con el comando Evenness (Figura 6), de la librería iNEXT.4steps, en el cual, se relacionan cinco modelos de uniformidad (E1 a E5), desarrollados y descritos por <a href="https://www.jstor.org/stable/pdf/26853666.pdf">Chao y Ricotta (2019)</a>. Ver tabla 1 y figura 2 del artículo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de los cinco modelos de uniformidad</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">Evenness</span>(<span class="at">data =</span> datos, <span class="at">datatype =</span> <span class="st">"abundance"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura con los cinco modelos de uniformidad</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggEvenness</span>(result3)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>p<span class="sc">+</span><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Orden q"</span>, <span class="at">y=</span><span class="st">"Uniformidad"</span>, </span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Paso 4. </span><span class="sc">\n</span><span class="st">Cinco Perfiles de Uniformidad"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller8.Diversidad.alfa_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div style="text-align: justify">
+
+<p>En la Figura se observa que para los cinco modelos de uniformidad, el tramo A es el que presenta mayor uniformidad, seguido del C y el B, respectivamente. La mayor uniformidad del tramo A se presenta especialmente para los taxones dominantes (q = 1) y muy dominantes (q = 2) (ver los órdenes de diversidad en el eje x). En el modelo E4, los valores de uniformidad son casi iguales para los taxones dominantes y muy dominantes (q = 0, 1 y 2).</p>
+</div></div></section>
+</section>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="fuente-de-los-cálculos" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="fuente-de-los-cálculos"><strong>Fuente de los cálculos</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p>Chao, A., Y. Kubota, D. Zelený, C.-H. Chiu, C.-F. Li, B. Kusumoto, M. Yasuhara, S. Thorn, C.-L. Wei, M. J. Costello, and R. K. Colwell (2020). Quantifying sample completeness and comparing diversities among assemblages. Ecological Research, 35, 292-314.</p>
+
+
+</div></section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller7.Calotropis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller7. Calotropis</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller9.subunidades.comunidades.html" class="pagination-link">
+        <span class="nav-page-text">Taller9. Sub.unidades.comunidades</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
