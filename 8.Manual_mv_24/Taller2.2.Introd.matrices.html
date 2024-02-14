@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Multivariados - 2023-II - Taller2.2 Intro_Matrices</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller3.1.exploratorios.html" rel="next">
+<link href="./Taller2.1.Introducción.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller2.2 Intro_Matrices</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Multivariados - 2023-II</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">Videos_clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.html" class="sidebar-item-text sidebar-link">Taller1. Intro_multivariados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.1.Introducción.html" class="sidebar-item-text sidebar-link">Taller2.1 Intro_RStudio</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.2.Introd.matrices.html" class="sidebar-item-text sidebar-link active">Taller2.2 Intro_Matrices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.1.exploratorios.html" class="sidebar-item-text sidebar-link">Taller3. Exploratorios_mv</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.pca.marino.html" class="sidebar-item-text sidebar-link">Taller4.1 PCA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.pca.tayrona.html" class="sidebar-item-text sidebar-link">Taller4.2 PCA PNNTayrona</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.1.nmds.malezas.html" class="sidebar-item-text sidebar-link">Taller5. NMDS Malezas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">Taller6.1 CLA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">Taller6.2 CLA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.1.lda.peces.html" class="sidebar-item-text sidebar-link">Taller7. LDA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.1.manova.peces.html" class="sidebar-item-text sidebar-link">Taller8. MANOVA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.1.permanova.peces.html" class="sidebar-item-text sidebar-link">Taller9. PERMANOVAS Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#resumen-de-las-actividades" id="toc-resumen-de-las-actividades" class="nav-link" data-scroll-target="#resumen-de-las-actividades">Resumen de las actividades</a></li>
+  <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
+  <li><a href="#documento-de-soporte" id="toc-documento-de-soporte" class="nav-link" data-scroll-target="#documento-de-soporte">Documento de soporte</a></li>
+  <li><a href="#actividad-1.-operaciones-básicas-de-matrices" id="toc-actividad-1.-operaciones-básicas-de-matrices" class="nav-link" data-scroll-target="#actividad-1.-operaciones-básicas-de-matrices">Actividad 1. Operaciones básicas de matrices</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#resultados-del-taller-pca" id="toc-resultados-del-taller-pca" class="nav-link" data-scroll-target="#resultados-del-taller-pca">Resultados del taller PCA</a>
+  <ul class="collapse">
+  <li><a href="#operaciones-matriciales-básicas" id="toc-operaciones-matriciales-básicas" class="nav-link" data-scroll-target="#operaciones-matriciales-básicas">1. Operaciones matriciales básicas</a></li>
+  <li><a href="#aplicaciones-de-matrices-análisis-de-componentes-principales---pca" id="toc-aplicaciones-de-matrices-análisis-de-componentes-principales---pca" class="nav-link" data-scroll-target="#aplicaciones-de-matrices-análisis-de-componentes-principales---pca">2. Aplicaciones de matrices (Análisis de Componentes Principales - PCA)</a></li>
+  <li><a href="#cargar-base-de-datos-datos1.csv" id="toc-cargar-base-de-datos-datos1.csv" class="nav-link" data-scroll-target="#cargar-base-de-datos-datos1.csv">2.2 Cargar base de datos (datos1.csv)</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">—</a></li>
+  </ul></li>
+  <li><a href="#resultados-del-taller-lda" id="toc-resultados-del-taller-lda" class="nav-link" data-scroll-target="#resultados-del-taller-lda">Resultados del taller LDA</a>
+  <ul class="collapse">
+  <li><a href="#análisis-discriminante-lineal-lda" id="toc-análisis-discriminante-lineal-lda" class="nav-link" data-scroll-target="#análisis-discriminante-lineal-lda">2. Análisis discriminante lineal (lda)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller2.2 Intro_Matrices</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="resumen-de-las-actividades" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="resumen-de-las-actividades">Resumen de las actividades</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://t3.ftcdn.net/jpg/01/37/10/02/240_F_137100243_hkZ4Ogqttc2ScvjPEnMyELhPlhHv4pyc.jpg" class="img-fluid figure-img" style="width:63.0%"></p>
+<p></p><figcaption class="figure-caption">Imágen tomada de <a href="https://stock.adobe.com/co/contributor/204068816/babaroga?load_type=author&amp;prev_url=detail">Babaroga</a></figcaption><p></p>
+</figure>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="objetivo-de-la-actividad" class="level2"><b style="color:#fc8d62;">
+<h2 class="anchored" data-anchor-id="objetivo-de-la-actividad">Objetivo de la actividad</h2>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://as2.ftcdn.net/v2/jpg/01/24/98/63/1000_F_124986319_zPU5IkYOsDREFgQQPBnvmvBtYKEldopT.jpg" class="img-fluid figure-img" style="width:35.0%"></p>
+<p></p><figcaption class="figure-caption">Imágen tomada de <a href="https://stock.adobe.com/co/contributor/205958075/wittayayut?load_type=author&amp;prev_url=detail">wittayayut</a></figcaption><p></p>
+</figure>
+</div>
+<div style="text-align: justify">
+
+<p>El presente taller tiene como objetivo, realizar un entrenamiento básico, realizar un entrenamiento general sobre algebra lineal aplicada a datos multivariados. Iniciarémos con operaciones básicas y posteriormente se realizarán algunas aplicaciones estadísticas como el análisis de componentes principales (pca) y el análisis discriminante (lda).</p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></div></section><b style="color:#fc8d62;">
+</b><section id="documento-de-soporte" class="level2"><b style="color:#fc8d62;">
+<h2 class="anchored" data-anchor-id="documento-de-soporte">Documento de soporte</h2>
+</b><p><b style="color:#fc8d62;"></b></p>
+<div style="text-align: justify">
+
+<p>Se utilizará como referente al capitulo 3 del libro Análisis de datos ecológicos y ambientales (Rodríguez-Barrios, J. 2023), alojado en el siguiente enlace 📖<a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=26489&amp;pg=47">Enlace_Libro</a></p>
+<p><img src="https://m.media-amazon.com/images/I/51ooXRKQSrL._SY344_BO1,204,203,200_QL70_ML2_.jpg" class="img-fluid" style="width:13.0%"></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="actividad-1.-operaciones-básicas-de-matrices" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-1.-operaciones-básicas-de-matrices">Actividad 1. Operaciones básicas de matrices</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://t3.ftcdn.net/jpg/02/91/88/44/240_F_291884472_LL830dNaMH0qHAbbtlPICoS3Vsx4J3wU.jpg" width="43%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/204684949/wachiwit?load_type=author&amp;prev_url=detail">wachiwit</a> </n>]</p>
+<div style="text-align: justify">
+
+<ol type="1">
+<li><p>Descargar el script de RMarkDown (rmd) titulado <strong>“Taller2.2.matrices.Rmd”</strong> en el siguiente enlace 📈<a href="https://javier-2712.github.io/Multivariados/Taller2.2_intro.matrices/Taller2.2.matrices.Rmd.rmd">Taller2.2.matrices.Rmd</a>.</p></li>
+<li><p>Descargar la base de datos con mediciones de cuatro variables morfométricas a estudiantes de biología (csv) titulado <strong>“datos1.csv”</strong> en el siguiente enlace 📈<a href="https://javier-2712.github.io/Multivariados/Taller2.2_intro.matrices/datos1.csv">datos1.csv</a>.</p></li>
+<li><p>Crear una <strong>carpeta</strong> en su computador titulada <strong>“Taller2.2_Matrices.RStudio”</strong> y guardar el archivo descargado junto con archivo <strong>datos1.csv</strong>.</p></li>
+<li><p><strong>Cerrar el RStudio</strong> y Abrir el archivo <strong>“Taller2.2.matrices.Rmd</strong> y abrir el siguiente enlace, correspondiente al ejercicio a realizar 📰<a href="https://slides.com/d/Sr5PEvY/live">Taller1.IntroRStudio</a>.</p></li>
+<li><p>Revisar los siguientes enlaces complementarios:</p></li>
+</ol>
+<ul>
+<li>📰<a href="https://javier-2712.github.io/Libro_andea/3.Algebra_lineal/Cap%C3%ADtulo3.html">Scripts del Ejemplo 3, del capítulo 3 del libro (Rodríuez-Barrios, J. 2023)</a></li>
+</ul>
+</div></section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="resultados-del-taller-pca" class="level1"><b style="color:#1f78b4;">
+<h1>Resultados del taller PCA</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="operaciones-matriciales-básicas" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="operaciones-matriciales-básicas">1. Operaciones matriciales básicas</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<section id="producto-matricial" class="level4">
+<h4 class="anchored" data-anchor-id="producto-matricial">1.1 Producto matricial</h4>
+<p>Este ejercicio incluye una demostración al final.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A (2,1,1,3)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># B (1,4,2,5,0,3)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular: (1) B'.A' (2) (A.B)' (3) Demostrar que B'.A' = (A.B)'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># R./</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span>  <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow =</span> T)          <span class="co"># Matriz A</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span>  <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)     <span class="co"># Matriz B</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    1
+[2,]    1    3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    4    2
+[2,]    5    0    3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) B'.A'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(B)<span class="sc">%*%</span><span class="fu">t</span>(A)    <span class="co"># %*%  representa el producto matricial, </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    7   16
+[2,]    8    4
+[3,]    7   11</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>               <span class="co"># "t" corresponde a la transpuesta de una matriz</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) (A.B)'</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A <span class="sc">%*%</span> B)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    7   16
+[2,]    8    4
+[3,]    7   11</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) B'.A' = (A.B)'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(B)<span class="sc">%*%</span><span class="fu">t</span>(A) <span class="sc">==</span> <span class="fu">t</span>(A <span class="sc">%*%</span> B)   <span class="co"># Demostración</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,] TRUE TRUE
+[2,] TRUE TRUE
+[3,] TRUE TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="determinantes" class="level4">
+<h4 class="anchored" data-anchor-id="determinantes">1.2 Determinantes</h4>
+<p>Se calculará la determinante de dos matrices cuadradas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A (2,3,3,2)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># B (1,4,2,5,0,3)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cacular: Determinante de A y de B</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#R./</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow =</span> T)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">3</span>),<span class="dv">3</span>,<span class="dv">3</span>,<span class="at">byrow =</span> T)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>A     </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    3
+[2,]    3    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    4    2
+[2,]    5    0    3
+[3,]    1    4    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determinantes</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(A)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section id="matriz-inversa" class="level4">
+<h4 class="anchored" data-anchor-id="matriz-inversa">1.3 Matriz inversa</h4>
+<p>Cálculo de una matriz inversa (A)-1</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 3</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A (5,2,2,2)</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular inversa de A</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># R./</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="dv">2</span>,<span class="dv">2</span>,<span class="at">byrow=</span>T)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    5    2
+[2,]    2    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz inversa (solve)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">solve</span>(A),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]  [,2]
+[1,]  0.33 -0.33
+[2,] -0.33  0.83</code></pre>
+</div>
+</div>
+</section>
+<section id="matriz-de-varianza---covarianza" class="level4">
+<h4 class="anchored" data-anchor-id="matriz-de-varianza---covarianza">1.4 Matriz de varianza - covarianza</h4>
+<p>Calcular la covaianza para dos matrices rectangulares</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>),<span class="dv">3</span>,<span class="dv">2</span>, <span class="at">byrow=</span> T)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">5</span>,<span class="dv">2</span>, <span class="at">byrow=</span>T)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    2
+[2,]    4    3
+[3,]    6    9</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    2    3
+[2,]    4    5
+[3,]    6    7
+[4,]    8    9
+[5,]   10    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) Covarianzas de cada matriz (c/grupo)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cov.A <span class="ot">=</span> <span class="fu">cov</span>(A)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>cov.B <span class="ot">=</span> <span class="fu">cov</span>(B)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cov.A</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]     [,2]
+[1,]    4  7.00000
+[2,]    7 14.33333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cov.B</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]   10  1.0
+[2,]    1  8.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) covarianza generalizada (S)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>cov.g <span class="ot">=</span> (<span class="dv">3</span><span class="sc">*</span>(cov.A)<span class="sc">+</span><span class="dv">5</span><span class="sc">*</span>(cov.B))<span class="sc">/</span><span class="dv">8</span>  <span class="co"># cov.g corresponde a la covarianza generalizada</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>cov.g</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]  [,2]
+[1,] 7.75  3.25
+[2,] 3.25 10.50</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) covarianza generalizada invertida (S-1)</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>cov.g.i <span class="ot">=</span> <span class="fu">solve</span>(cov.g)   <span class="co"># cov.g.i representa a la covarianza gralizada invertida</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>cov.g.i</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            [,1]        [,2]
+[1,]  0.14827891 -0.04589585
+[2,] -0.04589585  0.10944395</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.g.i,<span class="dv">2</span>)   <span class="co"># round corresponde al redondeo de decimales</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]  [,2]
+[1,]  0.15 -0.05
+[2,] -0.05  0.11</code></pre>
+</div>
+</div>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="aplicaciones-de-matrices-análisis-de-componentes-principales---pca" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="aplicaciones-de-matrices-análisis-de-componentes-principales---pca">2. Aplicaciones de matrices (Análisis de Componentes Principales - PCA)</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<section id="librerías-requeridas" class="level4">
+<h4 class="anchored" data-anchor-id="librerías-requeridas">2.1 Librerías requeridas</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías o paquetes requeridos</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("vegan")</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="cargar-base-de-datos-datos1.csv" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-base-de-datos-datos1.csv">2.2 Cargar base de datos (datos1.csv)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.2 Cargar la base de datos de Excel *.csv</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">"datos1.csv"</span>,<span class="at">row.names=</span><span class="dv">1</span>)  </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>datos           <span class="co"># Falta un dato al estudiante 13</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo Longitud.total Cintura Longitud.espalda Long.brazo
+Alumno 1     F            170    85.0               43         57
+Alumno 2     F            160    80.0               41         54
+Alumno 3     F            156    88.0               35         48
+Alumno 4     F            173    63.0               53         59
+Alumno 5     M            170    86.0               47         56
+Alumno 6     M            165    89.0               45         61
+Alumno 7     M            170    88.0               56         59
+Alumno 8     M            181    80.0               60         55
+Alumno 9     M            175    76.0               55         54
+Alumno 10    M            186    45.0               60         86
+Alumno 11    F            168    65.0               49         55
+Alumno 12    F            155    70.0               36         50
+Alumno 13    F            150    85.5               45         NA
+Alumno 14    F            158    72.0               40         55
+Alumno 15    M            172    79.0               43         82
+Alumno 16    F            155    68.0               39         50
+Alumno 17    F            163    68.0               38         70
+Alumno 18    M            170   122.0               48         60
+Alumno 19    F            157    60.0               36         69
+Alumno 20    F            162    60.0               50         76
+Alumno 21    M            170    82.0               55         56
+Alumno 22    F            158    75.0               35         60
+Alumno 23    M            174    87.0               51         56
+Alumno 24    F            170    88.0               37         78
+Alumno 25    F            162    68.0               37         53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)      <span class="co"># Estructura de la base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   25 obs. of  5 variables:
+ $ Sexo            : chr  "F" "F" "F" "F" ...
+ $ Longitud.total  : int  170 160 156 173 170 165 170 181 175 186 ...
+ $ Cintura         : num  85 80 88 63 86 89 88 80 76 45 ...
+ $ Longitud.espalda: int  43 41 35 53 47 45 56 60 55 60 ...
+ $ Long.brazo      : int  57 54 48 59 56 61 59 55 54 86 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>datos<span class="ot">=</span><span class="fu">na.omit</span>(datos)      <span class="co"># na.omit, para eliminar al estudiante 13</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>datos</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo Longitud.total Cintura Longitud.espalda Long.brazo
+Alumno 1     F            170      85               43         57
+Alumno 2     F            160      80               41         54
+Alumno 3     F            156      88               35         48
+Alumno 4     F            173      63               53         59
+Alumno 5     M            170      86               47         56
+Alumno 6     M            165      89               45         61
+Alumno 7     M            170      88               56         59
+Alumno 8     M            181      80               60         55
+Alumno 9     M            175      76               55         54
+Alumno 10    M            186      45               60         86
+Alumno 11    F            168      65               49         55
+Alumno 12    F            155      70               36         50
+Alumno 14    F            158      72               40         55
+Alumno 15    M            172      79               43         82
+Alumno 16    F            155      68               39         50
+Alumno 17    F            163      68               38         70
+Alumno 18    M            170     122               48         60
+Alumno 19    F            157      60               36         69
+Alumno 20    F            162      60               50         76
+Alumno 21    M            170      82               55         56
+Alumno 22    F            158      75               35         60
+Alumno 23    M            174      87               51         56
+Alumno 24    F            170      88               37         78
+Alumno 25    F            162      68               37         53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sexo"</span>,<span class="st">"LTot"</span>,<span class="st">"Cint"</span>,<span class="st">"LEsp"</span>,<span class="st">"LBra"</span>)    <span class="co"># Rótulos de la base de datos</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)          <span class="co"># Base de datos abreviada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Sexo LTot Cint LEsp LBra
+Alumno 1    F  170   85   43   57
+Alumno 2    F  160   80   41   54
+Alumno 3    F  156   88   35   48
+Alumno 4    F  173   63   53   59
+Alumno 5    M  170   86   47   56
+Alumno 6    M  165   89   45   61</code></pre>
+</div>
+</div>
+<section id="cálculo-de-la-matriz-centrada-de-las-variables-morfométricas" class="level4">
+<h4 class="anchored" data-anchor-id="cálculo-de-la-matriz-centrada-de-las-variables-morfométricas">2.3 Cálculo de la matriz centrada de las variables morfométricas</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>var <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)]          <span class="co"># Variables morfométricas</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>promedio <span class="ot">=</span> <span class="fu">colMeans</span>(var)      <span class="co"># Promedios de las variables</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>promedio</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     LTot      Cint      LEsp      LBra 
+166.66667  76.83333  45.37500  60.79167 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>m.centrada <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(var) <span class="sc">-</span> promedio) <span class="co"># Restar cada dato a los promedios</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>m.centrada</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                LTot        Cint    LEsp        LBra
+Alumno 1    3.333333   8.1666667  -2.375  -3.7916667
+Alumno 2   -6.666667   3.1666667  -4.375  -6.7916667
+Alumno 3  -10.666667  11.1666667 -10.375 -12.7916667
+Alumno 4    6.333333 -13.8333333   7.625  -1.7916667
+Alumno 5    3.333333   9.1666667   1.625  -4.7916667
+Alumno 6   -1.666667  12.1666667  -0.375   0.2083333
+Alumno 7    3.333333  11.1666667  10.625  -1.7916667
+Alumno 8   14.333333   3.1666667  14.625  -5.7916667
+Alumno 9    8.333333  -0.8333333   9.625  -6.7916667
+Alumno 10  19.333333 -31.8333333  14.625  25.2083333
+Alumno 11   1.333333 -11.8333333   3.625  -5.7916667
+Alumno 12 -11.666667  -6.8333333  -9.375 -10.7916667
+Alumno 14  -8.666667  -4.8333333  -5.375  -5.7916667
+Alumno 15   5.333333   2.1666667  -2.375  21.2083333
+Alumno 16 -11.666667  -8.8333333  -6.375 -10.7916667
+Alumno 17  -3.666667  -8.8333333  -7.375   9.2083333
+Alumno 18   3.333333  45.1666667   2.625  -0.7916667
+Alumno 19  -9.666667 -16.8333333  -9.375   8.2083333
+Alumno 20  -4.666667 -16.8333333   4.625  15.2083333
+Alumno 21   3.333333   5.1666667   9.625  -4.7916667
+Alumno 22  -8.666667  -1.8333333 -10.375  -0.7916667
+Alumno 23   7.333333  10.1666667   5.625  -4.7916667
+Alumno 24   3.333333  11.1666667  -8.375  17.2083333
+Alumno 25  -4.666667  -8.8333333  -8.375  -7.7916667</code></pre>
+</div>
+</div>
+</section>
+<section id="valores-y-vectores-própios-de-la-matriz-de-covarianzas-centradas" class="level4">
+<h4 class="anchored" data-anchor-id="valores-y-vectores-própios-de-la-matriz-de-covarianzas-centradas">2.4 Valores y Vectores própios de la Matriz de covarianzas centradas</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Cálculo de valores y vectores propios</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(m.centrada),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           LTot   Cint   LEsp   LBra
+Alumno 1   3.33   8.17  -2.38  -3.79
+Alumno 2  -6.67   3.17  -4.38  -6.79
+Alumno 3 -10.67  11.17 -10.38 -12.79
+Alumno 4   6.33 -13.83   7.62  -1.79
+Alumno 5   3.33   9.17   1.62  -4.79
+Alumno 6  -1.67  12.17  -0.38   0.21</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>S.centrada <span class="ot">=</span> <span class="fu">cov</span>(m.centrada)   <span class="co"># Matriz de varianza y covarianzas centrada</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(S.centrada,<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      LTot   Cint  LEsp   LBra
+LTot 68.41   4.38 56.35  32.75
+Cint  4.38 221.19 -3.67 -45.99
+LEsp 56.35  -3.67 67.20  11.26
+LBra 32.75 -45.99 11.26 108.95</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>vv.propios<span class="ot">=</span> <span class="fu">eigen</span>(S.centrada)    <span class="co"># Vectores y valores propios de m.centrada</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>vv.propios</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>eigen() decomposition
+$values
+[1] 238.551229 141.646198  77.460019   8.092554
+
+$vectors
+            [,1]       [,2]       [,3]        [,4]
+[1,] -0.06532082 -0.6446607  0.2348736  0.72455510
+[2,]  0.93124818 -0.2601970 -0.2459119 -0.06783569
+[3,] -0.06460934 -0.5458245  0.5144348 -0.65822342
+[4,] -0.35261262 -0.4677453 -0.7872220 -0.19276967</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer los vectores propios (vec.propios)</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>vec.propios<span class="ot">=</span>   vv.propios<span class="sc">$</span>vectors                </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(vec.propios,<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1]  [,2]  [,3]  [,4]
+[1,] -0.07 -0.64  0.23  0.72
+[2,]  0.93 -0.26 -0.25 -0.07
+[3,] -0.06 -0.55  0.51 -0.66
+[4,] -0.35 -0.47 -0.79 -0.19</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>vec.propios2 <span class="ot">=</span>   vv.propios<span class="sc">$</span>vectors[,<span class="dv">2</span>]</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>vec.propios2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6446607 -0.2601970 -0.5458245 -0.4677453</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Proyección matricial (matriz rotada), usando a los vectores propios</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>m.centrada<span class="ot">=</span> <span class="fu">as.matrix</span>(m.centrada)      <span class="co"># Variables centradas como matriz</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">#round(head(m.centrada),2)</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz rotada</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>((m.Rotada <span class="ot">&lt;-</span> m.centrada<span class="sc">%*%</span>vec.propios),<span class="dv">2</span>)   <span class="co"># Matriz centrada x vectores própios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            [,1]   [,2]   [,3]  [,4]
+Alumno 1    8.88  -1.20   0.54  4.16
+Alumno 2    6.06   9.04   0.75 -0.86
+Alumno 3   16.28  15.62  -0.52  0.81
+Alumno 4  -13.16  -3.81  10.22  0.85
+Alumno 5    9.90  -3.18   3.14  1.65
+Alumno 6   11.39  -1.98  -3.74 -1.83
+Alumno 7   10.13 -10.02   4.91 -4.99
+Alumno 8    3.11 -15.34  14.67  1.66
+Alumno 9    0.45  -7.23  12.46  1.07
+Alumno 10 -40.74 -23.95   0.05  1.68
+Alumno 11  -9.30   2.95   9.65  0.50
+Alumno 12  -1.19  19.46   2.61  0.26
+Alumno 14  -1.55  12.49   0.95 -1.30
+Alumno 15  -5.66 -12.63 -17.20  1.19
+Alumno 16  -3.25  18.35   4.65 -1.58
+Alumno 17 -10.76   4.38  -9.73  1.02
+Alumno 18  41.95 -14.96  -8.35 -2.22
+Alumno 19 -17.33  11.89  -9.42 -1.27
+Alumno 20 -21.03  -2.25  -6.55 -8.22
+Alumno 21   5.66  -6.51   8.24 -3.35
+Alumno 22  -0.19  12.10  -6.30  0.83
+Alumno 23  10.31  -8.20   5.89  1.84
+Alumno 24   4.65  -8.53 -19.82  3.85
+Alumno 25  -4.63  13.52   2.90  4.23</code></pre>
+</div>
+</div>
+</section>
+<section id="figuras-de-la-matriz-proyectada-m.rotada" class="level4">
+<h4 class="anchored" data-anchor-id="figuras-de-la-matriz-proyectada-m.rotada">2.5 Figuras de la matriz proyectada “m.Rotada”</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura sin editar</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.Rotada)  <span class="co"># m.Rotada es la matriz rotada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller2.2.Introd.matrices_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura editada </span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.Rotada, <span class="at">asp=</span><span class="dv">2</span>, <span class="at">pch=</span><span class="dv">19</span>, <span class="at">xlab=</span><span class="st">"CP1"</span>, <span class="at">ylab=</span><span class="st">"CP2"</span>)           <span class="co"># Rótulos de los ejes</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(m.Rotada, <span class="at">labels =</span><span class="fu">row.names</span>(datos),</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pos=</span><span class="dv">3</span>, <span class="at">cex=</span><span class="fl">0.7</span>)                <span class="co"># cex() relaciona el tamaño del texto</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>)           <span class="co"># abline (h=0) línea horizontal del plano cartesiano</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>)           <span class="co"># abline (v=0) línea vertical del plano cartesiano</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()              <span class="co"># Grilla en la figura</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller2.2.Introd.matrices_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="comparar-con-el-análisis-de-componentes-principales---pca" class="level4">
+<h4 class="anchored" data-anchor-id="comparar-con-el-análisis-de-componentes-principales---pca">2.5 Comparar con el Análisis de Componentes Principales - pca</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)          <span class="co"># Librería requerida</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del procedimiento 2.1) Sumas y norma de los vectores</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])             <span class="co"># Variables y observaciones (estudiantes)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         LTot Cint LEsp LBra
+Alumno 1  170   85   43   57
+Alumno 2  160   80   41   54
+Alumno 3  156   88   35   48
+Alumno 4  173   63   53   59
+Alumno 5  170   86   47   56
+Alumno 6  165   89   45   61</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])             <span class="co"># Realización del pca</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca)            <span class="co"># Figura del pca</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>)         <span class="co"># abline (h=0) línea horizontal del plano cartesiano</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"blue"</span>)         <span class="co"># abline (v=0) línea vertical del plano cartesiano</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller2.2.Introd.matrices_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">—</h2>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="resultados-del-taller-lda" class="level1"><b style="color:#1f78b4;">
+<h1>Resultados del taller LDA</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b><section id="análisis-discriminante-lineal-lda" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="análisis-discriminante-lineal-lda">2. Análisis discriminante lineal (lda)</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<section id="cargar-las-librerías-o-paquetes-de-r" class="level4">
+<h4 class="anchored" data-anchor-id="cargar-las-librerías-o-paquetes-de-r">2.1 Cargar las librerías o paquetes de R</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># librerías</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cargar-base-de-datos-datos1.csv-1" class="level4">
+<h4 class="anchored" data-anchor-id="cargar-base-de-datos-datos1.csv-1">2.2 Cargar base de datos (datos1.csv)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2.2 Cargar la base de datos de Excel *.csv</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">"datos1.csv"</span>,<span class="at">row.names=</span><span class="dv">1</span>)  </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>datos2           <span class="co"># Falta un dato al estudiante 13</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo Longitud.total Cintura Longitud.espalda Long.brazo
+Alumno 1     F            170    85.0               43         57
+Alumno 2     F            160    80.0               41         54
+Alumno 3     F            156    88.0               35         48
+Alumno 4     F            173    63.0               53         59
+Alumno 5     M            170    86.0               47         56
+Alumno 6     M            165    89.0               45         61
+Alumno 7     M            170    88.0               56         59
+Alumno 8     M            181    80.0               60         55
+Alumno 9     M            175    76.0               55         54
+Alumno 10    M            186    45.0               60         86
+Alumno 11    F            168    65.0               49         55
+Alumno 12    F            155    70.0               36         50
+Alumno 13    F            150    85.5               45         NA
+Alumno 14    F            158    72.0               40         55
+Alumno 15    M            172    79.0               43         82
+Alumno 16    F            155    68.0               39         50
+Alumno 17    F            163    68.0               38         70
+Alumno 18    M            170   122.0               48         60
+Alumno 19    F            157    60.0               36         69
+Alumno 20    F            162    60.0               50         76
+Alumno 21    M            170    82.0               55         56
+Alumno 22    F            158    75.0               35         60
+Alumno 23    M            174    87.0               51         56
+Alumno 24    F            170    88.0               37         78
+Alumno 25    F            162    68.0               37         53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos2)      <span class="co"># Estructura de la base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   25 obs. of  5 variables:
+ $ Sexo            : chr  "F" "F" "F" "F" ...
+ $ Longitud.total  : int  170 160 156 173 170 165 170 181 175 186 ...
+ $ Cintura         : num  85 80 88 63 86 89 88 80 76 45 ...
+ $ Longitud.espalda: int  43 41 35 53 47 45 56 60 55 60 ...
+ $ Long.brazo      : int  57 54 48 59 56 61 59 55 54 86 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>datos2<span class="ot">=</span><span class="fu">na.omit</span>(datos2)      <span class="co"># na.omit, para eliminar al estudiante 13</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>datos2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo Longitud.total Cintura Longitud.espalda Long.brazo
+Alumno 1     F            170      85               43         57
+Alumno 2     F            160      80               41         54
+Alumno 3     F            156      88               35         48
+Alumno 4     F            173      63               53         59
+Alumno 5     M            170      86               47         56
+Alumno 6     M            165      89               45         61
+Alumno 7     M            170      88               56         59
+Alumno 8     M            181      80               60         55
+Alumno 9     M            175      76               55         54
+Alumno 10    M            186      45               60         86
+Alumno 11    F            168      65               49         55
+Alumno 12    F            155      70               36         50
+Alumno 14    F            158      72               40         55
+Alumno 15    M            172      79               43         82
+Alumno 16    F            155      68               39         50
+Alumno 17    F            163      68               38         70
+Alumno 18    M            170     122               48         60
+Alumno 19    F            157      60               36         69
+Alumno 20    F            162      60               50         76
+Alumno 21    M            170      82               55         56
+Alumno 22    F            158      75               35         60
+Alumno 23    M            174      87               51         56
+Alumno 24    F            170      88               37         78
+Alumno 25    F            162      68               37         53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sexo"</span>,<span class="st">"LTot"</span>,<span class="st">"Cint"</span>,<span class="st">"LEsp"</span>,<span class="st">"LBra"</span>)       <span class="co"># Rótulos de la base de datos</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos2)          <span class="co"># Base de datos abreviada</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Sexo LTot Cint LEsp LBra
+Alumno 1    F  170   85   43   57
+Alumno 2    F  160   80   41   54
+Alumno 3    F  156   88   35   48
+Alumno 4    F  173   63   53   59
+Alumno 5    M  170   86   47   56
+Alumno 6    M  165   89   45   61</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>datos2<span class="sc">$</span>Sexo <span class="ot">=</span> <span class="fu">as.factor</span>(datos2<span class="sc">$</span>Sexo)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos2)     <span class="co"># Estructura de la base de datos (datos2)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   24 obs. of  5 variables:
+ $ Sexo: Factor w/ 2 levels "F","M": 1 1 1 1 2 2 2 2 2 2 ...
+ $ LTot: int  170 160 156 173 170 165 170 181 175 186 ...
+ $ Cint: num  85 80 88 63 86 89 88 80 76 45 ...
+ $ LEsp: int  43 41 35 53 47 45 56 60 55 60 ...
+ $ LBra: int  57 54 48 59 56 61 59 55 54 86 ...
+ - attr(*, "na.action")= 'omit' Named int 13
+  ..- attr(*, "names")= chr "Alumno 13"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos2) <span class="co"># Resumen estadístico de datos2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Sexo        LTot            Cint             LEsp            LBra      
+ F:14   Min.   :155.0   Min.   : 45.00   Min.   :35.00   Min.   :48.00  
+ M:10   1st Qu.:159.5   1st Qu.: 68.00   1st Qu.:37.75   1st Qu.:54.75  
+        Median :169.0   Median : 77.50   Median :44.00   Median :56.50  
+        Mean   :166.7   Mean   : 76.83   Mean   :45.38   Mean   :60.79  
+        3rd Qu.:170.5   3rd Qu.: 86.25   3rd Qu.:51.50   3rd Qu.:63.00  
+        Max.   :186.0   Max.   :122.00   Max.   :60.00   Max.   :86.00  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de variables para los hombres</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>hombres <span class="ot">=</span> datos2[datos2<span class="sc">$</span>Sexo <span class="sc">==</span> <span class="st">"M"</span>,]</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>hombres</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo LTot Cint LEsp LBra
+Alumno 5     M  170   86   47   56
+Alumno 6     M  165   89   45   61
+Alumno 7     M  170   88   56   59
+Alumno 8     M  181   80   60   55
+Alumno 9     M  175   76   55   54
+Alumno 10    M  186   45   60   86
+Alumno 15    M  172   79   43   82
+Alumno 18    M  170  122   48   60
+Alumno 21    M  170   82   55   56
+Alumno 23    M  174   87   51   56</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>mujeres <span class="ot">=</span> datos2[datos2<span class="sc">$</span>Sexo <span class="sc">==</span> <span class="st">"F"</span>,]</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>mujeres</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sexo LTot Cint LEsp LBra
+Alumno 1     F  170   85   43   57
+Alumno 2     F  160   80   41   54
+Alumno 3     F  156   88   35   48
+Alumno 4     F  173   63   53   59
+Alumno 11    F  168   65   49   55
+Alumno 12    F  155   70   36   50
+Alumno 14    F  158   72   40   55
+Alumno 16    F  155   68   39   50
+Alumno 17    F  163   68   38   70
+Alumno 19    F  157   60   36   69
+Alumno 20    F  162   60   50   76
+Alumno 22    F  158   75   35   60
+Alumno 24    F  170   88   37   78
+Alumno 25    F  162   68   37   53</code></pre>
+</div>
+</div>
+<section id="paso-1.-vectores-de-mesdias-para-hombres-y-muejeres-m1-y-m2" class="level5">
+<h5 class="anchored" data-anchor-id="paso-1.-vectores-de-mesdias-para-hombres-y-muejeres-m1-y-m2">Paso 1. Vectores de mesdias para hombres y muejeres (M1 y M2)</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comando colMeans para el cálculo de los vectores de media</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>promedio.h <span class="ot">=</span> <span class="fu">colMeans</span>(hombres[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)])</span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>promedio.h</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> LTot  Cint  LEsp  LBra 
+173.3  83.4  52.0  62.5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>promedio.m <span class="ot">=</span> <span class="fu">colMeans</span>(mujeres[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)])</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>promedio.m</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     LTot      Cint      LEsp      LBra 
+161.92857  72.14286  40.64286  59.57143 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de la matriz centrada por cada sexo</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>m.centrada.h <span class="ot">=</span> <span class="fu">t</span>(<span class="fu">t</span>(hombres[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">-</span> promedio.h)</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>m.centrada.h  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          LTot  Cint LEsp LBra
+Alumno 5  -3.3   2.6   -5 -6.5
+Alumno 6  -8.3   5.6   -7 -1.5
+Alumno 7  -3.3   4.6    4 -3.5
+Alumno 8   7.7  -3.4    8 -7.5
+Alumno 9   1.7  -7.4    3 -8.5
+Alumno 10 12.7 -38.4    8 23.5
+Alumno 15 -1.3  -4.4   -9 19.5
+Alumno 18 -3.3  38.6   -4 -2.5
+Alumno 21 -3.3  -1.4    3 -6.5
+Alumno 23  0.7   3.6   -1 -6.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>m.centrada.m <span class="ot">=</span> <span class="fu">t</span>(<span class="fu">t</span>(mujeres[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">-</span> promedio.m)</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>m.centrada.m </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 LTot        Cint       LEsp        LBra
+Alumno 1   8.07142857  12.8571429  2.3571429  -2.5714286
+Alumno 2  -1.92857143   7.8571429  0.3571429  -5.5714286
+Alumno 3  -5.92857143  15.8571429 -5.6428571 -11.5714286
+Alumno 4  11.07142857  -9.1428571 12.3571429  -0.5714286
+Alumno 11  6.07142857  -7.1428571  8.3571429  -4.5714286
+Alumno 12 -6.92857143  -2.1428571 -4.6428571  -9.5714286
+Alumno 14 -3.92857143  -0.1428571 -0.6428571  -4.5714286
+Alumno 16 -6.92857143  -4.1428571 -1.6428571  -9.5714286
+Alumno 17  1.07142857  -4.1428571 -2.6428571  10.4285714
+Alumno 19 -4.92857143 -12.1428571 -4.6428571   9.4285714
+Alumno 20  0.07142857 -12.1428571  9.3571429  16.4285714
+Alumno 22 -3.92857143   2.8571429 -5.6428571   0.4285714
+Alumno 24  8.07142857  15.8571429 -3.6428571  18.4285714
+Alumno 25  0.07142857  -4.1428571 -3.6428571  -6.5714286</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-2.-diferencia-y-suma-en-los-vectores-de-media-m1-m2-y-m1m2" class="level5">
+<h5 class="anchored" data-anchor-id="paso-2.-diferencia-y-suma-en-los-vectores-de-media-m1-m2-y-m1m2">Paso 2. diferencia y suma en los vectores de media (M1-M2 y M1+M2)</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diferencia de medias (M1-M2)'</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>dif <span class="ot">=</span> <span class="fu">t</span>(promedio.h <span class="sc">-</span> promedio.m)</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>dif</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         LTot     Cint     LEsp     LBra
+[1,] 11.37143 11.25714 11.35714 2.928571</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suma de medias (M1 + M2)  </span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">=</span> promedio.h <span class="sc">+</span> promedio.m</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>sum</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     LTot      Cint      LEsp      LBra 
+335.22857 155.54286  92.64286 122.07143 </code></pre>
+</div>
+</div>
+</section>
+<section id="paso-3.-matriz-de-varianza-covarianza-por-sexos-y-la-generalizada" class="level5">
+<h5 class="anchored" data-anchor-id="paso-3.-matriz-de-varianza-covarianza-por-sexos-y-la-generalizada">Paso 3. matriz de varianza covarianza por sexos y la generalizada</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianzas - Covarianzas de hombres</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>cov.h <span class="ot">=</span> <span class="fu">var</span>(hombres[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.h,<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       LTot    Cint   LEsp    LBra
+LTot  37.57  -79.02  27.11   30.17
+Cint -79.02  347.16 -57.00 -116.89
+LEsp  27.11  -57.00  37.11   -5.22
+LBra  30.17 -116.89  -5.22  134.28</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianzas - Covarianzas de mujeres</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>cov.m <span class="ot">=</span> <span class="fu">var</span>(mujeres[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.m,<span class="dv">2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      LTot   Cint   LEsp   LBra
+LTot 36.99   5.01  22.97  22.12
+Cint  5.01  94.13 -24.41 -15.24
+LEsp 22.97 -24.41  35.32   8.60
+LBra 22.12 -15.24   8.60  95.96</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianzas - covarianzas generalizadas (cov.g)</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cov.g = (n.h * cov.h + n.m * cov.m)/N</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos2<span class="sc">$</span>Sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> F  M 
+14 10 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>cov.g <span class="ot">=</span> (<span class="dv">10</span><span class="sc">*</span>cov.h <span class="sc">+</span> <span class="dv">14</span><span class="sc">*</span>cov.m)<span class="sc">/</span><span class="dv">24</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.g,<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       LTot   Cint   LEsp   LBra
+LTot  37.23 -30.00  24.70  25.47
+Cint -30.00 199.56 -37.99 -57.59
+LEsp  24.70 -37.99  36.07   2.84
+LBra  25.47 -57.59   2.84 111.92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># varianzas - covarianzas generalizadas e invertidas (S^-1)</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>cov.g.i <span class="ot">=</span> <span class="fu">solve</span>(cov.g)</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(cov.g.i,<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      LTot Cint  LEsp  LBra
+LTot  0.07 0.00 -0.05 -0.02
+Cint  0.00 0.01  0.01  0.00
+LEsp -0.05 0.01  0.07  0.01
+LBra -0.02 0.00  0.01  0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-4.-función-discriminante-wx-wall-y-anderson" class="level5">
+<h5 class="anchored" data-anchor-id="paso-4.-función-discriminante-wx-wall-y-anderson">Paso 4. Función discriminante Wx (Wall y Anderson)</h5>
+<p>Wx = [(M1 - M1)’ * S^-1 * xi] - [1/2 * (M1 - M2)’ * S^-1 * (M1 + M2)]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir datos2 a formato matricial como datos3</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>datos3 <span class="ot">=</span> <span class="fu">as.matrix</span> (datos2[,<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>datos3</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          LTot Cint LEsp LBra
+Alumno 1   170   85   43   57
+Alumno 2   160   80   41   54
+Alumno 3   156   88   35   48
+Alumno 4   173   63   53   59
+Alumno 5   170   86   47   56
+Alumno 6   165   89   45   61
+Alumno 7   170   88   56   59
+Alumno 8   181   80   60   55
+Alumno 9   175   76   55   54
+Alumno 10  186   45   60   86
+Alumno 11  168   65   49   55
+Alumno 12  155   70   36   50
+Alumno 14  158   72   40   55
+Alumno 15  172   79   43   82
+Alumno 16  155   68   39   50
+Alumno 17  163   68   38   70
+Alumno 18  170  122   48   60
+Alumno 19  157   60   36   69
+Alumno 20  162   60   50   76
+Alumno 21  170   82   55   56
+Alumno 22  158   75   35   60
+Alumno 23  174   87   51   56
+Alumno 24  170   88   37   78
+Alumno 25  162   68   37   53</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para el ejercicio, solo usarémos los 10 primeros estudiantes</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 primeros estudiantes como vectores (xi)</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">1</span>,])   <span class="co"># x1 Estudiante 1 [1,] es fila 1</span></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">2</span>,])</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">3</span>,])</span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">4</span>,])</span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>x5 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">5</span>,])</span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a>x6 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">6</span>,])</span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>x7 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">7</span>,])</span>
+<span id="cb109-10"><a href="#cb109-10" aria-hidden="true" tabindex="-1"></a>x8 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">8</span>,])</span>
+<span id="cb109-11"><a href="#cb109-11" aria-hidden="true" tabindex="-1"></a>x9 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">9</span>,])</span>
+<span id="cb109-12"><a href="#cb109-12" aria-hidden="true" tabindex="-1"></a>x10 <span class="ot">=</span> <span class="fu">as.vector</span> (datos3[<span class="dv">10</span>,])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="discriminante-de-los-10-primeros-estudiantes" class="level4">
+<h4 class="anchored" data-anchor-id="discriminante-de-los-10-primeros-estudiantes">2.3 Discriminante de los 10 primeros estudiantes</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wx = [(M1 - M1)' * S^-1 * xi] - [1/2 * (M1 - M2)' * S^-1 * (M1 + M2)]</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos2)</span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a>W1 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x1) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum))  <span class="co"># Discrim para estudiante 1</span></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a>W2 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x2) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a>W3 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x3) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-9"><a href="#cb110-9" aria-hidden="true" tabindex="-1"></a>W4 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x4) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-10"><a href="#cb110-10" aria-hidden="true" tabindex="-1"></a>W5 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x5) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-11"><a href="#cb110-11" aria-hidden="true" tabindex="-1"></a>W6 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x6) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-12"><a href="#cb110-12" aria-hidden="true" tabindex="-1"></a>W7 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x7) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-13"><a href="#cb110-13" aria-hidden="true" tabindex="-1"></a>W8 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x8) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-14"><a href="#cb110-14" aria-hidden="true" tabindex="-1"></a>W9 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x9) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span>
+<span id="cb110-15"><a href="#cb110-15" aria-hidden="true" tabindex="-1"></a>W10 <span class="ot">=</span> ((dif) <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> x10) <span class="sc">-</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> (dif <span class="sc">%*%</span> cov.g.i <span class="sc">%*%</span> sum)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="crear-base-de-datos-con-los-discriminantes-da" class="level4">
+<h4 class="anchored" data-anchor-id="crear-base-de-datos-con-los-discriminantes-da">2.5 Crear base de datos con los discriminantes (da)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>da <span class="ot">=</span> <span class="fu">data.frame</span>(W1,W2,W3,W4,W5,W6,W7,W8,W9,W10)</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>da</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          W1        W2        W3        W4       W5       W6       W7       W8
+1 -0.1271618 -3.265828 -5.281626 0.6418749 1.613796 1.109279 5.899785 7.149955
+        W9      W10
+1 3.592283 4.048357</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>da <span class="ot">=</span> <span class="fu">t</span>(da)</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>da</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]
+W1  -0.1271618
+W2  -3.2658277
+W3  -5.2816257
+W4   0.6418749
+W5   1.6137960
+W6   1.1092793
+W7   5.8997846
+W8   7.1499551
+W9   3.5922827
+W10  4.0483574</code></pre>
+</div>
+</div>
+</section>
+<section id="base-de-datos-con-discriminados-vs-clasificación-inicial" class="level4">
+<h4 class="anchored" data-anchor-id="base-de-datos-con-discriminados-vs-clasificación-inicial">2.6 Base de datos con discriminados vs clasificación inicial</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>grupo.i <span class="ot">=</span> datos2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span>]</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>grupo.i</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] F F F F M M M M M M
+Levels: F M</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>grupo.d.m <span class="ot">=</span> <span class="fu">sample</span>(<span class="st">"F"</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">replace =</span><span class="cn">TRUE</span>)  <span class="co"># grupo.d.m = muestra de muejeres discriminadas</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>grupo.d.m</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "F" "F" "F"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>grupo.d.h <span class="ot">=</span> <span class="fu">sample</span>(<span class="st">"M"</span>, <span class="at">size=</span><span class="dv">7</span>, <span class="at">replace =</span><span class="cn">TRUE</span>)  <span class="co"># grupo.d.m = muestra de hombres discriminados</span></span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>grupo.d.h</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "M" "M" "M" "M" "M" "M" "M"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>grupo.d <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">c</span>(grupo.d.m, grupo.d.h))  <span class="co"># grupo.d = Columna con grupos discriminados</span></span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>datos.d <span class="ot">=</span> <span class="fu">data.frame</span>(da, grupo.i, grupo.d)   </span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>datos.d</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            da grupo.i c.grupo.d.m..grupo.d.h.
+W1  -0.1271618       F                       F
+W2  -3.2658277       F                       F
+W3  -5.2816257       F                       F
+W4   0.6418749       F                       M
+W5   1.6137960       M                       M
+W6   1.1092793       M                       M
+W7   5.8997846       M                       M
+W8   7.1499551       M                       M
+W9   3.5922827       M                       M
+W10  4.0483574       M                       M</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv2(datos.d, "discriminados.csv")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/7\.Manual_mv/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller2.1.Introducción.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller2.1 Intro_RStudio</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller3.1.exploratorios.html" class="pagination-link">
+        <span class="nav-page-text">Taller3. Exploratorios_mv</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
