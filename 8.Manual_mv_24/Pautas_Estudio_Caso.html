@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pautas_estudio_caso</title>
+<title>Repositorio de Talleres de Multivariados - 2024-I - Pautas Estudios de Caso</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,33 +57,284 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Pautas_Estudio_Caso_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Pautas_Estudio_Caso_files/libs/quarto-html/quarto.js"></script>
-<script src="Pautas_Estudio_Caso_files/libs/quarto-html/popper.min.js"></script>
-<script src="Pautas_Estudio_Caso_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Pautas_Estudio_Caso_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Pautas_Estudio_Caso_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Pautas_Estudio_Caso_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Pautas_Estudio_Caso_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Pautas_Estudio_Caso_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Pautas_Estudio_Caso_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Anexos.html" rel="next">
+<link href="./Taller9.1.permanova.peces.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
-<script src="Pautas_Estudio_Caso_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="Pautas_Estudio_Caso_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar docked">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Pautas_Estudio_Caso.html">Pautas Estudios de Caso</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Multivariados - 2024-I</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Videos_clases</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller1. Intro_multivariados</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.1.Introducción.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller2.1 Intro_RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.2.Introd.matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller2.2 Intro_Matrices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.1.exploratorios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller3. Exploratorios_mv</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.pca.marino.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller4.1 PCA Bahías</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.pca.tayrona.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller4.2 PCA PNNTayrona</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.1.nmds.malezas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller5. NMDS Malezas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6.1 CLA Bahías</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6.2 CLA Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.1.lda.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller7. LDA Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.1.manova.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller8. MANOVA Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.1.permanova.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller9. PERMANOVAS Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pautas Estudios de Caso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexos</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#descripción-de-la-actividad" id="toc-descripción-de-la-actividad" class="nav-link" data-scroll-target="#descripción-de-la-actividad">Descripción de la actividad</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a>
+  <ul class="collapse">
+  <li><a href="#materiales-requeridos-para-el-ejercicio" id="toc-materiales-requeridos-para-el-ejercicio" class="nav-link" data-scroll-target="#materiales-requeridos-para-el-ejercicio">Materiales requeridos para el ejercicio</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#caso-moluscos-del-caribe" id="toc-caso-moluscos-del-caribe" class="nav-link" data-scroll-target="#caso-moluscos-del-caribe">1. Caso Moluscos del Caribe</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-cargar-las-librerías-necesarias" id="toc-paso-1.-cargar-las-librerías-necesarias" class="nav-link" data-scroll-target="#paso-1.-cargar-las-librerías-necesarias">Paso 1. Cargar las librerías necesarias</a></li>
+  <li><a href="#paso-2.-cargar-las-las-bases-de-datos" id="toc-paso-2.-cargar-las-las-bases-de-datos" class="nav-link" data-scroll-target="#paso-2.-cargar-las-las-bases-de-datos">Paso 2. Cargar las Las bases de datos</a></li>
+  <li><a href="#paso-3.-extraer-las-15-especies-más-abundantes" id="toc-paso-3.-extraer-las-15-especies-más-abundantes" class="nav-link" data-scroll-target="#paso-3.-extraer-las-15-especies-más-abundantes">Paso 3. Extraer las 15 especies más abundantes</a></li>
+  <li><a href="#paso-4.-exploración-de-relaciones" id="toc-paso-4.-exploración-de-relaciones" class="nav-link" data-scroll-target="#paso-4.-exploración-de-relaciones">Paso 4. Exploración de relaciones</a></li>
+  <li><a href="#paso-5.-técnica-de-pca---factoextra" id="toc-paso-5.-técnica-de-pca---factoextra" class="nav-link" data-scroll-target="#paso-5.-técnica-de-pca---factoextra">Paso 5. Técnica de PCA - factoExtra</a></li>
+  </ul></li>
+  <li><a href="#caso-briofitos" id="toc-caso-briofitos" class="nav-link" data-scroll-target="#caso-briofitos">2. Caso Briofitos</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-cargar-las-librerías-necesarias-1" id="toc-paso-1.-cargar-las-librerías-necesarias-1" class="nav-link" data-scroll-target="#paso-1.-cargar-las-librerías-necesarias-1">Paso 1. Cargar las librerías necesarias</a></li>
+  <li><a href="#paso-2.-cargar-las-las-bases-de-datos-1" id="toc-paso-2.-cargar-las-las-bases-de-datos-1" class="nav-link" data-scroll-target="#paso-2.-cargar-las-las-bases-de-datos-1">Paso 2. Cargar las Las bases de datos</a></li>
+  <li><a href="#paso-3.-extraer-las-15-especies-más-abundantes-1" id="toc-paso-3.-extraer-las-15-especies-más-abundantes-1" class="nav-link" data-scroll-target="#paso-3.-extraer-las-15-especies-más-abundantes-1">Paso 3. Extraer las 15 especies más abundantes</a></li>
+  <li><a href="#paso-4.-exploración-de-relaciones-1" id="toc-paso-4.-exploración-de-relaciones-1" class="nav-link" data-scroll-target="#paso-4.-exploración-de-relaciones-1">Paso 4. Exploración de relaciones</a></li>
+  <li><a href="#paso-5.-técnica-de-pca" id="toc-paso-5.-técnica-de-pca" class="nav-link" data-scroll-target="#paso-5.-técnica-de-pca">Paso 5. Técnica de PCA</a></li>
+  <li><a href="#paso-5.-técnica-de-nmds" id="toc-paso-5.-técnica-de-nmds" class="nav-link" data-scroll-target="#paso-5.-técnica-de-nmds">Paso 5. Técnica de NMDS</a></li>
+  <li><a href="#paso-6.-generación-del-factor" id="toc-paso-6.-generación-del-factor" class="nav-link" data-scroll-target="#paso-6.-generación-del-factor">Paso 6. Generación del factor</a></li>
+  <li><a href="#paso-7.-pca-con-el-factor---factoextra" id="toc-paso-7.-pca-con-el-factor---factoextra" class="nav-link" data-scroll-target="#paso-7.-pca-con-el-factor---factoextra">Paso 7. PCA con el factor - factoExtra</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Pautas Estudios de Caso</h1>
+</div>
 
 
-<section id="pautas-estudios-de-caso" class="level1 unnumbered">
-<h1 class="unnumbered">Pautas Estudios de Caso</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
@@ -117,7 +368,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="section-2"></h2>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
 </b><section id="caso-moluscos-del-caribe" class="level1"><b style="color:#1f78b4;">
 <h1>1. Caso Moluscos del Caribe</h1>
 </b><p><b style="color:#1f78b4;"></b></p>
@@ -138,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)     <span class="co"># Para figuras de elipses</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)        <span class="co"># Para el PCA y Transf. Hellinger</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)   <span class="co"># Para el PCA</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)   <span class="co"># Para Editar las tablas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)   <span class="co"># Para Editar las tablas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><b style="color:#52BE80;"></b></p><b style="color:#52BE80;">
 </b></section><b style="color:#52BE80;">
@@ -147,16 +397,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </b><p><b style="color:#52BE80;"></b></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"mollusca_resum.csv"</span>)      <span class="co"># paquete "readxl"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"mollusca_resum.xlsx"</span>,<span class="st">"mollusca_resum"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">&lt;-</span> datos1[,<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(amb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(amb)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
     Lat  Long `Rangos Prof.` Región     T   Sal   Den `O2%`    Chla
@@ -172,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables biológicas</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> datos1[,<span class="dv">11</span><span class="sc">:</span><span class="dv">69</span>]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 59
   Ptrars Orthyc Gzolvc Nclncs Arczbr Mcmtnt Trgnca Lvcrds Xnphrl Nclnac Prpmsd
@@ -211,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>spe.ab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(datos1[, ab])</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Otra opción de dataframe: spe.ab &lt;- datos1[, ab]</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe.ab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe.ab)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Orthyc Gzolvc Arczbr Lvcrds Mcmtnt Xnphrl Prpmsd Ptrars Nclncs Tllnpr...22
 1      1      0      0      0      0     46      0      0      0           0
@@ -249,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(ab))</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar las primeras filas del nuevo dataframe</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe_ab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe_ab)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 15
   Orthyc Gzolvc Arczbr Lvcrds Mcmtnt Xnphrl Prpmsd Ptrars Nclncs Tllnpr...22
@@ -276,14 +526,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses para especies</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses para especies</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(spe.ab)            <span class="co"># Matriz de Correlación (M)</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1, <span class="at">method =</span> <span class="st">"ellipse"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1, <span class="at">method =</span> <span class="st">"ellipse"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Pautas_Estudio_Caso_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección de variables numéricas</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [81 × 9] (S3: tbl_df/tbl/data.frame)
  $ Lat         : num [1:81] 12.6 12.4 12.2 12.5 12.5 ...
@@ -307,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Siete primeros Taxones transformados con Hellinger</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>spe.hel<span class="ot">=</span> <span class="fu">decostand</span>(spe,<span class="st">"hellinger"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(spe.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(spe.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Ptrars Orthyc Gzolvc Nclncs Arczbr Mcmtnt Trgnca
 1      0   0.10   0.00      0      0      0      0
@@ -324,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str(amb)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rangos de prof a factor</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>amb<span class="sc">$</span><span class="st">`</span><span class="at">Rangos Prof.</span><span class="st">`</span><span class="ot">=</span><span class="fu">as.factor</span>(amb<span class="sc">$</span><span class="st">`</span><span class="at">Rangos Prof.</span><span class="st">`</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [81 × 9] (S3: tbl_df/tbl/data.frame)
  $ Lat         : num [1:81] 12.6 12.4 12.2 12.5 12.5 ...
@@ -340,7 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(amb[,<span class="dv">5</span><span class="sc">:</span><span class="dv">9</span>],<span class="at">scale.=</span>T)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1     PC2    PC3     PC4     PC5
@@ -386,7 +636,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)     <span class="co"># Para el NMDS</span></span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># Para el NMDS</span></span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)       <span class="co"># Para el NMDS</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># Para procedimientos de las bases de datos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># Para procedimientos de las bases de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><b style="color:#52BE80;"></b></p><b style="color:#52BE80;">
 </b></section><b style="color:#52BE80;">
@@ -397,13 +647,13 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">"molluscs-vasc-bryo.xls"</span>,<span class="st">"bryo"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> spe[,<span class="sc">-</span><span class="dv">1</span>]</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(spe)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># str(spe)   # 44 columnas, 1a es categórica</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># str(spe)   # 44 columnas, 1a es categórica</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">"molluscs-vasc-bryo.xls"</span>,<span class="st">"env"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">&lt;-</span> amb[,<span class="sc">-</span><span class="dv">1</span>]</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(amb)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># str(amb)   # 15 columnas, 1a es categórica</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># str(amb)   # 15 columnas, 1a es categórica</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><b style="color:#52BE80;"></b></p><b style="color:#52BE80;">
 </b></section><b style="color:#52BE80;">
@@ -424,7 +674,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>spe.ab <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(spe[, ab])</span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Otra opción de dataframe: spe.ab &lt;- datos1[, ab]</span></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe.ab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe.ab)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  CalCusp BryPseu CamStel CraComm PlaAffi CliDend DreCoss HomNite AulPalu
 1       3       5       7       7       3       0       0       0       0
@@ -453,7 +703,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses para especies</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(spe.ab)            <span class="co"># Matriz de Correlación (M)</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1, <span class="at">method =</span> <span class="st">"ellipse"</span>,<span class="at">order=</span><span class="st">"AOE"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1, <span class="at">method =</span> <span class="st">"ellipse"</span>,<span class="at">order=</span><span class="st">"AOE"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Pautas_Estudio_Caso_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -463,7 +713,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <h4 class="anchored" data-anchor-id="elipses-para-ambientales">4.2 Elipses para ambientales</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección de variables numéricas</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(amb)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [43 × 14] (S3: tbl_df/tbl/data.frame)
  $ Ca     : num [1:43] 285.9 54.6 46.7 82 79.5 ...
@@ -492,7 +742,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Siete primeros Taxones transformados con Hellinger</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>spe.hel<span class="ot">=</span> <span class="fu">decostand</span>(spe,<span class="st">"hellinger"</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(spe.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(spe.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  AnePing AtrUndu AulPalu BraGlar BraMild BraRivu BryPseu
 1    0.26    0.00    0.00       0    0.00       0    0.41
@@ -509,7 +759,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realización del pca</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">rda</span>(amb, <span class="at">scale =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(pca1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(pca1)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Se visualiza la formación de <strong>tres grupos</strong> de localiades.</p>
 <div class="cell">
@@ -522,12 +772,12 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <h4 class="anchored" data-anchor-id="pca-para-variables-biológicas">5.3 PCA para variables biológicas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realización del pca</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>pca2 <span class="ot">&lt;-</span> <span class="fu">rda</span>(spe.hel) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>pca2 <span class="ot">&lt;-</span> <span class="fu">rda</span>(spe.hel) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>También se visualiza la formación de <strong>tres grupos</strong> de localiades.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel con dos figuras del pca</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca2, <span class="at">main=</span><span class="st">"PCA - scaling 2"</span>, <span class="at">echo=</span><span class="cn">FALSE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca2, <span class="at">main=</span><span class="st">"PCA - scaling 2"</span>, <span class="at">echo=</span><span class="cn">FALSE</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Pautas_Estudio_Caso_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -544,7 +794,7 @@ Cumulative Proportion  0.8588 0.93166 0.9846 0.99963 1.00000</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Ordenación con el nmds</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>datos.nmds1 <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(spe,<span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>datos.nmds1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>datos.nmds1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -559,7 +809,7 @@ Dimensions: 2
 Stress:     0.1362224 
 Stress type 1, weak ties
 Best solution was repeated 2 times in 20 tries
-The best solution was from try 19 (random start)
+The best solution was from try 17 (random start)
 Scaling: centring, PC rotation, halfchange scaling 
 Species: expanded scores based on 'spe' </code></pre>
 </div>
@@ -610,7 +860,7 @@ converged</code></pre>
 <span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Presentación de la tabla con las 10 primeras filas</span></span>
 <span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>datos.gr[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,] <span class="sc">%&gt;%</span> </span>
 <span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1136,7 +1386,7 @@ converged</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA con variables biológicas</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>pca3 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(datos.gr[,<span class="dv">2</span><span class="sc">:</span><span class="dv">44</span>])</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(pca3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(pca3)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Enlace de la figura <a href="http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/">ENLACE</a>.</p>
 <div class="cell">
@@ -1144,11 +1394,12 @@ converged</code></pre>
 <p><img src="Pautas_Estudio_Caso_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1203,12 +1454,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1380,8 +1631,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/7\.Manual_mv");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller9.1.permanova.peces.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller9. PERMANOVAS Peces</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Anexos.html" class="pagination-link">
+        <span class="nav-page-text">Anexos</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
