@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -70,11 +71,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Salida de campo</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Salida.campo.eco1.html">Salida de campo</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -82,130 +88,149 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Repositorio de Talleres de Ecología 1 - 2024-I</a> 
         <div class="sidebar-tools-main">
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Videos clases</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller1. Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller2. A. Climático</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller3. Ambiente</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">Taller4.1 Mod. Exponenciales</a>
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller4.1 Mod. Exponenciales</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller4.2 Mod. Logísticos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">Taller5. Demog.Humana</a>
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller5. Demog.Humana</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6. Mod.Matricial</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller7. Calotropis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller8. Diversidad Alfa</a>
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller8. Diversidad Alfa</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller9. Sub.unidades.comunidades</a>
+  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller9. Sub.unidades.comunidades</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link active">Salida de campo</a>
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Salida de campo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexos</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -218,6 +243,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fechas-de-la-salida-por-cada-grupo-de-ecología" id="toc-fechas-de-la-salida-por-cada-grupo-de-ecología" class="nav-link" data-scroll-target="#fechas-de-la-salida-por-cada-grupo-de-ecología">Fechas de la salida por cada grupo de Ecología</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#guía-de-campo" id="toc-guía-de-campo" class="nav-link" data-scroll-target="#guía-de-campo">Guía de campo</a></li>
+  <li><a href="#procedimientos-de-campo" id="toc-procedimientos-de-campo" class="nav-link" data-scroll-target="#procedimientos-de-campo">2. Procedimientos de campo</a>
+  <ul class="collapse">
+  <li><a href="#hidrológicos---campo" id="toc-hidrológicos---campo" class="nav-link" data-scroll-target="#hidrológicos---campo">2.1 Hidrológicos - campo</a></li>
+  <li><a href="#batimetría---campo" id="toc-batimetría---campo" class="nav-link" data-scroll-target="#batimetría---campo">2.1 Batimetría - campo</a></li>
+  <li><a href="#fisicoquímicos---campo" id="toc-fisicoquímicos---campo" class="nav-link" data-scroll-target="#fisicoquímicos---campo">2.3 Fisicoquímicos - campo</a></li>
+  <li><a href="#macroinvertebrados---campo" id="toc-macroinvertebrados---campo" class="nav-link" data-scroll-target="#macroinvertebrados---campo">2.4 Macroinvertebrados - campo</a></li>
+  <li><a href="#peces-complementario" id="toc-peces-complementario" class="nav-link" data-scroll-target="#peces-complementario">2.5 Peces (complementario)</a></li>
+  <li><a href="#tabulación-de-datos-ambientales" id="toc-tabulación-de-datos-ambientales" class="nav-link" data-scroll-target="#tabulación-de-datos-ambientales">2.6 Tabulación de datos ambientales</a></li>
+  <li><a href="#taxonomía-de-macroinvertebrados-acuáticos" id="toc-taxonomía-de-macroinvertebrados-acuáticos" class="nav-link" data-scroll-target="#taxonomía-de-macroinvertebrados-acuáticos">2.7 Taxonomía de macroinvertebrados acuáticos</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -227,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Salida de campo</h1>
+<h1 class="title">Salida de campo</h1>
 </div>
 
 
@@ -259,8 +294,8 @@ ul.task-list li input[type="checkbox"] {
 </b><p><b style="color:#1f78b4;"></b></p>
 <p><img src="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Fotos/Foto11.png" class="img-fluid" width="420"></p>
 <ol type="1">
-<li><p>Ecología - Grupo 1. Viernes a domingo 26 a 28 de abril. Salimos a las 5.45 am.</p></li>
-<li><p>Ecología - Grupo 2. Viernes y Sábado 3 y 5 de mayo. Salimos a las 5.45 am.</p></li>
+<li><p>Ecología - Grupo 1. Viernes y Sábado 15 y 16 de septiembre. Salimos a las 5.45 am.</p></li>
+<li><p>Ecología - Grupo 2. Viernes y Sábado 22 y 23 de septiembre. Salimos a las 5.45 am.</p></li>
 </ol>
 </section>
 <section id="section-1" class="level2">
@@ -276,13 +311,15 @@ ul.task-list li input[type="checkbox"] {
 <p>La siguiente guía recoge los diferentes pasos a realizar en campo, es necesario estudiarla, dias previos a la actividad, para tener mayor claridad sobre aspectos necesarios.</p>
 <p><a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Gu%C3%ADa%20R%C3%ADos%202023.pdf">Enlace a la guía de Campo</a> Guía general de campo, que será alimentada con los cuatro formatos que se relacionan a continuación.</p>
 <p>Los siguientes enlaces son para que confirme su asistencia a la salida de campo. Se requiere que cada estudiante sepa a qué salida asistirá.</p>
-<p><a href="https://forms.gle/u2cCYvFN4B8LYbxt9">Confirmación de asistencia <strong>Eco.Grupo1</strong></a> <strong>Viernes a domingo 26 a 28 de abril</strong>.</p>
+<p><a href="https://forms.gle/FtfPWoWHUdbz6rN38">Confirmación de asistencia <strong>Eco.Grupo1</strong></a> <strong>Viernes y Sábado 15 y 16 de septiembre</strong>.</p>
+<p><a href="https://forms.gle/J36n7Hz7kqQkvHG68">Confirmación de asistencia <strong>Eco.Grupo2</strong></a> <strong>Viernes y Sábado 22 y 23 de septiembre</strong>.</p>
 <p>A continuación se relacionan algunos enlaces complementarios que se deben descargar para los diferentes momentos de la actividad: antes de, durante y después de la salida de campo.</p>
 <ol type="1">
 <li><p><a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Formatos%20de%20campo_sept.%202.xlsx">Formatos de campo_sept. 2.xlsx</a> Se requiere llevar este archivo para la actividad de cómputo que realizarémos durante la salida.</p></li>
 <li><p><a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Formatos%20de%20campo%20para%20imprimir.docx">Formatos de campo para imprimir.docx</a> Es necesario que cada grupo de trabajo, lleve estas guías impresas, para tabular la información en los sitios a visitar.</p></li>
 <li><p><a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Gu%C3%ADa%20de%20riberas/Gu%C3%ADa%20de%20Campo%20-%20RQI.pdf">Guía de Campo - RQI.pdf</a> Cada grupo debe llevar una copia impresa de esta guía, la cual se relaciona con la valoración de las riberas en los tramos del río a visitar. En este enlace, se encuentra un artículo referente para esta guía <a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Gu%C3%ADa%20de%20riberas/RQI.pdf">Articulo RQI</a></p></li>
-<li><p><a href="">Video de cómo tabular los datos *Pendiente de cargar</a>El siguiente video es un ejemplo de lo que se requiere tabular para la actividad de campo. Se requiere estudiar, previo a la salida.</p></li>
+<li><p><a href="https://javier-2712.github.io/Manuales/6.Manual_eco1/videos.clases.html#tabulaci%C3%B3n-de-datos---salida-de-campo">Video de cómo tabular los datos</a> El siguiente video es un ejemplo de lo que se requiere tabular para la actividad de campo. Se requiere estudiar, previo a la salida.</p></li>
+<li><p><a href="...">Videos de muestreos en campo</a> (<em>*Pendientes de cargar</em>). Videos de las mediciones en campo de variables ambientales y biológicas.</p></li>
 <li><p><a href="">Guías taxonómicas</a> Se van a requerir para la identificación de los taxones colectado de campo y transportados al laboratorio de Biología.</p></li>
 </ol>
 <p>5.1 <a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1/Gu%C3%ADas%20taxon%C3%B3micas/Claves%20generales.pdf">Claves generales</a></p>
@@ -297,9 +334,169 @@ ul.task-list li input[type="checkbox"] {
 <ol start="7" type="1">
 <li><a href="https://javier-2712.github.io/Ecologia1/Campo.rios.eco1//bolsas.viales.pdf">Imágen de bolsas y viales requeridos</a></li>
 </ol>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></div></section><b style="color:#d95f02;">
+</b><section id="procedimientos-de-campo" class="level2"><b style="color:#d95f02;">
+<h2 class="anchored" data-anchor-id="procedimientos-de-campo">2. Procedimientos de campo</h2>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>Las siguientes fotos y videos muestran el paso a paso de los procedimientos que se realizan en la actividad de campo, para valorar encamblajes de macroinvertebrados y su relación con parámetros de su ambiente (hidrológico, batimétrico, fisicoquímico y del bosque de ribera). <strong>Nota</strong>: el componente de peces no entra en el informe pero se trabaja de forma complementaria.</p>
+<p>En cada uno de los sitios de muestreo, los estudiantes son divididos en dos grupos: (1) los que toman los datos ambientales y (2) los que colectan los macroinvertebrados acuáticos. Para el componente ambiental se realizan los siguientes pasos: (1) valoración hidrológica (método del óbjeto flotante), (2) valoración batimétrica, (3) valoración fisicoquímica, (4) valoración hidrológica (método de la sal) y (5) valoración de la calidad de las riberas.</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b><section id="hidrológicos---campo" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="hidrológicos---campo">2.1 Hidrológicos - campo</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Para este componente se requiere contar con los siguientes materiales: (1) un grupo de por lo menos cuatro estudiantes, (2) cuatro estacas y (3) cuerda de colores para constrir la parcela, (4) objeto flotador, (5) un cronómetro y la planilla impresa para tabular los datos.</p>
+<p><strong>Paso 1. Montaje de la parcela.</strong> Escoger un tramo recto, en donde pueda desplazarse el objeto flotante. En total son tres parcelas las que se instalan por cada lugar.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/20240426_090743.jpg" class="img-fluid figure-img" width="460"></p>
+<figcaption class="figure-caption"><strong>Figura 1</strong>. Diseño de la parcela</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/20240426_143427.jpg" class="img-fluid figure-img" width="459"></p>
+<figcaption class="figure-caption"><strong>Figura 2.</strong> Montaje de la parcela</figcaption>
+</figure>
+</div>
+<p>Nota: se debe escoger un tramo preferiblemente recto, para el montaje de la parcela.</p>
+<p>🎥<a href="images/20240426_091343.mp4">Video 1. Diseño de la parcela</a></p>
+<p><strong>Paso 2. Medición de la distancia que recorrera el objeto flotante.</strong> Realizar varias mediciones para poder obtener una distancia promedio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/20240426_150532.jpg" class="img-fluid figure-img" width="474"></p>
+<figcaption class="figure-caption"><strong>Figura 3</strong>. Medición de la distancia que recorrerá el objeto flotante.</figcaption>
+</figure>
+</div>
+<p>🎥<a href="images/20240426_153922.mp4">Video 2. Descripción del procedimiento a realizar</a></p>
+<p>🎥<a href="images/20240426_150536.mp4">Video 3. Medición de las distancias</a></p>
+<p><strong>Paso 4. Distancia recorrida por el objeto flotante.</strong> Es un vial que debe llenarse 3 cuartas partes con agua.</p>
+<p>🎥<a href="images/20240426_154343.mp4">Video 4. Descripción del proceso de desplazamiento del objeto flotante</a></p>
+<p>🎥<a href="images/20240426_150907.mp4">Video 5. Distancia recorrida por el objeto flotante</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="batimetría---campo" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="batimetría---campo">2.1 Batimetría - campo</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Para este procedimiento, se requiere contar con: (1) un decámetro, (2) una vara metreada, (3) una cuerda que atraviese el ancho del río, (4) identificar los diferentes sustratos del lecho o fondo del río, descritos en la planilla (5) planilla de batimetría impresa. En cada sitio visitado, se deben realizar tres perfiles batimétricos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/20240426_154217.jpg" class="img-fluid figure-img" width="427"></p>
+<figcaption class="figure-caption"><strong>Figura 4</strong>. Mediciones de profundidades e identificación de tipos de sustratos.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/20240426_091531.jpg" class="img-fluid figure-img" width="424"></p>
+<figcaption class="figure-caption"><strong>Figura 5.</strong> Montaje del transecto para el perfil batimétrico.</figcaption>
+</figure>
+</div>
+<p>🎥<a href="images/20240426_153725.mp4">Video 6. Descripción del procedimiento para las mediciones en el perfil batimétrico.</a></p>
+<p>🎥<a href="images/20240426_150419.mp4">Video 7. Mediciones en el perfil batimétrico.</a></p>
+<p>🎥<a href="images/20240426_153705.mp4">Video 8. Mediciones en el perfil batimétrico.</a></p>
+<p>🎥<a href="images/20240426_153810.mp4">Video 9. Mediciones en el perfil batimétrico.</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="fisicoquímicos---campo" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="fisicoquímicos---campo">2.3 Fisicoquímicos - campo</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Para este procedimiento, se encienden las sondas, se toma una muestra de agua con el valde y se procede a realizar las mediciones de las variables.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 6. Medición de las variables obtenidas de las sondas de campo."><img src="images/20221105_151235.jpg" class="img-fluid figure-img" width="442"></a></p>
+<figcaption class="figure-caption"><strong>Figura 6</strong>. Medición de las variables obtenidas de las sondas de campo.</figcaption>
+</figure>
+</div>
+<p>🎥<a href="images/20221105_151249.mp4">Video 10. Procedimiento para la medición de las variables con las sondas de campo.</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="macroinvertebrados---campo" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="macroinvertebrados---campo">2.4 Macroinvertebrados - campo</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Para este procedimiento se requieren los siguientes materiales: (1) bandejas, (2) pinzas y agujas entomológicas, (3) alcohol, (4) bolsas de calibre grueso, (5) redes de colecta, (6) un grupo de mínimo 9 estudiantes. Se revisarán 3 replicas de los sustratos: rocas, gravas, arenas y hojarásca.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura. Revisión de especimenes grandes en un sustrato de arena."><img src="images/20240426_152831.jpg" class="img-fluid figure-img" width="434"></a></p>
+<figcaption class="figure-caption"><strong>Figura 7</strong>. Revisión de especimenes grandes en un sustrato de arena.</figcaption>
+</figure>
+</div>
+<p>🎥<a href="images/20240426_152352.mp4">Video 11. Colecta del sustrato de gravas (parte 1).</a></p>
+<p>🎥<a href="images/20240426_152520.mp4">Video 12. Colecta del sustrato de gravas (parte 2).</a></p>
+<p>🎥<a href="images/20240426_152628.mp4">Video 13. Colecta del sustrato de gravas (parte 3).</a></p>
+<p>🎥<a href="images/20240426_152043.mp4">Video 14. Colecta y almacenamiento de hojarasca</a></p>
+<p>🎥<a href="images/20240426_152717.mp4">Video 15. Condiciones del tramo avaluado.</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="peces-complementario" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="peces-complementario">2.5 Peces (complementario)</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Los materiales requeridos para este procedimiento son: formol, redes y bolsas de calibre grueso.</p>
+<p>🎥<a href="images/20240426_151721.mp4">Video 16. Descripción de la actividad</a></p>
+<p>🎥<a href="images/20240426_153000.mp4">Video 17. Colecta de peces con red de mano.</a></p>
+<p>🎥<a href="images/20240426_153146.mp4">Video 18. Colecta de peces con red tipo nasa.</a></p>
+<p>🎥<a href="images/20240426_153317.mp4">Video 19. Colecta de peces.</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="tabulación-de-datos-ambientales" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="tabulación-de-datos-ambientales">2.6 Tabulación de datos ambientales</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>A continuación se muestra el procedimiento para la tabulación de datos de los parámetros ambientales en los formatos entregados por el docente. En el repositorio de videos, también se encuentran los procedimientos de tabulación (<a href="https://javier-2712.github.io/Manuales/6.Manual_eco1/videos.clases.html#tabulaci%C3%B3n-de-datos---salida-de-campo">ENLACE_VIDEOS</a>).</p>
+<p>🎥 <a href="images/20240426_183759.mp4">Video 20. Tabulación de datos en la cabaña</a></p>
+<p>Complentos en sala de cómputo:</p>
+<p>🎥 <a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EVzR0x1bu5xLoeJp81syh1wB7nSbBva7ADgAtmLwTEizmQ?e=eiDokt">Video 21. Tabulación_ Datos de campo-Batimetría</a></p>
+<p>🎥 <a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EdxOwu01jJpAmglRvGPICFMBMQKtUJQeWwY4EKcYtny_UA?e=b8kcD1">Video 22. Tabulación_ Datos de campo - Hidrología (parte 1) Objeto flotador</a></p>
+<p>🎥 <a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EU_drKmPQpFMpTg-2qHXDLQBFX_DMKdIXxHlX32ttyctaw?e=gqBCu1">Video 23. Tabulación_ Datos de campo - Hidrología (parte 2) Objeto flotador</a></p>
+<p>🎥 <a href="https://universidadmag.sharepoint.com/:v:/s/Ecologa1_G2_2023-II/EYCU2tbyeDFLtf6KdhSseQIBx3ITb9thZSsmYCxleJxI-g?e=JdRO9o">Video 24. Tabulación_ Datos de campo - Hidrología (parte 3) Trazador con sal</a></p>
+<p>—</p>
+<p><b style="color:#c994c7;"></b></p><b style="color:#c994c7;">
+</b></section><b style="color:#c994c7;">
+</b><section id="taxonomía-de-macroinvertebrados-acuáticos" class="level3"><b style="color:#c994c7;">
+<h3 class="anchored" data-anchor-id="taxonomía-de-macroinvertebrados-acuáticos">2.7 Taxonomía de macroinvertebrados acuáticos</h3>
+</b><p><b style="color:#c994c7;"></b></p>
+<p>Los materiales requeridos son, bandejas, estereoscopios, papel de pergamino, marcador para rotular, alcohol, equipo de disección, cajas de petri, bolsas con las muestras tomadas de campo y computador.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 8. Montaje para la revisión de muestras"><img src="images/20240427_144111.jpg" class="img-fluid figure-img" width="419"></a></p>
+<figcaption class="figure-caption"><strong>Figura 8.</strong> Montaje para la revisión de muestras</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 9. Montaje para la revisión de muestras"><img src="images/20240427_144115.jpg" class="img-fluid figure-img" width="420"></a></p>
+<figcaption class="figure-caption"><strong>Figura 9.</strong> Montaje para la revisión de muestras</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 10. Montaje para la revisión de muestras"><img src="images/20240427_144043-01.jpg" class="img-fluid figure-img" width="420"></a></p>
+<figcaption class="figure-caption"><strong>Figura 10.</strong> Montaje para la revisión de muestras</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 11. Revisión de claves e identificación de los taxones."><img src="images/20240427_202806.jpg" class="img-fluid figure-img" width="470"></a></p>
+<figcaption class="figure-caption"><strong>Figura 11.</strong> Revisión de claves e identificación de los taxones.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Figura 12. Almacenamiento de taxones separados de las muestras de campo, para su posterior identificación y tabulación."><img src="images/20240427_181042.jpg" class="img-fluid figure-img" width="470"></a></p>
+<figcaption class="figure-caption">Figura 12. Almacenamiento de taxones separados de las muestras de campo, para su posterior identificación y tabulación.</figcaption>
+</figure>
+</div>
+<p>🎥<a href="images/20240427_141919.mp4">Video 22. Procedimiento para la separación de los macroinvertebrados.</a></p>
+<p>🎥<a href="images/20240427_150020.mp4">Video 23. Procedimiento para la separación de los macroinvertebrados.</a></p>
+<p>🎥<a href="images/20240427_202546.mp4">Video 24. Procedimiento de identificación taxonómica y tabulación en el formato en línea.</a></p>
+<p>🎥<a href="images/20240427_221103.mp4">Video 25. Procedimiento de identificación taxonómica y tabulación en el formato en línea.</a></p>
 
 
-</div></section>
+</section>
+</section>
 </div></section>
 
 </main> <!-- /main -->
@@ -330,9 +527,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -397,6 +608,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -435,12 +732,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1/);
+      var filterRegex = new RegExp("https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
