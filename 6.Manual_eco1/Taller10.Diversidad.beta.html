@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Ecología 1 - 2024-I - Taller10. Diversidad Beta</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Salida.campo.eco1.html" rel="next">
+<link href="./Taller9.Diversidad.alfa.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller10. Diversidad Beta</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2024-I</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link">Taller4.1 Mod. Exponenciales</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">Taller5. Demog.Humana</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller8. Sub.unidades.comunidades</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller9. Diversidad Alfa</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller10.Diversidad.beta.html" class="sidebar-item-text sidebar-link active">Taller10. Diversidad Beta</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">Salida de campo</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#paso-a-paso-para-la-organización-de-los-datos-de-los-taxones-y-ambientales." id="toc-paso-a-paso-para-la-organización-de-los-datos-de-los-taxones-y-ambientales." class="nav-link" data-scroll-target="#paso-a-paso-para-la-organización-de-los-datos-de-los-taxones-y-ambientales.">Paso a paso para la organización de los datos de los taxones y ambientales.</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-cargar-librerías" id="toc-paso-1.-cargar-librerías" class="nav-link" data-scroll-target="#paso-1.-cargar-librerías">Paso 1. Cargar Librerías</a></li>
+  <li><a href="#paso-2.-base-de-datos-de-los-taxones" id="toc-paso-2.-base-de-datos-de-los-taxones" class="nav-link" data-scroll-target="#paso-2.-base-de-datos-de-los-taxones">Paso 2. Base de datos de los taxones</a></li>
+  <li><a href="#paso-3.-diversidad-beta-general" id="toc-paso-3.-diversidad-beta-general" class="nav-link" data-scroll-target="#paso-3.-diversidad-beta-general">Paso 3. Diversidad beta general</a></li>
+  <li><a href="#paso-4.-diversidad-beta-por-parejas-sitios-con-datos-binarios-familia-de-baselga-2010" id="toc-paso-4.-diversidad-beta-por-parejas-sitios-con-datos-binarios-familia-de-baselga-2010" class="nav-link" data-scroll-target="#paso-4.-diversidad-beta-por-parejas-sitios-con-datos-binarios-familia-de-baselga-2010">Paso 4. Diversidad beta por parejas sitios con datos binarios (Familia de Baselga 2010)</a></li>
+  <li><a href="#taller-para-la-casa" id="toc-taller-para-la-casa" class="nav-link" data-scroll-target="#taller-para-la-casa">Taller para la casa</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller10. Diversidad Beta</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="resumen" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>El presente ejercicio consiste en el procesamiento inicial de los datos de la salida de campo realizada por los estudiantes de ecología 1, del programa de Biología en el semestre 2023-II. se realizará el procedimiento para evaluar la diversidad beta a dos escalas: (1) Beta total o general con datos de abundancia y con datos binarios y (2) Beta entre parejas de sitios.</p>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="introducción" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p><strong>Whittaker (1960)</strong> fue el primero en definir los términos de diversidades <em>alfa, beta</em> y <em>gamma</em>. Definió a la diversidad <em>alfa</em>, como la diversidad local, a la diversidad <em>gamma</em> como la diversidad regional y la diversidad <em>beta</em> como la relación entre las anteriores, orientada a el cambio o la variación en la composición de las especies en los ensamblajes o las comunidades. Esta diversidad <em>beta</em> también puede brindar información sobre la variedad de lugares o de nichos que se pueden presentar en cada localidad (cuando hay diferencias en la diversidad alfa entre localidades). Las diversidad <em>alfa</em> y <em>gamma</em> son relativas al tamaño de la escala espacial o temporal que se utilice (<em>alfa</em> y <em>gamma</em> por ej. pueden ser desde un bosque hasta un departamento).</p>
+<p>De acuerdo a <strong>Whittaker (1960)</strong>, surgen dos enfoques orientados a las diferencias entre las comunidades evaluadas con la <em>diversidad beta</em>: (1) Un <em>recambio</em>, es decir, el cambio direccional en la composición de de especies a lo largo de un gradiente espacial, temporal o ambiental predefinido. (2) La <em>variación en la composición</em> de especies entre unidades de muestreo, sin referencia a un gradiente explícito (cambio especies o anidamiento).</p>
+<p><strong>Baselga y Gómez-Rodríguez (2019)</strong>, coinciden con la propuesta de Whittaker, debido a que las diferencias entre las comunidades pueden generarse por (1) el <strong><em>recambio</em></strong>, reemplazamiento o sustitución de unas especies por otras (<em>turnover</em> o <em>replacement</em>) y por el (2) <strong><em>anidamiento</em></strong> o <em>nestedness,</em> asociado a la perdida de especies de una comunidad más diversa a otra menos diversa.</p>
+<p><strong>Harrison et al.&nbsp;(1992)</strong>, <strong>Williams (1996)</strong>, <strong>Lennon et al.&nbsp;(2001)</strong>, <strong>Podani (2011)</strong> y <strong>Legendre (2014)</strong> coinciden con la propuesta de Whittaker, enfocando a las diferencias entre comunidades (diversidad beta) por dos procesos principales: (1) el <strong><em>recambio</em></strong> de especies (a veces llamado <strong><em>rotación</em></strong>) y (2) la <strong><em>diferencia de riqueza</em></strong> (ganancia y pérdida de especies, o su caso especial, <strong><em>anidamiento</em></strong>). En este orden de ideas, a continuación se describen aspectos asociados a los atributos de la diversidad beta o de diferencias entre comunidades.</p>
+<ol type="1">
+<li><p>El <strong>reemplazo o recambio de especies</strong> es lo que se observa a lo largo de gradientes ecológicos, en donde algunas especies se encuentran restringidas en un rango limitado del gradiente de acuerdo con su tolerancia y óptimos ecológicos. Algunas especies se observan en un extremo del gradiente, luego desaparecen y son reemplazadas por otras, y así sucesivamente. Las causas de estos patrones incluyen forzamientos ambientales, pero también, potencialmente, competencia y eventos históricos (es decir, perturbaciones y otros procesos que ocurrieron en el pasado y dejaron sus marcas en las comunidades). La configuración de los hábitats, como la presencia de bordes o ecotonos o las presiones antrópicas que modifican el paisaje, pueden repercutir en los procesos de reemplazamiento de especies (Filgeras et al.&nbsp;2016).</p></li>
+<li><p>La <strong>diferencia de riqueza</strong> se refiere al hecho de que puedan existir diferencias en el número de especies entre comunidades. Esto puede ser causado por desapariciones de especies locales, tambien por diferencias en las condiciones abióticas locales que conducen a diferentes números de nichos u otros procesos ecológicos que llevan a las comunidades a un mayor o menor número de especies. En caso de que la diferencia de la riqueza aumente, puede estar directamente relacionado con la riqueza de nichos disponibles, o con procesos de anidamiento cuando hay perdida de especies en algunos lugares.</p></li>
+<li><p>El <strong>anidamiento</strong> es un caso especial de diferencia de riqueza donde las especies en sitios más pobres son un subconjunto estricto de las especies presentes en sitios más ricos.</p></li>
+</ol>
+<p>Los índices de (1) <em>reemplazo</em>, de (2) <em>diferencia de riqueza</em> y de (3) <em>anidamiento</em> no son índices de <em>diversidad beta</em>; pero descomponen coeficientes de disimilitud que pueden usarse para estimar la <em>diversidad beta</em>.</p>
+<p><strong>Legendre (2014)</strong> propone un marco algebraico unificador para comparar las fórmulas publicadas de los tres componentes anteriores, definiendo a dos familias de índices, a las que denominó <strong><em>familias de Podani y de Baselga</em></strong> respectivamente, en honor a los nombres de los autores que abordaron estos índices. En la <strong>familia de Podani</strong>, el índice de diferencia de riqueza representa solo una parte del anidamiento, debido a que no incluye a especies comunes.</p>
+<p>La <strong>familia de Baselga</strong>, define a un índice de <em>reemplazo</em> o recambio comparable a los de Podani. El <em>anidamiento</em> de Baselga es comparable al <em>anidamiento relativizado</em> de <strong>Podani y Schmera (2011)</strong>. Según <strong>Legendre (2014)</strong>, los índices de <em>reemplazo</em> y de <em>diferencia de riqueza</em> de la familia Podani son fáciles de interpretar en términos ecológicos, así como los índices de <em>reemplazo</em> en la familia Baselga. Los índices de <em>anidamiento</em> de Baselga son menos obvios, causando algunas controversias a la hora de analizarlos. <strong>Baselga (2010)</strong> denomina al indice de <em>reemplazo</em> como “recambio” o “rotación”, basado en la similitud de Sorensen o de sorensen y al restarlo con este índice de sorensen, se determina al componente de <em>anidamiento</em>.</p>
+<p>Si <em>a</em> representa a las especies en común, <em>b</em> a las especies presentes en un sitio A y ausentes en un sitio B en comparación, <em>c</em> representa lo opuesto a <em>b</em>, Segun <strong>Borcard et al.&nbsp;(2018)</strong>, Podani y Baselga coinciden en el hecho de que (1) el <em>anidamiento</em> sólo es posible cuando hay especies en común (a &gt; 0), (2) el valor máximo se alcanza cuando b o c es cero. (3) El <em>anidamiento</em> aumenta cuando <em>c</em> aumenta. (4) <em>Podani</em> considera que las especies comunes <em>a</em> contribuyen directamente al <em>anidamiento</em>, al contrario al anidamiento de Baselga. En consecuencia, cuando <em>b = c = 0</em> (no hay especies exclusivas de uno de los dos sitios comparados), <em>Podani</em> alcanza el valor de anidamiento máximo de 1 y <em>Baselga</em> de cero. (5) La contribución de a al <em>anidamiento</em> es clara en el <em>índice de Podani</em>, pero confusa y no monótona en <em>Baselga</em>. (6) El <em>anidamiento</em> de Podani tiene un límite superior fijo y alcanzable de 1; el valor máximo de Baselga cambia para cada par de sitios.</p>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="paso-a-paso-para-la-organización-de-los-datos-de-los-taxones-y-ambientales." class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="paso-a-paso-para-la-organización-de-los-datos-de-los-taxones-y-ambientales.">Paso a paso para la organización de los datos de los taxones y ambientales.</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="paso-1.-cargar-librerías" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="paso-1.-cargar-librerías">Paso 1. Cargar Librerías</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Elaborar un fragmento</strong>: CTRL+ALT+I, <strong>Correr el fragmento</strong>: CTRL+SHIFT+ENTER, <strong>Correr una línea</strong>: CTRL+ENTER</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># Para diferentes operaciones</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Para la lectura de archivos de Excel</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)     <span class="co"># Para las figuras de elipses</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)        <span class="co"># Estimadores de diversidad</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)      <span class="co"># Rótulos a los puntos de figuras en ggplot2</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)   <span class="co"># Edición de las tablas</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Diversidad beta</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(betapart)   <span class="co"># Para diversidad beta de Baselga</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adespatial) <span class="co"># Para diversidad beta de Podani</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)    <span class="co"># Para la edición de figuras</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)      <span class="co"># Para convertir datos a binarios</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra) <span class="co"># Para los dendogramas</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)  <span class="co"># Proyecta varias imágenes en un solo panel </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-2.-base-de-datos-de-los-taxones" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="paso-2.-base-de-datos-de-los-taxones">Paso 2. Base de datos de los taxones</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La base de datos con los 40 taxones se llamará <strong>biol</strong>. La base con con las 18 variables ambientales se llamará <strong>amb</strong> y se cargará más adelante (<a href="#tbl-tbl1">Tabla&nbsp;<span>1</span></a>). Esta tabla finaliza con el <strong>total</strong> de bundancia por cada sitio y microhábitat, esta columna debe eliminarse para los cálculos de diversidad..</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de la base de datos xlsx</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.gral.xlsx"</span>, <span class="st">"Taxones2"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View(biol)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># str(biol) # taxones 2:32</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>biol <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">""</span>, <span class="at">booktabs =</span> F,<span class="at">longtable =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl1" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;1:  Base de datos biológicos </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Baetidae </th>
+   <th style="text-align:right;"> Belidae </th>
+   <th style="text-align:right;"> Blephariceridae </th>
+   <th style="text-align:right;"> Calopterygidae </th>
+   <th style="text-align:right;"> Ceratopogonidae </th>
+   <th style="text-align:right;"> Chironomidae </th>
+   <th style="text-align:right;"> Coenagrionidae </th>
+   <th style="text-align:right;"> Corydalidae </th>
+   <th style="text-align:right;"> Crambidae </th>
+   <th style="text-align:right;"> Dixidae </th>
+   <th style="text-align:right;"> Dugesiidae </th>
+   <th style="text-align:right;"> Elmidae </th>
+   <th style="text-align:right;"> Empididae </th>
+   <th style="text-align:right;"> Gomphidae </th>
+   <th style="text-align:right;"> Hydrobiidae </th>
+   <th style="text-align:right;"> Hydropsychidae </th>
+   <th style="text-align:right;"> Leptoceridae </th>
+   <th style="text-align:right;"> Leptohyphidae </th>
+   <th style="text-align:right;"> Leptophlebiidae </th>
+   <th style="text-align:right;"> Libellulidae </th>
+   <th style="text-align:right;"> Limnesiidae </th>
+   <th style="text-align:right;"> Lumbriculidae </th>
+   <th style="text-align:right;"> Naucoridae </th>
+   <th style="text-align:right;"> Oligoneuriidae </th>
+   <th style="text-align:right;"> Perlidae </th>
+   <th style="text-align:right;"> Psephenidae </th>
+   <th style="text-align:right;"> Psychodidae </th>
+   <th style="text-align:right;"> Ptilodactylidae </th>
+   <th style="text-align:right;"> Simuliidae </th>
+   <th style="text-align:right;"> Tipulidae </th>
+   <th style="text-align:right;"> Veliidae </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Si los nombres de los taxones son demasiado largos, se pueden abreviar con el número de letras que se requiera (ej: minlength = 4), esto para que las figuras que incluyan a los taxones, no queden tan saturadas de texto (<a href="#tbl-tbl2">Tabla&nbsp;<span>2</span></a>). La base de datos <strong>biol.r</strong>, incluye a los los nombres abreviados de los taxones.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombres abreviados de los taxones</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Se excluye la columna 1 (sitios)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  biol[,<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>)] <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">abbreviate</span>(.x, <span class="at">minlength =</span> <span class="dv">4</span>))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame, incluyendo nuevamente a los sitios</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sitio=</span> biol[,<span class="dv">1</span>], biol1)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>biol1 <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">""</span>, <span class="at">booktabs =</span> F,<span class="at">longtable =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl2" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;2:  Base de datos biológicos con nombres abreviados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Batd </th>
+   <th style="text-align:right;"> Beld </th>
+   <th style="text-align:right;"> Blph </th>
+   <th style="text-align:right;"> Clpt </th>
+   <th style="text-align:right;"> Crtp </th>
+   <th style="text-align:right;"> Chrn </th>
+   <th style="text-align:right;"> Cngr </th>
+   <th style="text-align:right;"> Cryd </th>
+   <th style="text-align:right;"> Crmb </th>
+   <th style="text-align:right;"> Dixd </th>
+   <th style="text-align:right;"> Dgsd </th>
+   <th style="text-align:right;"> Elmd </th>
+   <th style="text-align:right;"> Empd </th>
+   <th style="text-align:right;"> Gmph </th>
+   <th style="text-align:right;"> Hydrb </th>
+   <th style="text-align:right;"> Hydrp </th>
+   <th style="text-align:right;"> Lptc </th>
+   <th style="text-align:right;"> Lpth </th>
+   <th style="text-align:right;"> Lptp </th>
+   <th style="text-align:right;"> Lbll </th>
+   <th style="text-align:right;"> Lmns </th>
+   <th style="text-align:right;"> Lmbr </th>
+   <th style="text-align:right;"> Ncrd </th>
+   <th style="text-align:right;"> Olgn </th>
+   <th style="text-align:right;"> Prld </th>
+   <th style="text-align:right;"> Psph </th>
+   <th style="text-align:right;"> Psyc </th>
+   <th style="text-align:right;"> Ptld </th>
+   <th style="text-align:right;"> Smld </th>
+   <th style="text-align:right;"> Tpld </th>
+   <th style="text-align:right;"> Veld </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Generar una tabla donde la primera columna sean los nombres completos de los taxones y al frente sus nombres abreviados, utilizando la función <strong><code>cbind()</code></strong>para unirlos.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir nombres completos de las columnas</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n.completos <span class="ot">&lt;-</span> <span class="fu">names</span>(biol)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir nombres abreviados de las columnas</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>n.abreviados <span class="ot">&lt;-</span> <span class="fu">names</span>(biol1)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la tabla combinando nombres completos y abreviados</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">Taxones =</span> n.completos, <span class="at">Abreviaturas =</span> n.abreviados)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tabla) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">""</span>, <span class="at">booktabs =</span> F,<span class="at">longtable =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl3" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;3:  Base de datos biológicos con nombres abreviados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Taxones </th>
+   <th style="text-align:left;"> Abreviaturas </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Sitio </td>
+   <td style="text-align:left;"> Sitio </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baetidae </td>
+   <td style="text-align:left;"> Batd </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Belidae </td>
+   <td style="text-align:left;"> Beld </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Blephariceridae </td>
+   <td style="text-align:left;"> Blph </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Calopterygidae </td>
+   <td style="text-align:left;"> Clpt </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ceratopogonidae </td>
+   <td style="text-align:left;"> Crtp </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>la <a href="#tbl-tbl4">Tabla&nbsp;<span>4</span></a> muestra la forma binaria para el cálculo de índices beta de esta tipología de valores.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de datos de abundancia a datos binarios</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>biol2 <span class="ot">=</span> <span class="fu">sapply</span>(biol1[,<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>)], <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame, incluyendo a los sitios</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>biol2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sitio=</span> biol1[,<span class="dv">1</span>],biol2)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Edición de la tabla para su impresión</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>biol2 <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">""</span>, <span class="at">booktabs =</span> F,<span class="at">longtable =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl4" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;4:  Datos binarios de presencia-ausencia de las las familias de invertebrados en los tres sitios evaluados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Batd </th>
+   <th style="text-align:right;"> Beld </th>
+   <th style="text-align:right;"> Blph </th>
+   <th style="text-align:right;"> Clpt </th>
+   <th style="text-align:right;"> Crtp </th>
+   <th style="text-align:right;"> Chrn </th>
+   <th style="text-align:right;"> Cngr </th>
+   <th style="text-align:right;"> Cryd </th>
+   <th style="text-align:right;"> Crmb </th>
+   <th style="text-align:right;"> Dixd </th>
+   <th style="text-align:right;"> Dgsd </th>
+   <th style="text-align:right;"> Elmd </th>
+   <th style="text-align:right;"> Empd </th>
+   <th style="text-align:right;"> Gmph </th>
+   <th style="text-align:right;"> Hydrb </th>
+   <th style="text-align:right;"> Hydrp </th>
+   <th style="text-align:right;"> Lptc </th>
+   <th style="text-align:right;"> Lpth </th>
+   <th style="text-align:right;"> Lptp </th>
+   <th style="text-align:right;"> Lbll </th>
+   <th style="text-align:right;"> Lmns </th>
+   <th style="text-align:right;"> Lmbr </th>
+   <th style="text-align:right;"> Ncrd </th>
+   <th style="text-align:right;"> Olgn </th>
+   <th style="text-align:right;"> Prld </th>
+   <th style="text-align:right;"> Psph </th>
+   <th style="text-align:right;"> Psyc </th>
+   <th style="text-align:right;"> Ptld </th>
+   <th style="text-align:right;"> Smld </th>
+   <th style="text-align:right;"> Tpld </th>
+   <th style="text-align:right;"> Veld </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-3.-diversidad-beta-general" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="paso-3.-diversidad-beta-general">Paso 3. Diversidad beta general</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>–</p>
+<p><b style="color:#1b9e77;"></b></p><b style="color:#1b9e77;">
+</b><section id="diversidad-beta-con-datos-de-abundancia" class="level4"><b style="color:#1b9e77;">
+<h4 class="anchored" data-anchor-id="diversidad-beta-con-datos-de-abundancia">3.1 Diversidad beta con datos de abundancia</h4>
+</b><p><b style="color:#1b9e77;"></b></p>
+<p>Se utilizará el comando <strong>beta.div()</strong> del paquete <strong>adespatial</strong>, se calcula la <em>diversidad beta total</em> (<strong>BDtotal</strong>) y la suma total de cuadrados de <em>Y</em> (<strong>SStotal</strong>) que es la suma de los valores al cuadrado en la <strong>matriz S</strong>, Está asiciada a la <strong>varianza de Y</strong> o de la matriz de taxones (matriz de desviaciones al cuadrado de los valores de abundancia de las especies). Ap partir de la descomposición de <strong>SStotal</strong> se obtienen la descomposición de la <em>diversidad beta</em> en <strong>LCBD</strong> (contribución de las localidades a la diversidad beta) y <strong>SCBD</strong> (contribución relativa de las especies a la diversidad beta).</p>
+<p>Para este ejercicio, <strong>SStotal</strong> es de 0.26 (26% de variación de las abundancias de las familias de macroinvertebrados) y la <strong>Diversidad Beta</strong> total es 0.13 (13%), lo cual muestra una baja variabilidad en la composición de taxones entre localidades, quizá debido a la resolución de Familias, que es muy general para medir esta diversidad, así como la corta distancia que se presenta entre los sitios evaluados.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculo de la diversidad beta total con el paquete "adespatial"y la transformación de Hellinger para las abundancias de las especies (datos1)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Diversidad beta por taxones (SCBD) y por sitios(LCBD) </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>d.beta <span class="ot">&lt;-</span> <span class="fu">beta.div</span>(biol1[,<span class="sc">-</span><span class="dv">1</span>], <span class="at">method =</span> <span class="st">"hellinger"</span>, <span class="at">nperm =</span> <span class="dv">9999</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(d.beta<span class="sc">$</span>beta,<span class="dv">2</span>)  <span class="co"># SSTotal and BDTotal</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>SStotal BDtotal 
+   0.26    0.13 </code></pre>
+</div>
+</div>
+<p>Las abundancias de los taxones transformados con Hellinger: <em>Batd, Chrn, Elmd, Hydrp, Lptc, Lpth, Lptp, Lbll, Ncrd, Prld, Smld y Veld</em>, son las que varían más entre los tres sitios evaluados que los hace interesantes como potenciales indicadores ecológicos.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Taxones con SCBD mayor al promedio general?</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(d.beta<span class="sc">$</span>SCBD[d.beta<span class="sc">$</span>SCBD <span class="sc">&gt;=</span> <span class="fu">mean</span>(d.beta<span class="sc">$</span>SCBD)],<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> Batd  Chrn  Cngr  Gmph Hydrb Hydrp  Lbll  Lmns  Ncrd  Prld  Smld  Veld 
+ 0.14  0.04  0.06  0.04  0.06  0.04  0.13  0.04  0.04  0.06  0.06  0.07 </code></pre>
+</div>
+</div>
+<p>Las pruebas de permutación con el <strong>estadístico “holm”</strong> muestran que los valores LCBD de los sitios no son significativos, por lo cual se puede decir que las diferencias en el aporte a la diversidad beta para cada sitio, son solo cualitativas, como se verá en la siguiente figura.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de permutación </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p.adjust</span>(d.beta<span class="sc">$</span>p.LCBD, <span class="st">"holm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0828 1.0000 1.0000</code></pre>
+</div>
+</div>
+<p>La <a href="#fig-fig1">Figura&nbsp;<span>1</span></a> muestra la distribución espacial de los aportes de las tres localidades a la diversidad beta (<strong>LCBD</strong>), basados en un cálculo de la abundancia de familias transformadas por Hellinger. Los tamaños de los circulos son proporcionales a los valores de <strong>LCBD</strong>; por lo tanto, las burbujas más grandes corresponden a los sitios que más contribuyen a la diversidad beta general del conjunto de datos. En este sentido, Pozo Azul es el sitio que más aporta a esta diversidad, orientada al cambio en la composición de de familias entre localdiades (Whittaker 1970).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de la base de datos de coordenadas de los sitios "coord"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.gral.xlsx"</span>, <span class="st">"coord"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de LCBD (aportes de los sitios a la diversidad beta)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>LCBD <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4476686</span>, <span class="fl">0.2814248</span>, <span class="fl">0.2709066</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar coordenadas y LCBD en un dataframe</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> <span class="fu">cbind</span>(coord , LCBD)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico con ggplot2</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coord, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Longitud, <span class="at">y =</span> Latitud, <span class="at">label =</span> Sitio)) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"brown"</span>, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"#7E2D2D"</span>, <span class="fu">aes</span>(<span class="at">size =</span> LCBD)) <span class="sc">+</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color =</span> <span class="st">"#377eb8"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Valores LCBD"</span>,</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Coordenadas x"</span>,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Coordenadas y"</span>) <span class="sc">+</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">74.132</span>, <span class="sc">-</span><span class="fl">74.10</span>) <span class="sc">+</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fl">11.11</span>, <span class="fl">11.15</span>) <span class="sc">+</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>)) <span class="sc">+</span>  <span class="co"># Rango de tamaños</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> coord, <span class="fu">aes</span>(<span class="at">x =</span> Longitud, <span class="at">y =</span> Latitud), </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"light blue"</span>) <span class="sc">+</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>) ,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller10.Diversidad.beta_files/figure-html/fig-fig1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: A portes de diversidad beta general con datos de abundancia (LCBD) por cada sitio evaluado.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1b9e77;"></b></p><b style="color:#1b9e77;">
+</b></section><b style="color:#1b9e77;">
+</b><section id="diversidad-beta-general-con-datos-binarios-familia-de-baselga-2010" class="level4"><b style="color:#1b9e77;">
+<h4 class="anchored" data-anchor-id="diversidad-beta-general-con-datos-binarios-familia-de-baselga-2010">3.2 Diversidad beta general con datos binarios (Familia de Baselga 2010)</h4>
+</b><p><b style="color:#1b9e77;"></b></p>
+<p>Se calculará la diversidad beta general, con la propuesta de <em>Baselga (2010)</em>, producto de las combinaciones de los tres sitios, teniendo en cuenta lo siguente: <strong>beta.SIM - βSIM</strong>. Valor del componente de <em>recambio</em>. <strong>beta.SNE - βSNE</strong>. Valor del componente de <em>anidamiento</em>, medido como fracción resultante de anidamiento de la disimilitud de Sorensen. <strong>beta.SOR - βSOR</strong>. Valor de la <em>diversidad beta general</em>, medida como disimilitud de Sorensen. <strong>beta.SOR = beta.SIM + beta.SNE</strong> o <strong>βSOR = βSIM + βSME</strong></p>
+<p>El paquete <strong><em>betapart</em></strong> permite calcular disimilitudes por pares (matrices de distancias) y por múltiples sitios, separando a los componentes resultantes de <em>recambio</em> y de anidamiento de la <em>diversidad beta</em> taxonómica (basada en incidencia y abundancia), la diversaidad funcional y la filogenética.</p>
+<p>La <a href="#tbl-tbl5">Tabla&nbsp;<span>5</span></a> y la <span class="quarto-unresolved-ref">?fig-fig2</span> muestran que la <em>diversidad beta general</em> (<strong><em>beta.SOR</em></strong>) es baja, pues solo alcanza el 0.37 (37% de similitud de las familias entre las tres localidades). A pesar de lo anterior, la dominancia del <em>recambio</em> o reemplazamiento de taxones entre localidades (<strong><em>beta.SIM</em></strong>) puede ser el reflejo de barreras o gradientes ambientales y ecológicos, así como la magnitud de sus interacciones o el regimen de perturbaciones (posibles efectos de borde), que limitan los patrones de distribución de estos, restinjiendolas a sus parches o hábitats y ser reemplazadas por otras especies en el resto de localidades. En resumen, la dominancia del reemplazamiento puede reflejar cambios importantes que afectan la estructura y la estabilidad de los ensamblajes de los macroinvertebrados. Segun <em>Baselga et al.&nbsp;(2019)</em>, la dominancia de este patrón puede asociarse a valores de riqueza local insuficiente.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculos básicos de betapar (diversidad de los sitios y entre parejas, para datos binarios "biol2")</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datos.betapart <span class="ot">&lt;-</span> <span class="fu">betapart.core</span>(biol2[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Nueva fila para el dataframe "datos.multi"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Parámetros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Recambio"</span>, <span class="st">"Anidamiento"</span>, <span class="st">"Beta total"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Diversidad Beta general o entre multiples localidades</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>datos.multi <span class="ot">&lt;-</span> <span class="fu">beta.multi</span>(datos.betapart)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>datos.multi <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Parámetros, <span class="at">Valores=</span> <span class="fu">t</span>(<span class="fu">t</span>(datos.multi)))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar base de datos para poderla editar</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv2(datos.multi,"multi.g.csv")</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar y editar la base de datos "multi.g.csv"</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>datos.multi<span class="ot">=</span><span class="fu">read.csv2</span>(<span class="st">"multi.g.csv"</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos.multi)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"x"</span>,<span class="st">"Parámetros"</span>,<span class="st">"Valor"</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>datos.multi<span class="sc">$</span>Valor <span class="ot">=</span> <span class="fu">as.numeric</span>(datos.multi<span class="sc">$</span>Valor)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de la base de datos para poder graficar en ggplot2</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>datos.multi <span class="sc">%&gt;%</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl5" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;5:  Diversidad beta general. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+   <th style="text-align:left;"> Parámetros </th>
+   <th style="text-align:right;"> Valor </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> beta.SIM </td>
+   <td style="text-align:left;"> Recambio </td>
+   <td style="text-align:right;"> 0.2413793 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> beta.SNE </td>
+   <td style="text-align:left;"> Anidamiento </td>
+   <td style="text-align:right;"> 0.1300493 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> beta.SOR </td>
+   <td style="text-align:left;"> Beta total </td>
+   <td style="text-align:right;"> 0.3714286 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig3">Figura&nbsp;<span>2</span></a> muestra de forma gráfica a los valores de la <a href="#tbl-tbl5">Tabla&nbsp;<span>5</span></a>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elementos que se graficarán</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>General <span class="ot">=</span> <span class="fu">c</span>(<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>datos.multi1 <span class="ot">=</span> <span class="fu">data.frame</span>(General, datos.multi)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar los niveles de la variable Parámetros por magnitud</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>datos.multi1<span class="sc">$</span>Parámetros <span class="ot">&lt;-</span> <span class="fu">factor</span>(datos.multi1<span class="sc">$</span>Parámetros, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Anidamiento"</span>, <span class="st">"Recambio"</span>, <span class="st">"Beta total"</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de columnas para comparar elementos de la diversidad beta</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos.multi1, <span class="fu">aes</span>(<span class="at">x=</span> General, <span class="at">y =</span> Valor, <span class="at">fill =</span> Parámetros)) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width=</span><span class="fl">0.4</span>) <span class="sc">+</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Valor"</span>, <span class="at">y=</span><span class="st">"Diversidad Beta"</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#cccccc"</span>,<span class="st">"#969696"</span>,<span class="st">"#525252"</span>)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span>  <span class="fu">round</span>(Valor,<span class="dv">3</span>)), </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.8</span>), </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"#ffffff"</span>)<span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>( ) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),            <span class="co"># Capa 7. Varias operaciones</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),         <span class="co"># Ajuste de tamaño de textos</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),             <span class="co"># Quitar la cuadrículas del fondo.</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())    </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller10.Diversidad.beta_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: A portes de diversidad beta general con datos binarios en sus componentes de recambio y de anidamiento.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="paso-4.-diversidad-beta-por-parejas-sitios-con-datos-binarios-familia-de-baselga-2010" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="paso-4.-diversidad-beta-por-parejas-sitios-con-datos-binarios-familia-de-baselga-2010">Paso 4. Diversidad beta por parejas sitios con datos binarios (Familia de Baselga 2010)</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Nota</strong>: Con solo tres sitios y con una resolución hasta familias, los resultados a esta escala de parejas de localidades pueden dar valores de cero en algunas de las combinaciones, como ocurre con el componente de <strong>anidamiento</strong> entre los sitios 1 y 2 (<span class="quarto-unresolved-ref">?tbl-6</span> y <a href="#fig-fig4">Figura&nbsp;<span>3</span></a>). Esto pude indicar que entre estos lugares, existen barreras o tensores que promueben cambios en la composición de los taxones, a pesar de la poca distancia entre estaas localidades.</p>
+<p><strong>pair.t</strong> indica que se comparan los tres sitios por parejas. Aquí se puede observar lo mencionado anteriormente en donde los cálculos de la diversidad de recambio entre las parejas de localidades (macroinv.sim) pueden dar cero (posibles inconsistentes).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (beta.pair) diferencias por pares de localidades basadas en presencias</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pair.t <span class="ot">&lt;-</span> <span class="fu">beta.pair</span>(biol2[,<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Nota</strong>: Tener en cuenta las combinaciones en cada una de las matrices de diversidad (<strong>macroinv.sor1, macroinv.sim1, macroinv.sne1</strong>), para seleccionar de manera adecuada a las diferentes combinaciones de sitios (<strong>macroinv.sor2, macroinv.sim2, macroinv.sne2</strong>).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de la matriz beta total (Sorensen) </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>macroinv.sor <span class="ot">&lt;-</span> pair.t<span class="sc">$</span>beta.sor           <span class="co"># Matriz triangular</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>macroinv.sor1 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(macroinv.sor)  <span class="co"># Matriz cuadrada</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>macroinv.sor2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">c</span>(macroinv.sor1[<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                             macroinv.sor1[<span class="dv">2</span>,<span class="dv">3</span>])) <span class="co"># Combinaciones de sitios</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de la matriz de recambio (reemplazamiento)</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>macroinv.sim <span class="ot">&lt;-</span> pair.t<span class="sc">$</span>beta.sim           <span class="co"># Matriz triangular</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>macroinv.sim1 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(macroinv.sim)  <span class="co"># Matriz cuadrada</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>macroinv.sim2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">c</span>(macroinv.sim1[<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                             macroinv.sim1[<span class="dv">2</span>,<span class="dv">3</span>])) <span class="co"># Combinaciones de sitios</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de la matriz de anidamiento </span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>macroinv.sne <span class="ot">&lt;-</span> pair.t<span class="sc">$</span>beta.sne         <span class="co"># Matriz triangular</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>macroinv.sne1 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(macroinv.sne)  <span class="co"># Matriz cuadrada</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>macroinv.sne2 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">c</span>(macroinv.sne1[<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>                             macroinv.sne1[<span class="dv">2</span>,<span class="dv">3</span>])) <span class="co"># Combinaciones de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>La <span class="citation" data-cites="ftbl-tbl6">(<a href="#ref-ftbl-tbl6" role="doc-biblioref"><strong>ftbl-tbl6?</strong></a>)</span> muestra el patrón de <strong>diversidad beta</strong> entre parejas de localidades, en donde el mayor valor se presenta entre los sitios 1 y 2 (Pozo Azul vs.&nbsp;Caracolí), lo cual concuerda, debido a que son los lugares que presentan mayor distancia de separación, aunque el mayor aporte lo genera el <strong>anidamiento</strong>, que puede estar asociado a que la composición de taxones del Caracolí es derivada de Pozo Azul.</p>
+<p>Por el contrario, el mayor <strong>recambio</strong> se presenta entre pozo Azul y Marinca, a pesar que son las localidades más cercanas y no hay valores de anidamiento, por lo que todo el aporte a la diversidad beta se da por el anidamiento.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir una escala para el eje x</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>parejas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sitio1-Sitio2"</span>, <span class="st">"Sitio1-Sitio3"</span>, <span class="st">"Sitio2-Sitio3"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un dataframe con los tres valores de diversidad</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>parejas, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Beta=</span> macroinv.sor2, </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Recambio=</span> macroinv.sim2, </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Anidamiento=</span>macroinv.sne2)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir los datos a formato largo (tidy)</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>datos2_largo <span class="ot">&lt;-</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    datos2 <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(Parámetros, Valores, <span class="sc">-</span>x)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos2_largo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sitios"</span>,<span class="st">"Parámetros"</span>,<span class="st">"Valores"</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(datos2_largo)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>Valores <span class="ot">&lt;-</span> <span class="fu">round</span>(Valores,<span class="dv">3</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de la base de datos para poder graficar en ggplot2</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>datos2_largo <span class="sc">%&gt;%</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"&lt;div style='text-align:left;'&gt;Diversidad beta general.&lt;/div&gt;"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl6" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;6:  Diversidad beta general, por recambio y por anidamiento entre parejas de localidades. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitios </th>
+   <th style="text-align:left;"> Parámetros </th>
+   <th style="text-align:right;"> Valores </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio2 </td>
+   <td style="text-align:left;"> Beta </td>
+   <td style="text-align:right;"> 0.2631579 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio3 </td>
+   <td style="text-align:left;"> Beta </td>
+   <td style="text-align:right;"> 0.2765957 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio2-Sitio3 </td>
+   <td style="text-align:left;"> Beta </td>
+   <td style="text-align:right;"> 0.2340426 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio2 </td>
+   <td style="text-align:left;"> Recambio </td>
+   <td style="text-align:right;"> 0.2631579 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio3 </td>
+   <td style="text-align:left;"> Recambio </td>
+   <td style="text-align:right;"> 0.1052632 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio2-Sitio3 </td>
+   <td style="text-align:left;"> Recambio </td>
+   <td style="text-align:right;"> 0.0526316 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio2 </td>
+   <td style="text-align:left;"> Anidamiento </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio1-Sitio3 </td>
+   <td style="text-align:left;"> Anidamiento </td>
+   <td style="text-align:right;"> 0.1713326 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sitio2-Sitio3 </td>
+   <td style="text-align:left;"> Anidamiento </td>
+   <td style="text-align:right;"> 0.1814110 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar los niveles de la variable Parámetros por magnitud</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>datos2_largo<span class="sc">$</span>Parámetros <span class="ot">&lt;-</span> <span class="fu">factor</span>(datos2_largo<span class="sc">$</span>Parámetros, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Anidamiento"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Recambio"</span>, <span class="st">"Beta"</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenar las comparaciones entre parejas de sitios</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>datos2_largo<span class="sc">$</span>Sitios <span class="ot">&lt;-</span> <span class="fu">factor</span>(datos2_largo<span class="sc">$</span>Sitios, </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Sitio1-Sitio2"</span>, </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Sitio1-Sitio3"</span>, <span class="st">"Sitio2-Sitio3"</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir los colores manualmente</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>colores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Beta"</span> <span class="ot">=</span> <span class="st">"#525252"</span>, <span class="st">"Recambio"</span> <span class="ot">=</span> <span class="st">"#969696"</span>, <span class="st">"Anidamiento"</span> <span class="ot">=</span> <span class="st">"#cccccc"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura con la capa "geom_col()"</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos2_largo, <span class="fu">aes</span>(<span class="at">x =</span> Sitios, <span class="at">y =</span> Valores, <span class="at">fill =</span> Parámetros)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width=</span><span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Recambio, Anidamiento y Beta Total"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Parejas de sitios"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Diversidad Beta"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Parámetros"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colores) <span class="sc">+</span>                 <span class="co"># Ajustar los colores manualmente</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Valores,<span class="dv">2</span>)), </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.8</span>), </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"#ffffff"</span>)<span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>( ) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),            <span class="co"># Capa 7. Varias operaciones</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),         <span class="co"># Ajuste de tamaño de textos</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),             <span class="co"># Quitar la cuadrículas del fondo.</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())    </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller10.Diversidad.beta_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;3: Diversidad beta general, por recambio y por anidamiento entre parejas de localidades.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (beta.pair) diferencias por pares de localidades basadas en incidencia</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pair.t <span class="ot">&lt;-</span> <span class="fu">beta.pair</span>(biol2[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>Cl.upgma1 <span class="ot">=</span> <span class="fu">hclust</span>(pair.t<span class="sc">$</span>beta.sor, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Cl.upgma2 <span class="ot">=</span> <span class="fu">hclust</span>(pair.t<span class="sc">$</span>beta.sim, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Cl.upgma3 <span class="ot">=</span> <span class="fu">hclust</span>(pair.t<span class="sc">$</span>beta.sne, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Clasificación del dendograma en dos grupos (negro y rojo)</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>km.clust <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(biol2[,<span class="sc">-</span><span class="dv">1</span>], <span class="dv">2</span>)<span class="sc">$</span>cluster</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma1, <span class="at">k =</span> <span class="dv">2</span>,       <span class="co"># k grupos (opcionales)</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.7</span>,                    <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Sorensen"</span>,  <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Beta Total"</span>,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(a)"</span>)  </span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma2, <span class="at">k =</span> <span class="dv">2</span>,        <span class="co"># k grupos (opcionales)</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.7</span>,                    <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Sorensen"</span>,  <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Recambio"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(b)"</span>)  </span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma3, <span class="at">k =</span> <span class="dv">2</span>,        <span class="co"># k grupos (opcionales)</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.7</span>,                    <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Sorensen"</span>,  <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Anidamiento"</span>,</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(c)"</span>)  </span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(f1,f2,f3, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller10.Diversidad.beta_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Clasificaciòn de las localidades de acuerdo a su diversidad beta general, por recambio y por anidamiento.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
+</b></section><b style="color:#fc8d62;">
+</b><section id="taller-para-la-casa" class="level3"><b style="color:#fc8d62;">
+<h3 class="anchored" data-anchor-id="taller-para-la-casa">Taller para la casa</h3>
+</b><p><b style="color:#fc8d62;"></b></p>
+<ol type="1">
+<li>Con los <strong>datos tabulados de campo</strong> realizar los procedimiento para el análisis de diversidad beta a escala general (paso 3) y por parejas de sitios (paso 4).</li>
+<li>Revisar las lecturas de soporte, para alimentar el análisis de los resultados obtenidos</li>
+</ol>
+<hr>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller9.Diversidad.alfa.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller9. Diversidad Alfa</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Salida.campo.eco1.html" class="pagination-link">
+        <span class="nav-page-text">Salida de campo</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
