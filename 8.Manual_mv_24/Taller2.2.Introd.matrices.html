@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Repositorio de Talleres de Multivariados - 2023-II - Taller2.2 Intro_Matrices</title>
+<title>Repositorio de Talleres de Multivariados - 2024 - Taller2.2 Intro_Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Repositorio de Talleres de Multivariados - 2023-II</a> 
+      <a href="./">Repositorio de Talleres de Multivariados - 2024</a> 
         <div class="sidebar-tools-main">
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -203,7 +203,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">Videos_clases</a>
+  <a href="./contenido.clases.html" class="sidebar-item-text sidebar-link"><strong>Contenido</strong></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link"><strong>Videos_clases</strong></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -268,6 +273,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link">Pautas Estudios de Caso</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
   </div>
 </li>
@@ -285,13 +295,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
   <li><a href="#documento-de-soporte" id="toc-documento-de-soporte" class="nav-link" data-scroll-target="#documento-de-soporte">Documento de soporte</a></li>
   <li><a href="#actividad-1.-operaciones-básicas-de-matrices" id="toc-actividad-1.-operaciones-básicas-de-matrices" class="nav-link" data-scroll-target="#actividad-1.-operaciones-básicas-de-matrices">Actividad 1. Operaciones básicas de matrices</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#resultados-del-taller-pca" id="toc-resultados-del-taller-pca" class="nav-link" data-scroll-target="#resultados-del-taller-pca">Resultados del taller PCA</a>
   <ul class="collapse">
   <li><a href="#operaciones-matriciales-básicas" id="toc-operaciones-matriciales-básicas" class="nav-link" data-scroll-target="#operaciones-matriciales-básicas">1. Operaciones matriciales básicas</a></li>
   <li><a href="#aplicaciones-de-matrices-análisis-de-componentes-principales---pca" id="toc-aplicaciones-de-matrices-análisis-de-componentes-principales---pca" class="nav-link" data-scroll-target="#aplicaciones-de-matrices-análisis-de-componentes-principales---pca">2. Aplicaciones de matrices (Análisis de Componentes Principales - PCA)</a></li>
   <li><a href="#cargar-base-de-datos-datos1.csv" id="toc-cargar-base-de-datos-datos1.csv" class="nav-link" data-scroll-target="#cargar-base-de-datos-datos1.csv">2.2 Cargar base de datos (datos1.csv)</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">—</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">—</a></li>
   </ul></li>
   <li><a href="#resultados-del-taller-lda" id="toc-resultados-del-taller-lda" class="nav-link" data-scroll-target="#resultados-del-taller-lda">Resultados del taller LDA</a>
   <ul class="collapse">
@@ -366,20 +375,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="text-align: justify">
 
 <ol type="1">
-<li><p>Descargar el script de RMarkDown (rmd) titulado <strong>“Taller2.2.matrices.Rmd”</strong> en el siguiente enlace 📈<a href="https://javier-2712.github.io/Multivariados/Taller2.2_intro.matrices/Taller2.2.matrices.Rmd.rmd">Taller2.2.matrices.Rmd</a>.</p></li>
-<li><p>Descargar la base de datos con mediciones de cuatro variables morfométricas a estudiantes de biología (csv) titulado <strong>“datos1.csv”</strong> en el siguiente enlace 📈<a href="https://javier-2712.github.io/Multivariados/Taller2.2_intro.matrices/datos1.csv">datos1.csv</a>.</p></li>
-<li><p>Crear una <strong>carpeta</strong> en su computador titulada <strong>“Taller2.2_Matrices.RStudio”</strong> y guardar el archivo descargado junto con archivo <strong>datos1.csv</strong>.</p></li>
-<li><p><strong>Cerrar el RStudio</strong> y Abrir el archivo <strong>“Taller2.2.matrices.Rmd</strong> y abrir el siguiente enlace, correspondiente al ejercicio a realizar 📰<a href="https://slides.com/d/Sr5PEvY/live">Taller1.IntroRStudio</a>.</p></li>
-<li><p>Revisar los siguientes enlaces complementarios:</p></li>
+<li><p><strong>Archivos requeridos.</strong> Descargar las plantillas o complementos para los diferentes talleres en <strong>Quarto</strong> de <strong>RStudio</strong>. Todos deben ubicarse en un directorio o carpeta titulado “<strong><em>Taller 2.2 Matrices en RStudio</em></strong>”</p>
+<ul>
+<li><p><a href="https://javier-2712.github.io/Manuales/8.Manual_mv_24/plantilla.talleres.qmd">Plantillas de talleres en quarto</a>: Estructura de RStudio para realizar los talleres de la asignatura.</p></li>
+<li><p><a href="https://javier-2712.github.io/Manuales/8.Manual_mv_24/yml.QMD.txt">Formato base del YML</a>: Estructura del encabezado de los talleres en RStudio. *Hacer clic derecho en el enlace y descargar este archivo.</p></li>
+<li><p><a href="https://javier-2712.github.io/Manuales/8.Manual_mv_24/stile-justify.css">Formato para justificar el texto</a>: Complemento para justificar los documentos. *Hacer clic derecho en el enlace y descargar este archivo.</p></li>
+<li><p><strong>Bases de datos csv y xlsx</strong>. La siguente base de datos corresponde a cuatro variables morfométricas tomadas a estudiantes de la asignatura en semestres anteriores, está en formato plano o csv (descargar: <a href="https://javier-2712.github.io/Manuales/8.Manual_mv_24/datos1.csv">datos1.csv</a>) y en formato general de excel (descargar: <a href="https://javier-2712.github.io/Manuales/8.Manual_mv_24/datos1.xlsx">datos1.xlsx</a>).</p></li>
+</ul></li>
+<li><p><strong>Diapositivas en vivo.</strong> Son diapositivas de apoyo que solo pueden ser usadas durante el horario de clase, ya que es el docente quien puede irlas presentando. Permiten agilizar el procedimiento de cargar los comandos en RStudio.</p>
+<ul>
+<li><a href="https://slides.com/d/Sr5PEvY/live">Enlace a las diapositivas en vivo del taller 2.2a</a> Corresponde a operaciones matriciales básicas y a su aplicación con un análisis de componentes principales (pca), cuyo objetivo es la visualización de gradientes u ordenación de datos en planos cartesianos.</li>
+<li><a href="https://slides.com/d/6ZVmlwQ/live">Enlace a las diapositivas en vivo del taller 2.2b</a> Corresponde a la aplicación de matrices con un análisis discrimiante lineal (lda), cuyo objetivo es la generación de funciones lineales que evalúen la calidad de la clasificación de observaciones en grupos previamente asignados (ej. individuos por tipo de sexos).</li>
+</ul></li>
+<li><p><strong>Material complementario.</strong> Revisar los siguientes enlaces complementarios:</p></li>
 </ol>
 <ul>
 <li>📰<a href="https://javier-2712.github.io/Libro_andea/3.Algebra_lineal/Cap%C3%ADtulo3.html">Scripts del Ejemplo 3, del capítulo 3 del libro (Rodríuez-Barrios, J. 2023)</a></li>
 </ul>
-</div></section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
 </b><section id="resultados-del-taller-pca" class="level1"><b style="color:#1f78b4;">
 <h1>Resultados del taller PCA</h1>
 </b><p><b style="color:#1f78b4;"></b></p>
@@ -855,8 +869,8 @@ Alumno 6  165   89   45   61</code></pre>
 </div>
 </section>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">—</h2>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">—</h2>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
