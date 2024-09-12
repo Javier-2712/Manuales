@@ -1,0 +1,102 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Repositorio de Talleres de Análisis de Datos Biológicos en Excel y en R - 2024",
+    "section": "",
+    "text": "Resumen\n\nRepositorio de Clases y Actividades de la Optativa de Análisis de Datos Biológicos en Excel y R - 2024\n\n\nJavier Rodríguez-Barrios y Kenedith Méndez-Gutiérrez\n\n\nPrograma de Biología\n\n\n\nEl siguiente documento es un compendio de temas vistos en el componente teórico y práctico de la asignatura Análisis de Datos Biológicos, durante el periodo 2024. Se fundamenta en dos grandes módulos:\n\nApllicaciones en Excel\nAplicaciones en RStudio\n\n\n\nA partir de ello, el enfoque de este trabajo, consiste en ofrecer a los estudiantes una compilación de los materiales entregados durante la asignatura, como videos de las clases y talleres de cómputo, por lo que este documento se constituye en un repositorio de materiales vistos en clase.\nPara un mejor entendimiento de este documento, se sugiere complementar la información con las referencias bibliográficas sugeridas en cada capitulo descrito a continuación.",
+    "crumbs": [
+      "Resumen"
+    ]
+  },
+  {
+    "objectID": "Taller5.Análisis.climático.html#introducción",
+    "href": "Taller5.Análisis.climático.html#introducción",
+    "title": "Taller5. A. Climático",
+    "section": "",
+    "text": "El clima puede definirse como el conjunto de parámetros atmosféricos que predominan en un lugar determinado (Ecosistema, Paisaje, Región, etc.). Estos parámetros generan un conjunto de condiciones determinantes para diversos servicios ecosistémicos, como en la ganadería, la recreación o la agricultura. De igual forma, el clima se constituye en el factor del medio físico que más influye en la distribución de los organismos de los ecosistemas. El clima hace que una región geográfica en particular sea una selva tropical, un bosque sub-xerofítico, un páramo, entre otros tipos de ecosistemas.\n Precipitación.  Corresponde a la cantidad de lluvia expresada en mm, en donde un mm de precipitación equivale a un litro de agua/m2. Algunos indicadores de este parámetro son la precipitación mensual (ppm) que representa la suma de precipitaciones promedio diarias. La precipitación media mensual multianual (pmm) es el resultado de promediar a las precipitaciones mensuales por varios años.\n Temperatura.  Se considera a la temperatura, como la cantidad de calor que llega a la superficie de la tierra.  La temperatura media mensual es el promedio de las temperaturas medias diarias, y las temperaturas máxima media y mínima media son el promedio de las temperaturas máximas y mínimas diarias.\nDe forma similar a la precipitación, la temperatura media anual es el promedio de las temperaturas medias mensuales y la temperatura media mensual multianual es el promedio de las temperaturas para el mes en cuestión a lo largo del período de tiempo estudiado.",
+    "crumbs": [
+      "Taller5. A. Climático"
+    ]
+  },
+  {
+    "objectID": "Taller5.Análisis.climático.html#objetivo-del-taller",
+    "href": "Taller5.Análisis.climático.html#objetivo-del-taller",
+    "title": "Taller5. A. Climático",
+    "section": "Objetivo del taller",
+    "text": "Objetivo del taller\n\n\n\n\nAprender el manejo de la plataforma 📈dhime utilizada por el IDEAM, como repositorio de datos climáticos de nuestro país.\nDesarrollar destrezas en el procesamiento de datos en Excel, para la tabulación, uso de tablas dinámicas, el el procesamiento eficiente de información climática.\nIncorporar herramientas de análisis climático como son los climatogramas, índices de aridez, los modelos de balance hídrico, el análisis de biomas y de formaciones vegetales, asociadas a datos climáticos.\nDesarrollar capacidades para la interpretación y el análisis de datos climáticos en contextos ecológicos y ambientales, para un mejor entendimiento de nuestro contexto ambiental.",
+    "crumbs": [
+      "Taller5. A. Climático"
+    ]
+  },
+  {
+    "objectID": "Taller5.Análisis.climático.html#procedimiento-del-taller",
+    "href": "Taller5.Análisis.climático.html#procedimiento-del-taller",
+    "title": "Taller5. A. Climático",
+    "section": "Procedimiento del taller",
+    "text": "Procedimiento del taller\n\n\n\nNota: Previo a la sesión del taller de cómputo, es necesario que revisen el video de la clase en donde se explica el procedimiento (ver 🎥enlace del video), el día de la sesión, el docente evaluará la revisión que se haya hecho de ese material. Esta información también se puede consultar en los videos de la semana que están en el repositorio del docente (ver 📃enlace del repositorio).\n\n\nPaso 1. Descarga de datos del IDEAM\n\n\n\n\nFigura 1. Plataforma 📈dhime del IDEAM, para descarga de datos metereológicos.\n\n\n\n\nSe realizará un entrenamiento en la sala de cómputo, orientado a la descarga de datos de la plataforma 📈dhime utilizada por el IDEAM. Las variables a descargar para los periodos de 1993 a 2024 son:\n\nLa temperatura máxima media mensual de tres estaciones que se referencian en la tabla 1, las cuales presentan un contraste espacial y altitudinal y que se encuentran en lugares cercanos a Santa Marta.\nLa precipitación total mensual de las mismas estaciones metereológicas.\n\n\n\n\nTabla 1. Información de las estaciones pluviométricas y climáticas que deben utilizarse en el estudio.\n\n\nNo\nNombre.de.la.Estación\nAños.de.observación\nPeriodicidad.de.la.información.\n\n\n\n\n1\nAeropuerto Simón Bolívar* (Apto)\n1980 - 2023\nMensual\n\n\n2\nSan Lorenzo (SLrzo)\n1980 – 2023\nMensual\n\n\n3\nParque Nacional Nat. Tayrona (PNNT)\n1980 - 2023\nMensual\n\n\n\n\n\n\n\n*Datos promedios totales mensuales, dependiendo de su disponibilidad.\nLos archivos generados (extensión *.csv) serán guardados en una carpeta de trabajo en el escritorio del computador, titulada: “taller_datos_climáticos_eco1”. Allí debe reposar un formato para la tabulación y procesamiento de los datos, titulado: “formato.datos.xlsx” (📈descargar), en donde se pegarán los datos de temperatura y de precipitación.\n\n\n\nPaso 2. Tabla dinámica\n\n\n\nA continuación, se construirán dos tablas dinámicas: una para los datos de precipitación y otra para los datos de temperatura. El objetivo será, extraer los promedios mensuales multianuales, para pegarlos en la pestaña del climatográma e índice de aridez de Lang.\n\n\n\nPaso 3. Resultado 1 - Climatograma e índice de Lang\n\n\n\n\nFigura 1. Ejemplo de un climatograma del taller en clase\n\n\n\n\nEn esta pestaña se realizará el procedimiento indicado para la construcción del climatograma e índice de aridez de Lang, de cada estación. *El procedimiento llega hasta la elaboración, pero cada estudiante deberá investigar en qué consiste cada uno de estos insumos y discutir los resultados obtenidos.\n\n\n\nPaso 4. Resultado 2. Balance hídrico\n\n\n\n\nFigura 2. Ejemplo de un modelo de balance hídrico del taller en clase\n\n\n\n\nPara este procedimiento, se cuenta con una plantilla en donde se requiere incluir los datos de temperatura y de precipitación promedio multianual, utilizadas en el resultado anterior, junto a los datos de brillo solar, que pueden descargarse en google (buscar: Anexo Promedios mensuales de brillo solar 📈descarga). A partir de ello se construyen los modelos gráficos de balance hídrico, en donde se pueden viasualizar periodos de recargas, deficit, excedentes o uso de reservas de agua en los lugares evaluados.\n\n\n\nPaso 5. Resultados 3 y 4. Biomas, pisos térmicos y formaciones vegetales\n\n\n\n\nFigura 3. Tabla para relacionar datos de los resultados resumidos del taller\n\n\n\n\nCon los datos de temperatura, de precipitación promedio multianual y de evapotranspiración real, utilizadas en los resultados anteriores, se asociarán en las tablas referenciadas en el resultado 3, para clasificar las zonas evaluadas a su bioma, piso térmico y formación vegetal correspondiente. Finalmente en el resultado 4, se realizará la tabulación que resume a todos los insumos calculados.\nLos pasos 1 a 5, deben revisarse previo a la sesión de cómputo, en el módulo de videos del repositorio (🎥enlace), especificamente en el video 🎥Organización de los datos climáticos, intentar realizar el ejercicio en casa, para avanzar de forma más eficiente en esta sesión de cómputo. Para las tablas citadas en este paso, se puede reforzar el componente teórico con los referentes bibliográficos de este taller (Espinal (1977), Halffter & Ezcurra (1992), Tamarís-Turizo & López-Salgado (2006)).\n\n\n\nPaso 6. Pautas del taller en casa\n\n\n\n\nImagen tomada de Nathan Timblin\n\n\n\n\n\nPara la entrega y socialización (si el tiempo lo permite se socializa) del taller, cada grupo (máximo 4 estudiantes) debe seleccionar 3 estaciones diferentes a las de la sesión de cómputo (preferiblemente que sean diferentes a los otros grupos) y entregar un documento en pdf (máximo 5 páginas) que incluya a los procedimientos (paso a paso) vistos en el taller de cómputo y en el repositorio del docente (videos de este taller). Entregar los cálculos en el formato de Excel, como archivo complementario.\nPreparar máximo 5 diapositivas para socializar los resultados (duración de la presentación de máx. 8 minutos).\nLa valoración de esta actividad ponderará los siguientes aspectos:\n\nTrabajo realizado en la sala de cómputo.\nLa puntualidad en la entrega del informe y de la sustentación del trabajo (en caso de ser posible).\nTodas las tablas y figuras deben tener su leyenda numerada y adicionalmente un párrafo de análisis de los resultados.\nIncorporar en el análisis, elementos del contexto de cada localidad evaluada, en cuanto a las condiciones ecológicas y/o ambientales asociadas al clima y resto de aspectos evaluados.",
+    "crumbs": [
+      "Taller5. A. Climático"
+    ]
+  },
+  {
+    "objectID": "Taller5.Análisis.climático.html#referencias-bibliográficas",
+    "href": "Taller5.Análisis.climático.html#referencias-bibliográficas",
+    "title": "Taller5. A. Climático",
+    "section": "Referencias bibliográficas",
+    "text": "Referencias bibliográficas\n\n\n\nEspinal, S. (1977). Zonas de vida o formaciones vegetales de Colombia: Memoria explicativa sobre el mapa ecológico. (📖enlace)\nHalffter, G., & Ezcurra, E. (1992). La diversidad biológica de Iberoamérica (Vol. 1). CYTED-D, Programa Iberoamericano de Ciencia y Tecnologia para el Desarollo, Instituto de Ecologia, AC, Secretaria de Desarrollo Social. (📖enlace)\nTamarís-Turizo, C. E., & López-Salgado, H. J. (2006). Aproximación a la zonificación climática de la cuenca del río Gaira. Intropica, 69-76. (📰enlace)",
+    "crumbs": [
+      "Taller5. A. Climático"
+    ]
+  },
+  {
+    "objectID": "videos.clases.html",
+    "href": "videos.clases.html",
+    "title": "1  Videos clases",
+    "section": "",
+    "text": "1.1\n[ Imágen tomada de Saeid Anvar ]\nLos videos que se presentan a continuación, son el resultado de sesiones realizadas en el 2020 y se encuentran alojados en el repositorio de videos “Youtube” los que realizarémos el presente semestre también se cargarán en este enlace y estarán alojaros en la plataforma “Stream” de la universidad.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Videos clases</span>"
+    ]
+  },
+  {
+    "objectID": "videos.clases.html#tablas-dinámicas-en-excel-para-datos-biológicos",
+    "href": "videos.clases.html#tablas-dinámicas-en-excel-para-datos-biológicos",
+    "title": "Videos clases",
+    "section": "1. Tablas dinámicas en Excel, para datos biológicos",
+    "text": "1. Tablas dinámicas en Excel, para datos biológicos\n\n\n[ Imágen tomada de youtube ]\n\n\nTablas dinámicas en Excel\n\nNota: Sugerimos colocar los videos en velocidad 1.2x, para que puedan visualizarse de manera más eficiente.\n\n🎥Tablas dinámicas - parte 1 Pautas del taller en clase\n🎥Tablas dinámicas - parte 2 Construcción de tablas dinámicas\n🎥Tablas dinámicas - parte 3 Construcción del gráfico de promedios y desviaciones estándar (parte 1).\n🎥Tablas dinámicas - parte 4 Construcción del gráfico de promedios y desviaciones estándar (parte 2).\n🎥Ejemplo de Iris - Pizarra Ejemplo manual para el cálculo de valores requeridos en las figuras de columnas.\n\n\n\n\nBases de datos requeridas\n\n\n🎥Ejercicio1_cuencas.xlsx",
+    "crumbs": [
+      "Videos clases"
+    ]
+  },
+  {
+    "objectID": "videos.clases.html#figuras-de-cajas-y-bigotes-en-excel",
+    "href": "videos.clases.html#figuras-de-cajas-y-bigotes-en-excel",
+    "title": "Videos clases",
+    "section": "2. Figuras de Cajas y Bigotes en Excel",
+    "text": "2. Figuras de Cajas y Bigotes en Excel\n\n\n[ Imágen tomada de youtube ]\n\n\nFiguras de Cajas y Bigotes\n\n\n🎥Ejemplo de Iris - Pizarra Ejemplo manual para el cálculo de valores requeridos en las figuras de cajas.\n🎥Ejemplo de Iris - Excel Ejemplo en Excel para el cálculo de valores y elaboración de las figuras.\n\n\n\n\nBases de datos requeridas\n\n\n🎥Ejercicio1_cuencas.xlsx\n\n\n\n\n2024-II - Tablas dinámicas, Figuras de Columnas y Cajas y Bigotes\n\n\nTablas dinámicas, figuras de columnas y de cajas Taller realizado en clase, para la construcción de tablas dinámicas, de figuras de columnas con líneas acotadas y de cajas y bigotes.",
+    "crumbs": [
+      "Videos clases"
+    ]
+  },
+  {
+    "objectID": "videos.clases.html#pruebas-t-y-anova",
+    "href": "videos.clases.html#pruebas-t-y-anova",
+    "title": "Videos clases",
+    "section": "1. Pruebas t y ANOVA",
+    "text": "1. Pruebas t y ANOVA\n\n\n[ Imágen tomada de youtube ]\n\n\nPruebas t y ANOVA en Excel\n\n\n🎥Ejemplo de Iris - Excel Parte 1. Ejemplo en Excel para el cálculo de las pruebas de hipótesis T de Student y el ANOVA.\n🎥Ejemplo de Iris - Excel Parte 2. Ejemplo en Excel para el cálculo de las pruebas de hipótesis T de Student y el ANOVA.\n\n\n\n\nBases de datos requeridas\n\n\nEjercicio1_cuencas.xlsx\n\n\n\n\n2024-II - Pruebas de Hipótesis: pruebas t y Anova\n\n\nPruebas de hipótesis - Prueba t y Anova Taller realizado en clase, para la prueba de diferencias de medias entres diferentes grupos, caracterizados por varios parámetros.",
+    "crumbs": [
+      "Videos clases"
+    ]
+  },
+  {
+    "objectID": "videos.clases.html#figuras-de-cajas-análisis-de-normalidad-tamaño-de-la-muestra-y-de-potencia-de-la-prueba",
+    "href": "videos.clases.html#figuras-de-cajas-análisis-de-normalidad-tamaño-de-la-muestra-y-de-potencia-de-la-prueba",
+    "title": "Videos clases",
+    "section": "2. Figuras de cajas, análisis de normalidad, tamaño de la muestra y de potencia de la prueba",
+    "text": "2. Figuras de cajas, análisis de normalidad, tamaño de la muestra y de potencia de la prueba\n\n\n[ Imágen tomada de youtube ]\n\n\nBases de datos requeridas\n\n\nEjercicio1_cuencas.xlsx\n\n\n\n\n2024-II - Pruebas de normalidad y de tamaño mínimo de la muestra\n\n\n🎥Pruebas de normalidad y de tamaño mínimo Taller realizado en clase, reforzar el entrenamiento en figuras de cajas, así como en el adiestramiento en prueba de normalidad y de tamaño mínimo de la muestra, con la base de datos de insectos acuáticos en cuatro cuencas.",
+    "crumbs": [
+      "Videos clases"
+    ]
+  }
+]
