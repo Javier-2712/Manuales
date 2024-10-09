@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Multivariados - 2024 - Taller5.2 NMDS Peces Francia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller6.1.cla.bahías.html" rel="next">
+<link href="./Taller5.1.nmds.malezas.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller5.2 NMDS Peces Francia</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Multivariados - 2024</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.mv.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./contenido.clases.html" class="sidebar-item-text sidebar-link"><strong>Contenido</strong></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link"><strong>Videos_clases</strong></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.html" class="sidebar-item-text sidebar-link">Taller1. Intro_multivariados</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.1.Introducción.html" class="sidebar-item-text sidebar-link">Taller2.1 Intro_RStudio</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.2.Introd.matrices.html" class="sidebar-item-text sidebar-link">Taller2.2 Intro_Matrices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.1.exploratorios.html" class="sidebar-item-text sidebar-link">Taller3. Exploratorios_mv</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.pca.marino.html" class="sidebar-item-text sidebar-link">Taller4.1 PCA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.2.pca.tayrona.html" class="sidebar-item-text sidebar-link">Taller4.2 PCA PNNTayrona</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.1.nmds.malezas.html" class="sidebar-item-text sidebar-link">Taller5. NMDS Malezas</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.2.nmds.peces.html" class="sidebar-item-text sidebar-link active">Taller5.2 NMDS Peces Francia</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">Taller6.1 CLA Bahías</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">Taller6.2 CLA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.1.lda.peces.html" class="sidebar-item-text sidebar-link">Taller7. LDA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8.1.manova.peces.html" class="sidebar-item-text sidebar-link">Taller8. MANOVA Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.1.permanova.peces.html" class="sidebar-item-text sidebar-link">Taller9. PERMANOVAS Peces</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link">Pautas Estudios de Caso</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#exploración-gráfica-multivariada---base-peces-ríos-doubs-de-francia" id="toc-exploración-gráfica-multivariada---base-peces-ríos-doubs-de-francia" class="nav-link" data-scroll-target="#exploración-gráfica-multivariada---base-peces-ríos-doubs-de-francia">Exploración gráfica multivariada - base <em>peces ríos Doubs de Francia</em></a>
+  <ul class="collapse">
+  <li><a href="#referencias-bibliográficas-de-apoyo." id="toc-referencias-bibliográficas-de-apoyo." class="nav-link" data-scroll-target="#referencias-bibliográficas-de-apoyo.">Referencias bibliográficas de apoyo.</a></li>
+  <li><a href="#procedimiento-de-la-exploración" id="toc-procedimiento-de-la-exploración" class="nav-link" data-scroll-target="#procedimiento-de-la-exploración">Procedimiento de la exploración</a>
+  <ul class="collapse">
+  <li><a href="#cargar-las-librerías-requeridas" id="toc-cargar-las-librerías-requeridas" class="nav-link" data-scroll-target="#cargar-las-librerías-requeridas">Cargar las librerías requeridas</a></li>
+  <li><a href="#cargar-las-bases-de-datos-biológica-y-ambiental" id="toc-cargar-las-bases-de-datos-biológica-y-ambiental" class="nav-link" data-scroll-target="#cargar-las-bases-de-datos-biológica-y-ambiental">Cargar las bases de datos biológica y ambiental</a></li>
+  </ul></li>
+  <li><a href="#exploración-gráfica" id="toc-exploración-gráfica" class="nav-link" data-scroll-target="#exploración-gráfica">1) Exploración gráfica</a></li>
+  <li><a href="#ordenación-nmds-con-el-paquete-vegan" id="toc-ordenación-nmds-con-el-paquete-vegan" class="nav-link" data-scroll-target="#ordenación-nmds-con-el-paquete-vegan">2) Ordenación NMDS con el paquete vegan</a>
+  <ul class="collapse">
+  <li><a href="#generación-de-factores" id="toc-generación-de-factores" class="nav-link" data-scroll-target="#generación-de-factores">2.1 Generación de factores</a></li>
+  </ul></li>
+  <li><a href="#ordenación-nmds-con-el-paquete-ggplot2" id="toc-ordenación-nmds-con-el-paquete-ggplot2" class="nav-link" data-scroll-target="#ordenación-nmds-con-el-paquete-ggplot2">3) Ordenación NMDS con el paquete ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#coordenadas-de-los-sitios-y-del-factor-coord.sit" id="toc-coordenadas-de-los-sitios-y-del-factor-coord.sit" class="nav-link" data-scroll-target="#coordenadas-de-los-sitios-y-del-factor-coord.sit">3.1 <strong>Coordenadas de los sitios y del factor “coord.sit”</strong></a></li>
+  <li><a href="#coordenadas-de-las-especies-coord.esp" id="toc-coordenadas-de-las-especies-coord.esp" class="nav-link" data-scroll-target="#coordenadas-de-las-especies-coord.esp"><strong>4.2 Coordenadas de las especies “coord.esp”</strong></a></li>
+  <li><a href="#coordenadas-de-las-ambientales-coord.amb" id="toc-coordenadas-de-las-ambientales-coord.amb" class="nav-link" data-scroll-target="#coordenadas-de-las-ambientales-coord.amb"><strong>4.3 Coordenadas de las ambientales “coord.amb”</strong></a></li>
+  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_elipse" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_elipse" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_elipse"><strong>4.4 Figura con de elipses por concavidades - geom_mark_elipse</strong></a></li>
+  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>4.5 Figura con de elipses por concavidades - geom_mark_hull</strong></a></li>
+  <li><a href="#figura-con-vectores-de-especies-y-variables-ambientales" id="toc-figura-con-vectores-de-especies-y-variables-ambientales" class="nav-link" data-scroll-target="#figura-con-vectores-de-especies-y-variables-ambientales"><strong>4.6 Figura con vectores de especies y variables ambientales</strong></a></li>
+  </ul></li>
+  <li><a href="#taller-de-entrenamiento" id="toc-taller-de-entrenamiento" class="nav-link" data-scroll-target="#taller-de-entrenamiento"><strong>Taller de entrenamiento</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller5.2 NMDS Peces Francia</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><img src="https://javier-2712.github.io/Multivar_Msc_24/Ordenaci%C3%B3n_nmds2_files/figure-html/fig-fig9-1.png" class="img-fluid" width="502"></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="exploración-gráfica-multivariada---base-peces-ríos-doubs-de-francia" class="level1"><b style="color:#1f78b4;">
+<h1>Exploración gráfica multivariada - base <em>peces ríos Doubs de Francia</em></h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Datos tomados de <strong>Verneaux (1973)</strong> y por <strong>Verneaux et al.&nbsp;(2003)</strong> En: <strong>Borcard et al.&nbsp;(2011, 2018)</strong>. Se utilizan especies de peces para caracterizar zonas ecológicas a lo largo de ríos y arroyos europeos, empleando a estos organismos como indicadores biológicos de los cuerpos de agua. Las condiciones ecológicas en los ríos van desde aguas relativamente vírgenes, bien oxigenadas y oligotróficas hasta aguas eutróficas y sin buenos niveles de oxígeno. Los datos se han recopilado en 30 sitios a lo largo del río Doubs, que corre cerca de la frontera entre Francia y Suiza en las montañas del Jura. La primera base de datos (<strong>DoubsSpe.csv</strong>) contiene abundancias codificadas de 27 especies de peces y la segunda base de datos (<strong>DoubsEnv.csv</strong>) contiene 11 variables ambientales relacionadas con la hidrología, geomorfología y química del río. Para más detalles sobre el procedimiento de muestreo se requiere revisar el capítulo introductorio de <strong>Borcar et al.&nbsp;(2018)</strong>.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="referencias-bibliográficas-de-apoyo." class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="referencias-bibliográficas-de-apoyo.">Referencias bibliográficas de apoyo.</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/chapter/10.1007/978-3-319-71404-2_5#Sec35">Borcard et al.&nbsp;(2018) Numerical ecology with R</a> Documento de base en el que se encuentran parte de los cálculos realizados.</p>
+<p><a href="http://www.scielo.org.co/scielo.php?script=sci_arttext&amp;pid=S0120-548X2015000200012">Perifiton de un río de Montaña - Osorio et al.&nbsp;2014</a> Valoración del proceso sucesional de microalgas perifíticas el tramo medio del río Gaira - Santa Marta.</p>
+<p><a href="http://www.scielo.org.co/scielo.php?script=sci_arttext&amp;pid=S0120-548X2015000200012">Invertebrados de un río de Montaña - Rodríguez-Barrios et al.&nbsp;2011</a> Estudio de diferentes atributos comunitarios en invertebados acuáticos del río Gaira - Santa Marta.</p>
+<p><a href="https://revistas.unal.edu.co/index.php/actabiol/article/view/19991/30408">Descomposición de Hojarásca en Ríos - Eyes et al.&nbsp;2011</a> Trabajo realizado en el bosque de ribera del río Gaira - Santa Marta.</p>
+<p><a href="https://revistas.unal.edu.co/index.php/actabiol/article/view/19991/30408">Nutrientes de la hojarásca - Fuentes y Rodríguez. 2011</a> Otro trabajo realizado en el bosque de ribera del río Gaira - Santa Marta.</p>
+<p><a href="https://dialnet.unirioja.es/servlet/articulo?codigo=4208390">Análisis de Volnerabilidad a Inundaciones - Noriega et al.&nbsp;2011</a> Valoración de riesgo a inundaciones en la parte baja del río Gaira - Santa Marta.</p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="procedimiento-de-la-exploración" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="procedimiento-de-la-exploración">Procedimiento de la exploración</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<ul>
+<li><p>Cargar librerías requeridas</p></li>
+<li><p>Cargar la base <code>malezas.csv</code></p></li>
+<li><p>Correr el NMDS con una distancia binaria (Jaccard)</p></li>
+<li><p>Realizar las opciones gráficas con las librerías <code>"vegan"</code> y <code>"ggplot2"</code>.</p></li>
+</ul>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="cargar-las-librerías-requeridas" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="cargar-las-librerías-requeridas">Cargar las librerías requeridas</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)      <span class="co"># Para el NMDS y extracción de coord. ambientales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbiplot)   <span class="co"># Para la realización de las figuras</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)      <span class="co"># Complemento del ggplot2 en las figuras</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)    <span class="co"># Complemento del ggplot2 en las figuras</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(concaveman) <span class="co"># Complemento del ggplot2 en las figuras</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)    <span class="co"># Paquete gráfico</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)   <span class="co"># Complemento del ggplot2 en las figuras</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)    <span class="co"># Complemento del ggplot2 en las figuras</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)   <span class="co"># Figuras de elipses</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># Para la edición de las tablas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="cargar-las-bases-de-datos-biológica-y-ambiental" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="cargar-las-bases-de-datos-biológica-y-ambiental">Cargar las bases de datos biológica y ambiental</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Especies (spe)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>spe<span class="ot">&lt;-</span><span class="fu">read.csv2</span>(<span class="st">"DoubsSpe.csv"</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spe)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Cogo Satr Phph Babl Thth Teso Chna Pato Lele Sqce Baba Albi Gogo Eslu Pefl
+1    0    3    0    0    0    0    0    0    0    0    0    0    0    0    0
+2    0    5    4    3    0    0    0    0    0    0    0    0    0    0    0
+3    0    5    5    5    0    0    0    0    0    0    0    0    0    1    0
+4    0    4    5    5    0    0    0    0    0    1    0    0    1    2    2
+5    0    2    3    2    0    0    0    0    5    2    0    0    2    4    4
+6    0    3    4    5    0    0    0    0    1    2    0    0    1    1    1
+  Rham Legi Scer Cyca Titi Abbr Icme Gyce Ruru Blbj Alal Anan
+1    0    0    0    0    0    0    0    0    0    0    0    0
+2    0    0    0    0    0    0    0    0    0    0    0    0
+3    0    0    0    0    0    0    0    0    0    0    0    0
+4    0    0    0    0    1    0    0    0    0    0    0    0
+5    0    0    2    0    3    0    0    0    5    0    0    0
+6    0    0    0    0    2    0    0    0    1    0    0    0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambientales (env)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span><span class="fu">read.csv2</span>(<span class="st">"DoubsEnv.csv"</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(env)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   dfs ele  slo  dis  pH har  pho  nit  amm  oxy bod
+1  0.3 934 48.0 0.84 7.9  45 0.01 0.20 0.00 12.2 2.7
+2  2.2 932  3.0 1.00 8.0  40 0.02 0.20 0.10 10.3 1.9
+3 10.2 914  3.7 1.80 8.3  52 0.05 0.22 0.05 10.5 3.5
+4 18.5 854  3.2 2.53 8.0  72 0.10 0.21 0.00 11.0 1.3
+5 21.5 849  2.3 2.64 8.1  84 0.38 0.52 0.20  8.0 6.2
+6 32.4 846  3.2 2.86 7.9  60 0.20 0.15 0.00 10.2 5.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suprimir el sitio 8, por no presentar abundancias de especies</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">=</span> spe[<span class="sc">-</span><span class="dv">8</span>,]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>env <span class="ot">=</span> env[<span class="sc">-</span><span class="dv">8</span>,]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformación de los datos de abundancia</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>spe.h <span class="ot">=</span> <span class="fu">decostand</span>(spe,<span class="st">"hellinger"</span>)  <span class="co"># Linealizar los datos de abundancia</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(spe.h,<span class="dv">2</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Cogo Satr Phph Babl Thth Teso Chna Pato Lele Sqce Baba Albi Gogo Eslu Pefl
+1    0 1.00 0.00 0.00    0    0    0    0 0.00 0.00    0    0 0.00 0.00 0.00
+2    0 0.65 0.58 0.50    0    0    0    0 0.00 0.00    0    0 0.00 0.00 0.00
+3    0 0.56 0.56 0.56    0    0    0    0 0.00 0.00    0    0 0.00 0.25 0.00
+4    0 0.44 0.49 0.49    0    0    0    0 0.00 0.22    0    0 0.22 0.31 0.31
+5    0 0.24 0.30 0.24    0    0    0    0 0.38 0.24    0    0 0.24 0.34 0.34
+6    0 0.38 0.44 0.49    0    0    0    0 0.22 0.31    0    0 0.22 0.22 0.22
+  Rham Legi Scer Cyca Titi Abbr Icme Gyce Ruru Blbj Alal Anan
+1    0    0 0.00    0 0.00    0    0    0 0.00    0    0    0
+2    0    0 0.00    0 0.00    0    0    0 0.00    0    0    0
+3    0    0 0.00    0 0.00    0    0    0 0.00    0    0    0
+4    0    0 0.00    0 0.22    0    0    0 0.00    0    0    0
+5    0    0 0.24    0 0.30    0    0    0 0.38    0    0    0
+6    0    0 0.00    0 0.31    0    0    0 0.22    0    0    0</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="exploración-gráfica" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="exploración-gráfica">1) Exploración gráfica</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlación para abundancias de especies</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(spe.h)            <span class="co"># Matriz de Correlación (M)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># round(M1,2)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1, <span class="at">method =</span> <span class="st">"ellipse"</span>)  <span class="co"># Figura de correlaciones con elipses</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.1: Relaciones entre las abundancias de los peces evaluados en el río Doubs. Las elipses azules representan a las relaciones lineales positivas y las rojas a las relaciones lineales negativas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlación para las variables ambientales</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(env)            <span class="co"># Matriz de Correlación (M)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># round(M2,2)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M2, <span class="at">method =</span> <span class="st">"ellipse"</span>, <span class="at">order =</span> <span class="st">"AOE"</span>)  <span class="co"># Figura de correlaciones con elipses</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.2: Relaciones entre las variables ambientales en el río Doubs. Las elipses azules representan a las relaciones lineales positivas y las rojas a las relaciones lineales negativas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones de datos biológicos vs. los ambientales</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">cor</span>(env, spe.h)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M3, <span class="at">method =</span> <span class="st">"ellipse"</span>, <span class="at">type =</span> <span class="st">"upper"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.3: Relaciones entre las variables ambientales y biológicas en el río Doubs. Las elipses azules representan a las relaciones lineales positivas y las rojas a las relaciones lineales negativas.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ordenación-nmds-con-el-paquete-vegan" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="ordenación-nmds-con-el-paquete-vegan">2) Ordenación NMDS con el paquete vegan</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Para el <strong>paso 1</strong> del procedimiento, es necesario documentar la distancia utilizada y el estrés encontrado.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escalamiento con el comando metaMDS</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>spe.mds <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(spe.h,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">distance =</span> <span class="st">"bray"</span>, <span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>spe.mds</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+metaMDS(comm = spe.h, distance = "bray", trace = FALSE) 
+
+global Multidimensional Scaling using monoMDS
+
+Data:     spe.h 
+Distance: bray 
+
+Dimensions: 2 
+Stress:     0.06742415 
+Stress type 1, weak ties
+Best solution was not repeated after 20 tries
+The best solution was from try 9 (random start)
+Scaling: centring, PC rotation, halfchange scaling 
+Species: expanded scores based on 'spe.h' </code></pre>
+</div>
+</div>
+<p>Para el <strong>paso 2</strong> se requiere documentar los patrones encontrados en las figuras de la ordenación (<a href="#fig-fig3">Figura&nbsp;<span>1.3</span></a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Figura con todas las especies</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spe.mds,<span class="at">type =</span> <span class="st">"t"</span>,<span class="at">cex=</span><span class="fl">1.2</span>,     <span class="co"># type="t" grafica sitios y especies</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Dim 2"</span>, <span class="at">xlab=</span><span class="st">"Dim 1"</span>,     <span class="co"># main: Título de la figura</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"nMDS/Estrés ="</span>,     </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">round</span>(spe.mds<span class="sc">$</span>stress, <span class="dv">3</span>)))      <span class="co"># spe.mds$stress: valor del estrés</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.4: Ordenación de las localidades y todas las especies de peces.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En la <a href="#fig-fig5">Figura&nbsp;<span>1.5</span></a> se observa la función del comando <strong>orditorp</strong>, para quitar los solapamientos de especies que se visualizaban en la <a href="#fig-fig4">Figura&nbsp;<span>1.4</span></a>. Esto también se puede hacer para las localidades. Esta situación no sucede con las figuras en ggplot2, debido a que se cuenta con un comando que evita los solapamientos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Figura sin solapamiento de especies - comando "orditorp"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spe.mds,<span class="at">type =</span> <span class="st">"n"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sites"</span>, <span class="st">"species"</span>),          <span class="co"># type="n" sin texto.</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Dim 2"</span>, <span class="at">xlab=</span><span class="st">"Dim 1"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"nMDS/Estrés ="</span>,             <span class="co"># R?tulo del título.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">round</span>(spe.mds<span class="sc">$</span>stress, <span class="dv">3</span>)))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(spe.mds, <span class="at">display=</span><span class="st">"sites"</span>,                 <span class="co"># Grafica los sitios</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="fl">1.5</span>, <span class="at">pos=</span><span class="dv">3</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>ordi<span class="ot">=</span> <span class="fu">orditorp</span>(spe.mds, <span class="at">display =</span> <span class="st">"species"</span>,   <span class="co"># Grafica especies sin solapar</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">shrink =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">type=</span><span class="st">"n"</span>,<span class="at">cex=</span><span class="fl">1.2</span>) </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(spe.mds, <span class="at">display =</span> <span class="st">"sites"</span>,             <span class="co"># Opcional - puntos de muestreo</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.5: Ordenación de las localidades y las especies de peces que no están solapadas en la figura.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Variables ambientales y sus aportes al NMDS realizado (aquellas con valor p &lt; 0.05 o que cuentan con asteríscos *).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar variables ambientales al nMDS</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambientales (env)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>env1 <span class="ot">=</span> <span class="fu">envfit</span>(spe.mds,env)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>env1 </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+***VECTORS
+
+       NMDS1    NMDS2     r2 Pr(&gt;r)    
+dfs  0.84745  0.53088 0.7599  0.001 ***
+ele -0.77359 -0.63368 0.6940  0.001 ***
+slo -0.92307  0.38464 0.3270  0.016 *  
+dis  0.70555  0.70866 0.5990  0.001 ***
+pH  -0.18611  0.98253 0.0213  0.758    
+har  0.94524  0.32637 0.3865  0.002 ** 
+pho  0.51528 -0.85702 0.4520  0.002 ** 
+nit  0.99589 -0.09052 0.5350  0.001 ***
+amm  0.45494 -0.89052 0.4852  0.002 ** 
+oxy -0.64817  0.76150 0.7842  0.001 ***
+bod  0.43527 -0.90030 0.6345  0.001 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Permutation: free
+Number of permutations: 999</code></pre>
+</div>
+</div>
+<p>En la <a href="#fig-fig6">Figura&nbsp;<span>1.6</span></a> se muestra cómo quedan insertadas las variables ambientales y su relación con el resto de elementos de la figura.</p>
+<p><strong>Nota:</strong> En esta figura se puede identificar un gradiente unimodal, formado por cuatro (4) grupos, que parten desde la izquierda con las localidades de la cabecera del río (sitios 1 al 10) hasta las localiddes de la desembocadura ubicadas en la parte inferior de la figura (sitios 24 al 26). Este gradiente de cuatro grupos será usado a continuación para genenerar un <strong>factor</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Figura sin solapamiento de especies - comando "orditorp"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spe.mds,<span class="at">type =</span> <span class="st">"n"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">display =</span> <span class="fu">c</span>(<span class="st">"sites"</span>, <span class="st">"species"</span>),          <span class="co"># type="n" sin texto.</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Dim 2"</span>, <span class="at">xlab=</span><span class="st">"Dim 1"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"nMDS/Estrés ="</span>,             <span class="co"># R?tulo del título.</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">round</span>(spe.mds<span class="sc">$</span>stress, <span class="dv">3</span>)))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(spe.mds, <span class="at">display=</span><span class="st">"sites"</span>,                 <span class="co"># Grafica los sitios</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="fl">1.5</span>, <span class="at">pos=</span><span class="dv">3</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>ordi<span class="ot">=</span> <span class="fu">orditorp</span>(spe.mds, <span class="at">display =</span> <span class="st">"species"</span>,   <span class="co"># Grafica especies sin solapar</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">shrink =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">type=</span><span class="st">"n"</span>,<span class="at">cex=</span><span class="fl">1.2</span>) </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(env1,<span class="at">p.max=</span><span class="fl">0.05</span>,<span class="at">col=</span><span class="dv">3</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(spe.mds, <span class="at">display =</span> <span class="st">"sites"</span>,             <span class="co"># Opcional - puntos de muestreo</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.6: Ordenación de las localidades y las especies de peces que no se solapan.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="generación-de-factores" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="generación-de-factores">2.1 Generación de factores</h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Este procedimiento es válido para los casos en que no se cuenta con un factor o variable agrupadora, como ocurre con estos datos (<a href="#fig-fig6">Figura&nbsp;<span>1.6</span></a>). A continuación <strong>se formaran 4 grupos</strong> insertando a la variable agrupadora o factor <strong>gr</strong> (<a href="#tbl-tbl1">Tabla&nbsp;<span>1.1</span></a>), con el método de clasificación jerárquico de ward (que se verá en el tema de clasificación con clúster), teniendo en cuenta un agrupamiento de las localidades, descrito en el libro de Borcard et al.&nbsp;(2018).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>datos.w <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">vegdist</span>(spe), <span class="st">"ward.D"</span>)  <span class="co"># Grupos con Cluster con ward</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>gr <span class="ot">&lt;-</span> <span class="fu">cutree</span>(datos.w, <span class="at">k =</span> <span class="dv">4</span>)        <span class="co"># Generar 4 grupos (factor gr)</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>datos.gr<span class="ot">=</span><span class="fu">data.frame</span>(gr,spe)         <span class="co"># Base de datos con el factor agrupador</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>datos.gr<span class="sc">$</span>gr<span class="ot">=</span><span class="fu">as.factor</span>(datos.gr<span class="sc">$</span>gr)  <span class="co"># Crear la columna gr como factor</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Presentación de la tabla con las 10 primeras filas</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>datos.gr[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,] <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-tbl1" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;1.1:  Datos de abundancia de insectos en los diez primeros sitios </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> gr </th>
+   <th style="text-align:right;"> Cogo </th>
+   <th style="text-align:right;"> Satr </th>
+   <th style="text-align:right;"> Phph </th>
+   <th style="text-align:right;"> Babl </th>
+   <th style="text-align:right;"> Thth </th>
+   <th style="text-align:right;"> Teso </th>
+   <th style="text-align:right;"> Chna </th>
+   <th style="text-align:right;"> Pato </th>
+   <th style="text-align:right;"> Lele </th>
+   <th style="text-align:right;"> Sqce </th>
+   <th style="text-align:right;"> Baba </th>
+   <th style="text-align:right;"> Albi </th>
+   <th style="text-align:right;"> Gogo </th>
+   <th style="text-align:right;"> Eslu </th>
+   <th style="text-align:right;"> Pefl </th>
+   <th style="text-align:right;"> Rham </th>
+   <th style="text-align:right;"> Legi </th>
+   <th style="text-align:right;"> Scer </th>
+   <th style="text-align:right;"> Cyca </th>
+   <th style="text-align:right;"> Titi </th>
+   <th style="text-align:right;"> Abbr </th>
+   <th style="text-align:right;"> Icme </th>
+   <th style="text-align:right;"> Gyce </th>
+   <th style="text-align:right;"> Ruru </th>
+   <th style="text-align:right;"> Blbj </th>
+   <th style="text-align:right;"> Alal </th>
+   <th style="text-align:right;"> Anan </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 7 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 9 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 10 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 11 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="ordenación-nmds-con-el-paquete-ggplot2" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="ordenación-nmds-con-el-paquete-ggplot2">3) Ordenación NMDS con el paquete ggplot2</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Realización nmds con el paquete vegan, para gererar las coordenadas de los sitios, de los grupos, de las especies y de las variables ambientales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correr el Escalamiento - nMDS</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>spe.mds <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(spe.h, <span class="at">distance =</span> <span class="st">"bray"</span>, <span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># names(spe.mds)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="coordenadas-de-los-sitios-y-del-factor-coord.sit" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-del-factor-coord.sit">3.1 <strong>Coordenadas de los sitios y del factor “coord.sit”</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(spe.mds<span class="sc">$</span>points))     <span class="co"># Coordenadas de los sitios</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)          <span class="co"># Crear una columna con nombres de los sitios</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos.gr<span class="sc">$</span>gr                   <span class="co"># Adicionar columna de grupos por especie</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coord.sit)<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"NMDS1"</span>,<span class="st">"NMDS2"</span>,<span class="st">"sitio"</span>,<span class="st">"grp"</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        NMDS1      NMDS2 sitio grp
+1 -1.94842445  0.4239294     1   1
+2 -1.12873230 -0.3141106     2   1
+3 -0.99284254 -0.3579535     3   1
+4 -0.45503995 -0.1156074     4   1
+5  0.08673414 -0.2484694     5   2
+6 -0.21998875 -0.1452935     6   1</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="coordenadas-de-las-especies-coord.esp" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="coordenadas-de-las-especies-coord.esp"><strong>4.2 Coordenadas de las especies “coord.esp”</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenadas de especies "coord.esp"</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>coord.esp <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(spe.mds, <span class="st">"species"</span>))  <span class="co"># Coordenadas de las especies del nMDS</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>coord.esp<span class="sc">$</span>especies <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.esp)                <span class="co"># Insertar columna con nombres de las especies</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.esp)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          NMDS1       NMDS2 especies
+Cogo -0.8766469  0.40868395     Cogo
+Satr -1.1891393 -0.05283433     Satr
+Phph -0.7419257 -0.22601311     Phph
+Babl -0.5299702 -0.22711037     Babl
+Thth -0.9053811  0.39061476     Thth
+Teso -0.4198020  0.65694444     Teso</code></pre>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="coordenadas-de-las-ambientales-coord.amb" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="coordenadas-de-las-ambientales-coord.amb"><strong>4.3 Coordenadas de las ambientales “coord.amb”</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">=</span> <span class="fu">envfit</span>(spe.mds,env) </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(amb, <span class="st">"vectors"</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>amb <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las ambientales</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          NMDS1      NMDS2 amb
+dfs  0.73888716  0.4623671 dfs
+ele -0.64419749 -0.5286276 ele
+slo -0.53020995  0.2133491 slo
+dis  0.54603781  0.5486152 dis
+pH  -0.02692426  0.1447115  pH
+har  0.58720062  0.2057010 har</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para los casos en los que "vectors" no funcione, aplicar:</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># coord.amb = as.data.frame(amb$vectors$arrows)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-con-de-elipses-por-concavidades---geom_mark_elipse" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_elipse"><strong>4.4 Figura con de elipses por concavidades - geom_mark_elipse</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La <a href="#fig-fig7">Figura&nbsp;<span>1.7</span></a> muestra la ordenación de las localidades, las especes de peces y los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Figura con con elipses - geom_mark_ellipse</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> NMDS1, <span class="at">yend =</span> NMDS2), </span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>NMDS1, <span class="at">y=</span>NMDS2, </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colour=</span>grp,<span class="at">fill=</span><span class="fu">after_scale</span>(<span class="fu">alpha</span>(colour, <span class="fl">0.2</span>))), </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">expand=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.7: Ordenación de las localidades, los cuatro grupos y las especies de peces.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-con-de-elipses-por-concavidades---geom_mark_hull" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>4.5 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La <a href="#fig-fig8">Figura&nbsp;<span>1.8</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> NMDS1, <span class="at">yend =</span> NMDS2), </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>NMDS1,<span class="at">y=</span>NMDS2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.8: Ordenación de las localidades, los cuatro grupos y las especies de peces.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="figura-con-vectores-de-especies-y-variables-ambientales" class="level3"><b style="color:#1f78b4;">
+<h3 class="anchored" data-anchor-id="figura-con-vectores-de-especies-y-variables-ambientales"><strong>4.6 Figura con vectores de especies y variables ambientales</strong></h3>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>La <a href="#fig-fig9">Figura&nbsp;<span>1.9</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># especies  </span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> NMDS1, <span class="at">yend =</span> NMDS2), </span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.esp,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ambiental  </span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> NMDS1, <span class="at">yend =</span> NMDS2), </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(NMDS1,NMDS2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>NMDS1, <span class="at">y=</span>NMDS2, </span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">colour=</span>grp,<span class="at">fill=</span><span class="fu">after_scale</span>(<span class="fu">alpha</span>(colour, <span class="fl">0.2</span>))), <span class="at">expand=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller5.2.nmds.peces_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1.9: Ordenación de las localidades, los cuatro grupos, las especies de peces y las variables ambientales.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="taller-de-entrenamiento" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="taller-de-entrenamiento"><strong>Taller de entrenamiento</strong></h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Objetivo:</strong>&nbsp;Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un NMDS que integre a las variables biológicas (taxones) y a las ambientalñes de la base seleccionada. Enviar los resultados al&nbsp;<em>Teams</em>&nbsp;del profesor en <strong><em>formato quarto</em></strong>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/7\.Manual_mv/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller5.1.nmds.malezas.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller5. NMDS Malezas</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller6.1.cla.bahías.html" class="pagination-link">
+        <span class="nav-page-text">Taller6.1 CLA Bahías</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
