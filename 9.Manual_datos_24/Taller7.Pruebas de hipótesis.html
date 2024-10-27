@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>taller7.pruebas-de-hipótesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Taller7.Pruebas de hipótesis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller7.Pruebas de hipótesis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller7.Pruebas de hipótesis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="taller7.-pruebas-de-hipótesis-en-r" class="level1 unnumbered">
+<h1 class="unnumbered">Taller7. Pruebas de Hipótesis en R</h1>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://javier-2712.github.io/Manuales/9.Manual_datos_24/imagen5.png" class="img-fluid figure-img" width="501"></p>
+</figure>
+</div>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="introducción" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p>El presente taller tiene por objeto la consulta de diferentes temáticas asociadas al análisis de datos biológicos en R, para la prueba de hipótesis de una, dos y más muestras, así como en las relaciones y correlaciones entre variables. La información de base es tomada de los siguientes: <em>Biostatistical Design and Analysis Using R de Logan M. (2010)</em>, en especial de los capítulos 6, 8, 10 y 12. Enlace del libro: (📖<a href="https://ebookcentral.proquest.com/lib/bibliotecaunimag-ebooks/detail.action?docID=514460&amp;query=Biostatistical%20Design%20and%20Analysis%20Using%20R">enlace_libro</a>), (📖<a href="https://users.monash.edu.au/~murray/BDAR/">descarga_archivos</a>) junto a otros referentes cargados en la bibliografía de este taller.</p>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="requisitos-de-la-actividad" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="requisitos-de-la-actividad">Requisitos de la actividad</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<div style="text-align: justify">
+
+<p>Entregar un documento de máximo 4 páginas en pdf, que responda a los siguientes requerimientos. Presentar un seminario de máximo 15 minutos.</p>
+<ol type="1">
+<li><p><strong>Diagrama de flujo</strong> con el paso a paso para el diseño de objetivos, pregunta de análisis, hipótesis a probar, supuestos requeridos, Potencia evaluada para la prueba seleccionada, paquetes de R requeridos, hasta la prueba de hipótesis.</p></li>
+<li><p><strong>Formulas de los estadísticos para probar las hipótesis y su explicación.</strong> Indicar en que técnicas multivariadas se aplican estas distancias o coeficientes de similitud.</p></li>
+<li><p><strong>Pruebas de supuestos</strong>, análisis de la potencia requerida, clave dicotómica con pasos para una prueba de hipótesis simple en R.</p></li>
+<li><p><strong>Ejemplos tomados del libro guía</strong> que utilicen las pruebas de hipótesis asignadas.</p></li>
+<li><p><strong>Ejemplos de un estudios de caso (publicaciones científicas)</strong>, en el que se apliquen las puebas de hipótesis asignadas. Si en un mismo estudio no se aplican todas las pruebas, pueden presentar más estudios de caso.</p></li>
+<li><p><strong>En la Asignación</strong>, se debe cargar (1) un resumen por escrito en PDF de máximo 4 páginas (en Rmarkdwn o Quarto), (2) las diapositivas a presentar, (3) los scripts de R y (4) las bases de datos <em>.csv</em> utilizadas.</p></li>
+<li><p>Los trabajos con mayor revisión bibliográfica contrastada (bibliografía del taller y publicaciones contrastadas) tendrán un puntaje superior.</p></li>
+</ol>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></div></section><b style="color:#1f78b4;">
+</b><section id="temas-a-seleccionar" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="temas-a-seleccionar">Temas a seleccionar</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>Cada grupo de trabajo debe seleccionar su tema de seminario en el siguiente enlace: <a href="https://forms.gle/U6imFwn2AQA8b1M5A">FORMULARIO_TEMAS</a></p>
+<p><strong>Tabla.</strong> Pruebas de hipótesis a seleccionar por cada grupo de estudiantes</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 47%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tema</th>
+<th>Subtema</th>
+<th>Estudiantes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prueba de hipótesis paraméricas de una y dos muestras</strong></td>
+<td>Prueba de hipótesis. Pruebas paramétricas para una y dos muestras independientes y pareadas. Supuestos. Poder. Clave dicotómica con pasos para una prueba de hipótesis simple en R. Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Prueba de hipótesis no paramétricas de una y dos muestras</strong></td>
+<td>Prueba de hipótesis. Pruebas no paramétricas para muestras independientes y pareadas. Supuestos. Poder. Clave dicotómica con pasos para una prueba de hipótesis simple en R. Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Regresión lineal simple</strong></td>
+<td>Regresión lineal simple. Hipótesis nula. Supuestos. Clave dicotómica con pasos para realizar una regresión en R. Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Correlaciones paramétricas y no paramétricas</strong></td>
+<td>Correlaciones. Hipótesis nula. Supuestos. Clave dicotómica con pasos para realizar correlaciones en R. Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Anovas de un factor paramétricas.</strong></td>
+<td>Anova de un factor. Hipótesis nula. Supuestos. Poder y tamaño de la muestra. Clave dicotómica con pasos para realizar un Anova de un factor en R.&nbsp; Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Anovas de un factor no paramétricas.</strong></td>
+<td>Anova de un factor. Hipótesis nula. Supuestos. Poder y tamaño de la muestra. Clave dicotómica con pasos para realizar un Anova de un factor en R.&nbsp; Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Anovas multifactoriales</strong></td>
+<td>Anovas multifactoriales. Hipótesis nula. Supuestos. Poder y tamaño de la muestra. Clave dicotómica con pasos para realizar un Anova de un factor en R.&nbsp; Ejemplos con bases de datos reales.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="referencias-bibliográficas" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="referencias-bibliográficas">Referencias bibliográficas</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#66c2a5;"></b></p><b style="color:#66c2a5;">
+</b><section id="libros" class="level3"><b style="color:#66c2a5;">
+<h3 class="anchored" data-anchor-id="libros">Libros</h3>
+</b><p><b style="color:#66c2a5;"></b></p>
+<p><strong>Aho, K.</strong> (2013). <em>Foundational and Applied Statistics for Biologists Using R</em>. (📖<a href="https://www2.cose.isu.edu/~ahoken/book/">Libro y descarga_archivos</a>)</p>
+<p><strong>Hector A.</strong> (2021). <em>The New Statistics with R</em>. (📰<a href="https://www.plantecol.org/contemporary-analysis-for-ecology/">descarga_archivos</a>)</p>
+<p><strong>Lepš J., Šmilauer P.</strong> (2020). <em>Biostatistics with R</em>. (📰<a href="https://www.cambridge.org/highereducation/books/biostatistics-with-r/2E76ECD74495819DBB271FE8310B4DDE/resources/general-resources/E8F24308DB03F3ED2CF053CAF37A7BF3">descarga_archivos</a>)</p>
+<p><strong>Logan, M.</strong> (2010). <em>Biostatistical Design and Analysis Using R</em>. (📖<a href="#0">enlace</a>) (📖<a href="#0">descarga_archivos</a>)</p>
+<p>--</p>
+<p><b style="color:#66c2a5;"></b></p><b style="color:#66c2a5;">
+</b></section><b style="color:#66c2a5;">
+</b><section id="documentos-complementarios" class="level3"><b style="color:#66c2a5;">
+<h3 class="anchored" data-anchor-id="documentos-complementarios">Documentos complementarios</h3>
+</b><p><b style="color:#66c2a5;"></b></p>
+<p><b style="color:#fc8d62;"> Prueba de hipótesis paramétrica de una muestra</b></p>
+<p><a href="https://www.r-bloggers.com/2022/12/hypothesis-testing-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 1</a>, <a href="https://www.r-bloggers.com/2009/07/one-sample-students-t-test/">Enlace 2</a></p>
+<p><b style="color:#fc8d62;"> Prueba de hipótesis paramétrica de dos muestras independientes</b></p>
+<p><a href="https://www.cienciadedatos.net/documentos/12_t-test">Enlace 1</a>, <a href="https://www.r-bloggers.com/2009/07/two-sample-students-t-test-1/">Enlace 2</a></p>
+<p><b style="color:#fc8d62;"> Prueba de hipótesis no paramétrica de dos muestras independientes</b></p>
+<p><a href="https://www.r-bloggers.com/2022/07/one-sample-wilcoxon-test-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 1</a></p>
+<p><b style="color:#fc8d62;"> Prueba de hipótesis de dos muestras pareadas </b></p>
+<p><a href="https://www.r-bloggers.com/2009/07/paired-students-t-test/">Enlace 1</a></p>
+<p><b style="color:#fc8d62;"> Regresión lineal simple</b></p>
+<p><a href="https://rpubs.com/Joaquin_AR/254575">Enlace 1</a>, <a href="https://www.cienciadedatos.net/documentos/24_correlacion_y_regresion_lineal">Enlace 2</a>, <a href="https://www.r-bloggers.com/2015/11/correlation-and-linear-regression/">Enlace 3</a>, <a href="https://www.r-bloggers.com/2021/01/correlation-analysis-in-r-part-2-performing-and-reporting-correlation-analysis/">Enlace 4</a></p>
+<p><b style="color:#fc8d62;"> Correlaciones paramétricas y no paramétricas </b></p>
+<p><a href="https://www.r-bloggers.com/2015/11/correlation-and-linear-regression/">Enlace 1</a>, <a href="https://www.cienciadedatos.net/documentos/24_correlacion_y_regresion_lineal">Enlace 2</a>, <a href="https://www.r-bloggers.com/2021/01/correlation-analysis-in-r-part-2-performing-and-reporting-correlation-analysis/">Enlace 3</a></p>
+<p><b style="color:#fc8d62;"> Anovas paramétricas de un factor</b></p>
+<p><a href="https://www.r-bloggers.com/2020/10/anova-in-r/">Enlace 1</a>, <a href="https://www.cienciadedatos.net/documentos/19_anova">Enlace 2</a>, <a href="https://www.r-bloggers.com/2016/09/one-way-analysis-of-variance-exercises/">Enlace 3</a>, <a href="https://www.r-bloggers.com/2016/09/one-way-analysis-of-variance-exercises/">Enlace 4</a>, <a href="https://www.r-bloggers.com/2022/05/how-to-compare-variances-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 5</a>, <a href="https://rpubs.com/osoramirez/177975">Enlace 6</a>, <a href="https://www.r-bloggers.com/2022/11/how-to-do-pairwise-comparisons-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 7</a>, <a href="https://www.r-bloggers.com/2023/08/how-to-one-way-anova-by-hand/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 8</a></p>
+<p><b style="color:#fc8d62;"> Anovas no paramétricas de un factor</b></p>
+<p><a href="https://www.r-bloggers.com/2022/03/kruskal-wallis-test-or-the-nonparametric-version-of-the-anova/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 1</a>, <a href="https://www.r-bloggers.com/2022/05/how-to-perform-the-kruskal-wallis-test-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 2</a>, <a href="https://www.r-bloggers.com/2022/05/how-to-perform-the-kruskal-wallis-test-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 3</a></p>
+<p><b style="color:#fc8d62;"> Anovas de bifactorial </b></p>
+<p><a href="https://www.cienciadedatos.net/documentos/19_anova#ANOVA_de_dos_v%C3%ADas_para_datos_independientes">Enlace 1</a>, <a href="https://www.r-bloggers.com/2022/05/two-way-anova-example-in-r-quick-guide/">Enlace 2</a>, <a href="https://www.r-bloggers.com/2016/10/two-way-anova-in-r-exercises/">Enlace 3</a></p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
