@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>taller7.pruebas-de-hipótesis</title>
+<title>Repositorio de Talleres de Análisis de Datos Biológicos en Excel y en R - 2024 - Taller7. Pruebas de Hipótesis en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +23,175 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="Taller7.Pruebas de hipótesis_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/quarto.js"></script>
-<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/popper.min.js"></script>
-<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Taller7.Pruebas de hipótesis_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Taller7.Pruebas de hipótesis_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Taller7.Pruebas de hipótesis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Taller7.Pruebas de hipótesis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller5.Análisis.climático.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar docked">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller7. Pruebas de Hipótesis en R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Análisis de Datos Biológicos en Excel y en R - 2024</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.datos.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.datos.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller5. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7.Pruebas de hipótesis.html" class="sidebar-item-text sidebar-link active">Taller7. Pruebas de Hipótesis en R</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#requisitos-de-la-actividad" id="toc-requisitos-de-la-actividad" class="nav-link" data-scroll-target="#requisitos-de-la-actividad">Requisitos de la actividad</a></li>
+  <li><a href="#temas-a-seleccionar" id="toc-temas-a-seleccionar" class="nav-link" data-scroll-target="#temas-a-seleccionar">Temas a seleccionar</a></li>
+  <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a>
+  <ul class="collapse">
+  <li><a href="#libros" id="toc-libros" class="nav-link" data-scroll-target="#libros">Libros</a></li>
+  <li><a href="#documentos-complementarios" id="toc-documentos-complementarios" class="nav-link" data-scroll-target="#documentos-complementarios">Documentos complementarios</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller7. Pruebas de Hipótesis en R</h1>
+</div>
 
 
-<section id="taller7.-pruebas-de-hipótesis-en-r" class="level1 unnumbered">
-<h1 class="unnumbered">Taller7. Pruebas de Hipótesis en R</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://javier-2712.github.io/Manuales/9.Manual_datos_24/imagen5.png" class="img-fluid figure-img" width="501"></p>
@@ -88,9 +233,9 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Tabla.</strong> Pruebas de hipótesis a seleccionar por cada grupo de estudiantes</p>
 <table class="table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 47%">
-<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 74%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -175,12 +320,12 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://www.r-bloggers.com/2022/03/kruskal-wallis-test-or-the-nonparametric-version-of-the-anova/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 1</a>, <a href="https://www.r-bloggers.com/2022/05/how-to-perform-the-kruskal-wallis-test-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 2</a>, <a href="https://www.r-bloggers.com/2022/05/how-to-perform-the-kruskal-wallis-test-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Enlace 3</a></p>
 <p><b style="color:#fc8d62;"> Anovas de bifactorial </b></p>
 <p><a href="https://www.cienciadedatos.net/documentos/19_anova#ANOVA_de_dos_v%C3%ADas_para_datos_independientes">Enlace 1</a>, <a href="https://www.r-bloggers.com/2022/05/two-way-anova-example-in-r-quick-guide/">Enlace 2</a>, <a href="https://www.r-bloggers.com/2016/10/two-way-anova-in-r-exercises/">Enlace 3</a></p>
-</section>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -221,12 +366,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -312,8 +457,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller5.Análisis.climático.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller5. A. Climático</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
