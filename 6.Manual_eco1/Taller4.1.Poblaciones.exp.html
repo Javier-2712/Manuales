@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Repositorio de Talleres de Ecología 1 - 2024-I - Taller4.1 Mod. Exponenciales</title>
+<title>Repositorio de Talleres de Ecología 1 - 2024 - Taller4.1 Mod. Exponenciales</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Repositorio de Talleres de Ecología 1 - 2024-I</a> 
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2024</a> 
         <div class="sidebar-tools-main">
     <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
@@ -140,6 +156,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./contenido.clases.html" class="sidebar-item-text sidebar-link"><strong>Contenido</strong></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
   </div>
 </li>
@@ -185,12 +206,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller8. Diversidad Alfa</a>
+  <a href="./Taller8.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller8. Sub.unidades.comunidades</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller9. Sub.unidades.comunidades</a>
+  <a href="./Taller9.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller9. Diversidad alfa</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller10.Diversidad.beta.html" class="sidebar-item-text sidebar-link">Taller10. Diversidad Beta</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -221,14 +247,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#programas-rstudio-y-r" id="toc-programas-rstudio-y-r" class="nav-link" data-scroll-target="#programas-rstudio-y-r">💻Programas RStudio y R</a></li>
   <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
   <li><a href="#procedimiento-del-taller-en-clase" id="toc-procedimiento-del-taller-en-clase" class="nav-link" data-scroll-target="#procedimiento-del-taller-en-clase">Procedimiento del taller en clase</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#paso-1.-descarga-de-de-los-programas-requeridos" id="toc-paso-1.-descarga-de-de-los-programas-requeridos" class="nav-link" data-scroll-target="#paso-1.-descarga-de-de-los-programas-requeridos"><strong>Paso 1. Descarga de de los programas requeridos</strong></a></li>
   <li><a href="#paso-2.-procedimiento-del-taller-en-ramas-ecolab" id="toc-paso-2.-procedimiento-del-taller-en-ramas-ecolab" class="nav-link" data-scroll-target="#paso-2.-procedimiento-del-taller-en-ramas-ecolab"><strong>Paso 2. Procedimiento del taller en Ramas Ecolab</strong></a></li>
   <li><a href="#paso-3.-procedimiento-del-taller-en-rstudio" id="toc-paso-3.-procedimiento-del-taller-en-rstudio" class="nav-link" data-scroll-target="#paso-3.-procedimiento-del-taller-en-rstudio"><strong>Paso 3. Procedimiento del taller en RStudio</strong></a></li>
   </ul></li>
   <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a></li>
   <li><a href="#cuestionario-de-estudio" id="toc-cuestionario-de-estudio" class="nav-link" data-scroll-target="#cuestionario-de-estudio">Cuestionario de estudio</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#preguntas-sobre-modelos-de-crecimiento-exponencial" id="toc-preguntas-sobre-modelos-de-crecimiento-exponencial" class="nav-link" data-scroll-target="#preguntas-sobre-modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Preguntas sobre modelos de crecimiento exponencial </b></a></li>
   <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
   </ul></li>
@@ -461,29 +487,200 @@ ul.task-list li input[type="checkbox"] {
 <section id="preguntas-sobre-modelos-de-crecimiento-exponencial" class="level3">
 <h3 class="anchored" data-anchor-id="preguntas-sobre-modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Preguntas sobre modelos de crecimiento exponencial </b></h3>
 <ol type="1">
-<li><p>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</p></li>
-<li><p>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que vuelvan a doblar? Redondea tu respuesta a la centésima más cercana.</p></li>
-<li><p>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población de 227 gramos para llegar a 93 gramos de biomasa?</p></li>
-<li><p>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que llegue a 18000?</p></li>
-<li><p>Una población silvestre crece a una tasa anual del 7%. Si la población aumenta a 2000 en 7 años, ¿Cuál sería el tamaño de la población inicial?</p></li>
-<li><p>Una población de curíes de interés para consumo, crece a una tasa anual del 3%. Si la población actual es de 3.000 individuos, ¿cuántos años se tardará para que doble su densidad?</p></li>
-<li><p>Una población endémica de mariposas declina su densidad anual en 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</p></li>
-<li><p>De acuerdo al artículo que titular “U.S. reaching the 300 million person milestone”, se destaca en unos de sus apartes, que la población de U.S. alcanzó 200 millones de personas en 1967. De acuerdo a lo anterior:</p></li>
+<li>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</li>
+</ol>
+<hr>
+<ol start="2" type="1">
+<li>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</li>
+</ol>
+<hr>
+<ol start="3" type="1">
+<li>Un virus se propaga en una comunidad duplicándose cada 1.5 días. Si inicialmente hay 500 virus, ¿cuál es la población después de 10 días?</li>
+</ol>
+<hr>
+<ol start="4" type="1">
+<li>Una población de peces crece a una tasa del 5% anual. Si en 12 años la población alcanza los 6,000 individuos, ¿cuál era la población inicial?</li>
+</ol>
+<hr>
+<ol start="5" type="1">
+<li>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</li>
+</ol>
+<hr>
+<ol start="6" type="1">
+<li>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li><p>Asumiendo que en 2007 la población alcanza los 303 millones (303.106), calcular la tasa de incremento instantáneo por año.</p></li>
-<li><p>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en el año 2027?</p></li>
+<li>determina la tasa ( r );</li>
+<li>calcula la población después de 15 horas.</li>
+</ol>
+<hr>
+<ol start="7" type="1">
+<li>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que la población se duplique? (Redondea tu respuesta a la centésima más cercana.)</li>
+</ol>
+<hr>
+<ol start="8" type="1">
+<li>Una población de insectos se duplica cada 8 años. Si actualmente hay 5,000 insectos, ¿cuál será la población en 24 años?</li>
+</ol>
+<hr>
+<ol start="9" type="1">
+<li>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población, cuya biomasa es de 227 gramos, reducirse a 93 gramos?</li>
+</ol>
+<hr>
+<ol start="10" type="1">
+<li>Una población de conejos decrece a una tasa anual del 4%. Si actualmente hay 1,200 conejos, ¿cuántos años se necesitarán para que la población se reduzca a 800?</li>
+</ol>
+<hr>
+<ol start="11" type="1">
+<li>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que la población alcance los 18000 individuos?</li>
+</ol>
+<hr>
+<ol start="12" type="1">
+<li>Una población de algas en un lago crece a una tasa anual del 9%. Si actualmente hay 10,000 unidades, ¿en cuántos años se alcanzarán 50,000 unidades?</li>
+</ol>
+<hr>
+<ol start="13" type="1">
+<li>Se estima que una población de ardillas aumentará de 1,800 a 2,500 en 10 años. Determina la tasa de crecimiento instantáneo <span class="math inline">r</span>.</li>
+</ol>
+<hr>
+<ol start="14" type="1">
+<li>Una población silvestre crece a una tasa anual del 7%. Si la población alcanza los 2000 individuos en 7 años, ¿cuál era el tamaño de la población inicial?</li>
+</ol>
+<hr>
+<ol start="15" type="1">
+<li>Una población de curíes de interés para consumo crece a una tasa anual del 3%. Si la población actual es de 3000 individuos, ¿cuántos años se tardará para que la población doble su densidad?</li>
+</ol>
+<hr>
+<ol start="16" type="1">
+<li>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.</li>
 </ol>
 <!-- -->
-<ol start="9" type="1">
-<li><p>La proyección de naciones unidas para la población mundial, se da en un rango basado en diferentes escenarios posibles que pueden darse en el futuro. El menor estimador global para la población de 2050 es de 7.3 billones de personas y el mayor estimador es de 10.7 billones. ¿Cuál será la tasa de incremento anual en cada estimador, asumiendo que la población inicia con 8,1 billones en 2023? <a href="https://countrymeters.info/es/World" class="uri">https://countrymeters.info/es/World</a></p></li>
-<li><p>¿Cuánto tiempo puede tomar para que un par de individuos produzcan la población mundial actual (cerca de 10 billones de personas) con la presente tasa de crecimiento poblacional (r = 2,8% por año)? ¿En qué tiempo se doblaría esta población? Discuta el resultado.</p></li>
-<li><p>En el momento en el que un libro de cabecera fue escrito se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años. (a) calcule r para la población humana. Si la población en 1993 era de 5400 millones, (b) ¿cuál es el tamaño proyectado para el año 2030?</p></li>
-<li><p>Usted estudia una población de escarabajos de tamaño 3.000. Durante el periodo de un mes usted registra 400 nacimientos y 150 muertes en esta población. (a) Estime r y (b) proyecte el tamaño poblacional en 6 meses.</p></li>
-<li><p>Usted estudia una población de orquídeas en peligro para las cuales b= 0.0021 nacimientos/individuo.año y d= 0.0020 muertes/individuo.año. La población actual es de 40 plantas. Un nuevo centro comercial eliminará parte del hábitat de las orquídeas y reducirá la población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</p></li>
-<li><p>Si una población de <em>E. coli</em> crece de 1000 células a 2x109 células en 6 h, ¿Cuál será su tasa intrínseca de incremento? ¿Está doblando su tiempo?</p></li>
+<ol type="a">
+<li>Determina la tasa ( r ).</li>
+<li>Calcula el tiempo de duplicación de la población.</li>
 </ol>
+<!-- -->
+<hr>
+<ol start="17" type="1">
+<li>Una población de virus en un cultivo crece exponencialmente. Si la población aumenta de <span class="math inline">10^3</span> a <span class="math inline">10^9</span> en 24 horas, ¿cuál es la tasa de crecimiento instantáneo <span class="math inline">r</span> y cuál es el tiempo de duplicación?</li>
+</ol>
+<hr>
+<ol start="18" type="1">
+<li>Una población endémica de mariposas declina su densidad anual en un 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</li>
+</ol>
+<hr>
+<ol start="19" type="1">
+<li>Según el artículo “U.S. reaching the 300 million person milestone”, la población de EE.UU. alcanzó los 200 millones en 1967. Asumiendo que en 2007 la población es de 303 millones,</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de incremento instantáneo anual.</li>
+<li>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en 2027?</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="20" type="1">
+<li>Una población de elefantes crece a una tasa anual del 2%. Actualmente hay 800 elefantes, ¿en cuántos años se triplicará la población?</li>
+</ol>
+<hr>
+<ol start="21" type="1">
+<li>Según las proyecciones de las Naciones Unidas, para el año 2050 se estima que la población mundial estará en un rango:</li>
+</ol>
+<!-- -->
+<ul>
+<li>Menor estimador: 7.3 billones de personas.</li>
+<li>Mayor estimador: 10.7 billones de personas.</li>
+</ul>
+<!-- -->
+<p>Si se asume que la población mundial inicia con 8.1 billones en 2023, ¿cuál es la tasa de incremento anual en cada estimador? (El tiempo transcurrido es de 27 años, de 2023 a 2050). <a href="https://countrymeters.info/es/World" class="uri">https://countrymeters.info/es/World</a></p>
+<hr>
+<ol start="22" type="1">
+<li>Con una tasa de crecimiento poblacional de ( r = 2.8% ) anual, ¿cuánto tiempo tomaría que un par de individuos produzca la población mundial actual (cerca de 10 billones de personas)? Además, ¿en qué tiempo se duplicaría esta población? Discuta el resultado.</li>
+</ol>
+<hr>
+<ol start="23" type="1">
+<li>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ) asumiendo este tiempo de duplicación.</li>
+<li>Si la población en 1993 era de 5400 millones, ¿cuál es el tamaño proyectado para el año 2030?</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="24" type="1">
+<li>Usted estudia una población de escarabajos con un tamaño inicial de 3000. Durante un mes se registraron 400 nacimientos y 150 muertes.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Estime la tasa de crecimiento ( r ).</li>
+<li>Proyecte el tamaño poblacional en 6 meses.</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="25" type="1">
+<li>Usted estudia una población de orquídeas en peligro, para las cuales la tasa de nacimientos es ( b = 0.0021 ) nacimientos/individuo.año y la tasa de muertes es ( d = 0.0020 ) muertes/individuo.año. La población actual es de 40 plantas. Se proyecta que un nuevo centro comercial reducirá esta población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</li>
+</ol>
+<hr>
+<ol start="26" type="1">
+<li>Si una población de <em>E. coli</em> crece de 1000 células a ( 2 ^9 ) células en 6 horas, ¿cuál es su tasa intrínseca de incremento? ¿Está la población duplicándose en el tiempo esperado?</li>
+</ol>
+<hr>
+<ol start="27" type="1">
+<li>Una especie invasora de plantas disminuye su población a una tasa del 3% anual debido a medidas de control. Si inicialmente hay 5,000 plantas: a) ¿Cuál será el número aproximado de plantas después de 20 años? b) ¿Cuánto tiempo se necesitará para reducir la población a la mitad?</li>
+</ol>
+<hr>
+<ol start="28" type="1">
+<li>Una colonia de bacterias se duplica cada 4 horas.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Determina la tasa de crecimiento instantáneo ( r ).</li>
+<li>Calcula el tiempo necesario para que la población se incremente a 10 veces la cantidad inicial.</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="29" type="1">
+<li>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Estima la población al cabo de 24 meses.</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="30" type="1">
+<li>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Estima la población a las 72 horas.</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="31" type="1">
+<li>Una colonia de algas en un estanque aumenta en un 200% en 30 días (es decir, la población se convierte en 3 veces la inicial).</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Determina la tasa ( r );</li>
+<li>¿En cuántos días se habrá cuadruplicado la población respecto a la inicial?</li>
+</ol>
+<!-- -->
+<hr>
+<ol start="32" type="1">
+<li>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento instantáneo ( r ).</li>
+<li>Estima la población después de 10 horas si la población inicial es de 800 bacterias.</li>
+</ol>
+<!-- -->
+<hr>
+<!-- -->
 </section>
 <section id="section-4" class="level3">
 <h3 class="anchored" data-anchor-id="section-4"></h3>
