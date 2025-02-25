@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Repositorio de Talleres de Ecología 1 - 2024 - Taller4.1 Mod. Exponenciales</title>
+<title>Taller4.1 Mod. Exponenciales – Repositorio de Talleres de Ecología 1 - 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Sin resultados",
     "search-matching-documents-text": "documentos encontrados",
@@ -56,13 +62,20 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "resultado adicional en este documento",
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -77,7 +90,34 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -86,11 +126,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Taller4.1 Mod. Exponenciales</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller4.1.Poblaciones.exp.html">Taller4.1 Mod. Exponenciales</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -98,140 +143,155 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Repositorio de Talleres de Ecología 1 - 2024</a> 
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2025</a> 
         <div class="sidebar-tools-main">
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <div class="dropdown">
+      <a href="" title="Descargar" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Descargar"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Descargar PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Manual.eco1.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Descargar ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Compartir" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Compartir"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contenido.clases.html" class="sidebar-item-text sidebar-link"><strong>Contenido</strong></a>
+  <a href="./contenido.clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Contenido</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Videos clases</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller1. Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller2. A. Climático</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller3. Ambiente</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link active">Taller4.1 Mod. Exponenciales</a>
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Taller4.1 Mod. Exponenciales</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">Taller4.2 Mod. Logísticos</a>
+  <a href="./Taller4.2.Poblaciones.log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller4.2 Mod. Logísticos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">Taller5. Demog.Humana</a>
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller5. Demog.Humana</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">Taller6. Mod.Matricial</a>
+  <a href="./Taller6.Modeación-matricial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6. Mod.Matricial</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">Taller7. Calotropis</a>
+  <a href="./Taller7.Calotropis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller7. Calotropis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller8.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">Taller8. Sub.unidades.comunidades</a>
+  <a href="./Taller8.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller8. Diversidad Alfa</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller9.Diversidad.alfa.html" class="sidebar-item-text sidebar-link">Taller9. Diversidad alfa</a>
+  <a href="./Taller9.subunidades.comunidades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller9. Sub.unidades.comunidades</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller10.Diversidad.beta.html" class="sidebar-item-text sidebar-link">Taller10. Diversidad Beta</a>
+  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Salida de campo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Salida.campo.eco1.html" class="sidebar-item-text sidebar-link">Salida de campo</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">Anexos</a>
+  <a href="./Anexos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexos</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -241,23 +301,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
-  <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
-  <li><a href="#programa-ramas-ecolab" id="toc-programa-ramas-ecolab" class="nav-link" data-scroll-target="#programa-ramas-ecolab">💻 Programa Ramas Ecolab</a></li>
-  <li><a href="#programas-rstudio-y-r" id="toc-programas-rstudio-y-r" class="nav-link" data-scroll-target="#programas-rstudio-y-r">💻Programas RStudio y R</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
-  <li><a href="#procedimiento-del-taller-en-clase" id="toc-procedimiento-del-taller-en-clase" class="nav-link" data-scroll-target="#procedimiento-del-taller-en-clase">Procedimiento del taller en clase</a>
-  <ul>
-  <li><a href="#paso-1.-descarga-de-de-los-programas-requeridos" id="toc-paso-1.-descarga-de-de-los-programas-requeridos" class="nav-link" data-scroll-target="#paso-1.-descarga-de-de-los-programas-requeridos"><strong>Paso 1. Descarga de de los programas requeridos</strong></a></li>
-  <li><a href="#paso-2.-procedimiento-del-taller-en-ramas-ecolab" id="toc-paso-2.-procedimiento-del-taller-en-ramas-ecolab" class="nav-link" data-scroll-target="#paso-2.-procedimiento-del-taller-en-ramas-ecolab"><strong>Paso 2. Procedimiento del taller en Ramas Ecolab</strong></a></li>
-  <li><a href="#paso-3.-procedimiento-del-taller-en-rstudio" id="toc-paso-3.-procedimiento-del-taller-en-rstudio" class="nav-link" data-scroll-target="#paso-3.-procedimiento-del-taller-en-rstudio"><strong>Paso 3. Procedimiento del taller en RStudio</strong></a></li>
-  </ul></li>
-  <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a></li>
-  <li><a href="#cuestionario-de-estudio" id="toc-cuestionario-de-estudio" class="nav-link" data-scroll-target="#cuestionario-de-estudio">Cuestionario de estudio</a>
-  <ul>
-  <li><a href="#preguntas-sobre-modelos-de-crecimiento-exponencial" id="toc-preguntas-sobre-modelos-de-crecimiento-exponencial" class="nav-link" data-scroll-target="#preguntas-sobre-modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Preguntas sobre modelos de crecimiento exponencial </b></a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Taller4.1 Mod. Exponenciales</h1>
+<h1 class="title">Taller4.1 Mod. Exponenciales</h1>
 </div>
 
 
@@ -279,7 +322,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
@@ -294,15 +339,13 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
 <div style="text-align: justify">
-
 <p><strong>La Ecología de Poblaciones</strong> puede ser considerada como un cuerpo teórico y conjunto de metodologías que estudian los aspectos cuantitativos de los individuos en sus poblaciones. Tiene como objetivo el estudio de las poblaciones y que trata de su dimensión, estructura, evolución y características generales, considerados desde un punto de vista cuantitativo. <strong>La dinámica de poblaciones</strong> utiliza conceptos demográficos, para saber si una población aumenta, disminuye o se mantiene constante. Lo anterior es de suma importancia, para entender el estatus de conservación de una población, explotación sostenida, control de plagas o especies exóticas, o conocer la acción de la selección natural. La dinámica poblacional, consiste en saber como cambia una población en el tiempo. A partir de estimaciones de nacimientos, muertes, inmigraciones o emigraciones. Aunque suele considerarse a las poblaciones cerradas.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://javier-2712.github.io/Ecologia1/Figuras/Captura1.JPG" class="img-fluid figure-img" style="width:70.0%"></p>
-<p></p><figcaption class="figure-caption">Figura: Elementos en la ecología de poblaciones</figcaption><p></p>
+<figcaption>Figura: Elementos en la ecología de poblaciones</figcaption>
 </figure>
 </div>
-</div></section>
 <section id="section-2" class="level2">
 <h2 class="anchored" data-anchor-id="section-2"></h2>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
@@ -313,33 +356,29 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="https://t3.ftcdn.net/jpg/06/24/02/44/240_F_624024485_fNiSstDIEEclBP5bgvs2Rd5uMVtZenaN.jpg" width="50%"></p>
 <p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/211350149/damianius?load_type=author&amp;prev_url=detail">Damianius</a> </n>]</p>
 <div style="text-align: justify">
-
 <p>Entrenamiento de procedimientos básicos para el análisis de modelos exponenciales continuos y discretos en poblaciones silvestres y humana, con la aplicación de diferentes programas computacionales.</p>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></div></section><b style="color:#1f78b4;">
 </b><section id="programa-ramas-ecolab" class="level2"><b style="color:#1f78b4;">
 <h2 class="anchored" data-anchor-id="programa-ramas-ecolab">💻 Programa Ramas Ecolab</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://pictures.abebooks.com/isbn/9780878930289-es.jpg" class="img-fluid figure-img" width="133"></p>
-<p></p><figcaption class="figure-caption"><em>Akcakaya et al.&nbsp;(1999)</em></figcaption><p></p>
+<figcaption><em>Akcakaya et al.&nbsp;(1999)</em></figcaption>
 </figure>
 </div>
 <div style="text-align: justify">
-
 <p>EcoLab es un programa que sirve de complemento interactivo a los capítulos del libro de <strong>Akcakaya et al.&nbsp;(1999)</strong>, el cual se encuentra en una versión física en la biblioteca de la Universidad (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/kc5p7o/alma990000155580107076">enlace</a>).</p>
 <p>​Este programa cuenta con cuatro módulos para: (1) generar números aleatorios, (2) realizar modelos simples que incorporan variabilidad y dependencia de la densidad. (3) producir modelos matriciales que incorporan estructura de edad y denso-dependientes. (4) realizar modelos de metapoblaciones.</p>
 <p>Algunos de estos módulos los veremos en la asignatura (2 y 3), para que los estudiantes puedan manipular sus propios modelos y observar la simulación de sus trayectorias en el tiempo, complementando esta información, con la que se ofrece en los capítulos del libro guía de Akcakaya et al.&nbsp;(1999).</p>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></div></section><b style="color:#1f78b4;">
 </b><section id="programas-rstudio-y-r" class="level2"><b style="color:#1f78b4;">
 <h2 class="anchored" data-anchor-id="programas-rstudio-y-r">💻Programas RStudio y R</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://bookdown.org/oscar_teach/estadistica_aplicada_con_r/r-rstudio.png" class="img-fluid figure-img" width="198"></p>
-<p></p><figcaption class="figure-caption">Programas de R y RStudio</figcaption><p></p>
+<figcaption>Programas de R y RStudio</figcaption>
 </figure>
 </div>
 <p>Son dos programas que trabajan de forma simultánea y que permitirán el diseño y edición de diferentes variantes a los modelos de crecimiento exponencial y logístico de poblaciones. A diferencia del programa anterior (Ramas Ecolab), su manejo no es tan básico e intuitivo, porque requieren un manejo más complejo, pero con la ventaja de poder producir resultados con un mayor nivel de calidad, para informes y publicaciones en casi cualquier revista científica, entre otras ventajas.</p>
@@ -354,9 +393,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="https://as1.ftcdn.net/v2/jpg/06/07/91/14/1000_F_607911458_OSemRM34vhjtwEQE2Ug4F87bgYtI66Tl.jpg" width="40%"></p>
 <p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/211153814/karina?load_type=author&amp;prev_url=detail">Karina</a> </n>]</p>
 <div style="text-align: justify">
-
 <div style="text-align: justify">
-
 <p><strong>Nota</strong>: Previo a la sesión del taller de cómputo, es necesario que revisen el video de la clase en donde se explica el procedimiento (ver 🎥<a href="http://localhost:3107/videos.clases.html#videos-de-la-semanas-5-a-6">enlace de videos semanas 5 a 6</a>), el día de la sesión, el docente evaluará la revisión que se haya hecho de ese material.</p>
 <p><b style="color:#fc8d62;"></b></p><b style="color:#fc8d62;">
 </b><section id="paso-1.-descarga-de-de-los-programas-requeridos" class="level3"><b style="color:#fc8d62;">
@@ -374,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://pictures.abebooks.com/isbn/9780878930289-es.jpg" class="img-fluid figure-img" width="115"></p>
-<p></p><figcaption class="figure-caption">Libro de Akcakaya et al.&nbsp;(1999)</figcaption><p></p>
+<figcaption>Libro de Akcakaya et al.&nbsp;(1999)</figcaption>
 </figure>
 </div>
 <p>Las pautas resumidas de este taller se encuentran en el siguiente enlace 📖<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Taller_ramas_ecolab.pdf">Enlace al pdf del Taller</a>.</p>
@@ -419,7 +456,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://bookdown.org/oscar_teach/estadistica_aplicada_con_r/r-rstudio.png" class="img-fluid figure-img" width="155"></p>
-<p></p><figcaption class="figure-caption">Programas de R y RStudio</figcaption><p></p>
+<figcaption>Programas de R y RStudio</figcaption>
 </figure>
 </div>
 <ul>
@@ -433,18 +470,16 @@ ul.task-list li input[type="checkbox"] {
 <p><br>
 <b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
-</b></div></div></section><b style="color:#1f78b4;">
 </b><section id="referencias-bibliográficas" class="level2"><b style="color:#1f78b4;">
 <h2 class="anchored" data-anchor-id="referencias-bibliográficas">Referencias bibliográficas</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
 <div style="text-align: justify">
-
 <ol type="1">
 <li><p><strong>Akçakaya,</strong> H. Resit, Mark A. Burgman, and Lev R. Ginzburg. Applied Population Ecology: Principles and Computer Exercises Using RAMAS EcoLab 2.0. Segunda erdición. Sunderland: Sinauer Associates, 1999. (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/kc5p7o/alma990000155580107076">enlace del libro</a>)</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://m.media-amazon.com/images/I/41w-rdJNSCL._SX357_BO1,204,203,200_.jpg" class="img-fluid figure-img" style="width:15.0%"></p>
-<p></p><figcaption class="figure-caption">Capítulo 1. Population Growth.</figcaption><p></p>
+<figcaption>Capítulo 1. Population Growth.</figcaption>
 </figure>
 </div></li>
 </ol>
@@ -454,7 +489,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="https://i.ebayimg.com/images/g/eAAAAOSwRv1jR8ko/s-l500.jpg" class="img-fluid figure-img" style="width:15.0%"></p>
-<p></p><figcaption class="figure-caption">Capítulo 1. Exponential Population Growth.</figcaption><p></p>
+<figcaption>Capítulo 1. Exponential Population Growth.</figcaption>
 </figure>
 </div></li>
 </ol>
@@ -475,17 +510,16 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <hr>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></div></section><b style="color:#1f78b4;">
 </b><section id="cuestionario-de-estudio" class="level2"><b style="color:#1f78b4;">
 <h2 class="anchored" data-anchor-id="cuestionario-de-estudio">Cuestionario de estudio</h2>
 </b><p><b style="color:#1f78b4;"></b></p>
 <p><img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" width="36%"></p>
 <p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://www.pexels.com/es-es/@alex-green/">Alex Green</a> </n>]</p>
 <div style="text-align: justify">
-
 <p>El siguiente cuestionario es tomado de las notas de clase 📰<a href="">Enlace</a>, se requiere resolver las siguientes preguntas, que servirán para realizar un entrenamiento, previo a la evaluación que realizará el docente sobre modelos exponenciales en poblaciones. En la medida de las posibilidades, es necesario que cada ejercicio sea graficado y analizar los resultados obtenidos.</p>
 <section id="preguntas-sobre-modelos-de-crecimiento-exponencial" class="level3">
 <h3 class="anchored" data-anchor-id="preguntas-sobre-modelos-de-crecimiento-exponencial"><b style="color:#d95f02;"> Preguntas sobre modelos de crecimiento exponencial </b></h3>
+<hr>
 <ol type="1">
 <li>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</li>
 </ol>
@@ -503,191 +537,212 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <hr>
 <ol start="5" type="1">
-<li>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</li>
-</ol>
-<hr>
-<ol start="6" type="1">
-<li>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,</li>
+<li>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>determina la tasa ( r );</li>
+<li>determina la tasa ( r );<br>
+</li>
 <li>calcula la población después de 15 horas.</li>
 </ol>
 <hr>
-<ol start="7" type="1">
+<ol start="6" type="1">
 <li>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que la población se duplique? (Redondea tu respuesta a la centésima más cercana.)</li>
 </ol>
 <hr>
-<ol start="8" type="1">
+<ol start="7" type="1">
 <li>Una población de insectos se duplica cada 8 años. Si actualmente hay 5,000 insectos, ¿cuál será la población en 24 años?</li>
 </ol>
 <hr>
-<ol start="9" type="1">
+<ol start="8" type="1">
 <li>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población, cuya biomasa es de 227 gramos, reducirse a 93 gramos?</li>
 </ol>
 <hr>
-<ol start="10" type="1">
+<ol start="9" type="1">
 <li>Una población de conejos decrece a una tasa anual del 4%. Si actualmente hay 1,200 conejos, ¿cuántos años se necesitarán para que la población se reduzca a 800?</li>
 </ol>
 <hr>
-<ol start="11" type="1">
+<ol start="10" type="1">
 <li>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que la población alcance los 18000 individuos?</li>
 </ol>
 <hr>
-<ol start="12" type="1">
+<ol start="11" type="1">
 <li>Una población de algas en un lago crece a una tasa anual del 9%. Si actualmente hay 10,000 unidades, ¿en cuántos años se alcanzarán 50,000 unidades?</li>
 </ol>
 <hr>
-<ol start="13" type="1">
+<ol start="12" type="1">
 <li>Se estima que una población de ardillas aumentará de 1,800 a 2,500 en 10 años. Determina la tasa de crecimiento instantáneo <span class="math inline">r</span>.</li>
 </ol>
 <hr>
-<ol start="14" type="1">
+<ol start="13" type="1">
 <li>Una población silvestre crece a una tasa anual del 7%. Si la población alcanza los 2000 individuos en 7 años, ¿cuál era el tamaño de la población inicial?</li>
 </ol>
 <hr>
-<ol start="15" type="1">
+<ol start="14" type="1">
 <li>Una población de curíes de interés para consumo crece a una tasa anual del 3%. Si la población actual es de 3000 individuos, ¿cuántos años se tardará para que la población doble su densidad?</li>
 </ol>
 <hr>
-<ol start="16" type="1">
-<li>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.</li>
+<ol start="15" type="1">
+<li>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Determina la tasa ( r ).</li>
+<li>Determina la tasa ( r ).<br>
+</li>
 <li>Calcula el tiempo de duplicación de la población.</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="17" type="1">
+<ol start="16" type="1">
 <li>Una población de virus en un cultivo crece exponencialmente. Si la población aumenta de <span class="math inline">10^3</span> a <span class="math inline">10^9</span> en 24 horas, ¿cuál es la tasa de crecimiento instantáneo <span class="math inline">r</span> y cuál es el tiempo de duplicación?</li>
 </ol>
 <hr>
-<ol start="18" type="1">
+<ol start="17" type="1">
 <li>Una población endémica de mariposas declina su densidad anual en un 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</li>
 </ol>
 <hr>
-<ol start="19" type="1">
+<ol start="18" type="1">
 <li>Según el artículo “U.S. reaching the 300 million person milestone”, la población de EE.UU. alcanzó los 200 millones en 1967. Asumiendo que en 2007 la población es de 303 millones,</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Calcula la tasa de incremento instantáneo anual.</li>
+<li>Calcula la tasa de incremento instantáneo anual.<br>
+</li>
 <li>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en 2027?</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="20" type="1">
+<ol start="19" type="1">
 <li>Una población de elefantes crece a una tasa anual del 2%. Actualmente hay 800 elefantes, ¿en cuántos años se triplicará la población?</li>
 </ol>
 <hr>
-<ol start="21" type="1">
+<ol start="20" type="1">
 <li>Según las proyecciones de las Naciones Unidas, para el año 2050 se estima que la población mundial estará en un rango:</li>
 </ol>
 <!-- -->
 <ul>
-<li>Menor estimador: 7.3 billones de personas.</li>
+<li>Menor estimador: 7.3 billones de personas.<br>
+</li>
 <li>Mayor estimador: 10.7 billones de personas.</li>
 </ul>
 <!-- -->
 <p>Si se asume que la población mundial inicia con 8.1 billones en 2023, ¿cuál es la tasa de incremento anual en cada estimador? (El tiempo transcurrido es de 27 años, de 2023 a 2050). <a href="https://countrymeters.info/es/World" class="uri">https://countrymeters.info/es/World</a></p>
 <hr>
-<ol start="22" type="1">
+<ol start="21" type="1">
 <li>Con una tasa de crecimiento poblacional de ( r = 2.8% ) anual, ¿cuánto tiempo tomaría que un par de individuos produzca la población mundial actual (cerca de 10 billones de personas)? Además, ¿en qué tiempo se duplicaría esta población? Discuta el resultado.</li>
 </ol>
 <hr>
-<ol start="23" type="1">
-<li>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.</li>
+<ol start="22" type="1">
+<li>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Calcula la tasa de crecimiento ( r ) asumiendo este tiempo de duplicación.</li>
+<li>Calcula la tasa de crecimiento ( r ) asumiendo este tiempo de duplicación.<br>
+</li>
 <li>Si la población en 1993 era de 5400 millones, ¿cuál es el tamaño proyectado para el año 2030?</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="24" type="1">
+<ol start="23" type="1">
 <li>Usted estudia una población de escarabajos con un tamaño inicial de 3000. Durante un mes se registraron 400 nacimientos y 150 muertes.</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Estime la tasa de crecimiento ( r ).</li>
+<li>Estime la tasa de crecimiento ( r ).<br>
+</li>
 <li>Proyecte el tamaño poblacional en 6 meses.</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="25" type="1">
+<ol start="24" type="1">
 <li>Usted estudia una población de orquídeas en peligro, para las cuales la tasa de nacimientos es ( b = 0.0021 ) nacimientos/individuo.año y la tasa de muertes es ( d = 0.0020 ) muertes/individuo.año. La población actual es de 40 plantas. Se proyecta que un nuevo centro comercial reducirá esta población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</li>
 </ol>
 <hr>
-<ol start="26" type="1">
+<ol start="25" type="1">
 <li>Si una población de <em>E. coli</em> crece de 1000 células a ( 2 ^9 ) células en 6 horas, ¿cuál es su tasa intrínseca de incremento? ¿Está la población duplicándose en el tiempo esperado?</li>
 </ol>
 <hr>
-<ol start="27" type="1">
+<ol start="26" type="1">
 <li>Una especie invasora de plantas disminuye su población a una tasa del 3% anual debido a medidas de control. Si inicialmente hay 5,000 plantas: a) ¿Cuál será el número aproximado de plantas después de 20 años? b) ¿Cuánto tiempo se necesitará para reducir la población a la mitad?</li>
 </ol>
 <hr>
-<ol start="28" type="1">
+<ol start="27" type="1">
 <li>Una colonia de bacterias se duplica cada 4 horas.</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Determina la tasa de crecimiento instantáneo ( r ).</li>
+<li>Determina la tasa de crecimiento instantáneo ( r ).<br>
+</li>
 <li>Calcula el tiempo necesario para que la población se incremente a 10 veces la cantidad inicial.</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="29" type="1">
-<li>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.</li>
+<ol start="28" type="1">
+<li>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Calcula la tasa de crecimiento ( r ).<br>
+</li>
 <li>Estima la población al cabo de 24 meses.</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="30" type="1">
-<li>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.</li>
+<ol start="29" type="1">
+<li>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Calcula la tasa de crecimiento ( r ).<br>
+</li>
 <li>Estima la población a las 72 horas.</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="31" type="1">
+<ol start="30" type="1">
 <li>Una colonia de algas en un estanque aumenta en un 200% en 30 días (es decir, la población se convierte en 3 veces la inicial).</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Determina la tasa ( r );</li>
+<li>Determina la tasa ( r );<br>
+</li>
 <li>¿En cuántos días se habrá cuadruplicado la población respecto a la inicial?</li>
 </ol>
 <!-- -->
 <hr>
-<ol start="32" type="1">
-<li>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.</li>
+<ol start="31" type="1">
+<li>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.<br>
+</li>
 </ol>
 <!-- -->
 <ol type="a">
-<li>Calcula la tasa de crecimiento instantáneo ( r ).</li>
+<li>Calcula la tasa de crecimiento instantáneo ( r ).<br>
+</li>
 <li>Estima la población después de 10 horas si la población inicial es de 800 bacterias.</li>
 </ol>
 <!-- -->
 <hr>
-<!-- -->
 </section>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4"></h3>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
 
 
 </section>
-</div></section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -717,12 +772,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
     }
-  });
-  clipboard.on('success', function(e) {
+    return false;
+  }
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -754,11 +812,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -768,8 +872,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -781,9 +894,245 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -821,37 +1170,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/github\.com\/Javier-2712\/Manuales\/tree\/main\/6\.Manual_eco1/);
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Taller3.Ambiente.eco.html" class="pagination-link">
+      <a href="./Taller3.Ambiente.eco.html" class="pagination-link" aria-label="Taller3. Ambiente">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller3. Ambiente</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Taller4.2.Poblaciones.log.html" class="pagination-link">
+      <a href="./Taller4.2.Poblaciones.log.html" class="pagination-link" aria-label="Taller4.2 Mod. Logísticos">
         <span class="nav-page-text">Taller4.2 Mod. Logísticos</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
