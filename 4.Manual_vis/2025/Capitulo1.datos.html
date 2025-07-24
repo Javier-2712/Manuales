@@ -180,8 +180,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#instalación-y-carga-de-paquetes" id="toc-instalación-y-carga-de-paquetes" class="nav-link" data-scroll-target="#instalación-y-carga-de-paquetes">Instalación y carga de paquetes</a></li>
   <li><a href="#carga-y-exploración-de-datos" id="toc-carga-y-exploración-de-datos" class="nav-link" data-scroll-target="#carga-y-exploración-de-datos">Carga y exploración de datos</a></li>
   <li><a href="#selección-y-filtrado-1" id="toc-selección-y-filtrado-1" class="nav-link" data-scroll-target="#selección-y-filtrado-1">1.1 Selección y filtrado</a></li>
-  <li><a href="#selección-y-filtrado-2" id="toc-selección-y-filtrado-2" class="nav-link" data-scroll-target="#selección-y-filtrado-2">1.1 Selección y filtrado</a>
-  <ul>
   <li><a href="#creación-de-nuevas-variables-1" id="toc-creación-de-nuevas-variables-1" class="nav-link" data-scroll-target="#creación-de-nuevas-variables-1">1.2 Creación de nuevas variables</a></li>
   <li><a href="#resumen-estadístico-de-datos-agrupados-1" id="toc-resumen-estadístico-de-datos-agrupados-1" class="nav-link" data-scroll-target="#resumen-estadístico-de-datos-agrupados-1">1.3 Resumen estadístico de datos agrupados</a></li>
   <li><a href="#transformación-de-datos-1" id="toc-transformación-de-datos-1" class="nav-link" data-scroll-target="#transformación-de-datos-1">1.4 Transformación de datos</a></li>
@@ -192,10 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#seleccionar-los-5-taxones-más-abundantes-1" id="toc-seleccionar-los-5-taxones-más-abundantes-1" class="nav-link" data-scroll-target="#seleccionar-los-5-taxones-más-abundantes-1">1.9 Seleccionar los 5 taxones más abundantes</a></li>
   <li><a href="#visualización-de-factores" id="toc-visualización-de-factores" class="nav-link" data-scroll-target="#visualización-de-factores">1.10 Visualización de factores</a></li>
   <li><a href="#categorizar-una-variable-contínua-1" id="toc-categorizar-una-variable-contínua-1" class="nav-link" data-scroll-target="#categorizar-una-variable-contínua-1">1.11 Categorizar una variable contínua</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#a.-método-basado-en-cuantiles" id="toc-a.-método-basado-en-cuantiles" class="nav-link" data-scroll-target="#a.-método-basado-en-cuantiles">a.) Método basado en cuantiles</a></li>
   <li><a href="#b.-método-basado-en-summary" id="toc-b.-método-basado-en-summary" class="nav-link" data-scroll-target="#b.-método-basado-en-summary">b.) Método basado en <code>summary()</code></a></li>
-  </ul></li>
   </ul></li>
   </ul></li>
   <li><a href="#cuestionario-1" id="toc-cuestionario-1" class="nav-link" data-scroll-target="#cuestionario-1">Cuestionario</a>
@@ -216,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#resumen-1" id="toc-resumen-1" class="nav-link" data-scroll-target="#resumen-1">Resumen</a></li>
   <li><a href="#lectura-de-bases-de-datos-y-cargar-paquetes-1" id="toc-lectura-de-bases-de-datos-y-cargar-paquetes-1" class="nav-link" data-scroll-target="#lectura-de-bases-de-datos-y-cargar-paquetes-1">Lectura de bases de datos y cargar paquetes</a></li>
-  <li><a href="#selección-y-filtrado-3" id="toc-selección-y-filtrado-3" class="nav-link" data-scroll-target="#selección-y-filtrado-3">1.1 Selección y filtrado</a></li>
+  <li><a href="#selección-y-filtrado-2" id="toc-selección-y-filtrado-2" class="nav-link" data-scroll-target="#selección-y-filtrado-2">1.1 Selección y filtrado</a></li>
   <li><a href="#creación-de-nuevas-variables-2" id="toc-creación-de-nuevas-variables-2" class="nav-link" data-scroll-target="#creación-de-nuevas-variables-2">1.2 Creación de nuevas variables</a></li>
   <li><a href="#resumen-estadístico-de-datos-agrupados-2" id="toc-resumen-estadístico-de-datos-agrupados-2" class="nav-link" data-scroll-target="#resumen-estadístico-de-datos-agrupados-2">1.3 Resumen estadístico de datos agrupados</a></li>
   <li><a href="#transformación-de-datos-3" id="toc-transformación-de-datos-3" class="nav-link" data-scroll-target="#transformación-de-datos-3">1.4 Transformación de datos</a></li>
@@ -383,9 +380,6 @@ Nota
 </section>
 <section id="selección-y-filtrado-1" class="level4">
 <h4 class="anchored" data-anchor-id="selección-y-filtrado-1">1.1 Selección y filtrado</h4>
-</section>
-<section id="selección-y-filtrado-2" class="level3">
-<h3 class="anchored" data-anchor-id="selección-y-filtrado-2">1.1 Selección y filtrado</h3>
 <p>En ecología y ciencias ambientales, el trabajo con datos suele implicar hojas de cálculo extensas, con muchas variables medidas en campo o en laboratorio. No todas esas variables serán relevantes para un análisis determinado. Algunas deben excluirse porque no aportan a la hipótesis; otras porque presentan errores sistemáticos, o simplemente porque queremos enfocarnos en un grupo funcional específico, como insectos acuáticos o copépodos.</p>
 <p>Para esas decisiones, el paquete <code>tidyverse</code> ofrece dos funciones fundamentales:</p>
 <ul>
@@ -534,6 +528,7 @@ Nota
 
 </div>
 </div>
+</section>
 <section id="creación-de-nuevas-variables-1" class="level4">
 <h4 class="anchored" data-anchor-id="creación-de-nuevas-variables-1">1.2 Creación de nuevas variables</h4>
 <p>En ecología, a menudo necesitamos ir más allá de los datos crudos para entender procesos complejos. La <strong>creación de nuevas variables</strong> es como sintetizar nuevos conocimientos a partir de observaciones existentes. La función <code>mutate</code> de <code>tidyverse</code> es nuestra herramienta para esta alquimia de datos. Nos permite generar columnas derivadas, como calcular la relación entre la abundancia de plancton y la temperatura del agua. Esta nueva variable podría revelar patrones que no son evidentes al observar las variables por separado, ofreciendo una perspectiva más profunda sobre cómo los organismos responden a su entorno físico. Es una forma de enriquecer nuestros datos, transformándolos en información más significativa y relevante para las preguntas ecológicas que nos planteamos.</p>
@@ -2103,7 +2098,6 @@ Nota
 </section>
 </section>
 </section>
-</section>
 <section id="cuestionario-1" class="level2">
 <h2 class="anchored" data-anchor-id="cuestionario-1">Cuestionario</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -2222,8 +2216,8 @@ Nota
 </div>
 <hr>
 </section>
-<section id="selección-y-filtrado-3" class="level4">
-<h4 class="anchored" data-anchor-id="selección-y-filtrado-3">1.1 Selección y filtrado</h4>
+<section id="selección-y-filtrado-2" class="level4">
+<h4 class="anchored" data-anchor-id="selección-y-filtrado-2">1.1 Selección y filtrado</h4>
 <p><code>select</code> permite escoger columnas específicas, mientras que <code>filter</code> se usa para seleccionar filas según condiciones.</p>
 <div class="cell">
 <details>
