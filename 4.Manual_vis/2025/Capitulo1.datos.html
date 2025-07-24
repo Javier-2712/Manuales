@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="EN-en" xml:lang="EN-en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Es-es" xml:lang="Es-es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
@@ -131,14 +131,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-meta">
 
       <div>
-      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
       <div class="quarto-title-meta-contents">
                <p>Javier Rodríguez-Barrios, Kenedith Méndez, Javier de la Hoz </p>
             </div>
     </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
         <p class="date">July 24, 2025</p>
       </div>
@@ -310,11 +310,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Instrucciones</strong>: Responde cada pregunta usando el código y los resultados obtenidos en los ejercicios anteriores.</p>
+<p><strong>Instrucciones</strong>: Primer ejercicio en donde se contextualiza a cada procedimiento realizado.</p>
 </div>
 </div>
 <hr>
@@ -355,12 +355,12 @@ Note
 <p>Para trabajar con <strong>tidyverse</strong>, primero debemos instalar y cargar los paquetes requeridos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") # Descomentar si no está instalado</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -369,7 +369,7 @@ Note
 <p>Utilizamos <code>glimpse</code> para ver la estructura general de la base de datos y <code>summary</code> para obtener estadísticas descriptivas.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar datos desde Excel. Asegúrate de que 'plancton.xlsx' esté en el directorio correcto.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"plancton.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Riqueza"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -377,7 +377,7 @@ Note
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># mostrando el tipo de cada columna y las primeras observaciones.</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># `summary()` ofrece estadísticas descriptivas básicas para cada columna.</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse(biol)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(biol)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(biol)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -395,7 +395,7 @@ Note
 <p>Ambas funciones ayudan a que nuestro análisis sea más limpio, reproducible y enfocado en los objetivos ecológicos que nos planteamos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar variables clave: `select()` permite elegir columnas específicas por su nombre.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí seleccionamos las columnas relevantes para nuestro análisis inicial.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>datos_select <span class="ot">&lt;-</span></span>
@@ -406,7 +406,7 @@ Note
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># `kbl()` y `kable_classic()` se usan para formatear la tabla de salida de forma legible en Quarto.</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_select, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -461,7 +461,7 @@ Note
 </div>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar datos por una condición específica: `filter()` selecciona filas basándose en condiciones lógicas.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># En este caso, filtramos las observaciones donde la temperatura es mayor a 28°C.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>datos_filtro <span class="ot">=</span></span>
@@ -471,7 +471,7 @@ Note
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Mostramos las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_filtro, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -540,7 +540,7 @@ Note
 <p><code>mutate</code> se usa para generar nuevas variables derivadas de otras columnas.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o modificar existentes. Aquí creamos `rel_Ab_Temp` dividiendo `Abundance` por `Temperature`.</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>biol_rel <span class="ot">=</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  biol <span class="sc">%&gt;%</span></span>
@@ -549,7 +549,7 @@ Note
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Mostramos las primeras filas del dataframe con la nueva variable.</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol_rel, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -624,7 +624,7 @@ Note
 <p><code>group_by</code> permite agrupar datos según categorías para luego aplicar funciones resumen como <code>mean()</code>, <code>sd()</code>, ….</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">=</span> <span class="fu">read_xlsx</span>(<span class="st">"plancton.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Riqueza"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir variables a factores: Es crucial para el análisis categórico.</span></span>
@@ -649,7 +649,7 @@ Note
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas de la tabla resumida.</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_resumidos, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -705,7 +705,7 @@ Note
 <p>Agrupamos los datos por <code>Station</code>, <code>Size</code> y <code>Layers</code> y calculamos estadísticas descriptivas clave como la temperatura, salinidad, densidad y la abundancia total. Esto permite obtener un resumen general de las condiciones ambientales y biológicas en diferentes estaciones y capas de muestreo.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen estadístico de dos factores "datos_resumidos1":</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupamos por `Station`, `Size` y `Layers` para un análisis más granular.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `reframe()` es similar a `summarise()` pero permite crear nuevas columnas</span></span>
@@ -725,7 +725,7 @@ Note
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas de la tabla resumida con dos factores.</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_resumidos1, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -795,7 +795,7 @@ Note
 <p><code>pivot_longer</code> cambia la estructura de los datos de ancho a largo.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir columnas "Temperature, Salinity, Density" de formato ancho a largo:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `pivot_longer()` transforma múltiples columnas en dos nuevas columnas: una para los nombres</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># originales de las columnas (`names_to`) y otra para sus valores (`values_to`).</span></span>
@@ -809,7 +809,7 @@ Note
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas del dataframe en formato largo.</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_largo, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -870,7 +870,7 @@ Note
 <p><code>pivot_wider</code> regresa los datos a su formato original (ancho).</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir columnas "Temperature, Salinity, Density" de formato largo a ancho:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `pivot_wider()` es la operación inversa a `pivot_longer()`. Transforma datos de formato largo a ancho.</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `names_from` especifica la columna que contiene los nombres de las nuevas columnas.</span></span>
@@ -885,7 +885,7 @@ Note
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas del dataframe en formato ancho.</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_ancho, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -955,7 +955,7 @@ Note
 <p>Los siguientes procedimientos permiten <strong>agrupar</strong> por grupos taxonómicos en filas y estaciones en columnas, para luego <strong>transporner</strong> la base y que pueda ser utilizada en diferentes procedimientos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar a los taxones en filas y a las estaciones en columnas:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Este bloque de código transforma los datos para agrupar la abundancia por estación y grupo taxonómico,</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># y luego pivota la tabla para que las estaciones sean columnas y los grupos filas.</span></span>
@@ -974,7 +974,7 @@ Note
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas de la tabla transpuesta.</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_transp, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1032,7 +1032,7 @@ Note
 
 </div>
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ***Nota: ***Esta no es necesaria para el taller</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Transponer la anterior usando pivot_longer y pivot_wider:</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Este bloque demuestra cómo se podría transponer la tabla `datos_transp` de nuevo,</span></span>
@@ -1052,7 +1052,7 @@ Note
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas de la tabla transpuesta nuevamente.</span></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos_transp1, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1147,7 +1147,7 @@ Note
 <p>Se puede <strong>unir</strong> bases de datos con <code>left_join</code>. Para este ejercicio se crea la variable categórica <strong>Regiones</strong></p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Se requiere a Station como factor: Aseguramos que `Station` sea tratada como una variable categórica.</span></span>
@@ -1169,7 +1169,7 @@ Note
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas del dataframe combinado.</span></span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol1, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1244,7 +1244,7 @@ Note
 <p>Se convierte a <code>Station</code>, <code>Size</code> y <code>Layers</code> en factores para asegurar que R las reconozca como variables categóricas y optimizar análisis posteriores.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir variables a factores de dos formas:</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción antigua (as.factor) para "Station y Size":</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Este método es el tradicional para convertir columnas a factores.</span></span>
@@ -1261,7 +1261,7 @@ Note
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas del dataframe con las variables convertidas.</span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1331,7 +1331,7 @@ Note
 <p>Para facilitar la visualización y manipulación de datos, podemos <strong>abreviar</strong> los nombres de los grupos biológicos utilizando <code>abbreviate()</code>. Esto es útil cuando trabajamos con nombres largos que dificultan la lectura en gráficos y tablas. Se crea una nueva columna (<strong>Abrev</strong>) con abreviaciones de los nombres de los grupos taxonómicos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nueva columna "Abrev" al final, con abreviaturas de los taxas:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate()` crea una nueva columna `Abrev` aplicando la función `abbreviate()` a la columna `Groups`.</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `minlength = 4` asegura que las abreviaturas tengan al menos 4 caracteres.</span></span>
@@ -1343,7 +1343,7 @@ Note
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># `html_font = "Cambria"` especifica la fuente para la tabla HTML.</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol, <span class="dv">4</span>) <span class="sc">%&gt;%</span>   <span class="co"># head muestra solo las primeras tres filas de la tabla </span></span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1413,7 +1413,7 @@ Note
 </div>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla adicional, con nombres completos y abreviados de los taxones:</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `cbind()` combina columnas para crear un nuevo dataframe.</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí se crea una tabla que muestra los nombres completos de los grupos y sus abreviaturas.</span></span>
@@ -1424,7 +1424,7 @@ Note
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Editar tabla: Muestra las primeras filas de la tabla de abreviaturas.</span></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tabla, <span class="dv">4</span>) <span class="sc">%&gt;%</span>   </span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1460,7 +1460,7 @@ Note
 <p>Se convierten las variables categóricas en <strong>factores</strong> y se agrupan los datos para calcular promedios y totales de las variables ambientales y de abundancia de los taxones seleccionados. Se construye una tabla (<strong>biol_ancho</strong>) que es útil para cuando la base de datos inicial está en <strong>formato largo</strong> y queremos transformarla a <strong>formato ancho</strong>, incluyendo a varios factores o variables agrupadoras, en caso de que se cuentre con ellas (Station, Size, Layers). Se genera una nueva columna <strong>Ref</strong> que resume la identificación de cada combinación de estación, tamaño y capa.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librería necesaria: `dplyr` es parte de `tidyverse` y es fundamental para la manipulación de datos.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1505,7 +1505,7 @@ Note
 <span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución: Muestra las primeras filas del dataframe `biol_ancho`.</span></span>
 <span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol_ancho, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1629,7 +1629,7 @@ Note
 <p>El siguiente procedimiento es apropiado cuando se tienen <strong>demasiados taxones</strong> y se quiere trabajar con una <strong>versión resumida</strong>, normalmente se escogen los 10 o 15 taxones más abundantes para resumir los análisis, en este ejercicio como se cuenta con pocos taxones, se calcula la <strong>abundancia total</strong> de cada taxón y se seleccionan los <strong>cinco más abundantes</strong>. En <code>biol_selec</code>se seleccionan únicamente los grupos más abundantes del conjunto total.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cinco (5) grupos taxonómicos más abundantes</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>abundantes <span class="ot">&lt;-</span> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  biol_ancho <span class="sc">%&gt;%</span></span>
@@ -1646,7 +1646,7 @@ Note
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución</span></span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abundantes, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1679,7 +1679,7 @@ Note
 
 </div>
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar en biol_ancho solo estos 5 taxones más abundantes</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>biol_selec <span class="ot">&lt;-</span> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  biol_ancho <span class="sc">%&gt;%</span></span>
@@ -1690,7 +1690,7 @@ Note
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol_selec, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1779,7 +1779,7 @@ Note
 <p><code>ggplot2</code> nos permite crear gráficos para explorar los datos. Se genera una <strong>figura de cajas</strong> para visualizar las diferencias en la abundancia del plancton, entre las diferentes estaciones del estuario evaluado.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir variables a factores en caso que se requiera</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  biol <span class="sc">%&gt;%</span> </span>
@@ -1798,20 +1798,20 @@ Note
 <span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),  </span>
 <span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Capitulo1.datos_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probar sacale_fill_manual, con: scale_color_viridis(discrete = TRUE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># probar sacale_fill_manual, con: scale_color_viridis(discrete = TRUE)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Con el comando <code>aes(fill = Layers)</code> se incorporan las capas superficial y profunda en las diferentes zonas.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)  <span class="co"># Para manipulación de factores</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiar etiquetas de Layers con recode_factor()</span></span>
@@ -1833,7 +1833,7 @@ Note
 <span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),  </span>
 <span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Capitulo1.datos_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
@@ -1842,7 +1842,7 @@ Note
 <p>La capa <code>facet_wrap()</code> permite incluir más factores como el del ojo de malla usado para la colecta del plancton.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -1870,7 +1870,7 @@ Note
 <span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),  </span>
 <span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Capitulo1.datos_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
@@ -1885,7 +1885,7 @@ Note
 <p>Este método divide la variable en tres partes iguales (terciles) utilizando los cuantiles de la distribución. En el siguiente ejercicio se crea una variable categórica llamada <strong>Salinity_Level</strong>.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  biol <span class="sc">%&gt;%</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Salinity_Level =</span> <span class="fu">case_when</span>(</span>
@@ -1898,7 +1898,7 @@ Note
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución</span></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -1973,7 +1973,7 @@ Note
 </div>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### **Distribución de la Abundancia por Niveles de Salinidad**</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(biol, <span class="fu">aes</span>(<span class="at">x =</span> Salinity_Level, <span class="at">y =</span> Abundance)) <span class="sc">+</span></span>
@@ -1988,7 +1988,7 @@ Note
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),  </span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Capitulo1.datos_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
@@ -2000,8 +2000,8 @@ Note
 <p>Otra forma de categorizar <code>Salinity</code> es usar la función <code>summary()</code> para obtener los valores clave de la variable y definir manualmente los rangos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(biol<span class="sc">$</span>Salinity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(biol<span class="sc">$</span>Salinity)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -2011,7 +2011,7 @@ Note
 <p>Con base en estos valores, se puede definir los niveles de salinidad según su distribución:</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  biol <span class="sc">%&gt;%</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Salinity_Level =</span> <span class="fu">case_when</span>(</span>
@@ -2025,7 +2025,7 @@ Note
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar distribución</span></span>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -2112,7 +2112,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2121,9 +2121,9 @@ Note
 </div>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar datos desde Excel</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"plancton.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Riqueza"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"plancton.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Riqueza"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="exploración-de-datos" class="level4">
@@ -2163,6 +2163,19 @@ Note
 <section id="paso-2-visualizar-la-relación-entre-temperatura-y-abundancia" class="level5">
 <h5 class="anchored" data-anchor-id="paso-2-visualizar-la-relación-entre-temperatura-y-abundancia">Paso 2: Visualizar la Relación entre Temperatura y Abundancia</h5>
 <hr>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Instrucciones</strong>: Segundo ejercicio en donde se contextualiza a cada procedimiento realizado.</p>
+</div>
+</div>
 <hr>
 </section>
 </section>
@@ -2186,7 +2199,7 @@ Note
 <h4 class="anchored" data-anchor-id="lectura-de-bases-de-datos-y-cargar-paquetes-1">Lectura de bases de datos y cargar paquetes</h4>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar las librerías necesarias para la manipulación y visualización de datos.</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `tidyverse` es una colección de paquetes de R diseñados para la ciencia de datos,</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># que incluye `dplyr` para manipulación de datos y `ggplot2` para visualización.</span></span>
@@ -2204,7 +2217,7 @@ Note
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Se cargan tres hojas diferentes del mismo archivo Excel en dataframes separados.</span></span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>inv1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"invert.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Taxones1"</span>) </span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>inv2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"invert.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Taxones2"</span>) </span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>fq   <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"invert.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"fquímicos"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>fq   <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"invert.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"fquímicos"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <hr>
@@ -2214,45 +2227,181 @@ Note
 <p><code>select</code> permite escoger columnas específicas, mientras que <code>filter</code> se usa para seleccionar filas según condiciones.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar columnas específicas: `select()` elige las columnas por nombre.</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>inv1 <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Sitio, Baetidae, Belidae, Chironomidae)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>inv1a <span class="ot">&lt;-</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>inv1 <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Sitio, Baetidae, Belidae, Chironomidae)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv1a, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 4
-  Sitio    Baetidae Belidae Chironomidae
-  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;
-1 Arimaca         0       0            2
-2 Arimaca        14       0            0
-3 Arimaca        31       0            1
-4 Caracoli        3       2            1
-5 Caracoli       11       0            1
-6 Caracoli        4       0           14
-7 PozoAzul       14       0            8
-8 PozoAzul       31       0            7
-9 PozoAzul       50       2            4</code></pre>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Baetidae </th>
+   <th style="text-align:right;"> Belidae </th>
+   <th style="text-align:right;"> Chironomidae </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar filas: `filter()` selecciona filas basándose en una condición.</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí, se excluyen las filas donde el `Sitio` es "Caracoli".</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>inv2 <span class="sc">%&gt;%</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sitio <span class="sc">!=</span> <span class="st">"Caracoli"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar filas: `filter()` selecciona filas basándose en una condición.</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquí, se excluyen las filas donde el `Sitio` es "Caracoli".</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>inv2a <span class="ot">&lt;-</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>inv2 <span class="sc">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sitio <span class="sc">!=</span> <span class="st">"Caracoli"</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv2a, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 32
-  Sitio     Baetidae Belidae Blephariceridae Calopterygidae Ceratopogonidae
-  &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
-1 Arimaca         45       0               0              1               1
-2 Pozo Azul       95       2               1              1               1
-# ℹ 26 more variables: Chironomidae &lt;dbl&gt;, Coenagrionidae &lt;dbl&gt;,
-#   Corydalidae &lt;dbl&gt;, Crambidae &lt;dbl&gt;, Dixidae &lt;dbl&gt;, Dugesiidae &lt;dbl&gt;,
-#   Elmidae &lt;dbl&gt;, Empididae &lt;dbl&gt;, Gomphidae &lt;dbl&gt;, Hydrobiidae &lt;dbl&gt;,
-#   Hydropsychidae &lt;dbl&gt;, Leptoceridae &lt;dbl&gt;, Leptohyphidae &lt;dbl&gt;,
-#   Leptophlebiidae &lt;dbl&gt;, Libellulidae &lt;dbl&gt;, Limnesiidae &lt;dbl&gt;,
-#   Lumbriculidae &lt;dbl&gt;, Naucoridae &lt;dbl&gt;, Oligoneuriidae &lt;dbl&gt;,
-#   Perlidae &lt;dbl&gt;, Psephenidae &lt;dbl&gt;, Psychodidae &lt;dbl&gt;, …</code></pre>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Baetidae </th>
+   <th style="text-align:right;"> Belidae </th>
+   <th style="text-align:right;"> Blephariceridae </th>
+   <th style="text-align:right;"> Calopterygidae </th>
+   <th style="text-align:right;"> Ceratopogonidae </th>
+   <th style="text-align:right;"> Chironomidae </th>
+   <th style="text-align:right;"> Coenagrionidae </th>
+   <th style="text-align:right;"> Corydalidae </th>
+   <th style="text-align:right;"> Crambidae </th>
+   <th style="text-align:right;"> Dixidae </th>
+   <th style="text-align:right;"> Dugesiidae </th>
+   <th style="text-align:right;"> Elmidae </th>
+   <th style="text-align:right;"> Empididae </th>
+   <th style="text-align:right;"> Gomphidae </th>
+   <th style="text-align:right;"> Hydrobiidae </th>
+   <th style="text-align:right;"> Hydropsychidae </th>
+   <th style="text-align:right;"> Leptoceridae </th>
+   <th style="text-align:right;"> Leptohyphidae </th>
+   <th style="text-align:right;"> Leptophlebiidae </th>
+   <th style="text-align:right;"> Libellulidae </th>
+   <th style="text-align:right;"> Limnesiidae </th>
+   <th style="text-align:right;"> Lumbriculidae </th>
+   <th style="text-align:right;"> Naucoridae </th>
+   <th style="text-align:right;"> Oligoneuriidae </th>
+   <th style="text-align:right;"> Perlidae </th>
+   <th style="text-align:right;"> Psephenidae </th>
+   <th style="text-align:right;"> Psychodidae </th>
+   <th style="text-align:right;"> Ptilodactylidae </th>
+   <th style="text-align:right;"> Simuliidae </th>
+   <th style="text-align:right;"> Tipulidae </th>
+   <th style="text-align:right;"> Veliidae </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <hr>
@@ -2262,15 +2411,215 @@ Note
 <p><code>mutate</code> se usa para generar nuevas variables derivadas de otras columnas.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una nueva variable `Abundancia`:</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate()` añade una nueva columna `Abundancia` al dataframe `inv1`.</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `rowSums(across(c(-Sitio,-Microh,-Total)))` calcula la suma de las filas</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># para todas las columnas excepto `Sitio`, `Microh` y `Total`, asumiendo que el resto son taxones.</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>inv1 <span class="ot">&lt;-</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  inv1 <span class="sc">%&gt;%</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Abundancia =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="sc">-</span>Sitio,<span class="sc">-</span>Microh,<span class="sc">-</span>Total))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una nueva variable `Abundancia`:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate()` añade una nueva columna `Abundancia` al dataframe `inv1`.</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `rowSums(across(c(-Sitio,-Microh,-Total)))` calcula la suma de las filas</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># para todas las columnas excepto `Sitio`, `Microh` y `Total`, asumiendo que el resto son taxones.</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>inv1 <span class="ot">&lt;-</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  inv1 <span class="sc">%&gt;%</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Abundancia =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="sc">-</span>Sitio,<span class="sc">-</span>Microh,<span class="sc">-</span>Total))))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv1, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:left;"> Microh </th>
+   <th style="text-align:right;"> Baetidae </th>
+   <th style="text-align:right;"> Belidae </th>
+   <th style="text-align:right;"> Blephariceridae </th>
+   <th style="text-align:right;"> Calopterygidae </th>
+   <th style="text-align:right;"> Ceratopogonidae </th>
+   <th style="text-align:right;"> Chironomidae </th>
+   <th style="text-align:right;"> Coenagrionidae </th>
+   <th style="text-align:right;"> Corydalidae </th>
+   <th style="text-align:right;"> Crambidae </th>
+   <th style="text-align:right;"> Dixidae </th>
+   <th style="text-align:right;"> Dugesiidae </th>
+   <th style="text-align:right;"> Elmidae </th>
+   <th style="text-align:right;"> Empididae </th>
+   <th style="text-align:right;"> Gomphidae </th>
+   <th style="text-align:right;"> Hydrobiidae </th>
+   <th style="text-align:right;"> Hydropsychidae </th>
+   <th style="text-align:right;"> Leptoceridae </th>
+   <th style="text-align:right;"> Leptohyphidae </th>
+   <th style="text-align:right;"> Leptophlebiidae </th>
+   <th style="text-align:right;"> Libellulidae </th>
+   <th style="text-align:right;"> Limnesiidae </th>
+   <th style="text-align:right;"> Lumbriculidae </th>
+   <th style="text-align:right;"> Naucoridae </th>
+   <th style="text-align:right;"> Oligoneuriidae </th>
+   <th style="text-align:right;"> Perlidae </th>
+   <th style="text-align:right;"> Psephenidae </th>
+   <th style="text-align:right;"> Psychodidae </th>
+   <th style="text-align:right;"> Ptilodactylidae </th>
+   <th style="text-align:right;"> Simuliidae </th>
+   <th style="text-align:right;"> Tipulidae </th>
+   <th style="text-align:right;"> Veliidae </th>
+   <th style="text-align:right;"> Total </th>
+   <th style="text-align:right;"> Abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Arena </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Grava </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Hoja </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 70 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:left;"> Arena </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 37 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
 </div>
 <hr>
 </section>
@@ -2279,22 +2628,46 @@ Note
 <p>Se agrupan los datos por sitio (Sitio) y se calcula la abundancia promedio por sitio usando la suma de las columnas taxonómicas. <code>group_by</code> permite agrupar datos según categorías para luego aplicar funciones resumen como <code>mean()</code>, <code>sd()</code>, ….</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar por `Sitio` y calcular la abundancia promedio:</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `group_by(Sitio)` agrupa el dataframe `inv1` por la columna `Sitio`.</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `summarise(prom_abundancia = mean(Total, na.rm = TRUE))` calcula la media de la columna `Total`</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (que representa la abundancia total) para cada grupo de `Sitio`, ignorando los valores NA.</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>inv1 <span class="sc">%&gt;%</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sitio) <span class="sc">%&gt;%</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prom_abundancia =</span> <span class="fu">mean</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar por `Sitio` y calcular la abundancia promedio:</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `group_by(Sitio)` agrupa el dataframe `inv1` por la columna `Sitio`.</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `summarise(prom_abundancia = mean(Total, na.rm = TRUE))` calcula la media de la columna `Total`</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (que representa la abundancia total) para cada grupo de `Sitio`, ignorando los valores NA.</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>inv1b <span class="ot">&lt;-</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>inv1 <span class="sc">%&gt;%</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sitio) <span class="sc">%&gt;%</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prom_abundancia =</span> <span class="fu">mean</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv1b, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  Sitio    prom_abundancia
-  &lt;chr&gt;              &lt;dbl&gt;
-1 Arimaca             47  
-2 Caracoli            66.3
-3 PozoAzul           170  </code></pre>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> prom_abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 47.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 66.33333 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PozoAzul </td>
+   <td style="text-align:right;"> 170.00000 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <hr>
@@ -2304,15 +2677,166 @@ Note
 <p>Se aplica transformación logarítmica log(x+1) a las columnas numéricas (excepto Sitio) para estabilizar la varianza y normalizar las distribuciones.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar transformación logarítmica a las columnas numéricas:</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(across(-Sitio, log1p))` aplica la función `log1p` (log(x+1)) a todas las columnas</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># excepto `Sitio`. Esta transformación es útil para datos con distribuciones sesgadas,</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># como las abundancias, para hacerlas más normales y reducir la influencia de valores extremos.</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>inv2_log <span class="ot">&lt;-</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  inv2 <span class="sc">%&gt;%</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Sitio, log1p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar transformación logarítmica a las columnas numéricas:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(across(-Sitio, log1p))` aplica la función `log1p` (log(x+1)) a todas las columnas</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># excepto `Sitio`. Esta transformación es útil para datos con distribuciones sesgadas,</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># como las abundancias, para hacerlas más normales y reducir la influencia de valores extremos.</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>inv2_log <span class="ot">&lt;-</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  inv2 <span class="sc">%&gt;%</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Sitio, log1p))</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv2_log, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Baetidae </th>
+   <th style="text-align:right;"> Belidae </th>
+   <th style="text-align:right;"> Blephariceridae </th>
+   <th style="text-align:right;"> Calopterygidae </th>
+   <th style="text-align:right;"> Ceratopogonidae </th>
+   <th style="text-align:right;"> Chironomidae </th>
+   <th style="text-align:right;"> Coenagrionidae </th>
+   <th style="text-align:right;"> Corydalidae </th>
+   <th style="text-align:right;"> Crambidae </th>
+   <th style="text-align:right;"> Dixidae </th>
+   <th style="text-align:right;"> Dugesiidae </th>
+   <th style="text-align:right;"> Elmidae </th>
+   <th style="text-align:right;"> Empididae </th>
+   <th style="text-align:right;"> Gomphidae </th>
+   <th style="text-align:right;"> Hydrobiidae </th>
+   <th style="text-align:right;"> Hydropsychidae </th>
+   <th style="text-align:right;"> Leptoceridae </th>
+   <th style="text-align:right;"> Leptohyphidae </th>
+   <th style="text-align:right;"> Leptophlebiidae </th>
+   <th style="text-align:right;"> Libellulidae </th>
+   <th style="text-align:right;"> Limnesiidae </th>
+   <th style="text-align:right;"> Lumbriculidae </th>
+   <th style="text-align:right;"> Naucoridae </th>
+   <th style="text-align:right;"> Oligoneuriidae </th>
+   <th style="text-align:right;"> Perlidae </th>
+   <th style="text-align:right;"> Psephenidae </th>
+   <th style="text-align:right;"> Psychodidae </th>
+   <th style="text-align:right;"> Ptilodactylidae </th>
+   <th style="text-align:right;"> Simuliidae </th>
+   <th style="text-align:right;"> Tipulidae </th>
+   <th style="text-align:right;"> Veliidae </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 3.828641 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 1.386294 </td>
+   <td style="text-align:right;"> 1.386294 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.178054 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 1.6094379 </td>
+   <td style="text-align:right;"> 1.386294 </td>
+   <td style="text-align:right;"> 1.609438 </td>
+   <td style="text-align:right;"> 1.791759 </td>
+   <td style="text-align:right;"> 2.890372 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 1.098612 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.945910 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.944439 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 1.0986123 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 2.944439 </td>
+   <td style="text-align:right;"> 1.098612 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.833213 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.713572 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 1.386294 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.772589 </td>
+   <td style="text-align:right;"> 2.564949 </td>
+   <td style="text-align:right;"> 2.397895 </td>
+   <td style="text-align:right;"> 3.583519 </td>
+   <td style="text-align:right;"> 2.197225 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.3025851 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.484907 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0986123 </td>
+   <td style="text-align:right;"> 2.639057 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 4.564348 </td>
+   <td style="text-align:right;"> 1.098612 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.995732 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 2.3978953 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 4.189655 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.079442 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.772589 </td>
+   <td style="text-align:right;"> 3.737670 </td>
+   <td style="text-align:right;"> 1.945910 </td>
+   <td style="text-align:right;"> 3.912023 </td>
+   <td style="text-align:right;"> 3.401197 </td>
+   <td style="text-align:right;"> 0.000000 </td>
+   <td style="text-align:right;"> 1.7917595 </td>
+   <td style="text-align:right;"> 3.0910425 </td>
+   <td style="text-align:right;"> 1.7917595 </td>
+   <td style="text-align:right;"> 4.248495 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 0.6931472 </td>
+   <td style="text-align:right;"> 2.3025851 </td>
+   <td style="text-align:right;"> 2.890372 </td>
+   <td style="text-align:right;"> 1.386294 </td>
+   <td style="text-align:right;"> 3.5553481 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
 </div>
 <hr>
 </section>
@@ -2321,14 +2845,64 @@ Note
 <p>Se convierte la base de datos de formato ancho a formato largo, generando una columna para la familia y otra para su abundancia. <code>pivot_longer</code> cambia la estructura de los datos de ancho a largo.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir de formato ancho a largo: `pivot_longer()` transforma las columnas de taxones</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># en dos nuevas columnas: `familia` (para los nombres de los taxones) y `abundancia` (para sus valores).</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `-Sitio` indica que todas las columnas excepto `Sitio` deben ser pivotadas.</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="ot">&lt;-</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  inv2 <span class="sc">%&gt;%</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Sitio, <span class="at">names_to =</span> <span class="st">"familia"</span>, <span class="at">values_to =</span> <span class="st">"abundancia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir de formato ancho a largo: `pivot_longer()` transforma las columnas de taxones</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># en dos nuevas columnas: `familia` (para los nombres de los taxones) y `abundancia` (para sus valores).</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `-Sitio` indica que todas las columnas excepto `Sitio` deben ser pivotadas.</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="ot">&lt;-</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  inv2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Sitio, <span class="at">names_to =</span> <span class="st">"familia"</span>, <span class="at">values_to =</span> <span class="st">"abundancia"</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inv2_long) <span class="sc">%&gt;%</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:left;"> familia </th>
+   <th style="text-align:right;"> abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Baetidae </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Belidae </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Blephariceridae </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Calopterygidae </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Ceratopogonidae </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:left;"> Chironomidae </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
 </div>
 <hr>
 </section>
@@ -2337,14 +2911,14 @@ Note
 <p>Se une la información biótica (inv2) con la fisicoquímica (fq) a través de la variable común Sitio, para tener una base integrada.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unir bases de datos: `left_join()` combina `inv2` (datos bióticos) con `fq` (datos fisicoquímicos)</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># basándose en la columna común `Sitio`. Esto permite analizar la relación entre</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># los macroinvertebrados y las condiciones ambientales.</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `glimpse()` muestra un resumen de la estructura del dataframe resultante.</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>inv2 <span class="sc">%&gt;%</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fq, <span class="at">by =</span> <span class="st">"Sitio"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unir bases de datos: `left_join()` combina `inv2` (datos bióticos) con `fq` (datos fisicoquímicos)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># basándose en la columna común `Sitio`. Esto permite analizar la relación entre</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># los macroinvertebrados y las condiciones ambientales.</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `glimpse()` muestra un resumen de la estructura del dataframe resultante.</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>inv2 <span class="sc">%&gt;%</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fq, <span class="at">by =</span> <span class="st">"Sitio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 7
@@ -2415,15 +2989,22 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <p>Se convierte Sitio en un factor ordenado, útil para análisis gráficos o modelos que respeten un orden lógico (río arriba → río abajo, por ejemplo).</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir `Sitio` a un factor ordenado:</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(Sitio = factor(Sitio, levels = c(...)))` convierte la columna `Sitio` en un factor.</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `levels` especifica el orden deseado de las categorías, lo cual es importante para visualizaciones</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># y análisis donde el orden tiene un significado (ej. gradiente espacial).</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>fq <span class="ot">&lt;-</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  fq <span class="sc">%&gt;%</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sitio =</span> <span class="fu">factor</span>(Sitio, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Pozo Azul"</span>, <span class="st">"Arimaca"</span>, <span class="st">"Caracoli"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir `Sitio` a un factor ordenado:</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(Sitio = factor(Sitio, levels = c(...)))` convierte la columna `Sitio` en un factor.</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `levels` especifica el orden deseado de las categorías, lo cual es importante para visualizaciones</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># y análisis donde el orden tiene un significado (ej. gradiente espacial).</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>fq <span class="ot">&lt;-</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  fq <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sitio =</span> <span class="fu">factor</span>(Sitio, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Pozo Azul"</span>, <span class="st">"Arimaca"</span>, <span class="st">"Caracoli"</span>)))</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Estructura de Sitio como factor</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fq[,<span class="dv">1</span>]) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [9 × 1] (S3: tbl_df/tbl/data.frame)
+ $ Sitio: Factor w/ 3 levels "Pozo Azul","Arimaca",..: 2 2 2 3 3 3 NA NA NA</code></pre>
+</div>
 </div>
 <hr>
 </section>
@@ -2432,24 +3013,213 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <p>Se acortan los nombres de las columnas taxonómicas para facilitar la visualización y análisis, especialmente útil para gráficos.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener los nombres de las columnas taxonómicas (todas excepto la primera, que es `Sitio`).</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>nombres <span class="ot">&lt;-</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(inv2)[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear abreviaciones para los nombres de las familias:</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co"># `str_replace_all(nombres, "idae", "")` elimina la terminación "idae" de los nombres.</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># `str_sub(1, 4)` toma los primeros 4 caracteres de cada nombre.</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># `make.unique()` asegura que todas las abreviaciones sean únicas.</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>abreviaciones <span class="ot">&lt;-</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(nombres, <span class="st">"idae"</span>, <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_sub</span>(<span class="dv">1</span>, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">make.unique</span>()</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar las abreviaciones como nuevos nombres de columna al dataframe `inv2`.</span></span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(inv2)[<span class="sc">-</span><span class="dv">1</span>] <span class="ot">&lt;-</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  abreviaciones</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener los nombres de las columnas taxonómicas (todas excepto la primera, que es `Sitio`).</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>nombres <span class="ot">&lt;-</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(inv2)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear abreviaciones para los nombres de las familias:</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co"># `str_replace_all(nombres, "idae", "")` elimina la terminación "idae" de los nombres.</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># `str_sub(1, 4)` toma los primeros 4 caracteres de cada nombre.</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># `make.unique()` asegura que todas las abreviaciones sean únicas.</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>abreviaciones <span class="ot">&lt;-</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(nombres, <span class="st">"idae"</span>, <span class="st">""</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_sub</span>(<span class="dv">1</span>, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">make.unique</span>()</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar las abreviaciones como nuevos nombres de columna al dataframe `inv2`.</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(inv2)[<span class="sc">-</span><span class="dv">1</span>] <span class="ot">&lt;-</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  abreviaciones</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra a las primeras filas del dataframe filtrado para verificar el resultado.</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abreviaciones) <span class="sc">%&gt;%</span></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Baet </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bel </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Blep </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Calo </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cera </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Chir </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra el dataframe para verificar el resultado.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>inv2 <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> Baet </th>
+   <th style="text-align:right;"> Bel </th>
+   <th style="text-align:right;"> Blep </th>
+   <th style="text-align:right;"> Calo </th>
+   <th style="text-align:right;"> Cera </th>
+   <th style="text-align:right;"> Chir </th>
+   <th style="text-align:right;"> Coen </th>
+   <th style="text-align:right;"> Cory </th>
+   <th style="text-align:right;"> Cram </th>
+   <th style="text-align:right;"> Dix </th>
+   <th style="text-align:right;"> Duge </th>
+   <th style="text-align:right;"> Elm </th>
+   <th style="text-align:right;"> Empi </th>
+   <th style="text-align:right;"> Gomp </th>
+   <th style="text-align:right;"> Hydr </th>
+   <th style="text-align:right;"> Hydr.1 </th>
+   <th style="text-align:right;"> Lept </th>
+   <th style="text-align:right;"> Lept.1 </th>
+   <th style="text-align:right;"> Lept.2 </th>
+   <th style="text-align:right;"> Libe </th>
+   <th style="text-align:right;"> Limn </th>
+   <th style="text-align:right;"> Lumb </th>
+   <th style="text-align:right;"> Nauc </th>
+   <th style="text-align:right;"> Olig </th>
+   <th style="text-align:right;"> Perl </th>
+   <th style="text-align:right;"> Psep </th>
+   <th style="text-align:right;"> Psyc </th>
+   <th style="text-align:right;"> Ptil </th>
+   <th style="text-align:right;"> Simu </th>
+   <th style="text-align:right;"> Tipu </th>
+   <th style="text-align:right;"> Veli </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Arimaca </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caracoli </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pozo Azul </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
 </div>
 <hr>
 </section>
@@ -2459,26 +3229,56 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <p>Se identifican los cinco taxones (familias) más abundantes en la base inv2.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar los 5 taxones más abundantes:</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. `ungroup()`: Elimina cualquier agrupación previa del dataframe.</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. `group_by(familia)`: Agrupa los datos por la columna `familia`.</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. `summarise(total = sum(abundancia, na.rm = TRUE))`: Calcula la abundancia total para cada familia.</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. `slice_max(order_by = total, n = 5)`: Selecciona las 5 familias con la mayor abundancia total.</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="sc">%&gt;%</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(familia) <span class="sc">%&gt;%</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundancia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> total, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar los 5 taxones más abundantes:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. `ungroup()`: Elimina cualquier agrupación previa del dataframe.</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. `group_by(familia)`: Agrupa los datos por la columna `familia`.</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. `summarise(total = sum(abundancia, na.rm = TRUE))`: Calcula la abundancia total para cada familia.</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. `slice_max(order_by = total, n = 5)`: Selecciona las 5 familias con la mayor abundancia total.</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>inv2_long1 <span class="ot">&lt;-</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="sc">%&gt;%</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(familia) <span class="sc">%&gt;%</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(abundancia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> total, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra el dataframe para verificar el resultado.</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>inv2_long1 <span class="sc">%&gt;%</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  familia         total
-  &lt;chr&gt;           &lt;dbl&gt;
-1 Baetidae          158
-2 Elmidae           128
-3 Leptophlebiidae   101
-4 Perlidae           86
-5 Leptoceridae       57</code></pre>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> familia </th>
+   <th style="text-align:right;"> total </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Baetidae </td>
+   <td style="text-align:right;"> 158 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Elmidae </td>
+   <td style="text-align:right;"> 128 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Leptophlebiidae </td>
+   <td style="text-align:right;"> 101 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Perlidae </td>
+   <td style="text-align:right;"> 86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Leptoceridae </td>
+   <td style="text-align:right;"> 57 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <hr>
@@ -2489,24 +3289,25 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <p>Se genera un gráfico de barras con la abundancia media de cada taxón en inv2.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar un gráfico de barras de la abundancia media por familia:</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. `group_by(familia)`: Agrupa los datos por la columna `familia`.</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. `summarise(media = mean(abundancia, na.rm = TRUE))`: Calcula la abundancia media para cada familia.</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. `ggplot(aes(x = reorder(familia, -media), y = media))`: Inicia la creación del gráfico con `ggplot2`.</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    `reorder(familia, -media)` ordena las familias en el eje X de mayor a menor abundancia media.</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. `geom_col(fill = "#1f78b4")`: Añade las barras al gráfico, con un color específico.</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. `labs()`: Define los títulos de los ejes y el título principal del gráfico.</span></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. `theme_bw()`: Aplica un tema en blanco y negro al gráfico.</span></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. `theme(axis.text.x = element_text(angle = 45, hjust = 1))`: Rota las etiquetas del eje X para mejor legibilidad.</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="sc">%&gt;%</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(familia) <span class="sc">%&gt;%</span></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(abundancia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(familia, <span class="sc">-</span>media), <span class="at">y =</span> media)) <span class="sc">+</span></span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#1f78b4"</span>) <span class="sc">+</span></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Familia"</span>, <span class="at">y =</span> <span class="st">"Abundancia media"</span>, <span class="at">title =</span> <span class="st">"Familias más abundantes"</span>) <span class="sc">+</span></span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar un gráfico de barras de la abundancia media por familia:</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. `group_by(familia)`: Agrupa los datos por la columna `familia`.</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. `summarise(media = mean(abundancia, na.rm = TRUE))`: Calcula la abundancia media para cada familia.</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. `ggplot(aes(x = reorder(familia, -media), y = media))`: Inicia la creación del gráfico con `ggplot2`.</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    `reorder(familia, -media)` ordena las familias en el eje X de mayor a menor abundancia media.</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. `geom_col(fill = "#1f78b4")`: Añade las barras al gráfico, con un color específico.</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. `labs()`: Define los títulos de los ejes y el título principal del gráfico.</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. `theme_bw()`: Aplica un tema en blanco y negro al gráfico.</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. `theme(axis.text.x = element_text(angle = 45, hjust = 1))`: Rota las etiquetas del eje X para mejor legibilidad.</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>inv2_long <span class="sc">%&gt;%</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(familia) <span class="sc">%&gt;%</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(abundancia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(familia, <span class="sc">-</span>media), <span class="at">y =</span> media)) <span class="sc">+</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#1f78b4"</span>) <span class="sc">+</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Familias de Macroinvertebrados"</span>, <span class="at">y =</span> <span class="st">"Promedio de abundancia"</span>, <span class="at">title =</span> <span class="st">"Familias más abundantes"</span>) <span class="sc">+</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Capitulo1.datos_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
@@ -2520,26 +3321,47 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <p>Se categoriza el nivel de oxígeno disuelto como bajo, medio o alto, usando puntos de corte arbitrarios como ejemplo.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorizar el nivel de oxígeno disuelto:</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(cat_oxigeno = case_when(...))` crea una nueva columna categórica `cat_oxigeno`</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># basándose en los valores de la columna `Oxigeno`.</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `case_when()` permite definir múltiples condiciones para la categorización.</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># `count(cat_oxigeno)` muestra el número de observaciones en cada nueva categoría.</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>fq <span class="sc">%&gt;%</span></span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cat_oxigeno =</span> <span class="fu">case_when</span>(</span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    Oxigeno <span class="sc">&lt;</span>  <span class="dv">5</span>    <span class="sc">~</span> <span class="st">"Bajo"</span>,</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    Oxigeno <span class="sc">&lt;=</span> <span class="fl">6.5</span>  <span class="sc">~</span> <span class="st">"Medio"</span>,</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>            <span class="sc">~</span> <span class="st">"Alto"</span></span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(cat_oxigeno)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorizar el nivel de oxígeno disuelto:</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `mutate(cat_oxigeno = case_when(...))` crea una nueva columna categórica `cat_oxigeno`</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># basándose en los valores de la columna `Oxigeno`.</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `case_when()` permite definir múltiples condiciones para la categorización.</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># `count(cat_oxigeno)` muestra el número de observaciones en cada nueva categoría.</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>fq1 <span class="ot">&lt;-</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>fq <span class="sc">%&gt;%</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cat_oxigeno =</span> <span class="fu">case_when</span>(</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    Oxigeno <span class="sc">&lt;</span>  <span class="dv">5</span>    <span class="sc">~</span> <span class="st">"Bajo"</span>,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    Oxigeno <span class="sc">&lt;=</span> <span class="fl">6.5</span>  <span class="sc">~</span> <span class="st">"Medio"</span>,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>            <span class="sc">~</span> <span class="st">"Alto"</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Cat_oxigeno)</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Se muestra el dataframe para verificar el resultado.</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>fq1 <span class="sc">%&gt;%</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  cat_oxigeno     n
-  &lt;chr&gt;       &lt;int&gt;
-1 Bajo            2
-2 Medio           7</code></pre>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Cat_oxigeno </th>
+   <th style="text-align:right;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Bajo </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Medio </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <hr>
@@ -2553,7 +3375,7 @@ $ No.Froude       &lt;dbl&gt; 0.02635803, 0.05239745, 0.01353503, 0.33764511, 0.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2641,12 +3463,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
