@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Javier Rodríguez, Kenedith Méndez, Javier de la Hoz">
-<meta name="dcterms.date" content="2025-07-24">
+<meta name="dcterms.date" content="2025-08-08">
 <meta name="description" content="….">
 
 <title>Manual de Análisis Visuazalización de datos ecológicos y ambientales - Anvidea</title>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 24, 2025</p>
+        <p class="date">August 8, 2025</p>
       </div>
     </div>
     
@@ -88,7 +88,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Menú flotante</h2>
    
   <ul>
-  <li><a href="#introducción-general" id="toc-introducción-general" class="nav-link active" data-scroll-target="#introducción-general">Introducción general</a></li>
+  <li><a href="#introducción-general" id="toc-introducción-general" class="nav-link active" data-scroll-target="#introducción-general">Introducción general</a>
+  <ul>
   <li><a href="#fundamentos-de-manipulación-de-datos" id="toc-fundamentos-de-manipulación-de-datos" class="nav-link" data-scroll-target="#fundamentos-de-manipulación-de-datos">1. Fundamentos de manipulación de datos</a>
   <ul>
   <li><a href="#lectura-de-bases-de-datos-y-cargar-paquetes" id="toc-lectura-de-bases-de-datos-y-cargar-paquetes" class="nav-link" data-scroll-target="#lectura-de-bases-de-datos-y-cargar-paquetes">Lectura de bases de datos y cargar paquetes</a></li>
@@ -105,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#categorizar-una-variable-contínua" id="toc-categorizar-una-variable-contínua" class="nav-link" data-scroll-target="#categorizar-una-variable-contínua">1.11 Categorizar una variable contínua</a></li>
   <li><a href="#cuestionarios" id="toc-cuestionarios" class="nav-link" data-scroll-target="#cuestionarios">Cuestionarios</a></li>
   </ul></li>
-  <li><a href="#visualización-gráfica." id="toc-visualización-gráfica." class="nav-link" data-scroll-target="#visualización-gráfica.">2. Visualización gráfica.</a>
+  <li><a href="#visualización-gráfica---exploratorios." id="toc-visualización-gráfica---exploratorios." class="nav-link" data-scroll-target="#visualización-gráfica---exploratorios.">2. Visualización gráfica - Exploratorios.</a>
   <ul>
   <li><a href="#tipos-de-variables-y-visualización-recomendada" id="toc-tipos-de-variables-y-visualización-recomendada" class="nav-link" data-scroll-target="#tipos-de-variables-y-visualización-recomendada">2.1 Tipos de variables y visualización recomendada</a></li>
   <li><a href="#exploración-de-relaciones-entre-variables" id="toc-exploración-de-relaciones-entre-variables" class="nav-link" data-scroll-target="#exploración-de-relaciones-entre-variables">2.2 Exploración de relaciones entre variables</a></li>
@@ -113,21 +114,68 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#figuras-avanzadas-figuras-de-burbujas" id="toc-figuras-avanzadas-figuras-de-burbujas" class="nav-link" data-scroll-target="#figuras-avanzadas-figuras-de-burbujas">2.4 Figuras avanzadas (Figuras de burbujas)</a></li>
   <li><a href="#errores-comunes-e-interpretación-ecológica" id="toc-errores-comunes-e-interpretación-ecológica" class="nav-link" data-scroll-target="#errores-comunes-e-interpretación-ecológica">2.5 Errores comunes e interpretación ecológica</a></li>
   <li><a href="#aplicaciones-ecológicas-y-ambientales" id="toc-aplicaciones-ecológicas-y-ambientales" class="nav-link" data-scroll-target="#aplicaciones-ecológicas-y-ambientales">2.6 Aplicaciones ecológicas y ambientales</a></li>
+  <li><a href="#cuestionarios-1" id="toc-cuestionarios-1" class="nav-link" data-scroll-target="#cuestionarios-1">Cuestionarios</a></li>
   </ul></li>
-  <li><a href="#aplicaciones-en-estudios-de-caso-visualización-gráfica" id="toc-aplicaciones-en-estudios-de-caso-visualización-gráfica" class="nav-link" data-scroll-target="#aplicaciones-en-estudios-de-caso-visualización-gráfica">3. Aplicaciones en estudios de caso (Visualización Gráfica)</a>
+  <li><a href="#visualización-gráfica---diversidad-alfa-y-beta." id="toc-visualización-gráfica---diversidad-alfa-y-beta." class="nav-link" data-scroll-target="#visualización-gráfica---diversidad-alfa-y-beta.">3. Visualización gráfica - Diversidad Alfa y Beta.</a>
   <ul>
-  <li><a href="#caso-de-plancton-estuarino." id="toc-caso-de-plancton-estuarino." class="nav-link" data-scroll-target="#caso-de-plancton-estuarino.">3.1 Caso de plancton estuarino.</a></li>
-  <li><a href="#caso-de-peces-andinos." id="toc-caso-de-peces-andinos." class="nav-link" data-scroll-target="#caso-de-peces-andinos.">3.2 Caso de peces andinos.</a></li>
-  <li><a href="#caso-invertebrados-acuáticos." id="toc-caso-invertebrados-acuáticos." class="nav-link" data-scroll-target="#caso-invertebrados-acuáticos.">3.3 Caso invertebrados acuáticos.</a></li>
-  <li><a href="#ejercicios-de-entrenamiento" id="toc-ejercicios-de-entrenamiento" class="nav-link" data-scroll-target="#ejercicios-de-entrenamiento">3.4 Ejercicios de entrenamiento</a></li>
+  <li><a href="#carga-de-paquetes-y-lectura-de-bases-de-datos" id="toc-carga-de-paquetes-y-lectura-de-bases-de-datos" class="nav-link" data-scroll-target="#carga-de-paquetes-y-lectura-de-bases-de-datos">3.1 Carga de paquetes y lectura de bases de datos</a></li>
+  <li><a href="#estimadores-clásicos-de-diversidad-alfa-por-cada-sitio-evaluado" id="toc-estimadores-clásicos-de-diversidad-alfa-por-cada-sitio-evaluado" class="nav-link" data-scroll-target="#estimadores-clásicos-de-diversidad-alfa-por-cada-sitio-evaluado">3.2 Estimadores clásicos de diversidad alfa por cada sitio evaluado</a></li>
+  <li><a href="#diversidad-alfa-con-curvas-rad-localidades" id="toc-diversidad-alfa-con-curvas-rad-localidades" class="nav-link" data-scroll-target="#diversidad-alfa-con-curvas-rad-localidades">3.3 Diversidad alfa con curvas RAD (Localidades)</a></li>
+  <li><a href="#comparación-de-muestras-con-glms-y-permanovas" id="toc-comparación-de-muestras-con-glms-y-permanovas" class="nav-link" data-scroll-target="#comparación-de-muestras-con-glms-y-permanovas">3.4 Comparación de muestras con GLMs y Permanovas</a></li>
+  <li><a href="#diversidad-alfa-en-4-pasos.-chao-et-al.-2020" id="toc-diversidad-alfa-en-4-pasos.-chao-et-al.-2020" class="nav-link" data-scroll-target="#diversidad-alfa-en-4-pasos.-chao-et-al.-2020">3.5 Diversidad alfa en 4 Pasos. Chao et al.&nbsp;(2020)</a></li>
+  <li><a href="#cuestionarios-2" id="toc-cuestionarios-2" class="nav-link" data-scroll-target="#cuestionarios-2">Cuestionarios</a></li>
   </ul></li>
-  <li><a href="#automatización-y-reproducibilidad" id="toc-automatización-y-reproducibilidad" class="nav-link" data-scroll-target="#automatización-y-reproducibilidad">4. Automatización y reproducibilidad</a>
+  <li><a href="#visualización-gráfica---ecología-de-poblaciones." id="toc-visualización-gráfica---ecología-de-poblaciones." class="nav-link" data-scroll-target="#visualización-gráfica---ecología-de-poblaciones.">4. Visualización gráfica - Ecología de Poblaciones.</a>
   <ul>
-  <li><a href="#funciones-personalizadas" id="toc-funciones-personalizadas" class="nav-link" data-scroll-target="#funciones-personalizadas">4.1 Funciones personalizadas</a></li>
-  <li><a href="#uso-de-purrr-y-map" id="toc-uso-de-purrr-y-map" class="nav-link" data-scroll-target="#uso-de-purrr-y-map">4.2 Uso de <code>purrr</code> y <code>map</code></a></li>
-  <li><a href="#reportes-automáticos-con-quarto" id="toc-reportes-automáticos-con-quarto" class="nav-link" data-scroll-target="#reportes-automáticos-con-quarto">4.3 Reportes automáticos con <code>Quarto</code></a></li>
-  <li><a href="#flujo-reproducible-completo" id="toc-flujo-reproducible-completo" class="nav-link" data-scroll-target="#flujo-reproducible-completo">4.4 Flujo reproducible completo</a></li>
-  <li><a href="#ejercicios-de-entrenamiento-1" id="toc-ejercicios-de-entrenamiento-1" class="nav-link" data-scroll-target="#ejercicios-de-entrenamiento-1">4.5 Ejercicios de entrenamiento</a></li>
+  <li><a href="#carga-de-paquetes-y-lectura-de-bases-de-datos-1" id="toc-carga-de-paquetes-y-lectura-de-bases-de-datos-1" class="nav-link" data-scroll-target="#carga-de-paquetes-y-lectura-de-bases-de-datos-1">4.1 Carga de paquetes y lectura de bases de datos</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">4.2</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">4.3</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">4.4</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4.5</a></li>
+  <li><a href="#cuestionarios-3" id="toc-cuestionarios-3" class="nav-link" data-scroll-target="#cuestionarios-3">Cuestionarios</a></li>
+  </ul></li>
+  <li><a href="#visualización-gráfica---ordenación-multivarida." id="toc-visualización-gráfica---ordenación-multivarida." class="nav-link" data-scroll-target="#visualización-gráfica---ordenación-multivarida.">5. Visualización gráfica - Ordenación multivarida.</a>
+  <ul>
+  <li><a href="#carga-de-paquetes-y-lectura-de-bases-de-datos-2" id="toc-carga-de-paquetes-y-lectura-de-bases-de-datos-2" class="nav-link" data-scroll-target="#carga-de-paquetes-y-lectura-de-bases-de-datos-2">5.1 Carga de paquetes y lectura de bases de datos</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">5.2</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">5.3</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">5.4</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">5.5</a></li>
+  <li><a href="#cuestionarios-4" id="toc-cuestionarios-4" class="nav-link" data-scroll-target="#cuestionarios-4">Cuestionarios</a></li>
+  </ul></li>
+  <li><a href="#visualización-gráfica---clasificación-multivarida." id="toc-visualización-gráfica---clasificación-multivarida." class="nav-link" data-scroll-target="#visualización-gráfica---clasificación-multivarida.">6. Visualización gráfica - Clasificación multivarida.</a>
+  <ul>
+  <li><a href="#carga-de-paquetes-y-lectura-de-bases-de-datos-3" id="toc-carga-de-paquetes-y-lectura-de-bases-de-datos-3" class="nav-link" data-scroll-target="#carga-de-paquetes-y-lectura-de-bases-de-datos-3">6.1 Carga de paquetes y lectura de bases de datos</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">6.2</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">6.3</a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">6.4</a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">6.5</a></li>
+  <li><a href="#cuestionarios-5" id="toc-cuestionarios-5" class="nav-link" data-scroll-target="#cuestionarios-5">Cuestionarios</a></li>
+  </ul></li>
+  <li><a href="#visualización-gráfica---pruebas-de-hipótesis-multivariadas." id="toc-visualización-gráfica---pruebas-de-hipótesis-multivariadas." class="nav-link" data-scroll-target="#visualización-gráfica---pruebas-de-hipótesis-multivariadas.">7. Visualización gráfica - Pruebas de Hipótesis Multivariadas.</a>
+  <ul>
+  <li><a href="#carga-de-paquetes-y-lectura-de-bases-de-datos-4" id="toc-carga-de-paquetes-y-lectura-de-bases-de-datos-4" class="nav-link" data-scroll-target="#carga-de-paquetes-y-lectura-de-bases-de-datos-4">7.1 Carga de paquetes y lectura de bases de datos</a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12">7.2</a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13">7.3</a></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14">7.4</a></li>
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15">7.5</a></li>
+  <li><a href="#cuestionarios-6" id="toc-cuestionarios-6" class="nav-link" data-scroll-target="#cuestionarios-6">Cuestionarios</a></li>
+  </ul></li>
+  <li><a href="#aplicaciones-en-estudios-de-caso-visualización-gráfica" id="toc-aplicaciones-en-estudios-de-caso-visualización-gráfica" class="nav-link" data-scroll-target="#aplicaciones-en-estudios-de-caso-visualización-gráfica">8. Aplicaciones en estudios de caso (Visualización Gráfica)</a>
+  <ul>
+  <li><a href="#caso-de-plancton-estuarino." id="toc-caso-de-plancton-estuarino." class="nav-link" data-scroll-target="#caso-de-plancton-estuarino.">8.1 Caso de plancton estuarino.</a></li>
+  <li><a href="#caso-de-peces-andinos." id="toc-caso-de-peces-andinos." class="nav-link" data-scroll-target="#caso-de-peces-andinos.">8.2 Caso de peces andinos.</a></li>
+  <li><a href="#caso-invertebrados-acuáticos." id="toc-caso-invertebrados-acuáticos." class="nav-link" data-scroll-target="#caso-invertebrados-acuáticos.">8.3 Caso invertebrados acuáticos.</a></li>
+  <li><a href="#cuestionarios-7" id="toc-cuestionarios-7" class="nav-link" data-scroll-target="#cuestionarios-7">Cuestionarios</a></li>
+  </ul></li>
+  <li><a href="#automatización-y-reproducibilidad" id="toc-automatización-y-reproducibilidad" class="nav-link" data-scroll-target="#automatización-y-reproducibilidad">9. Automatización y reproducibilidad</a>
+  <ul>
+  <li><a href="#funciones-personalizadas" id="toc-funciones-personalizadas" class="nav-link" data-scroll-target="#funciones-personalizadas">9.1 Funciones personalizadas</a></li>
+  <li><a href="#uso-de-purrr-y-map" id="toc-uso-de-purrr-y-map" class="nav-link" data-scroll-target="#uso-de-purrr-y-map">9.2 Uso de <code>purrr</code> y <code>map</code></a></li>
+  <li><a href="#reportes-automáticos-con-quarto" id="toc-reportes-automáticos-con-quarto" class="nav-link" data-scroll-target="#reportes-automáticos-con-quarto">9.3 Reportes automáticos con <code>Quarto</code></a></li>
+  <li><a href="#flujo-reproducible-completo" id="toc-flujo-reproducible-completo" class="nav-link" data-scroll-target="#flujo-reproducible-completo">9.4 Flujo reproducible completo</a></li>
+  <li><a href="#ejercicios-de-entrenamiento" id="toc-ejercicios-de-entrenamiento" class="nav-link" data-scroll-target="#ejercicios-de-entrenamiento">9.5 Ejercicios de entrenamiento</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -142,109 +190,240 @@ ul.task-list li input[type="checkbox"] {
 <h1>Introducción general</h1>
 <p>Este libro nace del deseo de facilitar el análisis y visualización de datos ecológicos y ambientales a través de herramientas reproducibles y automatizadas en R. Su propósito no es solo técnico, sino formativo: se busca que los lectores — estudiantes de pregrado y posgrado en ciencias biológicas — comprendan, manipulen y visualicen sus propios datos con sentido ecológico y pensamiento crítico.Cada capítulo se basa en datos reales y propone ejercicios guiados, visualizaciones interpretables y cuestionarios que fomentan la exploración activa del conocimiento.</p>
 <hr>
-</section>
-<section id="fundamentos-de-manipulación-de-datos" class="level1">
-<h1>1. Fundamentos de manipulación de datos</h1>
+<section id="fundamentos-de-manipulación-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="fundamentos-de-manipulación-de-datos">1. Fundamentos de manipulación de datos</h2>
 <p><strong>Objetivo</strong>: Entrenar en un <em>flujo reproducible de análisis</em> con tidyverse, aplicable a datos ecológicos.</p>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
 <hr>
-<section id="lectura-de-bases-de-datos-y-cargar-paquetes" class="level4">
-<h4 class="anchored" data-anchor-id="lectura-de-bases-de-datos-y-cargar-paquetes">Lectura de bases de datos y cargar paquetes</h4>
+<section id="lectura-de-bases-de-datos-y-cargar-paquetes" class="level5">
+<h5 class="anchored" data-anchor-id="lectura-de-bases-de-datos-y-cargar-paquetes">Lectura de bases de datos y cargar paquetes</h5>
 </section>
-<section id="selección-y-filtrado" class="level4">
-<h4 class="anchored" data-anchor-id="selección-y-filtrado">1.1 Selección y filtrado</h4>
+<section id="selección-y-filtrado" class="level5">
+<h5 class="anchored" data-anchor-id="selección-y-filtrado">1.1 Selección y filtrado</h5>
 </section>
-<section id="creación-de-nuevas-variables" class="level4">
-<h4 class="anchored" data-anchor-id="creación-de-nuevas-variables">1.2 Creación de nuevas variables</h4>
+<section id="creación-de-nuevas-variables" class="level5">
+<h5 class="anchored" data-anchor-id="creación-de-nuevas-variables">1.2 Creación de nuevas variables</h5>
 </section>
-<section id="resumen-estadístico-de-datos-agrupados" class="level4">
-<h4 class="anchored" data-anchor-id="resumen-estadístico-de-datos-agrupados">1.3 Resumen estadístico de datos agrupados</h4>
+<section id="resumen-estadístico-de-datos-agrupados" class="level5">
+<h5 class="anchored" data-anchor-id="resumen-estadístico-de-datos-agrupados">1.3 Resumen estadístico de datos agrupados</h5>
 </section>
-<section id="transformación-de-datos" class="level4">
-<h4 class="anchored" data-anchor-id="transformación-de-datos">1.4 Transformación de datos</h4>
+<section id="transformación-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="transformación-de-datos">1.4 Transformación de datos</h5>
 </section>
-<section id="transposición-de-datos" class="level4">
-<h4 class="anchored" data-anchor-id="transposición-de-datos">1.5 Transposición de datos</h4>
+<section id="transposición-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="transposición-de-datos">1.5 Transposición de datos</h5>
 </section>
-<section id="unión-de-datos" class="level4">
-<h4 class="anchored" data-anchor-id="unión-de-datos">1.6 Unión de datos</h4>
+<section id="unión-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="unión-de-datos">1.6 Unión de datos</h5>
 </section>
-<section id="conversión-de-variables-categóricas" class="level4">
-<h4 class="anchored" data-anchor-id="conversión-de-variables-categóricas">1.7 Conversión de variables categóricas</h4>
+<section id="conversión-de-variables-categóricas" class="level5">
+<h5 class="anchored" data-anchor-id="conversión-de-variables-categóricas">1.7 Conversión de variables categóricas</h5>
 </section>
-<section id="abreviar-nombres-de-grupos-biológicos" class="level4">
-<h4 class="anchored" data-anchor-id="abreviar-nombres-de-grupos-biológicos">1.8 Abreviar nombres de grupos biológicos</h4>
+<section id="abreviar-nombres-de-grupos-biológicos" class="level5">
+<h5 class="anchored" data-anchor-id="abreviar-nombres-de-grupos-biológicos">1.8 Abreviar nombres de grupos biológicos</h5>
 </section>
-<section id="seleccionar-los-taxones-más-abundantes" class="level4">
-<h4 class="anchored" data-anchor-id="seleccionar-los-taxones-más-abundantes">1.9 Seleccionar los taxones más abundantes</h4>
+<section id="seleccionar-los-taxones-más-abundantes" class="level5">
+<h5 class="anchored" data-anchor-id="seleccionar-los-taxones-más-abundantes">1.9 Seleccionar los taxones más abundantes</h5>
 </section>
-<section id="visualización" class="level4">
-<h4 class="anchored" data-anchor-id="visualización">1.10 Visualización</h4>
+<section id="visualización" class="level5">
+<h5 class="anchored" data-anchor-id="visualización">1.10 Visualización</h5>
 </section>
-<section id="categorizar-una-variable-contínua" class="level4">
-<h4 class="anchored" data-anchor-id="categorizar-una-variable-contínua">1.11 Categorizar una variable contínua</h4>
+<section id="categorizar-una-variable-contínua" class="level5">
+<h5 class="anchored" data-anchor-id="categorizar-una-variable-contínua">1.11 Categorizar una variable contínua</h5>
 </section>
-<section id="cuestionarios" class="level4">
-<h4 class="anchored" data-anchor-id="cuestionarios">Cuestionarios</h4>
+<section id="cuestionarios" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios">Cuestionarios</h5>
 <hr>
 </section>
 </section>
-<section id="visualización-gráfica." class="level1">
-<h1>2. Visualización gráfica.</h1>
+<section id="visualización-gráfica---exploratorios." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---exploratorios.">2. Visualización gráfica - Exploratorios.</h2>
 <p><strong>Objetivo</strong>: Entrenar en el análisis y vsualización de datos ecológicos y ambientales.</p>
-<section id="tipos-de-variables-y-visualización-recomendada" class="level4">
-<h4 class="anchored" data-anchor-id="tipos-de-variables-y-visualización-recomendada">2.1 Tipos de variables y visualización recomendada</h4>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
+<hr>
+<section id="tipos-de-variables-y-visualización-recomendada" class="level5">
+<h5 class="anchored" data-anchor-id="tipos-de-variables-y-visualización-recomendada">2.1 Tipos de variables y visualización recomendada</h5>
 </section>
-<section id="exploración-de-relaciones-entre-variables" class="level4">
-<h4 class="anchored" data-anchor-id="exploración-de-relaciones-entre-variables">2.2 Exploración de relaciones entre variables</h4>
+<section id="exploración-de-relaciones-entre-variables" class="level5">
+<h5 class="anchored" data-anchor-id="exploración-de-relaciones-entre-variables">2.2 Exploración de relaciones entre variables</h5>
 </section>
-<section id="exploración-de-diferencias-entre-muestras" class="level4">
-<h4 class="anchored" data-anchor-id="exploración-de-diferencias-entre-muestras">2.3 Exploración de diferencias entre muestras</h4>
+<section id="exploración-de-diferencias-entre-muestras" class="level5">
+<h5 class="anchored" data-anchor-id="exploración-de-diferencias-entre-muestras">2.3 Exploración de diferencias entre muestras</h5>
 </section>
-<section id="figuras-avanzadas-figuras-de-burbujas" class="level4">
-<h4 class="anchored" data-anchor-id="figuras-avanzadas-figuras-de-burbujas">2.4 Figuras avanzadas (Figuras de burbujas)</h4>
+<section id="figuras-avanzadas-figuras-de-burbujas" class="level5">
+<h5 class="anchored" data-anchor-id="figuras-avanzadas-figuras-de-burbujas">2.4 Figuras avanzadas (Figuras de burbujas)</h5>
 </section>
-<section id="errores-comunes-e-interpretación-ecológica" class="level4">
-<h4 class="anchored" data-anchor-id="errores-comunes-e-interpretación-ecológica">2.5 Errores comunes e interpretación ecológica</h4>
+<section id="errores-comunes-e-interpretación-ecológica" class="level5">
+<h5 class="anchored" data-anchor-id="errores-comunes-e-interpretación-ecológica">2.5 Errores comunes e interpretación ecológica</h5>
 </section>
-<section id="aplicaciones-ecológicas-y-ambientales" class="level4">
-<h4 class="anchored" data-anchor-id="aplicaciones-ecológicas-y-ambientales">2.6 Aplicaciones ecológicas y ambientales</h4>
+<section id="aplicaciones-ecológicas-y-ambientales" class="level5">
+<h5 class="anchored" data-anchor-id="aplicaciones-ecológicas-y-ambientales">2.6 Aplicaciones ecológicas y ambientales</h5>
+</section>
+<section id="cuestionarios-1" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-1">Cuestionarios</h5>
 <hr>
 </section>
 </section>
-<section id="aplicaciones-en-estudios-de-caso-visualización-gráfica" class="level1">
-<h1>3. Aplicaciones en estudios de caso (Visualización Gráfica)</h1>
+<section id="visualización-gráfica---diversidad-alfa-y-beta." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---diversidad-alfa-y-beta.">3. Visualización gráfica - Diversidad Alfa y Beta.</h2>
+<p><strong>Objetivo</strong>: Análisis y visualización de la diversidad alfa y beta.</p>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
+<hr>
+<section id="carga-de-paquetes-y-lectura-de-bases-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="carga-de-paquetes-y-lectura-de-bases-de-datos">3.1 Carga de paquetes y lectura de bases de datos</h5>
+</section>
+<section id="estimadores-clásicos-de-diversidad-alfa-por-cada-sitio-evaluado" class="level5">
+<h5 class="anchored" data-anchor-id="estimadores-clásicos-de-diversidad-alfa-por-cada-sitio-evaluado">3.2 Estimadores clásicos de diversidad alfa por cada sitio evaluado</h5>
+</section>
+<section id="diversidad-alfa-con-curvas-rad-localidades" class="level5">
+<h5 class="anchored" data-anchor-id="diversidad-alfa-con-curvas-rad-localidades">3.3 Diversidad alfa con curvas RAD (Localidades)</h5>
+</section>
+<section id="comparación-de-muestras-con-glms-y-permanovas" class="level5">
+<h5 class="anchored" data-anchor-id="comparación-de-muestras-con-glms-y-permanovas">3.4 Comparación de muestras con GLMs y Permanovas</h5>
+</section>
+<section id="diversidad-alfa-en-4-pasos.-chao-et-al.-2020" class="level5">
+<h5 class="anchored" data-anchor-id="diversidad-alfa-en-4-pasos.-chao-et-al.-2020">3.5 Diversidad alfa en 4 Pasos. Chao et al.&nbsp;(2020)</h5>
+</section>
+<section id="cuestionarios-2" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-2">Cuestionarios</h5>
+<hr>
+</section>
+</section>
+<section id="visualización-gráfica---ecología-de-poblaciones." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---ecología-de-poblaciones.">4. Visualización gráfica - Ecología de Poblaciones.</h2>
+<p><strong>Objetivo</strong>: Análisis y visualización de modelos exponenciales, logísticos y matriciales.</p>
+<p><strong>Ejercicios</strong>: A. Datos hipotéticos. B. Datos de <em>Calotropis procera</em></p>
+<hr>
+<section id="carga-de-paquetes-y-lectura-de-bases-de-datos-1" class="level5">
+<h5 class="anchored" data-anchor-id="carga-de-paquetes-y-lectura-de-bases-de-datos-1">4.1 Carga de paquetes y lectura de bases de datos</h5>
+</section>
+<section id="section" class="level5">
+<h5 class="anchored" data-anchor-id="section">4.2</h5>
+</section>
+<section id="section-1" class="level5">
+<h5 class="anchored" data-anchor-id="section-1">4.3</h5>
+</section>
+<section id="section-2" class="level5">
+<h5 class="anchored" data-anchor-id="section-2">4.4</h5>
+</section>
+<section id="section-3" class="level5">
+<h5 class="anchored" data-anchor-id="section-3">4.5</h5>
+</section>
+<section id="cuestionarios-3" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-3">Cuestionarios</h5>
+<hr>
+</section>
+</section>
+<section id="visualización-gráfica---ordenación-multivarida." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---ordenación-multivarida.">5. Visualización gráfica - Ordenación multivarida.</h2>
+<p><strong>Objetivo</strong>: Análisis y visualización de técnicas de ordenación (PCA, NMDS, CA, MCA, RDA, CCA).</p>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
+<hr>
+<section id="carga-de-paquetes-y-lectura-de-bases-de-datos-2" class="level5">
+<h5 class="anchored" data-anchor-id="carga-de-paquetes-y-lectura-de-bases-de-datos-2">5.1 Carga de paquetes y lectura de bases de datos</h5>
+</section>
+<section id="section-4" class="level5">
+<h5 class="anchored" data-anchor-id="section-4">5.2</h5>
+</section>
+<section id="section-5" class="level5">
+<h5 class="anchored" data-anchor-id="section-5">5.3</h5>
+</section>
+<section id="section-6" class="level5">
+<h5 class="anchored" data-anchor-id="section-6">5.4</h5>
+</section>
+<section id="section-7" class="level5">
+<h5 class="anchored" data-anchor-id="section-7">5.5</h5>
+</section>
+<section id="cuestionarios-4" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-4">Cuestionarios</h5>
+<hr>
+</section>
+</section>
+<section id="visualización-gráfica---clasificación-multivarida." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---clasificación-multivarida.">6. Visualización gráfica - Clasificación multivarida.</h2>
+<p><strong>Objetivo</strong>: Análisis y visualización de técnicas de clasificación (CLA, LDA,DCA).</p>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
+<hr>
+<section id="carga-de-paquetes-y-lectura-de-bases-de-datos-3" class="level5">
+<h5 class="anchored" data-anchor-id="carga-de-paquetes-y-lectura-de-bases-de-datos-3">6.1 Carga de paquetes y lectura de bases de datos</h5>
+</section>
+<section id="section-8" class="level5">
+<h5 class="anchored" data-anchor-id="section-8">6.2</h5>
+</section>
+<section id="section-9" class="level5">
+<h5 class="anchored" data-anchor-id="section-9">6.3</h5>
+</section>
+<section id="section-10" class="level5">
+<h5 class="anchored" data-anchor-id="section-10">6.4</h5>
+</section>
+<section id="section-11" class="level5">
+<h5 class="anchored" data-anchor-id="section-11">6.5</h5>
+</section>
+<section id="cuestionarios-5" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-5">Cuestionarios</h5>
+<hr>
+</section>
+</section>
+<section id="visualización-gráfica---pruebas-de-hipótesis-multivariadas." class="level2">
+<h2 class="anchored" data-anchor-id="visualización-gráfica---pruebas-de-hipótesis-multivariadas.">7. Visualización gráfica - Pruebas de Hipótesis Multivariadas.</h2>
+<p><strong>Objetivo</strong>: Análisis y visualización de puebas de hipótesis (Diferencias entre muestras: Manovas y Permanovas, Relaciones entre variables y/o muestras: Modelación estadística).</p>
+<p><strong>Ejercicios</strong>: A. Plancton estuarino. B. Macroinvertebrados de ríos.</p>
+<hr>
+<section id="carga-de-paquetes-y-lectura-de-bases-de-datos-4" class="level5">
+<h5 class="anchored" data-anchor-id="carga-de-paquetes-y-lectura-de-bases-de-datos-4">7.1 Carga de paquetes y lectura de bases de datos</h5>
+</section>
+<section id="section-12" class="level5">
+<h5 class="anchored" data-anchor-id="section-12">7.2</h5>
+</section>
+<section id="section-13" class="level5">
+<h5 class="anchored" data-anchor-id="section-13">7.3</h5>
+</section>
+<section id="section-14" class="level5">
+<h5 class="anchored" data-anchor-id="section-14">7.4</h5>
+</section>
+<section id="section-15" class="level5">
+<h5 class="anchored" data-anchor-id="section-15">7.5</h5>
+</section>
+<section id="cuestionarios-6" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-6">Cuestionarios</h5>
+<hr>
+</section>
+</section>
+<section id="aplicaciones-en-estudios-de-caso-visualización-gráfica" class="level2">
+<h2 class="anchored" data-anchor-id="aplicaciones-en-estudios-de-caso-visualización-gráfica">8. Aplicaciones en estudios de caso (Visualización Gráfica)</h2>
 <p><strong>Objetivo</strong>: aplicar las habilidades previas en escenarios reales (ordenación, clasificación y prubas de hipótesis multivariadas, ecología de poblaciones y de comunidades). En este capítulo se asume el dominio del tidyverse.</p>
-<section id="caso-de-plancton-estuarino." class="level4">
-<h4 class="anchored" data-anchor-id="caso-de-plancton-estuarino.">3.1 Caso de plancton estuarino.</h4>
+<section id="caso-de-plancton-estuarino." class="level5">
+<h5 class="anchored" data-anchor-id="caso-de-plancton-estuarino.">8.1 Caso de plancton estuarino.</h5>
 </section>
-<section id="caso-de-peces-andinos." class="level4">
-<h4 class="anchored" data-anchor-id="caso-de-peces-andinos.">3.2 Caso de peces andinos.</h4>
+<section id="caso-de-peces-andinos." class="level5">
+<h5 class="anchored" data-anchor-id="caso-de-peces-andinos.">8.2 Caso de peces andinos.</h5>
 </section>
-<section id="caso-invertebrados-acuáticos." class="level4">
-<h4 class="anchored" data-anchor-id="caso-invertebrados-acuáticos.">3.3 Caso invertebrados acuáticos.</h4>
+<section id="caso-invertebrados-acuáticos." class="level5">
+<h5 class="anchored" data-anchor-id="caso-invertebrados-acuáticos.">8.3 Caso invertebrados acuáticos.</h5>
 </section>
-<section id="ejercicios-de-entrenamiento" class="level4">
-<h4 class="anchored" data-anchor-id="ejercicios-de-entrenamiento">3.4 Ejercicios de entrenamiento</h4>
+<section id="cuestionarios-7" class="level5">
+<h5 class="anchored" data-anchor-id="cuestionarios-7">Cuestionarios</h5>
 <hr>
 </section>
 </section>
-<section id="automatización-y-reproducibilidad" class="level1">
-<h1>4. Automatización y reproducibilidad</h1>
+<section id="automatización-y-reproducibilidad" class="level2">
+<h2 class="anchored" data-anchor-id="automatización-y-reproducibilidad">9. Automatización y reproducibilidad</h2>
 <p><strong>Objetivo</strong>: construir funciones propias (<code>funciones.R</code>) para estandarizar tareas repetitivas en la manipulación de datos.</p>
-<section id="funciones-personalizadas" class="level4">
-<h4 class="anchored" data-anchor-id="funciones-personalizadas">4.1 Funciones personalizadas</h4>
+<section id="funciones-personalizadas" class="level5">
+<h5 class="anchored" data-anchor-id="funciones-personalizadas">9.1 Funciones personalizadas</h5>
 </section>
-<section id="uso-de-purrr-y-map" class="level4">
-<h4 class="anchored" data-anchor-id="uso-de-purrr-y-map">4.2 Uso de <code>purrr</code> y <code>map</code></h4>
+<section id="uso-de-purrr-y-map" class="level5">
+<h5 class="anchored" data-anchor-id="uso-de-purrr-y-map">9.2 Uso de <code>purrr</code> y <code>map</code></h5>
 </section>
-<section id="reportes-automáticos-con-quarto" class="level4">
-<h4 class="anchored" data-anchor-id="reportes-automáticos-con-quarto">4.3 Reportes automáticos con <code>Quarto</code></h4>
+<section id="reportes-automáticos-con-quarto" class="level5">
+<h5 class="anchored" data-anchor-id="reportes-automáticos-con-quarto">9.3 Reportes automáticos con <code>Quarto</code></h5>
 </section>
-<section id="flujo-reproducible-completo" class="level4">
-<h4 class="anchored" data-anchor-id="flujo-reproducible-completo">4.4 Flujo reproducible completo</h4>
+<section id="flujo-reproducible-completo" class="level5">
+<h5 class="anchored" data-anchor-id="flujo-reproducible-completo">9.4 Flujo reproducible completo</h5>
 </section>
-<section id="ejercicios-de-entrenamiento-1" class="level4">
-<h4 class="anchored" data-anchor-id="ejercicios-de-entrenamiento-1">4.5 Ejercicios de entrenamiento</h4>
+<section id="ejercicios-de-entrenamiento" class="level5">
+<h5 class="anchored" data-anchor-id="ejercicios-de-entrenamiento">9.5 Ejercicios de entrenamiento</h5>
+</section>
 </section>
 </section>
 
