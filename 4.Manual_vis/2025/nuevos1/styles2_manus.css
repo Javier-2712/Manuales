@@ -1,0 +1,499 @@
+/* ============================================================================
+   ESTILOS DIDÁCTICOS PARA MANUAL ANVIDEA - CAPÍTULO 1
+   Diseñado específicamente para contenido educativo de análisis de datos
+   ============================================================================ */
+
+/* CONFIGURACIÓN GENERAL DEL DOCUMENTO */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2c3e50;
+    background-color: #fdfdfd;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.quarto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================================================
+   JERARQUÍA DE TÍTULOS CON COLORES ECOLÓGICOS
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3;
+}
+
+/* Título principal - Azul océano */
+h1 { 
+    color: #2b8cbe; 
+    font-size: 2.2em;
+    border-bottom: 3px solid #2b8cbe;
+    padding-bottom: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+/* Subtítulos principales - Verde bosque */
+h2 { 
+    color: #2ca02c; 
+    font-size: 1.8em;
+    border-left: 4px solid #2ca02c;
+    padding-left: 15px;
+    margin-top: 2.5em;
+}
+
+/* Secciones - Naranja tierra */
+h3 { 
+    color: #ff7f0e; 
+    font-size: 1.5em;
+    margin-top: 2em;
+}
+
+/* Subsecciones - Marrón tierra */
+h4 { 
+    color: #8c564b; 
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+/* Elementos menores - Púrpura */
+h5 { 
+    color: #9467bd; 
+    font-size: 1.1em;
+}
+
+h6 { 
+    color: #7f7f7f; 
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================================================================
+   CALLOUTS DIDÁCTICOS MEJORADOS
+   ============================================================================ */
+
+.callout {
+    margin: 1.5em 0;
+    padding: 1.2em;
+    border-radius: 8px;
+    border-left: 5px solid;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,250,0.9));
+}
+
+/* Callout de notas - Azul suave */
+.callout-note {
+    border-left-color: #3498db;
+    background: linear-gradient(135deg, #ebf3fd, #f8fbff);
+}
+
+.callout-note .callout-title {
+    color: #2980b9;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+}
+
+/* Callout de tips - Verde natural */
+.callout-tip {
+    border-left-color: #27ae60;
+    background: linear-gradient(135deg, #e8f8f0, #f0fdf4);
+}
+
+.callout-tip .callout-title {
+    color: #229954;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+}
+
+/* Callout de advertencias - Naranja cálido */
+.callout-warning {
+    border-left-color: #f39c12;
+    background: linear-gradient(135deg, #fef9e7, #fffbf0);
+}
+
+.callout-warning .callout-title {
+    color: #d68910;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+}
+
+/* Callout de ejercicios - Púrpura motivador */
+.callout-exercise {
+    border-left-color: #8e44ad;
+    background: linear-gradient(135deg, #f4f1f8, #faf9fc);
+}
+
+.callout-exercise .callout-title {
+    color: #7d3c98;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+}
+
+/* ============================================================================
+   BLOQUES DE CÓDIGO MEJORADOS
+   ============================================================================ */
+
+/* Contenedor de código */
+.sourceCode {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin: 1.5em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Código R */
+code.sourceCode {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 1em;
+    display: block;
+    overflow-x: auto;
+}
+
+/* Código inline */
+code {
+    background-color: #f1f3f4;
+    color: #d73502;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+/* Resaltado de sintaxis R */
+.sourceCode .kw { color: #0077aa; font-weight: bold; } /* Keywords */
+.sourceCode .dt { color: #902000; } /* Data types */
+.sourceCode .dv { color: #40a070; } /* Decimal values */
+.sourceCode .st { color: #4070a0; } /* Strings */
+.sourceCode .co { color: #60a0b0; font-style: italic; } /* Comments */
+.sourceCode .fu { color: #06287e; } /* Functions */
+
+/* ============================================================================
+   TABLAS DIDÁCTICAS MEJORADAS
+   ============================================================================ */
+
+table {
+    width: auto !important;
+    max-width: 90%;
+    margin: 1.5em auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+/* Encabezados de tabla */
+th {
+    background: linear-gradient(135deg, #2b8cbe, #3498db);
+    color: white;
+    font-weight: 600;
+    text-align: left !important;
+    padding: 12px 15px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+}
+
+/* Celdas de tabla */
+td {
+    text-align: left !important;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+
+/* Filas alternadas */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.2s ease;
+}
+
+/* Títulos de tabla */
+.table-caption, caption {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* ============================================================================
+   LISTAS MEJORADAS
+   ============================================================================ */
+
+ul, ol {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+ul li {
+    margin-bottom: 0.5em;
+    color: #2c3e50;
+}
+
+ol li {
+    margin-bottom: 0.5em;
+    color: #2c3e50;
+}
+
+/* Viñetas personalizadas */
+ul li::marker {
+    color: #27ae60;
+    font-size: 1.2em;
+}
+
+ol li::marker {
+    color: #2b8cbe;
+    font-weight: bold;
+}
+
+/* ============================================================================
+   ELEMENTOS INTERACTIVOS
+   ============================================================================ */
+
+/* Enlaces */
+a {
+    color: #2b8cbe;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #1f5f8b;
+    border-bottom-color: #1f5f8b;
+}
+
+/* Botones */
+.btn, button {
+    background: linear-gradient(135deg, #2b8cbe, #3498db);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover, button:hover {
+    background: linear-gradient(135deg, #1f5f8b, #2980b9);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================================================================
+   NAVEGACIÓN Y TOC
+   ============================================================================ */
+
+/* Tabla de contenidos */
+.sidebar nav[role="doc-toc"] ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar nav[role="doc-toc"] ul li {
+    margin-bottom: 0.3em;
+}
+
+.sidebar nav[role="doc-toc"] ul li a {
+    color: #5a6c7d;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.sidebar nav[role="doc-toc"] ul li a:hover,
+.sidebar nav[role="doc-toc"] ul li a.active {
+    background-color: #e3f2fd;
+    color: #2b8cbe;
+    border-bottom: none;
+}
+
+/* ============================================================================
+   ELEMENTOS ESPECIALES PARA CONTENIDO ECOLÓGICO
+   ============================================================================ */
+
+/* Destacar términos ecológicos */
+.termino-ecologico {
+    background: linear-gradient(120deg, #d4edda 0%, #c3e6cb 100%);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    color: #155724;
+}
+
+/* Destacar funciones de R */
+.funcion-r {
+    background: linear-gradient(120deg, #cce5ff 0%, #b3d9ff 100%);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
+    color: #0056b3;
+}
+
+/* Separadores de sección */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2b8cbe, transparent);
+    margin: 3em 0;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 10px;
+    }
+    
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.3em; }
+    
+    table {
+        max-width: 100%;
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+    
+    .callout {
+        padding: 1em;
+        margin: 1em 0;
+    }
+    
+    code.sourceCode {
+        font-size: 12px;
+        padding: 0.8em;
+    }
+}
+
+/* ============================================================================
+   MEJORAS PARA IMPRESIÓN
+   ============================================================================ */
+
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: black;
+        background: white;
+    }
+    
+    .callout {
+        border: 1px solid #ccc;
+        background: white !important;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    
+    table {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    th {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   ANIMACIONES SUTILES
+   ============================================================================ */
+
+.callout, table, .sourceCode {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transiciones suaves para elementos interactivos */
+* {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ============================================================================
+   UTILIDADES ADICIONALES
+   ============================================================================ */
+
+/* Centrar contenido */
+.text-center {
+    text-align: center !important;
+}
+
+/* Destacar texto importante */
+.destacado {
+    background: linear-gradient(120deg, #fff3cd 0%, #ffeaa7 100%);
+    padding: 0.5em 1em;
+    border-left: 4px solid #f39c12;
+    margin: 1em 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Espaciado adicional */
+.espaciado {
+    margin: 2em 0;
+}
+
+/* Texto pequeño para notas al pie */
+.texto-pequeno {
+    font-size: 0.85em;
+    color: #6c757d;
+    font-style: italic;
+}
+
