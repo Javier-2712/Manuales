@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Es-es" xml:lang="Es-es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-09-15">
+<meta name="description" content="….">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="3_vis_exp_ecocuestionarios_files/libs/clipboard/clipboard.min.js"></script>
+<script src="3_vis_exp_ecocuestionarios_files/libs/quarto-html/quarto.js"></script>
+<script src="3_vis_exp_ecocuestionarios_files/libs/quarto-html/popper.min.js"></script>
+<script src="3_vis_exp_ecocuestionarios_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="3_vis_exp_ecocuestionarios_files/libs/quarto-html/anchor.min.js"></script>
+<link href="3_vis_exp_ecocuestionarios_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="3_vis_exp_ecocuestionarios_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="3_vis_exp_ecocuestionarios_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="3_vis_exp_ecocuestionarios_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="3_vis_exp_ecocuestionarios_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 3. Ejercicios y visualización gráfica de modelos exponenciales de poblaciones</p>
+                  <div>
+        <div class="description">
+          ….
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 15, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#modelos-exponenciales-de-poblaciones" id="toc-modelos-exponenciales-de-poblaciones" class="nav-link active" data-scroll-target="#modelos-exponenciales-de-poblaciones">3. Modelos Exponenciales de Poblaciones</a>
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#competencias-específicas" id="toc-competencias-específicas" class="nav-link" data-scroll-target="#competencias-específicas">Competencias específicas</a></li>
+  </ul></li>
+  <li><a href="#a.-tiempo-continuo" id="toc-a.-tiempo-continuo" class="nav-link" data-scroll-target="#a.-tiempo-continuo">A. Tiempo continuo</a>
+  <ul>
+  <li><a href="#formulación" id="toc-formulación" class="nav-link" data-scroll-target="#formulación">Formulación</a></li>
+  <li><a href="#preparación-paquetes" id="toc-preparación-paquetes" class="nav-link" data-scroll-target="#preparación-paquetes">Preparación (paquetes)</a></li>
+  <li><a href="#ejemplo-1-curvas-con-r-positivo" id="toc-ejemplo-1-curvas-con-r-positivo" class="nav-link" data-scroll-target="#ejemplo-1-curvas-con-r-positivo">Ejemplo 1 — Curvas con r positivo</a></li>
+  <li><a href="#ejemplo-2-r-negativo-decrecimiento" id="toc-ejemplo-2-r-negativo-decrecimiento" class="nav-link" data-scroll-target="#ejemplo-2-r-negativo-decrecimiento">Ejemplo 2 — r negativo (decrecimiento)</a></li>
+  <li><a href="#ejemplo-3-comparación-de-múltiples-r" id="toc-ejemplo-3-comparación-de-múltiples-r" class="nav-link" data-scroll-target="#ejemplo-3-comparación-de-múltiples-r">Ejemplo 3 — Comparación de múltiples r</a></li>
+  <li><a href="#ejemplo-4-tiempo-de-duplicación-y-de-mitad" id="toc-ejemplo-4-tiempo-de-duplicación-y-de-mitad" class="nav-link" data-scroll-target="#ejemplo-4-tiempo-de-duplicación-y-de-mitad">Ejemplo 4 — Tiempo de duplicación y de “mitad”</a></li>
+  <li><a href="#ejemplo-5-dndt-rn-velocidad-instantánea" id="toc-ejemplo-5-dndt-rn-velocidad-instantánea" class="nav-link" data-scroll-target="#ejemplo-5-dndt-rn-velocidad-instantánea">Ejemplo 5 — dN/dt = rN (velocidad instantánea)</a></li>
+  <li><a href="#ejemplo-6-estimar-r-con-dos-observaciones" id="toc-ejemplo-6-estimar-r-con-dos-observaciones" class="nav-link" data-scroll-target="#ejemplo-6-estimar-r-con-dos-observaciones">Ejemplo 6 — Estimar r con dos observaciones</a></li>
+  <li><a href="#ejemplo-7-estimar-r-en-una-población-bacteriana" id="toc-ejemplo-7-estimar-r-en-una-población-bacteriana" class="nav-link" data-scroll-target="#ejemplo-7-estimar-r-en-una-población-bacteriana">Ejemplo 7 — Estimar r en una población bacteriana</a></li>
+  </ul></li>
+  <li><a href="#b.-tiempo-discreto" id="toc-b.-tiempo-discreto" class="nav-link" data-scroll-target="#b.-tiempo-discreto">B. Tiempo discreto</a>
+  <ul>
+  <li><a href="#ejemplo-1-λ-1-crecimiento" id="toc-ejemplo-1-λ-1-crecimiento" class="nav-link" data-scroll-target="#ejemplo-1-λ-1-crecimiento">Ejemplo 1 — λ &gt; 1 (crecimiento)</a></li>
+  <li><a href="#ejemplo-2-λ-1-estable" id="toc-ejemplo-2-λ-1-estable" class="nav-link" data-scroll-target="#ejemplo-2-λ-1-estable">Ejemplo 2 — λ = 1 (estable)</a></li>
+  <li><a href="#ejemplo-3-λ-1-decrecimiento" id="toc-ejemplo-3-λ-1-decrecimiento" class="nav-link" data-scroll-target="#ejemplo-3-λ-1-decrecimiento">Ejemplo 3 — λ &lt; 1 (decrecimiento)</a></li>
+  <li><a href="#ejemplo-4-crecimiento-continuo-vs.-discreto" id="toc-ejemplo-4-crecimiento-continuo-vs.-discreto" class="nav-link" data-scroll-target="#ejemplo-4-crecimiento-continuo-vs.-discreto">Ejemplo 4 — Crecimiento continuo vs.&nbsp;discreto</a></li>
+  <li><a href="#ejemplo-5-estimar-λ-a-partir-de-excenarios" id="toc-ejemplo-5-estimar-λ-a-partir-de-excenarios" class="nav-link" data-scroll-target="#ejemplo-5-estimar-λ-a-partir-de-excenarios">Ejemplo 5 — Estimar λ a partir de excenarios</a></li>
+  <li><a href="#ejemplo-5-reconstruir-r-a-partir-de-λ" id="toc-ejemplo-5-reconstruir-r-a-partir-de-λ" class="nav-link" data-scroll-target="#ejemplo-5-reconstruir-r-a-partir-de-λ">Ejemplo 5 — Reconstruir r a partir de λ</a></li>
+  <li><a href="#ejemplo-6-cálculo-de-λ" id="toc-ejemplo-6-cálculo-de-λ" class="nav-link" data-scroll-target="#ejemplo-6-cálculo-de-λ">Ejemplo 6 — Cálculo de λ</a></li>
+  </ul></li>
+  <li><a href="#c.-errores-comunes-e-interpretación" id="toc-c.-errores-comunes-e-interpretación" class="nav-link" data-scroll-target="#c.-errores-comunes-e-interpretación">C. Errores comunes e interpretación</a></li>
+  <li><a href="#d.-aplicaciones-ecológicas-y-ambientales" id="toc-d.-aplicaciones-ecológicas-y-ambientales" class="nav-link" data-scroll-target="#d.-aplicaciones-ecológicas-y-ambientales">D. Aplicaciones ecológicas y ambientales</a></li>
+  <li><a href="#e.-conclusiones" id="toc-e.-conclusiones" class="nav-link" data-scroll-target="#e.-conclusiones">E. Conclusiones</a></li>
+  <li><a href="#f.-cuestionario" id="toc-f.-cuestionario" class="nav-link" data-scroll-target="#f.-cuestionario">F. Cuestionario</a>
+  <ul>
+  <li><a href="#f.1-preguntas-teóricas" id="toc-f.1-preguntas-teóricas" class="nav-link" data-scroll-target="#f.1-preguntas-teóricas">F.1 Preguntas teóricas</a></li>
+  <li><a href="#f.2-preguntas-de-cálculo-y-gráficas" id="toc-f.2-preguntas-de-cálculo-y-gráficas" class="nav-link" data-scroll-target="#f.2-preguntas-de-cálculo-y-gráficas">F.2 Preguntas de cálculo y gráficas</a></li>
+  <li><a href="#f.3-preguntas-de-cálculo" id="toc-f.3-preguntas-de-cálculo" class="nav-link" data-scroll-target="#f.3-preguntas-de-cálculo">F.3 Preguntas de cálculo</a>
+  <ul>
+  <li><a href="#respuestas-a-las-preguntas-de-cálculo-y-gráficas-f2" id="toc-respuestas-a-las-preguntas-de-cálculo-y-gráficas-f2" class="nav-link" data-scroll-target="#respuestas-a-las-preguntas-de-cálculo-y-gráficas-f2">Respuestas a las preguntas de cálculo y gráficas (F2)</a>
+  <ul>
+  <li><a href="#población-biológica" id="toc-población-biológica" class="nav-link" data-scroll-target="#población-biológica">1. Población biológica</a></li>
+  <li><a href="#población-de-aves" id="toc-población-de-aves" class="nav-link" data-scroll-target="#población-de-aves">2. Población de aves</a></li>
+  <li><a href="#población-de-hormigas" id="toc-población-de-hormigas" class="nav-link" data-scroll-target="#población-de-hormigas">3. Población de Hormigas</a></li>
+  <li><a href="#población-de-peces" id="toc-población-de-peces" class="nav-link" data-scroll-target="#población-de-peces">4. Población de Peces</a></li>
+  </ul></li>
+  <li><a href="#respuestas-a-las-preguntas-de-cálculo-f3" id="toc-respuestas-a-las-preguntas-de-cálculo-f3" class="nav-link" data-scroll-target="#respuestas-a-las-preguntas-de-cálculo-f3">Respuestas a las preguntas de cálculo (F3)</a>
+  <ul>
+  <li><a href="#proyección-de-una-población-biológica" id="toc-proyección-de-una-población-biológica" class="nav-link" data-scroll-target="#proyección-de-una-población-biológica">5. Proyección de una Población Biológica</a></li>
+  <li><a href="#proyección-de-una-colonia-de-bacterias-a-10-años" id="toc-proyección-de-una-colonia-de-bacterias-a-10-años" class="nav-link" data-scroll-target="#proyección-de-una-colonia-de-bacterias-a-10-años">6. Proyección de una Colonia de Bacterias a 10 Años</a></li>
+  <li><a href="#propagación-viral-rápida" id="toc-propagación-viral-rápida" class="nav-link" data-scroll-target="#propagación-viral-rápida">7. Propagación Viral Rápida</a></li>
+  <li><a href="#determinación-de-la-población-inicial-de-peces" id="toc-determinación-de-la-población-inicial-de-peces" class="nav-link" data-scroll-target="#determinación-de-la-población-inicial-de-peces">8. Determinación de la Población Inicial de Peces</a></li>
+  <li><a href="#crecimiento-experimental-en-microbios" id="toc-crecimiento-experimental-en-microbios" class="nav-link" data-scroll-target="#crecimiento-experimental-en-microbios">9. Crecimiento Experimental en Microbios</a></li>
+  <li><a href="#duplicación-de-una-población-de-aves" id="toc-duplicación-de-una-población-de-aves" class="nav-link" data-scroll-target="#duplicación-de-una-población-de-aves">10. Duplicación de una Población de Aves</a></li>
+  <li><a href="#proyección-de-duplicación-en-una-población-de-insectos" id="toc-proyección-de-duplicación-en-una-población-de-insectos" class="nav-link" data-scroll-target="#proyección-de-duplicación-en-una-población-de-insectos">11. Proyección de Duplicación en una Población de Insectos</a></li>
+  <li><a href="#decaimiento-de-biomasa-en-una-población-de-hormigas" id="toc-decaimiento-de-biomasa-en-una-población-de-hormigas" class="nav-link" data-scroll-target="#decaimiento-de-biomasa-en-una-población-de-hormigas">12. Decaimiento de Biomasa en una Población de Hormigas</a></li>
+  <li><a href="#decaimiento-de-la-población-de-conejos" id="toc-decaimiento-de-la-población-de-conejos" class="nav-link" data-scroll-target="#decaimiento-de-la-población-de-conejos">13. Decaimiento de la Población de Conejos</a></li>
+  <li><a href="#proyección-de-una-población-de-peces-marinos" id="toc-proyección-de-una-población-de-peces-marinos" class="nav-link" data-scroll-target="#proyección-de-una-población-de-peces-marinos">14. Proyección de una Población de Peces Marinos</a></li>
+  <li><a href="#proyección-de-crecimiento-de-algas-en-un-lago" id="toc-proyección-de-crecimiento-de-algas-en-un-lago" class="nav-link" data-scroll-target="#proyección-de-crecimiento-de-algas-en-un-lago">15. Proyección de Crecimiento de Algas en un Lago</a></li>
+  <li><a href="#cálculo-de-la-tasa-de-crecimiento-de-ardillas" id="toc-cálculo-de-la-tasa-de-crecimiento-de-ardillas" class="nav-link" data-scroll-target="#cálculo-de-la-tasa-de-crecimiento-de-ardillas">16. Cálculo de la Tasa de Crecimiento de Ardillas</a></li>
+  <li><a href="#cálculo-de-la-población-inicial-en-una-población-silvestre" id="toc-cálculo-de-la-población-inicial-en-una-población-silvestre" class="nav-link" data-scroll-target="#cálculo-de-la-población-inicial-en-una-población-silvestre">17. Cálculo de la Población Inicial en una Población Silvestre</a></li>
+  <li><a href="#duplicación-de-una-población-de-curíes" id="toc-duplicación-de-una-población-de-curíes" class="nav-link" data-scroll-target="#duplicación-de-una-población-de-curíes">18. Duplicación de una Población de Curíes</a></li>
+  <li><a href="#tiempo-de-duplicación-y-tasa-de-crecimiento" id="toc-tiempo-de-duplicación-y-tasa-de-crecimiento" class="nav-link" data-scroll-target="#tiempo-de-duplicación-y-tasa-de-crecimiento">19. Tiempo de Duplicación y Tasa de Crecimiento</a></li>
+  <li><a href="#crecimiento-viral-y-tiempo-de-duplicación-en-cultivo" id="toc-crecimiento-viral-y-tiempo-de-duplicación-en-cultivo" class="nav-link" data-scroll-target="#crecimiento-viral-y-tiempo-de-duplicación-en-cultivo">20. Crecimiento Viral y Tiempo de Duplicación en Cultivo</a></li>
+  <li><a href="#decaimiento-en-la-biomasa-de-mariposas" id="toc-decaimiento-en-la-biomasa-de-mariposas" class="nav-link" data-scroll-target="#decaimiento-en-la-biomasa-de-mariposas">21. Decaimiento en la Biomasa de Mariposas</a></li>
+  <li><a href="#crecimiento-de-la-población-de-ee.uu." id="toc-crecimiento-de-la-población-de-ee.uu." class="nav-link" data-scroll-target="#crecimiento-de-la-población-de-ee.uu.">22. Crecimiento de la Población de EE.UU.</a></li>
+  <li><a href="#triplicación-de-la-población-de-elefantes" id="toc-triplicación-de-la-población-de-elefantes" class="nav-link" data-scroll-target="#triplicación-de-la-población-de-elefantes">23. Triplicación de la Población de Elefantes</a></li>
+  <li><a href="#tasas-de-incremento-de-la-población-mundial" id="toc-tasas-de-incremento-de-la-población-mundial" class="nav-link" data-scroll-target="#tasas-de-incremento-de-la-población-mundial">24. Tasas de Incremento de la Población Mundial</a></li>
+  <li><a href="#producción-de-la-población-mundial-a-partir-de-dos-individuos" id="toc-producción-de-la-población-mundial-a-partir-de-dos-individuos" class="nav-link" data-scroll-target="#producción-de-la-población-mundial-a-partir-de-dos-individuos">25. Producción de la Población Mundial a partir de Dos Individuos</a></li>
+  <li><a href="#proyección-de-la-población-humana-a-partir-de-datos-históricos" id="toc-proyección-de-la-población-humana-a-partir-de-datos-históricos" class="nav-link" data-scroll-target="#proyección-de-la-población-humana-a-partir-de-datos-históricos">26. Proyección de la Población Humana a partir de Datos Históricos</a></li>
+  <li><a href="#dinámica-de-una-población-de-escarabajos" id="toc-dinámica-de-una-población-de-escarabajos" class="nav-link" data-scroll-target="#dinámica-de-una-población-de-escarabajos">27. Dinámica de una Población de Escarabajos</a></li>
+  <li><a href="#impacto-del-desarrollo-en-una-población-de-orquídeas" id="toc-impacto-del-desarrollo-en-una-población-de-orquídeas" class="nav-link" data-scroll-target="#impacto-del-desarrollo-en-una-población-de-orquídeas">28. Impacto del Desarrollo en una Población de Orquídeas</a></li>
+  <li><a href="#tasa-de-crecimiento-en-una-población-de-e.-coli" id="toc-tasa-de-crecimiento-en-una-población-de-e.-coli" class="nav-link" data-scroll-target="#tasa-de-crecimiento-en-una-población-de-e.-coli">29. Tasa de Crecimiento en una Población de <em>E. coli</em></a></li>
+  <li><a href="#proyección-y-tiempo-de-reducción-de-una-población-invasora" id="toc-proyección-y-tiempo-de-reducción-de-una-población-invasora" class="nav-link" data-scroll-target="#proyección-y-tiempo-de-reducción-de-una-población-invasora">30. Proyección y Tiempo de Reducción de una Población Invasora</a></li>
+  <li><a href="#duplicación-y-multiplicación" id="toc-duplicación-y-multiplicación" class="nav-link" data-scroll-target="#duplicación-y-multiplicación">31. Duplicación y Multiplicación</a></li>
+  <li><a href="#determinación-de-la-tasa-a-partir-de-datos-reales" id="toc-determinación-de-la-tasa-a-partir-de-datos-reales" class="nav-link" data-scroll-target="#determinación-de-la-tasa-a-partir-de-datos-reales">32. Determinación de la Tasa a partir de Datos Reales</a></li>
+  <li><a href="#crecimiento-celular-en-cultivo" id="toc-crecimiento-celular-en-cultivo" class="nav-link" data-scroll-target="#crecimiento-celular-en-cultivo">33. Crecimiento Celular en Cultivo</a></li>
+  <li><a href="#aumento-percentual-y-tiempo-para-cuadruplicar" id="toc-aumento-percentual-y-tiempo-para-cuadruplicar" class="nav-link" data-scroll-target="#aumento-percentual-y-tiempo-para-cuadruplicar">34. Aumento Percentual y Tiempo para Cuadruplicar</a></li>
+  <li><a href="#incremento-por-intervalos-fijos" id="toc-incremento-por-intervalos-fijos" class="nav-link" data-scroll-target="#incremento-por-intervalos-fijos">35. Incremento por Intervalos Fijos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#g.-referencias-bibliográficas" id="toc-g.-referencias-bibliográficas" class="nav-link" data-scroll-target="#g.-referencias-bibliográficas">G. Referencias bibliográficas</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="modelos-exponenciales-de-poblaciones" class="level1">
+<h1>3. Modelos Exponenciales de Poblaciones</h1>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>La <strong>dinámica de poblaciones</strong> corresponde a un cuerpo teórico y a un conjunto de metodologías, que estudian los aspectos demográficos y cuantitativos de los individuos en sus poblaciones. Tiene como objetivo el estudio de las poblaciones en cuanto a su dimensión o densidad, su estructura, su evolución y sus características generales, consideradas desde un punto de vista cuantitativo. Desde el púnto de vista práctico, se puede considerar a esta dinámica ecológica como un <strong>modelo de balance de masas</strong> (<a href="#fig-fig1">Figura&nbsp;1</a>):</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Balance de masas en la dinámica de poblaciones.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El almacenamiento de masa es representado por la <strong>densidad N</strong>, la cual es el resultado de ingresos de individuos (<strong>Inmigraciones y Nacimientos</strong>) y de perdidas (<strong>Enmigraciones y Muertes</strong>). Este balance puede fluctuar en espacio y en tiempo.</p>
+<p><strong>El modelo exponencial</strong> es el punto de partida para el estudio demográfico de la dinámica poblacional, ya que describe el crecimiento de las poblaciones bajo condiciones ideales (población panmitica - sin selectividad de parejas -, recursos ilimitados - denso independencia -, sin competencia por recursos, sin depredación/enfermedades, sin estocasticidad ambiental). Aun cuando estos supuestos rara vez se cumplen completamente, su valor didáctico es clave y sirve como base inicial de comparación para modelos más realistas (p.&nbsp;ej., logísticos o matriciales que se presentarán más adelante). Este capítulo se organiza en dos bloques de modelación exponencial: <strong>tiempo continuo</strong> y <strong>tiempo discreto</strong>, con énfasis en <strong>figuras</strong> y <strong>ejercicios</strong> para fortalecer las competencias en la cuantificación de poblaciones.</p>
+</section>
+<section id="objetivo" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo">Objetivo</h2>
+<ul>
+<li>Calcular, visualizar y analizar trayectorias de crecimiento exponencial contínuo y discreto, bajo distintos escenarios de poblaciones.</li>
+</ul>
+</section>
+<section id="competencias-específicas" class="level2">
+<h2 class="anchored" data-anchor-id="competencias-específicas">Competencias específicas</h2>
+<ul>
+<li>Calcular proyecciones demográficas a formulaciones matemáticas.</li>
+<li>Generar gráficos reproducibles y comparables de modelos exponenciales en R.</li>
+<li>Interpretar críticamente resultados, bajo los supuestos de este tipo de modelos.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="a.-tiempo-continuo" class="level1">
+<h1>A. Tiempo continuo</h1>
+<p>El modelo exponencial continuo describe el cambio en el tamaño de la población en función del tiempo como un proceso suave, en el cual las tasas de natalidad y mortalidad se aplican constantemente en cada instante. Este enfoque es especialmente útil para poblaciones microbianas (bacterias, protozoarios, algas) que se reproducen de forma continua, así como para estimar procesos demográficos en poblaciones humanas donde los nacimientos y muertes ocurren a lo largo del año de manera no estacional.</p>
+<p>En ecología de poblaciones silvestres, los modelos continuos resultan apropiados para organismos con reproducción asincrónica, como muchos invertebrados acuáticos, plantas perennes y poblaciones de peces en ambientes marinos donde no hay una temporada de reproducción marcada. En el caso de humanos, el modelo continuo sirve como una aproximación a la dinámica poblacional cuando se modelan tasas promedio de natalidad y mortalidad en lapsos prolongados de tiempo.</p>
+<section id="formulación" class="level3">
+<h3 class="anchored" data-anchor-id="formulación">Formulación</h3>
+<p>A continuación se relaciona a la formula de crecimiento contínuo que será usada de base para los ejercicios de este capítulo.</p>
+<p><span class="math inline">\(N_{(t)} = N_0. e^{r. t}\)</span>, donde:<br>
+- (<span class="math inline">\(N_0\)</span>) es el tamaño inicial de la población evaluada.<br>
+- (<span class="math inline">\(t\)</span>) es el tiempo en el que se evalúa el proceso.<br>
+- (<span class="math inline">\(r\)</span>) es la tasa intrínseca o de crecimiento instantáneo.<br>
+- (<span class="math inline">\(r&gt;0\)</span>) la población aumenta.<br>
+- (<span class="math inline">\(r&lt;0\)</span>) la población disminuye el se reduce.<br>
+- (<span class="math inline">\(r=0\)</span>) la población se mantiene estable.<br>
+</p>
+</section>
+<section id="preparación-paquetes" class="level3">
+<h3 class="anchored" data-anchor-id="preparación-paquetes">Preparación (paquetes)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ejemplo-1-curvas-con-r-positivo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-1-curvas-con-r-positivo">Ejemplo 1 — Curvas con r positivo</h3>
+<p>Supongamos una población de fitoplancton que inicia con 10 células/mL y crece exponencialmente con <span class="math inline">\(r = 0.4\;ind/ind·hora\)</span>.<br>
+Proyecte el patrón de crecimiento de esta población en veinte periodos de tiempo.</p>
+<p><strong>Respuesta.</strong> El tiempo de duplicación** es:</p>
+<p><span class="math display">\[
+T_d = \frac{\ln 2}{r} = \frac{0.6931}{0.4} \approx 1.73\;horas.
+\]</span></p>
+<p>Con:<br>
+<span class="math inline">\(t = 20\;horas\)</span>:</p>
+<p><span class="math display">\[
+N(t) = 10\, e^{0.4\cdot 20} = 10\, e^{8} \approx 2.98\times10^{4}\;individuos.
+\]</span></p>
+<p><strong>Análisis del resultado.</strong> En condiciones óptimas (luz y nutrientes), el fitoplancton puede aumentar varios órdenes de magnitud en horas. El carácter exponencial implica que <strong>pequeñas diferencias</strong> en <span class="math inline">\(r\)</span> producen <strong>grandes separaciones</strong> en abundancia con el tiempo.</p>
+<p><strong>Visualización del ejercicio.</strong><br>
+Proyección exponencial de la muestra de la población en tiempo contínuo (<a href="#fig-fig4">Figura&nbsp;2</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del ejercicio</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>r  <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>t  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección exponencial</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Crecimiento exponencial contínuo"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"N(t) = N0. e^(r.t)  con r = 0.4"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Tiempo (t)"</span>, <span class="at">y =</span> <span class="st">"Tamaño poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig4-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: Crecimiento exponencial en tiempo contínuo para la muestra de la población de fitoplancton.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-2-r-negativo-decrecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-2-r-negativo-decrecimiento">Ejemplo 2 — r negativo (decrecimiento)</h3>
+<p><strong>Enunciado ecológico.</strong> Una población de 120 peces en un estanque contaminado decrece con una tasa instantánea <span class="math inline">\(r = -0.2\;ind/ind·día\)</span>.<br>
+(1) Calcule el tiempo que tanda en disminuir la muestra evaluada a la mitad de los peces (<span class="math inline">\(t_{(1/2)}\)</span>). (2) Proyecte el patrón de disminución de esta población en treinta periodos de tiempo.</p>
+<p><strong>Respuesta.</strong><br>
+(1) El <strong>tiempo de semirreducción</strong> es:</p>
+<p><span class="math display">\[
+T_{1/2} = \frac{\ln(1/2)}{r} = \frac{-0.6931}{-0.2} \approx 3.47\;días.
+\]</span></p>
+<ol start="2" type="1">
+<li>En <span class="math inline">\(t = 30\;días\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+N(t) = 120\, e^{-0.2\cdot 30} = 120\, e^{-6} \approx 0.30\;individuos.
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+Con valores de <span class="math inline">\(r&lt;0\)</span> se evidencian patrones de mortalidad neta, que pueden incluir perdidas por emigración de los peces o por estrés de los individuos. La población colapsará disminuyendo hasta la extinción si las condiciones ambientales no cambian.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del modelo</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>r  <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>t  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decrecimiento (continuo)"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"r = -0.2"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Tiempo"</span>, <span class="at">y =</span> <span class="st">"Tamaño poblacional"</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;3: Patrón de reducción de la población de peces.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-3-comparación-de-múltiples-r" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-3-comparación-de-múltiples-r">Ejemplo 3 — Comparación de múltiples r</h3>
+<p>Tres poblaciones de insectos parten con una abundancia <span class="math inline">\(N_0 = 50\)</span> individuos y tasas de crecimiento instantáneo <span class="math inline">\(r = 0.1, 0.3, 0.5\;ind/ind·generación\)</span>. Calcular el crecimiento en 20 generaciones a partir de los los parámetros definidos.</p>
+<p><strong>Respuesta.</strong><br>
+Para <span class="math inline">\(t = 20\;\)</span> generaciones:</p>
+<p><span class="math display">\[
+\begin{aligned}
+r=0.1:&amp;\quad N(20)=50\, e^{2} \;\approx\; 3.70\times10^{2}\\
+r=0.3:&amp;\quad N(20)=50\, e^{6} \;\approx\; 2.02\times10^{4}\\
+r=0.5:&amp;\quad N(20)=50\, e^{10}\;\approx\; 1.10\times10^{6}
+\end{aligned}
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+Los resultados muestran que a pesar que hayan incrementos leves o modestos en <span class="math inline">\(r\)</span>, se generan <strong>aumentos exponenciales</strong> importantes. Esto explica la rápida dominancia de especies con leve ventaja reproductiva en ambientes que le sean favorables.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del modelo</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>t  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.25</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>r  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_dfr</span>(r, <span class="cf">function</span>(r)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">tibble</span>(t, <span class="at">r =</span> r, <span class="at">N =</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t)))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de las proyecciones</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, N, <span class="at">group =</span> <span class="fu">factor</span>(r), </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">linetype =</span> <span class="fu">factor</span>(r))) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.05</span>) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Patrón de aumento de la población"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">"Vaores de r"</span>, <span class="at">x =</span> <span class="st">"Tiempo (t)"</span>, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Tamaño poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Patrón de crecimiento en poblaciones de insectos.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-4-tiempo-de-duplicación-y-de-mitad" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-4-tiempo-de-duplicación-y-de-mitad">Ejemplo 4 — Tiempo de duplicación y de “mitad”</h3>
+<p>Se comparan poblaciones con las siguientes tasas de crecimiento instantáneo, en las que :<br>
+<span class="math inline">\(r\)</span> = -0.5, -0.25, -0.1, 0.1, 0.25, 0.5;ind/ind·tiempo.</p>
+<p>A partir de estas tasas de crecimiento instantáneo (<span class="math inline">\(r\)</span>), se pueden calcular dos métricas temporales fundamentales en dinámica poblacional:</p>
+<ul>
+<li><p><em>Tiempo de duplicación</em> (<span class="math inline">\(T_d\)</span>): cuánto tarda la población en duplicar su tamaño si <span class="math inline">\(r&gt;0\)</span>.</p></li>
+<li><p><em>Tiempo de semirreducción</em> (<span class="math inline">\(T_{1/2}\)</span>): cuánto tarda la población en reducirse a la mitad de su tamaño si <span class="math inline">\(r&lt;0\)</span>.</p></li>
+</ul>
+<p>En otras palabras, se busca relacionar la magnitud de <span class="math inline">\(r\)</span> (positiva o negativa) con la rapidez (tiempo) en los cambios de las poblacionales en comparación.</p>
+<p><strong>Respuesta.</strong><br>
+Para <span class="math inline">\(r&gt;0\)</span>:</p>
+<p><span class="math display">\[
+T_d = \frac{\ln 2}{r} \quad \text{(duplicación)}.
+\]</span></p>
+<p>Para <span class="math inline">\(r&lt;0\)</span>:</p>
+<p><span class="math display">\[
+T_{1/2} = \frac{\ln(1/2)}{r} \quad \text{(semirreducción)}.
+\]</span></p>
+<p>Para ell caso del ejemplo:<br>
+<span class="math inline">\(r=0.25 \Rightarrow T_d \approx 2.77\;unidades\ de\ tiempo\)</span>.</p>
+<p><strong>Análisis del resultado.</strong> Existe <strong>simetría temporal</strong>: la rapidez de duplicación en <span class="math inline">\(r&gt;0\)</span> es análoga a la rapidez de semirreducción en <span class="math inline">\(r&lt;0\)</span>. Métrica clave para comunicar veloces cambios demográficos (brotes vs. control).</p>
+<p><strong>Tabulación del ejercicio.</strong><br>
+La tabla generada muestra, para cada valor de <span class="math inline">\(r\)</span>:<br>
+</p>
+<ul>
+<li>La columna Td si $r&gt;0` (tiempo que tarda en duplicar).<br>
+</li>
+<li>La columna Tsr si $r&lt;0` (tiempo que tarda en reducirse a la mitad).<br>
+</li>
+</ul>
+<div class="cell" data-tbl-cap="Visualización de Td con r>0 y T(1/2) con r<0 en función del crecimiento instantáneo -> r">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librería requerida</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de r</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>r_val <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.50</span>, <span class="sc">-</span><span class="fl">0.25</span>, <span class="sc">-</span><span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.25</span>, <span class="fl">0.50</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla inicial</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">r  =</span> r_val,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Td =</span> <span class="fu">if_else</span>(r<span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>r, <span class="cn">NA_real_</span>),  <span class="co"># tiempo de duplicación</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tsr =</span> <span class="fu">if_else</span>(r<span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fu">log</span>(<span class="fl">0.5</span>)<span class="sc">/</span>r, <span class="cn">NA_real_</span>) <span class="co"># medio tiempo (semirreducción)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla en formato largo</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>tab_largo <span class="ot">&lt;-</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  tab <span class="sc">%&gt;%</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Td, Tsr), </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Metrica"</span>, </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Tiempo"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Tiempo))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Visualización del ejercicio.</strong><br>
+</p>
+<p>El gráfico revela la simetría espejo entre duplicar y reducir los valores de <span class="math inline">\(r\)</span> a la mitad. En este sentido se obtiene lo siguiente:</p>
+<p>Para <span class="math inline">\(r&gt;0\)</span>, las curvas muestran que a medida que <span class="math inline">\(r\)</span> es mayor, el tiempo de duplicación disminuye y la pendientes de la curva aumenta (las poblaciones crecen más rápido).</p>
+<p>Para <span class="math inline">\(r&lt;0\)</span>, las curvas muestran que a medida que <span class="math inline">\(r\)</span> es más negativo, el tiempo de semirreducción disminuye (decrecen más rápido) (<a href="#fig-fig10a">Figura&nbsp;5</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig10a" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig10a-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Visualización de Td con r&gt;0 y T(1/2) con r&lt;0 en función del crecimiento instantáneo -&gt; r.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-5-dndt-rn-velocidad-instantánea" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-5-dndt-rn-velocidad-instantánea">Ejemplo 5 — dN/dt = rN (velocidad instantánea)</h3>
+<p>Una población de 30 invertebrados inicia con <span class="math inline">\(r = 0.2\;ind/ind·día\)</span>.<br>
+(1) Calcular la tasa o velocidad de aumento de la población.<br>
+(2) Determinar la densidad en 25 días y la velocidad de incremento.<br>
+</p>
+<p><strong>Respuesta.</strong><br>
+En <span class="math inline">\(t=0\)</span>:<br>
+<span class="math display">\[
+\frac{dN}{dt} = rN = 0.2\times 30 = 6\;individuos/día.
+\]</span> En <span class="math inline">\(t=25\)</span>:<br>
+<span class="math display">\[
+N_{(t)} = 30\, e^{r\cdot t}\Rightarrow \ N_{(25)} = 30\, e^{0.2\cdot 25} = 30\, e^{5} \approx 4.45\times10^{3}\ invertebrados.
+\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[
+\frac{dN}{dt} \approx 0.2\times 4.45\times10^{3} = 8.91\times10^{2}\;individuos/día.
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+La <strong>velocidad de cambio</strong> crece proporcionalmente con <span class="math inline">\(N\)</span>. En ausencia de límites densodependientes, poblaciones prósperas pueden <strong>saturar rápidamente</strong> el hábitat.</p>
+<p><strong>Visualización del ejercicio.</strong><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del modelo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">30</span>; </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.2</span>; </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>N  <span class="ot">&lt;-</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dNdt <span class="ot">&lt;-</span> r <span class="sc">*</span> N</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, N, dNdt)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, dNdt)) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Velocidad de cambio o de aumento (dN/dt = r.N)"</span>,<span class="at">x=</span><span class="st">"Tiempo (t)"</span>, <span class="at">y=</span><span class="st">"Velocidad de aumento (dN/dt)"</span>) <span class="sc">+</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Patrón de crecimiento exponencial para la población de invertebrados.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-6-estimar-r-con-dos-observaciones" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-6-estimar-r-con-dos-observaciones">Ejemplo 6 — Estimar r con dos observaciones</h3>
+<p>Se requiere estimar la tasa de crecimiento instantáneo <span class="math inline">\(r\)</span> con <span class="math inline">\(r = \dfrac{\ln(N_t/N_0)}{t}\)</span> en cuatro escenarios de campo.<br>
+<span class="math inline">\(N_{0}\)</span>= 40, 80, 50 y 30 individuos.<br>
+<span class="math inline">\(N_{t}\)</span>= 120, 20, 50 y 200 individuos<br>
+<span class="math inline">\(t\)</span>= 10, 8, 12 y 15 unidades de tiempo<br>
+</p>
+<p><strong>Respuesta.</strong></p>
+<ul>
+<li><span class="math inline">\((N_0,N_t,t)=(40,120,10) \Rightarrow r=\ln(3)/10 \approx 0.1099\;\)</span> ind/ind·tiempo.&nbsp;</li>
+<li><span class="math inline">\((80,20,8) \Rightarrow r=\ln(0.25)/8 \approx -0.1733\;\)</span> ind/ind·tiempo.&nbsp;</li>
+<li><span class="math inline">\((50,50,12) \Rightarrow r=0\;\)</span> ind/ind·tiempo.&nbsp;</li>
+<li><span class="math inline">\((30,200,15) \Rightarrow r=\ln(200/30)/15 \approx 0.1265\;\)</span> ind/ind·tiempo.<br>
+</li>
+</ul>
+<p><strong>Análisis del resultado.</strong><br>
+Con <strong>cuatro censos</strong> puede caracterizarse la tendencia (aumento/descenso/estable). Útil como aproximación cuando no hay series largas.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Escenarios hipotéticos</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>N0, <span class="sc">~</span>Nt, <span class="sc">~</span>t,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   <span class="dv">40</span>, <span class="dv">120</span>, <span class="dv">10</span>,   <span class="co"># crecimiento</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="dv">80</span>,  <span class="dv">20</span>,  <span class="dv">8</span>,   <span class="co"># decrecimiento</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>   <span class="dv">50</span>,  <span class="dv">50</span>, <span class="dv">12</span>,   <span class="co"># estable</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>   <span class="dv">30</span>, <span class="dv">200</span>, <span class="dv">15</span>    <span class="co"># crecimiento rápido</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de r</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  tabla <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">r =</span> <span class="fu">log</span>(Nt<span class="sc">/</span>N0)<span class="sc">/</span>t)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>resultados</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-tbl1" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Estimación de r a partir de valores (N_0, N_t, t).">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<pre><code># A tibble: 4 × 4
+     N0    Nt     t      r
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1    40   120    10  0.110
+2    80    20     8 -0.173
+3    50    50    12  0    
+4    30   200    15  0.126</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Trayectorias poblacionales estimadas a partir de r calculado con cuatro escenarios.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-7-estimar-r-en-una-población-bacteriana" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-7-estimar-r-en-una-población-bacteriana">Ejemplo 7 — Estimar r en una población bacteriana</h3>
+<p><strong>Pregunta 1.</strong> Si una población bacteriana pasa de 100 a 800 individuos en 10 horas, ¿cuál es el valor de r?</p>
+<p><span class="math display">\[
+r = \frac{\ln(N_t/N_0)}{t} = \frac{\ln(800/100)}{10} = \frac{\ln(8)}{10} \approx 0.2089\ bacterias/bacterias.hora
+\]</span></p>
+<p><strong>Respuesta:</strong><br>
+La tasa intrínseca de crecimiento es <span class="math inline">\(r \approx 0.21\ bacterias/bacterias.hora \approx\)</span> aumento del 21%.</p>
+<p><strong>Análisis:</strong> El resultado encontrado es típico de poblaciones bacterianas en un aumento elevado, debido a que por cada hora aumenta la población en un 20%, por ello es que en en solo 10 horas aumenta 8 veces su densidad (100 hasta 800 bacterias).</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;8: Crecimiento continuo estimado en bacterias (visualización).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="b.-tiempo-discreto" class="level1">
+<h1>B. Tiempo discreto</h1>
+<p>Este modelo exponencial se utiliza cuando el crecimiento o reducción de la densidad poblacional ocurre en intervalos claramente definidos de tiempo, por ejemplo, generaciones no solapadas (ej. especies con ciclo de vida anual). En este enfoque, el tamaño de la población en la generación siguiente depende únicamente del tamaño de la generación previa multiplicado por la tasa finita de crecimiento (<span class="math inline">\(\lambda\)</span>).</p>
+<p>El modelo ligístico aplica en poblaciones silvestres con reproducción estacional o en pulsos, como aves migratorias que se reproducen una vez al año, insectos con ciclos de vida sin solapamiento de generaciones, o plantas anuales. En poblaciones humanas, el modelo discreto puede emplearse para analizar censos decenales o estudios demográficos basados en periodos discretos de tiempo, aunque lo más apropiado para este caso es tratarlo con modelos de tipo contínuo.</p>
+<p><span class="math display">\[
+N_{(t)} = N_0 \cdot \lambda^t
+\]</span></p>
+<p>Con (<span class="math inline">\(\lambda&gt;1\)</span>) crecimiento, (<span class="math inline">\(\lambda=1\)</span>) estable, (<span class="math inline">\(\lambda&lt;1\)</span>) decrecimiento. Relación con continuo: (<span class="math inline">\(\lambda = e^r\)</span>).</p>
+<section id="ejemplo-1-λ-1-crecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-1-λ-1-crecimiento">Ejemplo 1 — λ &gt; 1 (crecimiento)</h3>
+<p>Una población de 50 plantas anuales aumenta con <span class="math inline">\(\lambda = 1.2\)</span>. Calcular su densidad en 15 periodos de tiempo.</p>
+<p><strong>Respuesta.</strong> Cada generación es 20% mayor que la anterior.<br>
+En <span class="math inline">\(t=15\)</span>:<br>
+<span class="math display">\[
+N_{(15)} = 50 \cdot 1.2^{15} \approx 818\ plantas
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+El crecimiento discreto refleja ciclos estacionales. Poblaciones anuales con buena supervivencia muestran incrementos regulares.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del modelo</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">50</span>; </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.2</span>; </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> lambda<span class="sc">^</span>t)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.4</span>) <span class="sc">+</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Crecimiento discreto (λ = 1.2)"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Generaciones (t)"</span>, <span class="at">y=</span><span class="st">"Densidad poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig6a" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig6a-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;9: Proyección de crecimiento exponencial discreto</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-2-λ-1-estable" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-2-λ-1-estable">Ejemplo 2 — λ = 1 (estable)</h3>
+<p>Una población de 100 aves migratorias se mantiene estable con <span class="math inline">\(\lambda = 1\)</span>. Calcular cualquier valor de t entre 0 y 10 periodos de tiempo y analizar el resultado.</p>
+<p><strong>Respuesta.</strong><br>
+ECuación de crecimiento discreto:<br>
+<span class="math display">\[
+N_{(t)} = N_0 \cdot \lambda^t
+\]</span><br>
+<span class="math display">\[
+N(t) = 100 \cdot 1^t = 100
+\]</span> para cualquier <span class="math inline">\(t\)</span>.</p>
+<p><strong>Análisis del resultado.</strong><br>
+Poblaciones con <span class="math inline">\(\lambda=1\)</span> representan equilibrio: el reemplazo exacto de individuos.</p>
+<p><strong>Tabulación del ejercicio.</strong><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámtros del modelo</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">100</span>; </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span>; </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> lambda<span class="sc">^</span>t)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 2
+       t     N
+   &lt;int&gt; &lt;dbl&gt;
+ 1     0   100
+ 2     1   100
+ 3     2   100
+ 4     3   100
+ 5     4   100
+ 6     5   100
+ 7     6   100
+ 8     7   100
+ 9     8   100
+10     9   100
+11    10   100</code></pre>
+</div>
+</div>
+</section>
+<section id="ejemplo-3-λ-1-decrecimiento" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-3-λ-1-decrecimiento">Ejemplo 3 — λ &lt; 1 (decrecimiento)</h3>
+<p>Una población de 80 insectos decrece con <span class="math inline">\(\lambda = 0.7\)</span>. Calcular su densidad en 12 periodos de tiempo o generaciones.</p>
+<p><strong>Respuesta.</strong><br>
+Cada generación disminuye en 30% en <span class="math inline">\(t=12\)</span>:<br>
+<span class="math display">\[
+N_{(12)} = 80 \cdot 0.7^{12} \approx 3.6\ insectos
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+Representa poblaciones en declive por falta de recursos, depredación o ambientes desfavorables.</p>
+<p><strong>Visualización del ejercicio.</strong><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámtros del modelo</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">80</span>; </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">0.7</span>; </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> lambda<span class="sc">^</span>t)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tabla, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.4</span>) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Decrecimiento discreto (λ = 0.7)"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Generaciones (t)"</span>, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Densidad poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10: Patrón de disminución o decrecimiento de las aves migratorias.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-4-crecimiento-continuo-vs.-discreto" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-4-crecimiento-continuo-vs.-discreto">Ejemplo 4 — Crecimiento continuo vs.&nbsp;discreto</h3>
+<p>Una población de 30 individuos con <span class="math inline">\(r=0.2\)</span> debe producir la misma trayectoria que <span class="math inline">\(\lambda = e^r\)</span>. Realizar el cálculo de lambda y analizar el resultado.</p>
+<p><strong>Respuesta.</strong><br>
+<span class="math inline">\(\lambda = e^{0.2} \approx 1.221\)</span>. Ambas formulaciones generan curvas equivalentes.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros del modelo</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">30</span>; </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.2</span>; </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">exp</span>(r)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo contínuo (cont) vs. discreto (disc)</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>datos_cont <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">Modelo =</span> <span class="st">"Continuo"</span>, <span class="at">N =</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>datos_disc <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">Modelo =</span> <span class="st">"Discreto"</span>, <span class="at">N =</span> N0 <span class="sc">*</span> lambda<span class="sc">^</span>t)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>datos_comp  <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(datos_cont, datos_disc)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura de la proyección</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_comp, <span class="fu">aes</span>(t, N, <span class="at">shape =</span> Modelo, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">linetype =</span> Modelo)) <span class="sc">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.2</span>) <span class="sc">+</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Comparación de las trayectorias"</span>, </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Tiempo (t)"</span>, </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Densidad de la población (N)"</span>) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/comparativa-continuo-discreto-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="ejemplo-5-estimar-λ-a-partir-de-excenarios" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-5-estimar-λ-a-partir-de-excenarios">Ejemplo 5 — Estimar λ a partir de excenarios</h3>
+<p>Estimar <span class="math inline">\(\lambda\)</span> a partir de <span class="math inline">\(N_0\)</span>, <span class="math inline">\(N_t\)</span> y <span class="math inline">\(t\)</span> en distintos escenarios de aumento y reducción de la densidad.</p>
+<p><strong>Respuesta.</strong><br>
+<span class="math display">\[
+\lambda = \left(\frac{N_t}{N_0}\right)^{1/t}
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+Si <span class="math inline">\(\lambda&gt;1\)</span> la población crece; si <span class="math inline">\(\lambda=1\)</span> permanece estable; si <span class="math inline">\(\lambda&lt;1\)</span> decrece.</p>
+<p><strong>Visualización del ejercicio.</strong></p>
+<div class="cell" data-tbl-cap="Estimación de λ a partir de (N0, Nt, t) en un conjunto de escenarios.">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Escenarios hipotéticos (puedes reemplazarlos por los de tus talleres)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>escenarios <span class="ot">&lt;-</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tribble</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>N0, <span class="sc">~</span>Nt, <span class="sc">~</span>t,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>   <span class="dv">60</span>, <span class="dv">240</span>,  <span class="dv">6</span>,   <span class="co"># crecimiento</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">10</span>,   <span class="co"># estable</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>   <span class="dv">80</span>,  <span class="dv">20</span>,  <span class="dv">8</span>,   <span class="co"># decrecimiento</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>   <span class="dv">30</span>, <span class="dv">300</span>, <span class="dv">10</span>    <span class="co"># crecimiento fuerte</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de los escenarios</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>tab_lambda <span class="ot">&lt;-</span> </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  escenarios <span class="sc">%&gt;%</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lambda =</span> (Nt<span class="sc">/</span>N0)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>t)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">interpretacion =</span> <span class="fu">case_when</span>(</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    lambda <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">"Crecimiento (λ&gt;1)"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    lambda <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Estable (λ=1)"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    lambda <span class="sc">&lt;</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">"Decrecimiento (λ&lt;1)"</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>tab_lambda</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+     N0    Nt     t lambda interpretacion     
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;              
+1    60   240     6  1.26  Crecimiento (λ&gt;1)  
+2   100   100    10  1     Estable (λ=1)      
+3    80    20     8  0.841 Decrecimiento (λ&lt;1)
+4    30   300    10  1.26  Crecimiento (λ&gt;1)  </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;11: Trayectorias discretas estimadas con λ calculado a partir de dos observaciones.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Si λ<span class="math inline">\(&gt;1\)</span> la población crece.<br>
+</li>
+<li>Si λ<span class="math inline">\(=1\)</span> la población permanece estable.<br>
+</li>
+<li>Si λ<span class="math inline">\(&lt;1\)</span> la población decrece.<br>
+</li>
+</ul>
+<p>Para un mismo valor de <span class="math inline">\(t\)</span>, cuanto mayor sea la razón mayor será el valor de <span class="math inline">\(λ\)</span>.<br>
+<span class="math display">\[Nt/N_{0}\]</span></p>
+<p>El punto en (<span class="math inline">\(t\)</span>, <span class="math inline">\(N_{t}\)</span>) corresponde a la observación real usada para calcular <span class="math inline">\(λ\)</span>.<br>
+</p>
+</section>
+<section id="ejemplo-5-reconstruir-r-a-partir-de-λ" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-5-reconstruir-r-a-partir-de-λ">Ejemplo 5 — Reconstruir r a partir de λ</h3>
+<p>La relación <span class="math inline">\(\lambda = e^r\)</span> permite calcular <span class="math inline">\(r\)</span>.</p>
+<p><strong>Respuesta.</strong><br>
+<span class="math display">\[
+r = \ln(\lambda)
+\]</span></p>
+<p><strong>Análisis del resultado.</strong><br>
+<span class="math inline">\(r\)</span> y <span class="math inline">\(\lambda\)</span> son dos formas equivalentes de describir el crecimiento poblacional. La conversión es exacta.</p>
+<p><strong>Visualización del ejercicio.</strong><br>
+</p>
+<div class="cell" data-tbl-cap="Conversión de λ a r y métricas derivadas.">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de λ de ejemplo (ajústalos a tus ejercicios)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lambda_val <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.5</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>tab_r <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> lambda_val,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> <span class="fu">log</span>(lambda_val)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">clasificacion =</span> <span class="fu">case_when</span>(</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>      lambda <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="sc">~</span> <span class="st">"Crecimiento"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>      lambda <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Estable"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>        <span class="sc">~</span> <span class="st">"Decrecimiento"</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tiempo de duplicación solo tiene sentido si r &gt; 0</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_dup =</span> <span class="fu">if_else</span>(r <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>r, <span class="fu">as.numeric</span>(<span class="cn">NA</span>)),</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># “Medio tiempo” (semirreducción) si r &lt; 0</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_half =</span> <span class="fu">if_else</span>(r <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="fu">log</span>(<span class="fl">0.5</span>)<span class="sc">/</span>r, <span class="fu">as.numeric</span>(<span class="cn">NA</span>))</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>tab_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  lambda      r clasificacion T_dup T_half
+   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;
+1    0.6 -0.511 Decrecimiento NA      1.36
+2    0.8 -0.223 Decrecimiento NA      3.11
+3    1    0     Estable       NA     NA   
+4    1.2  0.182 Crecimiento    3.80  NA   
+5    1.5  0.405 Crecimiento    1.71  NA   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/fig-fig10-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;12: Comparación de trayectorias: continuo (r=ln λ) vs.&nbsp;discreto (λ) para varios λ.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>La relación entre modelos es exacta:<br>
+λ = <span class="math inline">\(e^r\)</span> ⟺ <span class="math inline">\(r=ln⁡(λ)\)</span></p></li>
+<li><p>Para un mismo valor de λ, la curva continua<br>
+<span class="math inline">\(N_{(t)} = N_0\, e^{rt}\)</span></p>
+<p>y la curva discreta<br>
+<span class="math inline">\(N_{(t)} = N_0.λ^t\)</span></p>
+<p>son coherentes y producen trayectorias equivalentes.</p></li>
+<li><p>Si <span class="math inline">\(r&gt;0\)</span>, el <strong>tiempo de duplicación</strong> es: <span class="math inline">\(T_d = ln⁡(2)/r\)</span></p></li>
+<li><p>Si <span class="math inline">\(r&lt;0\)</span>, o el <strong>tiempo de semirreducción</strong> es:<br>
+<span class="math inline">\(T_{(1/2)}=\frac{ln{(1/2)}}r\)</span></p></li>
+</ul>
+</section>
+<section id="ejemplo-6-cálculo-de-λ" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-6-cálculo-de-λ">Ejemplo 6 — Cálculo de λ</h3>
+<p>Una población de insectos inicia con 50 individuos y al cabo de 4 generaciones alcanza 200. ¿Cuál es el valor de <span class="math inline">\(\lambda\)</span>?</p>
+<p><span class="math display">\[
+\lambda = \left(\frac{N_t}{N_0}\right)^{1/t} = \left(\frac{200}{50}\right)^{1/4} = (4)^{0.25} \approx 1.414\ insectos
+\]</span></p>
+<p><strong>Respuesta:</strong><br>
+La tasa finita de crecimiento es <span class="math inline">\(\lambda \approx 1.41\)</span>. Esto implica que la población aumenta en promedio un 41% por generación, consistente con organismos con ciclos de vida cortos.</p>
+<hr>
+</section>
+</section>
+<section id="c.-errores-comunes-e-interpretación" class="level1">
+<h1>C. Errores comunes e interpretación</h1>
+<p>Uno de los errores más frecuentes en el uso de modelos exponenciales es asumir que las poblaciones crecen o aumentan indefinidamente en la naturaleza, sin considerar los factores de densidad dependiente o los límites ambientales. Otro aspecto común es confundir la tasa intrínseca de crecimiento (r) con la tasa finita (λ), cuando en realidad representan formulaciones diferentes (continua vs.&nbsp;discreta). Además, un error metodológico frecuente es utilizar escalas gráficas inadecuadas, lo que puede exagerar o minimizar diferencias entre escenarios simulados. Reconocer estas fuentes de confusión es fundamental para un análisis correcto en la modelación exponencial de poblaciones. A continuación se muestra una transformación de escala de N, para evaluar mejor la pendiente de la curva.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">15</span>; </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.25</span>; </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>datos_log <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0<span class="sc">*</span><span class="fu">exp</span>(r<span class="sc">*</span>t))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_log, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Escala logarítmica"</span>, </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"t"</span>, <span class="at">y=</span><span class="st">"N (log10)"</span>) <span class="sc">+</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/escala-log-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">La escala log linealiza el crecimiento exponencial; útil para comparar pendientes (r o log(λ)).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="d.-aplicaciones-ecológicas-y-ambientales" class="level1">
+<h1>D. Aplicaciones ecológicas y ambientales</h1>
+<p>A pesar de su simplicidad, el modelo exponencial sigue siendo útil para describir procesos reales, como por ejemplo, en la fase inicial del establecimiento de especies invasoras, la recuperación de poblaciones amenazadas, tras reintroducciones o en el análisis de la propagación de epidemias. Asimismo, permite estimar tiempos de duplicación o extinción bajo condiciones ideales, lo cual resulta clave en programas de conservación y en estudios de manejo poblacional. En el ámbito ambiental, este modelo ilustra los riesgos de extrapolar tendencias de crecimiento ilimitado en contextos donde los recursos son finitos, o donde el factor ambiental modela la dinámica de las poblaciones asociadas, ofreciendo un marco conceptual para la transición hacia modelos logísticos y más realistas.</p>
+<hr>
+</section>
+<section id="e.-conclusiones" class="level1">
+<h1>E. Conclusiones</h1>
+<p>El modelo exponencial de poblaciones constituye un pilar en la enseñanza y comprensión de la dinámica poblacional. Si bien sus supuestos rara vez se cumplen en condiciones naturales, su aplicación como herramienta didáctica y como base para modelos más complejos sigue siendo insustituible. Al simular escenarios hipotéticos de crecimiento, se facilita la comprensión de cómo los parámetros poblacionales influyen en la trayectoria demográfica y se sientan las bases para avanzar hacia modelos logísticos y otros enfoques que incorporan la realidad ecológica de los sistemas.</p>
+<hr>
+</section>
+<section id="f.-cuestionario" class="level1">
+<h1>F. Cuestionario</h1>
+<section id="f.1-preguntas-teóricas" class="level2">
+<h2 class="anchored" data-anchor-id="f.1-preguntas-teóricas">F.1 Preguntas teóricas</h2>
+<ol type="1">
+<li>Determine las diferencias entre las tasas <strong>r</strong> y <strong>λ</strong> y su relación matemática.<br>
+</li>
+<li>Interpretar la pendiente en escala log de <span class="math inline">\(N_{(t)}\)</span> bajo el patrón de crecimiento exponencial.<br>
+</li>
+<li>¿Qué implica <strong>r &lt; 0</strong> o <strong>λ &lt; 1</strong>? Dé un caso ecológico.<br>
+</li>
+<li>Explique cómo estimar <strong>r</strong> con dos mediciones (<span class="math inline">\(N_0\)</span>, <span class="math inline">\(N_t\)</span>).<br>
+</li>
+<li>¿Cuándo usaría un modelo continuo vs.&nbsp;discreto?<br>
+</li>
+<li>¿Por qué la fase inicial de una invasión bacteriana puede aproximarse por un modelo exponencial?<br>
+</li>
+<li>¿Qué precauciones tomaría al extrapolar trayectorias exponenciales?<br>
+</li>
+<li>Justifique el uso de <strong>escala log</strong> en evaluación del crecimiento exponencial.<br>
+</li>
+<li>Mencione los procesos que violan los supuestos del modelo exponencial.<br>
+</li>
+<li>Implemente un mini-experimento numérico cambiando r o λ y describa su efecto visual.</li>
+</ol>
+<hr>
+</section>
+<section id="f.2-preguntas-de-cálculo-y-gráficas" class="level2">
+<h2 class="anchored" data-anchor-id="f.2-preguntas-de-cálculo-y-gráficas">F.2 Preguntas de cálculo y gráficas</h2>
+<p><img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" width="36%"></p>
+<p>[ Imágen tomada de <a href="https://www.pexels.com/es-es/@alex-green/">Alex Green</a>]</p>
+<ol type="1">
+<li>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000:<br>
+</li>
+</ol>
+<ul>
+<li><ol type="1">
+<li>¿Cuál será en 7 años?<br>
+</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Graficar la proyección de esta población en 10 periodos de tiempo.<br>
+</li>
+</ol></li>
+</ul>
+<ol start="2" type="1">
+<li>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000 individuos,&nbsp;</li>
+</ol>
+<ul>
+<li><ol type="1">
+<li>¿cuántos años se tardará para que vuelvan a doblar su densidad? Redondea tu respuesta a la centésima más cercana.<br>
+</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Graficar la proyección poblacional en 20 periodos de tiempo o 20 años.</li>
+</ol></li>
+</ul>
+<ol start="3" type="1">
+<li>Una población de hormigas presenta una tasa de disminución anual del 7,2%.</li>
+</ol>
+<ul>
+<li><ol type="1">
+<li>¿Cuántos años le tomará a esta población de 227 gramos para llegar a 93 gramos de biomasa?</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Graficar la proyección de esta población en 20 periodos de tiempo.<br>
+</li>
+</ol></li>
+</ul>
+<ol start="4" type="1">
+<li>Una población de peces aumenta a una tasa anual de 7%. Si la población actual es de 8.000 individuos:<br>
+</li>
+</ol>
+<ul>
+<li><ol type="1">
+<li>¿Cuántos años le tomará a esta población para llegar a 18.000 individuos?<br>
+</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Graficar la proyección de esta población en 20 periodos de tiempo.<br>
+</li>
+</ol></li>
+</ul>
+<hr>
+</section>
+<section id="f.3-preguntas-de-cálculo" class="level2">
+<h2 class="anchored" data-anchor-id="f.3-preguntas-de-cálculo">F.3 Preguntas de cálculo</h2>
+<ol start="5" type="1">
+<li><p>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</p></li>
+<li><p>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</p></li>
+<li><p>Un virus se propaga en una comunidad duplicándose cada 1.5 días. Si inicialmente hay 500 virus, ¿cuál es la población después de 10 días?</p></li>
+<li><p>Una población de peces crece a una tasa del 5% anual. Si en 12 años la población alcanza los 6,000 individuos, ¿cuál era la población inicial?</p></li>
+<li><p>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,<br>
+</p></li>
+</ol>
+<ol type="a">
+<li>determina la tasa (<span class="math inline">\(r\)</span>);<br>
+</li>
+<li>calcula la población después de 15 horas.</li>
+</ol>
+<ol start="10" type="1">
+<li><p>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que la población se duplique? (Redondea tu respuesta a la centésima más cercana.)</p></li>
+<li><p>Una población de insectos se duplica cada 8 años. Si actualmente hay 5,000 insectos, ¿cuál será la población en 24 años?</p></li>
+<li><p>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población, cuya biomasa es de 227 gramos, reducirse a 93 gramos</p></li>
+<li><p>Una población de conejos decrece a una tasa anual del 4%. Si actualmente hay 1,200 conejos, ¿cuántos años se necesitarán para que la población se reduzca a 800?</p></li>
+<li><p>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que la población alcance los 18000 individuos?</p></li>
+<li><p>Una población de algas en un lago crece a una tasa anual del 9%. Si actualmente hay 10,000 unidades, ¿en cuántos años se alcanzarán 50,000 unidades?</p></li>
+<li><p>Se estima que una población de ardillas aumentará de 1,800 a 2,500 en 10 años. Determina la tasa de crecimiento instantáneo <span class="math inline">\(r\)</span>.</p></li>
+<li><p>Una población silvestre crece a una tasa anual del 7%. Si la población alcanza los 2000 individuos en 7 años, ¿cuál era el tamaño de la población inicial?</p></li>
+<li><p>Una población de curíes de interés para consumo crece a una tasa anual del 3%. Si la población actual es de 3000 individuos, ¿cuántos años se tardará para que la población doble su densidad?</p></li>
+<li><p>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.<br>
+</p></li>
+</ol>
+<ol type="a">
+<li>Determina la tasa (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Calcula el tiempo de duplicación de la población.</li>
+</ol>
+<ol start="20" type="1">
+<li><p>Una población de virus en un cultivo crece exponencialmente. Si la población aumenta de <span class="math inline">\(10^3\)</span> a <span class="math inline">\(10^9\)</span> en 24 horas, ¿cuál es la tasa de crecimiento instantáneo <span class="math inline">\(r\)</span> y cuál es el tiempo de duplicación?</p></li>
+<li><p>Una población endémica de mariposas declina su densidad anual en un 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</p></li>
+<li><p>Según el artículo “U.S. reaching the 300 million person milestone”, la población de EE.UU. alcanzó los 200 millones en 1967. Asumiendo que en 2007 la población es de 303 millones,<br>
+</p></li>
+</ol>
+<ol type="a">
+<li>Calcula la tasa de incremento instantáneo anual.<br>
+</li>
+<li>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en 2027?</li>
+</ol>
+<ol start="23" type="1">
+<li><p>Una población de elefantes crece a una tasa anual del 2%. Actualmente hay 800 elefantes, ¿en cuántos años se triplicará la población?</p></li>
+<li><p>Según las proyecciones de las Naciones Unidas, para el año 2050 se estima que la población mundial estará en un rango:<br>
+</p></li>
+</ol>
+<ul>
+<li>Menor estimador: 7.3 billones de personas.<br>
+</li>
+<li>Mayor estimador: 10.7 billones de personas.</li>
+</ul>
+<!-- -->
+<p>Si se asume que la población mundial inicia con 8.1 billones en 2023, ¿cuál es la tasa de incremento anual en cada estimador? (El tiempo transcurrido es de 27 años, de 2023 a 2050). <a href="https://countrymeters.info/es/World" class="uri">https://countrymeters.info/es/World</a></p>
+<ol start="25" type="1">
+<li>Con una tasa de crecimiento poblacional de ( r = 2.8% ) anual,<br>
+</li>
+</ol>
+<ol type="a">
+<li>¿cuánto tiempo tomaría que un par de individuos produzca la población mundial actual (cerca de 10 billones de personas)?&nbsp;</li>
+<li>Además, ¿en qué tiempo se duplicaría esta población? Discuta el resultado.</li>
+</ol>
+<ol start="26" type="1">
+<li>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>) asumiendo este tiempo de duplicación.<br>
+</li>
+<li>Si la población en 1993 era de 5400 millones, ¿cuál es el tamaño proyectado para el año 2030?</li>
+</ol>
+<ol start="27" type="1">
+<li>Usted estudia una población de escarabajos con un tamaño inicial de 3000. Durante un mes se registraron 400 nacimientos y 150 muertes.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Estime la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Proyecte el tamaño poblacional en 6 meses.</li>
+</ol>
+<ol start="28" type="1">
+<li><p>Usted estudia una población de orquídeas en peligro, para las cuales la tasa de nacimientos es (<span class="math inline">\(b = 0.0021\)</span>) nacimientos/individuo.año y la tasa de muertes es (<span class="math inline">\(d = 0.0020\)</span>) muertes/individuo.año. La población actual es de 40 plantas. Se proyecta que un nuevo centro comercial reducirá esta población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</p></li>
+<li><p>Si una población de <em>E. coli</em> crece de 1000 células a ( 2 ^9 ) células en 6 horas,<br>
+</p></li>
+</ol>
+<ol type="a">
+<li>¿cuál es su tasa intrínseca de incremento?<br>
+</li>
+<li>¿Está la población duplicándose en el tiempo esperado?</li>
+</ol>
+<ol start="30" type="1">
+<li>Una especie invasora de plantas disminuye su población a una tasa del 3% anual debido a medidas de control. Si inicialmente hay 5,000 plantas:<br>
+</li>
+</ol>
+<ol type="a">
+<li>¿Cuál será el número aproximado de plantas después de 20 años?<br>
+</li>
+<li>¿Cuánto tiempo se necesitará para reducir la población a la mitad?</li>
+</ol>
+<ol start="31" type="1">
+<li>Una colonia de bacterias se duplica cada 4 horas.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Determina la tasa de crecimiento instantáneo (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Calcula el tiempo necesario para que la población se incremente a 10 veces la cantidad inicial.</li>
+</ol>
+<ol start="32" type="1">
+<li>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Estima la población al cabo de 24 meses.</li>
+</ol>
+<ol start="33" type="1">
+<li>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Estima la población a las 72 horas.</li>
+</ol>
+<ol start="34" type="1">
+<li>Una colonia de algas en un estanque aumenta en un 200% en 30 días (es decir, la población se convierte en 3 veces la inicial).<br>
+</li>
+</ol>
+<ol type="a">
+<li>Determina la tasa (<span class="math inline">\(r\)</span>);<br>
+</li>
+<li>¿En cuántos días se habrá cuadruplicado la población respecto a la inicial?</li>
+</ol>
+<ol start="35" type="1">
+<li>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.<br>
+</li>
+</ol>
+<ol type="a">
+<li>Calcula la tasa de crecimiento instantáneo (<span class="math inline">\(r\)</span>).<br>
+</li>
+<li>Estima la población después de 10 horas si la población inicial es de 800 bacterias.</li>
+</ol>
+<hr>
+<section id="respuestas-a-las-preguntas-de-cálculo-y-gráficas-f2" class="level4">
+<h4 class="anchored" data-anchor-id="respuestas-a-las-preguntas-de-cálculo-y-gráficas-f2">Respuestas a las preguntas de cálculo y gráficas (F2)</h4>
+<section id="población-biológica" class="level5">
+<h5 class="anchored" data-anchor-id="población-biológica">1. Población biológica</h5>
+<p>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000:<br>
+- (1) ¿Cuál será en 7 años?<br>
+- (2) Graficar la proyección de esta población en 10 periodos de tiempo.<br>
+</p>
+<p><strong>Respuesta</strong><br>
+Primero hay que utilizar la fórmula para el crecimiento exponencial de una población biológica:<br>
+<span class="math display">\[
+Nt = No. e^{(r.t)}
+\]</span> <strong>Donde</strong>:<br>
+<strong>Nt</strong>= densidad de la población después de un tiempo t<br>
+<strong>No</strong>= densidad inicial de la población (en el tiempo 0)<br>
+<strong>r</strong>= tasa de crecimiento intrinsico o instantaneo.<br>
+<strong>t</strong>= tiempo transcurrido (expresado en años)<br>
+</p>
+<p>En este caso, se tiene que:<br>
+<strong>No</strong>= 5000 individuos<br>
+<strong>r</strong>= 0.06 indv./indv.*t (6% expresado como un decimal)<br>
+<strong>t</strong>= 7 años<br>
+</p>
+<p><strong>Procedimiento</strong><br>
+(1) Calculo de la densidad de la población después de 7 años.</p>
+<p>Función asignada como <code>población</code> (<code>Nt</code>) la cual permite estimar el crecimiento de la población Nt, basado en la densidad inicial <code>No</code>, en la tasa de crecimiento intrisico o instantánea <code>r</code> en periodos de tiempo especificos <code>t</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 1: Función para el crecimiento exponencial </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> <span class="cf">function</span>(No, r, t) </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  {   No <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t) } </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Nt</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (No, r, t) 
+{
+    No * exp(r * t)
+}</code></pre>
+</div>
+</div>
+<p>La función anterior se puede reemplazar por la siguiente más sencilla, así:</p>
+<p><span class="math inline">\(Nt = No. e^{(r.t)}\)</span></p>
+<ul>
+<li>Cálculo del tamaño de la población en 7 periodos de tiempo <code>N7</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimación la densidad de la población (Nt) después de 7 años (N7) </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>N7 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">Nt</span>(<span class="at">No =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="fl">0.06</span>, <span class="at">t =</span> <span class="dv">7</span>)) </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>N7</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7610</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura del modelo de proyección de la población en 10 periodos de tiempo.</li>
+</ol>
+<ul>
+<li>Base de datos o data frame <code>datos</code>, en 10 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame con los valores de población para varios tiempos </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,                     <span class="at">Nt =</span> <span class="fu">Nt</span>(<span class="at">No =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="fl">0.06</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)) </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(datos,<span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    t   Nt
+1   0 5000
+2   1 5309
+3   2 5637
+4   3 5986
+5   4 6356
+6   5 6749
+7   6 7167
+8   7 7610
+9   8 8080
+10  9 8580
+11 10 9111</code></pre>
+</div>
+</div>
+<ul>
+<li>Figura del modelo de proyección de la población en 10 periodos de tiempo.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafica de la evolución de la población </span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">y =</span> Nt)) <span class="sc">+</span>   </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">y =</span> N7), </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>   </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>   </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">7</span>, <span class="at">y =</span> N7, <span class="at">label =</span> N7), </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span>   </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span>   </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Densidad Poblacional (N)"</span>) <span class="sc">+</span>   </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Crecimiento Exponencial"</span>) <span class="sc">+</span>    </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura resultante, se observa cómo la población crece exponencialmente a lo largo de los 10 periodos de tiempo, y cómo después de 7 periodos, la población alcanza un valor de aproximadamente 7,764 individuos.</p>
+<p><strong>Otra forma de graficar el resultado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">5000</span>; </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fl">1.06</span>); </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">7</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(t, <span class="at">N =</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r<span class="sc">*</span>t))</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(t, N)) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth=</span><span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Años"</span>, <span class="at">y=</span><span class="st">"N"</span>, </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span><span class="st">"Crecimiento exponencial (6% anual)"</span>) <span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/f2-p1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Crecimiento a 6% anual durante 7 años (N0=5000).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="población-de-aves" class="level5">
+<h5 class="anchored" data-anchor-id="población-de-aves">2. Población de aves</h5>
+<p><img src="https://images.pexels.com/photos/13779401/pexels-photo-13779401.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid" style="width:40.0%"></p>
+<p>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000,<br>
+(1) ¿cuántos años se tardará para que vuelvan a doblar? Redondea tu respuesta a la centésima más cercana.<br>
+(2) Graficar la proyección de esta población en 20 periodos de tiempo.<br>
+</p>
+<p><strong>Respuesta</strong><br>
+Se requiere utilizar la fórmula para el crecimiento exponencial:</p>
+<p><span class="math display">\[
+N_t = N_0. e^{(r.t)}
+\]</span> En este caso, se tiene que:<br>
+<strong>No</strong>= 2000 individuos<br>
+<strong>r</strong>= 0.05 <span class="math inline">\(indv./indv.t\)</span> (aumento del 5%)<br>
+<strong>t</strong>= 7 años<br>
+</p>
+<p><em>Preguntas a resolver:</em><br>
+(1) <span class="math inline">\(tdoble\)</span>= ?<br>
+(2) Proyección exponencial en 10 periodos de tiempo<br>
+</p>
+<p><strong>Procedimiento</strong><br>
+(1) En este caso, se requiere saber cuántos años tardará la población en duplicarse. Para hacer esto, tenemos que:<br>
+<span class="math inline">\(t_{doble}= ln(2)/r\)</span></p>
+<p>En este caso:<br>
+<span class="math inline">\(N_0 = 2000.r\)</span> = 0.05 <span class="math inline">\(indv./indv.t\)</span> = (5%)</p>
+<p>Función asignada como <code>población</code> (<code>Nt</code>) la cual permite estimar el crecimiento de la población Nt, basado en la densidad inicial <code>No</code>, en la tasa de crecimiento intrisico o instantánea <code>r</code> en periodos de tiempo especificos <code>t</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos la función para el crecimiento exponencial</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> <span class="cf">function</span>(No, r, t) {   No <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t) } </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cálculo del tiempo de duplicación de la población <code>tdoble</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tiempo que tardará la población en duplicarse redondeado a dos decimales </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>tdoble <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">2</span>) <span class="sc">/</span> <span class="fl">0.05</span>, <span class="dv">2</span>) </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>tdoble</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.86</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura de la proyección poblacional en 20 periodos de tiempo o 20 años.</li>
+</ol>
+<p>Base de datos o data frame <code>datos</code>, en 20 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un data frame con los valores de población para varios tiempos </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,                  </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">Nt =</span> <span class="fu">round</span>(<span class="fu">Nt</span>(<span class="at">No =</span> <span class="dv">2000</span>, <span class="at">r =</span> <span class="fl">0.05</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>))) </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  t   Nt
+1 0 2000
+2 1 2103
+3 2 2210
+4 3 2324
+5 4 2443
+6 5 2568</code></pre>
+</div>
+</div>
+<p>Figura del modelo de proyección de la población en 20 periodos de tiempo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población </span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">y =</span> Nt)) <span class="sc">+</span>   </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>   </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tdoble, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span>   </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> tdoble <span class="sc">+</span> </span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fu">max</span>(datos<span class="sc">$</span>Nt) <span class="sc">/</span> <span class="dv">2</span>,              <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"Duplicaciónnen"</span>, tdoble, <span class="st">"años"</span>),             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  </span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span>   </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Población (N)"</span>) <span class="sc">+</span> </span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Crecimiento exponencial de la población de aves"</span>) <span class="sc">+</span>   </span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura, se observa cómo la población crece exponencialmente a lo largo del tiempo, y cómo la línea vertical roja indica el momento en que la población se duplica. El tiempo que tardará la población en duplicarse es de aproximadamente 13.86 años.</p>
+<hr>
+</section>
+<section id="población-de-hormigas" class="level5">
+<h5 class="anchored" data-anchor-id="población-de-hormigas">3. Población de Hormigas</h5>
+<p><img src="https://images.pexels.com/photos/3482985/pexels-photo-3482985.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=300" class="img-fluid" style="width:40.0%"></p>
+<p>Una población de hormigas presenta una tasa de disminución anual del 7,2%.<br>
+(1) ¿Cuántos años le tomará a esta población de 227 gramos para llegar a 93 gramos de biomasa?<br>
+(2) Graficar la proyección de esta población en 20 periodos de tiempo.<br>
+</p>
+<p><strong>Respuesta.</strong><br>
+Se requiere utilizar la fórmula para el crecimiento exponencial:<br>
+</p>
+<p><span class="math display">\[
+Nt = No. e^{(r.t)}
+\]</span></p>
+<p>En este caso, se tiene que:<br>
+<strong>No</strong>= 227 gramos<br>
+<strong>Nt</strong>= 93 gramos<br>
+<strong>t</strong>= ?<br>
+<strong>r</strong>= -0.072 indv./indv.*t (disminución del 7.2%)</p>
+<p><strong>Preguntas a resolver:</strong><br>
+(1) <strong>t</strong>= ?<br>
+(2) Proyección exponencial en 10 periodos de tiempo<br>
+</p>
+<p><strong>Procedimiento</strong><br>
+(1) En este caso, si: <span class="math inline">\(Nt = No. e^{(r.t)}\)</span> .<br>
+De acuerdo a diferentes despejes logarítmicos:<br>
+<span class="math display">\[
+t = \frac{\ln(N_t/N_0)}{r} = \frac{\ln(93/227)}{-0.072}.
+\]</span> Cálculo:<br>
+<span class="math display">\[
+t = \frac{\ln(0.409)}{-0.0749} = \frac{-0.895}{-0.072} \approx 12.39 \;\text{años}.
+\]</span> El cálculo también se puede realizar con la siguiente función:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos la función para la disminución exponencial </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>biomasa <span class="ot">&lt;-</span> <span class="cf">function</span>(No, r, t) {No <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>r <span class="sc">*</span> t)}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">93</span><span class="sc">/</span><span class="dv">227</span>)<span class="sc">/</span>(<span class="sc">-</span><span class="fl">0.072</span>), <span class="dv">2</span>) </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.39</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura de la proyección poblacional en 20 periodos de tiempo o 20 años.<br>
+Base de datos o data frame <code>datos</code>, en 20 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un data frame con los valores de población para varios tiempos </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,                  </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="at">biom =</span> <span class="fu">biomasa</span>(<span class="at">No =</span> <span class="dv">227</span>, <span class="at">r =</span> <span class="fl">0.072</span>, <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>)) </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  t     biom
+1 0 227.0000
+2 1 211.2305
+3 2 196.5565
+4 3 182.9019
+5 4 170.1959
+6 5 158.3725</code></pre>
+</div>
+</div>
+<p>Figura del modelo de proyección de la población en 20 periodos de tiempo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población </span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">y =</span> biom)) <span class="sc">+</span>   </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>() <span class="sc">+</span>   </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">93</span>,               </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>,               </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span>   </span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="fu">max</span>(datos<span class="sc">$</span>t) <span class="sc">/</span> <span class="dv">2</span>, </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="dv">100</span>,              </span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"Llegadana 93 gnen"</span>, </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>                          t, <span class="st">"años"</span>),             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>) <span class="sc">+</span>   </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span>   </span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Biomasa (g)"</span>) <span class="sc">+</span>   </span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Disminución exponencial de una población de hormigas"</span>) <span class="sc">+</span>   </span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la figura resultante, podemos observar cómo la biomasa disminuye exponencialmente a lo largo del tiempo, y cómo la línea horizontal roja nos indica el momento en que la biomasa alcanza los 93 gramos. El tiempo que tardará la biomasa en llegar a 93 gramos es de aproximadamente 12.39 años.</p>
+<hr>
+</section>
+<section id="población-de-peces" class="level5">
+<h5 class="anchored" data-anchor-id="población-de-peces">4. Población de Peces</h5>
+<p><img src="https://images.pexels.com/photos/128756/pexels-photo-128756.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=300" class="img-fluid" style="width:40.0%"></p>
+<p>Una población de peces aumenta a una tasa anual de 7%. Si la población actual es de 8.000 individuos:<br>
+(1) ¿Cuántos años le tomará a esta población para llegar a 18.000 individuos?<br>
+(2) Graficar la proyección de esta población en 20 periodos de tiempo.<br>
+</p>
+<p><strong>Respuesta.</strong><br>
+Se requiere utilizar la fórmula para el crecimiento exponencial:</p>
+<p><span class="math inline">\(N_t = N_0 . e^{(r.t)}\)</span></p>
+<p>En este caso, se tiene que:<br>
+<strong>No</strong>= 8000 indv.<br>
+<strong>Nt</strong>= 18000 indv.<br>
+<strong>t</strong>= ?<br>
+<strong>r</strong>= -0.07 indv./indv.*t (aumento del 7%)<br>
+</p>
+<p><strong>Preguntas a resolver:</strong><br>
+(1) <strong>t</strong>= ?<br>
+(2) Proyección exponencial en 20 periodos de tiempo<br>
+</p>
+<p><strong>Procedimiento</strong><br>
+(1) En este caso, si: <span class="math inline">\(N_t = N_0 . e^{(r.t)}\)</span>.</p>
+<p>De acuerdo a diferentes despejes logarítmicos:</p>
+<p><span class="math display">\[
+t = \frac{\ln(N_t/N_0)}{r} = \frac{\ln(18000/8000)}{0.07}.
+\]</span> Cálculo:<br>
+<span class="math display">\[
+t = \frac{\ln(0.409)}{-0.0749} = \frac{\ln(18000/8000)}{0.07} \approx 11.58 \;\text{años}.
+\]</span></p>
+<p>El cálculo también se puede realizar con la siguiente función:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definimos la función para la disminución exponencial </span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> <span class="cf">function</span>(No, r, t) {   No <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t) } </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cálculo del tamaño de la población en 7 periodos de tiempo <code>N7</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">18000</span><span class="sc">/</span><span class="dv">8000</span>)<span class="sc">/</span>(<span class="fl">0.07</span> <span class="sc">*</span> <span class="dv">1</span>), <span class="dv">2</span>) </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.58</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Figura de la proyección poblacional en 20 periodos de tiempo o 20 años.</li>
+</ol>
+<p>Base de datos o data frame <code>datos</code>, en 20 periodos de tiempo, para posteriormente realizar la figura del modelo exponencial en ggplot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un data frame con los valores de población para varios tiempos </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">tiempo =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,                  </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Nt =</span> <span class="fu">round</span>(<span class="fu">Nt</span>(<span class="at">No =</span> <span class="dv">8000</span>, </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">r =</span> <span class="fl">0.07</span>, </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">t =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>))) </span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  tiempo    Nt
+1      0  8000
+2      1  8580
+3      2  9202
+4      3  9869
+5      4 10585
+6      5 11353</code></pre>
+</div>
+</div>
+<p>Figura del modelo de proyección de la población en 20 periodos de tiempo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafica de la evolución de la población </span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> Nt)) <span class="sc">+</span>   </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>   </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>   </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos la evolución de la población </span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> Nt)) <span class="sc">+</span>  </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span>   </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t, </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span>   </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> t <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fu">max</span>(datos<span class="sc">$</span>Nt) <span class="sc">/</span> <span class="dv">2</span>,              <span class="at">label =</span> <span class="fu">paste</span>(<span class="st">"Aumento de Ntnen"</span>, t, <span class="st">"años"</span>),             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Tiempo (años)"</span>) <span class="sc">+</span>   </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Población (Nt)"</span>) <span class="sc">+</span>   </span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Crecimiento exponencial de la población de peces"</span>) <span class="sc">+</span>   </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="3_vis_exp_ecocuestionarios_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="respuestas-a-las-preguntas-de-cálculo-f3" class="level4">
+<h4 class="anchored" data-anchor-id="respuestas-a-las-preguntas-de-cálculo-f3">Respuestas a las preguntas de cálculo (F3)</h4>
+<hr>
+<section id="proyección-de-una-población-biológica" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-una-población-biológica">5. Proyección de una Población Biológica</h5>
+<p>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Usamos la fórmula del crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con (<span class="math inline">\(N_0 = 5000\)</span> ), (<span class="math inline">\(r = 0.06\)</span>) y (<span class="math inline">\(t = 7\)</span>) años: <span class="math display">\[
+N_{(7)} = 5000\, e^{0.06 \times 7}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema ilustra cómo aplicar el modelo exponencial para proyectar el tamaño de una población a futuro, considerando una tasa de crecimiento constante.</p>
+<hr>
+</section>
+<section id="proyección-de-una-colonia-de-bacterias-a-10-años" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-una-colonia-de-bacterias-a-10-años">6. Proyección de una Colonia de Bacterias a 10 Años</h5>
+<p>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula de crecimiento exponencial:<br>
+<span class="math display">\[ N_{(t)} = N_0 \cdot e^{rt} \]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_0 = 1500\)</span></li>
+<li><span class="math inline">\(r = 0.08\)</span></li>
+<li><span class="math inline">\(t = 10\)</span></li>
+</ul></li>
+<li>Sustituye en la fórmula:<br>
+<span class="math display">\[ N_{(10)} = 1500 \cdot e^{0.08 \times 10} = 1500 \cdot e^{0.8} \]</span></li>
+<li>Calcula <span class="math inline">\(e^{0.8}\)</span> y multiplica por <span class="math inline">\(1500\)</span> para obtener la población final.</li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio refuerza el uso del modelo exponencial para proyectar el crecimiento poblacional a lo largo del tiempo.</p>
+<hr>
+</section>
+<section id="propagación-viral-rápida" class="level5">
+<h5 class="anchored" data-anchor-id="propagación-viral-rápida">7. Propagación Viral Rápida</h5>
+<p>Un virus se propaga en una comunidad duplicándose cada 1.5 días. Si inicialmente hay 500 virus, ¿cuál es la población después de 10 días?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Dado que la población se duplica cada 1.5 días, se tiene: <span class="math display">\[
+e^{1.5r} = 2 \quad \Longrightarrow \quad r = \frac{\ln(2)}{1.5}.
+\]</span></li>
+<li>Usando el modelo de crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt},
+\]</span> con (<span class="math inline">\(N_{(0)}\)</span>= 500) y (<span class="math inline">\(t= 10\)</span>) días, se obtiene:<span class="math display">\[
+N_{(10)} = 500\, e^{10\left(\frac{\ln(2)}{1.5}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+</p>
+<p>Este problema destaca la rápida propagación del virus mediante duplicaciones frecuentes y demuestra cómo aplicar el modelo exponencial para estimar la población viral en un tiempo determinado.</p>
+<hr>
+</section>
+<section id="determinación-de-la-población-inicial-de-peces" class="level5">
+<h5 class="anchored" data-anchor-id="determinación-de-la-población-inicial-de-peces">8. Determinación de la Población Inicial de Peces</h5>
+<p>Una población de peces crece a una tasa del 5% anual. Si en 12 años la población alcanza los 6,000 individuos, ¿cuál era la población inicial?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula de crecimiento exponencial:<br>
+<span class="math display">\[  N_{(t)} = N_0 \cdot e^{rt}  \]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_{(12)} = 6000\)</span></li>
+<li><span class="math inline">\(r = 0.05\)</span></li>
+<li><span class="math inline">\(t = 12\)</span></li>
+</ul></li>
+<li>Plantea la ecuación:<br>
+<span class="math display">\[  6000 = N_0 \cdot e^{0.05 \times 12} = N_0 \cdot e^{0.6}  \]</span></li>
+<li>Despeja <span class="math inline">\(N_0\)</span>:<br>
+<span class="math display">\[  N_0 = \frac{6000}{e^{0.6}}  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema enseña a encontrar la población inicial a partir de los datos finales y la tasa de crecimiento.</p>
+<hr>
+</section>
+<section id="crecimiento-experimental-en-microbios" class="level5">
+<h5 class="anchored" data-anchor-id="crecimiento-experimental-en-microbios">9. Crecimiento Experimental en Microbios</h5>
+<p>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,<br>
+a) determina la tasa (<span class="math inline">\(r\)</span>);<br>
+b) calcula la población después de 15 horas.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Se tiene: <span class="math display">\[
+3 = e^{10r} \quad \Longrightarrow \quad r = \frac{\ln(3)}{10}.
+\]</span></li>
+<li>Aplicando el modelo de crecimiento: <span class="math display">\[
+N_{(15)} = 200\, e^{15r} = 200\, e^{15\left(\frac{\ln(3)}{10}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite determinar la tasa de crecimiento a partir de una observación experimental y utilizarla para predecir la población en un tiempo intermedio, demostrando la utilidad del modelo exponencial en experimentos microbiológicos.</p>
+<hr>
+</section>
+<section id="duplicación-de-una-población-de-aves" class="level5">
+<h5 class="anchored" data-anchor-id="duplicación-de-una-población-de-aves">10. Duplicación de una Población de Aves</h5>
+<p>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que la población se duplique? (Redondea tu respuesta a la centésima más cercana.)</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Para la duplicación, el modelo es: <span class="math display">\[
+2N_0 = N_0\, e^{rt} \quad \Longrightarrow \quad e^{rt} = 2.
+\]</span></li>
+<li>Tomando logaritmos naturales: <span class="math display">\[
+rt = \ln(2) \quad \Longrightarrow \quad t = \frac{\ln(2)}{r}.
+\]</span></li>
+<li>Con (<span class="math inline">\(r = 0.05\)</span>): <span class="math display">\[
+t = \frac{\ln(2)}{0.05} \approx \frac{0.6931}{0.05} \approx 13.86 \text{ años}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema demuestra cómo calcular el tiempo de duplicación de una población utilizando la función exponencial y la constante de crecimiento, proporcionando una aproximación práctica en ecología.</p>
+<hr>
+</section>
+<section id="proyección-de-duplicación-en-una-población-de-insectos" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-duplicación-en-una-población-de-insectos">11. Proyección de Duplicación en una Población de Insectos</h5>
+<p>Una población de insectos se duplica cada 8 años. Si actualmente hay 5,000 insectos, ¿cuál será la población en 24 años?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>La duplicación cada 8 años implica que cada 8 años la población se multiplica por 2.</li>
+<li>En 24 años se realizan 3 duplicaciones:<br>
+<span class="math display">\[  N_{(24)} = 5000 \cdot 2^3 = 5000 \cdot 8 = 40000  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema ilustra el concepto de duplicación y el uso de potencias para calcular el crecimiento en periodos discretos.</p>
+<hr>
+</section>
+<section id="decaimiento-de-biomasa-en-una-población-de-hormigas" class="level5">
+<h5 class="anchored" data-anchor-id="decaimiento-de-biomasa-en-una-población-de-hormigas">12. Decaimiento de Biomasa en una Población de Hormigas</h5>
+<p>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población, cuya biomasa es de 227 gramos, reducirse a 93 gramos?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utilizamos el modelo de decaimiento exponencial: <span class="math display">\[
+N_{t} = N_0\, e^{-rt}.
+\]</span></li>
+<li>Con <span class="math inline">\(N_{0}\)</span> = 227g, <span class="math inline">\(r\)</span> = 0.072 ) y <span class="math inline">\(N_{t}\)</span> = 93g, se tiene: <span class="math display">\[
+93 = 227\, e^{-0.072\, t}.
+\]</span></li>
+<li>Dividiendo entre 227: <span class="math display">\[
+e^{-0.072\, t} = \frac{93}{227}.
+\]</span></li>
+<li>Aplicando logaritmos: <span class="math display">\[
+-0.072\, t = \ln\left(\frac{93}{227}\right) \quad \Longrightarrow \quad t = -\frac{\ln\left(\frac{93}{227}\right)}{0.072}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio ilustra la aplicación del modelo exponencial en procesos de decaimiento, permitiendo estimar el tiempo requerido para que una población sufra una reducción significativa en biomasa.</p>
+<hr>
+</section>
+<section id="decaimiento-de-la-población-de-conejos" class="level5">
+<h5 class="anchored" data-anchor-id="decaimiento-de-la-población-de-conejos">13. Decaimiento de la Población de Conejos</h5>
+<p>Una población de conejos decrece a una tasa anual del 4%. Si actualmente hay 1,200 conejos, ¿cuántos años se necesitarán para que la población se reduzca a 800?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Emplea la fórmula del decaimiento exponencial:<br>
+<span class="math display">\[ N_{(t)} = N_0 \cdot e^{-rt} \]</span></li>
+<li>Con:
+<ul>
+<li><span class="math inline">\(N_0 = 1200\)</span></li>
+<li><span class="math inline">\(N_{(t)} = 800\)</span></li>
+<li><span class="math inline">\(r = 0.04\)</span></li>
+</ul></li>
+<li>Plantea la ecuación:<br>
+<span class="math display">\[ 800 = 1200 \cdot e^{-0.04t} \]</span></li>
+<li>Divide ambos lados por 1200:<br>
+<span class="math display">\[ \frac{800}{1200} = e^{-0.04t} \quad \Longrightarrow \quad \frac{2}{3} = e^{-0.04t} \]</span></li>
+<li>Aplica logaritmo natural:<br>
+<span class="math display">\[ \ln\left(\frac{2}{3}\right) = -0.04t \]</span></li>
+<li>Despeja <span class="math inline">\(t\)</span>:<br>
+<span class="math display">\[ t = \frac{-\ln(2/3)}{0.04} \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Se practica cómo resolver ecuaciones exponenciales utilizando logaritmos para determinar el tiempo de disminución.</p>
+<hr>
+</section>
+<section id="proyección-de-una-población-de-peces-marinos" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-una-población-de-peces-marinos">14. Proyección de una Población de Peces Marinos</h5>
+<p>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que la población alcance los 18000 individuos?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Usamos la fórmula del crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con (<span class="math inline">\(N_{(0)}\)</span>= 8000 ), (<span class="math inline">\(r\)</span>= 0.07 ) y (<span class="math inline">\(N_{(t)}\)</span>= 18000 ):<span class="math display">\[
+18000 = 8000\, e^{0.07,t}.
+\]</span></li>
+<li>Dividiendo entre 8000: <span class="math display">\[
+e^{0.07\, t} = \frac{18000}{8000} = 2.25.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+0.07\, t = \ln(2.25) \quad \Longrightarrow \quad t = \frac{\ln(2.25)}{0.07}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema permite estimar el tiempo necesario para que una población de peces se expanda hasta alcanzar un tamaño específico, demostrando el uso del modelo exponencial en el manejo y estudio de poblaciones marinas.</p>
+<hr>
+</section>
+<section id="proyección-de-crecimiento-de-algas-en-un-lago" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-crecimiento-de-algas-en-un-lago">15. Proyección de Crecimiento de Algas en un Lago</h5>
+<p>Una población de algas en un lago crece a una tasa anual del 9%. Si actualmente hay 10,000 unidades, ¿en cuántos años se alcanzarán 50,000 unidades?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula de crecimiento exponencial:<br>
+<span class="math display">\[  N_{(t)} = N_0 \cdot e^{rt}  \]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_0 = 10000\)</span></li>
+<li><span class="math inline">\(N_{(t)} = 50000\)</span></li>
+<li><span class="math inline">\(r = 0.09\)</span></li>
+</ul></li>
+<li>Plantea la ecuación:<br>
+<span class="math display">\[  50000 = 10000 \cdot e^{0.09t} \quad \Longrightarrow \quad 5 = e^{0.09t}  \]</span></li>
+<li>Aplica logaritmo natural:<br>
+<span class="math display">\[  \ln(5) = 0.09t  \]</span></li>
+<li>Despeja <span class="math inline">\(t\)</span>:<br>
+<span class="math display">\[  t = \frac{\ln(5)}{0.09}  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio aplica el modelo exponencial para determinar el tiempo requerido para alcanzar un incremento específico en la cantidad de algas.</p>
+<hr>
+</section>
+<section id="cálculo-de-la-tasa-de-crecimiento-de-ardillas" class="level5">
+<h5 class="anchored" data-anchor-id="cálculo-de-la-tasa-de-crecimiento-de-ardillas">16. Cálculo de la Tasa de Crecimiento de Ardillas</h5>
+<p>Se estima que una población de ardillas aumentará de 1,800 a 2,500 en 10 años. Determina la tasa de crecimiento instantáneo <span class="math inline">\(r\)</span>.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Partimos de la fórmula:<br>
+<span class="math display">\[  N_{(t)} = N_0 \cdot e^{rt}  \]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_0 = 1800\)</span></li>
+<li><span class="math inline">\(N_{(10)} = 2500\)</span></li>
+<li><span class="math inline">\(t = 10\)</span></li>
+</ul></li>
+<li>Plantea la ecuación:<br>
+<span class="math display">\[  2500 = 1800 \cdot e^{10r}  \]</span></li>
+<li>Divide ambos lados por 1800:<br>
+<span class="math display">\[  e^{10r} = \frac{2500}{1800}  \]</span></li>
+<li>Aplica logaritmo natural:<br>
+<span class="math display">\[  10r = \ln\left(\frac{2500}{1800}\right)  \]</span></li>
+<li>Despeja <span class="math inline">\(r\)</span>:<br>
+<span class="math display">\[  r = \frac{1}{10} \ln\left(\frac{2500}{1800}\right)  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema enseña a calcular la tasa de crecimiento a partir de datos de cambio poblacional.</p>
+<hr>
+</section>
+<section id="cálculo-de-la-población-inicial-en-una-población-silvestre" class="level5">
+<h5 class="anchored" data-anchor-id="cálculo-de-la-población-inicial-en-una-población-silvestre">17. Cálculo de la Población Inicial en una Población Silvestre</h5>
+<p>Una población silvestre crece a una tasa anual del 7%. Si la población alcanza los 2000 individuos en 7 años, ¿cuál era el tamaño de la población inicial?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utilizamos la fórmula del crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con <span class="math inline">\(P_{7}\)</span>= 2000, <span class="math inline">\(r\)</span>= 0.07 y <span class="math inline">\(t\)</span>= 7: <span class="math display">\[
+2000 = N_0\, e^{0.07 \times 7}.
+\]</span></li>
+<li>Despejando <span class="math inline">\(N_0\)</span>: <span class="math display">\[
+N_0 = \frac{2000}{e^{0.07 \times 7}}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio destaca cómo, a partir del tamaño de la población en un tiempo futuro y la tasa de crecimiento, se puede determinar la población inicial utilizando el modelo exponencial.</p>
+<hr>
+</section>
+<section id="duplicación-de-una-población-de-curíes" class="level5">
+<h5 class="anchored" data-anchor-id="duplicación-de-una-población-de-curíes">18. Duplicación de una Población de Curíes</h5>
+<p>Una población de curíes de interés para consumo crece a una tasa anual del 3%. Si la población actual es de 3000 individuos, ¿cuántos años se tardará para que la población doble su densidad?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Para duplicar la población: <span class="math display">\[
+2N_0 = N_0\, e^{rt} \quad \Longrightarrow \quad e^{rt} = 2.
+\]</span></li>
+<li>Tomando logaritmos: <span class="math display">\[
+rt = \ln(2) \quad \Longrightarrow \quad t = \frac{\ln(2)}{r}.
+\]</span></li>
+<li>Con <span class="math inline">\(r\)</span> = 0.03: <span class="math display">\[
+t = \frac{\ln(2)}{0.03}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema utiliza el concepto de tiempo de duplicación para una población en crecimiento, proporcionando una medida útil para entender la velocidad a la que se incrementa la densidad poblacional.</p>
+<hr>
+</section>
+<section id="tiempo-de-duplicación-y-tasa-de-crecimiento" class="level5">
+<h5 class="anchored" data-anchor-id="tiempo-de-duplicación-y-tasa-de-crecimiento">19. Tiempo de Duplicación y Tasa de Crecimiento</h5>
+<p>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.<br>
+a) Determina la tasa (<span class="math inline">\(r\)</span>).<br>
+b) Calcula el tiempo de duplicación de la población.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Se tiene: <span class="math display">\[
+1200 = 300\, e^{6r} \quad \Longrightarrow \quad e^{6r} = 4.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+6r = \ln(4) \quad \Longrightarrow \quad r = \frac{\ln(4)}{6}.
+\]</span></li>
+<li>El tiempo de duplicación <span class="math inline">\(T_d\)</span> se define por: <span class="math display">\[
+\quad T_d = \frac{\ln(2)}{r} = \frac{\ln(2)}{\ln(4)/6} = \frac{6\ln(2)}{\ln(4)}.
+\]</span></li>
+<li>Notando que ($ln(4)$=$2.ln(2)$), se tiene: <span class="math display">\[
+T_d = \frac{6\ln(2)}{2\ln(2)} = 3 \text{ días}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+El ejercicio muestra cómo calcular la tasa de crecimiento a partir del cambio observado y cómo determinar el tiempo de duplicación, un parámetro clave en el estudio de dinámicas poblacionales.</p>
+<hr>
+</section>
+<section id="crecimiento-viral-y-tiempo-de-duplicación-en-cultivo" class="level5">
+<h5 class="anchored" data-anchor-id="crecimiento-viral-y-tiempo-de-duplicación-en-cultivo">20. Crecimiento Viral y Tiempo de Duplicación en Cultivo</h5>
+<p>Una población de virus en un cultivo crece exponencialmente. Si la población aumenta de <span class="math inline">\(10^3\)</span> a <span class="math inline">\(10^9\)</span> en 24 horas, ¿cuál es la tasa de crecimiento instantáneo <span class="math inline">\(r\)</span> y cuál es el tiempo de duplicación?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula de crecimiento exponencial:<br>
+<span class="math display">\[  N_{(t)} = N_0 \cdot e^{rt}  \]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_0 = 10^3\)</span></li>
+<li><span class="math inline">\(P_{(24)} = 10^9\)</span></li>
+<li><span class="math inline">\(t = 24\)</span></li>
+</ul></li>
+<li>Plantea la ecuación:<br>
+<span class="math display">\[  10^9 = 10^3 \cdot e^{24r}  \]</span></li>
+<li>Divide ambos lados por <span class="math inline">\(10^3\)</span>:<br>
+<span class="math display">\[  e^{24r} = 10^6  \]</span></li>
+<li>Toma logaritmo natural:<br>
+<span class="math display">\[  24r = \ln(10^6) = 6\ln(10)  \]</span></li>
+<li>Despeja <span class="math inline">\(r\)</span>:<br>
+<span class="math display">\[  r = \frac{6\ln(10)}{24} = \frac{\ln(10)}{4}  \]</span></li>
+<li>Para hallar el tiempo de duplicación <span class="math inline">\(T_d\)</span>, utiliza:<br>
+<span class="math display">\[  T_d = \frac{\ln(2)}{r} = \frac{\ln(2)}{\ln(10)/4} = \frac{4\ln(2)}{\ln(10)}  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio combina el uso de potencias y logaritmos para determinar tanto la tasa de crecimiento como el tiempo de duplicación.</p>
+<hr>
+</section>
+<section id="decaimiento-en-la-biomasa-de-mariposas" class="level5">
+<h5 class="anchored" data-anchor-id="decaimiento-en-la-biomasa-de-mariposas">21. Decaimiento en la Biomasa de Mariposas</h5>
+<p>Una población endémica de mariposas declina su densidad anual en un 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Usamos el modelo de decaimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{-rt}.
+\]</span></li>
+<li>Con ($N_{(0)}$= 127 ) g, (<span class="math inline">\(r\)</span>= 0.125) y ($t$= 6) años: <span class="math display">\[
+N_{(6)} = 127\, e^{-0.125 \times 6}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+El ejercicio demuestra la aplicación del modelo exponencial para procesos de declinación, permitiendo estimar la reducción en biomasa de una población en un intervalo de tiempo específico.</p>
+<hr>
+</section>
+<section id="crecimiento-de-la-población-de-ee.uu." class="level5">
+<h5 class="anchored" data-anchor-id="crecimiento-de-la-población-de-ee.uu.">22. Crecimiento de la Población de EE.UU.</h5>
+<p>Según el artículo “U.S. reaching the 300 million person milestone”, la población de EE.UU. alcanzó los 200 millones en 1967. Asumiendo que en 2007 la población es de 303 millones,<br>
+a) Calcula la tasa de incremento instantáneo anual.<br>
+b) Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en 2027?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="a">
+<li>Para calcular (<span class="math inline">\(r\)</span>):</li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>Utilizamos el modelo exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con (<span class="math inline">\(P_{(0)} = 200\)</span>) millones (en 1967) y (<span class="math inline">\(P_{(40)}\)</span>= 303 ) millones (en 2007): <span class="math display">\[
+303 = 200\, e^{40r}.
+\]</span></li>
+<li>Despejando: <span class="math display">\[
+e^{40r} = \frac{303}{200} \quad \Longrightarrow \quad 40r = \ln\left(\frac{303}{200}\right),
+\]</span> <span class="math display">\[
+r = \frac{1}{40}\ln\left(\frac{303}{200}\right).
+\]</span></li>
+</ol>
+<!-- -->
+<ol start="2" type="a">
+<li>Proyección para 2027 (20 años después de 2007):</li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>Usamos la tasa (<span class="math inline">\(r\)</span>) obtenida y el valor de (<span class="math inline">\(P_{(40)}\)</span>= 303) millones: <span class="math display">\[
+N_{(20)} = 303\, e^{20r}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite estimar la tasa de crecimiento poblacional en EE.UU. a partir de datos históricos y proyectar la población futura bajo la asunción de una tendencia constante.</p>
+<hr>
+</section>
+<section id="triplicación-de-la-población-de-elefantes" class="level5">
+<h5 class="anchored" data-anchor-id="triplicación-de-la-población-de-elefantes">23. Triplicación de la Población de Elefantes</h5>
+<p>Una población de elefantes crece a una tasa anual del 2%. Actualmente hay 800 elefantes, ¿en cuántos años se triplicará la población?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Se plantea que al triplicar la población:<br>
+<span class="math display">\[  3.N_0 = N_0 \cdot e^{0.02t}  \]</span></li>
+<li>Simplifica a:<br>
+<span class="math display">\[  3 = e^{0.02t}  \]</span></li>
+<li>Toma logaritmo natural en ambos lados:<br>
+<span class="math display">\[  \ln(3) = 0.02t  \]</span></li>
+<li>Despeja <span class="math inline">\(t\)</span>:<br>
+<span class="math display">\[  t = \frac{\ln(3)}{0.02}  \]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+El ejercicio ilustra el uso de logaritmos para determinar el tiempo necesario para alcanzar un múltiplo específico de la población inicial.</p>
+<hr>
+</section>
+<section id="tasas-de-incremento-de-la-población-mundial" class="level5">
+<h5 class="anchored" data-anchor-id="tasas-de-incremento-de-la-población-mundial">24. Tasas de Incremento de la Población Mundial</h5>
+<p>Según las proyecciones de las Naciones Unidas, para el año 2050 se estima que la población mundial estará en un rango:<br>
+- Menor estimador: 7.3 billones de personas.<br>
+- Mayor estimador: 10.7 billones de personas.</p>
+<p>Si se asume que la población mundial inicia con 8.1 billones en 2023, ¿cuál es la tasa de incremento anual en cada estimador? (El tiempo transcurrido es de 27 años, de 2023 a 2050).</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utilizamos la fórmula del crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Para el menor estimador:
+<ul>
+<li>($P_{(27)}$= 7.3 ) billones y ($N_{(0)}$= 8.1) billones. <span class="math display">\[
+7.3 = 8.1\, e^{27r} \quad \Longrightarrow \quad e^{27r} = \frac{7.3}{8.1},
+\]</span> <span class="math display">\[
+r = \frac{1}{27}\ln\left(\frac{7.3}{8.1}\right).
+\]</span></li>
+</ul></li>
+<li>Para el mayor estimador:
+<ul>
+<li>(<span class="math inline">\(P_{(27)}\)</span>= 10.7 ) billones y (<span class="math inline">\(N_{(0)}\)</span>= 8.1) billones. <span class="math display">\[
+10.7 = 8.1\, e^{27r} \quad \Longrightarrow \quad e^{27r} = \frac{10.7}{8.1},
+\]</span> <span class="math display">\[
+r = \frac{1}{27}\ln\left(\frac{10.7}{8.1}\right).
+\]</span></li>
+</ul></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema ilustra cómo, a partir de proyecciones poblacionales, se pueden derivar las tasas de incremento anual en diferentes escenarios, destacando la variabilidad y la incertidumbre en las predicciones a largo plazo.</p>
+<hr>
+</section>
+<section id="producción-de-la-población-mundial-a-partir-de-dos-individuos" class="level5">
+<h5 class="anchored" data-anchor-id="producción-de-la-población-mundial-a-partir-de-dos-individuos">25. Producción de la Población Mundial a partir de Dos Individuos</h5>
+<p>Con una tasa de crecimiento poblacional de ( r = 2.8% ) anual, ¿cuánto tiempo tomaría para que un par de individuos produzca la población mundial actual (cerca de 10 billones de personas)? Además, ¿en qué tiempo se duplicaría esta población? Discuta el resultado.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Para la proyección, usamos el modelo exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con (<span class="math inline">\(N_{(0)}\)</span>= 2) individuos, (<span class="math inline">\(N_{(t)}\)</span>= 10 <span class="math inline">\(10^9\)</span> ) y (<span class="math inline">\(r\)</span>= 0.028 ): <span class="math display">\[
+10 \times 10^9 = 2\, e^{0.028\, t}.
+\]</span></li>
+<li>Dividiendo entre 2: <span class="math display">\[
+e^{0.028\, t} = \frac{10 \times 10^9}{2} = 5 \times 10^9.
+\]</span></li>
+<li>Aplicando logaritmos: <span class="math display">\[
+0.028\, t = \ln(5 \times 10^9) \quad \Longrightarrow \quad t = \frac{\ln(5 \times 10^9)}{0.028}.
+\]</span></li>
+<li>Para el tiempo de duplicación de la población actual: <span class="math display">\[
+T_d = \frac{\ln(2)}{0.028}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite explorar el impacto de una tasa de crecimiento moderada a lo largo de un período muy extenso, evidenciando la increíble capacidad del crecimiento exponencial para generar números colosales, y destaca la diferencia entre el tiempo requerido para crecer desde dos individuos hasta 10 billones y el tiempo de duplicación en una población ya masiva.</p>
+<hr>
+</section>
+<section id="proyección-de-la-población-humana-a-partir-de-datos-históricos" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-de-la-población-humana-a-partir-de-datos-históricos">26. Proyección de la Población Humana a partir de Datos Históricos</h5>
+<p>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.<br>
+a) Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>) asumiendo este tiempo de duplicación.<br>
+b) Si la población en 1993 era de 5400 millones, ¿cuál es el tamaño proyectado para el año 2030?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="a">
+<li>Para la duplicación en 50 años:</li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>Usamos: <span class="math display">\[
+2 = e^{50r} \quad \Longrightarrow \quad r = \frac{\ln(2)}{50}.
+\]</span></li>
+</ol>
+<!-- -->
+<ol start="2" type="a">
+<li>Proyección para 2030 (diferencia de ( 2030 - 1993 = 37 ) años):</li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>Utilizando el modelo: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt},
+\]</span> con (<span class="math inline">\(N_{(0)}\)</span>= 5400 ) millones y (<span class="math inline">\(t\)</span> = 37) años: <span class="math display">\[
+N_{(37)} = 5400\, e^{37\left(\frac{\ln(2)}{50}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite calcular la tasa de crecimiento implícita en una predicción histórica y aplicar dicha tasa para proyectar la población futura, demostrando la utilidad del modelo exponencial en demografía.</p>
+<hr>
+</section>
+<section id="dinámica-de-una-población-de-escarabajos" class="level5">
+<h5 class="anchored" data-anchor-id="dinámica-de-una-población-de-escarabajos">27. Dinámica de una Población de Escarabajos</h5>
+<p>Usted estudia una población de escarabajos con un tamaño inicial de 3000. Durante un mes se registraron 400 nacimientos y 150 muertes.<br>
+a) Estime la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+b) Proyecte el tamaño poblacional en 6 meses.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="a">
+<li></li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>La población al final de un mes es: <span class="math display">\[
+N_{(1)} = 3000 + (400 - 150) = 3250.
+\]</span></li>
+<li>Usando el modelo: <span class="math display">\[
+N_{(1)} = 3000\, e^r,
+\]</span> se tiene: <span class="math display">\[
+3250 = 3000\, e^r \quad \Longrightarrow \quad e^r = \frac{3250}{3000},
+\]</span> <span class="math display">\[
+r = \ln\left(\frac{3250}{3000}\right).
+\]</span></li>
+</ol>
+<!-- -->
+<ol start="2" type="a">
+<li></li>
+</ol>
+<!-- -->
+<ol type="1">
+<li>Proyectamos para 6 meses: <span class="math display">\[
+N_{(6)} = 3000\, e^{6r} = 3000\, e^{6 \ln\left(\frac{3250}{3000}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio integra datos observacionales para estimar la tasa de crecimiento y utilizarla en la proyección futura, lo que es fundamental para entender la dinámica poblacional en estudios ecológicos.</p>
+<hr>
+</section>
+<section id="impacto-del-desarrollo-en-una-población-de-orquídeas" class="level5">
+<h5 class="anchored" data-anchor-id="impacto-del-desarrollo-en-una-población-de-orquídeas">28. Impacto del Desarrollo en una Población de Orquídeas</h5>
+<p>Usted estudia una población de orquídeas en peligro, para las cuales la tasa de nacimientos es (<span class="math inline">\(b = 0.0021\)</span>) nacimientos/individuo.año y la tasa de muertes es (<span class="math inline">\(d = 0.0020\)</span>) muertes/individuo.año. La población actual es de 40 plantas. Se proyecta que un nuevo centro comercial reducirá esta población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>La tasa de crecimiento neta es: <span class="math display">\[
+r = b - d = 0.0021 - 0.0020 = 0.0001 \text{ por año}.
+\]</span></li>
+<li>Una reducción de la población de 40 a 20 plantas implica una pérdida del 50% de la población, lo que reduce significativamente la reserva genética y aumenta la vulnerabilidad ante fluctuaciones ambientales y estocásticas.</li>
+<li>Con un (<span class="math inline">\(r\)</span>) muy bajo, la capacidad de recuperación de la población es limitada, lo que incrementa la probabilidad de extinción.</li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema resalta cómo la pérdida de hábitat y la consiguiente reducción poblacional pueden aumentar el riesgo de extinción, especialmente en poblaciones con tasas de crecimiento netas muy bajas. La disminución drástica en el tamaño de la población puede conducir a efectos de deriva genética y problemas de reproducción, haciendo a la población más susceptible a extinciones locales.</p>
+<hr>
+</section>
+<section id="tasa-de-crecimiento-en-una-población-de-e.-coli" class="level5">
+<h5 class="anchored" data-anchor-id="tasa-de-crecimiento-en-una-población-de-e.-coli">29. Tasa de Crecimiento en una Población de <em>E. coli</em></h5>
+<p>Si una población de <em>E. coli</em> crece de 1000 células a ( 2 ^9 ) células en 6 horas, ¿cuál es su tasa intrínseca de incremento? ¿Está la población duplicándose en el tiempo esperado?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Usamos el modelo de crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Con (<span class="math inline">\(N_{(0)}\)</span>= 1000 ), (<span class="math inline">\(P_{(6)}\)</span>= 2 <span class="math inline">\(10^9\)</span>) y (<span class="math inline">\(t = 6\)</span>) horas: <span class="math display">\[
+2 \times 10^9 = 1000\, e^{6r}.
+\]</span></li>
+<li>Dividiendo entre 1000: <span class="math display">\[
+e^{6r} = \frac{2 \times 10^9}{1000} = 2 \times 10^6.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+6r = \ln(2 \times 10^6) \quad \Longrightarrow \quad r = \frac{\ln(2 \times 10^6)}{6}.
+\]</span></li>
+<li>El tiempo de duplicación (<span class="math inline">\(T_d\)</span>) se obtiene mediante: <span class="math display">\[
+T_d = \frac{\ln(2)}{r}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite calcular la tasa intrínseca de incremento de una población bacteriana a partir de datos experimentales. Además, al determinar el tiempo de duplicación, se puede evaluar si la población se está duplicando a un ritmo coherente con la tasa calculada, lo que es fundamental en estudios microbiológicos.</p>
+<hr>
+</section>
+<section id="proyección-y-tiempo-de-reducción-de-una-población-invasora" class="level5">
+<h5 class="anchored" data-anchor-id="proyección-y-tiempo-de-reducción-de-una-población-invasora">30. Proyección y Tiempo de Reducción de una Población Invasora</h5>
+<p>Una especie invasora de plantas disminuye su población a una tasa del 3% anual debido a medidas de control. Si inicialmente hay 5,000 plantas: a) ¿Cuál será el número aproximado de plantas después de 20 años? b) ¿Cuánto tiempo se necesitará para reducir la población a la mitad?</p>
+<p><strong>Procedimiento (a):</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula del decaimiento exponencial:<br>
+<span class="math display">\[
+N_{(t)} = N_0 \cdot e^{-rt}
+\]</span></li>
+<li>Se tienen:
+<ul>
+<li><span class="math inline">\(N_0 = 5000\)</span></li>
+<li><span class="math inline">\(r = 0.03\)</span></li>
+<li><span class="math inline">\(t = 20\)</span></li>
+</ul></li>
+<li>Sustituye en la fórmula:<br>
+<span class="math display">\[
+N_{(20)} = 5000 \cdot e^{-0.03 \times 20} = 5000 \cdot e^{-0.6}
+\]</span></li>
+</ol>
+<p><strong>Procedimiento (b):</strong></p>
+<ol type="1">
+<li>Se busca el tiempo <span class="math inline">\(t\)</span> tal que la población se reduzca a la mitad:<br>
+<span class="math display">\[
+0.5 \cdot 5000 = 5000 \cdot e^{-0.03t} \quad \Longrightarrow \quad 0.5 = e^{-0.03t}
+\]</span></li>
+<li>Toma logaritmo natural:<br>
+<span class="math display">\[
+\ln(0.5) = -0.03t
+\]</span></li>
+<li>Despeja <span class="math inline">\(t\)</span>:<br>
+<span class="math display">\[
+t = \frac{-\ln(0.5)}{0.03} = \frac{\ln(2)}{0.03}
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+La parte (a) proyecta la población futura, mientras que la (b) introduce el concepto de tiempo de semivida (reducción a la mitad) en un proceso de decaimiento exponencial.</p>
+<hr>
+</section>
+<section id="duplicación-y-multiplicación" class="level5">
+<h5 class="anchored" data-anchor-id="duplicación-y-multiplicación">31. Duplicación y Multiplicación</h5>
+<p>Una colonia de bacterias se duplica cada 4 horas.<br>
+a) Determina la tasa de crecimiento instantáneo (<span class="math inline">\(r\)</span>).<br>
+b) Calcula el tiempo necesario para que la población se incremente a 10 veces la cantidad inicial.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Utiliza la fórmula del crecimiento exponencial: <span class="math display">\[
+N_{(t)} = N_0\, e^{rt}.
+\]</span></li>
+<li>Para la duplicación se cumple que: <span class="math display">\[
+2 = N_0\, e^{4r} \quad \Longrightarrow \quad e^{4r} = 2.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+4r = \ln(2) \quad \Longrightarrow \quad r = \frac{\ln(2)}{4}.
+\]</span></li>
+<li>Para que la población se incremente a 10 veces la cantidad inicial, se tiene: <span class="math display">\[
+10 = N_0\, e^{rt} \quad \Longrightarrow \quad e^{rt} = 10.
+\]</span></li>
+<li>Resolviendo para ($t$): <span class="math display">\[
+t = \frac{\ln(10)}{r} = \frac{\ln(10)}{\ln(2)/4} = \frac{4\ln(10)}{\ln(2)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio permite determinar la tasa de crecimiento a partir del tiempo de duplicación y, utilizando el modelo exponencial, calcular el tiempo requerido para alcanzar un incremento de 10 veces la población inicial. Esto demuestra cómo el crecimiento exponencial modela procesos de aumento multiplicativo en poblaciones.</p>
+<hr>
+</section>
+<section id="determinación-de-la-tasa-a-partir-de-datos-reales" class="level5">
+<h5 class="anchored" data-anchor-id="determinación-de-la-tasa-a-partir-de-datos-reales">32. Determinación de la Tasa a partir de Datos Reales</h5>
+<p>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.<br>
+a) Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+b) Estima la población al cabo de 24 meses.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Se tiene: <span class="math display">\[
+800 = 250\, e^{12r} \quad \Longrightarrow \quad e^{12r} = \frac{800}{250} = 3.2.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+12r = \ln(3.2) \quad \Longrightarrow \quad r = \frac{\ln(3.2)}{12}.
+\]</span></li>
+<li>Para 24 meses, la población es: <span class="math display">\[
+N_{(24)} = 250\, e^{24r} = 250\, e^{24\left(\frac{\ln(3.2)}{12}\right)} = 250\, e^{2\ln(3.2)} = 250\,(3.2)^2.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio utiliza datos empíricos para extraer la tasa de crecimiento y proyectar la población a mediano plazo, demostrando la aplicabilidad del modelo exponencial en el análisis poblacional.</p>
+<hr>
+</section>
+<section id="crecimiento-celular-en-cultivo" class="level5">
+<h5 class="anchored" data-anchor-id="crecimiento-celular-en-cultivo">33. Crecimiento Celular en Cultivo</h5>
+<p>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.<br>
+a) Calcula la tasa de crecimiento (<span class="math inline">\(r\)</span>).<br>
+b) Estima la población a las 72 horas.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Se tiene: <span class="math display">\[
+25000 = 10000\, e^{48r} \quad \Longrightarrow \quad e^{48r} = \frac{25000}{10000} = 2.5.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+48r = \ln(2.5) \quad \Longrightarrow \quad r = \frac{\ln(2.5)}{48}.
+\]</span></li>
+<li>Para 72 horas, la población es: <span class="math display">\[
+N_{(72)} = 10000\, e^{72r} = 10000\, e^{72\left(\frac{\ln(2.5)}{48}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este problema utiliza datos experimentales para calcular la tasa de crecimiento celular y proyectar la población a un tiempo posterior, resaltando la importancia del modelo exponencial en biología celular.</p>
+<hr>
+</section>
+<section id="aumento-percentual-y-tiempo-para-cuadruplicar" class="level5">
+<h5 class="anchored" data-anchor-id="aumento-percentual-y-tiempo-para-cuadruplicar">34. Aumento Percentual y Tiempo para Cuadruplicar</h5>
+<p>Una colonia de algas en un estanque aumenta en un 200% en 30 días (es decir, la población se convierte en 3 veces la inicial).<br>
+a) Determina la tasa (<span class="math inline">\(r\)</span>);<br>
+b) ¿En cuántos días se habrá cuadruplicado la población respecto a la inicial?</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Para un aumento del 200%: <span class="math display">\[
+N_{(30)} = 3N_0 \quad \Longrightarrow \quad e^{30r} = 3.
+\]</span></li>
+<li>Aplicando el logaritmo natural: <span class="math display">\[
+30r = \ln(3) \quad \Longrightarrow \quad r = \frac{\ln(3)}{30}.
+\]</span></li>
+<li>Para que la población sea (4.<span class="math inline">\(N_0\)</span>): <span class="math display">\[
+4 = e^{rt} \quad \Longrightarrow \quad t = \frac{\ln(4)}{r} = \frac{\ln(4)\cdot 30}{\ln(3)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+El problema utiliza el cambio porcentual para determinar la tasa de crecimiento y luego extrapola el tiempo necesario para que la población se cuadruplique, ilustrando la relación entre crecimiento porcentual y tiempo en modelos exponenciales.</p>
+<hr>
+</section>
+<section id="incremento-por-intervalos-fijos" class="level5">
+<h5 class="anchored" data-anchor-id="incremento-por-intervalos-fijos">35. Incremento por Intervalos Fijos</h5>
+<p>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.<br>
+a) Calcula la tasa de crecimiento instantáneo (<span class="math inline">\(r\)</span>).<br>
+b) Estima la población después de 10 horas si la población inicial es de 800 bacterias.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>El crecimiento del 25% cada 2 horas implica: <span class="math display">\[
+1.25 = e^{2r} \quad \Longrightarrow \quad r = \frac{\ln(1.25)}{2}.
+\]</span></li>
+<li>La población a las 10 horas es: <span class="math display">\[
+N_{(10)} = 800\, e^{10r} = 800\, e^{10\left(\frac{\ln(1.25)}{2}\right)}.
+\]</span></li>
+</ol>
+<p><strong>Análisis:</strong><br>
+Este ejercicio conecta el crecimiento compuesto en intervalos fijos con el modelo exponencial continuo, enfatizando cómo convertir tasas discretas a tasas continuas para realizar predicciones precisas en poblaciones bacterianas.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="g.-referencias-bibliográficas" class="level2">
+<h2 class="anchored" data-anchor-id="g.-referencias-bibliográficas">G. Referencias bibliográficas</h2>
+<ol type="1">
+<li><strong>Akçakaya,</strong> H. Resit, Mark A. Burgman, and Lev R. Ginzburg. Applied Population Ecology: Principles and Computer Exercises Using RAMAS EcoLab 2.0. Segunda erdición. Sunderland: Sinauer Associates, 1999. (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/kc5p7o/alma990000155580107076">enlace del libro</a>)</li>
+</ol>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://m.media-amazon.com/images/I/41w-rdJNSCL._SX357_BO1,204,203,200_.jpg" class="img-fluid figure-img" style="width:15.0%"></p>
+<p></p><figcaption class="figure-caption">Capítulo 1. Population Growth.</figcaption><p></p>
+</figure>
+</div>
+<!-- -->
+<ol start="2" type="1">
+<li><p><strong>Gotelli</strong>, Nicholas J. A Primer of Ecology. Cuarta edición. Massachusetts: Sinauer Associates, 2008. (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/1mttj4m/alma990000339950107076">enlace del libro</a>) <img src="https://i.ebayimg.com/images/g/eAAAAOSwRv1jR8ko/s-l500.jpg" class="img-fluid" style="width:15.0%" data-fig-align="left" alt="Capítulo 1. Exponential Population Growth."> <!-- --></p></li>
+<li><p><strong>Notas de clase de poblaciones</strong>. Javier Rodríguez-Barrios. 📃<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Notas_clase_poblaciones.pdatos">Enlace al pdatos de las notas de clase</a> <img src="https://images.pexels.com/photos/6238030/pexels-photo-6238030.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" width="22%"></p></li>
+</ol>
+<!-- -->
+<ol start="4" type="1">
+<li><strong>Ecuaciones requeridas</strong> para las clases de poblaciones. Javier Rodríguez-Barrios. 📃<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Ecuaciones_poblaciones_ex_log.pdatos">Enlace al pdatos de las ecuaciones</a> <img src="https://media.istockphoto.com/id/467782423/es/foto/pizarra.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=qQgX6gxRoi4TYneBKbV8iQyCzKSB8K9hKRyJuK5H8-E=" width="21%"></li>
+</ol>
+<!-- -->
+<ol start="5" type="1">
+<li><strong>Diapositivas</strong> para las clases de poblaciones. Javier Rodríguez-Barrios. 📰<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Clase4.Poblaciones_Diapositivas.pdatos">Enlace al pdatos de las diapositivas</a> <img src="https://media.istockphoto.com/id/1452436256/es/foto/diapositiva-de-control-remoto-de-mano-de-hombre-de-negocios-con-presentaci%C3%B3n-en-pantalla.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=YmUqCtGDSRNLlBO1v_b44o8O1JD6ZXQqKz2KIoIbfiI=" width="21%"></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
