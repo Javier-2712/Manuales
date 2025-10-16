@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-10-16">
+<meta name="description" content="Climatogramas, índice de pluviosidad, balance hídrico, biomas y zonas de vida">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="clima_files/libs/clipboard/clipboard.min.js"></script>
+<script src="clima_files/libs/quarto-html/quarto.js"></script>
+<script src="clima_files/libs/quarto-html/popper.min.js"></script>
+<script src="clima_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="clima_files/libs/quarto-html/anchor.min.js"></script>
+<link href="clima_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="clima_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="clima_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="clima_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="clima_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+<script src="clima_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="clima_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 3. Ejercicios y visualización gráfica de patrones climáticos</p>
+                  <div>
+        <div class="description">
+          Climatogramas, índice de pluviosidad, balance hídrico, biomas y zonas de vida
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 16, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#competencias-esperadas" id="toc-competencias-esperadas" class="nav-link" data-scroll-target="#competencias-esperadas">Competencias esperadas</a></li>
+  <li><a href="#ejercicio.-análisis-cimático-y-ecológico-de-tres-estaciones-de-santa-marta." id="toc-ejercicio.-análisis-cimático-y-ecológico-de-tres-estaciones-de-santa-marta." class="nav-link" data-scroll-target="#ejercicio.-análisis-cimático-y-ecológico-de-tres-estaciones-de-santa-marta.">Ejercicio. Análisis cimático y ecológico de tres estaciones de santa Marta.</a>
+  <ul>
+  <li><a href="#descarga-de-datos-del-ideam" id="toc-descarga-de-datos-del-ideam" class="nav-link" data-scroll-target="#descarga-de-datos-del-ideam"><strong>Descarga de datos del IDEAM</strong></a></li>
+  <li><a href="#visualización-temporal" id="toc-visualización-temporal" class="nav-link" data-scroll-target="#visualización-temporal">1. Visualización temporal</a>
+  <ul>
+  <li><a href="#patrón-temporal-de-temperatura" id="toc-patrón-temporal-de-temperatura" class="nav-link" data-scroll-target="#patrón-temporal-de-temperatura">1.1 Patrón temporal de temperatura</a></li>
+  <li><a href="#patrón-temporal-de-precipitación" id="toc-patrón-temporal-de-precipitación" class="nav-link" data-scroll-target="#patrón-temporal-de-precipitación">1.2 Patrón temporal de precipitación</a></li>
+  </ul></li>
+  <li><a href="#climatograma" id="toc-climatograma" class="nav-link" data-scroll-target="#climatograma">2. Climatograma</a></li>
+  <li><a href="#índice-pluviométrico-de-lang" id="toc-índice-pluviométrico-de-lang" class="nav-link" data-scroll-target="#índice-pluviométrico-de-lang">3. Índice pluviométrico de Lang</a></li>
+  <li><a href="#balance-hídrico" id="toc-balance-hídrico" class="nav-link" data-scroll-target="#balance-hídrico">4. Balance Hídrico</a></li>
+  <li><a href="#biomas-pisos-térmicos-y-formaciones-vegetales" id="toc-biomas-pisos-térmicos-y-formaciones-vegetales" class="nav-link" data-scroll-target="#biomas-pisos-térmicos-y-formaciones-vegetales">5. Biomas, pisos térmicos y formaciones vegetales</a></li>
+  </ul></li>
+  <li><a href="#cuestionario" id="toc-cuestionario" class="nav-link" data-scroll-target="#cuestionario">Cuestionario</a>
+  <ul>
+  <li><a href="#análisis-climático-y-ecológico-con-tres-estaciones-evaluadas" id="toc-análisis-climático-y-ecológico-con-tres-estaciones-evaluadas" class="nav-link" data-scroll-target="#análisis-climático-y-ecológico-con-tres-estaciones-evaluadas">1. Análisis climático y ecológico con tres estaciones evaluadas</a></li>
+  <li><a href="#análisis-climático-y-ecológico-con-tres-estaciones-nuevas" id="toc-análisis-climático-y-ecológico-con-tres-estaciones-nuevas" class="nav-link" data-scroll-target="#análisis-climático-y-ecológico-con-tres-estaciones-nuevas">2. Análisis climático y ecológico con tres estaciones nuevas</a>
+  <ul>
+  <li><a href="#selección-de-estaciones" id="toc-selección-de-estaciones" class="nav-link" data-scroll-target="#selección-de-estaciones">Selección de estaciones</a></li>
+  <li><a href="#pasos-a-realizar-checklist-técnico" id="toc-pasos-a-realizar-checklist-técnico" class="nav-link" data-scroll-target="#pasos-a-realizar-checklist-técnico">Pasos a realizar (checklist técnico)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid figure-img" width="617"></p>
+<p></p><figcaption class="figure-caption">Imagen tomada de <a href="https://www.pexels.com/es-es/@jplenio/">Johannes Plenio</a></figcaption><p></p>
+</figure>
+</div>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>El <strong>clima</strong> puede definirse como el conjunto de condiciones atmosféricas que predominan en un lugar determinado y que caracterizan su comportamiento a lo largo del tiempo. Dichas condiciones —temperatura, precipitación, humedad, radiación solar y viento, entre otras— determinan el tipo de <strong>ecosistema, paisaje o región biogeográfica</strong> que se desarrolla en un área dada. Por ello, el clima constituye uno de los <strong>factores abióticos más influyentes en la distribución, estructura y funcionamiento de los organismos y comunidades biológicas</strong>, condicionando su productividad, diversidad y adaptaciones ecológicas. En este sentido, la variación climática explica por qué un territorio puede albergar ecosistemas contrastantes como <strong>selvas húmedas tropicales, bosques subxerofíticos o páramos andinos</strong>.</p>
+<p>La <strong>precipitación</strong> se expresa generalmente en milímetros (mm), donde un milímetro equivale a un litro de agua por metro cuadrado. Entre los principales indicadores se encuentran la <strong>precipitación mensual (ppm)</strong> —suma de las precipitaciones promedio diarias de un mes— y la <strong>precipitación media mensual multianual (pmm)</strong>, obtenida al promediar los valores mensuales durante varios años de observación.</p>
+<p>La <strong>temperatura</strong>, por su parte, representa la cantidad de energía térmica que llega a la superficie terrestre. La <strong>temperatura media mensual</strong> corresponde al promedio de las temperaturas medias diarias, mientras que las <strong>temperaturas máxima media y mínima media</strong> reflejan los promedios de los valores extremos diarios. De forma análoga, la <strong>temperatura media anual</strong> es el promedio de las temperaturas mensuales, y la <strong>temperatura media mensual multianual</strong> resulta de promediar los valores de un mismo mes en series temporales prolongadas.</p>
+<p>El estudio conjunto de estas variables permite comprender los <strong>patrones climáticos locales y regionales</strong>, base para estimar <strong>índices de aridez, balances hídricos, clasificaciones de zonas de vida y tipos de bioma</strong>, herramientas indispensables para el <strong>análisis ambiental y ecológico aplicado</strong>.</p>
+<hr>
+</section>
+<section id="objetivos" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
+<ul>
+<li><p>Aprender el manejo de la plataforma 📈<a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> utilizada por el IDEAM, como repositorio oficial de datos climáticos en Colombia.</p></li>
+<li><p>Incorporar herramientas de <strong>análisis climático</strong> como los <strong>climatogramas</strong>, <strong>índices de aridez</strong>, <strong>modelos de balance hídrico</strong> y <strong>clasificaciones de biomas</strong> y <strong>formaciones vegetales o zonas de vida</strong>, basadas en datos de temperatura y precipitación.</p></li>
+<li><p>Desarrollar capacidades para la <strong>interpretación e integración de información climática</strong> en contextos ecológicos y ambientales, con el fin de comprender los patrones de variación climática y su incidencia en la estructura de los ecosistemas.</p></li>
+</ul>
+<hr>
+</section>
+<section id="competencias-esperadas" class="level2">
+<h2 class="anchored" data-anchor-id="competencias-esperadas">Competencias esperadas</h2>
+<ul>
+<li><p><strong>Gestionar y procesar información climática</strong> proveniente de bases de datos institucionales (IDEAM-DHIME), aplicando criterios de selección, limpieza y organización de datos.</p></li>
+<li><p><strong>Construir e interpretar climatogramas</strong> y <strong>modelos de balance hídrico</strong>, reconociendo los periodos de déficit y excedente de agua y su relación con la dinámica ecológica local.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Calcular y analizar índices climáticos</strong> (índice de Lang, coeficiente de aridez, ETP de Thornthwaite-Mather), interpretando sus implicaciones ambientales y biogeográficas.</li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Relacionar variables climáticas con tipos de vegetación y biomas</strong>, según los sistemas de clasificación ecológica más relevantes para Colombia (Holdridge, Espinal &amp; Montenegro, Hernández &amp; Camacho).</li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Integrar conceptos de clima, agua y vegetación</strong> para explicar cómo los gradientes térmicos e hídricos determinan la distribución espacial de los ecosistemas tropicales.</li>
+</ul>
+<hr>
+</section>
+<section id="ejercicio.-análisis-cimático-y-ecológico-de-tres-estaciones-de-santa-marta." class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio.-análisis-cimático-y-ecológico-de-tres-estaciones-de-santa-marta.">Ejercicio. Análisis cimático y ecológico de tres estaciones de santa Marta.</h2>
+<p>Lo que se pretende con el siguiente ejercicio es mostrar como se puede hacer uso de información climática, obtenida de una fuente estatal y de acceso gratuito, como el IDEAM, para a partir de pocas variables, como la temperatura y la precipitación y haciendo uso de herramientas como R, se puede caracterizar diferentes localidades en términos de sus condiciones climáticas (visualización temporal, climatogramas, índices de aridez o pluviométricos y modelos de balance hídrico) y ecológicas (biomas y zonas de vida), como soporte para una comprensión ambiental de procesos ecológicos en lugares contrastantes. De igual forma, se pretende ofrecer un protocolo de facil comprensión y replicación en contextos similares. Como se mencionó anteriormente, en el siguiente <strong>video</strong> se describe el paso a paso para la descarga y la tabulación inicial de los datos requeridos para el ejercicio: <a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/EfvlwPnXZh1JmG28MgQmyN0BMXs65BSga1IAilIV0D1bWg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;e=Ebs0pW">enlace_video</a>.</p>
+<p>A continuación se resume el procedimiento realizado para obtener los datos climáticos de <strong>precipitación</strong>, <strong>temperatura</strong>, <strong>horas de luz</strong> y <strong>evapotranspiración</strong> en tres localidades para poder realizar: <strong>(1)</strong> visualización del patrón temporal de las variables climáticas, <strong>(2)</strong> climatrogramas, <strong>(3)</strong> índices de aridez, <strong>(4)</strong> modelos de balance hídrico y <strong>(5)</strong> caracterización de biomas, zonas de vida y formaciones vegetales.</p>
+<section id="descarga-de-datos-del-ideam" class="level3">
+<h3 class="anchored" data-anchor-id="descarga-de-datos-del-ideam"><strong>Descarga de datos del IDEAM</strong></h3>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/3.clima/dhime.JPG" class="img-fluid figure-img" width="583"></p>
+<p></p><figcaption class="figure-caption">Figura 1. Plataforma 📈<a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> del IDEAM, para descarga de datos metereológicos.</figcaption><p></p>
+</figure>
+</div>
+<p>Inicialmente se requiere descargar la información climática, desde la plataforma 📈<a href="http://dhime.ideam.gov.co/atencionciudadano/">dhime</a> del IDEAM, la cual cuenta con series de tiempo de diferentes variables metereológicas, para distintas localidades del país. Las variables a descargar para los periodos cercanos a 30 o 40 años son:</p>
+<ul>
+<li><strong>Temperatura del aire media mensual</strong> de tres estaciones que se referencian en la <strong>tabla 1</strong>, las cuales presentan un contraste espacial y altitudinal y que se encuentran en lugares cercanos a Santa Marta.</li>
+<li><strong>La precipitación total mensual</strong> de las mismas estaciones metereológicas.</li>
+</ul>
+<p>A continuación se presenta la <a href="#tbl-tbl1">Tabla&nbsp;1</a> con los detalles de las tres estaciones a evaluar, que para fines didácticos, presentan un contraste de condiciones ecológicas y climáticas, a pesar de encontrarse en la misma área de Santa Marta. <strong>(1) Aeropuerto de Santa Marta (APTO)</strong>: se asocia a condiciones climáticas, típicas de Santa Marta, con baja elevación, poca precipitación y niveles elevados de temperatura. <strong>(2) Parque Nacional Natural Tayrona (PNNT)</strong>: presenta condiciones similares a las de APTO, pero con niveles mayores de precipitación y mayor elevación. <strong>(3) San Lorenzo (SL)</strong>: es quizá la localidad más contrastante, debido a las diferencias por su elevada precipitación, su elevación considerable y sus bajos niveles de temperatura, en comparación a las antesiores estacones.</p>
+<p><strong>Nota</strong>: Los datos de <strong>altura</strong> se pueden descargar desde la versión en Excel (.xlsx) que se descarga desde la plataforma <strong>dhime</strong> del IDEAM.</p>
+<p>En el siguiente <strong>video</strong> se describe el paso a paso para la descarga y la tabulación inicial de los datos requeridos para el ejercicio: <a href="https://universidadmag-my.sharepoint.com/:v:/g/personal/jrodriguez_unimagdalena_edu_co/EfvlwPnXZh1JmG28MgQmyN0BMXs65BSga1IAilIV0D1bWg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;e=Ebs0pW">enlace_video</a>.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl1" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;1:  Información de las estaciones pluviométricas y climáticas que deben utilizarse en el estudio. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> No </th>
+   <th style="text-align:left;"> Nombre de la Estación </th>
+   <th style="text-align:right;"> Elevación (m) </th>
+   <th style="text-align:right;"> Temp. prom. (°C) </th>
+   <th style="text-align:right;"> Precip. anual (mm) </th>
+   <th style="text-align:left;"> Ventana de datos </th>
+   <th style="text-align:left;"> Periodicidad* </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Aeropuerto Simón Bolívar (APTO) </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 560 </td>
+   <td style="text-align:left;"> 1980 - actual </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Parque Nacional Nat. Tayrona (PNNT) </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 1240 </td>
+   <td style="text-align:left;"> 1981 - actual </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> San Lorenzo (SL) </td>
+   <td style="text-align:right;"> 2200 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 2731 </td>
+   <td style="text-align:left;"> 1982 - actual </td>
+   <td style="text-align:left;"> Mensual </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>*Datos promedios totales mensuales, dependiendo de su disponibilidad.</em></p>
+<p>Los datos para el siguiente ejercicio, se encuentran en el archivo “<strong>datos.xlsx</strong>” que puede descargarse en el siguiente enlace: 📈<a href="https://javier-2712.github.io/Manuales/3.clima/datos.xlsx">datos.xlsx</a>. En este archivo se encuentran cuatro hojas de cálculo requeridas para los diferentes procedimientos que se realizarán: <strong>(1) serie_temp, (2) serie_precipit</strong>: corresponde a las series multitemporales de datos de temperatura promedio mensual y de precipitación total mensual en las tres estaciones comparadas y que serán usadas en el primer procedimiento del ejercicio de este capítulo. <strong>(3) clima</strong>: presenta una tabla que resume la variación mensual de diferentes parámetros climáticos en cada estación y serán utilizados para el resto de procedimientos (climatogramas, índice de aridez o pluviométrico, balance hídrico y resumen de los resultados). <strong>(4) biomas</strong>: información complementaria, que servirá de soporte para asociar las estaciones evaluadas a biomas y zonas de vida o formaciones vegetales. Esta última información es tomada de diferentes referentes bibliográficos, citados en las referencias de este documento.</p>
+<hr>
+</section>
+<section id="visualización-temporal" class="level3">
+<h3 class="anchored" data-anchor-id="visualización-temporal">1. Visualización temporal</h3>
+<p>Corresponde al primer paso de ese ejercicio, orientado a visualizar la variación temporal (anual o entre años), de las principales variables climáticas utilizadas, como la temperatura y la precipitación. Para el procesamiento de los datos, se hará uso de las hojas de cálculo: <strong>serie_temp, (2) serie_precipit</strong>, que se encuentran en archivo de Excel 📈<a href="https://javier-2712.github.io/Manuales/3.clima/datos.xlsx">datos.xlsx</a> referenciado anteriormente.</p>
+<section id="patrón-temporal-de-temperatura" class="level4">
+<h4 class="anchored" data-anchor-id="patrón-temporal-de-temperatura">1.1 Patrón temporal de temperatura</h4>
+<p>Las siguientes librerías son requeridas para los diferentes procedimientos a realizar,enfocados en <code>tidyverse</code> para el procesamiento de los datos y en <code>ggplot2</code> para la visualización de patrones.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)   <span class="co"># rótulos globales y composición</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>La <a href="#fig-fig1">Figura&nbsp;1</a> muestra una forma general de visualizar las diferencias en el patrón mensual de la temperatura, para las localidades evaluadas, al igual que la dispersión generada por la serie de tiempo utilizada.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar datos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>serie_temp <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"serie_temp"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pasar a formato largo (tidy)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>serie_temp_long <span class="ot">&lt;-</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  serie_temp <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Estación, Meses),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Año"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Temperatura"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Temperatura)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Año <span class="sc">!=</span> <span class="st">"Promedio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Año <span class="ot">=</span> <span class="fu">as.numeric</span>(Año))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico facetado</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(serie_temp_long, <span class="fu">aes</span>(<span class="at">x =</span> Meses, <span class="at">y =</span> Temperatura, </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> Año, <span class="at">color =</span> Año)) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Estación, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Variación mensual de la temperatura en Santa Marta"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Comparación entre estaciones: APTO, PNNT y San Lorenzo"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mes"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Temperatura (°C)"</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"gray30"</span>),</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Patrón mensual de temperatura promedio en las diferentes localidades evaluadas, manteniendo escalas comparativas.La línea negra representa el promedio general y las líneas de colores muestran los promedios de cada mes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig2">Figura&nbsp;2</a> muestra la gran variabilidad de de la temperatura entre los meses evaluados, especialmente en el sector de San Lorenzo (SL).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importar datos</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>serie_temp <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"serie_temp"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Formato largo (años desde las columnas)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>serie_temp_long <span class="ot">&lt;-</span> serie_temp <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Estación, Meses),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Año"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Temperatura"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Temperatura), Año <span class="sc">!=</span> <span class="st">"Promedio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    Año <span class="ot">=</span> <span class="fu">as.numeric</span>(Año),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Meses =</span> <span class="fu">factor</span>(Meses,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"ene"</span>,<span class="st">"feb"</span>,<span class="st">"mar"</span>,<span class="st">"abr"</span>,<span class="st">"may"</span>,<span class="st">"jun"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"jul"</span>,<span class="st">"ago"</span>,<span class="st">"sep"</span>,<span class="st">"oct"</span>,<span class="st">"nov"</span>,<span class="st">"dic"</span>),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Media anual (línea negra)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>media_anual <span class="ot">&lt;-</span> serie_temp_long <span class="sc">%&gt;%</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Estación, Año) <span class="sc">%&gt;%</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Temp_media =</span> <span class="fu">mean</span>(Temperatura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Determinar año mínimo observado (para el límite inferior)</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="fu">min</span>(serie_temp_long<span class="sc">$</span>Año, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico: eje x fijado a [xmin, 2020] en todos los paneles</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(serie_temp_long, <span class="fu">aes</span>(<span class="at">x =</span> Año, <span class="at">y =</span> Temperatura, <span class="at">color =</span> Meses, <span class="at">group =</span> Meses)) <span class="sc">+</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.55</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">stroke =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> media_anual, <span class="fu">aes</span>(<span class="at">x =</span> Año, <span class="at">y =</span> Temp_media, <span class="at">group =</span> <span class="dv">1</span>),</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Estación, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span>   <span class="co"># misma escala X para todos</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(xmin, <span class="dv">2020</span>),</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">8</span>)                  <span class="co"># o usa seq(xmin, 2020, by = 2/5)</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">end =</span> <span class="fl">0.95</span>, <span class="at">name =</span> <span class="st">"Mes"</span>) <span class="sc">+</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Variación interanual de la temperatura"</span>,</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Líneas por mes; línea negra = promedio anual (eje X termina en 2020)"</span>,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Año"</span>,</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Temperatura (°C)"</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"gray30"</span>),</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: Patrón anual de temperatura promedio en las diferentes localidades evaluadas. La línea negra representa el promedio general y las líneas de colores muestran los promedios de cada mes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="patrón-temporal-de-precipitación" class="level4">
+<h4 class="anchored" data-anchor-id="patrón-temporal-de-precipitación">1.2 Patrón temporal de precipitación</h4>
+<p>La <a href="#fig-fig3">Figura&nbsp;3</a> muestra un patron mensual de variación de la <strong>precipitación</strong> superior al observado en la temperatura (<a href="#fig-fig1">Figura&nbsp;1</a>), quizá porque se utilizan los totales mensuales para la precipitación, en comparación a los promedios usados con la temperatura o porque este parámetro es más disperso.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 1) Importar y poner en formato largo ===</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>precip <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"serie_precipit"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de datos en formato largo </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>precip_long <span class="ot">&lt;-</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  precip <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Estación, Meses),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Año"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Precip_mm"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Precip_mm)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Año <span class="sc">!=</span> <span class="st">"Promedio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    Año  <span class="ot">=</span> <span class="fu">suppressWarnings</span>(<span class="fu">as.numeric</span>(Año)),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Meses =</span> <span class="fu">factor</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      Meses,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"ene"</span>,<span class="st">"feb"</span>,<span class="st">"mar"</span>,<span class="st">"abr"</span>,<span class="st">"may"</span>,<span class="st">"jun"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"jul"</span>,<span class="st">"ago"</span>,<span class="st">"sep"</span>,<span class="st">"oct"</span>,<span class="st">"nov"</span>,<span class="st">"dic"</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># === 2) Figura facetada (similar a temperatura) ===</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(precip_long, <span class="fu">aes</span>(<span class="at">x =</span> Meses, <span class="at">y =</span> Precip_mm, <span class="at">group =</span> Año, <span class="at">color =</span> Año)) <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Promedio mensual (línea negra) por faceta</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="fu">aes</span>(<span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Estación, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Variación mensual de la precipitación en Santa Marta"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Comparación entre estaciones (líneas claras = años individuales; negro = promedio mensual)"</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mes"</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Precipitación (mm)"</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">colour =</span> <span class="st">"gray30"</span>),</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig3-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;3: Patrón mensual de precipitación en las diferentes localidades evaluadas. La línea negra representa el promedio general y las líneas de colores muestran los promedios del total de precipitación de cada mes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig5">Figura&nbsp;4</a> corrobora la alta dispersión temporal que presenta esta variable de precipitación, para las tres localidades evaluadas.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># === 1) Importar y poner en formato largo ===</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>precip <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"serie_precipit"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>precip_long <span class="ot">&lt;-</span> precip <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Estación, Meses),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Año"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Precip_mm"</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Precip_mm), Año <span class="sc">!=</span> <span class="st">"Promedio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    Año   <span class="ot">=</span> <span class="fu">as.numeric</span>(Año),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Meses =</span> <span class="fu">factor</span>(Meses,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"ene"</span>,<span class="st">"feb"</span>,<span class="st">"mar"</span>,<span class="st">"abr"</span>,<span class="st">"may"</span>,<span class="st">"jun"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"jul"</span>,<span class="st">"ago"</span>,<span class="st">"sep"</span>,<span class="st">"oct"</span>,<span class="st">"nov"</span>,<span class="st">"dic"</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># === 2) Totales anuales (línea negra) ===</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>precip_anual <span class="ot">&lt;-</span> precip_long <span class="sc">%&gt;%</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Estación, Año) <span class="sc">%&gt;%</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Precip_total =</span> <span class="fu">mean</span>(Precip_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Límite inferior común del eje X (año mínimo observado)</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>xmin <span class="ot">&lt;-</span> <span class="fu">min</span>(precip_long<span class="sc">$</span>Año, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># === 3) Figura: eje x = Años; líneas por Mes; línea negra = total anual ===</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(precip_long, <span class="fu">aes</span>(<span class="at">x =</span> Año, <span class="at">y =</span> Precip_mm, <span class="at">color =</span> Meses, <span class="at">group =</span> Meses)) <span class="sc">+</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.55</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">stroke =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> precip_anual,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> Año, <span class="at">y =</span> Precip_total, <span class="at">group =</span> <span class="dv">1</span>),</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Estación, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(xmin, <span class="dv">2020</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">8</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">end =</span> <span class="fl">0.95</span>, <span class="at">name =</span> <span class="st">"Mes"</span>) <span class="sc">+</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Variación interanual de la precipitación"</span>,</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Líneas por mes; línea negra = promedio mensual anual"</span>,</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Año"</span>,</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Precipitación (mm)"</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"gray30"</span>),</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"gray90"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Patrón anual de precipitación total mensual en las diferentes localidades evaluadas. La línea negra representa el promedio general y las líneas de colores muestran los promedios de cada mes.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="climatograma" class="level3">
+<h3 class="anchored" data-anchor-id="climatograma">2. Climatograma</h3>
+<ul>
+<li>Calcular la <strong>ETP_sin_corr</strong> (Thornthwaite estándar) y la <strong>ETP_cor</strong> (corrigiendo por horas de luz y días del mes).</li>
+</ul>
+<p>Los <strong>climatogramas</strong> son representaciones gráficas que resumen el comportamiento anual de la <strong>temperatura</strong> y la <strong>precipitación</strong>, dos de los factores climáticos más determinantes en la distribución de los organismos en los ecosistemas. Estas figuras permiten visualizar de forma simultánea la estacionalidad térmica y pluvial, facilitando la interpretación de los <strong>regímenes climáticos locales</strong> - como periodos de lluvia y sequía y su relación con los procesos ecológicos. En el análisis ambiental y ecológico, los climatogramas son herramientas esenciales para caracterizar hábitats, explicar patrones fenológicos y comprender la dinámica de la vegetación, la fauna y los flujos de energía en los ecosistemas.</p>
+<p>El procedimiento parte de una base de datos mensual con registros de <strong>temperatura media (°C)</strong> y <strong>precipitación total (mm)</strong> para cada estación. En R, se organizan los datos en formato ordenado (<em>tidy</em>) y se definen los meses en su secuencia cronológica. Luego, se construyen gráficos combinados en <code>ggplot2</code>, donde las <strong>barras azules</strong> representan la precipitación (escalada al eje derecho) y la <strong>línea roja</strong> simboliza la temperatura media (eje izquierdo). En este caso, los climatogramas se generaron para tres estaciones comparadas —<strong>Aeropuerto Simón Bolívar (APTO)</strong>, <strong>Parque Tayrona (PNNT)</strong> y <strong>San Lorenzo (SL)</strong>— utilizando escalas de precipitación que representan el doble de las escalas de temperatura. En este sentido, los meses en los que la precipitación supere a la temperatura, son considerados de periodos de lluvia y en el caso opuesto, serán periodos de sequía.</p>
+<p>La <a href="#fig-fig6">Figura&nbsp;5</a> muestra que en el <strong>Aeropuerto Simón Bolívar (APTO)</strong>, se observa un régimen cálido constante (~28 °C) con lluvias moderadas y concentradas entre <strong>septiembre y octubre</strong>, típico del <strong>bosque seco tropical.</strong> En el <strong>Parque Nacional Natural Tayrona (PNNT)</strong>, las lluvias se incrementan marcadamente a mediados del año y alcanzan su máximo en octubre, mientras que la temperatura se mantiene relativamente alta, reflejando un <strong>bosque seco de transición</strong>. Por su parte, <strong>San Lorenzo (SL)</strong>, ubicado en zona montana, exhibe temperaturas más bajas (~20 °C) y un patrón de <strong>precipitaciones elevadas y prolongadas</strong>, propias de un <strong>bosque muy húmedo premontano</strong>. Estos contrastes reflejan cómo el clima regula la estructura y el funcionamiento ecológico de los ecosistemas en gradientes altitudinales y de humedad.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Datos ----</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>meses_orden <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ENE"</span>,<span class="st">"FEB"</span>,<span class="st">"MAR"</span>,<span class="st">"ABR"</span>,<span class="st">"MAY"</span>,<span class="st">"JUN"</span>,<span class="st">"JUL"</span>,<span class="st">"AGO"</span>,<span class="st">"SEP"</span>,<span class="st">"OCT"</span>,<span class="st">"NOV"</span>,<span class="st">"DIC"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>climatog <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"clima"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">estacion =</span> <span class="st">`</span><span class="at">Estación</span><span class="st">`</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes =</span> Mes, <span class="at">temp =</span> Temp, <span class="at">pp =</span> pp) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mes), mes <span class="sc">!=</span> <span class="st">""</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         mes <span class="sc">%in%</span> meses_orden) <span class="sc">%&gt;%</span>  <span class="co"># &lt;-- elimina filas vacías/NA</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mes =</span> <span class="fu">factor</span>(mes, <span class="at">levels =</span> meses_orden, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ----</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>mm_max_por_est <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"APTO"</span><span class="ot">=</span><span class="dv">140</span>, <span class="st">"PNNT"</span><span class="ot">=</span><span class="dv">300</span>, <span class="st">"SL"</span><span class="ot">=</span><span class="dv">500</span>)  <span class="co"># guía general para PNNT/SL</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Función base para PNNT y SL (sin rótulos de ejes; sec.axis sin nombre) ----</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>p_clima <span class="ot">&lt;-</span> <span class="cf">function</span>(df_est, mm_max, <span class="at">titulo=</span><span class="cn">NULL</span>){</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  lim_temp <span class="ot">&lt;-</span> <span class="fu">max</span>(mm_max<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">max</span>(df_est<span class="sc">$</span>pp,   <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="dv">2</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">max</span>(df_est<span class="sc">$</span>temp, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df_est, <span class="fu">aes</span>(<span class="at">x=</span>mes)) <span class="sc">+</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> pp<span class="sc">/</span><span class="dv">2</span>), <span class="at">fill=</span><span class="st">"skyblue"</span>, <span class="at">alpha=</span>.<span class="dv">85</span>, <span class="at">width=</span>.<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> temp, <span class="at">group=</span><span class="dv">1</span>), <span class="at">color=</span><span class="st">"firebrick"</span>, <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> temp), <span class="at">color=</span><span class="st">"firebrick"</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, lim_temp),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span><span class="dv">2</span>, <span class="at">name =</span> <span class="cn">NULL</span>),</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">03</span>))) <span class="sc">+</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> titulo <span class="sc">%||%</span> <span class="fu">unique</span>(df_est<span class="sc">$</span>estacion), <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">14</span>),</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>),</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.y.right =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- APTO con escala fija solicitada ----</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">filter</span>(climatog, estacion<span class="sc">==</span><span class="st">"APTO"</span>), <span class="fu">aes</span>(<span class="at">x =</span> mes)) <span class="sc">+</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> pp<span class="sc">/</span><span class="dv">2</span>), <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> temp, <span class="at">group =</span> <span class="dv">1</span>), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> temp), <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>),                       <span class="co"># 0–80 °C</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">80</span>, <span class="at">by =</span> <span class="dv">20</span>),</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">*</span> <span class="dv">2</span>,             <span class="co"># 0–160 mm</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>                        <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">160</span>, <span class="at">by =</span> <span class="dv">40</span>),</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="cn">NULL</span>),</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">03</span>))</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"APTO – Aeropuerto Simón Bolívar"</span>, <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">"bold"</span>, <span class="at">size=</span><span class="dv">14</span>),</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>),</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- PNNT y SL con función base (límites personalizados automáticos) ----</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">p_clima</span>(<span class="fu">filter</span>(climatog, estacion<span class="sc">==</span><span class="st">"PNNT"</span>), </span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>              mm_max_por_est[<span class="st">"PNNT"</span>], <span class="st">"PNNT – Parque Tayrona"</span>)</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">p_clima</span>(<span class="fu">filter</span>(climatog, estacion<span class="sc">==</span><span class="st">"SL"</span>),   </span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>              mm_max_por_est[<span class="st">"SL"</span>],   <span class="st">"SL – San Lorenzo"</span>)</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Componer verticalmente ----</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>combo <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p1, p2, p3, <span class="at">ncol =</span> <span class="dv">1</span>, </span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rel_heights =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), </span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>                   <span class="at">align =</span> <span class="st">"v"</span>)</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Reservar márgenes laterales y añadir rótulos globales centrados ----</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>left_gutter  <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>right_gutter <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdraw</span>() <span class="sc">+</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw_plot</span>(combo, <span class="at">x =</span> left_gutter, <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="dv">1</span> <span class="sc">-</span> left_gutter <span class="sc">-</span> right_gutter, <span class="at">height =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw_label</span>(<span class="st">"Temperatura (°C)"</span>,</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> left_gutter<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>             <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw_label</span>(<span class="st">"Precipitación (mm)"</span>,</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> right_gutter<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">angle =</span> <span class="sc">-</span><span class="dv">90</span>,</span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>             <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig6-1.png" class="img-fluid figure-img" width="3000"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Climatográmas en las diferentes localidades evaluadas. La línea roja representa la temperatura media multianual y las barras azules corresponden a la precipitación total multianual.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="índice-pluviométrico-de-lang" class="level3">
+<h3 class="anchored" data-anchor-id="índice-pluviométrico-de-lang">3. Índice pluviométrico de Lang</h3>
+<p>El <strong>índice pluviométrico o de aridez de Lang</strong> es un indicador climático simple pero muy informativo, que relaciona la <strong>precipitación total anual (mm)</strong> con la <strong>temperatura media anual (°C)</strong>. Este cociente permite estimar la disponibilidad hídrica relativa de un ecosistema y clasificarlo en una escala que va desde condiciones <strong>muy áridas</strong> hasta <strong>muy húmedas</strong> o <strong>hiperhúmedas</strong>. En estudios ambientales y ecológicos, el índice de Lang es ampliamente utilizado para caracterizar biomas y zonas de vida, evaluar gradientes altitudinales de humedad, y comprender cómo el balance entre la temperatura y la precipitación condiciona a la estructura y la productividad de los ecosistemas.</p>
+<p>A partir de la base de datos climática, se agrupan los valores mensuales de <strong>precipitación</strong> y <strong>temperatura</strong> por estación. Luego, se calcula la <strong>precipitación anual total (PP_anual_mm)</strong> y la <strong>temperatura media anual (T_media_C)</strong>. El índice de Lang se obtiene mediante la expresión:</p>
+<p><span class="math display">\[
+\text{Lang} = \frac{\text{PP anual (mm)}}{\text{T media (°C)}}
+\]</span></p>
+<p>Posteriormente, los resultados se clasifican según los rangos establecidos en la tabla de ponderaciones (<a href="#tbl-tbl2">Tabla&nbsp;2</a>), donde cada intervalo (por ejemplo, 20–40 o &gt;160 mm/°C) define una clase climática. El procedimiento se automatiza en R con funciones del paquete <strong>dplyr</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Nota</strong>: Se emplea la escala típica para Lang, con los intervalos de aridez (cortes o rangos definidos= 20, 40, 60, 100, 160). En caso que se requieran cambiar, se ajustan los <em>breaks</em> y <em>labels</em> en el bloque de clasificación.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la base de datos</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clima <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"clima"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Estacion =</span> <span class="st">`</span><span class="at">Estación</span><span class="st">`</span>, <span class="at">Temp =</span> Temp, <span class="at">pp =</span> pp)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># === 2) Ponderaciones del índice de Lang (tabla reproducible) ===</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ponderaciones <span class="ot">&lt;-</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Rango_mm_por_oC, <span class="sc">~</span>Clase,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"&lt;20"</span>,      <span class="st">"Muy árido"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"20–40"</span>,    <span class="st">"Árido"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"40–60"</span>,    <span class="st">"Semiárido"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"60–100"</span>,   <span class="st">"Subhúmedo seco"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"100–160"</span>,  <span class="st">"Húmedo"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"&gt;160"</span>,     <span class="st">"Hiperhúmedo"</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir ponderaciones</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>ponderaciones <span class="sc">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"c"</span>,<span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl2" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;2:  Ponderaciones del índice de Lang (mm/°C) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> Rango_mm_por_oC </th>
+   <th style="text-align:left;"> Clase </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> &lt;20 </td>
+   <td style="text-align:left;"> Muy árido </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 20–40 </td>
+   <td style="text-align:left;"> Árido </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 40–60 </td>
+   <td style="text-align:left;"> Semiárido </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 60–100 </td>
+   <td style="text-align:left;"> Subhúmedo seco </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 100–160 </td>
+   <td style="text-align:left;"> Húmedo </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> &gt;160 </td>
+   <td style="text-align:left;"> Hiperhúmedo </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Los valores obtenidos muestran un claro gradiente de <strong>aridez a humedad</strong> a lo largo del eje altitudinal de las tres estaciones (<a href="#tbl-tbl3">Tabla&nbsp;3</a>). En <strong>San Lorenzo (SL)</strong>, el valor de Lang (199.8) clasifica al sitio como <strong>hiperhúmedo</strong>, coherente con su alta pluviosidad y baja temperatura media, propias de los <strong>bosques montanos húmedos</strong>. En contraste, el <strong>Parque Nacional Natural Tayrona (PNNT)</strong> presenta un valor intermedio (46.6), correspondiente a una condición <strong>semiárida</strong>, típica de zonas de transición donde coexisten especies de ambientes secos y húmedos. Finalmente, el <strong>Aeropuerto Simón Bolívar (APTO)</strong> exhibe el valor más bajo (19.6), clasificándolo como <strong>muy árido</strong>, característico del <strong>bosque seco tropical costero</strong>. Estos resultados reflejan cómo el índice de Lang sintetiza de manera sencilla pero robusta las diferencias climáticas que estructuran la diversidad y el funcionamiento ecológico en el gradiente costero-montano de la Sierra Nevada de Santa Marta.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector de cortes y etiquetas para clasificar y graficar</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>breaks_lang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">160</span>, <span class="cn">Inf</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>labels_lang <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Muy árido"</span>,<span class="st">"Árido"</span>,<span class="st">"Semiárido"</span>,<span class="st">"Subhúmedo seco"</span>,<span class="st">"Húmedo"</span>,<span class="st">"Hiperhúmedo"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>cortes_plot <span class="ot">&lt;-</span> breaks_lang[<span class="dv">2</span><span class="sc">:</span>(<span class="fu">length</span>(breaks_lang)<span class="sc">-</span><span class="dv">1</span>)]  <span class="co"># 20, 40, 60, 100, 160</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># === 3) Cálculo del índice de Lang por estación desde 'clima' ===</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>lang_tabla <span class="ot">&lt;-</span> clima <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Estacion) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">PP_anual_mm =</span> <span class="fu">sum</span>(pp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_media_C  =</span> <span class="fu">mean</span>(Temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lang       =</span> PP_anual_mm <span class="sc">/</span> T_media_C,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Clase =</span> <span class="fu">cut</span>(Lang, <span class="at">breaks =</span> breaks_lang, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> labels_lang, <span class="at">right =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Lang))</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir tabla de resultados</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>lang_tabla <span class="sc">%&gt;%</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">PP_anual_mm =</span> <span class="fu">round</span>(PP_anual_mm, <span class="dv">1</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_media_C  =</span> <span class="fu">round</span>(T_media_C, <span class="dv">2</span>),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lang       =</span> <span class="fu">round</span>(Lang, <span class="dv">1</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"l"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl3" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;3:  Valores del índice de Lang por estación (calculados desde la hoja de cálculo ‘clima’) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Estacion </th>
+   <th style="text-align:right;"> PP_anual_mm </th>
+   <th style="text-align:right;"> T_media_C </th>
+   <th style="text-align:right;"> Lang </th>
+   <th style="text-align:left;"> Clase </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> SL </td>
+   <td style="text-align:right;"> 2730.8 </td>
+   <td style="text-align:right;"> 13.67 </td>
+   <td style="text-align:right;"> 199.8 </td>
+   <td style="text-align:left;"> Hiperhúmedo </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PNNT </td>
+   <td style="text-align:right;"> 1240.1 </td>
+   <td style="text-align:right;"> 26.60 </td>
+   <td style="text-align:right;"> 46.6 </td>
+   <td style="text-align:left;"> Semiárido </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> 560.2 </td>
+   <td style="text-align:right;"> 28.55 </td>
+   <td style="text-align:right;"> 19.6 </td>
+   <td style="text-align:left;"> Muy árido </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig7">Figura&nbsp;6</a> muestra unas líneas de referencia <strong>discontinuas</strong> que marcan los puntos de corte entre las categorías de Lang, lo que permite una comparación visual directa con los rangos establecidos en la tabla de clasificación. La inclusión del vector <code>pal</code> con colores personalizados facilita la interpretación ecológica, destacando a las condiciones <strong>muy áridas (gris oscuro)</strong>, <strong>semiáridas (celeste)</strong> e <strong>hiperhúmedas (rojo intenso)</strong> presentes en los datos. La sintaxis <code>coord_flip()</code> y el escalado dinámico del eje (<code>ylim</code>) aseguran que todas las barras y etiquetas se muestren en proporción, mientras que la leyenda lateral clarifica la asignación de colores a cada clase.</p>
+<p>La <a href="#fig-fig7">Figura&nbsp;6</a> evidencia además un marcado <strong>gradiente altitudinal de humedad</strong> desde la zona costera hasta la montaña, como también se muestra en la <a href="#tbl-tbl3">Tabla&nbsp;3</a>. Este patrón sintetiza el efecto combinado de la altitud, la exposición y la distancia al mar sobre la disponibilidad de agua, mostrando cómo el índice de Lang constituye una herramienta efectiva para inferir la <strong>gradación climática en este tipo de ecosistemas tropicales</strong>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === 4) Figura: Lang por estación con cortes de la ponderación ===</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Colores (se mostrarán solo los presentes en los datos)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Muy árido"</span>        <span class="ot">=</span> <span class="st">"grey30"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Árido"</span>            <span class="ot">=</span> <span class="st">"grey50"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Semiárido"</span>        <span class="ot">=</span> <span class="st">"#9FD0F1"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Subhúmedo seco"</span>   <span class="ot">=</span> <span class="st">"#6BAED6"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Húmedo"</span>           <span class="ot">=</span> <span class="st">"#4A79C5"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Hiperhúmedo"</span>      <span class="ot">=</span> <span class="st">"#D33F3F"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>niveles_presentes <span class="ot">&lt;-</span> <span class="fu">levels</span>(<span class="fu">droplevels</span>(lang_tabla<span class="sc">$</span>Clase))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lang_tabla, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Estacion, Lang), </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> Lang, <span class="at">fill =</span> Clase)) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.75</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"%.1f"</span>, Lang)), </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.15</span>, <span class="at">size =</span> <span class="fl">3.7</span>) <span class="sc">+</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> cortes_plot, </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(lang_tabla<span class="sc">$</span>Lang, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">*</span> <span class="fl">1.10</span>)) <span class="sc">+</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> pal[niveles_presentes], </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                    <span class="at">breaks =</span> niveles_presentes, <span class="at">name =</span> <span class="st">"Clase"</span>) <span class="sc">+</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title   =</span> <span class="st">"Índice de Lang por estación"</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span> <span class="st">"Lang = P anual (mm) / T media anual (°C)"</span>,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Estación"</span>, <span class="at">y =</span> <span class="st">"Índice de Lang (mm/°C)"</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="fu">paste</span>(</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cortes (mm/°C): &lt;20 Muy árido · 20–40 Árido · 40–60 Semiárido ·"</span>,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n</span><span class="st">60–100 Subhúmedo seco · 100–160 Húmedo · &gt;160 Hiperhúmedo"</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>, <span class="at">colour =</span> <span class="st">"grey30"</span>),</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig7-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Visualización del índice de Lang calculado para las tres estaciones de estudio, con valores ordenados de menor a mayor humedad.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="balance-hídrico" class="level3">
+<h3 class="anchored" data-anchor-id="balance-hídrico">4. Balance Hídrico</h3>
+<p>Los <strong>modelos de balance hídrico</strong> son <strong>modelos de balance de masas</strong>, que permiten estimar la relación entre la <strong>disponibilidad y la demanda de agua</strong> en un ecosistema. El método de <strong>Thornthwaite–Mather (1957)</strong> evalúa el equilibrio entre la <strong>precipitación (pp)</strong>, la <strong>evapotranspiración potencial (ETP)</strong> y la <strong>evapotranspiración real (ETR)</strong>, considerando además la capacidad de <strong>almacenamiento del suelo (S_max)</strong>. Este modelo permite identificar periodos de <strong>déficit</strong> y <strong>excedente hídrico</strong>, los cuales determinan en gran medida la estacionalidad ecológica, la productividad vegetal, los procesos de recarga hídrica y la estructura de ensamblajes ecológicos en diferentes escalas climáticas.</p>
+<p>El cálculo de este modelo se realiza a partir de los registros mensuales de <strong>temperatura, precipitación, horas de luz y número de días del mes</strong>. Mediante la función <code>bal_hid()</code> (archivo <code>bal_hid.R</code>), se implementa el modelo de <strong>Thornthwaite–Mather</strong> con un almacenamiento máximo de suelo (<code>S_max = 100 mm</code>). Esta función estima, para cada estación, los valores mensuales de <strong>ETP corregida (ETP_cor)</strong> y <strong>ETR</strong>, integrando la corrección por duración del día.</p>
+<p>El valor de <strong>S_max = 100 mm</strong> (almacenamiento máximo de agua disponible en el suelo) corresponde a la <strong>capacidad de campo típica para suelos tropicales poco profundos y de textura media a gruesa</strong>, como los que predominan en gran parte del <strong>Caribe Colombiano</strong> (Holdridge, 1967). Para casos en los que no se disponga de esta información, se sugiere usar un rango entre 75 - 125 mm, que corresponde a suelos de capacidad media (Thornthwaite &amp; Mather, 1957), o la propuesta para ambientes tropicales de textura media: 80 - 120 mm (FAO, 1985) y para la Región Caribe con valores entre 80 - 110 mm (IDEAM 2010). Según IGAC (2009) los suelos de la parte baja de la Sierra Nevada de Santa Marta, presentan una capacidad de retención moderada de 90 - 120 mm.</p>
+<p>El procedimiento para el cálculo del balance hídrico propuesto por Thornthwaite y Mather (1957) corresponde a una aproximación empírica para estimar la <strong>evapotranspiración potencial (ETP)</strong> a partir de la <strong>temperatura media mensual</strong> y la <strong>disponibilidad de energía térmica anual</strong>. Este modelo parte del supuesto de que la evapotranspiración depende principalmente de la <strong>energía disponible (temperatura)</strong> y de la <strong>duración del día (fotoperiodo)</strong>, factores que determinan la demanda evaporativa de la atmósfera. Esta propuesta aplica en contextos donde la información meteorológica es limitada, siendo muy utilizado en <strong>estudios ecológicos, hidrológicos y de zonificación climática</strong> por su simplicidad y solidez empírica.</p>
+<p>El procedimiento comienza con la estimación del <strong>índice de calor mensual (i)</strong>, que refleja la contribución térmica de cada mes a la energía anual disponible:</p>
+<p><span class="math display">\[
+i = (\frac{T}{5})^{1.514}
+\]</span></p>
+<p>donde <span class="math inline">\(T\)</span> es la <strong>temperatura media mensual (°C)</strong>. El <strong>índice de calor anual (I)</strong> se obtiene como la suma de los índices mensuales:</p>
+<p><span class="math display">\[
+I = \sum_{m=1}^{12} \left(\frac{T_m}{5}\right)^{1.514}
+\]</span></p>
+<p>A partir de $I$, se calcula el <strong>coeficiente empírico de Thornthwaite (a)</strong>, que ajusta la respuesta no lineal entre temperatura y evapotranspiración:</p>
+<p><span class="math display">\[
+a = 6.75\times10^{-7} I^3 - 7.71\times10^{-5} I^2 + 1.792\times10^{-2} I + 0.49239
+\]</span></p>
+<p>Este coeficiente permite adaptar la ecuación de <strong>ETP</strong> a las condiciones térmicas de cada localidad evaluada, reflejando la influencia del <strong>rango térmico anual</strong> sobre la capacidad evaporativa del ambiente. <strong>a</strong> representa el <strong>coeficiente empírico de Thornthwaite</strong>, una constante que depende del <strong>índice de calor anual (I)</strong>. El parámetro <code>a</code> controla cuán <strong>sensible</strong> es la ETP a la temperatura. Valores altos de <code>a</code> (≈1.2–1.4) indican <strong>climas cálidos y húmedos</strong>, donde la temperatura tiene más efecto en la pérdida de agua. Valores bajos (≈0.4–0.6) corresponden a <strong>climas fríos o áridos</strong>, donde la evaporación está más limitada.</p>
+<p>Una vez conocido el coeficiente <span class="math inline">\(a\)</span>, la <strong>evapotranspiración potencial mensual (ETP)</strong> se calcula mediante la expresión empírica:</p>
+<p><span class="math display">\[
+ETP = 16 \times \left(\frac{10T}{I}\right)^a
+\]</span></p>
+<p>donde, <span class="math inline">\(16\)</span> representa el valor de referencia para un mes de 30 días y 12 horas diarias de luz. Posteriormente, esta ETP se <strong>corrige por duración real del día y número de días del mes</strong>, obteniendo la <strong>ETP corregida (ETPcor)</strong>, que se aproxima mejor a las condiciones locales de radiación y fotoperiodo. La <strong>ETP</strong> representa la demanda máxima de agua por evaporación y transpiración si el suelo estuviera saturado, mientras que la <strong>ETR (evapotranspiración real)</strong> refleja la fracción efectivamente utilizada por las plantas en función de la disponibilidad hídrica. Este enfoque permite analizar el <strong>déficit y excedente de agua</strong> en los ecosistemas y entender cómo el clima controla la dinámica hídrica, la estacionalidad ecológica y la distribución de las formaciones vegetales.</p>
+<p>Finalmente, el <strong>índice de balance hídrico (BH)</strong> propuesto por Thornthwaite y Mather (1957) se calcula mediante la fórmula: <span class="math display">\[
+BH = \frac{100~x~exceso~-~60~x~déficit}{ETP_{cor}}
+\]</span></p>
+<p>La función “<code>bal_hid.R</code>” utilizada en este ejerciciopermite realizar el cálculo de ese índice, que corresponde a la <strong>eficiencia hídrica climática anual</strong>. Este índice sintetiza la <strong>interacción entre disponibilidad y demanda de agua</strong>,</p>
+<ul>
+<li><p>Un <strong>BH positivo</strong> indica <strong>superávit hídrico predominante</strong>, es decir, precipitación abundante respecto a la demanda atmosférica.</p></li>
+<li><p>Un <strong>BH negativo</strong> señala <strong>condiciones deficitarias o áridas</strong>, donde la pérdida potencial supera la reposición hídrica.</p></li>
+<li><p>Valores cercanos a cero reflejan un <strong>equilibrio climático</strong>, típico de regiones subhúmedas o transicionales.</p></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === Librerías ===</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl); </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr); </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Función de Balance hídrico mensual de Thornthwaite–Mather</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"bal_hid.R"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>clima <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"clima"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">estacion  =</span> <span class="st">`</span><span class="at">Estación</span><span class="st">`</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">mes       =</span> Mes,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">temp      =</span> Temp,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">pp        =</span> pp,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">horas_luz =</span> horas_luz,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">dias_mes  =</span> <span class="st">`</span><span class="at">días_mes</span><span class="st">`</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Ejecutar el balance (S_max editable)</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>S_max <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>balance <span class="ot">&lt;-</span> <span class="fu">bal_hid</span>(clima, <span class="at">S_max =</span> S_max, <span class="at">corr_horas_dias =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Los resultados de la <a href="#fig-fig8">Figura&nbsp;7</a> muestran un <strong>gradiente altitudinal marcado en la disponibilidad hídrica</strong>. En el <strong>Aeropuerto Simón Bolívar (APTO)</strong>, la <strong>ETP corregida (línea roja)</strong> excede claramente a la <strong>ETR (azul)</strong> durante la mayor parte del año, indicando un régimen <strong>fuertemente deficitario</strong> característico de <strong>ambientes secos costeros</strong>, donde la vegetación enfrenta estrés hídrico prolongado. En el <strong>Parque Tayrona (PNNT)</strong>, las líneas de ETP y ETR se se solapan, reflejando un <strong>equilibrio hídrico relativo</strong> que permite la coexistencia de especies adaptadas a condiciones intermedias de humedad. En cambio, en <strong>San Lorenzo (SL)</strong>, la precipitación supera ampliamente la evapotranspiración durante casi todo el año, señalando un <strong>excedente hídrico constante</strong> y su asociación con <strong>bosques montanos húmedos</strong>. Este modelo evidencia cómo el balance entre energía, temperatura y agua disponible condiciona la <strong>estructura funcional de los ambientes tropicales</strong> y su variación espacial en la Sierra Nevada de Santa Marta.</p>
+<blockquote class="blockquote">
+<p>El <strong>modelo de balance hídrico de Thornthwaite y Mather (1957)</strong>, los valores mensuales de precipitación, ETP y ETR obtenidos con la función <code>bal_hid()</code> permiten inferir que <strong>San Lorenzo</strong> presenta un balance positivo (excedente hídrico), el <strong>Parque Tayrona</strong> un equilibrio relativo, y el <strong>Aeropuerto Simón Bolívar</strong> un marcado déficit, reflejando el gradiente altitudinal y climático típico de la vertiente norte de la Sierra Nevada de Santa Marta.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Figura (tu bloque, sin cambios de estilo)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p_bal <span class="ot">&lt;-</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(balance, <span class="fu">aes</span>(<span class="at">x =</span> mes)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> pp), <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> etp_cor, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"ETP corregida"</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"#e41a1c"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> etp_cor), <span class="at">color =</span> <span class="st">"#e41a1c"</span>, <span class="at">size =</span> <span class="fl">1.8</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> ETR, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"ETR"</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"#377eb8"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> ETR), <span class="at">color =</span> <span class="st">"#377eb8"</span>, <span class="at">size =</span> <span class="fl">1.8</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> estacion, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"ETP corregida"</span> <span class="ot">=</span> <span class="st">"solid"</span>, <span class="st">"ETR"</span> <span class="ot">=</span> <span class="st">"dashed"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Balance hídrico mensual por estación (Thornthwaite–Mather)"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"S_max = "</span>, S_max,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">" mm · Barras: pp (mm) · Líneas: ETP_cor (rojo) y ETR (azul)"</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="st">"mm"</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey90"</span>, <span class="at">colour =</span> <span class="cn">NA</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>p_bal</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="clima_files/figure-html/fig-fig8-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Visualización del índice de Lang calculado para las tres estaciones de estudio, con valores ordenados de menor a mayor humedad.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="biomas-pisos-térmicos-y-formaciones-vegetales" class="level3">
+<h3 class="anchored" data-anchor-id="biomas-pisos-térmicos-y-formaciones-vegetales">5. Biomas, pisos térmicos y formaciones vegetales</h3>
+<p>Con los datos de temperatura promedio mensual multianual (temp), de precipitación total mensual multianual (pp), altura sobre el nivel del mar y de evapotranspiración corregida (ETPcor), utilizadas en los procedimientos anteriores, estos estimadores se asociarán en tablas de referencia, para clasificar las tres estaciones evaluadas, de acuerdo a su su <strong>bioma</strong> y a su <strong>zona de vida</strong> (formación vegetal) correspondiente y de esta manera, se realiza una tabulación que resume a los principales descriptores climáticos de cada localidad evaluada.</p>
+<p><strong>Paso 1:</strong> Se calcula la <strong>ETPcorr</strong> mensual con la formula de <strong>Thornthwaite</strong> (corrigiendo por días del mes y horas de luz). <strong>a_tw</strong> es el coeficiente empírico de Thornthwaite (a) (<a href="#tbl-tbl4">Tabla&nbsp;4</a>).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Librerías ---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1) Leer datos y preparar ---</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>clima <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"clima"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    Estación  <span class="ot">=</span> <span class="st">`</span><span class="at">Estación</span><span class="st">`</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mes       =</span> Mes,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Temp      =</span> Temp,      <span class="co"># °C</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">pp        =</span> pp,        <span class="co"># mm</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">horas_luz =</span> horas_luz, <span class="co"># h/día</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">dias_mes  =</span> <span class="st">`</span><span class="at">días_mes</span><span class="st">`</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">altura =</span> <span class="st">`</span><span class="at">altura</span><span class="st">`</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Temp_pos =</span> <span class="fu">pmax</span>(Temp, <span class="dv">0</span>))  <span class="co"># Thornthwaite usa 0 si T&lt;0</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2) Índice de calor y ETP Thornthwaite corregida ---</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>thornthwaite_a <span class="ot">&lt;-</span> <span class="cf">function</span>(I) <span class="fl">6.75e-7</span><span class="sc">*</span>I<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="fl">7.71e-5</span><span class="sc">*</span>I<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                              <span class="fl">1.792e-2</span><span class="sc">*</span>I <span class="sc">+</span> <span class="fl">0.49239</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Indice de calor (I)</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>I_tab <span class="ot">&lt;-</span> </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  clima <span class="sc">%&gt;%</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Estación) <span class="sc">%&gt;%</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">I =</span> <span class="fu">sum</span>((Temp_pos<span class="sc">/</span><span class="dv">5</span>)<span class="sc">^</span><span class="fl">1.514</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos climáticos, más ETPcor</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>clima <span class="ot">&lt;-</span> </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  clima <span class="sc">%&gt;%</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(I_tab, <span class="at">by =</span> <span class="st">"Estación"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">a_tw     =</span> <span class="fu">thornthwaite_a</span>(I),</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">etp_base =</span> <span class="fu">if_else</span>(I <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">16</span> <span class="sc">*</span> </span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                         ((<span class="dv">10</span> <span class="sc">*</span> Temp_pos <span class="sc">/</span> I)<span class="sc">^</span>a_tw), <span class="dv">0</span>),  <span class="co"># base 30 días, 12 h</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">ETPcorr  =</span> etp_base <span class="sc">*</span> (dias_mes<span class="sc">/</span><span class="dv">30</span>) <span class="sc">*</span> </span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>                         (horas_luz<span class="sc">/</span><span class="dv">12</span>)                   <span class="co"># corrección mensual</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4) Mostrar tabla ---</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">head</span>(clima),</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits=</span><span class="dv">2</span>,</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">"lrrrllll"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl4" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;4:  Seis primeras filas de datos climáticos obtenidos incluida la ETPcorr calculado </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Estación </th>
+   <th style="text-align:right;"> Mes </th>
+   <th style="text-align:right;"> Temp </th>
+   <th style="text-align:right;"> pp </th>
+   <th style="text-align:left;"> horas_luz </th>
+   <th style="text-align:left;"> dias_mes </th>
+   <th style="text-align:left;"> altura </th>
+   <th style="text-align:left;"> Temp_pos </th>
+   <th style="text-align:left;"> I </th>
+   <th style="text-align:right;"> a_tw </th>
+   <th style="text-align:right;"> etp_base </th>
+   <th style="text-align:right;"> ETPcorr </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> ENE </td>
+   <td style="text-align:right;"> 27.61 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:left;"> 9.2 </td>
+   <td style="text-align:left;"> 31.00 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 27.61 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 151.72 </td>
+   <td style="text-align:right;"> 120.20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> FEB </td>
+   <td style="text-align:right;"> 28.06 </td>
+   <td style="text-align:right;"> 1.02 </td>
+   <td style="text-align:left;"> 8.8 </td>
+   <td style="text-align:left;"> 28.25 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 28.06 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 163.18 </td>
+   <td style="text-align:right;"> 112.69 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> MAR </td>
+   <td style="text-align:right;"> 28.53 </td>
+   <td style="text-align:right;"> 1.94 </td>
+   <td style="text-align:left;"> 8.1 </td>
+   <td style="text-align:left;"> 31.00 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 28.53 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 176.07 </td>
+   <td style="text-align:right;"> 122.81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> ABR </td>
+   <td style="text-align:right;"> 29.15 </td>
+   <td style="text-align:right;"> 16.03 </td>
+   <td style="text-align:left;"> 7.6 </td>
+   <td style="text-align:left;"> 30.00 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 29.15 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 194.07 </td>
+   <td style="text-align:right;"> 122.91 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> MAY </td>
+   <td style="text-align:right;"> 29.29 </td>
+   <td style="text-align:right;"> 46.62 </td>
+   <td style="text-align:left;"> 7.2 </td>
+   <td style="text-align:left;"> 31.00 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 29.29 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 198.05 </td>
+   <td style="text-align:right;"> 122.79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> JUN </td>
+   <td style="text-align:right;"> 29.37 </td>
+   <td style="text-align:right;"> 64.24 </td>
+   <td style="text-align:left;"> 7.6 </td>
+   <td style="text-align:left;"> 30.00 </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> 29.37 </td>
+   <td style="text-align:left;"> 167.85 </td>
+   <td style="text-align:right;"> 4.52 </td>
+   <td style="text-align:right;"> 200.63 </td>
+   <td style="text-align:right;"> 127.07 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+<p><strong>Paso 2:</strong> Se construye la <strong>tabla resumen</strong> (<a href="#tbl-tbl5">Tabla&nbsp;5</a>) con las <strong>tres últimas columnas vacías</strong> (valores NA) para que en el siguiente paso se completen manualmente guiándose por las ponderaciones de las clasificaciones tabuladas en el archvo base de Excel (hoja: biomas).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3) Resumen por estación ---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  clima <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Estación) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Precipitación - pp (mm)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sum</span>(pp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Temperatura (°C)</span><span class="st">`</span>        <span class="ot">=</span> <span class="fu">mean</span>(Temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">ETPcorr (mm)</span><span class="st">`</span>            <span class="ot">=</span> <span class="fu">sum</span>(ETPcorr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lang                      =</span> <span class="st">`</span><span class="at">Precipitación - pp (mm)</span><span class="st">`</span> <span class="sc">/</span> </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                                <span class="st">`</span><span class="at">Temperatura (°C)</span><span class="st">`</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                                <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Aridez =</span> <span class="fu">cut</span>(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>      Lang,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">160</span>, <span class="cn">Inf</span>),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Muy árido"</span>,<span class="st">"Árido"</span>,<span class="st">"Semiárido"</span>,</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Subhúmedo seco"</span>,<span class="st">"Húmedo"</span>,<span class="st">"Hiperhúmedo"</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">right  =</span> <span class="cn">TRUE</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Columnas que el estudiante completa manualmente usando la hoja 'biomas'</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Holdridge (1967)</span><span class="st">`</span>                <span class="ot">=</span> <span class="cn">NA_character_</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Espinal y Montenegro (1977)</span><span class="st">`</span>     <span class="ot">=</span> <span class="cn">NA_character_</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Hernández y Camacho (1992)</span><span class="st">`</span>      <span class="ot">=</span> <span class="cn">NA_character_</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    Estación,</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Precipitación - pp (mm)</span><span class="st">`</span>,</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Temperatura (°C)</span><span class="st">`</span>,</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    Lang, Aridez,</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">ETPcorr (mm)</span><span class="st">`</span>,</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Holdridge (1967)</span><span class="st">`</span>,</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Espinal y Montenegro (1977)</span><span class="st">`</span>,</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Hernández y Camacho (1992)</span><span class="st">`</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4) Mostrar tabla  ---</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(resumen,<span class="at">digits=</span><span class="dv">2</span>,</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">"lrrrllll"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl5" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;5:  Resumen de la caracterización climática, sin datos de zonas de vida, formaciones vegetales ni biomas </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Estación </th>
+   <th style="text-align:right;"> Precipitación - pp (mm) </th>
+   <th style="text-align:right;"> Temperatura (°C) </th>
+   <th style="text-align:right;"> Lang </th>
+   <th style="text-align:left;"> Aridez </th>
+   <th style="text-align:left;"> ETPcorr (mm) </th>
+   <th style="text-align:left;"> Holdridge (1967) </th>
+   <th style="text-align:left;"> Espinal y Montenegro (1977) </th>
+   <th style="text-align:left;"> Hernández y Camacho (1992) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> 560.19 </td>
+   <td style="text-align:right;"> 28.55 </td>
+   <td style="text-align:right;"> 19.62 </td>
+   <td style="text-align:left;"> Muy árido </td>
+   <td style="text-align:left;"> 1377.87 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PNNT </td>
+   <td style="text-align:right;"> 1240.12 </td>
+   <td style="text-align:right;"> 26.60 </td>
+   <td style="text-align:right;"> 46.62 </td>
+   <td style="text-align:left;"> Semiárido </td>
+   <td style="text-align:left;"> 363.49 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SL </td>
+   <td style="text-align:right;"> 2730.77 </td>
+   <td style="text-align:right;"> 13.67 </td>
+   <td style="text-align:right;"> 199.84 </td>
+   <td style="text-align:left;"> Hiperhúmedo </td>
+   <td style="text-align:left;"> 312.90 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+<p><strong>Paso 3:</strong> Se completa la <strong>tabla resumen</strong> diligenciando de forma manual las <strong>tres últimas columnas</strong>.</p>
+<p>La tabla resumen (<a href="#tbl-tbl6">Tabla&nbsp;6</a>) integra a los principales indicadores climáticos derivados del modelo de balance hídrico y de los índices de aridez, junto con su correspondencia en tres sistemas de clasificación ecológica: <strong>Holdridge (1967)</strong>, <strong>Espinal y Montenegro (1977)</strong> y <strong>Hernández y Camacho (1992)</strong>. Este esquema permite establecer una relación directa entre las <strong>variables climáticas cuantitativas</strong> (precipitación, temperatura, ETP corregida e índice de Lang) y la <strong>tipología ecológica cualitativa</strong> que define las zonas de vida y los biomas de las estaciones evaluadas. De esta forma, se logra un marco comparativo que vincula los resultados analíticos con la interpretación biogeográfica de los ecosistemas a lo largo del gradiente altitudinal y climático de Santa Marta y la vertiente norte de la Sierra Nevada.</p>
+<p>Los resultados muestran un <strong>claro gradiente térmico e hídrico</strong> que explica la transición entre <strong>zonas áridas costeras y ecosistemas húmedos de montaña</strong>. En el <strong>Aeropuerto Simón Bolívar (APTO)</strong>, la baja precipitación (560 mm), alta temperatura (28.6 °C) y elevado valor de ETP (1377.9 mm) determinan un ambiente <strong>muy árido</strong>, clasificado como <strong>bosque muy seco tropical (bms-T)</strong> o <strong>zonobioma subxerofítico tropical</strong>, característico de la franja litoral. En el <strong>Parque Tayrona (PNNT)</strong>, la mayor precipitación (1240 mm) y menor déficit hídrico ubican la estación en condición <strong>semiárida</strong>, correspondiente al <strong>bosque seco tropical (bs-T)</strong>, un ecosistema de transición entre ambientes xéricos y húmedos. Finalmente, en <strong>San Lorenzo (SL)</strong>, la alta pluviosidad (2730 mm) y baja temperatura (13.7 °C) reflejan un régimen <strong>hiperhúmedo</strong> con predominio del <strong>bosque muy húmedo montano (bmh-M)</strong> o <strong>orobiomas de selva andina</strong>, donde la disponibilidad hídrica es máxima y el clima está controlado por la altitud y la condensación orográfica.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plantilla con los datos faltantes (clasif_manual):</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>clasif_manual <span class="ot">&lt;-</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Estación, <span class="sc">~</span><span class="st">`</span><span class="at">Holdridge (1967)</span><span class="st">`</span>,<span class="sc">~</span><span class="st">`</span><span class="at">Espinal y Montenegro (1977)</span><span class="st">`</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span><span class="st">`</span><span class="at">Hernández y Camacho (1992)</span><span class="st">`</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"APTO"</span>,  <span class="st">"Bosque muy seco tropical (bms-T)"</span>,    </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bosque muy seco tropical (bms-T)"</span>,    </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Zonobioma Subxerofítico Tropical"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PNNT"</span>, <span class="st">"Bosque seco tropical (bs-T)"</span>,         </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bosque seco tropical (bs-T)"</span>,         </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Zonobioma tropical alternohígrico"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SL"</span>, <span class="st">"Bosque muy húmedo montano (bmh-M)"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bosque muy húmedo montano (bmh-M)"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Orobiomas de Selva Andina"</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla completa</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>resumen_final <span class="ot">&lt;-</span> </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  resumen <span class="sc">%&gt;%</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Holdridge (1967)</span><span class="st">`</span>, <span class="sc">-</span><span class="st">`</span><span class="at">Espinal y Montenegro (1977)</span><span class="st">`</span>, </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span><span class="st">`</span><span class="at">Hernández y Camacho (1992)</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clasif_manual, <span class="at">by =</span> <span class="st">"Estación"</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla en kbl</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(resumen_final, <span class="at">digits =</span> <span class="dv">1</span>, </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-tbl6" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;6:  Resumen de la caracterización climática, con todos los datos tabulados de forma manual </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Estación </th>
+   <th style="text-align:right;"> Precipitación - pp (mm) </th>
+   <th style="text-align:right;"> Temperatura (°C) </th>
+   <th style="text-align:right;"> Lang </th>
+   <th style="text-align:left;"> Aridez </th>
+   <th style="text-align:right;"> ETPcorr (mm) </th>
+   <th style="text-align:left;"> Holdridge (1967) </th>
+   <th style="text-align:left;"> Espinal y Montenegro (1977) </th>
+   <th style="text-align:left;"> Hernández y Camacho (1992) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> APTO </td>
+   <td style="text-align:right;"> 560.2 </td>
+   <td style="text-align:right;"> 28.6 </td>
+   <td style="text-align:right;"> 19.6 </td>
+   <td style="text-align:left;"> Muy árido </td>
+   <td style="text-align:right;"> 1377.9 </td>
+   <td style="text-align:left;"> Bosque muy seco tropical (bms-T) </td>
+   <td style="text-align:left;"> Bosque muy seco tropical (bms-T) </td>
+   <td style="text-align:left;"> Zonobioma Subxerofítico Tropical </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PNNT </td>
+   <td style="text-align:right;"> 1240.1 </td>
+   <td style="text-align:right;"> 26.6 </td>
+   <td style="text-align:right;"> 46.6 </td>
+   <td style="text-align:left;"> Semiárido </td>
+   <td style="text-align:right;"> 363.5 </td>
+   <td style="text-align:left;"> Bosque seco tropical (bs-T) </td>
+   <td style="text-align:left;"> Bosque seco tropical (bs-T) </td>
+   <td style="text-align:left;"> Zonobioma tropical alternohígrico </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SL </td>
+   <td style="text-align:right;"> 2730.8 </td>
+   <td style="text-align:right;"> 13.7 </td>
+   <td style="text-align:right;"> 199.8 </td>
+   <td style="text-align:left;"> Hiperhúmedo </td>
+   <td style="text-align:right;"> 312.9 </td>
+   <td style="text-align:left;"> Bosque muy húmedo montano (bmh-M) </td>
+   <td style="text-align:left;"> Bosque muy húmedo montano (bmh-M) </td>
+   <td style="text-align:left;"> Orobiomas de Selva Andina </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="cuestionario" class="level2">
+<h2 class="anchored" data-anchor-id="cuestionario">Cuestionario</h2>
+<section id="análisis-climático-y-ecológico-con-tres-estaciones-evaluadas" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-climático-y-ecológico-con-tres-estaciones-evaluadas">1. Análisis climático y ecológico con tres estaciones evaluadas</h4>
+<p>A partir de los <strong>climatogramas</strong> construidos para las estaciones APTO, PNNT y SL, identifique:<br>
+<strong>a)</strong> El patrón estacional general de cada sitio (unimodal o bimodal). b) Explique cómo la distribución de las lluvias podría afectar los ciclos fenológicos de la vegetación (floración, brotación, caída de hojas).</p>
+<p>Con base en los valores del <strong>índice de Lang</strong> calculados, responda:<br>
+<strong>a)</strong> ¿Qué relación existe entre la precipitación anual, la temperatura media y el valor del índice?<br>
+<strong>b)</strong> ¿Por qué el índice de Lang tiende a disminuir hacia la costa y aumentar hacia la montaña?<br>
+<strong>c)</strong> Proponga un ejemplo de cómo este gradiente puede influir en la distribución de especies vegetales o tipos de suelo en la vertiente norte de la Sierra Nevada de Santa Marta.</p>
+<p>A partir de los gráficos del <strong>balance hídrico mensual</strong>, analice:<br>
+<strong>a)</strong> En qué meses ocurre déficit hídrico y en cuáles hay excedente para cada estación.<br>
+<strong>b)</strong> ¿Qué diferencias observas entre la ETP corregida (roja) y la ETR (azul)?<br>
+<strong>c)</strong> ¿Cómo se refleja el efecto de la altitud sobre la relación entre precipitación y evapotranspiración?</p>
+<p>Compare los resultados climáticos (precipitación, temperatura, ETP, Lang) con las clasificaciones ecológicas de <strong>Holdridge (1967)</strong>, <strong>Espinal &amp; Montenegro (1977)</strong> y <strong>Hernández &amp; Camacho (1992)</strong>.<br>
+<strong>a)</strong> ¿En qué coinciden y en qué difieren los tres sistemas?<br>
+<strong>b)</strong> ¿Qué variables del balance climático sustentan esas diferencias?<br>
+<strong>c)</strong> ¿Por qué es importante contrastar varios sistemas de clasificación al caracterizar un paisaje ecológico?</p>
+</section>
+<section id="análisis-climático-y-ecológico-con-tres-estaciones-nuevas" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-climático-y-ecológico-con-tres-estaciones-nuevas">2. Análisis climático y ecológico con tres estaciones nuevas</h4>
+<p>Aplicar el flujo de pasos del capítulo ((1) visualización temporal de temperatura y precipitación → (2) climatogramas → (3) índice de Lang → (4) balance hídrico de Thornthwaite–Mather → (5) síntesis ecológica) usando <strong>tres estaciones distintas</strong> a las del ejercicio anterior (APTO, PNNT y SL), y producir:</p>
+<ol type="1">
+<li>Un <strong>reporte HTML reproducible</strong> en Quarto, junto al archivo clima.qmd, con el reporte genrado.<br>
+</li>
+<li>Un <strong>archivo de Excel</strong> con los cálculos tabulados, similares a los del archivo “datos.xlsx”.</li>
+</ol>
+<section id="selección-de-estaciones" class="level5">
+<h5 class="anchored" data-anchor-id="selección-de-estaciones">Selección de estaciones</h5>
+<ul>
+<li>Escoja <strong>tres estaciones diferentes</strong> a las del ejercicio (sugerencia: una costera/valle, una de transición y una montana).<br>
+</li>
+<li>Declare el <strong>periodo de análisis</strong> (≥ 20 años si es posible; de lo contrario, el máximo continuo disponible).<br>
+</li>
+<li>Variables mínimas por mes: <strong>Temp media (°C), Precipitación (mm), horas de luz y días del mes</strong> (estas dos últimas para corregir la ETP).</li>
+</ul>
+</section>
+<section id="pasos-a-realizar-checklist-técnico" class="level5">
+<h5 class="anchored" data-anchor-id="pasos-a-realizar-checklist-técnico">Pasos a realizar (checklist técnico)</h5>
+<ol type="1">
+<li><strong>Ingreso y depuración de datos</strong><br>
+</li>
+</ol>
+<ul>
+<li>Importar los CSV/Excel originales desde la plataforma <strong>dhime</strong> del IDEAM.<br>
+</li>
+<li>Reportar una tabla con columnas: <code>Estación, Mes, Temp, pp, horas_luz, días_mes</code>.</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Patrones temporales</strong><br>
+
+<ul>
+<li>Generar las figuras de temperatura y de precipitación y analizar los patrones observados.</li>
+</ul></li>
+<li><strong>Climatogramas</strong><br>
+
+<ul>
+<li>Generar un panel con barras de <code>pp</code> (eje secundario) y línea de <code>Temp</code> (eje primario).<br>
+</li>
+<li>Interpretar estacionalidad (picos, mínimos, mono/bimodalidad).</li>
+</ul></li>
+<li><strong>Índice de Lang</strong><br>
+
+<ul>
+<li>Calcular <span class="math inline">\(\text{Lang} = \frac{\text{PP anual (mm)}}{\text{T media (°C)}}\)</span><br>
+</li>
+<li>Clasificar con los rangos (Muy árido… Hiperhúmedo).<br>
+</li>
+<li>Presentar <strong>tabla</strong> por estación y una <strong>gráfica</strong> horizontal con cortes.</li>
+</ul></li>
+<li><strong>Balance hídrico de Thornthwaite–Mather</strong><br>
+
+<ul>
+<li>Usar la función del capítulo (<code>bal_hid.R</code>), con <strong>S_max</strong> justificado (p.&nbsp;ej. 100 mm salvo argumento diferente por tipo de suelo).<br>
+</li>
+<li>Reportar <strong>ETP corregida (ETP_cor)</strong>, <strong>ETR</strong>, <strong>déficit</strong> y <strong>excedente</strong> mensuales.<br>
+</li>
+<li>Incluir la <strong>figura facetada</strong> (barras = pp; líneas = ETP_cor (roja), ETR (azul)).<br>
+</li>
+<li>(Opcional pero recomendado) Calcular el índice sintético de balance hídrico:<br>
+<span class="math display">\[
+BH = \frac{100~x~exceso~-~60~x~déficit}{ETP_{cor}}
+\]</span> e interpretar su signo/magnitud.</li>
+</ul></li>
+<li><strong>Síntesis ecológica</strong><br>
+
+<ul>
+<li>Redactar una <strong>tabla resumen</strong> (PP anual, Temp. media, Lang, clase de aridez, ETPcor anual, BH si lo usan) + <strong>clasificación ecológica</strong> (Holdridge / Espinal &amp; Montenegro / Hernández &amp; Camacho) según la guía del capítulo.<br>
+</li>
+<li>Interpretación comparativa (gradientes, control climático, coherencia con biomas).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+<section id="referencias-bibliográficas" class="level2">
+<h2 class="anchored" data-anchor-id="referencias-bibliográficas">Referencias bibliográficas</h2>
+<p><strong>Espinal, S.</strong> (1977).&nbsp;<em>Zonas de vida o formaciones vegetales de Colombia: Memoria explicativa sobre el mapa ecológico</em>. (📖<a href="https://sie.car.gov.co/server/api/core/bitstreams/4d8734ed-15b4-4992-955b-f696d6a4417c/content">enlace</a>)</p>
+<p><strong>FAO</strong> (1985)<strong>.</strong> <em>Agroclimatological Data for Latin America and the Caribbean.</em> FAO Plant Production and Protection Series No.&nbsp;24.</p>
+<p><strong>Halffter, G.</strong>, &amp; Ezcurra, E. (1992).&nbsp;<em>La diversidad biológica de Iberoamérica</em>&nbsp;(Vol. 1). CYTED-D, Programa Iberoamericano de Ciencia y Tecnologia para el Desarollo, Instituto de Ecologia, AC, Secretaria de Desarrollo Social. (📖<a href="https://www.rds.org.co/apc-aa-files/ba03645a7c069b5ed406f13122a61c07/diversidad_biologica_iberoamerica.pdf">enlace</a>)</p>
+<p><strong>Holdridge L.R.</strong> (1967). <em>Life Zone Ecology.</em> (📖<a href="https://app.ingemmet.gob.pe/biblioteca/pdf/Amb-56.pdf">enlace</a>)</p>
+<p><strong>IDEAM</strong> (2010). <em>Estudio Nacional del Agua – Componente de Balance Hídrico.</em> Bogotá, Colombia.</p>
+<p><strong>IGAC (2006).</strong> <em>Estudio general de suelos y zonificación de tierras del departamento del Magdalena.</em> Instituto Geográfico Agustín Codazzi, Bogotá.</p>
+<p><strong>Tamarís-Turizo, C.</strong> <strong>E.</strong>, &amp; López-Salgado, H. J. (2006). <em>Aproximación a la zonificación climática de la cuenca del río Gaira</em>. Intropica, 69-76. (📰<a href="https://revistas.unimagdalena.edu.co/index.php/intropica/article/download/128/112">enlace</a>)</p>
+<p><strong>Thornthwaite</strong>, C. W., &amp; Mather, J. R. (1957). Instructions and tables for computing potential evapotranspiration and the water balance.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
