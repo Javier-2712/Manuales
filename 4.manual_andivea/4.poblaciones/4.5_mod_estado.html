@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Es-es" xml:lang="Es-es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-10-17">
+<meta name="description" content="Ejercicios de entrenamiento para la modelación de poblaciones multi-estado.">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="4.5_mod_estado_files/libs/clipboard/clipboard.min.js"></script>
+<script src="4.5_mod_estado_files/libs/quarto-html/quarto.js"></script>
+<script src="4.5_mod_estado_files/libs/quarto-html/popper.min.js"></script>
+<script src="4.5_mod_estado_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="4.5_mod_estado_files/libs/quarto-html/anchor.min.js"></script>
+<link href="4.5_mod_estado_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="4.5_mod_estado_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="4.5_mod_estado_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="4.5_mod_estado_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="4.5_mod_estado_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+<script src="4.5_mod_estado_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="4.5_mod_estado_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 4.5 jercicios y visualización gráfica de modelos poblacionales por <strong>estados de tamaño</strong></p>
+                  <div>
+        <div class="description">
+          Ejercicios de entrenamiento para la modelación de poblaciones multi-estado.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 17, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivos-del-ejercicio" id="toc-objetivos-del-ejercicio" class="nav-link" data-scroll-target="#objetivos-del-ejercicio">Objetivos del ejercicio</a></li>
+  <li><a href="#censo-realizado" id="toc-censo-realizado" class="nav-link" data-scroll-target="#censo-realizado">Censo realizado</a></li>
+  <li><a href="#análisis-de-los-datos." id="toc-análisis-de-los-datos." class="nav-link" data-scroll-target="#análisis-de-los-datos.">Análisis de los datos.</a>
+  <ul>
+  <li><a href="#paso-1-cargas-las-librerías-requeridas" id="toc-paso-1-cargas-las-librerías-requeridas" class="nav-link" data-scroll-target="#paso-1-cargas-las-librerías-requeridas">Paso 1) Cargas las librerías requeridas</a></li>
+  <li><a href="#paso-2-cargar-y-explorar-datos-del-censo" id="toc-paso-2-cargar-y-explorar-datos-del-censo" class="nav-link" data-scroll-target="#paso-2-cargar-y-explorar-datos-del-censo">Paso 2) Cargar y explorar datos del censo</a></li>
+  <li><a href="#paso-3-qué-variable-de-estado-explica-mejor-bx" id="toc-paso-3-qué-variable-de-estado-explica-mejor-bx" class="nav-link" data-scroll-target="#paso-3-qué-variable-de-estado-explica-mejor-bx">Paso 3) ¿Qué variable de estado explica mejor Bx?</a>
+  <ul>
+  <li><a href="#visualización-de-la-reación-semillas-vs-cobertura" id="toc-visualización-de-la-reación-semillas-vs-cobertura" class="nav-link" data-scroll-target="#visualización-de-la-reación-semillas-vs-cobertura">3.1) Visualización de la reación Semillas vs Cobertura</a></li>
+  </ul></li>
+  <li><a href="#paso-4-definir-cinco-clases-de-cobertura" id="toc-paso-4-definir-cinco-clases-de-cobertura" class="nav-link" data-scroll-target="#paso-4-definir-cinco-clases-de-cobertura">Paso 4) Definir cinco clases de cobertura</a>
+  <ul>
+  <li><a href="#histograma-con-cortes-de-clase" id="toc-histograma-con-cortes-de-clase" class="nav-link" data-scroll-target="#histograma-con-cortes-de-clase">4.1) Histograma con cortes de clase</a></li>
+  </ul></li>
+  <li><a href="#paso-5-elaboración-de-la-tabla-de-vida" id="toc-paso-5-elaboración-de-la-tabla-de-vida" class="nav-link" data-scroll-target="#paso-5-elaboración-de-la-tabla-de-vida">Paso 5) Elaboración de la tabla de vida</a>
+  <ul>
+  <li><a href="#tabla-de-vida-hasta-la-esperanza-de-vida-e_x" id="toc-tabla-de-vida-hasta-la-esperanza-de-vida-e_x" class="nav-link" data-scroll-target="#tabla-de-vida-hasta-la-esperanza-de-vida-e_x">5.1) Tabla de vida hasta la esperanza de vida (<span class="math inline">\(e_x\)</span>)</a></li>
+  <li><a href="#cálculo-de-estadísticos-demográficos-basados-en-la-tabla-de-vida" id="toc-cálculo-de-estadísticos-demográficos-basados-en-la-tabla-de-vida" class="nav-link" data-scroll-target="#cálculo-de-estadísticos-demográficos-basados-en-la-tabla-de-vida">5.2) Cálculo de estadísticos demográficos basados en la tabla de vida</a></li>
+  </ul></li>
+  <li><a href="#paso-6-estimadores-de-estructura-de-estados---f_pre-f_post-c_x-v_x." id="toc-paso-6-estimadores-de-estructura-de-estados---f_pre-f_post-c_x-v_x." class="nav-link" data-scroll-target="#paso-6-estimadores-de-estructura-de-estados---f_pre-f_post-c_x-v_x.">Paso 6) Estimadores de estructura de estados - <span class="math inline">\(F_{(pre)},\ F_{(post)},\ c_{(x)},\  v_{(x)}\)</span>.</a></li>
+  <li><a href="#paso-7-matrices-de-leslie---l-pre-y-post-reproductivas" id="toc-paso-7-matrices-de-leslie---l-pre-y-post-reproductivas" class="nav-link" data-scroll-target="#paso-7-matrices-de-leslie---l-pre-y-post-reproductivas">Paso 7) Matrices de Leslie - <span class="math inline">\(L\)</span> (pre y post reproductivas)</a></li>
+  <li><a href="#paso-8-modelación-matricial-multiestado-pre-y-post-reproductiva" id="toc-paso-8-modelación-matricial-multiestado-pre-y-post-reproductiva" class="nav-link" data-scroll-target="#paso-8-modelación-matricial-multiestado-pre-y-post-reproductiva">Paso 8) Modelación matricial multiestado (pre y post reproductiva)</a>
+  <ul>
+  <li><a href="#proyección-post-reproductiva" id="toc-proyección-post-reproductiva" class="nav-link" data-scroll-target="#proyección-post-reproductiva">8.1) Proyección post-reproductiva</a></li>
+  <li><a href="#proyección-pre-reproductiva" id="toc-proyección-pre-reproductiva" class="nav-link" data-scroll-target="#proyección-pre-reproductiva">8.2) Proyección pre-reproductiva</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Los profesionales dedicados a la biología de la conservación, al control deespecies introducidas o a la modelación ecológica de poblaciones, requieren de herramientas numéricas que les permitan organizar sus datos de forma adecuada en “<strong>tablas de vida</strong>”, resumiendo información relacionada a la densidad, supervivencia, mortalidad o fecundidad de los individuos en diferentes clases de estado o de Estado.</p>
+<p>Con esta información se pueden calcular diferentes indicadores que miden <strong>la estructura y el estado de las poblaciones</strong>, en sus tasas vitales, incluidas graficas de supervivencia y de ciclos de vida; estos últimos se puede visualizar el comportamiento de las poblaciones en cuanto a su supervivencia y fecundidad por estados. Adicionalmente se puede proyectar el crecimiento de la población en cada estado o Estado, a partir de <strong>esquemas matriciales</strong> como los propuestos a mediados del siglo XX por Leslie y Lefkovitch (Caswell, 2001).&nbsp;</p>
+<p>A partir de estas matrices y algunas operaciones algebraicas, es posible resolver preguntas de investigación orientadas al patrón ecológico y aumento demográfico de poblaciones animales y/o vegetales, en diferentes periodos de tiempo futuro (días, semanas, años, dependiendo de la tasa de crecimiento de la población).</p>
+<p>El siguiente ejercicio está orientado a la evaluación demográfica de una muestra de una población de <em>Calotropis procera</em>, ubicada en el campus de la Universidad del Magdalena, la cual se encuentra en su fase reproductiva, lo cual favorezca la evaluación de atributos reproductivos.</p>
+</section>
+<section id="objetivos-del-ejercicio" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-del-ejercicio">Objetivos del ejercicio</h2>
+<p>1) Construir una tabla de vida estática de la muestra censada de <em>Calotropis procera</em>.</p>
+<p>2) Determinar el parámetro morfológicos o de estado que mejor se correlaciona con la reproducción de esa especie.</p>
+<p>3) Realizar una proyección multi-estado de la población en el tiempo, para aproximar las densidades por clases de estado en periodos futuros.</p>
+</section>
+<section id="censo-realizado" class="level2">
+<h2 class="anchored" data-anchor-id="censo-realizado">Censo realizado</h2>
+<p>Se realiza un reconocimiento del área de estudio en la búsqueda de los individuos de la especie a censar, teniendo en cuenta los siguientes criterios: (1) frecuencia de aparición significativa,&nbsp; (2) variabilidad de tamaños o coberturas, (4) se encuentren en fase reproductiva, con flores y frutos.</p>
+<p>Posteriormente se escogen al azar 120 individuos (plántulas, juveniles o adultos) de la muestra a censar (<em>Calotropis procera</em>). A cada individuo se le toman algunas mediciones que se asocian con su estado de crecimiento y que permitien tabular sus datos por clases de tamaño (ej. Altura total, cobertura promedio por mediciones de diámetros). Adicionalmente se realiza una estimación del número total de semillas, a partir de una muestra evaluada.</p>
+</section>
+<section id="análisis-de-los-datos." class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-los-datos.">Análisis de los datos.</h2>
+<blockquote class="blockquote">
+<p>La construcción de la tabla de vida y el modelo de estructura de estado, es muy similar al del ejercicio con los datos de Gotelli (2002), con las siguientes diferencias:</p>
+<ul>
+<li><p>El censo no es por Estadoes, sino por estados de crecimiento.</p></li>
+<li><p>Para calcular la densidad de individuos (<span class="math inline">\(N_x\)</span>) se requiere elaborar una cohorte ficticia, basada en las frecuencias de individuos censadas (<span class="math inline">\(n_x\)</span>).</p></li>
+<li><p>No se cuenta con el dato de maternidad (<span class="math inline">\(m_x\)</span>), por lo que hay que hallarla con los datos de <span class="math inline">\(B_x\)</span> netos.</p></li>
+</ul>
+<p>A continuación se realizará el paso a paso de cada uno de estos estimadores</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Nota importante:</strong></p>
+<p>Tener en cuenta la tasa de germinación de semillas (supervivencia <span class="math inline">\(s_0\)</span>), reportada por <strong>Taghvaei (2012)</strong>, en su tabla 2, reporta un porcentaje de germinación de 0.123%, lo cual debe aplicarse al número de semillas de la tabla de vida (Bx) (criterio poblcional).</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Objetivo de esta primera parte (Selección de variable de estado):</strong> se parte de los datos crudos para (<em>i</em>) comparar <strong>variables de estado</strong> que expliquen la producción total de semillas (<em>Bx = Semillas</em>), (<em>ii</em>) <strong>elegir la mejor</strong> (Se escogerá la Cobertura), (<em>iii</em>) <strong>definir 5 clases</strong> de cobertura con ancho fijo (5 clases para resumir la tabla de vida a solo 5 filas)</p>
+</blockquote>
+<hr>
+<section id="paso-1-cargas-las-librerías-requeridas" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-cargas-las-librerías-requeridas">Paso 1) Cargas las librerías requeridas</h3>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(broom)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(corrplot)     <span class="co"># Figuras de elipses</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="paso-2-cargar-y-explorar-datos-del-censo" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-cargar-y-explorar-datos-del-censo">Paso 2) Cargar y explorar datos del censo</h3>
+<p>Las variables utilizadas se usan con fines didácticos, pero en un trabajo más detallado, deberían considerarse los siguientes apsectos:</p>
+<ul>
+<li><p>Caso de las <strong>clases o rangos de estados</strong>, tener en cuenta lo siguiente:</p>
+<ul>
+<li><p>Considerar criterios más biológicos como las asociaciones con <strong>aspectos fenológicos</strong> de los individuos, que pueden afectar de manera más directa a la dinámica reproductiva de esta especie.</p></li>
+<li><p>Contrastar el método de ancho fijo por intervalos de clases, con otros más flexibles como los cuantiles.</p></li>
+</ul></li>
+<li><p>Elección de la <strong>variable de estado</strong>:</p>
+<ul>
+<li><p>Adicional a las regresiones lineales, se puede probar regresiones no lineales (ej. Loess o suavisadas), que pueden ajustarse mejor a la naturaleza d elos datos.</p></li>
+<li><p>Incluir un análisis de colinealidad entre las variables de estado, debido a la redundancia que puede haber entre algunas de las utilizadas (ej: Radio y Diámetro).</p></li>
+</ul></li>
+<li><p><strong>Temporalidad</strong> del estudio:</p>
+<ul>
+<li>Dado a que este ejercicio se orienta a la <strong>modelación temporal multi-estado</strong> de la dinámica de esa población, es necesario tener un mayor seguimiento de los individuos en el tiempo, que permita evaluar aspectos como las permanencias (individuos que no crecen), aportes asesuales (ej. Reversiones). Lo anterior implica un seguimiento temporal que brinde mayor acercamiento a la realidad demográfica de esa especie en su entorno.</li>
+</ul></li>
+</ul>
+<p>La <strong>base de datos</strong> se puede descargar en el siguiente enlace: <a href="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/bases_datos/datos_calot.xlsx">datos_calot.xlsx</a>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"datos_calot.xlsx"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sheet =</span> <span class="st">"Datos_campo"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(Long.Tot, Ancho, Radio, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             Cobertura, Semillas), as.numeric))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Valor mínimos y máximos de coberturas</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Cmin <span class="ot">&lt;-</span> <span class="fu">min</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Cmax <span class="ot">&lt;-</span> <span class="fu">max</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>ancho <span class="ot">&lt;-</span> (Cmax <span class="sc">-</span> Cmin) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Cinco intervalos =&gt; seis clases de cobertura</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>cortes   <span class="ot">&lt;-</span> <span class="fu">seq</span>(Cmin, Cmax, <span class="at">length.out =</span> <span class="dv">6</span>)  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>etq      <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"C"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="dv">6</span>]), </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">" - "</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar la tabla inicial</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos) <span class="sc">%&gt;%</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Datos de campo"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Datos de campo</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Individuo </th>
+   <th style="text-align:right;"> Long.Tot </th>
+   <th style="text-align:right;"> Ancho </th>
+   <th style="text-align:right;"> Radio </th>
+   <th style="text-align:right;"> Cobertura </th>
+   <th style="text-align:right;"> Semillas </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 240 </td>
+   <td style="text-align:right;"> 180 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 2.54340 </td>
+   <td style="text-align:right;"> 32704 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 2.00960 </td>
+   <td style="text-align:right;"> 27500 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 1.76625 </td>
+   <td style="text-align:right;"> 4308 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 190 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.94985 </td>
+   <td style="text-align:right;"> 5720 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 220 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0.63585 </td>
+   <td style="text-align:right;"> 19764 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 1.53860 </td>
+   <td style="text-align:right;"> 5216 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+<section id="paso-3-qué-variable-de-estado-explica-mejor-bx" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-qué-variable-de-estado-explica-mejor-bx">Paso 3) ¿Qué variable de estado explica mejor Bx?</h3>
+<p>El objetivo de este paso es encontrar la variable de estado que mejor se correlaciona con la variable reproductiva (Bx), para lo cual se realizarán regresiones exploratorias e inferenciales, sin detallar aspectos como los supuestos de estas pruebas, dado a que el enfoque de este ejercicio es más cualitativo. Se inicia con una figura exploratoria en la que se correlacionan las cuatro variables de estado (Longitud, Radio, Diámetro y Cobertura) con la variable reproductiva (Bx: número de semillas).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlación</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>])            <span class="co"># Matriz de Correlación (M)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"lower"</span>, <span class="at">insig=</span><span class="st">"blank"</span>,    <span class="co"># Forma del panel</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"AOE"</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>,      <span class="co"># Ordenar por nivel de correlación</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">addCoef.col =</span><span class="st">"black"</span>,             <span class="co"># Color de los coeficientes</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">number.cex =</span> <span class="fl">0.8</span>,                 <span class="co"># Tamaño del texto</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">COL2</span>(<span class="st">"RdYlBu"</span>, <span class="dv">200</span>))        <span class="co"># Transparencia de los circulos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.5_mod_estado_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En las correlaciones realizadas, se observa redundancia entre algunas variables de estado como el radio y el ancho (coeficiente de correlación de Pearson: 1), lo cual indica que las dos aportan la misma información al análisis. En cuanto a las relaciones de las variables de estado con Bx (número de semillas), la Cobertura es la variable más relacionada (Pearson: 0.71).</p>
+<p>A continuación, se ajustarán <strong>regresiones lineales simples</strong> de las variables de estado vs.&nbsp;<code>Semillas</code> y compararán con el estadístico <strong>R²</strong>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vars_estado <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Long.Tot"</span>, <span class="st">"Ancho"</span>, <span class="st">"Radio"</span>, <span class="st">"Cobertura"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>cmp <span class="ot">&lt;-</span> <span class="fu">lapply</span>(vars_estado, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="cf">function</span>(v) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">reformulate</span>(v, <span class="st">"Semillas"</span>), <span class="at">data =</span> datos)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>(modelo) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">variable =</span> v)  }) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Variable =</span> variable, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">R.cuadrado =</span> r.squared, </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Valor.p =</span> p.value, </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>         AIC, BIC, <span class="at">gl.residual =</span> df.residual) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(R.cuadrado))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(cmp, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Comparación de R² para # Semillas ~ Variables de estado"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Comparación de R² para # Semillas ~ Variables de estado</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Variable </th>
+   <th style="text-align:right;"> R.cuadrado </th>
+   <th style="text-align:right;"> Valor.p </th>
+   <th style="text-align:right;"> AIC </th>
+   <th style="text-align:right;"> BIC </th>
+   <th style="text-align:right;"> gl.residual </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Cobertura </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2521.97 </td>
+   <td style="text-align:right;"> 2530.33 </td>
+   <td style="text-align:right;"> 118 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ancho </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2530.61 </td>
+   <td style="text-align:right;"> 2538.97 </td>
+   <td style="text-align:right;"> 118 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Radio </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2530.61 </td>
+   <td style="text-align:right;"> 2538.97 </td>
+   <td style="text-align:right;"> 118 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Long.Tot </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2564.53 </td>
+   <td style="text-align:right;"> 2572.90 </td>
+   <td style="text-align:right;"> 118 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elección de la mejor variable de estado: cobertura</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mejor_var <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">first</span>(cmp<span class="sc">$</span>Variable)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Mejor variable por R²: "</span>, mejor_var)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Mejor variable por R²: Cobertura</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>En el conjunto provisto, <strong>Cobertura</strong> presenta el R² más alto ⇒ será la <strong>variable de estado</strong> para definir las clases de estado en la tabla de vida.</p>
+</blockquote>
+<section id="visualización-de-la-reación-semillas-vs-cobertura" class="level4">
+<h4 class="anchored" data-anchor-id="visualización-de-la-reación-semillas-vs-cobertura">3.1) Visualización de la reación Semillas vs Cobertura</h4>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> Cobertura, <span class="at">y =</span> Semillas)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cobertura (m²)"</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Semillas (Bx)"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Relación Número Semillas (Bx) ~ Cobertura (C)"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.5_mod_estado_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Se observa bastante dispersión en la relación graficada, debido a que la regresión lineal entre estas dos variables es muy débil. A pesar que continuará el ejercicio con esta variable de estado, sería importante visualizar otro tipo de regresiones, ej. las suavizadas (<em>loess</em>).</p>
+<hr>
+</section>
+</section>
+<section id="paso-4-definir-cinco-clases-de-cobertura" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-definir-cinco-clases-de-cobertura">Paso 4) Definir cinco clases de cobertura</h3>
+<p>Para los intervalos de clases de coberturas, se usará al <strong>ancho fijo</strong> con cinco intervalos, anclado en el <strong>mínimo observado</strong>:</p>
+<p><span class="math inline">\(\text{ancho} = \frac{\max(C) - \min(C)}{5}\)</span></p>
+<blockquote class="blockquote">
+<p>Esto reproduce el intervalo de cobertura definido (≈ <strong>1.2701</strong> metros). Se fijan los cortes o intervalos de cobertura con <code>include.lowest = TRUE</code> y los extremos <strong>cerrados a la derecha</strong> (<code>right = TRUE</code>) para garantizar reproducibilidad.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Valor mínimo de Cobertura en el censo</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Cmin <span class="ot">&lt;-</span> <span class="fu">min</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Valor máximo de Cobertura en el censo</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Cmax <span class="ot">&lt;-</span> <span class="fu">max</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Ancho de clase dividiendo el rango total (Cmax - Cmin) en 5 partes</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>ancho <span class="ot">&lt;-</span> <span class="fu">round</span>(((Cmax <span class="sc">-</span> Cmin) <span class="sc">/</span> <span class="dv">5</span>),<span class="dv">4</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>ancho   <span class="co"># Visualiza el ancho para verificar</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.2701</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Construir los "cortes" o límites de los intervalos (Seis rangos para cinco intervalos definidos)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cortes <span class="ot">&lt;-</span> <span class="fu">seq</span>(Cmin, Cmax, <span class="at">length.out =</span> <span class="dv">6</span>)  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Crear etiquetas (C1, ... , C5) para identificar las 5 clases</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>etqs   <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"C"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Clasificar los individuos en las 5 clases de Cobertura</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># - breaks = cortes define los intervalos</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># - labels = etqs asigna etiquetas C1..C5</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - include.lowest = TRUE incluye el valor mínimo en la primera clase</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># - right = TRUE indica que los intervalos son cerrados en la derecha</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  datos <span class="sc">%&gt;%</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Clase_C =</span> <span class="fu">cut</span>(Cobertura, </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> cortes, </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> etqs,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                       <span class="at">include.lowest =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                       <span class="at">right =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Verificar qué niveles de clase se crearon</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(datos<span class="sc">$</span>Clase_C)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C1" "C2" "C3" "C4" "C5"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Como información complementaria, se puede usar a Clase_C como una variable que discrimine a cada individuo censado.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar nuevamente la base de datos</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"datos_calot.xlsx"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sheet =</span> <span class="st">"Datos_campo"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(Long.Tot, Ancho, Radio, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                  Cobertura, Semillas), as.numeric))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Valor mínimos y máximos de coberturas</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>Cmin <span class="ot">&lt;-</span> <span class="fu">min</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>Cmax <span class="ot">&lt;-</span> <span class="fu">max</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ancho <span class="ot">&lt;-</span> (Cmax <span class="sc">-</span> Cmin) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Cinco intervalos =&gt; seis clases de cobertura</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>cortes   <span class="ot">&lt;-</span> <span class="fu">seq</span>(Cmin, Cmax, <span class="at">length.out =</span> <span class="dv">6</span>)  </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>etq      <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"C"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>interval <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="dv">6</span>]), </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">" - "</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Clasificación de cada observación por su nivel de cobertura</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  datos <span class="sc">%&gt;%</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Clase_C =</span> <span class="fu">cut</span>(Cobertura, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> cortes, </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> etq,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>                       <span class="at">include.lowest =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">right =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeras cuatro filas de los datos distriminados por coberturas</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">head</span>(datos,<span class="dv">4</span>), </span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Datos crudos discriminados por coberturas"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Datos crudos discriminados por coberturas</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Individuo </th>
+   <th style="text-align:right;"> Long.Tot </th>
+   <th style="text-align:right;"> Ancho </th>
+   <th style="text-align:right;"> Radio </th>
+   <th style="text-align:right;"> Cobertura </th>
+   <th style="text-align:right;"> Semillas </th>
+   <th style="text-align:left;"> Clase_C </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 240 </td>
+   <td style="text-align:right;"> 180 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 2.54 </td>
+   <td style="text-align:right;"> 32704 </td>
+   <td style="text-align:left;"> C2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 2.01 </td>
+   <td style="text-align:right;"> 27500 </td>
+   <td style="text-align:left;"> C2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 1.77 </td>
+   <td style="text-align:right;"> 4308 </td>
+   <td style="text-align:left;"> C2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 190 </td>
+   <td style="text-align:right;"> 110 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 5720 </td>
+   <td style="text-align:left;"> C1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<section id="histograma-con-cortes-de-clase" class="level4">
+<h4 class="anchored" data-anchor-id="histograma-con-cortes-de-clase">4.1) Histograma con cortes de clase</h4>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribución de frecuencias de acuerdo a las clases de cobertura</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> Cobertura)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> cortes, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cobertura (m²)"</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia de indv. (nx)"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Cobertura con cortes de clase (cinco intervalos)"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> cortes[<span class="sc">-</span><span class="dv">6</span>] <span class="sc">+</span> <span class="fu">diff</span>(cortes)<span class="sc">/</span><span class="dv">2</span>, </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> etqs, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.5_mod_estado_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La figuara muestra que los individuos se concentran en coberturas bajas (C1, seguida de C2).</p>
+<hr>
+</section>
+</section>
+<section id="paso-5-elaboración-de-la-tabla-de-vida" class="level3">
+<h3 class="anchored" data-anchor-id="paso-5-elaboración-de-la-tabla-de-vida">Paso 5) Elaboración de la tabla de vida</h3>
+<blockquote class="blockquote">
+<p><span class="math inline">\(n_x\)</span> : Frecuencia de individuos de Calotropis censados por cada clase de cobertura</p>
+<p><span class="math inline">\(B_x\ poblacional\)</span>: (total de semillas por clase * <span class="math inline">\(s_0\)</span>). Donde <span class="math inline">\(s_0\)</span>: <strong>0.0123</strong></p>
+</blockquote>
+<p><span class="math inline">\(B_x\)</span> (número de reclutas exitósos por cada clase de estado o cobertura), se obtiene multiplicando el <strong>total de semillas producidas en toda la clase</strong> por la probabilidad de reclutamiento o de supervivencia documentada en la literatura <span class="math inline">\(s_0\)</span> ​indica cuántos reclutas (a partir de las semillas contadas) son viables de toda la clase, en el censo actual. Se usará solo el <strong>0.123%</strong> de las semillas censadas (validado por referentes bibliográficos), asumiendo que solo este porcentaje de semillas tendrá la posibilidad de germinar y aportar al aumento de la muestra evaluada (potencial de reclutamiento o fecundidad neta efectiva).</p>
+<p><span class="math inline">\(n_x\)</span> se utilizará posteriormente para calcular la cohorte ficticia ($N_x$) que es típica de las tablas de vida estáticas, como las de este ejercicio.</p>
+<blockquote class="blockquote">
+<p><strong>Objetivo de esta segunda parte (Tabla de Vida: tabla_v1):</strong> se parte de la variable de estado seleccionada (cobertura de los individuos) para (<em>i</em>) construir la tabla <strong>tabla_v1</strong> con <strong>Nx</strong> (frecuencia por clases de la cohorte ficticia), (<em>ii</em>) calcular a <strong>Bx</strong> neta representativa por clase. Esta tabla de vida servirá de base para la <strong>modelación matricial</strong> en la Parte 3.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir los cortes de clase nuevamente (para asegurar consistencia)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Cmin   <span class="ot">&lt;-</span> <span class="fu">min</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Cmax   <span class="ot">&lt;-</span> <span class="fu">max</span>(datos<span class="sc">$</span>Cobertura, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ancho  <span class="ot">&lt;-</span> (Cmax <span class="sc">-</span> Cmin) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>cortes <span class="ot">&lt;-</span> <span class="fu">seq</span>(Cmin, Cmax, <span class="at">length.out =</span> <span class="dv">6</span>)  <span class="co"># 6 bordes para 5 intervalos</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear etiquetas de intervalos con dos decimales</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>intervalos <span class="ot">&lt;-</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="fu">length</span>(cortes)]), <span class="st">" - "</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, cortes[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Supervivencia de las semillas, tomada de la bibliografía (0.123%)</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>s0 <span class="ot">&lt;-</span> <span class="fl">0.00123</span>  <span class="co"># 0.123%</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Totales de semillas por clase (visión poblacional)</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>tabla_v <span class="ot">&lt;-</span> </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  datos <span class="sc">%&gt;%</span> </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Clase_C) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># mapea C1..C5 a su rango</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Clases  =</span> intervalos[<span class="fu">as.integer</span>(<span class="fu">first</span>(Clase_C))],  </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">nx      =</span> <span class="fu">n</span>(), <span class="co"># Frecuencia de indv. censados por cobertura</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tot_semillas =</span> <span class="fu">sum</span>(Semillas, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Clase_C) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Bx =</span> <span class="fu">round</span>(Tot_semillas <span class="sc">*</span> s0, <span class="dv">0</span>))  <span class="co"># Bx exitoso</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(tabla_v, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Tabla de vida con Tot_semillas y Bx (poblacional por clase)"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla de vida con Tot_semillas y Bx (poblacional por clase)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Clase_C </th>
+   <th style="text-align:left;"> Clases </th>
+   <th style="text-align:right;"> nx </th>
+   <th style="text-align:right;"> Tot_semillas </th>
+   <th style="text-align:right;"> Bx </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> C1 </td>
+   <td style="text-align:left;"> 0.03 - 1.30 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 342517 </td>
+   <td style="text-align:right;"> 421 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> C2 </td>
+   <td style="text-align:left;"> 1.30 - 2.57 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 463393 </td>
+   <td style="text-align:right;"> 570 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> C3 </td>
+   <td style="text-align:left;"> 2.57 - 3.84 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 180100 </td>
+   <td style="text-align:right;"> 222 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> C4 </td>
+   <td style="text-align:left;"> 3.84 - 5.11 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 47811 </td>
+   <td style="text-align:right;"> 59 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> C5 </td>
+   <td style="text-align:left;"> 5.11 - 6.38 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 51297 </td>
+   <td style="text-align:right;"> 63 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Se puede validar que se cuente con los 120 registros del censo y la repartición de datos por cada uno de los cinco intervalos de cobertura. Esta información servirá de insumo para construir la columna de coberturas (<strong>Clase_C</strong>) en la tabla de vida.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeo de los valores</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tabla_v<span class="sc">$</span>nx; </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 82 28  8  1  1</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tabla_v<span class="sc">$</span>nx)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120</code></pre>
+</div>
+</div>
+<section id="tabla-de-vida-hasta-la-esperanza-de-vida-e_x" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-de-vida-hasta-la-esperanza-de-vida-e_x">5.1) Tabla de vida hasta la esperanza de vida (<span class="math inline">\(e_x\)</span>)</h4>
+<p>A continuación, se construye la tabla de vida con los estimadores gerales hasta llegar a la esperanza de vida (<span class="math inline">\(e_x\)</span>). En los pasos siguientes se determinarán algunos estimadores más específicos como los vectores de distribución estable (<span class="math inline">\(c_x\)</span>), el valor reproductivo (<span class="math inline">\(v_x\)</span>) y las fecundidades pre y post reproductivas (<span class="math inline">\(F_{pre}\)</span> y <span class="math inline">\(F_{post}\)</span>), los cuales serán requeridos para completar la modelación matricial multi-estado.</p>
+<p>Convenciones y definiciones (tabla estática por clases <span class="math inline">\(x=1,\dots,k\)</span>):</p>
+<p><strong>Supervivencia relativa en la clase</strong> <span class="math inline">\(x\)</span>:<br>
+<span class="math inline">\(\ l_x = \dfrac{N_x}{N_0}\)</span>,<br>
+Donde,<br>
+<span class="math inline">\(N_x\)</span> es la cohorte ficticia al inicio de la clase <span class="math inline">\(x\)</span><br>
+<span class="math inline">\(N_0=\sum_{i=1}^k n_i\)</span>. No es la sumatoria de las frecuencias o del número de individuos censados.</p>
+<p><strong>Pérdida entre clases (muertes relativas)</strong>:<br>
+<span class="math inline">\(d_x = l_x - l_{x+1}\)</span> (para <span class="math inline">\(x&lt;k\)</span>) y por convención <span class="math inline">\(,d_k=l_k\)</span>.<br>
+Donde:<br>
+<span class="math inline">\(d_x\)</span> es la pérdida entre el inicio de <span class="math inline">\(x\)</span> y el inicio de <span class="math inline">\(x{+}1\)</span>.</p>
+<p><strong>Probabilidad de muerte en la clase</strong> <span class="math inline">\(x\)</span>:<br>
+<span class="math inline">\(q_x = \dfrac{d_x}{l_x}\)</span>, (si <span class="math inline">\(l_x&gt;0\)</span>)<br>
+Convenciones de borde:<br>
+si <span class="math inline">\(x=k\)</span> y <span class="math inline">\(l_k&gt;0\)</span>, <span class="math inline">\(q_k=1\)</span>; si <span class="math inline">\(l_x=0\)</span>, definir <span class="math inline">\(q_x=0\)</span> para evitar indeterminación.<br>
+<span class="math inline">\(l_x\)</span> y <span class="math inline">\(q_x\)</span> describen proporciones al inicio de la clase <span class="math inline">\(x\)</span>.</p>
+<p><strong>Plantulas-tiempo (sobrevivientes promedio) en la clase</strong> <span class="math inline">\(x\)</span>:<br>
+<span class="math inline">\(L_x \approx \dfrac{N_x + N_{x+1}}{2}\)</span><br>
+asumiendo mortalidad aproximadamente lineal dentro del intervalo. En la última clase:<br>
+<span class="math inline">\(L_k \approx \dfrac{N_k}{2}\)</span>.<br>
+Donde:<br>
+<span class="math inline">\(L_x\)</span> mide el promedio de sobrevivientes dentro del intervalo <span class="math inline">\(x\)</span> (área bajo la curva).</p>
+<p><strong>Tiempo-vida restante acumulado a partir de</strong> <span class="math inline">\(x\)</span>:<br>
+<span class="math inline">\(T_x = \displaystyle\sum_{j=x}^{k} L_j\)</span><br>
+Donde:<br>
+<span class="math inline">\(T_x\)</span> es el acumulado de <span class="math inline">\(L_j\)</span> desde <span class="math inline">\(x\)</span> hasta la última clase.</p>
+<p><strong>Esperanza de vida al inicio de</strong> <span class="math inline">\(x\)</span>:<br>
+<span class="math inline">\(e_x = \dfrac{T_x}{N_x}\)</span>.<br>
+Donde:<br>
+<span class="math inline">\(e_x\)</span> expresa el tiempo-vida esperado (en “unidades de intervalo”) para un individuo que entra a aportar a <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\(e_x\)</span> está espresada en el número de clases que pueden avanzar los individuos de cada intervalo definido (ej. <span class="math inline">\(e_0\)</span>: 0.92, indica que los índividuos de esa clase en promedio puede sobrevivir al rededor de una clase más).</p>
+<p>En caso que <span class="math inline">\(e_x\)</span> se quiera expresar en términos de m² de cobertura que pueden avanzar, se debe multiplicar por el ancho de los intervalos 𝑤= 1.270146 m². En este sentido:<br>
+<span class="math inline">\(e_x\)</span> (cobertura)​=<span class="math inline">\((N_x/T_x) × w\)</span></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapear etiquetas C1..C5 a los intervalos de cobertura</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>intervalo <span class="ot">&lt;-</span> <span class="fu">setNames</span>(interval, etq)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla_v1, cuenta con Clase_C, Clases, nx, tot_semillas y Bx</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla_v3, calcula el resto de estimadores</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>tabla_v1 <span class="ot">&lt;-</span> </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  tabla_v <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x       =</span> <span class="fu">as.integer</span>(Clase_C),</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Nx      =</span> <span class="fu">rev</span>(<span class="fu">cumsum</span>(<span class="fu">rev</span>(nx))),    <span class="co"># cohorte ficticia</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">N0      =</span> <span class="fu">first</span>(Nx), </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Nx+1</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">lead</span>(Nx, <span class="at">default =</span> <span class="dv">0</span>),</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mx      =</span> Bx <span class="sc">/</span> Nx,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">mx+1</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">lead</span>(mx, <span class="at">default =</span> <span class="dv">0</span>),   <span class="co"># Requerido para Fx post</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sx      =</span> <span class="st">`</span><span class="at">Nx+1</span><span class="st">`</span> <span class="sc">/</span> Nx,</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">lx      =</span> Nx <span class="sc">/</span> N0,</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">lx+1</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">lead</span>(lx, <span class="at">default =</span> <span class="dv">0</span>),</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">dx      =</span> lx <span class="sc">-</span> <span class="st">`</span><span class="at">lx+1</span><span class="st">`</span>,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">qx      =</span> <span class="fu">if_else</span>(lx <span class="sc">&gt;</span> <span class="dv">0</span>, dx <span class="sc">/</span> lx, <span class="cn">NA_real_</span>),</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">px      =</span> <span class="dv">1</span> <span class="sc">-</span> qx,</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Nx+1</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">lead</span>(Nx, <span class="at">default =</span> <span class="dv">0</span>),</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lx      =</span> (Nx <span class="sc">+</span> <span class="st">`</span><span class="at">Nx+1</span><span class="st">`</span>) <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Tx      =</span> <span class="fu">rev</span>(<span class="fu">cumsum</span>(<span class="fu">rev</span>(Lx))),</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">ex      =</span> Tx <span class="sc">/</span> Lx,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">lx.mx</span><span class="st">`</span>   <span class="ot">=</span> lx <span class="sc">*</span> mx,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">x.lx.mx</span><span class="st">`</span> <span class="ot">=</span> x  <span class="sc">*</span> <span class="st">`</span><span class="at">lx.mx</span><span class="st">`</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co">#---</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>tabla_v1 <span class="sc">%&gt;%</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(x, Clase_C, Clases, nx, Nx, Bx, lx, dx, qx, px, Sx, </span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">lx.mx</span><span class="st">`</span>, <span class="st">`</span><span class="at">x.lx.mx</span><span class="st">`</span>, Lx, Tx, ex) <span class="sc">%&gt;%</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>          <span class="at">caption =</span> <span class="st">"Tabla de vida hasta eₓ"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla de vida hasta eₓ</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:left;"> Clase_C </th>
+   <th style="text-align:left;"> Clases </th>
+   <th style="text-align:right;"> nx </th>
+   <th style="text-align:right;"> Nx </th>
+   <th style="text-align:right;"> Bx </th>
+   <th style="text-align:right;"> lx </th>
+   <th style="text-align:right;"> dx </th>
+   <th style="text-align:right;"> qx </th>
+   <th style="text-align:right;"> px </th>
+   <th style="text-align:right;"> Sx </th>
+   <th style="text-align:right;"> lx.mx </th>
+   <th style="text-align:right;"> x.lx.mx </th>
+   <th style="text-align:right;"> Lx </th>
+   <th style="text-align:right;"> Tx </th>
+   <th style="text-align:right;"> ex </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> C1 </td>
+   <td style="text-align:left;"> 0.03 - 1.30 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 421 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 3.51 </td>
+   <td style="text-align:right;"> 3.51 </td>
+   <td style="text-align:right;"> 79.0 </td>
+   <td style="text-align:right;"> 111.0 </td>
+   <td style="text-align:right;"> 1.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> C2 </td>
+   <td style="text-align:left;"> 1.30 - 2.57 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 570 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.74 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 4.75 </td>
+   <td style="text-align:right;"> 9.50 </td>
+   <td style="text-align:right;"> 24.0 </td>
+   <td style="text-align:right;"> 32.0 </td>
+   <td style="text-align:right;"> 1.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> C3 </td>
+   <td style="text-align:left;"> 2.57 - 3.84 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 222 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.80 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 1.85 </td>
+   <td style="text-align:right;"> 5.55 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 8.0 </td>
+   <td style="text-align:right;"> 1.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> C4 </td>
+   <td style="text-align:left;"> 3.84 - 5.11 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 1.97 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> C5 </td>
+   <td style="text-align:left;"> 5.11 - 6.38 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.52 </td>
+   <td style="text-align:right;"> 2.62 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 1.00 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Al analizar los resultados de la tabla de vida de la muestra censada de <em>Calotropis procera</em>, se observa un patrón de fuerte mortalidad en los primeros estados de cobertura. El valor de supervivencia <span class="math inline">\(l_x\)</span> indica que, de todos los individuos que inician en la cohorte ficticia, apenas un 32% sobrevive hasta la segunda clase, y menos del 10% alcanza la tercera. Este comportamiento refleja una estrategia de vida típica de especies con altas tasas de mortalidad temprana, donde solo unos pocos individuos logran establecerse y crecer (<strong>trade-off</strong> con alta fecundidad que compensa la baja supervivencia).</p>
+<p>La <strong>supervivencia condicional</strong> (<span class="math inline">\(S_x\)</span>) refuerza esta idea: en la primera clase, la probabilidad de que un individuo pase al siguiente estado es de apenas 0.32 (32%), y en las siguientes clases los valores se mantienen bajos (0.20–0.26), lo que muestra que los cuellos de botella en la supervivencia no se limitan a la etapa inicial. Incluso en los estados avanzados, como lode de coberturas C4, la probabilidad de transición sigue siendo modesta (0.50).</p>
+<p>En cuanto a la <strong>esperanza de vida</strong> (<span class="math inline">\(e_x\)</span>), los valores se mantienen alrededor de 1.3 clases para casi todos los estados, lo que significa que, en promedio, un individuo que ingresa a cualquier clase de cobertura apenas puede esperar sobrevivir a una clase siguiente. Esto sugiere que la trayectoria de vida de los individuos es corta y que pocos alcanzan estados longevos o adultos.</p>
+<p>Paradójicamente, la especie mantiene un alto <strong>número de semillas potencialmente exitoso</strong> (<span class="math inline">\(B_x\)</span>), lo que compensa la mortalidad elevada. Este patrón de “muchos descendientes, poca supervivencia” corresponde a una estrategia colonizadora que le permite a <em>Calotropis procera</em> expandirse rápidamente en ambientes perturbados o abiertos. Así, aunque la mayoría de los individuos mueren pronto, unos pocos logran reclutarse y sostener el crecimiento de la población invasora.</p>
+<hr>
+</section>
+<section id="cálculo-de-estadísticos-demográficos-basados-en-la-tabla-de-vida" class="level4">
+<h4 class="anchored" data-anchor-id="cálculo-de-estadísticos-demográficos-basados-en-la-tabla-de-vida">5.2) Cálculo de estadísticos demográficos basados en la tabla de vida</h4>
+<p>En este paso Se utilizan las columnas finales de la anterior tabla de vida, para calcular los estadísticos demográficos generales, que brindan información de cómo aumenta o disminuye la población en el tiempo.</p>
+<p>Primero se calculan los siguientes estadísticos generales:<br>
+<span class="math inline">\(R_0 = \sum l_x m_x\)</span>; Tasa reproductiva neta<br>
+<span class="math inline">\(T = \dfrac{\sum x,l_x m_x}{\sum l_x m_x}\)</span>; Tiempo Generacional (Tg)<br>
+<span class="math inline">\(r_{\text{est}} = \dfrac{\ln R_0}{T}\)</span>; Tasa cre crecimiento istantáneo estimada<br>
+<span class="math inline">\(t_{dup}=\frac{ln2}{r}\)</span> intervalos de cobertura que tarda la muestra censada en duplicarse.<br>
+Las siguientes ecuaciones permiten generar columnas adicionales en la tabla de vida, que son requeridas para el cálculo de los estadísticos demográficos generales como <span class="math inline">\(r\)</span> y <span class="math inline">\(\lambda\)</span>. La ecuación de <strong>euler - lotka</strong>, permite encontrar un valor de <span class="math inline">\(r\)</span> tal que la sumatoria de los estimadores de supervivencia y de maternidad sea igual a 1, como se muestra a continuación:</p>
+<p><span class="math inline">\(\;e^{-r. x};\)</span> y&nbsp;Formula requerida para la ecuación de euler<br>
+<span class="math inline">\(\;e^{-r. x}.l_x m_x\)</span>;&nbsp;Formula requerida para la ecuación de euler<br>
+<span class="math inline">\(\sum_{x} l_x, m_x, e^{-r x} = 1\)</span> Ecuación de euler</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  1. Estadísticos generales </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Ro <span class="ot">&lt;-</span> <span class="fu">sum</span>(tabla_v1<span class="sc">$</span><span class="st">`</span><span class="at">lx.mx</span><span class="st">`</span>,   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)        <span class="co"># Tasa reproductiva neta</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Tg <span class="ot">&lt;-</span> <span class="fu">sum</span>(tabla_v1<span class="sc">$</span><span class="st">`</span><span class="at">x.lx.mx</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> Ro   <span class="co"># Tiempo generacional</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>r_est <span class="ot">&lt;-</span> <span class="fu">log</span>(Ro) <span class="sc">/</span> Tg                             <span class="co"># r estimado</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Función de euler</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>euler <span class="ot">&lt;-</span> </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(rr) </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>(tabla_v1<span class="sc">$</span>lx <span class="sc">*</span> tabla_v1<span class="sc">$</span>mx <span class="sc">*</span> </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">exp</span>(<span class="sc">-</span>rr <span class="sc">*</span> tabla_v1<span class="sc">$</span>x), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Cálculo de r exacto</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">uniroot</span>(euler, <span class="at">interval =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>))<span class="sc">$</span>root</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">round</span>(r,<span class="dv">3</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Cálculo de lambda</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">exp</span>(r)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Organización de los estadísticos generales</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>estad <span class="ot">&lt;-</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Tasa reprod. neta (Ro)</span><span class="st">`</span>      <span class="ot">=</span> Ro,</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Tiempo generacional (T)</span><span class="st">`</span>     <span class="ot">=</span> Tg,</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">r_est = ln(R0)/T</span><span class="st">`</span>            <span class="ot">=</span> r_est,</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">r (Euler)</span><span class="st">`</span>                   <span class="ot">=</span> r,</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">λ = exp(r)</span><span class="st">`</span>                  <span class="ot">=</span> lambda</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Tabulación</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>estad <span class="sc">%&gt;%</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">round</span>(., <span class="dv">3</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Estadísticos demográficos generales"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Estadísticos demográficos generales</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Tasa reprod. neta (Ro) </th>
+   <th style="text-align:right;"> Tiempo generacional (T) </th>
+   <th style="text-align:right;"> r_est = ln(R0)/T </th>
+   <th style="text-align:right;"> r (Euler) </th>
+   <th style="text-align:right;"> λ = exp(r) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 11.125 </td>
+   <td style="text-align:right;"> 2.081 </td>
+   <td style="text-align:right;"> 1.158 </td>
+   <td style="text-align:right;"> 1.532 </td>
+   <td style="text-align:right;"> 4.627 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Se obtienen los siguientes estadísticos demográficos generales:</p>
+<p><strong>Tasa reproductiva neta:</strong> <span class="math inline">\(R_0 \approx 11.125\)</span><br>
+Cada individuo, en promedio, contribuye con alrededor de 11 reclutas exitosos a lo largo de su trayectoria de cobertura.<br>
+<strong>Tiempo generacional:</strong> <span class="math inline">\(T \approx 2.081\)</span><br>
+En promedio, transcurren <strong>dos clases de cobertura</strong> entre el nacimiento y la producción de nuevos reclutas exitosos.<br>
+<strong>Tasa instantánea de crecimiento:</strong> <span class="math inline">\(r \approx 1.532\)</span>;&nbsp;indiv./indiv.estado<br>
+Esta tasa implica que la muestra evaluada aumenta de manera continua a una tasa aproximada del <strong>153% por intervalo de cobertura</strong>.<br>
+<strong>Tasa finita de crecimiento:</strong> <span class="math inline">\(\lambda \approx 4.627\)</span>.<br>
+Lo anterior indica que en cada intervalo de cobertura, <strong>la población se multiplica po 4.63</strong>, lo cual implica que el aumento finito (<span class="math inline">\(|1-\lambda|*100\)</span>) <span class="math inline">\(\approx\)</span> 363%.<br>
+<strong>Tiempo de duplicación:</strong> <span class="math inline">\(t_{dup}=\frac{ln2}{r} ≈\frac{0.693}{1.532}​≈0.45\)</span> intervalos de cobertura.<br>
+Lo cual indica que esta muestra censada de <em>Calotropis</em> <strong>se puede duplicar en menos de medio intervalo de clase de cobertura</strong>. Esto indica que antes que los individuos de una clase de cobertura pasen a la siguiente, ya la muestra total ya se ha duplicado (por ejemplo, de 120 individuos a 240 individuos).<br>
+Esto demuestra un perfil típico de especies invasoras con <strong>alta fecundidad, rápido tiempo generacional y tasas de crecimiento explosivas</strong>, lo que facilita la expansión de <em>Calotropis procera</em> en ambientes perturbados.</p>
+<hr>
+</section>
+</section>
+<section id="paso-6-estimadores-de-estructura-de-estados---f_pre-f_post-c_x-v_x." class="level3">
+<h3 class="anchored" data-anchor-id="paso-6-estimadores-de-estructura-de-estados---f_pre-f_post-c_x-v_x.">Paso 6) Estimadores de estructura de estados - <span class="math inline">\(F_{(pre)},\ F_{(post)},\ c_{(x)},\  v_{(x)}\)</span>.</h3>
+<p>Este procedimiento es requerido para realizar la <strong>modelación matricial de estructura de estados</strong>, utilizando como base a la matriz de Leslie - <span class="math inline">\(L\)</span>, que al multiplicarse por el vector de densidades (<span class="math inline">\(N_x\)</span>), permite proyectar el aumento o disminución de la población en periodos posteriores. <span class="math inline">\(L\)</span> es una matriz constante y para construirla se requiere contar con los vectores de fecundidad (<span class="math inline">\(F_x\)</span>) - que representan los valores de la primera fila de la matriz y los vectores de supervivencia (<span class="math inline">\(S_x\)</span>) - Que representan los valores de la sub-diagonal - el resto de valores son ceros. Además, hay que tener en cuenta si el censo es <em>pre o post reproductivo</em>, dado a que cada uno, genera una ecuación específica para <span class="math inline">\(F_x\)</span>.</p>
+<p><strong>Fecundidad pre-reproductiva:</strong> <span class="math inline">\(F_{pre} = S_0 * m_x\)</span>, con <span class="math inline">\(S_0 = S_x\)</span> en el estado de cobertura 0 (supervivencia de crías hasta el siguiente censo, lo cual coresponde a un valor constante).</p>
+<p><strong>Fecundidad post-reproductiva:</strong> <span class="math inline">\(F_{post} = S_x * m_{x+1}\)</span>.</p>
+<p>Los sigientes vectores (<span class="math inline">\(v_x\)</span> y <span class="math inline">\(c_x\)</span>) también se calculan a partir de la tabla de vida elaborada en los pasos anteriores (tabla_v). En pasos posteriores, se volverán a calcular algunos estadísticos demográficos como <span class="math inline">\(v_x\)</span> y <span class="math inline">\(c_x\)</span> pero de forma matricial, para compararos con los calculados a continuación.</p>
+<ul>
+<li><p>Ecuaciones de la distribución o estructura estable de estados <span class="math inline">\(c_{(x)}\)</span><br>
+<span class="math inline">\(l_x.e^{-r x}\)</span><br>
+<span class="math inline">\(c_{(x)} = (l_x.e^{-r.x}) / \sum(l_x.e^{-r.x})\)</span> (estructura estable).</p></li>
+<li><p>Ecuaciones del valor reproductivo <span class="math inline">\(v_{(x)}\)</span><br>
+<span class="math inline">\(e^{rx}/lx\)</span><br>
+<span class="math inline">\(e^{-ry}.l_y.m_y\)</span> donde <span class="math inline">\(y = x + 1\)</span><br>
+<span class="math inline">\(\sum(e^{-ry}.l_y.m_y)\)</span><br>
+<span class="math inline">\(v_{(x)} = (e^{rx}/l_x) .\sum(e^{-ry}.l_y.m_y)\)</span>.<br>
+<span class="math inline">\(v_{(x)}.norm\)</span> con <span class="math inline">\(v_{(0)}=1\)</span> Se normaliza a <span class="math inline">\(v_{(x)}\)</span> para que el primer valor = 1</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Objetivo de esta tercera parte (modelación matricial de estructura de estados):</strong> se parte de la tabla de vida construida hasta la esperanza de vida - <span class="math inline">\(e_x\)</span> para, (<em>i</em>) calcular los estimadores de fecundidad pre y post reproductiva, (<em>ii</em>) contruir la matriz de Leftkovitch con los dos tipos de censos, (<em>iii</em>) realizar la pryección multi-estado a futuro.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primer valor de S_x, para calcular S_0</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">any</span>(tabla_v1<span class="sc">$</span>x <span class="sc">==</span> <span class="dv">0</span>)) {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  tabla_v1<span class="sc">$</span>Sx[<span class="fu">which</span>(tabla_v1<span class="sc">$</span>x <span class="sc">==</span> <span class="dv">0</span>)[<span class="dv">1</span>]]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  tabla_v1<span class="sc">$</span>Sx[<span class="dv">1</span>]</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla de vida para estimar Fx pre y post, cx y vx</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>tabla2 <span class="ot">&lt;-</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  tabla_v1 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1.) Cálculo de F ´re y post</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fpre  =</span> S0 <span class="sc">*</span> mx,      <span class="co"># Fecundidad pre reprod.</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fpost =</span> Sx <span class="sc">*</span> <span class="st">`</span><span class="at">mx+1</span><span class="st">`</span>,  <span class="co"># Fecundidad post reprod.</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2.) Cálculo de distrib. estable c(x)</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">lx.e_rx</span><span class="st">`</span> <span class="ot">=</span> lx <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>r <span class="sc">*</span> x), <span class="co"># Estimador de cx</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">cx        =</span> <span class="st">`</span><span class="at">lx.e_rx</span><span class="st">`</span> <span class="sc">/</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">lx.e_rx</span><span class="st">`</span>, </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="co"># cx</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3.) Cálculo del valor reproductivo v(x)</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">erx_lx      =</span> <span class="fu">exp</span>(r <span class="sc">*</span> x) <span class="sc">/</span> lx,</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">e_ry_ly_my</span><span class="st">`</span>   <span class="ot">=</span> <span class="fu">exp</span>(<span class="sc">-</span>r <span class="sc">*</span> x) <span class="sc">*</span> lx <span class="sc">*</span> mx,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Se_ry_ly_my</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">rev</span>(<span class="fu">cumsum</span>(<span class="fu">rev</span>(<span class="st">`</span><span class="at">e_ry_ly_my</span><span class="st">`</span>))),</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">vx          =</span> erx_lx <span class="sc">*</span> <span class="st">`</span><span class="at">Se_ry_ly_my</span><span class="st">`</span>,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">vx_norm     =</span> vx <span class="sc">/</span> vx[<span class="dv">1</span>]) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Organización de la segunda tabla de vida - tabla2</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    x, Clase_C, Nx, mx, Sx,  <span class="co"># Estimadores iniciales</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    Fpre, Fpost,             <span class="co"># F pre y post</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">lx.e_rx</span><span class="st">`</span>, cx,           <span class="co"># Distrib estable c(x)</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    erx_lx, <span class="st">`</span><span class="at">e_ry_ly_my</span><span class="st">`</span>,    <span class="co"># Valor reprod. v(x)</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Se_ry_ly_my</span><span class="st">`</span>, vx, vx_norm</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(., <span class="dv">3</span>)))</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>  tabla2,</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption   =</span> <span class="st">"Tabla 2 — Estimadores de estructura de estados"</span>,</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x"</span>,<span class="st">"Clase_C"</span>,<span class="st">"Nx"</span>,<span class="st">"mx"</span>,<span class="st">"Sx"</span>,</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F(pre)"</span>,<span class="st">"F(post)"</span>,</span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lx.e-rx"</span>,<span class="st">"c(x)"</span>,</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"erx/lx"</span>,<span class="st">"e-ry.(ly.my)"</span>,</span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Se-ry(ly.my)"</span>,<span class="st">"v(x)"</span>,<span class="st">"v(x).norm"</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> <span class="cn">TRUE</span></span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla 2 — Estimadores de estructura de estados</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:left;"> Clase_C </th>
+   <th style="text-align:right;"> Nx </th>
+   <th style="text-align:right;"> mx </th>
+   <th style="text-align:right;"> Sx </th>
+   <th style="text-align:right;"> F(pre) </th>
+   <th style="text-align:right;"> F(post) </th>
+   <th style="text-align:right;"> lx.e-rx </th>
+   <th style="text-align:right;"> c(x) </th>
+   <th style="text-align:right;"> erx/lx </th>
+   <th style="text-align:right;"> e-ry.(ly.my) </th>
+   <th style="text-align:right;"> Se-ry(ly.my) </th>
+   <th style="text-align:right;"> v(x) </th>
+   <th style="text-align:right;"> v(x).norm </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> C1 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 3.51 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:right;"> 4.75 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.93 </td>
+   <td style="text-align:right;"> 4.63 </td>
+   <td style="text-align:right;"> 0.76 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 4.63 </td>
+   <td style="text-align:right;"> 1.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> C2 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 15.00 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 4.75 </td>
+   <td style="text-align:right;"> 5.84 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 67.62 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 16.35 </td>
+   <td style="text-align:right;"> 3.53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> C3 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 22.20 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 7.03 </td>
+   <td style="text-align:right;"> 5.90 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 1189.05 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 23.77 </td>
+   <td style="text-align:right;"> 5.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> C4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 29.50 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 9.34 </td>
+   <td style="text-align:right;"> 31.50 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 27511.09 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 36.31 </td>
+   <td style="text-align:right;"> 7.85 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> C5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 63.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 19.95 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 254610.89 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 63.00 </td>
+   <td style="text-align:right;"> 13.62 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Los resultados de la Tabla 2 muestran cómo la muestra censada de <em>Calotropis procera</em> combina su fecundidad, su supervivencia y su valor reproductivo para sostener su expansión, bajo el contexto ambiental en el que se encuentra.</p>
+<p>En las <strong>Fecundidades pre- y post-reproductivas</strong> (<span class="math inline">\(F_{pre}, F_{post}\)</span>) se aprecia un claro contraste entre las clases de cobertura:</p>
+<p>En los primeros estados de coberturas (C1–C3), los valores de fecundidad <strong>pre-reproductiva</strong> son relativamente bajos (1.11, 4.75, 7.03), pero <strong>post-reproductiva</strong> ya alcanzan cifras más altas (4.75, 5.84, 5.90). Esto significa que incluso los estados juveniles aportan descendencia por su mecanismo sexual, con semillas exitósas.</p>
+<p>En la cobertura C4, la fecundidad <strong>post-reproductiva</strong> se dispara (31.50), señalando que los individuos que logran alcanzar este estado tienen una altísima contribución reproductiva. Finalmente, en la cobertura C5, la fecundidad desaparece (0), lo que corresponde a individuos senescentes o sin aporte reproductivo efectivo. En conjunto, la población combina un inicio reproductivo temprano con un <strong>“pico” de fecundidad</strong> en estados intermedios–avanzados, lo cual le da plasticidad demográfica para colonizar y persistir.</p>
+<p>El vector de <strong>distribución estable de estados</strong> (<span class="math inline">\(c_x\)</span>), indica que el mayor aumento a futuro o cuando <em>Calotopis</em> alcance su estabilidad, se concentra en los primeros estados de cobertura (85% en C1, 13% en C2), mientras que las clases superiores apenas retienen una fracción marginal de aumento de individuos (&lt;2%).</p>
+<p>Esto refleja que, en condiciones estables, la población estará dominada por individuos pequeños o jóvenes, lo que es coherente con una dinámica de reclutamiento continuo y fuerte mortalidad temprana. Esto además significa que la población tendrá una estructura piramidal: <strong>muchos individuos jóvenes y pocos adultos grandes</strong>.</p>
+<p>El <strong>valor reproductivo</strong> (<span class="math inline">\(v_x\)</span>) mide la <strong>contribución futura esperada de un individuo en una clase</strong> al aumento de la muestra evaluada. En las clases de cobertura C1 y C2 los valores son bajos (6.39 y 18.46), lo que indica que un individuo pequeño tiene aún una expectativa limitada de aporte por mecanismos sexuales o de generación de semillas exitósas.</p>
+<p>En las coberturas C3 y sobre todo en C4, los valores se disparan (26.65 y 45.05), indicando que los sobrevivientes a estas etapas tienen un <strong>alto potencial de reemplazo y crecimiento de la población</strong>. El máximo se alcanza en coerturas C5 (63), pero normalizado (<span class="math inline">\(v(x).norm = 9.85\)</span>) refleja que, aunque son muy pocos individuos, su valor futuro es enorme en términos de descendencia potencial acumulada. Esta asimetría subraya un punto clave: aunque la población está dominada numéricamente por individuos jóvenes, <strong>el motor reproductivo real se concentra en los pocos individuos que logran llegar a clases de mayor cobertura</strong>.</p>
+<hr>
+</section>
+<section id="paso-7-matrices-de-leslie---l-pre-y-post-reproductivas" class="level3">
+<h3 class="anchored" data-anchor-id="paso-7-matrices-de-leslie---l-pre-y-post-reproductivas">Paso 7) Matrices de Leslie - <span class="math inline">\(L\)</span> (pre y post reproductivas)</h3>
+<p>Subdiagonal = <span class="math inline">\(s_x\)</span> (supervivencias x→x+1). Fila superior = Fpre o Fpost. Incluyo nombres de filas/columnas con Estado_1, Estado_2, ….</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectores necesarios para construir las matrices</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>estados  <span class="ot">&lt;-</span> tabla2<span class="sc">$</span>x       <span class="co"># Vector con las eades (x) </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Fpre    <span class="ot">&lt;-</span> tabla2<span class="sc">$</span>Fpre    <span class="co"># Vector de fecundidades pre-reproductivas</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>Fpost   <span class="ot">&lt;-</span> tabla2<span class="sc">$</span>Fpost   <span class="co"># Vector de fecundidades post-reproductivas</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>Sx      <span class="ot">&lt;-</span> tabla2<span class="sc">$</span>Sx      <span class="co"># Vector de probabilidades de supervivencia </span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>k       <span class="ot">&lt;-</span> <span class="fu">length</span>(estados) <span class="co"># Número total de estados (x) en la tabla (longitud del vector estados)</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de Leslie pre-reproductiva (L_pre)</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>L_pre <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> k, <span class="at">ncol =</span> k)       <span class="co"># Matriz k x k con ceros</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>L_pre[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> Fpre                           <span class="co"># Fecundidades pre-rep en la primera fila</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (k <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>k) L_pre[i, i<span class="dv">-1</span>] <span class="ot">&lt;-</span> Sx[i]   <span class="co"># Subdiagonal con Sx+1</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de Leslie post-reproductiva (L_post)</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>L_post <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> k, <span class="at">ncol =</span> k)      <span class="co"># Matriz k x k con ceros</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>L_post[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> Fpost                         <span class="co"># Fecundidades post-rep en la primera fila</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (k <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>k) L_post[i, i<span class="dv">-1</span>] <span class="ot">&lt;-</span> Sx[i<span class="dv">-1</span>]  <span class="co"># Subdiagonal con Sx</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombres de las filas y columnas de las matrices</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(L_pre)  <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">paste0</span>(<span class="st">"Estado_"</span>, estados), </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">paste0</span>(<span class="st">"Estado_"</span>, estados))</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(L_post) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">paste0</span>(<span class="st">"Estado_"</span>, estados), </span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">paste0</span>(<span class="st">"Estado_"</span>, estados))</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir las matrices con kableExtra</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(L_pre,  <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Matriz de Leslie (pre-reproductiva)"</span>,  </span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Matriz de Leslie (pre-reproductiva)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Estado_1 </th>
+   <th style="text-align:right;"> Estado_2 </th>
+   <th style="text-align:right;"> Estado_3 </th>
+   <th style="text-align:right;"> Estado_4 </th>
+   <th style="text-align:right;"> Estado_5 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:right;"> 4.75 </td>
+   <td style="text-align:right;"> 7.03 </td>
+   <td style="text-align:right;"> 9.34 </td>
+   <td style="text-align:right;"> 19.95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_2 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_3 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_4 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_5 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(L_post, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Matriz de Leslie (post-reproductiva)"</span>, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Matriz de Leslie (post-reproductiva)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Estado_1 </th>
+   <th style="text-align:right;"> Estado_2 </th>
+   <th style="text-align:right;"> Estado_3 </th>
+   <th style="text-align:right;"> Estado_4 </th>
+   <th style="text-align:right;"> Estado_5 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 4.75 </td>
+   <td style="text-align:right;"> 5.84 </td>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 31.5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_2 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_3 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_4 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Estado_5 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Las dos matrices representan escenarios alternativos para la muestra de 120 individuos censados de <em>Calotropis procera</em>, dependiendo de si la <strong>fecundidad</strong> es temprana (pre-reproductiva) o es posterior a esta fecundidad (post-reproductiva).</p>
+<p>En la <strong>Matriz pre-reproductiva (L_pre)</strong> Esta versión <strong>sobrestima el aporte temprano de la fecundidad</strong> (porque todos los estados juveniles contribuyen con fecundidades <strong>Fpre</strong> en la primera fila), pero corta la transición real desde el estado inicial (C1). Es útil como ejercicio pedagógico para visualizar cómo funcionaría una población sostenida únicamente por fecundidad temprana, pero ecológicamente deja de lado la importancia de la transición inicial.</p>
+<p>la primera fila está dominada por valores moderados de fecundidad (<span class="math inline">\(F_x\)</span>: 1.11–19.95), lo cual sugiere que incluso los estados jóvenes pueden aportar reclutas a la población, aunque con valores más bajos que los de la siguiente matriz.</p>
+<p>La estructura de la subdiagonal (valores de supervivencia <span class="math inline">\(S_x\)</span>: 0.32, 0.26, 0.20, 0.50) como se analizó en la tabla de vida, indica que <strong>la transición entre estados de cobertura es complicada</strong> (pocos individuos logran subir de clase). Esto refleja un escenario en el que la muestra evaluada <strong>depende de una fecundidad temprana</strong>, lo que favorece el reclutamiento masivo y rápido, aun si pocos alcanzan estados adultos.</p>
+<p>La <strong>Matriz post-reproductiva (L_post)</strong> es la forma más consistente con la definición clásica de una matriz de Leslie o Lefkovitch. La primera fila muestra valores de fecundidad mucho más altos y concentrados en estados avanzados (hasta 31.5 en C4). Los estados juveniles (C1–C3) aportan poco, mientras que <strong>los individuos grandes son el motor reproductivo real</strong>. Esto refleja un escenario en el que <strong>el crecimiento poblacional depende críticamente de los pocos individuos que logran llegar a estados adultos</strong>, los cuales tienen un enorme potencial reproductivo.</p>
+<p>En este orden de ideas, para este tipo <strong>post-reproductivo</strong> genera resultados más reales, donde la supervivencia desde los juveniles iniciales y la gran fecundidad de los adultos impulsan el aumento de este tipo de poblaciones invasoras. Por su parte, la matriz <strong>pre-reproductiva</strong>, representa un escenario “teórico” en el que la población se sostiene casi enteramente gracias a la <strong>fecundidad temprana</strong>, pero no refleja adecuadamente la transición desde el primer estado. Lo anterior indica que un <strong>pequeño ajuste en la posición de la subdiagonal (Sx)</strong> cambia de forma drástica la historia de vida simulada con estas matrices y, con ello, la interpretación ecológica del modelo.</p>
+<hr>
+</section>
+<section id="paso-8-modelación-matricial-multiestado-pre-y-post-reproductiva" class="level3">
+<h3 class="anchored" data-anchor-id="paso-8-modelación-matricial-multiestado-pre-y-post-reproductiva">Paso 8) Modelación matricial multiestado (pre y post reproductiva)</h3>
+<section id="proyección-post-reproductiva" class="level4">
+<h4 class="anchored" data-anchor-id="proyección-post-reproductiva">8.1) Proyección post-reproductiva</h4>
+<p><strong>Paso 1.</strong> Cargar el vector de Estadoes <span class="math inline">\((N_t)\)</span></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Población inicial (hipotética)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> tabla_v1<span class="sc">$</span>Nx</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Nt</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120  38  10   2   1</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de periodos a proyectar en el modelo</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>t</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
+</div>
+</div>
+<p><strong>Paso 2.</strong> Función <code>modelo_pob</code> para automatizar <span class="math inline">\((N_{(t+1)} = L \cdot N_{(t)})\)</span></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funcion (modelo_pob) para modelar la población por las diferentes Estadoes en el tiempo.</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Elementos de la modelación (Matriz de Leslie - L, Vector de Abundancias - Nt y Periodos a modelar - t)</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)  <span class="co"># proporciona set_names()</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>modelo_pob <span class="ot">&lt;-</span> <span class="cf">function</span>(L, Nt, t) {</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">length</span>(Nt)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA_real_</span>, <span class="at">nrow =</span> t <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ncol =</span> k)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  out[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> Nt</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>t) out[i <span class="sc">+</span> <span class="dv">1</span>, ] <span class="ot">&lt;-</span> L <span class="sc">%*%</span> out[i, ]</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>(out) <span class="sc">|&gt;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">paste0</span>(<span class="st">"Estado_"</span>, <span class="fu">seq_len</span>(k)))</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Paso 3.</strong> Simulación de la proyección <span class="math inline">\((N_{(t+1)} = L\ . N_{(t)})\)</span></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Usar la función creada para el producto L x Nt</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> <span class="fu">modelo_pob</span>(<span class="fu">as.matrix</span>(L_post), Nt, t)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Crear la columna Tiempo</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tiempo =</span> <span class="dv">0</span><span class="sc">:</span>(<span class="fu">nrow</span>(simulacion)<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Reordenar columnas para que Tiempo sea la primera columna</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Tiempo, <span class="fu">everything</span>())</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Visualización rápida (redondeo)</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(simulacion) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Tiempo"</span>, <span class="st">"Estado_1"</span>,<span class="st">"Estado_2"</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Estado_3"</span>,<span class="st">"Estado_4"</span>,<span class="st">"Estado_5"</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Mostrar un resumen redondeado</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(simulacion)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Resumen de la simulación"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Resumen de la simulación</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Tiempo </th>
+   <th style="text-align:right;"> Estado_1 </th>
+   <th style="text-align:right;"> Estado_2 </th>
+   <th style="text-align:right;"> Estado_3 </th>
+   <th style="text-align:right;"> Estado_4 </th>
+   <th style="text-align:right;"> Estado_5 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 914 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4686 </td>
+   <td style="text-align:right;"> 290 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 24072 </td>
+   <td style="text-align:right;"> 1485 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 123530 </td>
+   <td style="text-align:right;"> 7631 </td>
+   <td style="text-align:right;"> 391 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 634132 </td>
+   <td style="text-align:right;"> 39159 </td>
+   <td style="text-align:right;"> 2007 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Convertir a formato largo</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>simulacion_l <span class="ot">&lt;-</span> simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Tiempo, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Estado"</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Abundancia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Abundancia =</span> <span class="fu">round</span>(Abundancia, <span class="dv">0</span>))</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar un resumen de la simulación en formato largo</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(simulacion_l) <span class="sc">%&gt;%</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Resumen de la simulación en formato largo"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Resumen de la simulación en formato largo</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Tiempo </th>
+   <th style="text-align:left;"> Estado </th>
+   <th style="text-align:right;"> Abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_2 </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_3 </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 914 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Paso 4.</strong> Figura de la proyección multi-Estado</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(simulacion_l, <span class="fu">aes</span>(<span class="at">x =</span> Tiempo, <span class="at">y =</span> Abundancia, <span class="at">color =</span> Estado)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Períodos de tiempo (años)"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(log[<span class="dv">10</span>]<span class="sc">~</span>(Densidad<span class="sc">~-</span> Nx)),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Estados"</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Proyección Post-Reproductiva"</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="co"># Escala logarítmica en el eje Y</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(simulacion_l<span class="sc">$</span>Tiempo),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">max</span>(simulacion_l<span class="sc">$</span>Tiempo), <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>),</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.5_mod_estado_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En la <strong>simulación post-reproductiva</strong>, se observa un <strong>crecimiento exponencial</strong> sostenido en todos los estados de cobertura. La transformación logarítmica de <span class="math inline">\(N_x\)</span> (log₁₀) facilita visualizar la separación paralela de las trayectorias: cada estado mantiene su pendiente de crecimiento, lo que refleja que la población converge rápidamente hacia la distribución estable de estados (aprox. en el año 4). Este escenario refleja un <strong>crecimiento invasor explosivo</strong>, sostenido tanto por la abundancia de juveniles como por la enorme fecundidad de los adultos que alcanzan estados avanzados.</p>
+<hr>
+<p><strong>Paso 4.</strong> Tasa de crecimiento asintótica (<span class="math inline">\(\lambda\)</span>) y distribución estable por estados <span class="math inline">\(c_x\)</span> del censo post-reproductivo.</p>
+<p>(<span class="math inline">\(\lambda\)</span>) es el autovalor dominante de (<span class="math inline">\(L\)</span>). El <strong>vector propio derecho</strong> asociado, normalizado a 1, genera la <strong>distribución estable</strong> por edades.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eig <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">as.matrix</span>(L_post)) <span class="co"># Matriz de autovalores y de autovectores</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">Re</span>(eig<span class="sc">$</span>values[<span class="dv">1</span>])    <span class="co"># Lambda matricial</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>w      <span class="ot">&lt;-</span> <span class="fu">Re</span>(eig<span class="sc">$</span>vectors[,<span class="dv">1</span>])  </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>estable <span class="ot">&lt;-</span> w <span class="sc">/</span> <span class="fu">sum</span>(w)          <span class="co"># Vector de distribución estable de estados</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">log</span>(lambda)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Autovalor lambda y c(x)</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.635751</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lambda</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.133314</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(estable, <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="fu">rownames</span>(L_post))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estado_1 Estado_2 Estado_3 Estado_4 Estado_5 
+ 0.93892  0.05798  0.00297  0.00012  0.00001 </code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Observaciones a la proyección post-reprod:</strong><br>
+Para esta proyección matricial post reproductiva, la <strong>tasa instantánea de aumento</strong> - <span class="math inline">\(r\)</span> es de 1.63 estado/estado<em>año (163%).<br>
+Este valor es ligeramente mayor al obtenido en el paso 5.2 de la tabla de vida (</em><span class="math inline">\(r\)</span> = 1.53 estado/estadoaño), lo que refleja la coherencia entre ambos enfoques, aunque este enfoque matricial capta mejor la estructura de transiciones.<br>
+<strong>El autovalor</strong> <span class="math inline">\(\lambda\)</span> presenta un valor de 5.13, lo que significa que, en cada intervalo, la población se multiplica por un factor de 5.13. En términos de aumento finito, esto equivale a un crecimiento de aproximadamente <strong>414%</strong> por intervalo o clase de cobertura. Este resultado también es algo mayor que el de la tabla de vida (<span class="math inline">\(\lambda \approx 4.63\)</span>), pero sigue la misma tendencia de fuerte expansión. El valor de indica que en cada intervalo de cobertura, la población se multiplica po 5.14, lo cual implica que el aumento finito (<span class="math inline">\(|1-\lambda|*100\)</span>) <span class="math inline">\(\approx\)</span> 414%.<br>
+<strong>El auto-vector asociado</strong> que describe la <strong>distribución estable de estados</strong>, muestra que el 93.9% de los individuos se concentran en el estado de cobertura 1. En contraste, los estados avanzados representan proporciones cada vez menores (Estado 2 = 5.8%, Estado 3 = 0.3%, Estados 4–5 prácticamente nulos). Esto confirma que, aunque unos pocos individuos alcanzan estados de gran tamaño y aportan una fecundidad extraordinaria, la población en equilibrio estará dominada por plántulas y juveniles tempranos.</p>
+</blockquote>
+<p>Estos los resultados muestran que la <strong>matriz post-reproductiva</strong> refleja una dinámica ,uy similar a la detectada en la <strong>tabla de vida</strong>: una población que <strong>crece muy rápido</strong>, sostenida sobre todo por la abundancia en los primeros estados, pero con la contribución clave de los pocos individuos que logran llegar a estados adultos y liberar grandes cantidades de semillas, algunas de las cuales aportarán reclutas exitósos.</p>
+<hr>
+</section>
+<section id="proyección-pre-reproductiva" class="level4">
+<h4 class="anchored" data-anchor-id="proyección-pre-reproductiva">8.2) Proyección pre-reproductiva</h4>
+<p>Para resumir el ejercicio, se trabaja con los pasos 1 y 2, del anterior ejercico.</p>
+<p><strong>Paso 1.</strong> Cargar el vector de Estadoes <span class="math inline">\((N_t)\)</span></p>
+<p><strong>Paso 2.</strong> Función <code>modelo_pob</code> para automatizar <span class="math inline">\((N_{(t+1)} = L \cdot N_{(t)})\)</span></p>
+<p><strong>Paso 3.</strong> Simulación de la proyección <span class="math inline">\((N_{(t+1)} = L\ . N_{(t)})\)</span></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Usar la función creada para el producto L x Nt</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> <span class="fu">modelo_pob</span>(<span class="fu">as.matrix</span>(L_pre), Nt, t)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Crear la columna Tiempo</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tiempo =</span> <span class="dv">0</span><span class="sc">:</span>(<span class="fu">nrow</span>(simulacion)<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Reordenar columnas para que Tiempo sea la primera columna</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>simulacion <span class="ot">&lt;-</span> </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Tiempo, <span class="fu">everything</span>())</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Visualización rápida (redondeo)</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(simulacion) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Tiempo"</span>, <span class="st">"Estado_1"</span>,<span class="st">"Estado_2"</span>,</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Estado_3"</span>,<span class="st">"Estado_4"</span>,<span class="st">"Estado_5"</span>)</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Mostrar un resumen redondeado</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(simulacion)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Resumen de la simulación"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Resumen de la simulación</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Tiempo </th>
+   <th style="text-align:right;"> Estado_1 </th>
+   <th style="text-align:right;"> Estado_2 </th>
+   <th style="text-align:right;"> Estado_3 </th>
+   <th style="text-align:right;"> Estado_4 </th>
+   <th style="text-align:right;"> Estado_5 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 423 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 720 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1408 </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2649 </td>
+   <td style="text-align:right;"> 370 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5071 </td>
+   <td style="text-align:right;"> 697 </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Convertir a formato largo</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>simulacion_l <span class="ot">&lt;-</span> simulacion <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Tiempo, </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Estado"</span>, </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"Abundancia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Abundancia =</span> <span class="fu">round</span>(Abundancia, <span class="dv">0</span>))</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar un resumen de la simulación en formato largo</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(simulacion_l) <span class="sc">%&gt;%</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Resumen de la simulación en formato largo"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Resumen de la simulación en formato largo</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Tiempo </th>
+   <th style="text-align:left;"> Estado </th>
+   <th style="text-align:right;"> Abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_2 </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_3 </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> Estado_5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Estado_1 </td>
+   <td style="text-align:right;"> 423 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Paso 4.</strong> Figura de la proyección multi-Estado</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(simulacion_l, <span class="fu">aes</span>(<span class="at">x =</span> Tiempo, <span class="at">y =</span> Abundancia, <span class="at">color =</span> Estado)) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Períodos de tiempo (años)"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(log[<span class="dv">10</span>]<span class="sc">~</span>(Densidad<span class="sc">~-</span> Nx)),</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Estados"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Proyección Pre-Reproductiva"</span>) <span class="sc">+</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="co"># Escala logarítmica en el eje Y</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(simulacion_l<span class="sc">$</span>Tiempo),</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">max</span>(simulacion_l<span class="sc">$</span>Tiempo), <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>),</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.5_mod_estado_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La simulación multi-estado <strong>pre-reproductiva</strong> muestra un crecimiento mucho más moderado al post-reproductivo. Aunque las curvas también tienden a separarse de forma paralela en la escala logarítmica, la pendiente es considerablemente menor.Este escenario refleja una población que aumenta (λ ≈ 1.90), pero de forma mucho más contenida.</p>
+<hr>
+<p><strong>Paso 4.</strong> Tasa de crecimiento asintótica (<span class="math inline">\(\lambda\)</span>) y distribución estable por estados <span class="math inline">\(c_x\)</span> del censo pre-reproductivo.</p>
+<p>(<span class="math inline">\(\lambda\)</span>) es el autovalor dominante de (<span class="math inline">\(L\)</span>). El <strong>vector propio derecho</strong> asociado, normalizado a 1, genera la <strong>distribución estable</strong> por edades.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>eig <span class="ot">&lt;-</span> <span class="fu">eigen</span>(<span class="fu">as.matrix</span>(L_pre)) <span class="co"># Matriz de autovalores y de autovectores</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">Re</span>(eig<span class="sc">$</span>values[<span class="dv">1</span>])    <span class="co"># Lambda matricial</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>w      <span class="ot">&lt;-</span> <span class="fu">Re</span>(eig<span class="sc">$</span>vectors[,<span class="dv">1</span>])  </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>estable <span class="ot">&lt;-</span> w <span class="sc">/</span> <span class="fu">sum</span>(w)          <span class="co"># Vector de distribución estable de estados</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">log</span>(lambda)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Autovalor lambda y c(x)</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6442063</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>lambda</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.904475</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(estable, <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="fu">rownames</span>(L_pre))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estado_1 Estado_2 Estado_3 Estado_4 Estado_5 
+   0.865    0.119    0.013    0.003    0.000 </code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Observaciones a la proyección pre-reprod:</strong><br>
+La <strong>tasa instantánea de aumento</strong> (<span class="math inline">\(r\)</span>) es de 0.64 por intervalo de cobertura, lo que corresponde a un crecimiento continuo aproximado del <strong>64%</strong> por intervalo. Este valor es mucho más bajo que el observado en la matriz post-reproductiva (<span class="math inline">\(r \approx 1.63\)</span>), reflejando que la fecundidad temprana, por sí sola, no impulsa un crecimiento tan explosivo de la población.<br>
+El autovalor dominante (<span class="math inline">\(\lambda\)</span>) es de 1.90, lo que implica que la población se multiplica casi por un factor de 2 en cada intervalo. En términos de aumento finito, esto equivale a un crecimiento aproximado del <strong>90%</strong> por intervalo de cobertura. Aunque sigue representando un crecimiento positivo, es mucho menos elevado que el proyectado en el escenario post-reproductivo (<span class="math inline">\(\lambda \approx 5.13\)</span>).<br>
+El <strong>auto-vector asociado</strong> (<span class="math inline">\(c_x\)</span>), que define la distribución estable de estados, muestra que el <strong>86.5%</strong> de los individuos se concentran en el estado de cobertura 1. Los estados de coberturas superiores (C2–C5) mantienen proporciones mucho menores (12% en C2, menos del 2% en C3–C5). Esto confirma que, bajo una estrategia basada solo en fecundidad temprana, la población estará casi enteramente dominada por individuos pequeños, con muy poca representación de estados avanzados, lo cual no es consistente con el escenario real de la muestra evaluada.<br>
+En el escenario <strong>Post-reproductivo</strong> el crecimiento es acelerado y masivo (<strong>λ &gt; 5</strong>), con dominancia juvenil pero apoyado en la altísima fecundidad de los adultos. En el <strong>Pre-reproductivo</strong> el crecimiento es más lento (<strong>λ ≈ 2</strong>), con dominancia juvenil pero sin aporte significativo de los estados adultos (poco realista).</p>
+</blockquote>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
