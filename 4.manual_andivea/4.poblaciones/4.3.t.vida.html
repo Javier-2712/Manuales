@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
-<meta name="dcterms.date" content="2025-10-16">
+<meta name="dcterms.date" content="2025-10-17">
 <meta name="description" content="Ejercicios de entrenamiento para la construcción de tablas de vida por estructura de edad.">
 
 <title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 16, 2025</p>
+        <p class="date">October 17, 2025</p>
       </div>
     </div>
     
@@ -251,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="ejemplo-1.-tablas-de-vida-con-demografía-de-cementerios">Ejemplo 1. Tablas de vida con demografía de cementerios</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/Cementerio.PNG" class="img-fluid figure-img" width="526"></p>
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/figuras/Cementerio.PNG" class="img-fluid figure-img" width="591"></p>
 <p></p><figcaption class="figure-caption">Imagen tomada de González et al. (2023)</figcaption><p></p>
 </figure>
 </div>
@@ -316,7 +316,7 @@ En los cementerios, cada grupo de personas realiza un censo de por lo menos 200 
 <p>Se cuenta con un formato a manera de ejemplo en el siguiente <a href="https://universidadmag-my.sharepoint.com/:x:/g/personal/jrodriguez_unimagdalena_edu_co/EYwVnNlnz6ZGnMLiNeRMqdMBgSDJdnn9yhOT-LRmCYH8vg?e=2z7R3R">enlace de tabla</a> y luego descargar en formato <code>xlsx</code> para el informe. Adicionalmente, se elabora un croquis con la ubicación de las tumbas censadas y los recorridos realizados:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/Cementerio1.png" class="img-fluid figure-img"></p>
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/figuras/Cementerio1.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Ejemplo del diseño de muestreo del cementerio Jardines de Jerusalén en Santa Marta. Imagen tomada de González et al. (2023)</figcaption><p></p>
 </figure>
 </div>
@@ -361,7 +361,7 @@ En los cementerios, cada grupo de personas realiza un censo de por lo menos 200 
 <h3 class="anchored" data-anchor-id="a.-cementerio-san-miguel---santa-marta">A. Cementerio San Miguel - Santa Marta</h3>
 <section id="paso-1-librerías-y-lectura-de-la-base-de-datos" class="level4">
 <h4 class="anchored" data-anchor-id="paso-1-librerías-y-lectura-de-la-base-de-datos">Paso 1) Librerías y lectura de la base de datos</h4>
-<p>Se cargan las librerías y el archivo que cuenta con los datos del censo realizado al cementerio San Miguel - <code>cementerios.xlsx</code> (hoja “Datos San Miguel”). Si hay edades faltantes pero existen año de nacimiento y muerte, se calcula <span class="math inline">\(edad = muerte - nacimiento\)</span>, para asegurar un tamaño de muestra <span class="math inline">\(N_0=600\)</span> individuos censados.</p>
+<p>Se cargan las librerías y el archivo que cuenta con los datos del censo realizado al cementerio San Miguel - <code>cementerios.xlsx</code> (hoja “Datos San Miguel”). Si hay edades faltantes pero existen año de nacimiento y muerte, se calcula <span class="math inline">\(edad = muerte - nacimiento\)</span>, para asegurar un tamaño de muestra <span class="math inline">\(N_0=600\)</span> individuos censados. La <strong>base de datos</strong> se puede descargar en el siguiente enlace: <a href="https://">cementerios.xlsx</a>.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
@@ -2165,7 +2165,7 @@ Nota
 <hr>
 <section id="paso-1.-cargar-la-base-de-datos-que-contiene-los-tres-estimadores-iniciales-x-nx-mx" class="level5">
 <h5 class="anchored" data-anchor-id="paso-1.-cargar-la-base-de-datos-que-contiene-los-tres-estimadores-iniciales-x-nx-mx">Paso 1. Cargar la base de datos que contiene los tres estimadores iniciales (<span class="math inline">\(x, Nx, mx\)</span>)</h5>
-<p>Donde, <span class="math inline">\(x\)</span> es la columna que organiza a los datos por edades (<span class="math inline">\(x\)</span>), <span class="math inline">\(N_x\)</span> son las densidades de la población por cada edad y <span class="math inline">\(m_x\)</span> es la materinidad o el proedio de crías por cada edad.</p>
+<p>Donde, <span class="math inline">\(x\)</span> es la columna que organiza a los datos por edades (<span class="math inline">\(x\)</span>), <span class="math inline">\(N_x\)</span> son las densidades de la población por cada edad y <span class="math inline">\(m_x\)</span> es la materinidad o el proedio de crías por cada edad. La <strong>base de datos</strong> se puede descargar en el siguiente enlace: <a href="https://">gotelli.xlsx</a>.</p>
 <div class="cell">
 <details>
 <summary>Código</summary>
