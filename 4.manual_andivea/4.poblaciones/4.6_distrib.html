@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-10-17">
+<meta name="description" content="Patrones de distribución de poblaciones (aleatorio, agrupado y uniforme) y estimación de su densidad.">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="4.6_distrib_files/libs/clipboard/clipboard.min.js"></script>
+<script src="4.6_distrib_files/libs/quarto-html/quarto.js"></script>
+<script src="4.6_distrib_files/libs/quarto-html/popper.min.js"></script>
+<script src="4.6_distrib_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="4.6_distrib_files/libs/quarto-html/anchor.min.js"></script>
+<link href="4.6_distrib_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="4.6_distrib_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="4.6_distrib_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="4.6_distrib_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="4.6_distrib_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+<script src="4.6_distrib_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="4.6_distrib_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 4.6 Ejercicios y visualización gráfica de patrones de distribución y estimación de la densidad de una población</p>
+                  <div>
+        <div class="description">
+          Patrones de distribución de poblaciones (aleatorio, agrupado y uniforme) y estimación de su densidad.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 17, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><strong>Introducción</strong></a></li>
+  <li><a href="#ejemplo-con-calotropis-procera" id="toc-ejemplo-con-calotropis-procera" class="nav-link" data-scroll-target="#ejemplo-con-calotropis-procera">1. Ejemplo con <em>Calotropis procera</em></a>
+  <ul>
+  <li><a href="#objetivo-general" id="toc-objetivo-general" class="nav-link" data-scroll-target="#objetivo-general"><strong>Objetivo general</strong></a></li>
+  <li><a href="#diseño-metodológico" id="toc-diseño-metodológico" class="nav-link" data-scroll-target="#diseño-metodológico"><strong>Diseño metodológico</strong></a>
+  <ul>
+  <li><a href="#a.-estimación-estadística-de-la-distribución-espacial-de-la-población." id="toc-a.-estimación-estadística-de-la-distribución-espacial-de-la-población." class="nav-link" data-scroll-target="#a.-estimación-estadística-de-la-distribución-espacial-de-la-población."><strong>A. Estimación estadística de la distribución espacial de la población.</strong></a>
+  <ul>
+  <li><a href="#diseño-estadístico" id="toc-diseño-estadístico" class="nav-link" data-scroll-target="#diseño-estadístico">1.) Diseño estadístico</a>
+  <ul>
+  <li><a href="#probabilidad-poisson." id="toc-probabilidad-poisson." class="nav-link" data-scroll-target="#probabilidad-poisson.">1.1) Probabilidad Poisson.</a></li>
+  <li><a href="#diseño-estadístico-de-probabilidad-binomial-negativa." id="toc-diseño-estadístico-de-probabilidad-binomial-negativa." class="nav-link" data-scroll-target="#diseño-estadístico-de-probabilidad-binomial-negativa.">1.2) Diseño estadístico de Probabilidad Binomial Negativa.</a></li>
+  </ul></li>
+  <li><a href="#patrón-de-distribución-espacial-mediante-índices-de-dispersión" id="toc-patrón-de-distribución-espacial-mediante-índices-de-dispersión" class="nav-link" data-scroll-target="#patrón-de-distribución-espacial-mediante-índices-de-dispersión">2.) Patrón de distribución espacial, mediante índices de dispersión</a>
+  <ul>
+  <li><a href="#razón-varianza-promedio-o-índice-de-dispersión-id." id="toc-razón-varianza-promedio-o-índice-de-dispersión-id." class="nav-link" data-scroll-target="#razón-varianza-promedio-o-índice-de-dispersión-id.">2.1) Razón Varianza Promedio o Índice de Dispersión (<span class="math inline">\(ID\)</span>).</a></li>
+  <li><a href="#índice-de-agrupamiento-ic-david-moore-1964." id="toc-índice-de-agrupamiento-ic-david-moore-1964." class="nav-link" data-scroll-target="#índice-de-agrupamiento-ic-david-moore-1964.">2.2) Índice de Agrupamiento (IC) (David &amp; Moore 1964).</a></li>
+  <li><a href="#índice-de-holgate-ih-broker-zar-y-ende-1988." id="toc-índice-de-holgate-ih-broker-zar-y-ende-1988." class="nav-link" data-scroll-target="#índice-de-holgate-ih-broker-zar-y-ende-1988.">2.3) Índice de Holgate (<span class="math inline">\(IH\)</span>) (broker, Zar y Ende 1988).</a></li>
+  <li><a href="#media-de-hacinamiento-de-lloyd-m" id="toc-media-de-hacinamiento-de-lloyd-m" class="nav-link" data-scroll-target="#media-de-hacinamiento-de-lloyd-m">2.4) Media de hacinamiento de Lloyd (<span class="math inline">\(m^*\)</span>)</a></li>
+  <li><a href="#índice-de-clumping-de-lloyd-i_clloyd" id="toc-índice-de-clumping-de-lloyd-i_clloyd" class="nav-link" data-scroll-target="#índice-de-clumping-de-lloyd-i_clloyd">2.5) Índice de Clumping de Lloyd (<span class="math inline">\(I_c^{Lloyd}\)</span>)</a></li>
+  <li><a href="#prueba-de-dispersión-basada-en-id-chi2_disp" id="toc-prueba-de-dispersión-basada-en-id-chi2_disp" class="nav-link" data-scroll-target="#prueba-de-dispersión-basada-en-id-chi2_disp">2.7) Prueba de dispersión basada en <span class="math inline">\(ID\)</span> (<span class="math inline">\(\chi^2_{disp}\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#tabla-comparativa-de-índices-de-dispersión" id="toc-tabla-comparativa-de-índices-de-dispersión" class="nav-link" data-scroll-target="#tabla-comparativa-de-índices-de-dispersión"><strong>Tabla comparativa de índices de dispersión</strong></a></li>
+  </ul></li>
+  <li><a href="#b.-densidad-de-la-población" id="toc-b.-densidad-de-la-población" class="nav-link" data-scroll-target="#b.-densidad-de-la-población"><strong>B. Densidad de la población</strong></a>
+  <ul>
+  <li><a href="#método-de-holtage-con-puntos-de-intersección-al-azar" id="toc-método-de-holtage-con-puntos-de-intersección-al-azar" class="nav-link" data-scroll-target="#método-de-holtage-con-puntos-de-intersección-al-azar">1.) <strong>Método de Holtage</strong> (con puntos de intersección al azar)</a></li>
+  <li><a href="#método-de-king-con-transecto-diagonal" id="toc-método-de-king-con-transecto-diagonal" class="nav-link" data-scroll-target="#método-de-king-con-transecto-diagonal">2.) <strong>Método de King</strong> (con transecto diagonal)</a></li>
+  <li><a href="#método-de-hayne-evita-subestimaciones-del-método-de-king" id="toc-método-de-hayne-evita-subestimaciones-del-método-de-king" class="nav-link" data-scroll-target="#método-de-hayne-evita-subestimaciones-del-método-de-king">3.) <strong>2. Método de Hayne</strong> (evita subestimaciones del método de King)&nbsp; *</a></li>
+  </ul></li>
+  <li><a href="#objetivos-del-ejercicio" id="toc-objetivos-del-ejercicio" class="nav-link" data-scroll-target="#objetivos-del-ejercicio"><strong>Objetivos del ejercicio</strong></a></li>
+  <li><a href="#preparación-de-los-datos" id="toc-preparación-de-los-datos" class="nav-link" data-scroll-target="#preparación-de-los-datos">Preparación de los datos</a></li>
+  <li><a href="#a.-estimación-estadística-de-la-distribución-espacial-de-la-población.-1" id="toc-a.-estimación-estadística-de-la-distribución-espacial-de-la-población.-1" class="nav-link" data-scroll-target="#a.-estimación-estadística-de-la-distribución-espacial-de-la-población.-1"><strong>A. Estimación estadística de la distribución espacial de la población.</strong></a>
+  <ul>
+  <li><a href="#diseños-estadísticos" id="toc-diseños-estadísticos" class="nav-link" data-scroll-target="#diseños-estadísticos">1.) Diseños estadísticos</a>
+  <ul>
+  <li><a href="#prueba-de-poisson." id="toc-prueba-de-poisson." class="nav-link" data-scroll-target="#prueba-de-poisson.">1.1) Prueba de Poisson.</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-cálculo-de-las-frecuencias-observadas-y-de-las-probabilidades-calculadas-y-esperadas" id="toc-paso-1.-cálculo-de-las-frecuencias-observadas-y-de-las-probabilidades-calculadas-y-esperadas" class="nav-link" data-scroll-target="#paso-1.-cálculo-de-las-frecuencias-observadas-y-de-las-probabilidades-calculadas-y-esperadas">paso 1. Cálculo de las frecuencias observadas y de las probabilidades calculadas y esperadas</a></li>
+  <li><a href="#paso-2.-agrupación-automática-0-1-2" id="toc-paso-2.-agrupación-automática-0-1-2" class="nav-link" data-scroll-target="#paso-2.-agrupación-automática-0-1-2">paso 2. Agrupación automática (0, 1, ≥2)</a></li>
+  <li><a href="#paso-3.-gráficos-observado-vs.-poisson-esperado" id="toc-paso-3.-gráficos-observado-vs.-poisson-esperado" class="nav-link" data-scroll-target="#paso-3.-gráficos-observado-vs.-poisson-esperado">paso 3. Gráficos: Observado vs.&nbsp;Poisson esperado</a></li>
+  <li><a href="#paso-4.-conclusión-automática" id="toc-paso-4.-conclusión-automática" class="nav-link" data-scroll-target="#paso-4.-conclusión-automática">paso 4. Conclusión (automática)</a></li>
+  </ul></li>
+  <li><a href="#prueba-binomial-negativa---bn." id="toc-prueba-binomial-negativa---bn." class="nav-link" data-scroll-target="#prueba-binomial-negativa---bn.">1.2) Prueba Binomial Negativa - BN.</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-estimación-del-parámetro-de-agrupamiento-k" id="toc-paso-1.-estimación-del-parámetro-de-agrupamiento-k" class="nav-link" data-scroll-target="#paso-1.-estimación-del-parámetro-de-agrupamiento-k">paso 1. Estimación del parámetro de agrupamiento <span class="math inline">\(k\)</span></a></li>
+  <li><a href="#paso-2.-frecuencias-observadas-probabilidades-binomial-negativa-y-esperadas" id="toc-paso-2.-frecuencias-observadas-probabilidades-binomial-negativa-y-esperadas" class="nav-link" data-scroll-target="#paso-2.-frecuencias-observadas-probabilidades-binomial-negativa-y-esperadas">paso 2. Frecuencias observadas, probabilidades Binomial Negativa y esperadas</a></li>
+  <li><a href="#paso-3.-agrupación-automática-0-1-2-3" id="toc-paso-3.-agrupación-automática-0-1-2-3" class="nav-link" data-scroll-target="#paso-3.-agrupación-automática-0-1-2-3">paso 3. Agrupación automática (0, 1, 2, ≥3)</a></li>
+  <li><a href="#paso-4.-bondad-de-ajuste-χ²-baj-para-binomial-negativa-4-clases" id="toc-paso-4.-bondad-de-ajuste-χ²-baj-para-binomial-negativa-4-clases" class="nav-link" data-scroll-target="#paso-4.-bondad-de-ajuste-χ²-baj-para-binomial-negativa-4-clases">paso 4. Bondad de ajuste (χ² baj) para Binomial Negativa (4 clases)</a></li>
+  <li><a href="#paso-5.-gráfico-observado-vs.-bn-esperado" id="toc-paso-5.-gráfico-observado-vs.-bn-esperado" class="nav-link" data-scroll-target="#paso-5.-gráfico-observado-vs.-bn-esperado">paso 5. Gráfico: Observado vs.&nbsp;BN esperado</a></li>
+  <li><a href="#paso-6.-conclusión-automática-bn" id="toc-paso-6.-conclusión-automática-bn" class="nav-link" data-scroll-target="#paso-6.-conclusión-automática-bn">paso 6. Conclusión automática (BN)</a></li>
+  </ul></li>
+  <li><a href="#comparación-de-modelos-poisson-vs.-binomial-negativa-aic-mle" id="toc-comparación-de-modelos-poisson-vs.-binomial-negativa-aic-mle" class="nav-link" data-scroll-target="#comparación-de-modelos-poisson-vs.-binomial-negativa-aic-mle">1.3). Comparación de modelos: Poisson vs.&nbsp;Binomial Negativa (AIC, MLE)</a></li>
+  </ul></li>
+  <li><a href="#patrón-de-distribución-espacial-mediante-índices-de-dispersión-1" id="toc-patrón-de-distribución-espacial-mediante-índices-de-dispersión-1" class="nav-link" data-scroll-target="#patrón-de-distribución-espacial-mediante-índices-de-dispersión-1">2.) Patrón de distribución espacial, mediante índices de dispersión</a></li>
+  </ul></li>
+  <li><a href="#b.-densidad-de-la-población-1" id="toc-b.-densidad-de-la-población-1" class="nav-link" data-scroll-target="#b.-densidad-de-la-población-1">B. Densidad de la población</a>
+  <ul>
+  <li><a href="#método-de-holtage-con-puntos-de-intersección-al-azar-1" id="toc-método-de-holtage-con-puntos-de-intersección-al-azar-1" class="nav-link" data-scroll-target="#método-de-holtage-con-puntos-de-intersección-al-azar-1">1.) <strong>Método de Holtage</strong> (con puntos de intersección al azar)</a>
+  <ul>
+  <li><a href="#paso-1.-cargar-las-librerías-requeridas" id="toc-paso-1.-cargar-las-librerías-requeridas" class="nav-link" data-scroll-target="#paso-1.-cargar-las-librerías-requeridas">paso 1. Cargar las librerías requeridas</a></li>
+  <li><a href="#paso-2.-lectura-de-la-base-de-datos-para-calcular-ih" id="toc-paso-2.-lectura-de-la-base-de-datos-para-calcular-ih" class="nav-link" data-scroll-target="#paso-2.-lectura-de-la-base-de-datos-para-calcular-ih">paso 2. Lectura de la base de datos para calcular IH</a></li>
+  <li><a href="#paso-3.-cálculo-de-ih-en-metros-cuadrados-m2-y-en-hectáreas-ha" id="toc-paso-3.-cálculo-de-ih-en-metros-cuadrados-m2-y-en-hectáreas-ha" class="nav-link" data-scroll-target="#paso-3.-cálculo-de-ih-en-metros-cuadrados-m2-y-en-hectáreas-ha">paso 3. Cálculo de IH en metros cuadrados (m2) y en hectáreas (ha)</a></li>
+  <li><a href="#paso-4.-visualización-de-las-frecuencias-observadas" id="toc-paso-4.-visualización-de-las-frecuencias-observadas" class="nav-link" data-scroll-target="#paso-4.-visualización-de-las-frecuencias-observadas">paso 4. Visualización de las frecuencias observadas</a></li>
+  </ul></li>
+  <li><a href="#índices-de-king-y-de-hayne-con-transecto-diagonal" id="toc-índices-de-king-y-de-hayne-con-transecto-diagonal" class="nav-link" data-scroll-target="#índices-de-king-y-de-hayne-con-transecto-diagonal">2.) <strong>Índices de King y de Hayne</strong> (con transecto diagonal)</a>
+  <ul>
+  <li><a href="#paso-1.-leer-las-dos-bases-de-datos" id="toc-paso-1.-leer-las-dos-bases-de-datos" class="nav-link" data-scroll-target="#paso-1.-leer-las-dos-bases-de-datos">paso 1. Leer las dos bases de datos</a></li>
+  <li><a href="#paso-2.-cálculos-de-los-índices-king-y-hayne." id="toc-paso-2.-cálculos-de-los-índices-king-y-hayne." class="nav-link" data-scroll-target="#paso-2.-cálculos-de-los-índices-king-y-hayne.">paso 2. Cálculos de los índices King y Hayne.</a></li>
+  <li><a href="#paso-3.-visualización-de-las-frecuencias-observadas" id="toc-paso-3.-visualización-de-las-frecuencias-observadas" class="nav-link" data-scroll-target="#paso-3.-visualización-de-las-frecuencias-observadas">paso 3. Visualización de las frecuencias observadas</a></li>
+  <li><a href="#resumen-de-los-resultados" id="toc-resumen-de-los-resultados" class="nav-link" data-scroll-target="#resumen-de-los-resultados">Resumen de los resultados</a></li>
+  <li><a href="#análisis-de-los-resultados" id="toc-análisis-de-los-resultados" class="nav-link" data-scroll-target="#análisis-de-los-resultados">Análisis de los resultados</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/figura-patrones-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="nota">
+<p>Esquema didáctico de patrones espaciales: <em>agrupado</em> (parches), <em>aleatorio</em> (Poisson) y <em>uniforme</em>.</p>
+</div>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción"><strong>Introducción</strong></h2>
+<p><strong>1. Densidad de una población.</strong> La cuantificación del número de individuos de una especie, es el primer paso requerido, si se quiere conocer aspectos ecológicos de una población. En caso de que la estimación se realice, con relación a una unidad de superficie o de volumen, se puede hacer una estimación de la densidad de los individuos de esa población. Al evaluar la densidad de una población, de manera más sencilla, existen dos formas: <strong><em>(1) densidad absoluta</em></strong> que corresponde al número de individuos por unidad de área o volumen, por ejemplo, cuando se intenta relacionar la densidad de una población con su tasa reproductiva u otro estadístico vital y el análisis demanda tener información de los individuos en términos absolutos. <strong><em>(2) la densidad relativa</em></strong> que es la densidad de una población relativa a otra, puede estimarse con base a algún índice biológico que se correlacione con este tipo de densidad. Esta densidad es más adecuada para resolver problemas ecológicos además de ser más sencilla y económica de realizar que la densidad absoluta. Por ejemplo, algunas poblaciones suelen presentar una mayor abundancia en áreas con diferente grado de alteración natural o antrópico.</p>
+<p><strong>2. Patrones de distribución.</strong> De acuerdo a <strong>Krebs (1998)</strong>, dos preguntas centrales en estudios ecológicos de poblaciones, se centran en saber cuántos individuos hay (densidad) y como están distribuidos (posicionamiento). Si se decide utilizar un pesticida para combatir una población de insectos plaga, es importante saber, cuáles son sus proporciones o densidades y cómo viven o se distribuyen estos organismos en las plantas hospederas. Si se desea conocer el impacto de un depredador sobre una población de presas, es importante conocer su densidad y distribución espacial.</p>
+<p>Conteos de plantas o animales en áreas de tamaño conocido están entre las técnicas más antiguas de la ecología <em>(Krebs, 1998)</em>. Los muestreos son fáciles de realizar y pueden ser utilizados en una gran variedad de organismos. Se requiere de dos requisitos principales: (1) que el área (o volumen) es requerida para el conteo y (2) que los organismos sean poco móviles o fáciles de contar. El muestreo en cuadrantes ha sido utilizado extensamente en plantas y algunas poblaciones de animales semi-sésiles. En poblaciones de mayor movilidad es necesario tener un buen entrenamiento.</p>
+<p>En cuanto a la pregunta relacionada a la distribución de los individuos, debemos hacernos la idea de que tan dispersos o agrupados están los individuos de las poblaciones naturales, lo cual puede proporcionar una idea de las interacciones y asociaciones potenciales intraespecificas. Los organismos pueden distribuirse espacialmente en la naturaleza de manera <em>aleatoria, agrupada o uniforme</em> y una primera decisión que se puede hacer es determinar el índice ecológico o análisis estadístico que identifique a estos tres patrones.</p>
+<p>Para la detección en campo de estos patrones de distribución de la población en estudio, se pueden presentar dos situaciones distintas, primero tener un mapeo espacial completo de la población en estudio. Esta es la situación ideal pues se pueden aplicar modelos matemáticos robustos y precisos de mapeos espaciales. Con estos mapas enumerados podemos conocer correctamente la densidad de las poblaciones. La segunda situación se presenta cuando se requiere muestrear poblaciones extensas que no han sido mapeadas ni enumeradas completamente.</p>
+<p><strong>Alle et al.&nbsp;(1949)</strong> afirman que las distribuciones agrupadas o contagiosas son una regla en la distribución de las poblaciones naturales. Esto se debe a numerosos factores a los que se puede atribuir el contagio de la distribución de los animales en el espacio. Una vez identificados estos factores, se está en condiciones de describir cuantitativamente los diferentes arreglos espaciales con base a modelos matemáticos, así como la bondad estadística en su descripción (pruebas de bondad Chi-Cuadrado y Kolmogorov-Smirnof).</p>
+<p><strong>(1) La distribución Aleatoria o azarosa (random)</strong>, corresponde al arreglo más simple de los individuos en el espacio, es decir, que implica el menor número de supuestos y no necesita suponer mecanismos especiales de ningún tipo o proceso. Esta distribución parte de considerar dos tipos de supuestos (a) todos los puntos en el espacio tienen la misma probabilidad de ser ocupados por un organismo. (b) La presencia de un organismo en su ubicación espacial no afecta a la ubicación de otro organismo. Esto implica homogeneidad del ambiente, en un espacio que no solo pierde su continuidad, sino que también debe presentar las mismas condiciones de habitabilidad, lo cual impone condiciones pocas veces encontradas en sistemas naturales.</p>
+<p><strong>(2) La distribución agrupada, contagiosa o en parches (clumped)</strong>, refleja un patrón de heterogeneidad de los individuos y su ambiente (ej. Disposición de recursos como luz, temperatura, alimento, parejas, etc.). En un espacio con discontinuidades los factores ambientales varían de manera irregular, pero en límites en los cuales habrá zonas con óptima concentración de individuos, zonas de condiciones intermedias donde el número de individuos será intermedio y zonas con las mínimas condiciones la presencia de individuos.</p>
+<p><strong>(3) La distribución uniforme o regular (uniform)</strong>, se presenta en situaciones en donde existe un medio físico- biótico constante a lo largo del espacio, genera una interacción negativa entre los individuos, y puede deberse a la competencia entre los miembros de la población por cierto recurso que en la mayoría de los casos es el espacio o el alimento.</p>
+<hr>
+</section>
+<section id="ejemplo-con-calotropis-procera" class="level1">
+<h1>1. Ejemplo con <em>Calotropis procera</em></h1>
+<section id="objetivo-general" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-general"><strong>Objetivo general</strong></h2>
+<p>Realizar un estudio sobre el patrón de distribución de una muestra de individuos censados de <em>Calotropis procera</em> ubicada en la parcela de bosque seco – Unimagdalena.</p>
+<p><strong>Objetivos específicos.</strong><br>
+1) Determinar el <strong>patrón de distribución espacial</strong> de la muestra censada, con base a pruebas estadísticas (Poisson y Binomial Negativa) e índices de dispersión.<br>
+2) Determinar la <strong>densidad</strong> de individuos en la muestra censada de <em>C. procera</em>.</p>
+<hr>
+</section>
+<section id="diseño-metodológico" class="level2">
+<h2 class="anchored" data-anchor-id="diseño-metodológico"><strong>Diseño metodológico</strong></h2>
+<p>El diseño de muestreo consiste en la colecta de datos, de acuerdo a metodologías orientadas para densidades y distribución de individuos de la especie en estudio, presentes en una parcela con las condiciones requeridas.</p>
+<p>Las siguientes figuras esquematiza el diseño de muestreo para responder las preguntas relacionadas con: (A) la <strong>distribución</strong> de la especies (diseño de la parcela) y (b) la abundancia o <strong>densidad</strong> (transecto diagonal). Es un esquema del diseño del croquis y de la parcela a evaluar, para la selección de cuadrantes o cuadriculas de 2 x 2 m y los puntos de intersección, de los cuales se seleccionarán 58 puntos al azar (para calcular densidad de individuos), modificado de Bonilla &amp; Guillot (2003).</p>
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/figuras/parcela1.png" class="img-fluid"></p>
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/figuras/parcela2.png" class="img-fluid"></p>
+<p>En este sentido, se debe debe elaborar en papel, el croquis de un lote o <strong>prcela</strong> con dimensiones de 20 x 20 m (400 m<sup>2</sup>) dividido en <strong>cuadriculas</strong> de 2 x 2 m (100 cuadros) y numerarse de marea secuencial contando hasta las 100 cuadriculas. En estas cuadriculas se realizan sub-divisiones en su periferia a cada metro para obtener 441 puntos de intersección (200 subcuadriculas de 1m<sup>2</sup>).</p>
+<p>Para el siguiente procedimiento, se debe contar con los datos tabulados en Excel (<strong>datos.xlsx</strong>), los cuales serán utilizados en el procedimiento paso a paso que se describe a continuación.</p>
+<hr>
+<section id="a.-estimación-estadística-de-la-distribución-espacial-de-la-población." class="level3">
+<h3 class="anchored" data-anchor-id="a.-estimación-estadística-de-la-distribución-espacial-de-la-población."><strong>A. Estimación estadística de la distribución espacial de la población.</strong></h3>
+<section id="diseño-estadístico" class="level4">
+<h4 class="anchored" data-anchor-id="diseño-estadístico">1.) Diseño estadístico</h4>
+<p>Consiste en desarrollar un procedimiento que permita comparar la distribución espacial de <strong>frecuencias observadas</strong> en los cuadrantes muestreados contra una distribución espacial de <strong>frecuencias esperadas</strong> (tabuladas) que se genera aleatoriamente (técnicas estadísticas). Con ello probamos la hipótesis nula (H0) mediante una prueba de bondad de ajuste Chi Cuadrado (x2) la cual infiere: H0 = la distribución de la población es aleatoria y se presenta cuando la probabilidad de que ambas distribuciones de frecuencia (observada y esperada) se ajustan o corresponden a la misma población estadística. Si, por el contrario, el patrón de frecuencia observado difiere significativamente del esperado (no se ajusta), rechazamos a la H0 y el patrón podrá ser agrupado o uniforme. En esta última opción aceptamos la hipótesis alterna (H1: la distribución de la población no es aleatoria) y aplicamos índices o coeficientes de dispersión para determinar si el patrón es agrupado o uniforme (algunos de estos índices se verifican con pruebas de bondad de ajuste).</p>
+<section id="probabilidad-poisson." class="level5">
+<h5 class="anchored" data-anchor-id="probabilidad-poisson.">1.1) Probabilidad Poisson.</h5>
+<p>Por medio de este modelo matemático se evaluará si el patrón de distribución de la población que satisface mejor las condiciones de un arreglo al azar o aleatorio. Representa a la distribución aleatoria de acuerdo a las siguientes consideraciones: (a) Cada unidad muestral (UM) tiene igual probabilidad de contener a un individuo, (b) la ocurrencia de un individuo en una UM no es influenciada por la presencia de otro, (c) igual disponibilidad de espacio entre cada UM y (d) el número de individuos es relativamente bajo al máximo posible. Los pasos para desarrollar esta prueba son los siguientes:</p>
+<p><strong>Paso 1</strong>. Establecer la <strong>hipótesis de estado:</strong> <span class="math inline">\(H_0\)</span>= los individuos de cada UM presentan distribución Poisson, pues se distribuyen aleatoriamente. Si la hipótesis es rechazada pueden presentarse patrones agrupados o uniformes.</p>
+<p><strong>Paso 2</strong>. Calcular la <strong>distribución de frecuencias observadas</strong> <span class="math inline">\((F_x)=N\)</span>: con datos de individuos por UM: (<span class="math inline">\(x= 0, 1, 2, 3,…r\)</span> individuos), Fx es el número de <span class="math inline">\(UM\)</span> observadas que contienen a los x individuos. El número mínimo de UM &gt; 30 (ej. 30 hojas, 30 sub-parcelas, etc.) para muestras de menor tamaño aplicar índices de dispersión.</p>
+<p><strong>Paso 3</strong>. Encontrar las <strong>probabilidades Poisson (</strong><span class="math inline">\(P_x\)</span>): es la probabilidad de encontrar <span class="math inline">\(x\)</span> individuos en una <span class="math inline">\(UM\)</span> y está dada por la siguiente ecuación:</p>
+<p><span class="math inline">\(P_0=e^{-µ}\)</span><br>
+Donde,<br>
+<span class="math inline">\(e\)</span> = 2.7183<br>
+<span class="math inline">\(x!\)</span> = factorial de <span class="math inline">\(x\)</span> (ej. Para <span class="math inline">\(x = 3! = (3)(2)(1) = 6\)</span>)<br>
+<span class="math inline">\(µ\)</span> = media paramétrica de la distribución Poisson. El estimador de µ es el estadístico computado para las probabilidades <span class="math inline">\(x= 0, 1, 2, 3,…r\)</span> individuos.</p>
+<p><strong>Paso 4.</strong> Calcular la distribución de frecuencias esperadas Poisson (<span class="math inline">\(E_x\)</span>): Surge de multiplicar cada <span class="math inline">\(P_x\)</span> por su correspondiente <span class="math inline">\(F_x\)</span> (o <span class="math inline">\(N_x\)</span>). Así, <span class="math inline">\(E_x\)</span> presenta la siguiente distribución:<br>
+<span class="math inline">\(E_0 = (N0)P(0),\ E_1 = (N1)P(1),\ E_2 = (N2)P(2), … ,\ E_r = (Nr)P(r)\)</span>.</p>
+<p><strong>Paso 5.</strong> Calcular la prueba de bondad de ajuste (Goodness of fit test) chi-cuadrado x2: Se utiliza para probar el ajuste de la Fx (Paso 2) con la Ex (Paso 3). La prueba x2 se calcula como sigue:<br>
+<span class="math inline">\(x^2 = \sum[(F_x-E_x)^2/E_x]\)</span><br>
+Donde,<br>
+<span class="math inline">\(F_x\)</span> es la frecuencia observada<br>
+<span class="math inline">\(E_x\)</span> es la frecuencia esperada<br>
+</p>
+<p>Los grados de libertad <span class="math inline">\(g.l. = n – 1\)</span> (n = número de unidades muestrales <span class="math inline">\(UM\)</span> = 50 cuadrantes aleatorios para este caso).<br>
+Tradicionalmente, este valor <span class="math inline">\(x^2\)</span> calculado, se compara con el <span class="math inline">\(x^2\)</span>&nbsp;teórico y con los grados de libertad requeridos. De forma manual, los datos de la prueba Poisson se tabulan de la siguiente manera:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla de frecuencias y prueba Chi-cuadrado</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Frecuencias</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Prob. Poisson</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">χ² calculado</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Número de individuos por cuadrícula (x) </th>
+   <th style="text-align:center;"> Fx </th>
+   <th style="text-align:center;"> Ex </th>
+   <th style="text-align:center;"> Px </th>
+   <th style="text-align:center;"> ((Fₓ − Eₓ)² / Eₓ) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;"> Σx² </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Sin embargo, en el siguiente paso, se describe el procedimiento que se realizará en <strong>R</strong>, para la validación del ajuste a la distribución aleatoria o de ajuste Poisson.</p>
+<hr>
+<p><strong>Paso 6.</strong> Bondad de ajuste a Poisson (<span class="math inline">\(\chi^2_{baj}\)</span>)<br>
+Compara las frecuencias observadas (<span class="math inline">\(F_x\)</span>) contra las esperadas bajo Poisson (<span class="math inline">\(E_x\)</span>).<br>
+<span class="math display">\[
+\chi^2_{baj} = \sum \frac{(F_x - E_x)^2}{E_x}
+\]</span> Donde,<br>
+<span class="math inline">\(F_x\)</span> = frecuencia observada.<br>
+<span class="math inline">\(E_x\)</span> = frecuencia esperada bajo distribución Poisson.<br>
+<span class="math inline">\(gl = k - 1 - p\)</span> con <span class="math inline">\(k\)</span> = número de clases (tras agrupar colas) y <span class="math inline">\(p = 1\)</span> parámetro estimado (<span class="math inline">\(\lambda = \bar x\)</span>).<br>
+</p>
+<p>si <span class="math inline">\(\chi^2_{baj}\)</span> es mayor al valor tabulado o el valor-p &lt; 0.05, se rechaza la hipótesis de aleatoriedad Poisson.</p>
+<hr>
+</section>
+<section id="diseño-estadístico-de-probabilidad-binomial-negativa." class="level5">
+<h5 class="anchored" data-anchor-id="diseño-estadístico-de-probabilidad-binomial-negativa.">1.2) Diseño estadístico de Probabilidad Binomial Negativa.</h5>
+<p>Esta prueba se realiza en el caso que los datos no presenten una distribución aleatoria. Este modelo matemático evalúa si el patrón de distribución de la población que satisface mejor las condiciones es de un arreglo agrupado o en parches. Representa a la distribución agrupada de acuerdo a las mismas consideraciones que Poisson: (a) Cada unidad muestral (UM) tiene igual probabilidad de contener a un individuo, (b) la ocurrencia de un individuo en una UM no es influenciada por la presencia de otro, (c) igual disponibilidad de espacio entre cada UM y (d) el número de individuos es relativamente bajo al máximo posible. Los pasos para desarrollar esta prueba son los mismo que en la distribución Poisson, excepto el pas 3) que se describe a continuación:</p>
+<p><strong>Paso 3</strong>. Encontrar las <strong>probabilidades Binomial Negativa (</strong><span class="math inline">\(P_x\)</span>): es la probabilidad de encontrar <span class="math inline">\(x\)</span> individuos en una <span class="math inline">\(UM\)</span> y está dada por la siguiente ecuación:</p>
+<p><span class="math display">\[
+P_{(x)}=[\frac{\mu}{(\mu + k)}].\{{\frac{(k+x-1)!}{[x!(k-1)]!.{(\frac{\mu}{\mu+k})}}}\}^k
+\]</span> Donde,<br>
+<span class="math inline">\(µ\)</span> = Es la media poblacional<br>
+<span class="math inline">\(k\)</span> = Mide grado de agrupamiento de los individuos de la muestra.<br>
+si, <span class="math inline">\(k\)</span> = Tiende a 0 <span class="math inline">\(\Rightarrow\)</span> se da el máximo agrupamiento.<br>
+Si, <span class="math inline">\(k\)</span> = Tiende a ∞ <span class="math inline">\(\Rightarrow\)</span> la distribución. será Poisson o aleatoria.</p>
+<p>Aqu´se tiene que la constante <span class="math inline">\(k\)</span> es la incognita a encontrar. Para calcular el valor de <span class="math inline">\(k\)</span>, primero se debe estimar <span class="math inline">\(\hat k\)</span> con la siguiente formula:</p>
+<p><span class="math display">\[
+\hat k=\frac{\bar x^2}{(s^2-\bar x)}
+\]</span> El valor de <span class="math inline">\(k\)</span> exacto debe satisfaccer la siguiente igualdad, partiendo de <span class="math inline">\(\hat k\)</span>:</p>
+<p><span class="math display">\[
+s^2=x + \frac{\bar x^2}{k}
+\]</span> El valor de <span class="math inline">\(k\)</span> exacto debe satisfaccer la siguiente igualdad, partiendo de <span class="math inline">\(\hat k\)</span>:</p>
+<p><span class="math display">\[
+log_{10}(N/N_0)=\hat k.log_{10}[1+(\bar x/\hat k)]
+\]</span> Los datos de la prueba Binomial Negativa deben ser tabulados similar a la anterior distribución:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla de frecuencias y prueba Binomial Negativa</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Frecuencias</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Prob. Bin. Neg</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">χ² calculado</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Número de individuos por cuadrícula (x) </th>
+   <th style="text-align:center;"> Fx </th>
+   <th style="text-align:center;"> Ex </th>
+   <th style="text-align:center;"> Px </th>
+   <th style="text-align:center;"> ((Fₓ − Eₓ)² / Eₓ) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+   <td style="text-align:center;height:25px;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 10cm; font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;">  </td>
+   <td style="text-align:center;font-weight: bold;"> Σx² </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>En caso que los datos no se ajusten a las distribuciones Poisson (<em>prueba 1</em>) y Binomial Negativa (<em>prueba 2</em>), por descarte se presenta una <strong>distribución uniforme</strong> (la más rara en la naturaleza). Estas pruebas deben complementarse con los <strong>índices de dispersión</strong> que se relacionan a continuación.</p>
+<hr>
+</section>
+</section>
+<section id="patrón-de-distribución-espacial-mediante-índices-de-dispersión" class="level4">
+<h4 class="anchored" data-anchor-id="patrón-de-distribución-espacial-mediante-índices-de-dispersión">2.) Patrón de distribución espacial, mediante índices de dispersión</h4>
+<p>Estos índices de dispersión complementan a las pruebas estadísticas anteriores y en algunos casos, como en este ejercicio que presenta pocos grados de libertad por la baja densidad de individuos en cada cuadrícula (UM), con <span class="math inline">\(E_x &lt; 5\)</span>, permiten validar la distribución de forma más apropiada (ej. Morisita <span class="math inline">\(I_M\)</span>, entre otros).</p>
+<section id="razón-varianza-promedio-o-índice-de-dispersión-id." class="level5">
+<h5 class="anchored" data-anchor-id="razón-varianza-promedio-o-índice-de-dispersión-id.">2.1) Razón Varianza Promedio o Índice de Dispersión (<span class="math inline">\(ID\)</span>).</h5>
+<p>Calcula la relación varianza – promedio. Para una población aleatoria (Poisson) <span class="math inline">\(ID \approx 1\)</span>.</p>
+<p><span class="math display">\[
+ID=\frac{s^2}{\bar x}
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(s^2=\frac{\sum[(x_i-\bar x)^2.F_x]}{N-1}\)</span><br>
+<span class="math inline">\(s^2\)</span> = varianza del número de individuos por UM.<br>
+<span class="math inline">\(\bar x\)</span> = media de individuos por UM.<br>
+<span class="math inline">\(x\)</span> = número de individuos en cada UM.</p>
+<p>Interpretación:<br>
+<span class="math inline">\(ID = 1\)</span> → aleatorio,<br>
+<span class="math inline">\(ID &gt; 1\)</span> → agrupado,<br>
+<span class="math inline">\(ID &lt; 1\)</span> → uniforme.</p>
+</section>
+<section id="índice-de-agrupamiento-ic-david-moore-1964." class="level5">
+<h5 class="anchored" data-anchor-id="índice-de-agrupamiento-ic-david-moore-1964.">2.2) Índice de Agrupamiento (IC) (David &amp; Moore 1964).</h5>
+<p>Este índice es una transformación del <span class="math inline">\(ID\)</span>, pero dependiente del tamaño de muestra (<span class="math inline">\(n\)</span>).</p>
+<p><span class="math display">\[
+IC=\left(\frac{s^2}{\bar x}\right)-1
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(IC = 0\)</span> → aleatorio.<br>
+<span class="math inline">\(IC = -1\)</span> → máxima uniformidad.<br>
+<span class="math inline">\(IC = n-1\)</span> → máximo agrupamiento.</p>
+</section>
+<section id="índice-de-holgate-ih-broker-zar-y-ende-1988." class="level5">
+<h5 class="anchored" data-anchor-id="índice-de-holgate-ih-broker-zar-y-ende-1988.">2.3) Índice de Holgate (<span class="math inline">\(IH\)</span>) (broker, Zar y Ende 1988).</h5>
+<p>Se utiliza con <strong>datos de distancias</strong> a los dos vecinos más cercanos desde un punto aleatorio. Es sensible al efecto de borde.</p>
+<p><span class="math display">\[
+IH=\frac{\sum(d^2/d'^2)}{n}-0.5
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(n\)</span> = total de puntos de intersección.<br>
+<span class="math inline">\(d\)</span> = distancia al primer individuo más cercano.<br>
+<span class="math inline">\(d'\)</span> = distancia al segundo individuo más cercano.</p>
+<p>Interpretación:<br>
+<span class="math inline">\(IH = 0\)</span> → aleatorio.<br>
+<span class="math inline">\(IH &gt; 0\)</span> → agrupado.<br>
+<span class="math inline">\(IH &lt; 0\)</span> → uniforme.</p>
+</section>
+<section id="media-de-hacinamiento-de-lloyd-m" class="level5">
+<h5 class="anchored" data-anchor-id="media-de-hacinamiento-de-lloyd-m">2.4) Media de hacinamiento de Lloyd (<span class="math inline">\(m^*\)</span>)</h5>
+<p>Cuantifica el hacinamiento promedio que experimenta un individuo. Es útil para describir el grado absoluto de agrupamiento.</p>
+<p><span class="math display">\[
+m^* = \bar x + \frac{s^2}{\bar x} - 1
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(\bar x\)</span> = media de individuos por UM,<br>
+<span class="math inline">\(s^2\)</span> = varianza muestral.<br>
+Valores altos de <span class="math inline">\(m^*\)</span> indican mayor hacinamiento.</p>
+<p>Interpretación: <span class="math inline">\(m^* = \bar x\)</span> → distribución aleatoria. <span class="math inline">\(m^* &gt; \bar x\)</span> → distribución agrupada. <span class="math inline">\(m^* &lt; \bar x\)</span> → distribución uniforme (poco frecuente en la naturaleza).</p>
+</section>
+<section id="índice-de-clumping-de-lloyd-i_clloyd" class="level5">
+<h5 class="anchored" data-anchor-id="índice-de-clumping-de-lloyd-i_clloyd">2.5) Índice de Clumping de Lloyd (<span class="math inline">\(I_c^{Lloyd}\)</span>)</h5>
+<p>Índice relativo de agregación que no depende del tamaño de muestra.</p>
+<p><span class="math display">\[
+I_c^{Lloyd} = \frac{m^*}{\bar x}
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(m^*\)</span> = media de hacinamiento de Lloyd,<br>
+<span class="math inline">\(\bar x\)</span> = media de individuos por UM.</p>
+<p>Interpretación:<br>
+<span class="math inline">\(I_c^{Lloyd} \approx 1\)</span> → aleatorio,<br>
+<span class="math inline">\(I_c^{Lloyd} &gt; 1\)</span> → agrupado,<br>
+<span class="math inline">\(I_c^{Lloyd} &lt; 1\)</span> → uniforme. ##### 2.6) Índice de Morisita (<span class="math inline">\(I_M\)</span>)</p>
+<p>Mide el grado de agregación con menor dependencia de la densidad. Es apropiado para comparar patrones entre estudios o escalas.</p>
+<p><span class="math display">\[
+I_M = \frac{n \cdot \sum x_i(x_i - 1)}{N(N - 1)}
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(n\)</span> = número de UM,<br>
+<span class="math inline">\(N = \sum x_i\)</span> = número total de individuos,<br>
+<span class="math inline">\(x_i\)</span> = conteo en la UM <span class="math inline">\(i\)</span>.</p>
+<p>Interpretación:<br>
+<span class="math inline">\(I_M \approx 1\)</span> → aleatorio,<br>
+<span class="math inline">\(I_M &gt; 1\)</span> → agrupado,<br>
+<span class="math inline">\(I_M &lt; 1\)</span> → uniforme.</p>
+</section>
+<section id="prueba-de-dispersión-basada-en-id-chi2_disp" class="level5">
+<h5 class="anchored" data-anchor-id="prueba-de-dispersión-basada-en-id-chi2_disp">2.7) Prueba de dispersión basada en <span class="math inline">\(ID\)</span> (<span class="math inline">\(\chi^2_{disp}\)</span>)</h5>
+<p>Contraste rápido de aleatoriedad usando la razón varianza/media.</p>
+<p><span class="math display">\[
+\chi^2_{disp} = (n - 1) \cdot ID
+\]</span></p>
+<p>Donde,<br>
+<span class="math inline">\(n\)</span> = número de UM,<br>
+<span class="math inline">\(ID = s^2/\bar x\)</span>.</p>
+<p>Con grados de libertad <span class="math inline">\(gl = n - 1\)</span>.<br>
+Un <span class="math inline">\(\chi^2_{disp}\)</span> alto → agrupado; bajo → uniforme.</p>
+<hr>
+</section>
+</section>
+<section id="tabla-comparativa-de-índices-de-dispersión" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-comparativa-de-índices-de-dispersión"><strong>Tabla comparativa de índices de dispersión</strong></h4>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Resumen didáctico de índices de dispersión</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Índice </th>
+   <th style="text-align:left;"> Fórmula </th>
+   <th style="text-align:center;"> Uniformidad </th>
+   <th style="text-align:center;"> Aleatorio </th>
+   <th style="text-align:center;"> Agrupado </th>
+   <th style="text-align:left;"> Observaciones </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Razón Varianza Media (ID) </td>
+   <td style="text-align:left;"> s² / x̄ </td>
+   <td style="text-align:center;"> &lt; 1 </td>
+   <td style="text-align:center;"> = 1 </td>
+   <td style="text-align:center;"> &gt; 1 </td>
+   <td style="text-align:left;"> Simple; base de IC y χ²_disp. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Agrupamiento (IC) </td>
+   <td style="text-align:left;"> (s² / x̄) - 1 </td>
+   <td style="text-align:center;"> -1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> n-1 </td>
+   <td style="text-align:left;"> Depende de n; comparabilidad limitada. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Holgate (IH) </td>
+   <td style="text-align:left;"> (Σ d²/d'²)/n - 0.5 </td>
+   <td style="text-align:center;"> &lt; 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> &gt; 0 </td>
+   <td style="text-align:left;"> Usa distancias; sensible al borde. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Lloyd m* </td>
+   <td style="text-align:left;"> x̄ + (s²/x̄) - 1 </td>
+   <td style="text-align:center;"> Baja </td>
+   <td style="text-align:center;"> — </td>
+   <td style="text-align:center;"> Alta </td>
+   <td style="text-align:left;"> Mide hacinamiento absoluto. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Clumping de Lloyd (Ic) </td>
+   <td style="text-align:left;"> m* / x̄ </td>
+   <td style="text-align:center;"> &lt; 1 </td>
+   <td style="text-align:center;"> ≈ 1 </td>
+   <td style="text-align:center;"> &gt; 1 </td>
+   <td style="text-align:left;"> Índice relativo; no depende de n. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> Morisita (IM) </td>
+   <td style="text-align:left;"> n · Σ xᵢ(xᵢ-1) / [N(N-1)] </td>
+   <td style="text-align:center;"> &lt; 1 </td>
+   <td style="text-align:center;"> ≈ 1 </td>
+   <td style="text-align:center;"> &gt; 1 </td>
+   <td style="text-align:left;"> Robusto; útil entre sitios/escala. </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> χ² de dispersión </td>
+   <td style="text-align:left;"> (n - 1) · ID </td>
+   <td style="text-align:center;"> Baja </td>
+   <td style="text-align:center;"> — </td>
+   <td style="text-align:center;"> Alta </td>
+   <td style="text-align:left;"> Contraste del ID; gl = n-1. </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="b.-densidad-de-la-población" class="level3">
+<h3 class="anchored" data-anchor-id="b.-densidad-de-la-población"><strong>B. Densidad de la población</strong></h3>
+<section id="método-de-holtage-con-puntos-de-intersección-al-azar" class="level4">
+<h4 class="anchored" data-anchor-id="método-de-holtage-con-puntos-de-intersección-al-azar">1.) <strong>Método de Holtage</strong> (con puntos de intersección al azar)</h4>
+<p>Estimar la densidad de los individuos con los datos de distancias (tabla 2) utilizando las siguientes ecuaciones:<br>
+<span class="math display">\[
+IH_D=\frac{n}{\pi \sum(x^2_i)}
+\]</span> Donde,<br>
+<span class="math inline">\(n\)</span> = número UM (cuadriculas o cuadrantes muestreados)<br>
+<span class="math inline">\(x_i\)</span> = distancia desde un punto aleatorio al individuo más cercano<br>
+<span class="math inline">\(π\)</span> = 3.141592654</p>
+</section>
+<section id="método-de-king-con-transecto-diagonal" class="level4">
+<h4 class="anchored" data-anchor-id="método-de-king-con-transecto-diagonal">2.) <strong>Método de King</strong> (con transecto diagonal)</h4>
+<p><span class="math display">\[
+D=\frac{n^2}{2L \sum(d_i)}
+\]</span> Donde,<br>
+<span class="math inline">\(D\)</span> = Densidad de la población (*hacerlo para plántulas y adultos)<br>
+<span class="math inline">\(n\)</span> = Número de individuos contados en el transecto.<br>
+<span class="math inline">\(d_i\)</span> = Distancia (<span class="math inline">\(m\)</span>) de los individuos al transecto.<br>
+<span class="math inline">\(L\)</span> = Longitud del transecto en metros.</p>
+</section>
+<section id="método-de-hayne-evita-subestimaciones-del-método-de-king" class="level4">
+<h4 class="anchored" data-anchor-id="método-de-hayne-evita-subestimaciones-del-método-de-king">3.) <strong>2. Método de Hayne</strong> (evita subestimaciones del método de King)&nbsp; *</h4>
+<p><span class="math display">\[
+D=\frac{\sum(1/d_i)}{2L}
+\]</span> Para las tres ecuaciones, los datos deben estar en metros.&nbsp; * La idea es comparar diferencias entre métodos<br>
+————————————————————————</p>
+</section>
+</section>
+<section id="objetivos-del-ejercicio" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos-del-ejercicio"><strong>Objetivos del ejercicio</strong></h3>
+<ol type="1">
+<li><p>Realizar los procedimientos de Poisson, Bionomial Negativa y los índices de dispersión, para determinar el patrón de distribución de Calotropis, ubicada en en el campus de la Universidad del Magdalena.</p></li>
+<li><p>Realizar los procedimientos para determinar la densidad de individuos en la parcela evaluada.</p></li>
+</ol>
+<hr>
+</section>
+<section id="preparación-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="preparación-de-los-datos">Preparación de los datos</h3>
+<p>Inicialmente se cargan las librerías requeridas por el ejercicio.</p>
+<p>A continuación se carga la base de datos (datos) y se calculan algunos estimadores descriptivos (número de cuadriculas <strong>n</strong>, número de inidividuos <strong>N</strong>, media estimada <strong>µ</strong>, varianza de la muestra <strong>s²</strong>).</p>
+<p>La <strong>base de datos</strong> se puede escargar en el siguiente enlace: <a href="https://javier-2712.github.io/Manuales/4.manual_andivea/4.poblaciones/bases_datos/datos.xlsx">datos.xlsx</a>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar la base de datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Se usa la columna de conteos por cuadrícula</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (en el archivo proporcionado se llama 'Individuos')</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>conteos <span class="ot">&lt;-</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  datos <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">x =</span> Individuos) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">as.integer</span>(x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(x)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimadores descriptivos</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>n  <span class="ot">&lt;-</span> <span class="fu">length</span>(conteos)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>N  <span class="ot">&lt;-</span> <span class="fu">sum</span>(conteos)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">mean</span>(conteos)         <span class="co"># µ estimado</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">var</span>(conteos)   <span class="co"># varianza muestral</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Elaboración de la tabla resumen</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">n (cuadrículas)</span><span class="st">`</span> <span class="ot">=</span> n,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">N (individuos)</span><span class="st">`</span>  <span class="ot">=</span> N,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">µ (media)</span><span class="st">`</span>       <span class="ot">=</span> mu,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">s² (varianza)</span><span class="st">`</span>   <span class="ot">=</span> s2</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>resumen <span class="sc">%&gt;%</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Estimadores descriptivos de la muestra evaluada"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>))<span class="sc">%&gt;%</span>  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Estimadores descriptivos de la muestra evaluada</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> n (cuadrículas) </th>
+   <th style="text-align:right;"> N (individuos) </th>
+   <th style="text-align:right;"> µ (media) </th>
+   <th style="text-align:right;"> s² (varianza) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 1.15 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="a.-estimación-estadística-de-la-distribución-espacial-de-la-población.-1" class="level3">
+<h3 class="anchored" data-anchor-id="a.-estimación-estadística-de-la-distribución-espacial-de-la-población.-1"><strong>A. Estimación estadística de la distribución espacial de la población.</strong></h3>
+<section id="diseños-estadísticos" class="level4">
+<h4 class="anchored" data-anchor-id="diseños-estadísticos">1.) Diseños estadísticos</h4>
+<section id="prueba-de-poisson." class="level5">
+<h5 class="anchored" data-anchor-id="prueba-de-poisson.">1.1) Prueba de Poisson.</h5>
+<section id="paso-1.-cálculo-de-las-frecuencias-observadas-y-de-las-probabilidades-calculadas-y-esperadas" class="level6">
+<h6 class="anchored" data-anchor-id="paso-1.-cálculo-de-las-frecuencias-observadas-y-de-las-probabilidades-calculadas-y-esperadas">paso 1. Cálculo de las frecuencias observadas y de las probabilidades calculadas y esperadas</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número máx de inidividuos por cuadricula (filas de la tabla)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x_max <span class="ot">&lt;-</span> <span class="fu">max</span>(conteos)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias observadas (Fx)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> conteos) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(x, <span class="at">name =</span> <span class="st">"Fx"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>x_max, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">Fx =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(x)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla de la distribución Poisson completa</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">&lt;-</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  fx <span class="sc">%&gt;%</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Px =</span> <span class="fu">dpois</span>(x, mu),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ex =</span> n <span class="sc">*</span> Px,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span> <span class="ot">=</span> (Fx <span class="sc">-</span> Ex)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> Ex</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla de frecuencias</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>fx <span class="sc">%&gt;%</span> </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Frecuencias, Poisson esperada y Chi cuadrado χ²"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Frecuencias, Poisson esperada y Chi cuadrado χ²</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> Fx </th>
+   <th style="text-align:right;"> Px </th>
+   <th style="text-align:right;"> Ex </th>
+   <th style="text-align:right;"> χ² comp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 27.9 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 15.1 </td>
+   <td style="text-align:right;"> 1.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 4.1 </td>
+   <td style="text-align:right;"> 4.10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.7 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 83.95 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Nota de validez:</strong> La prueba χ² requiere <strong>frecuencias esperadas</strong> por clase <strong>≥ 5</strong>. Con µ pequeño, las colas (x ≥ 2) suelen violar esta condición, por lo que se debe <strong>agrupar</strong> clases.</p>
+</blockquote>
+</section>
+<section id="paso-2.-agrupación-automática-0-1-2" class="level6">
+<h6 class="anchored" data-anchor-id="paso-2.-agrupación-automática-0-1-2">paso 2. Agrupación automática (0, 1, ≥2)</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen de la tabla de frecuencia a tres clases de cobertura</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fx_agrup <span class="ot">&lt;-</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  fx <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"0"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"1"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"≥2"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(clase) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fx =</span> <span class="fu">sum</span>(Fx),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ex =</span> <span class="fu">sum</span>(Ex),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span> <span class="ot">=</span> (Fx <span class="sc">-</span> Ex)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> Ex)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla resumida</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>fx_agrup <span class="sc">%&gt;%</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Frecuencias agrupadas (solo 3 clases)"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Frecuencias agrupadas (solo 3 clases)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> clase </th>
+   <th style="text-align:right;"> Fx </th>
+   <th style="text-align:right;"> Ex </th>
+   <th style="text-align:right;"> χ² comp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 27.93 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 15.13 </td>
+   <td style="text-align:right;"> 1.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ≥2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4.94 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de hipótesis de aleatoriedad Poisson</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chi2  <span class="ot">&lt;-</span> <span class="fu">sum</span>(fx_agrup<span class="sc">$</span><span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span>)  <span class="co"># χ² calculado (no tabulado)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gl    <span class="ot">&lt;-</span> <span class="fu">nrow</span>(fx_agrup) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span>   <span class="co"># grados de libertad</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> <span class="cf">if</span> (gl <span class="sc">&gt;</span> <span class="dv">0</span>) </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">pchisq</span>(chi2, <span class="at">df =</span> gl, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="cf">else</span> <span class="cn">NA_real_</span>  <span class="co"># Valor p </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de la prueba de hipótesis</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Bondad de ajuste - χ² (baj)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">χ² (baj)</span><span class="st">`</span> <span class="ot">=</span> chi2,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">gl</span><span class="st">`</span>       <span class="ot">=</span> gl,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span>  <span class="ot">=</span> p_val) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Prueba de bondad de ajuste χ²"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Prueba de bondad de ajuste χ²</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> χ² (baj) </th>
+   <th style="text-align:right;"> gl </th>
+   <th style="text-align:right;"> p-valor </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 2.23 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.136 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Aunque el valor p (&gt; 0.05) inidica un patrón aleatorio, si <code>gl = 0</code> o alguna <code>Ex &lt; 5</code>, la prueba de bondad de ajuste χ² <strong>no es estadísticamente válida</strong>. En ese caso, complemente con el <strong>índice de dispersión</strong> y/o <strong>Morisita</strong>.</p>
+</blockquote>
+</section>
+<section id="paso-3.-gráficos-observado-vs.-poisson-esperado" class="level6">
+<h6 class="anchored" data-anchor-id="paso-3.-gráficos-observado-vs.-poisson-esperado">paso 3. Gráficos: Observado vs.&nbsp;Poisson esperado</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>obs_exp <span class="ot">&lt;-</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  fx <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(x, Fx, Ex) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Fx, Ex),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">names_to =</span> <span class="st">"tipo"</span>, <span class="at">values_to =</span> <span class="st">"frecuencia"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(obs_exp, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(x), <span class="at">y =</span> frecuencia, <span class="at">fill =</span> tipo)) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Individuos por cuadrícula (x)"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">""</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Frecuencias observadas vs. esperadas (Poisson)"</span>) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/grafico-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La figura compara la <strong>distribución observada de individuos por cuadrícula (</strong><span class="math inline">\(F_x\)</span>) frente a la <strong>distribución esperada bajo un modelo Poisson (</strong><span class="math inline">\(E_x\)</span>).</p>
+<ol type="1">
+<li><strong>Predominio de cuadrículas vacías (</strong><span class="math inline">\(x = 0\)</span>):</li>
+</ol>
+<ul>
+<li><p>Se observa que la mayor parte de las cuadrículas muestreadas no contienen individuos, lo cual es consistente con la <strong>expectativa teórica de Poisson</strong> en poblaciones dispersas al azar.</p></li>
+<li><p>Sin embargo, las frecuencias observadas en <span class="math inline">\(x = 0\)</span> son <strong>más altas que las esperadas</strong>, indicando que hay más unidades vacías de lo que el modelo aleatorio predice.</p></li>
+<li><p>Esto puede reflejar que los individuos tienden a concentrarse en algunos puntos, dejando otras unidades completamente vacías.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Baja coincidencia en cuadrículas con un individuo (</strong><span class="math inline">\(x = 1\)</span>):</li>
+</ol>
+<ul>
+<li><p>El <strong>modelo Poisson</strong> indica una frecuencia relativamente alta en las cuadrículas con un individuo.</p></li>
+<li><p>En cambio, la observación muestra <strong>menos cuadrículas con un solo individuo</strong> de lo que se esperaba.</p></li>
+<li><p>Esta diferencia complementa el exceso de cuadrículas vacías: los individuos no están distribuidos homogéneamente, sino que tienden a agruparse.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Diferencias en clases con más individuos (</strong><span class="math inline">\(x ≥ 2\)</span>):</li>
+</ol>
+<ul>
+<li><p>A medida que aumenta el número de individuos por cuadrícula, las frecuencias absolutas son bajas en ambos casos (observadas y esperadas).</p></li>
+<li><p>Sin embargo, se observa que en las categorías <span class="math inline">\(x = 2\)</span> y <span class="math inline">\(x = 4\)</span>, la frecuencia real supera ligeramente lo esperado.</p></li>
+<li><p>Esto sugiere la presencia de <strong>cuadrículas con pequeños grupos de individuos</strong>, que puede indicar un leve <strong>patrón agrupado</strong>.</p></li>
+</ul>
+<p>Este patrón es típico de muchas poblaciones naturales:</p>
+<ul>
+<li><p>En ambientes heterogéneos, los recursos o microhábitats favorables no están distribuidos al azar, lo que lleva a la concentración de individuos en determinadas áreas.</p></li>
+<li><p>Las cuadrículas vacías representan zonas menos aptas, mientras que las pocas cuadrículas con varios individuos indican “parches” donde la especie encuentra condiciones adecuadas.</p></li>
+<li><p>En este sentido, aunque la prueba de Poisson parte de la hipótesis nula de <strong>aleatoriedad espacial</strong>, la comparación de frecuencias y los índices de dispersión complementarios sugieren que la <strong>población presenta un patrón agrupado</strong>, más consistente con una distribución <strong>binomial negativa</strong> que con una Poisson estricta.</p></li>
+</ul>
+</section>
+<section id="paso-4.-conclusión-automática" class="level6">
+<h6 class="anchored" data-anchor-id="paso-4.-conclusión-automática">paso 4. Conclusión (automática)</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primero se calcula el valor-p</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chi2  <span class="ot">&lt;-</span> <span class="fu">sum</span>(fx_agrup<span class="sc">$</span><span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>gl    <span class="ot">&lt;-</span> <span class="fu">nrow</span>(fx_agrup) <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> <span class="cf">if</span> (gl <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">pchisq</span>(chi2, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">df =</span> gl, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="cf">else</span> <span class="cn">NA_real_</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Índice de dispersión (ya calculado arriba, pero se recalcula por claridad)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> s2 <span class="sc">/</span> mu</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ahora la conclusión</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>conclusion <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(p_val) <span class="sc">~</span> <span class="st">"La χ² no es aplicable con las clases definidas; interprete los diagnósticos."</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  p_val <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> ID <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Se rechaza aleatoriedad: patrón agrupado."</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  p_val <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> ID <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Se rechaza aleatoriedad: patrón uniforme/regular."</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span>                   <span class="sc">~</span> <span class="st">"No se rechaza la hipótesis de aleatoriedad (Poisson)."</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(conclusion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>No se rechaza la hipótesis de aleatoriedad (Poisson).</code></pre>
+</div>
+</div>
+<p>Desde el <strong>punto de vista estadístico</strong>, como el valor de <span class="math inline">\(p_val\)</span> resultó <strong>no significativo</strong> (<span class="math inline">\(p &gt; 0.05\)</span>), <strong>no se rechaza</strong> <span class="math inline">\(H_0\)</span> → la distribución observada es <strong>compatible con Poisson</strong>, es decir, <strong>aleatoria</strong>.</p>
+<p>Pero en la figura se ve un <strong>exceso de cuadrículas vacías</strong> y algunas con más individuos de lo esperado, lo cual sugiere “visualmente” cierta <strong>tendencia al agrupamiento</strong>, aunque la prueba estadística global no lo detecta como significativo.</p>
+<p>Es importante resaltar que con <strong>tamaños de muestra relativamente pequeños</strong> o frecuencias bajas (<span class="math inline">\(E_x &lt; 5\)</span> en algunas clases), la <strong>prueba χ² puede perder poder estadístico</strong>, por lo que se sugiere complementar con <strong>índices de dispersión</strong> (ej. <span class="math inline">\(ID, IC, Morisita\)</span>, etc.), que pueden ser más sensibles que las pruebas estadísticas.</p>
+<p>En este sentido, desde una <strong>visión estadística</strong> <em>“No se rechaza la hipótesis de aleatoriedad; los datos son consistentes con un patrón Poisson.”</em> y desde un <strong>enfoque más ecológico</strong> (índices de dispersión e histograma) “<em>puede interpretarse como una leve tendencia al agrupamiento, lo cual es corroborado con índices de dispersión más robustos como Morisita, Lloyd.”</em></p>
+<hr>
+</section>
+</section>
+<section id="prueba-binomial-negativa---bn." class="level5">
+<h5 class="anchored" data-anchor-id="prueba-binomial-negativa---bn.">1.2) Prueba Binomial Negativa - BN.</h5>
+<section id="paso-1.-estimación-del-parámetro-de-agrupamiento-k" class="level6">
+<h6 class="anchored" data-anchor-id="paso-1.-estimación-del-parámetro-de-agrupamiento-k">paso 1. Estimación del parámetro de agrupamiento <span class="math inline">\(k\)</span></h6>
+<p>De acuerdo con el contexto teórico, cuando <span class="math inline">\(s^2 &gt; \mu\)</span> se sugiere un patrón <strong>agrupado</strong> y la <strong>Binomial Negativa</strong> puede ser un modelo apropiado. La constante <span class="math inline">\(k\)</span> cuantifica el grado de agrupamiento.</p>
+<ul>
+<li>Estimador de momentos (inicial): <span class="math inline">\(\hat k = \dfrac{\bar x^2}{(s^2 - \bar x)}\)</span></li>
+<li>Si <span class="math inline">\(s^2 \le \mu\)</span>, <span class="math inline">\(\hat k\)</span> no es positivo; en tal caso, el ajuste Binomial Negativa no es recomendable y el patrón puede ser <strong>Poisson</strong> (aleatorio) o más uniforme.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>k_hat <span class="ot">&lt;-</span> <span class="cf">if</span> (s2 <span class="sc">&gt;</span> mu) (mu<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>         (s2 <span class="sc">-</span> mu) <span class="cf">else</span> <span class="cn">NA_real_</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">k̂ (momentos)</span><span class="st">`</span> <span class="ot">=</span> k_hat) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Estimador inicial de k (método de momentos)"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Estimador inicial de k (método de momentos)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> k̂ (momentos) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.485 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Nota</strong>: En aplicaciones avanzadas, <span class="math inline">\(k\)</span> puede refinarse por <strong>máxima verosimilitud</strong> (p.ej., <code>MASS::fitdistr</code> con parametrización <code>size = k</code>, <code>mu = µ</code>). Aquí se usa <span class="math inline">\(\hat k\)</span> por su practicidad pedagógica.</p>
+</blockquote>
+</section>
+<section id="paso-2.-frecuencias-observadas-probabilidades-binomial-negativa-y-esperadas" class="level6">
+<h6 class="anchored" data-anchor-id="paso-2.-frecuencias-observadas-probabilidades-binomial-negativa-y-esperadas">paso 2. Frecuencias observadas, probabilidades Binomial Negativa y esperadas</h6>
+<p>Se calcula la tabla de frecuencias observadas <span class="math inline">\(F_x\)</span>, las probabilidades BN <span class="math inline">\(P_x\)</span> y las frecuencias esperadas <span class="math inline">\(E_x = n \cdot P_x\)</span>. Usamos la parametrización de R: <code>dnbinom(x, size = k, mu = µ)</code> (donde <code>size = k</code>).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_max <span class="ot">&lt;-</span> <span class="fu">max</span>(conteos)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias observadas (Fx)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fx_BN <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> conteos) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(x, <span class="at">name =</span> <span class="st">"Fx"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">complete</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>x_max, <span class="at">fill =</span> <span class="fu">list</span>(<span class="at">Fx =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(x)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Probabilidades BN y esperadas (si k_hat es válido)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>fx_BN <span class="ot">&lt;-</span> fx_BN <span class="sc">%&gt;%</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Px =</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(k_hat) <span class="sc">&amp;&amp;</span> k_hat <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">dnbinom</span>(x, <span class="at">size =</span> k_hat, <span class="at">mu =</span> mu) <span class="cf">else</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ex =</span> n <span class="sc">*</span> Px,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span> <span class="ot">=</span> (Fx <span class="sc">-</span> Ex)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> Ex</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>fx_BN <span class="sc">%&gt;%</span> </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Frecuencias observadas, Binomial Negativa esperada y contribuciones χ²"</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Frecuencias observadas, Binomial Negativa esperada y contribuciones χ²</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> Fx </th>
+   <th style="text-align:right;"> Px </th>
+   <th style="text-align:right;"> Ex </th>
+   <th style="text-align:right;"> χ² comp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.695 </td>
+   <td style="text-align:right;"> 33.368 </td>
+   <td style="text-align:right;"> 0.004 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.178 </td>
+   <td style="text-align:right;"> 8.534 </td>
+   <td style="text-align:right;"> 0.712 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.070 </td>
+   <td style="text-align:right;"> 3.344 </td>
+   <td style="text-align:right;"> 3.344 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.030 </td>
+   <td style="text-align:right;"> 1.462 </td>
+   <td style="text-align:right;"> 0.146 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.014 </td>
+   <td style="text-align:right;"> 0.672 </td>
+   <td style="text-align:right;"> 8.064 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Validez:</strong> Como en Poisson, la prueba <span class="math inline">\(\chi^2\)</span> requiere <span class="math inline">\(E_x \ge 5\)</span> por clase; a menudo se <strong>agrupan colas</strong> para cumplir este criterio.</p>
+</section>
+<section id="paso-3.-agrupación-automática-0-1-2-3" class="level6">
+<h6 class="anchored" data-anchor-id="paso-3.-agrupación-automática-0-1-2-3">paso 3. Agrupación automática (0, 1, 2, ≥3)</h6>
+<p>Se resume la tabla de frecuencias en <strong>cuatro clases</strong> (0, 1, 2, ≥3), de forma que los grados de libertad puedan ser mayores que cero al evaluar la bondad de ajuste.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fx_BN_agrup <span class="ot">&lt;-</span> fx_BN <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">clase =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"0"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"1"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"≥3"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(clase) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fx =</span> <span class="fu">sum</span>(Fx),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ex =</span> <span class="fu">sum</span>(Ex),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span> <span class="ot">=</span> (Fx <span class="sc">-</span> Ex)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> Ex)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>fx_BN_agrup <span class="sc">%&gt;%</span> </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Frecuencias agrupadas (4 clases: 0, 1, 2, ≥3) — Binomial Negativa"</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Frecuencias agrupadas (4 clases: 0, 1, 2, ≥3) — Binomial Negativa</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> clase </th>
+   <th style="text-align:right;"> Fx </th>
+   <th style="text-align:right;"> Ex </th>
+   <th style="text-align:right;"> χ² comp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 33.368 </td>
+   <td style="text-align:right;"> 0.004 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 8.534 </td>
+   <td style="text-align:right;"> 0.712 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3.344 </td>
+   <td style="text-align:right;"> 3.344 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ≥3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2.134 </td>
+   <td style="text-align:right;"> 1.632 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="paso-4.-bondad-de-ajuste-χ²-baj-para-binomial-negativa-4-clases" class="level6">
+<h6 class="anchored" data-anchor-id="paso-4.-bondad-de-ajuste-χ²-baj-para-binomial-negativa-4-clases">paso 4. Bondad de ajuste (χ² baj) para Binomial Negativa (4 clases)</h6>
+<p>Para BN se <strong>estiman dos parámetros</strong> (<span class="math inline">\(\mu\)</span> y <span class="math inline">\(k\)</span>). Los grados de libertad de la prueba de bondad de ajuste son <span class="math inline">\(gl = k_{clases} - 1 - p\)</span>, con <span class="math inline">\(p = 2\)</span>. Con cuatro clases (0, 1, 2, ≥3) se obtiene <span class="math inline">\(gl = 1\)</span>, siempre que las cuatro clases tengan <span class="math inline">\(E_x\)</span> válidos.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>k_clases <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(fx_BN_agrup<span class="sc">$</span>Ex))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gl_BN    <span class="ot">&lt;-</span> k_clases <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>chi2_BN  <span class="ot">&lt;-</span> <span class="fu">sum</span>(fx_BN_agrup<span class="sc">$</span><span class="st">`</span><span class="at">χ² comp</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>p_BN     <span class="ot">&lt;-</span> <span class="cf">if</span> (gl_BN <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">pchisq</span>(chi2_BN, <span class="at">df =</span> gl_BN, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="cf">else</span> <span class="cn">NA_real_</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">χ² (baj BN)</span><span class="st">`</span> <span class="ot">=</span> chi2_BN,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">gl (BN)</span><span class="st">`</span>     <span class="ot">=</span> gl_BN,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">p-valor (BN)</span><span class="st">`</span><span class="ot">=</span> p_BN</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Prueba de bondad de ajuste χ² para Binomial Negativa (4 clases)"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Prueba de bondad de ajuste χ² para Binomial Negativa (4 clases)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> χ² (baj BN) </th>
+   <th style="text-align:right;"> gl (BN) </th>
+   <th style="text-align:right;"> p-valor (BN) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 5.693 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.017 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Interpretación guía:</strong><br>
+- Si alguna clase tiene <span class="math inline">\(E_x &lt; 5\)</span>, se debe considerar reagrupar (p.ej., 0, 1, ≥2) y reporte limitaciones.<br>
+- Si <span class="math inline">\(gl &gt; 0\)</span> y <span class="math inline">\(p &lt; 0.05\)</span>, se <strong>rechaza</strong> el ajuste BN; si <span class="math inline">\(p \ge 0.05\)</span>, <strong>no se rechaza</strong>.<br>
+- Acompañar este estadístico BN con índices de dispersión (ej. Morisita, Lloyd) y, si es posible, con comparación <strong>BN vs Poisson</strong> usando AIC (ajustes por MLE).</p>
+</blockquote>
+<p>Con la distribución de frecuencias en 4 clases, el análisis de frecuencias observadas frente a las esperadas bajo la <strong>Binomial Negativa</strong> mostró diferencias (no se cumple la distribución agrupada o BN), debido a lo siguiente:</p>
+<ul>
+<li><p><strong>χ² = 5.69</strong> con <strong>gl = 1</strong> y <strong>p = 0.017</strong>.<br>
+Bajo este nivel de agrupación, <strong>se rechaza la hipótesis de ajuste BN</strong> (es decir, las frecuencias no se explican bien por el modelo Binomial Negativa en este caso). Hay que recordar que el ajuste estadístico fue Poisson o aleatorio, por lo cual, es de esperar que no sea BN.</p></li>
+<li><p>Para <strong>x = 0</strong> (cuadrículas vacías), el ajuste es muy bueno: 33 observadas frente a 33.4 esperadas.</p></li>
+<li><p>Para <strong>x = 1</strong>, la BN subestima ligeramente la frecuencia (11 observadas vs.&nbsp;8.5 esperadas).</p></li>
+<li><p>En <strong>x = 2</strong>, el modelo sobreestima claramente (0 observadas vs.&nbsp;3.3 esperadas), generando la mayor contribución al χ².</p></li>
+<li><p>En las clases con <strong>≥3 individuos</strong>, el ajuste es más razonable, aunque todavía la BN subestima (4 observadas vs.&nbsp;2.1 esperadas).</p></li>
+</ul>
+<p>Este resultado sugiere que la muestra censada de <em>Calotropis procera,</em> <strong>no sigue el patrón de agrupación Binomial Negativo</strong> bajo la partición de 4 clases. Aunque la BN es un modelo diseñado para describir poblaciones <strong>agrupadas o en parches</strong>, en este caso estadístico, el patrón observado se desvía de la expectativa, especialmente en la ausencia de cuadrículas con dos individuos (clase <em>x = 2</em>).</p>
+<p>Esto refleja que los individuos tienden a distribuirse en dos extremos: <strong>ausentes</strong> en gran parte de las unidades muestrales (vacíos abundantes) y presentes en cantidades <strong>mayores a lo esperado en ciertos parches</strong> (≥3 individuos). Este patrón purde ser consistente con especies vegetales colonizadoras o en expansión inicial, que suelen formar núcleos localizados de mayor densidad en un parche donde la mayoría de los sitios o hábitats no han sido ocupados (en espacios abiertos como se observa en el área evaluada).</p>
+</section>
+<section id="paso-5.-gráfico-observado-vs.-bn-esperado" class="level6">
+<h6 class="anchored" data-anchor-id="paso-5.-gráfico-observado-vs.-bn-esperado">paso 5. Gráfico: Observado vs.&nbsp;BN esperado</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>obs_exp_BN <span class="ot">&lt;-</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fx_BN <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(x, Fx, Ex) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Fx, Ex),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">names_to =</span> <span class="st">"tipo"</span>, <span class="at">values_to =</span> <span class="st">"frecuencia"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(obs_exp_BN, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(x), <span class="at">y =</span> frecuencia, <span class="at">fill =</span> tipo)) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Individuos por cuadrícula (x)"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">""</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Frecuencias observadas vs. esperadas (Binomial Negativa)"</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/grafico-BN-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La figura <strong>“Frecuencias observadas vs.&nbsp;esperadas (Binomial Negativa)”</strong> contrasta la distribución empírica de individuos por UM (<span class="math inline">\(F_x\)</span>) frente a la distribución teórica bajo BN (<span class="math inline">\(E_x = n\,P_x\)</span> con parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(k\)</span> estimados).</p>
+<ul>
+<li><strong>Clases vacías (x = 0):</strong> El ajuste suele ser cercano al observado (cuando la BN captura bien vacíos), pero pequeñas diferencias en esta clase pesan mucho en la percepción del patrón.<br>
+</li>
+<li><strong>Clases de baja abundancia (x = 1, 2):</strong> Si la BN <strong>subestima</strong> o <strong>sobreestima</strong> estas clases, se refleja en barras desbalanceadas. En tu caso, la clase <strong>x = 2</strong> fue <strong>sobreestimada</strong> por BN, generando una contribución importante al <span class="math inline">\(\chi^2\)</span> de gof.<br>
+</li>
+<li><strong>Clases de mayor abundancia (x ≥ 3):</strong> La BN debería capturar los <strong>parches</strong> (valores altos de x). Si <strong>subestima</strong> persistentemente estas colas, sugiere que el patrón observado es <strong>más extremo</strong> (más “parchado”) que lo que BN predice con el <span class="math inline">\(k\)</span> estimado.</li>
+</ul>
+<p>Un desajuste como el observado —exceso de vacíos junto a varias UM con valores relativamente altos— es típico de <strong>colonización en parches</strong> o de <strong>microhábitats muy heterogéneos</strong>. La BN modela agregación, pero si el paisaje tiene <strong>grandes zonas sin individuos</strong> y <strong>núcleos densos</strong>, el ajuste puede fallar en clases intermedias (p.&nbsp;ej., x = 2).</p>
+</section>
+<section id="paso-6.-conclusión-automática-bn" class="level6">
+<h6 class="anchored" data-anchor-id="paso-6.-conclusión-automática-bn">paso 6. Conclusión automática (BN)</h6>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>conclusion_BN <span class="ot">&lt;-</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(k_hat) <span class="sc">~</span> <span class="st">"BN no aplicable: s² ≤ µ (no hay evidencia de sobre-dispersión)."</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(gl_BN) <span class="sc">|</span> gl_BN <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"χ² (BN) no aplicable con 3 clases; interpretar la tabla y usar índices."</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">is.na</span>(p_BN) <span class="sc">&amp;</span> p_BN <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"Se rechaza el ajuste BN a las frecuencias (p &lt; 0.05)."</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">is.na</span>(p_BN) <span class="sc">&amp;</span> p_BN <span class="sc">&gt;=</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"No se rechaza el ajuste BN (frecuencias consistentes con patrón agrupado BN)."</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Resultado indeterminado; revisar clases o estimación de k."</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(conclusion_BN)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Se rechaza el ajuste BN a las frecuencias (p &lt; 0.05).</code></pre>
+</div>
+</div>
+<p>La <strong>conclusión de BN</strong> indica el resultado de la prueba de bondad de ajuste <span class="math inline">\(\chi^2\)</span> usando la tabla <strong>agrupada en 4 clases (0, 1, 2, ≥3)</strong>, lo que provee <strong>gl = 1</strong> siempre que todas las clases tengan <span class="math inline">\(E_x\)</span> válidas.</p>
+<ul>
+<li>Si <strong>p &lt; 0.05</strong> (como ocurrió al evaluar tu tabla con <span class="math inline">\(\chi^2 = 5.69\)</span>, gl = 1, <strong>p = 0.017</strong>), se <strong>rechaza</strong> el ajuste BN: las frecuencias observadas difieren de las esperadas bajo BN.<br>
+</li>
+<li>Si <strong>p ≥ 0.05</strong>, <strong>no se rechaza</strong> el ajuste BN.</li>
+</ul>
+<blockquote class="blockquote">
+<p>*“Con la partición en cuatro clases (0, 1, 2, ≥3), la prueba* <span class="math inline">\(\chi^2\)</span> indica que la Binomial Negativa <strong>no</strong> explica adecuadamente la distribución de frecuencias. Este resultado sugiere un patrón de agregación <strong>más extremo/irregular</strong> que el capturado por BN con el <span class="math inline">\(k\)</span> estimado, con exceso de vacíos y algunos parches densos.”</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="comparación-de-modelos-poisson-vs.-binomial-negativa-aic-mle" class="level5">
+<h5 class="anchored" data-anchor-id="comparación-de-modelos-poisson-vs.-binomial-negativa-aic-mle">1.3). Comparación de modelos: Poisson vs.&nbsp;Binomial Negativa (AIC, MLE)</h5>
+<blockquote class="blockquote">
+<p>Objetivo: evaluar, con <strong>máxima verosimilitud (MLE)</strong>, cuál modelo describe mejor los conteos por unidad muestral, comparando <strong>AIC</strong> entre Poisson y Binomial Negativa. No modifica los pasos anteriores; es un <strong>complemento final</strong>.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(MASS)      <span class="co"># glm.nb</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos como data.frame simple</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>df_counts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">y =</span> conteos)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajustes (intercepto únicamente): y ~ 1</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>mod_pois <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df_counts, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>mod_nb   <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">glm.nb</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df_counts), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen AIC</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>get_row <span class="ot">&lt;-</span> <span class="cf">function</span>(name, fit){</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(fit)) <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">Modelo =</span> name, <span class="at">logLik =</span> <span class="cn">NA</span>, <span class="at">k =</span> <span class="cn">NA</span>, <span class="at">AIC =</span> <span class="cn">NA</span>))</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  ll <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">logLik</span>(fit))</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  k  <span class="ot">&lt;-</span> <span class="fu">attr</span>(<span class="fu">logLik</span>(fit), <span class="st">"df"</span>)  <span class="co"># número de parámetros estimados</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Modelo =</span> name, <span class="at">logLik =</span> ll, <span class="at">k =</span> k, <span class="at">AIC =</span> <span class="fu">AIC</span>(fit))</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_row</span>(<span class="st">"Poisson (glm)"</span>, mod_pois),</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_row</span>(<span class="st">"Binomial Negativa (glm.nb)"</span>, mod_nb)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co"># ΔAIC y pesos de Akaike</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>minAIC <span class="ot">&lt;-</span> <span class="fu">min</span>(tab<span class="sc">$</span>AIC, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>Delta_AIC <span class="ot">&lt;-</span> tab<span class="sc">$</span>AIC <span class="sc">-</span> minAIC</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>wAIC <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> tab<span class="sc">$</span>Delta_AIC)</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>tab<span class="sc">$</span>wAIC <span class="ot">&lt;-</span> tab<span class="sc">$</span>wAIC <span class="sc">/</span> <span class="fu">sum</span>(tab<span class="sc">$</span>wAIC, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>tab <span class="sc">%&gt;%</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">logLik =</span> <span class="fu">round</span>(logLik, <span class="dv">3</span>),</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">AIC =</span> <span class="fu">round</span>(AIC, <span class="dv">3</span>),</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">Delta_AIC =</span> <span class="fu">round</span>(Delta_AIC, <span class="dv">3</span>),</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">wAIC =</span> <span class="fu">round</span>(wAIC, <span class="dv">3</span>)</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Comparación de modelos por AIC (MLE)"</span>,</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>,<span class="st">"c"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Comparación de modelos por AIC (MLE)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Modelo </th>
+   <th style="text-align:center;"> logLik </th>
+   <th style="text-align:center;"> k </th>
+   <th style="text-align:center;"> AIC </th>
+   <th style="text-align:center;"> Delta_AIC </th>
+   <th style="text-align:center;"> wAIC </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Poisson (glm) </td>
+   <td style="text-align:center;"> -53.267 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 108.533 </td>
+   <td style="text-align:center;"> 9.944 </td>
+   <td style="text-align:center;"> 0.007 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Binomial Negativa (glm.nb) </td>
+   <td style="text-align:center;"> -47.295 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 98.589 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> 0.993 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Escoger el modelo con <span class="math inline">\(AIC\)</span> más bajo (<span class="math inline">\(ΔAIC\)</span> = 0 y mayor peso de Akaike, wAIC).<br>
+Si <strong>BN</strong> tiene un AIC marcadamente menor que <strong>Poisson</strong>, se apoya el <strong>patrón agregado</strong>; si <strong>Poisson</strong> gana, se respalda <strong>aleatoriedad</strong>.<br>
+Esta comparación es <strong>complementaria</strong> a las tablas de frecuencias y a los <strong>índices de dispersión</strong>.</p>
+<ul>
+<li><strong>BN</strong>: <span class="math inline">\(AIC\)</span> = <strong>98.589</strong>, <span class="math inline">\(\Delta\ AIC\)</span> = <strong>0.000</strong>, <span class="math inline">\(w\ AIC\)</span> = <strong>0.993</strong>.<br>
+</li>
+<li><strong>Poisson</strong>: <span class="math inline">\(AIC\)</span> = <strong>108.533</strong>, <span class="math inline">\(\Delta\ AIC\)</span> = <strong>9.944</strong>, <span class="math inline">\(w\ AIC\)</span> = <strong>0.007</strong>.</li>
+</ul>
+<p>Esto indica <strong>evidencia abrumadora</strong> a favor de <strong>Binomial Negativa</strong> frente a <strong>Poisson</strong> en términos de <strong>verosimilitud penalizada por complejidad</strong> (<span class="math inline">\(AIC\)</span>). Ecológicamente, respalda que la población presenta <strong>sobre-dispersión</strong> (varianza &gt; media) y, por tanto, un patrón de <strong>agregación</strong> más compatible con BN que con Poisson.</p>
+<blockquote class="blockquote">
+<p>*“Aunque la BN no ajustó bien las frecuencias en la prueba* <span class="math inline">\(\chi^2\)</span> con 4 clases (debido, sobre todo, a las clases intermedias), la comparación por AIC muestra que la BN describe <strong>mucho mejor</strong> los conteos que Poisson (<span class="math inline">\(ΔAIC\)</span> ≈ 10; <span class="math inline">\(w\ AIC\)</span> ≈ 0.99). En conjunto, la evidencia señala un patrón <strong>agregado</strong>, con parches más marcados que los que captura Poisson.”</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="patrón-de-distribución-espacial-mediante-índices-de-dispersión-1" class="level4">
+<h4 class="anchored" data-anchor-id="patrón-de-distribución-espacial-mediante-índices-de-dispersión-1">2.) Patrón de distribución espacial, mediante índices de dispersión</h4>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Índices clásicos de dispersión ---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Índice de dispersión (ID)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> s2 <span class="sc">/</span> mu                       <span class="co"># varianza/media</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>chi2_disp <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> ID           <span class="co"># χ² asociado al ID</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>p_disp <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi2_disp, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Índice de agrupamiento (IC, David &amp; Moore 1964)</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>IC <span class="ot">&lt;-</span> (s2 <span class="sc">/</span> mu) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Índice de Holgate (IH) </span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># (Nota: requiere datos de distancias d y d2; aquí se deja NA si no se calculan)</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>IH <span class="ot">&lt;-</span> <span class="cn">NA_real_</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Lloyd: media de hacinamiento (m*)</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>m_crowd <span class="ot">&lt;-</span> mu <span class="sc">+</span> (s2 <span class="sc">/</span> mu) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Lloyd: índice de clumping (I_c)</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>I_c <span class="ot">&lt;-</span> m_crowd <span class="sc">/</span> mu</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Morisita (IM)</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>IM <span class="ot">&lt;-</span> <span class="cf">if</span> (N <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  n <span class="sc">*</span> <span class="fu">sum</span>(conteos <span class="sc">*</span> (conteos <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">/</span> (N <span class="sc">*</span> (N <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cn">NA_real_</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Tabla resumen ---</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>diag_tbl <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">ID = s²/µ̂</span><span class="st">`</span>        <span class="ot">=</span> ID,</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">IC (David &amp; Moore)</span><span class="st">`</span><span class="ot">=</span> IC,</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">IH (Holgate)</span><span class="st">`</span>      <span class="ot">=</span> IH,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Lloyd m*</span><span class="st">`</span>          <span class="ot">=</span> m_crowd,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">I_c (Lloyd)</span><span class="st">`</span>       <span class="ot">=</span> I_c,</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Morisita I_M</span><span class="st">`</span>      <span class="ot">=</span> IM,</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">χ²_disp</span><span class="st">`</span>           <span class="ot">=</span> chi2_disp,</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">gl (disp)</span><span class="st">`</span>         <span class="ot">=</span> n <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">p (disp)</span><span class="st">`</span>          <span class="ot">=</span> p_disp</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>diag_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Diagnósticos de patrón espacial"</span>,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">5</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Diagnósticos de patrón espacial</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> ID = s²/µ̂ </th>
+   <th style="text-align:right;"> IC (David &amp; Moore) </th>
+   <th style="text-align:right;"> IH (Holgate) </th>
+   <th style="text-align:right;"> Lloyd m* </th>
+   <th style="text-align:right;"> I_c (Lloyd) </th>
+   <th style="text-align:right;"> Morisita I_M </th>
+   <th style="text-align:right;"> χ²_disp </th>
+   <th style="text-align:right;"> gl (disp) </th>
+   <th style="text-align:right;"> p (disp) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 2.12 </td>
+   <td style="text-align:right;"> 1.12 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1.66 </td>
+   <td style="text-align:right;"> 3.06 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 99.54 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 1e-05 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<ul>
+<li><p><strong>Índice de dispersión (</strong><span class="math inline">\(ID\)</span> = 2.12) e <span class="math inline">\(IC\)</span> (1.12):<br>
+Ambos valores son <strong>mayores a 1</strong>, lo que indica que la varianza excede a la media, un signo de <strong>distribución agregada</strong>.</p></li>
+<li><p><strong>Lloyd</strong> <span class="math inline">\(m\)</span> (1.66) e <span class="math inline">\(I_c\)</span> (3.06):*<br>
+El hacinamiento medio es mayor que la media poblacional y el índice de clumping está muy por encima de 1. Esto confirma que <strong>los individuos no se distribuyen de forma independiente</strong>, sino que tienden a concentrarse en ciertos cuadrantes.</p></li>
+<li><p><strong>Morisita (</strong><span class="math inline">\(I_M\)</span> = 3.1):<br>
+Reafirma un <strong>fuerte patrón de agregación</strong>, dado que valores significativamente mayores a 1 son evidencia de parches o clústeres de individuos.</p></li>
+<li><p><strong>Prueba</strong> <span class="math inline">\(χ²\)</span> de dispersión (<span class="math inline">\(χ²\)</span> = 99.54, <span class="math inline">\(gl\)</span> = 47, <span class="math inline">\(p\)</span> = <span class="math inline">\(1 x 10^{-05}\)</span>):<br>
+El contraste estadístico rechaza la hipótesis de aleatoriedad (<span class="math inline">\(p&lt; 0.05\)</span>). Esto significa que la <strong>distribución Poisson no describe adecuadamente el patrón observado</strong>.</p></li>
+</ul>
+<p>Estos diagnósticos en conjunto muestran que la población estudiada <strong>presenta un patrón claramente agrupado</strong>. En términos ecológicos, esto puede explicarse porque los individuos de <em>Calotropis</em> tienden a ocupar <strong>lugares favorables</strong> en parches, por lo que se observan muchas cuadrículas vacías. Factores ambientales o bióticos (competencia, dispersión limitada, tipo de sustrato, exposición al sol) podrían estar reforzando la agregación natural.</p>
+<hr>
+</section>
+</section>
+<section id="b.-densidad-de-la-población-1" class="level3">
+<h3 class="anchored" data-anchor-id="b.-densidad-de-la-población-1">B. Densidad de la población</h3>
+<p>A continuación, se estimará la densidad de <em>Calotropis</em> usando tres enfoques matemáticos:</p>
+<ul>
+<li><strong>Holtage</strong> con puntos de intersección al azar:<br>
+<span class="math inline">\(IH_D = \frac{n}{\pi \sum x_i^2}\)</span><br>
+</li>
+<li><strong>King</strong> con transecto diagonal:<br>
+<span class="math inline">\(D = \frac{n^2}{2 L \sum d_i}\)</span><br>
+</li>
+<li><strong>Hayne</strong> (evita subestimaciones de King):<br>
+<span class="math inline">\(D = \frac{\sum (1/d_i)}{2 L}\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>Todas las distancias deben estar en <strong>metros</strong> y <span class="math inline">\(L\)</span> (longitud del transecto) en <strong>metros</strong>. Se reportan resultados en <strong>ind·m⁻²</strong> y <strong>ind·ha⁻¹</strong>.</p>
+</blockquote>
+<hr>
+<section id="método-de-holtage-con-puntos-de-intersección-al-azar-1" class="level4">
+<h4 class="anchored" data-anchor-id="método-de-holtage-con-puntos-de-intersección-al-azar-1">1.) <strong>Método de Holtage</strong> (con puntos de intersección al azar)</h4>
+<p>Calculo de <span class="math inline">\(IH_D = \frac{n}{\pi \sum x_i^2}\)</span></p>
+<section id="paso-1.-cargar-las-librerías-requeridas" class="level5">
+<h5 class="anchored" data-anchor-id="paso-1.-cargar-las-librerías-requeridas">paso 1. Cargar las librerías requeridas</h5>
+<p>Primero se cargan las librerías necesarias para el ejercicio.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readxl)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyr)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(stringr)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="paso-2.-lectura-de-la-base-de-datos-para-calcular-ih" class="level5">
+<h5 class="anchored" data-anchor-id="paso-2.-lectura-de-la-base-de-datos-para-calcular-ih">paso 2. Lectura de la base de datos para calcular IH</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>datos1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"densidad1"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos1, <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="at">caption =</span> <span class="fu">paste0</span>(<span class="st">"Vista previa — Densidad por puntos aleatorios de intersección"</span>), </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Vista previa — Densidad por puntos aleatorios de intersección</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Punto de intersección </th>
+   <th style="text-align:right;"> Indv_1_cm </th>
+   <th style="text-align:right;"> Indv_2_cm </th>
+   <th style="text-align:right;"> Indv_1_m </th>
+   <th style="text-align:right;"> Indv_2_m </th>
+   <th style="text-align:right;"> x2_m </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:right;"> 290 </td>
+   <td style="text-align:right;"> 2.50 </td>
+   <td style="text-align:right;"> 2.90 </td>
+   <td style="text-align:right;"> 6.250 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 370 </td>
+   <td style="text-align:right;"> 500 </td>
+   <td style="text-align:right;"> 3.70 </td>
+   <td style="text-align:right;"> 5.00 </td>
+   <td style="text-align:right;"> 13.690 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 300 </td>
+   <td style="text-align:right;"> 2.08 </td>
+   <td style="text-align:right;"> 3.00 </td>
+   <td style="text-align:right;"> 4.326 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.073 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="paso-3.-cálculo-de-ih-en-metros-cuadrados-m2-y-en-hectáreas-ha" class="level5">
+<h5 class="anchored" data-anchor-id="paso-3.-cálculo-de-ih-en-metros-cuadrados-m2-y-en-hectáreas-ha">paso 3. Cálculo de IH en metros cuadrados (m2) y en hectáreas (ha)</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de Holtage (IH) a partir de x² en metros cuadrados</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>res_ih <span class="ot">&lt;-</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  datos1 <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(<span class="at">x2_m =</span> <span class="fu">as.numeric</span>(x2_m)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(x2_m), x2_m <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_puntos  =</span> <span class="fu">n</span>(),</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">tot_x2_m2 =</span> <span class="fu">sum</span>(x2_m),                   <span class="co"># Suma de x2</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">IH_m2     =</span> n_puntos <span class="sc">/</span> (pi <span class="sc">*</span> tot_x2_m2), <span class="co"># IH en m2</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">IH_ha     =</span> IH_m2 <span class="sc">*</span> <span class="dv">10000</span>                <span class="co"># IH en ha</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>res_ih <span class="sc">%&gt;%</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Holtage — Densidad estimada por distancias (IH)"</span>, </span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Holtage — Densidad estimada por distancias (IH)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> n_puntos </th>
+   <th style="text-align:right;"> tot_x2_m2 </th>
+   <th style="text-align:right;"> IH_m2 </th>
+   <th style="text-align:right;"> IH_ha </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 383.504 </td>
+   <td style="text-align:right;"> 0.04814 </td>
+   <td style="text-align:right;"> 481 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="paso-4.-visualización-de-las-frecuencias-observadas" class="level5">
+<h5 class="anchored" data-anchor-id="paso-4.-visualización-de-las-frecuencias-observadas">paso 4. Visualización de las frecuencias observadas</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeo visual simple (opcional y didáctico)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos1, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">sqrt</span>(x2_m))) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(<span class="fu">sqrt</span>(x2_m), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)), </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Distancia al 1er individuo, xᵢ (m)"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribución de distancias usadas en IH (Holtage)"</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Se presenta una amplia dispersión de distancias al primer individuo, con la media (línea punteada roja) en torno a valores intermedios y una cola hacia <span class="math inline">\(xᵢ\)</span> grandes. Ecsto sugiere un ensamble parcheado: hay sectores con parches claros amplios (xᵢ grandes) alternados con vecindades densas (xᵢ pequeños). Como <span class="math inline">\(IH\)</span> usa <span class="math inline">\(∑x_i^2\)</span>, esos claros quedan muy penalizados, empujando la estimación hacia valores bajos (coherente con el <span class="math inline">\(IH ≈ 0.048\ ind·m⁻²\)</span>). Esto indica que la parcela evaluada puede un considerable “espacio vacío” entre los grupos de individuos.</p>
+<hr>
+</section>
+</section>
+<section id="índices-de-king-y-de-hayne-con-transecto-diagonal" class="level4">
+<h4 class="anchored" data-anchor-id="índices-de-king-y-de-hayne-con-transecto-diagonal">2.) <strong>Índices de King y de Hayne</strong> (con transecto diagonal)</h4>
+<ul>
+<li><strong>King:</strong> <span class="math inline">\(D = \frac{n^2}{2 L \sum d_i}\)</span><br>
+</li>
+<li><strong>Hayne:</strong> (evita subestimaciones de King) <span class="math inline">\(D = \frac{\sum (1/d_i)}{2 L}\)</span></li>
+</ul>
+<section id="paso-1.-leer-las-dos-bases-de-datos" class="level5">
+<h5 class="anchored" data-anchor-id="paso-1.-leer-las-dos-bases-de-datos">paso 1. Leer las dos bases de datos</h5>
+<p>A continuación se se carga la segunda hoja de cálculo (densidad2), requerida para los índices de King y de Hayne.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Leer y previsualizar</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>datos2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"datos.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"densidad2"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos2, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Vista previa — Densidad por puntos en transecto diagonal"</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Vista previa — Densidad por puntos en transecto diagonal</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Individuo </th>
+   <th style="text-align:right;"> di_m </th>
+   <th style="text-align:right;"> 1/di </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 4.348 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 5.882 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 6.667 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="paso-2.-cálculos-de-los-índices-king-y-hayne." class="level5">
+<h5 class="anchored" data-anchor-id="paso-2.-cálculos-de-los-índices-king-y-hayne.">paso 2. Cálculos de los índices King y Hayne.</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Cálculo mínimo (King y Hayne)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> datos2 <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">rename_with</span>(tolower)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fl">28.284271</span>  <span class="co"># Hipotenusa (L) tomada de tu hoja de resultados</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d2 <span class="sc">|&gt;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">di    =</span> <span class="fu">as.numeric</span>(di_m),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">invdi =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">1/di</span><span class="st">`</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.finite</span>(di), di <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">is.finite</span>(invdi))   <span class="co"># excluir d_i &lt;= 0</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>n       <span class="ot">&lt;-</span> <span class="fu">nrow</span>(d)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>sum_di  <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>di)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>sum_inv <span class="ot">&lt;-</span> <span class="fu">sum</span>(d<span class="sc">$</span>invdi)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">L (m)</span><span class="st">`</span>              <span class="ot">=</span> L,</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span>         <span class="ot">=</span> n,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">∑ d_i (m)</span><span class="st">`</span>          <span class="ot">=</span> sum_di,</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">∑ (1/d_i) (m⁻¹)</span><span class="st">`</span>    <span class="ot">=</span> sum_inv,</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">King D (ind·m⁻²)</span><span class="st">`</span>   <span class="ot">=</span> (n<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> L <span class="sc">*</span> sum_di),</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">King D (ind·ha⁻¹)</span><span class="st">`</span>  <span class="ot">=</span> ((n<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> L <span class="sc">*</span> sum_di)) <span class="sc">*</span> <span class="dv">10000</span>,</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Hayne D (ind·m⁻²)</span><span class="st">`</span>  <span class="ot">=</span>  sum_inv <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> L),</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Hayne D (ind·ha⁻¹)</span><span class="st">`</span> <span class="ot">=</span> (sum_inv <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> L)) <span class="sc">*</span> <span class="dv">10000</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>res <span class="sc">%&gt;%</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Índices de King y Hayne — Densidad estimada por puntos aleatorios en la parcela evaluada"</span>,</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Índices de King y Hayne — Densidad estimada por puntos aleatorios en la parcela evaluada</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> L (m) </th>
+   <th style="text-align:right;"> n (puntos) </th>
+   <th style="text-align:right;"> ∑ d_i (m) </th>
+   <th style="text-align:right;"> ∑ (1/d_i) (m⁻¹) </th>
+   <th style="text-align:right;"> King D (ind·m⁻²) </th>
+   <th style="text-align:right;"> King D (ind·ha⁻¹) </th>
+   <th style="text-align:right;"> Hayne D (ind·m⁻²) </th>
+   <th style="text-align:right;"> Hayne D (ind·ha⁻¹) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 28.28 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 23.74 </td>
+   <td style="text-align:right;"> 36.82 </td>
+   <td style="text-align:right;"> 0.298 </td>
+   <td style="text-align:right;"> 2979 </td>
+   <td style="text-align:right;"> 0.65 </td>
+   <td style="text-align:right;"> 6509 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="paso-3.-visualización-de-las-frecuencias-observadas" class="level5">
+<h5 class="anchored" data-anchor-id="paso-3.-visualización-de-las-frecuencias-observadas">paso 3. Visualización de las frecuencias observadas</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partimos de la misma lectura que ya tienes:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># datos2 &lt;- read_xlsx("densidad.xlsx", sheet = "densidad2")</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparar datos (usa tus nombres reales: di_m y `1/di`)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> datos2 <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">transmute</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">di    =</span> <span class="fu">as.numeric</span>(di_m),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">invdi =</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">1/di</span><span class="st">`</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">is.finite</span>(di), di <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="fu">is.finite</span>(invdi))</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Gráfico 1: KING (distribución de d_i)</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> di)) <span class="sc">+</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(di, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Distancia perpendicular, dᵢ (m)"</span>,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribución de dᵢ (m) — método King"</span>) <span class="sc">+</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La distribución de las distancias <span class="math inline">\(dᵢ\)</span> se concentra alrededor de valores medios, con algunas <span class="math inline">\(dᵢ\)</span> pequeñas y una extensión moderada hacia <span class="math inline">\(dᵢ\)</span> mayores. Esa forma sugiere que, a lo largo del transecto, se atravesó franjas con presencia regular de individuos, alternadas con pequeños trechos más despejados. Al usar la media aritmética de <span class="math inline">\(dᵢ\)</span>, <em>King</em> actúa como una lectura promedio del transecto: no magnifica las <span class="math inline">\(dᵢ\)</span> muy pequeñas ni castiga de más las grandes, por eso la densidad resultante es intermedia (≈ 0.298 ind·m⁻²) y supera a Holtage cuando el transecto pasa por zonas relativamente densas del sitio.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Gráfico 2: HAYNE (distribución de 1/d_i)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> invdi)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(d<span class="sc">$</span>invdi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distancia perpendicular, 1/dᵢ (m^-1)"</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución de 1/dᵢ (m^-1) - método Hayne"</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  <span class="co"># &lt;- sin base_family</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="4.6_distrib_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>El histograma de <span class="math inline">\(1/d_i\)</span> es <strong>asimétrico a la derecha</strong>: la mayoría de valores se agrupan en la parte baja, pero hay picos altos producidos por unos pocas <span class="math inline">\(dᵢ\)</span> muy pequeñas (individuos pegados a la línea). Eso puede indicar <strong>micro-parches</strong> o agrupaciones que el transecto encontró de cerca. Como <em>Hayne</em> usa la media armónica (vía <span class="math inline">\(∑1/d_i\)</span>), sobrerrepresenta esas cercanías y eleva la densidad (≈ 0.651 ind·m⁻²), quedando por encima de <em>King</em>.</p>
+<hr>
+</section>
+<section id="resumen-de-los-resultados" class="level5">
+<h5 class="anchored" data-anchor-id="resumen-de-los-resultados">Resumen de los resultados</h5>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación compacta de Holtage, King y Hayne</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr); <span class="fu">library</span>(kableExtra)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Metodo        =</span> <span class="st">"Holtage"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·m⁻²)</span><span class="st">`</span> <span class="ot">=</span> res_ih<span class="sc">$</span>IH_m2,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·ha⁻¹)</span><span class="st">`</span><span class="ot">=</span> res_ih<span class="sc">$</span>IH_ha,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span>  <span class="ot">=</span> res_ih<span class="sc">$</span>n_puntos</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Metodo        =</span> <span class="st">"King"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·m⁻²)</span><span class="st">`</span> <span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">King D (ind·m⁻²)</span><span class="st">`</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·ha⁻¹)</span><span class="st">`</span><span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">King D (ind·ha⁻¹)</span><span class="st">`</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span>  <span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Metodo        =</span> <span class="st">"Hayne"</span>,</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·m⁻²)</span><span class="st">`</span> <span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">Hayne D (ind·m⁻²)</span><span class="st">`</span>,</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">D (ind·ha⁻¹)</span><span class="st">`</span><span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">Hayne D (ind·ha⁻¹)</span><span class="st">`</span>,</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span>  <span class="ot">=</span> res<span class="sc">$</span><span class="st">`</span><span class="at">n (puntos)</span><span class="st">`</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>comp <span class="sc">%&gt;%</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">caption =</span> <span class="st">"Comparación de densidades: Holtage, King y Hayne"</span>,</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Comparación de densidades: Holtage, King y Hayne</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Metodo </th>
+   <th style="text-align:right;"> D (ind·m⁻²) </th>
+   <th style="text-align:right;"> D (ind·ha⁻¹) </th>
+   <th style="text-align:right;"> n (puntos) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Holtage </td>
+   <td style="text-align:right;"> 0.048 </td>
+   <td style="text-align:right;"> 481 </td>
+   <td style="text-align:right;"> 58 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> King </td>
+   <td style="text-align:right;"> 0.298 </td>
+   <td style="text-align:right;"> 2979 </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hayne </td>
+   <td style="text-align:right;"> 0.651 </td>
+   <td style="text-align:right;"> 6509 </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="análisis-de-los-resultados" class="level5">
+<h5 class="anchored" data-anchor-id="análisis-de-los-resultados">Análisis de los resultados</h5>
+<ul>
+<li><p><strong>Holtage (puntos aleatorios en una parcela):</strong> muestrea el espacio con puntos al azar en toda la parcela evaluada y mira la <strong>distancia al 1er individuo</strong> en cada punto. Matemáticamente usa <span class="math inline">\(\sum x_i^2\)</span>​, que <strong>penaliza los vacíos</strong> (grandes distancias elevadas al cuadrado) y, por tanto, tiende a <strong>bajar la densidad</strong> cuando el ensamble puede estar <strong>agregado/parenches</strong> (muchos claros y algunos núcleos).</p></li>
+<li><p><strong>King (transecto diagonal):</strong> usa la <strong>media aritmética</strong> de las distancias perpendiculares <span class="math inline">\(d_i\)</span> a un transecto: <span class="math inline">\(D_{\text{King}}=\frac{n}{2L\,\overline{d}}=\frac{n^2}{2L\sum d_i}\)</span>.</p>
+<p>Si hay <strong>heterogeneidad</strong> en <span class="math inline">\(d_i\)</span> (algunos muy pequeños y otros grandes), la media aritmética “promedia” esa variación y la densidad resultante queda baja o <strong>moderada</strong>.</p></li>
+<li><p><strong>Hayne (Corrección de King):</strong> reemplaza la media aritmética por la <strong>media armónica</strong> (vía <span class="math inline">\(\sum 1/d_i\)</span>):</p>
+<p><span class="math inline">\(D_{\text{Hayne}}=\frac{\sum(1/d_i)}{2L}=\frac{n}{2L\,\overline{d}_{\text{arm}}}\)</span>.</p>
+<p>La armónica <strong>da más peso a distancias pequeñas</strong> (individuos cercanos a la línea), elevando la densidad cuando hay <strong>agregación</strong> o <strong>sesgo de proximidad</strong> al transecto.</p></li>
+<li><p>Los datos muestran que <strong>Hayne (0.651)</strong> &gt; <strong>King (0.298)</strong>: lo cual sucede cuando hay <strong>muchas distancias pequeñas</strong>; la media armónica reduce el denominador y <strong>aumenta</strong> el valor de la densidad <span class="math inline">\(D\)</span>. En este caso se usó un transecto de un espesor de dos metros, lo cual puede ser una distancia muy pequeña para el patrón de distribución de la especie evaluada.</p></li>
+<li><p>Ahora bien, <strong>King/Hayne</strong> &gt;&gt; <strong>Holtage (0.048)</strong>: los cual puede indicar que el <strong>transecto atravesó zonas más densas</strong> que el promedio de la parcela, o que el <strong>espacio de la parcela tiene claros amplios</strong> que Holtage captura (por <span class="math inline">\(x_i^2\)</span>) y el transecto no.</p></li>
+<li><p><strong>Muestra y cobertura espacial:</strong> Holtage usó <em>n</em> = 58 puntos aleatorios repartidos; King/Hayne <em>n</em> = 20 sobre una trayectoria concreta. Si el transecto cruza un <strong>parche denso</strong>, <strong>sobrerrepresenta</strong> esa franja respecto al paisaje total.</p></li>
+<li><p><strong>Influencia de las distancias pequeñas:</strong> <em>Hayne</em> <strong>amplifica</strong> su peso; si hay algunas distancias <span class="math inline">\(d_i\)</span> muy pequeñas (individuos pegados), la densidad <strong>sube notablemente</strong>.</p></li>
+<li><p>EL ensamble evaluado parece <strong>agrupado en parches</strong>; el transecto cruzó <strong>núcleos densos</strong>, mientras los puntos aleatorios capturaron <strong>vacíos</strong>.</p></li>
+<li><p><strong>Espacialidad del ensamble:</strong> En <strong>distribuciones agregadas</strong>, es habitual observar <strong>Holtage &lt; King &lt; Hayne</strong>. En <strong>distribuciones aleatorias</strong> <strong>King ≈ Hayne</strong>, y ambos se acercan a <em>Holtage</em>.</p></li>
+<li><p>En este sentido se puede indicar que:</p>
+<ul>
+<li><p><strong>Holtage</strong> ≈ <strong>promedio paisajístico</strong> (sensible a claros), útil como <strong>cota inferior</strong> en distribuciones agrupadas.</p></li>
+<li><p><strong>King</strong> ≈ énfasis/“valor promedio” a lo largo del transecto.</p></li>
+<li><p><strong>Hayne</strong> ≈ <strong>cota superior</strong> cuando hay <strong>individuos muy cercanos</strong> (corrige el sesgo cuando hay valores bajos de King).</p></li>
+</ul></li>
+</ul>
+<p>En este sentido, los tres métodos concuerdan en que la densidad no es homogénea. Con el transecto diagonal se sugiere una franja densa (King) que, al ponderar fuertemente distancias pequeñas, lleva a una cota superior (Hayne). En contraste, los puntos aleatorios en toda la parcela (Holtage) integran claros extensos del sitio y entregan la cota inferior. La lectura conjunta es consistente con una <strong>estructura espacial agrupada</strong>, consistente con los resultados de los índices de dispersión calculados anteriormente.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
