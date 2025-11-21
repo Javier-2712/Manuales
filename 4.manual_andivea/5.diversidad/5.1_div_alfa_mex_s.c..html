@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Es-es" xml:lang="Es-es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-11-20">
+<meta name="description" content="Ejercicios de entrenamiento para la el análisis de diversidad alfa en muestras de peces en ríos en Mexico.">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="5.1_div_alfa_mex_s.c._files/libs/clipboard/clipboard.min.js"></script>
+<script src="5.1_div_alfa_mex_s.c._files/libs/quarto-html/quarto.js"></script>
+<script src="5.1_div_alfa_mex_s.c._files/libs/quarto-html/popper.min.js"></script>
+<script src="5.1_div_alfa_mex_s.c._files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="5.1_div_alfa_mex_s.c._files/libs/quarto-html/anchor.min.js"></script>
+<link href="5.1_div_alfa_mex_s.c._files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="5.1_div_alfa_mex_s.c._files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="5.1_div_alfa_mex_s.c._files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="5.1_div_alfa_mex_s.c._files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="5.1_div_alfa_mex_s.c._files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+<script src="5.1_div_alfa_mex_s.c._files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="5.1_div_alfa_mex_s.c._files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 5.1 Visualización gráfica - Diversidad Alfa</p>
+                  <div>
+        <div class="description">
+          Ejercicios de entrenamiento para la el análisis de diversidad alfa en muestras de peces en ríos en Mexico.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 20, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
+  <li><a href="#competencias-a-desarrollar" id="toc-competencias-a-desarrollar" class="nav-link" data-scroll-target="#competencias-a-desarrollar"><strong>Competencias a desarrollar</strong></a>
+  <ul>
+  <li><a href="#competencias-conceptuales" id="toc-competencias-conceptuales" class="nav-link" data-scroll-target="#competencias-conceptuales"><strong>1. Competencias conceptuales</strong></a></li>
+  <li><a href="#competencias-procedimentales" id="toc-competencias-procedimentales" class="nav-link" data-scroll-target="#competencias-procedimentales"><strong>2. Competencias procedimentales</strong></a></li>
+  <li><a href="#competencias-actitudinales" id="toc-competencias-actitudinales" class="nav-link" data-scroll-target="#competencias-actitudinales"><strong>3. Competencias actitudinales</strong></a></li>
+  <li><a href="#a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" id="toc-a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" class="nav-link" data-scroll-target="#a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico">A. Ejercicio de visualización de diversidad alfa de peces en ríos de México</a>
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#objetivos-del-ejercicio" id="toc-objetivos-del-ejercicio" class="nav-link" data-scroll-target="#objetivos-del-ejercicio">Objetivos del ejercicio</a></li>
+  <li><a href="#cargar-paquetes-y-lectura-de-bases-de-datos" id="toc-cargar-paquetes-y-lectura-de-bases-de-datos" class="nav-link" data-scroll-target="#cargar-paquetes-y-lectura-de-bases-de-datos">Cargar paquetes y lectura de bases de datos</a></li>
+  <li><a href="#base-de-datos-de-las-especies" id="toc-base-de-datos-de-las-especies" class="nav-link" data-scroll-target="#base-de-datos-de-las-especies">Base de datos de las especies</a></li>
+  <li><a href="#tabla-con-nombres-completos-y-abreviados-en-formato-largo" id="toc-tabla-con-nombres-completos-y-abreviados-en-formato-largo" class="nav-link" data-scroll-target="#tabla-con-nombres-completos-y-abreviados-en-formato-largo">Tabla con nombres completos y abreviados en formato largo</a></li>
+  <li><a href="#incluir-la-columna-de-abundancias-totales" id="toc-incluir-la-columna-de-abundancias-totales" class="nav-link" data-scroll-target="#incluir-la-columna-de-abundancias-totales">Incluir la columna de abundancias totales</a></li>
+  <li><a href="#estimadores-clásicos-de-diversidad-alfa-por-cada-zona-altitudinal" id="toc-estimadores-clásicos-de-diversidad-alfa-por-cada-zona-altitudinal" class="nav-link" data-scroll-target="#estimadores-clásicos-de-diversidad-alfa-por-cada-zona-altitudinal">1 Estimadores clásicos de diversidad alfa por cada zona altitudinal</a></li>
+  <li><a href="#diversidad-alfa-con-curvas-de-distribución-rango-abundancia-rad" id="toc-diversidad-alfa-con-curvas-de-distribución-rango-abundancia-rad" class="nav-link" data-scroll-target="#diversidad-alfa-con-curvas-de-distribución-rango-abundancia-rad">2 Diversidad alfa con curvas de distribución rango-abundancia RAD</a>
+  <ul>
+  <li><a href="#a.-ajuste-de-las-curvas-rad" id="toc-a.-ajuste-de-las-curvas-rad" class="nav-link" data-scroll-target="#a.-ajuste-de-las-curvas-rad">a. Ajuste de las curvas RAD</a></li>
+  <li><a href="#b.-figuras-de-los-modelos-rad-por-sitio" id="toc-b.-figuras-de-los-modelos-rad-por-sitio" class="nav-link" data-scroll-target="#b.-figuras-de-los-modelos-rad-por-sitio">b. Figuras de los modelos RAD por sitio</a></li>
+  <li><a href="#c.-diagnóstico-de-supuestos" id="toc-c.-diagnóstico-de-supuestos" class="nav-link" data-scroll-target="#c.-diagnóstico-de-supuestos">c.&nbsp;Diagnóstico de supuestos</a>
+  <ul class="collapse">
+  <li><a href="#c.1-homogeneidad-de-covarianzas." id="toc-c.1-homogeneidad-de-covarianzas." class="nav-link" data-scroll-target="#c.1-homogeneidad-de-covarianzas.">c.1 Homogeneidad de covarianzas.</a></li>
+  <li><a href="#c.2-independencia-de-los-datos." id="toc-c.2-independencia-de-los-datos." class="nav-link" data-scroll-target="#c.2-independencia-de-los-datos.">c.2 Independencia de los datos.</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#comparación-de-zonas-con-glms-y-permanovas" id="toc-comparación-de-zonas-con-glms-y-permanovas" class="nav-link" data-scroll-target="#comparación-de-zonas-con-glms-y-permanovas">3. Comparación de zonas con GLMs y Permanovas</a>
+  <ul>
+  <li><a href="#a.-prueba-con-distribución-poisson-y-binomial-negativa-para-una-especie" id="toc-a.-prueba-con-distribución-poisson-y-binomial-negativa-para-una-especie" class="nav-link" data-scroll-target="#a.-prueba-con-distribución-poisson-y-binomial-negativa-para-una-especie">a. Prueba con distribución Poisson y binomial negativa para una especie</a></li>
+  <li><a href="#b.-evaluación-conjunta-del-efecto-de-la-zona-sobre-todas-las-especies" id="toc-b.-evaluación-conjunta-del-efecto-de-la-zona-sobre-todas-las-especies" class="nav-link" data-scroll-target="#b.-evaluación-conjunta-del-efecto-de-la-zona-sobre-todas-las-especies">b. Evaluación conjunta del efecto de la zona sobre todas las especies</a></li>
+  <li><a href="#c.-comparación-de-muestras-con-pemanovas" id="toc-c.-comparación-de-muestras-con-pemanovas" class="nav-link" data-scroll-target="#c.-comparación-de-muestras-con-pemanovas">c.&nbsp;Comparación de muestras con Pemanovas</a></li>
+  <li><a href="#d.-prueba-de-comparaciones-múltiples-del-pemanova" id="toc-d.-prueba-de-comparaciones-múltiples-del-pemanova" class="nav-link" data-scroll-target="#d.-prueba-de-comparaciones-múltiples-del-pemanova">d.&nbsp;Prueba de comparaciones múltiples del Pemanova</a></li>
+  <li><a href="#e.-análisis-simper" id="toc-e.-análisis-simper" class="nav-link" data-scroll-target="#e.-análisis-simper">e. Análisis SIMPER</a></li>
+  </ul></li>
+  <li><a href="#diversidad-alfa-en-4-pasos.-chao-et-al.-2020." id="toc-diversidad-alfa-en-4-pasos.-chao-et-al.-2020." class="nav-link" data-scroll-target="#diversidad-alfa-en-4-pasos.-chao-et-al.-2020.">4. Diversidad alfa en 4 Pasos. Chao <em>et al</em>. (2020).</a>
+  <ul>
+  <li><a href="#patrón-general-de-diversidad-alfa-por-cada-zona." id="toc-patrón-general-de-diversidad-alfa-por-cada-zona." class="nav-link" data-scroll-target="#patrón-general-de-diversidad-alfa-por-cada-zona.">4.1 Patrón general de diversidad alfa por cada zona.</a></li>
+  <li><a href="#cuatro-pasos-por-zonas" id="toc-cuatro-pasos-por-zonas" class="nav-link" data-scroll-target="#cuatro-pasos-por-zonas">4.2 Cuatro pasos por zonas</a>
+  <ul class="collapse">
+  <li><a href="#a.-paso-1.-perfil-de-completitud" id="toc-a.-paso-1.-perfil-de-completitud" class="nav-link" data-scroll-target="#a.-paso-1.-perfil-de-completitud">a. Paso 1. Perfil de completitud</a></li>
+  <li><a href="#b.-paso-2.-perfil-asintótico" id="toc-b.-paso-2.-perfil-asintótico" class="nav-link" data-scroll-target="#b.-paso-2.-perfil-asintótico">b. Paso 2. Perfil asintótico</a></li>
+  <li><a href="#c.-paso-3.-perfil-no-asintótico" id="toc-c.-paso-3.-perfil-no-asintótico" class="nav-link" data-scroll-target="#c.-paso-3.-perfil-no-asintótico">c.&nbsp;Paso 3. Perfil no asintótico</a></li>
+  <li><a href="#d.-paso-4.-uniformidad" id="toc-d.-paso-4.-uniformidad" class="nav-link" data-scroll-target="#d.-paso-4.-uniformidad">d.&nbsp;Paso 4. Uniformidad</a></li>
+  </ul></li>
+  <li><a href="#figuras-de-diversidad-alfa-en-esta-propuesta-de-cuatro-pasos" id="toc-figuras-de-diversidad-alfa-en-esta-propuesta-de-cuatro-pasos" class="nav-link" data-scroll-target="#figuras-de-diversidad-alfa-en-esta-propuesta-de-cuatro-pasos">4.3 Figuras de diversidad alfa en esta propuesta de cuatro pasos</a>
+  <ul class="collapse">
+  <li><a href="#a.-figuras-del-perfil-asintótico-paso-1" id="toc-a.-figuras-del-perfil-asintótico-paso-1" class="nav-link" data-scroll-target="#a.-figuras-del-perfil-asintótico-paso-1">a. Figuras del perfil asintótico (paso 1)</a></li>
+  <li><a href="#b.-figuras-del-perfil-asintótico-paso-2" id="toc-b.-figuras-del-perfil-asintótico-paso-2" class="nav-link" data-scroll-target="#b.-figuras-del-perfil-asintótico-paso-2">b. Figuras del perfil asintótico (paso 2)</a></li>
+  <li><a href="#c.-figuras-del-perfil-no-asintótico-paso-3" id="toc-c.-figuras-del-perfil-no-asintótico-paso-3" class="nav-link" data-scroll-target="#c.-figuras-del-perfil-no-asintótico-paso-3">c.&nbsp;Figuras del perfil no asintótico (paso 3)</a></li>
+  <li><a href="#d.-figuras-del-perfil-de-uniformidad-paso-4" id="toc-d.-figuras-del-perfil-de-uniformidad-paso-4" class="nav-link" data-scroll-target="#d.-figuras-del-perfil-de-uniformidad-paso-4">d.&nbsp;Figuras del perfil de uniformidad (paso 4)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#cuestionario" id="toc-cuestionario" class="nav-link" data-scroll-target="#cuestionario">Cuestionario</a></li>
+  <li><a href="#errores-comunes-e-interpretación-ecológica" id="toc-errores-comunes-e-interpretación-ecológica" class="nav-link" data-scroll-target="#errores-comunes-e-interpretación-ecológica">Errores comunes e interpretación ecológica</a></li>
+  <li><a href="#aplicaciones-ecológicas-y-ambientales" id="toc-aplicaciones-ecológicas-y-ambientales" class="nav-link" data-scroll-target="#aplicaciones-ecológicas-y-ambientales">Aplicaciones ecológicas y ambientales</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<hr>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Según <strong>Whittaker (1972)</strong>, la diversidad de las comunidades ecológicas puede descomponerse en tres componentes jerárquicos: <strong>alfa</strong>, <strong>beta</strong> y <strong>gamma</strong>.<br>
+La <strong>diversidad alfa</strong> representa el número de especies observadas dentro de una comunidad o hábitat relativamente homogéneo, y constituye la escala local de la diversidad.<br>
+La <strong>diversidad beta</strong> expresa el grado de <strong>recambio o reemplazo de especies</strong> entre comunidades a lo largo de gradientes espaciales o ambientales, mientras que la <strong>diversidad gamma</strong> corresponde a la <strong>diversidad regional total</strong>, resultante de la integración de la diversidad alfa y beta dentro de un paisaje o ecosistema.</p>
+<p>En el caso de la diversidad alfa, se reconocen tres dimensiones interrelacionadas:<br>
+(1) la <strong>riqueza de especies (S o q=0)</strong>,<br>
+(2) la <strong>equidad (q=1, q=2)</strong>, y<br>
+(3) la <strong>diversidad</strong> propiamente dicha, entendida como la combinación de ambas propiedades.</p>
+<p>La <strong>riqueza</strong> corresponde al número total de especies registradas en la comunidad o muestra evaluada.<br>
+La <strong>equidad</strong>, expresada mediante los órdenes de diversidad <strong>q=1 (Shannon)</strong> y <strong>q=2 (Simpson)</strong>, describe cómo se distribuyen las abundancias relativas entre las especies, reflejando el grado de dominancia o balance en la comunidad. Por tanto, los índices de Shannon–Weaver y de Simpson son ampliamente utilizados para evaluar la uniformidad en la contribución de las especies al total de individuos, representando una medida más robusta y menos sesgada que la mera riqueza para estimar la diversidad efectiva.</p>
+<p>Para este capítulo se adopta la propuesta metodológica de <strong>Chao et al.&nbsp;(2020)</strong>, que integra la estimación de la diversidad en <strong>cuatro pasos</strong>: (1) la <strong>completitud de la muestra</strong>, (2) la <strong>diversidad asintótica</strong> (observada vs.&nbsp;estimada), (3) la <strong>diversidad no asintótica</strong> (interpolada y extrapolada), y (4) la <strong>uniformidad</strong> en la distribución de abundancias. Este procedimiento, basado en los <strong>números efectivos de Hill (q = 0, 1, 2)</strong>, permite estandarizar comparaciones entre comunidades con diferentes tamaños o esfuerzos de muestreo.</p>
+<p>Los <strong>estimadores de riqueza (q=0)</strong>, aunque conceptualmente simples, dependen del esfuerzo de muestreo y tienden a subestimar la diversidad real. Por ello, se emplean métodos de <strong>rarefacción y extrapolación</strong> que ajustan la riqueza observada a un tamaño muestral o cobertura comparable entre comunidades (<strong>Colwell &amp; Coddington, 1994; Gotelli &amp; Colwell, 2001</strong>).</p>
+<p>Por otra parte, los <strong>estimadores de equidad y diversidad (q=1 y q=2)</strong> pueden abordarse mediante <strong>modelos paramétricos</strong> y <strong>no paramétricos</strong>.<br>
+Los <strong>modelos paramétricos</strong>, como las distribuciones <strong>logarítmica, log-normal o de Zipf–Mandelbrot</strong>, relacionan la riqueza de especies con sus abundancias relativas y son representados visualmente mediante los <strong>diagramas de rango-abundancia de Whittaker (1965)</strong>. Estos modelos se ajustan en R con el comando <code>radfit</code> del paquete <strong>vegan</strong> (<strong>Oksanen et al., 2025</strong>), que evalúa distintos patrones de dominancia-diversidad (e.g.&nbsp;<em>Broken stick</em>, <em>Preemption</em>, <em>Log-normal</em>, <em>Zipf</em>, <em>Mandelbrot</em>) utilizando criterios de información como <strong>AIC</strong> y <strong>BIC</strong>.</p>
+<p>Los <strong>modelos no paramétricos</strong>, en cambio, no asumen una forma teórica de la distribución y se basan en el número de especies raras (singletons, doubletons) para estimar las <strong>especies no detectadas</strong> y la <strong>completitud del muestreo</strong>. En este trabajo se implementan mediante la librería <strong>iNEXT</strong> (<strong>Chao et al., 2015; Hsieh et al., 2024</strong>), que desarrolla el enfoque de diversidad basado en cobertura y los cuatro pasos analíticos propuestos por Chao y colaboradores.</p>
+<p>En conjunto, el análisis de diversidad alfa, tanto paramétrico como no paramétrico, ofrece una perspectiva integral para comprender los patrones de abundancia y equidad de las comunidades biológicas, permitiendo inferir los mecanismos ecológicos que estructuran la diversidad local.</p>
+<hr>
+</section>
+<section id="objetivos" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
+<ul>
+<li><p>Analizar la <strong>diversidad alfa</strong> de comunidades biológicas a partir de métodos <strong>paramétricos</strong> y <strong>no paramétricos</strong>, aplicando los modelos de distribución rango–abundancia (RAD) y los <strong>números efectivos de Hill</strong> (q = 0, q = 1, q = 2).</p></li>
+<li><p>Comparar la <strong>riqueza, equidad y uniformidad</strong> de las comunidades en distintas zonas o hábitats, utilizando herramientas estadísticas y gráficas en <strong>R</strong> —principalmente los paquetes <em>vegan</em> e <em>iNEXT.4steps</em>.</p></li>
+<li><p>Comprender los <strong>patrones de dominancia y balance de abundancias</strong>, evaluar la <strong>completitud del muestreo</strong>, y establecer inferencias ecológicas sobre los <strong>mecanismos que estructuran la diversidad local</strong> a lo largo de gradientes ambientales o espaciales.</p></li>
+</ul>
+<hr>
+</section>
+<section id="competencias-a-desarrollar" class="level2">
+<h2 class="anchored" data-anchor-id="competencias-a-desarrollar"><strong>Competencias a desarrollar</strong></h2>
+<section id="competencias-conceptuales" class="level4">
+<h4 class="anchored" data-anchor-id="competencias-conceptuales"><strong>1. Competencias conceptuales</strong></h4>
+<ul>
+<li><p>Comprender los fundamentos teóricos de la <strong>diversidad alfa</strong>, y su relación con los componentes beta y gamma según Whittaker (1972).</p></li>
+<li><p>Diferenciar los enfoques <strong>paramétricos</strong> (curvas RAD, modelos log-normal, Zipf, Mandelbrot) y <strong>no paramétricos</strong> (números de Hill, iNEXT) en la evaluación de la diversidad ecológica.</p></li>
+<li><p>Interpretar el significado ecológico de los órdenes de diversidad <strong>q = 0, q = 1 y q = 2</strong>, como medidas de <strong>riqueza</strong>, <strong>equidad</strong> y <strong>dominancia</strong>.</p></li>
+<li><p>Reconocer la importancia de la <strong>completitud muestral</strong> y la <strong>rarefacción</strong> como estrategias para comparar comunidades bajo condiciones estandarizadas de esfuerzo de muestreo.</p></li>
+</ul>
+</section>
+<section id="competencias-procedimentales" class="level4">
+<h4 class="anchored" data-anchor-id="competencias-procedimentales"><strong>2. Competencias procedimentales</strong></h4>
+<ul>
+<li><p>Aplicar en <strong>R</strong> los métodos de análisis de diversidad alfa usando los paquetes <em>vegan</em> e <em>iNEXT.4steps</em>.</p></li>
+<li><p>Ajustar e interpretar <strong>curvas rango–abundancia (RAD)</strong> mediante el comando <code>radfit</code>, identificando patrones de dominancia y estructura comunitaria.</p></li>
+<li><p>Calcular los <strong>números efectivos de Hill (q = 0, 1, 2)</strong> y los cuatro pasos de diversidad de Chao et al.&nbsp;(2020): completitud, diversidad asintótica, no asintótica y uniformidad.</p></li>
+<li><p>Visualizar e interpretar los <strong>perfiles de diversidad</strong> y <strong>curvas de rarefacción/extrapolación</strong> como herramientas para evaluar el grado de representatividad de las muestras.</p></li>
+<li><p>Comparar la diversidad entre comunidades y discutir sus implicaciones ecológicas a partir de los resultados obtenidos.</p></li>
+</ul>
+</section>
+<section id="competencias-actitudinales" class="level4">
+<h4 class="anchored" data-anchor-id="competencias-actitudinales"><strong>3. Competencias actitudinales</strong></h4>
+<ul>
+<li><p>Desarrollar una actitud crítica frente al uso de los índices de diversidad, reconociendo sus <strong>limitaciones y supuestos estadísticos</strong>.</p></li>
+<li><p>Promover la <strong>interpretación ecológica integral</strong> de los resultados, considerando factores ambientales, espaciales y metodológicos.</p></li>
+<li><p>Fomentar el uso de herramientas reproducibles en R para la <strong>evaluación cuantitativa de la biodiversidad</strong>, fortaleciendo la transparencia y rigor científico.</p></li>
+<li><p>Valorar la diversidad biológica como un componente esencial para el <strong>manejo sostenible y la conservación de ecosistemas</strong>.</p></li>
+</ul>
+<hr>
+</section>
+<section id="a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" class="level3">
+<h3 class="anchored" data-anchor-id="a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico">A. Ejercicio de visualización de diversidad alfa de peces en ríos de México</h3>
+<section id="resumen" class="level4">
+<h4 class="anchored" data-anchor-id="resumen">Resumen</h4>
+<p>En el presente ejercicio, se empleará una base de datos derivada del estudio de Ruiz-Campos et al.&nbsp;(2021) (<a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/article/10.1007/s10641-021-01158-9">enlace_artículo</a>), donde se analiza la diversidad y distribución longitudinal de ensamblajes de peces en la cuenca del río Soto La Marina, al noreste de México. A través del análisis de datos ambientales y biológicos recolectados en 43 sitios, los autores identifican tres ensamblajes principales asociados a zonas fisiográficas (montaña, planicie y desembocadura), y exploran cómo variables como salinidad, conductividad, turbidez y estructura del hábitat explican la composición de esta ictiofauna a lo largo del gradiente ambiental.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs10641-021-01158-9/MediaObjects/10641_2021_1158_Fig1_HTML.png?as=webp" class="img-fluid figure-img" width="629"></p>
+<p></p><figcaption class="figure-caption">Área de estudio en: <a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/article/10.1007/s10641-021-01158-9">Ruiz-Campos et al.&nbsp;(2021)</a>. Sitios de muestreo en la cuenca del río Soto La Marina, Tamaulipas, México. Los códigos de los 10 ríos son <strong>a</strong> Soto la Marina, <strong>b</strong> Palmas, <strong>c</strong> Arroyo Grande, <strong>d</strong> San Marcos, <strong>e</strong> San Felipe, <strong>f</strong> Santa Ana, <strong>g</strong> Corona, <strong>h</strong> Purificación, <strong>i</strong> Pilón y <strong>j</strong> San Carlos.</figcaption><p></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="objetivos-del-ejercicio" class="level4">
+<h4 class="anchored" data-anchor-id="objetivos-del-ejercicio">Objetivos del ejercicio</h4>
+<ul>
+<li><p>Analizar y visualizar la <strong>diversidad alfa</strong> de ensamblajes de peces a lo largo del gradiente longitudinal del <strong>río Soto La Marina</strong> (noreste de México), con base en la información de <strong>Ruiz-Campos et al.&nbsp;(2021)</strong>.</p></li>
+<li><p>Comparar la estructura y composición de las comunidades ícticas entre tres zonas fisiográficas —<strong>montaña (M)</strong>, <strong>planicie (P)</strong> y <strong>desembocadura (RM)</strong>— empleando métodos paramétricos y no paramétricos de evaluación de diversidad.</p></li>
+<li><p>Comprender los gradientes ecológicos que estructuran la ictiofauna a lo largo del sistema fluvial, relacionando los resultados con factores ambientales como la salinidad, la conductividad y la conectividad hidrológica.</p></li>
+</ul>
+<hr>
+</section>
+<section id="cargar-paquetes-y-lectura-de-bases-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="cargar-paquetes-y-lectura-de-bases-de-datos">Cargar paquetes y lectura de bases de datos</h4>
+<div class="cell">
+
+</div>
+<hr>
+</section>
+<section id="base-de-datos-de-las-especies" class="level4">
+<h4 class="anchored" data-anchor-id="base-de-datos-de-las-especies">Base de datos de las especies</h4>
+<p>La base de datos con las 90 especies de peces se llamará <strong>biol</strong> (<a href="#tbl-tbl38">Tabla&nbsp;1</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl38" class="anchored">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;1:  Base de datos biológicos </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sites </th>
+   <th style="text-align:left;"> Sites1 </th>
+   <th style="text-align:right;"> Hypanus sabinus </th>
+   <th style="text-align:right;"> Elops saurus </th>
+   <th style="text-align:right;"> Megalops atlanticus </th>
+   <th style="text-align:right;"> Albula vulpes </th>
+   <th style="text-align:right;"> Anguilla rostrata </th>
+   <th style="text-align:right;"> Myrophis punctatus </th>
+   <th style="text-align:right;"> Anchoa mitchilli </th>
+   <th style="text-align:right;"> Anchoa hepsetus </th>
+   <th style="text-align:right;"> Brevoortia gunteri </th>
+   <th style="text-align:right;"> Brevoortia patronus </th>
+   <th style="text-align:right;"> Dorosoma cepedianum </th>
+   <th style="text-align:right;"> Dorosoma petenense </th>
+   <th style="text-align:right;"> Harengula jaguana </th>
+   <th style="text-align:right;"> Opisthonema oglinum </th>
+   <th style="text-align:right;"> Campostoma anomalum </th>
+   <th style="text-align:right;"> Cyprinella lutrensis </th>
+   <th style="text-align:right;"> Dionda episcopa </th>
+   <th style="text-align:right;"> Dionda sp. </th>
+   <th style="text-align:right;"> Notropis aguirrepequenoi </th>
+   <th style="text-align:right;"> Moxostoma congestum </th>
+   <th style="text-align:right;"> Astyanax  mexicanus </th>
+   <th style="text-align:right;"> Ariopsis felis </th>
+   <th style="text-align:right;"> Ameiurus melas </th>
+   <th style="text-align:right;"> Ameiurus natalis </th>
+   <th style="text-align:right;"> Ictalurus lupus </th>
+   <th style="text-align:right;"> Ictalurus punctatus </th>
+   <th style="text-align:right;"> Ictalurus sp. </th>
+   <th style="text-align:right;"> Pylodictis olivaris </th>
+   <th style="text-align:right;"> Synodus foetens </th>
+   <th style="text-align:right;"> Porichthys plectrodon </th>
+   <th style="text-align:right;"> Dajaus monticola </th>
+   <th style="text-align:right;"> Mugil curema </th>
+   <th style="text-align:right;"> Membras martinica </th>
+   <th style="text-align:right;"> Menidia beryllina </th>
+   <th style="text-align:right;"> Hemiramphus brasiliensis </th>
+   <th style="text-align:right;"> Strongylura timucu </th>
+   <th style="text-align:right;"> Fundulus grandis </th>
+   <th style="text-align:right;"> Lucania parva </th>
+   <th style="text-align:right;"> Gambusia affinis </th>
+   <th style="text-align:right;"> Gambusia aurata </th>
+   <th style="text-align:right;"> Gambusia regani </th>
+   <th style="text-align:right;"> Gambusia sp. </th>
+   <th style="text-align:right;"> Poecilia formosa </th>
+   <th style="text-align:right;"> Poecilia latipinna </th>
+   <th style="text-align:right;"> Poecilia mexicana </th>
+   <th style="text-align:right;"> Poecilia sp. </th>
+   <th style="text-align:right;"> Xiphophorus variatus </th>
+   <th style="text-align:right;"> Prionotus rubio </th>
+   <th style="text-align:right;"> Centropomus undecimalis </th>
+   <th style="text-align:right;"> Mycteroperca bonaci </th>
+   <th style="text-align:right;"> Serranus atrobranchus </th>
+   <th style="text-align:right;"> Lepomis macrochirus </th>
+   <th style="text-align:right;"> Micropterus spp. </th>
+   <th style="text-align:right;"> Caranx crysos </th>
+   <th style="text-align:right;"> Caranx hippos </th>
+   <th style="text-align:right;"> Caranx latus </th>
+   <th style="text-align:right;"> Oligoplites saurus </th>
+   <th style="text-align:right;"> Trachinotus carolinus </th>
+   <th style="text-align:right;"> Trachinotus falcatus </th>
+   <th style="text-align:right;"> Lutjanus campechanus </th>
+   <th style="text-align:right;"> Lutjanus cyanopterus </th>
+   <th style="text-align:right;"> Lutjanus griseus </th>
+   <th style="text-align:right;"> Diapterus auratus </th>
+   <th style="text-align:right;"> Diapterus rhombeus </th>
+   <th style="text-align:right;"> Eucinostomus melanopterus </th>
+   <th style="text-align:right;"> Gerres cinereus </th>
+   <th style="text-align:right;"> Anisotremus surinamensis </th>
+   <th style="text-align:right;"> Archosargus probatocephalus </th>
+   <th style="text-align:right;"> Lagodon rhomboides </th>
+   <th style="text-align:right;"> Aplodinotus grunniens </th>
+   <th style="text-align:right;"> Bairdiella chrysoura </th>
+   <th style="text-align:right;"> Bairdiella ronchus </th>
+   <th style="text-align:right;"> Cynoscion arenarius </th>
+   <th style="text-align:right;"> Cynoscion nebulosus </th>
+   <th style="text-align:right;"> Leiostomus xanthurus </th>
+   <th style="text-align:right;"> Micropogonias undulatus </th>
+   <th style="text-align:right;"> Pogonias cromis </th>
+   <th style="text-align:right;"> Herichthys labridens </th>
+   <th style="text-align:right;"> Herichthys cyanoguttatus </th>
+   <th style="text-align:right;"> Oreochromis aureus </th>
+   <th style="text-align:right;"> Dormitator maculatus </th>
+   <th style="text-align:right;"> Gobiomorus dormitor </th>
+   <th style="text-align:right;"> Gobionellus oceanicus </th>
+   <th style="text-align:right;"> Scomberomorus regalis </th>
+   <th style="text-align:right;"> Etropus crossotus </th>
+   <th style="text-align:right;"> Achirus lineatus </th>
+   <th style="text-align:right;"> Symphurus civitatum </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 11M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 12M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 13M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 14M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 17M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 18M </td>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="tabla-con-nombres-completos-y-abreviados-en-formato-largo" class="level4">
+<h4 class="anchored" data-anchor-id="tabla-con-nombres-completos-y-abreviados-en-formato-largo">Tabla con nombres completos y abreviados en formato largo</h4>
+<p>A continuacion se genera una <strong>tabla</strong> que corresponden a un procedimiento para incluir un identificador de cada especie que presenta su <strong>nombre completo</strong> y <strong>abreviado</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Abreviatura de las especies</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> ID </th>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:left;"> Abrev </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Hypanus sabinus </td>
+   <td style="text-align:left;"> Hypa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Elops saurus </td>
+   <td style="text-align:left;"> Elop </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Megalops atlanticus </td>
+   <td style="text-align:left;"> Mega </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> Albula vulpes </td>
+   <td style="text-align:left;"> Albu </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> Anguilla rostrata </td>
+   <td style="text-align:left;"> Angu </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> Myrophis punctatus </td>
+   <td style="text-align:left;"> Myro </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="incluir-la-columna-de-abundancias-totales" class="level4">
+<h4 class="anchored" data-anchor-id="incluir-la-columna-de-abundancias-totales">Incluir la columna de abundancias totales</h4>
+<p>A continuacion se complementa la <strong>tabla</strong> que incluye a la <strong>abundancia total</strong>, filtrada de mayor a menor densidad de individuos.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Abreviatura de las especies con sus abundancias</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> ID </th>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:left;"> Abrev </th>
+   <th style="text-align:right;"> Abundancia </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Poecilia mexicana </td>
+   <td style="text-align:left;"> Pclm </td>
+   <td style="text-align:right;"> 5573 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Astyanax  mexicanus </td>
+   <td style="text-align:left;"> Astm </td>
+   <td style="text-align:right;"> 4003 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Herichthys cyanoguttatus </td>
+   <td style="text-align:left;"> Hrcc </td>
+   <td style="text-align:right;"> 1616 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> Gambusia regani </td>
+   <td style="text-align:left;"> Gmbr </td>
+   <td style="text-align:right;"> 1519 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> Poecilia formosa </td>
+   <td style="text-align:left;"> Pclf </td>
+   <td style="text-align:right;"> 1222 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> Notropis aguirrepequenoi </td>
+   <td style="text-align:left;"> Ntra </td>
+   <td style="text-align:right;"> 996 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> Gambusia affinis </td>
+   <td style="text-align:left;"> Gmbsaf </td>
+   <td style="text-align:right;"> 538 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> Gambusia sp. </td>
+   <td style="text-align:left;"> Gsp. </td>
+   <td style="text-align:right;"> 522 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> Micropterus spp. </td>
+   <td style="text-align:left;"> Msp. </td>
+   <td style="text-align:right;"> 448 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> Aplodinotus grunniens </td>
+   <td style="text-align:left;"> Aplg </td>
+   <td style="text-align:right;"> 316 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+<section id="estimadores-clásicos-de-diversidad-alfa-por-cada-zona-altitudinal" class="level4">
+<h4 class="anchored" data-anchor-id="estimadores-clásicos-de-diversidad-alfa-por-cada-zona-altitudinal">1 Estimadores clásicos de diversidad alfa por cada zona altitudinal</h4>
+<p>La <a href="#tbl-tbl39">Tabla&nbsp;2</a> Muestra los valores totales de abundancias de especies de peces en las tres zonas altitudinales evaluadas M: Montaña “Mountain”, P: laderas “Plain”, RM: desembocadura “Mouth”).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl39" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;2:  Base de datos con totales de abundancia para cada sitio evaluado </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sites1 </th>
+   <th style="text-align:right;"> Hyps </th>
+   <th style="text-align:right;"> Elps </th>
+   <th style="text-align:right;"> Mgla </th>
+   <th style="text-align:right;"> Albv </th>
+   <th style="text-align:right;"> Angr </th>
+   <th style="text-align:right;"> Myrp </th>
+   <th style="text-align:right;"> Ancm </th>
+   <th style="text-align:right;"> Anch </th>
+   <th style="text-align:right;"> Brvg </th>
+   <th style="text-align:right;"> Brvp </th>
+   <th style="text-align:right;"> Drsc </th>
+   <th style="text-align:right;"> Drsp </th>
+   <th style="text-align:right;"> Hrnj </th>
+   <th style="text-align:right;"> Opso </th>
+   <th style="text-align:right;"> Cmpa </th>
+   <th style="text-align:right;"> Cypl </th>
+   <th style="text-align:right;"> Dnde </th>
+   <th style="text-align:right;"> Dsp. </th>
+   <th style="text-align:right;"> Ntra </th>
+   <th style="text-align:right;"> Mxsc </th>
+   <th style="text-align:right;"> Astm </th>
+   <th style="text-align:right;"> Arpf </th>
+   <th style="text-align:right;"> Amrm </th>
+   <th style="text-align:right;"> Amrn </th>
+   <th style="text-align:right;"> Ictl </th>
+   <th style="text-align:right;"> Ictp </th>
+   <th style="text-align:right;"> Isp. </th>
+   <th style="text-align:right;"> Pylo </th>
+   <th style="text-align:right;"> Synf </th>
+   <th style="text-align:right;"> Prcp </th>
+   <th style="text-align:right;"> Djsm </th>
+   <th style="text-align:right;"> Mglc </th>
+   <th style="text-align:right;"> Mmbm </th>
+   <th style="text-align:right;"> Mndb </th>
+   <th style="text-align:right;"> Hmrb </th>
+   <th style="text-align:right;"> Strt </th>
+   <th style="text-align:right;"> Fndg </th>
+   <th style="text-align:right;"> Lcnp </th>
+   <th style="text-align:right;"> Gmbsaf </th>
+   <th style="text-align:right;"> Gmbsar </th>
+   <th style="text-align:right;"> Gmbr </th>
+   <th style="text-align:right;"> Gsp. </th>
+   <th style="text-align:right;"> Pclf </th>
+   <th style="text-align:right;"> Pcll </th>
+   <th style="text-align:right;"> Pclm </th>
+   <th style="text-align:right;"> Psp. </th>
+   <th style="text-align:right;"> Xphv </th>
+   <th style="text-align:right;"> Prnr </th>
+   <th style="text-align:right;"> Cntu </th>
+   <th style="text-align:right;"> Mycb </th>
+   <th style="text-align:right;"> Srra </th>
+   <th style="text-align:right;"> Lpmm </th>
+   <th style="text-align:right;"> Msp. </th>
+   <th style="text-align:right;"> Crnc </th>
+   <th style="text-align:right;"> Crnh </th>
+   <th style="text-align:right;"> Crnl </th>
+   <th style="text-align:right;"> Olgs </th>
+   <th style="text-align:right;"> Trcc </th>
+   <th style="text-align:right;"> Trcf </th>
+   <th style="text-align:right;"> Ltjnscm </th>
+   <th style="text-align:right;"> Ltjnscy </th>
+   <th style="text-align:right;"> Ltjg </th>
+   <th style="text-align:right;"> Dpta </th>
+   <th style="text-align:right;"> Dptr </th>
+   <th style="text-align:right;"> Ecnm </th>
+   <th style="text-align:right;"> Grrc </th>
+   <th style="text-align:right;"> Anss </th>
+   <th style="text-align:right;"> Arcp </th>
+   <th style="text-align:right;"> Lgdr </th>
+   <th style="text-align:right;"> Aplg </th>
+   <th style="text-align:right;"> Brdc </th>
+   <th style="text-align:right;"> Brdr </th>
+   <th style="text-align:right;"> Cyna </th>
+   <th style="text-align:right;"> Cynn </th>
+   <th style="text-align:right;"> Lstx </th>
+   <th style="text-align:right;"> Mcru </th>
+   <th style="text-align:right;"> Pgnc </th>
+   <th style="text-align:right;"> Hrcl </th>
+   <th style="text-align:right;"> Hrcc </th>
+   <th style="text-align:right;"> Orca </th>
+   <th style="text-align:right;"> Drmm </th>
+   <th style="text-align:right;"> Gbmd </th>
+   <th style="text-align:right;"> Gbno </th>
+   <th style="text-align:right;"> Scmr </th>
+   <th style="text-align:right;"> Etrc </th>
+   <th style="text-align:right;"> Achl </th>
+   <th style="text-align:right;"> Symc </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 994 </td>
+   <td style="text-align:right;"> 186 </td>
+   <td style="text-align:right;"> 3176 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:right;"> 1436 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 725 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4600 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1353 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 234 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 827 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 486 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 521 </td>
+   <td style="text-align:right;"> 497 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 973 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 382 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 313 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Con los datos de la <a href="#tbl-tbl39">Tabla&nbsp;2</a>, a continuación se calculan algunos <strong>índices de diversidad general</strong>, en la propuesta de Borcard et al.&nbsp;(2018). <strong>q_0</strong>, <strong>q_1</strong> y <strong>q_2</strong> corresponden a los valores de diversidad en términos de riqueza o <strong>número de especies</strong>, <strong>especies abundantes</strong> de acuerdo a euler elevado a la Shannon y las <strong>especies muy abundantes</strong> según el inverso del índice de Simpson, respectivamente. De igual forma se evalúa la unidormidad en la abundancia de las diferentes especies para cada zona, con el índice de Pielou.</p>
+<p>En la <a href="#tbl-tbl39">Tabla&nbsp;2</a> se observa que en la <strong>desembocadura -</strong> <strong>RM presenta la mayor riqueza de especies (q₀ = 53)</strong>, así como los mayores valores de diversidad ponderada por abundancias (q₁ = 24.5 y q₂ = 15.4), demostrando ser el lugar más diverso y con menor dominancia o mayor equidad. <strong>La zona de laderas - P</strong>, se presentan 31 especies, con una diversidad intermedia y una equidad elevada (J’ = 0.74), lo que sugiere una distribución relativamente homogénea de las abundancias. En contraste, <strong>la zona montañoza - M</strong>, aunque posee la misma riqueza que P (31 especies), presenta una diversidad efectiva menor (q₁ = 6.6; q₂ = 4.7) y una equidad más baja (J’ = 0.55), posiblemente porque pocas especies son las ominantes en esos lugares. En conjunto, el gradiente de diversidad y equidad (<strong>RM &gt; P &gt; M</strong>) refleja un posible incremento en la estabilidad ecológica y en la heterogeneidad de hábitats hacia de las zonas elevadas hacia las de desembocadura.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl40" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;3:  Base de datos con diferentes estimadores de diversidad para cada zona evaluada </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sites1 </th>
+   <th style="text-align:right;"> q_0 </th>
+   <th style="text-align:right;"> q_1 </th>
+   <th style="text-align:right;"> q_2 </th>
+   <th style="text-align:right;"> Equidad_J </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 0.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 12.4 </td>
+   <td style="text-align:right;"> 9.5 </td>
+   <td style="text-align:right;"> 0.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 24.5 </td>
+   <td style="text-align:right;"> 15.4 </td>
+   <td style="text-align:right;"> 0.81 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="diversidad-alfa-con-curvas-de-distribución-rango-abundancia-rad" class="level4">
+<h4 class="anchored" data-anchor-id="diversidad-alfa-con-curvas-de-distribución-rango-abundancia-rad">2 Diversidad alfa con curvas de distribución rango-abundancia RAD</h4>
+<p>Las <strong>curvas rango–abundancia (RAD, <em>Rank–Abundance Distributions</em>)</strong>, también conocidas como <strong>diagramas de Whittaker</strong>, constituyen una de las representaciones gráficas más clásicas para describir la <strong>estructura de las comunidades biológicas</strong> (Whittaker, 1965). En estas curvas, las especies se ordenan en el eje <em>x</em> según su rango de abundancia (de la más a la menos abundante) y en el eje <em>y</em> se representa su abundancia relativa —frecuentemente en escala logarítmica—. La pendiente y forma de la curva permiten inferir sobre el grado de <strong>dominancia, equidad y riqueza</strong> dentro del ensamblaje: curvas más empinadas reflejan comunidades dominadas por pocas especies, mientras que curvas más suaves y extendidas indican una distribución más equitativa de las abundancias.</p>
+<p>En el presente análisis, se construye la tabla <code>biol_rad</code>, que organiza las abundancias en rangos de acuerdo con su magnitud, y servirá como base para la representación de las <strong>curvas RAD</strong> correspondientes a cada zona evaluada. Estas curvas permiten visualizar de manera comparativa los patrones de diversidad alfa y la estructura interna de los ensamblajes en función de las diferencias ambientales o espaciales. Aplicaciones prácticas de estas curvas, pueden encontrarse en Crane et al.&nbsp;(2018).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl41" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;4:  Base de datos con diferentes estadísticos descriptivos para cada zona evaluada </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sites1 </th>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:right;"> Abundancia </th>
+   <th style="text-align:right;"> Rango </th>
+   <th style="text-align:right;"> Ab_rel </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Ancm </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Drsp </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Hrnj </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Opso </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Ntra </td>
+   <td style="text-align:right;"> 994 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.075 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Astm </td>
+   <td style="text-align:right;"> 3176 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.241 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig39">Figura&nbsp;1</a> muestra que en las <strong>montañas (M)</strong> se observa una curva pronunciada, con pocas especies dominantes (como <em>Pclm</em> y <em>Astm</em>) y una rápida caída de las abundancias, lo que indica <strong>alta dominancia y baja equidad</strong>. En las <strong>laderas o planicies (P)</strong> la pendiente es más suave, con una mayor proporción de especies intermedias y una distribución más equilibrada de abundancias, reflejando una <strong>diversidad y uniformidad moderadas</strong>. En la <strong>desembocadura (RM)</strong> la curva es la más extendida y menos inclinada, lo que evidencia una <strong>alta riqueza y equidad</strong>, sin especies extremadamente dominantes. Este patrón confirma el gradiente de diversidad observado en los índices de Hill (<a href="#tbl-tbl39">Tabla&nbsp;2</a>): <strong>el ensamblaje se vuelve más diverso y equitativo desde las montañas hacia la desembocadura</strong>, posiblemente debido al aumento en la disponibilidad de hábitats y recursos a lo largo del gradiente altitudinal.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig39" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig39-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Patrón de distribución-rango-abundancia - RAD - para los quince Especies de macropeces continentales más abundantes</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig40">Figura&nbsp;2</a> muestra opción de graficar la figura anterior :</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig40" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig40-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: Patrón de distribución-rango-abundancia - RAD - para los quince Especies de macropeces continentales más abundantes</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<section id="a.-ajuste-de-las-curvas-rad" class="level5">
+<h5 class="anchored" data-anchor-id="a.-ajuste-de-las-curvas-rad">a. Ajuste de las curvas RAD</h5>
+<p>Los <strong>modelos de distribución rango–abundancia (RAD, Rank–Abundance Distribution)</strong> describen cómo se reparte la abundancia entre las especies de una comunidad o ensamblaje y permiten comparar patrones de diversidad entre muestras sometidas a distintas condiciones ambientales (ej. gradientes de altura o de profundidad) o grados de perturbación. Estos modelos, ajustados mediante el comando <code>radfit</code> del paquete <em>vegan</em>, utilizan criterios de información (AIC y BIC) para determinar cuál describe mejor los datos observados. Son especialmente útiles cuando se trabaja con <strong>datos discretos de abundancia</strong> (conteos o frecuencias) y pueden interpretarse dentro del marco de los <strong>Modelos Lineales Generalizados (GLMs)</strong>, considerando supuestos como la independencia de las observaciones y la homogeneidad de varianzas. En caso de sobredispersión, pueden explorarse distribuciones alternativas, como la <strong>Binomial Negativa</strong>.</p>
+<p>Estos modelos de distribución ajustados representan una de las expresiones matemáticas más claras del clásico dilema en ecología de comunidades: la relación entre dominancia y diversidad (Martin et al., 2023). Según Oksanen et al.&nbsp;(2025), el paquete <em>vegan</em> de R proporciona herramientas específicas —como la función <code>radfit</code>— que permiten ajustar distintos modelos de distribución rango-abundancia (Preemption, Log-normal, Zipf y Mandelbrot), y seleccionar el mejor mediante criterios de información (AIC y BIC).</p>
+<p>Chao et al.&nbsp;(2015) ampliaron estos enfoques incorporando métodos avanzados para validar el ajuste de las curvas RAD y su comportamiento a lo largo de gradientes ambientales, relacionando la abundancia relativa observada en una muestra con la abundancia relativa real en el ensamblaje, incluyendo la estimación de especies no detectadas. Por su parte, Foster y Dunstan (2010) exploraron variantes distribucionales como la binomial negativa truncada y el modelo multinomial de Dirichlet, que permiten una representación más flexible de las comunidades ecológicas con alta varianza o agregación. Finalmente, Matthews y Whittaker (2015) destacaron la utilidad de estos modelos —también conocidos como <em>Species Abundance Distributions</em> (SAD)— como herramientas visuales intuitivas para evaluar cambios en la estructura comunitaria a lo largo de gradientes ambientales o en respuesta a perturbaciones ecológicas.</p>
+<p>El comando <code>radfit</code> compara cinco modelos teóricos: <strong>nulo (Null)</strong>, <strong>geométrico o de preempción (Preemption)</strong>, <strong>log-normal</strong>, <strong>Zipf</strong> y <strong>Mandelbrot</strong>.</p>
+<ul>
+<li><p>El <strong>modelo nulo</strong> representa a comunidades sin una estructura definida, asociadas a fases iniciales de sucesión y/o a perturbaciones intensas.</p></li>
+<li><p>El <strong>modelo de preemptión</strong> indica dominancia de pocas especies oportunistas que compiten por recursos limitados, típico de comunidades empobrecidas o estresadas ambientalmente.</p></li>
+<li><p>El <strong>modelo log-normal</strong> caracteriza ecosistemas tropicales diversos y relativamente estables, donde la mayoría de las especies presentan abundancias intermedias.</p></li>
+<li><p>El <strong>modelo Zipf</strong> describe comunidades jerárquicas dominadas por una o pocas especies con ventajas competitivas notorias.</p></li>
+<li><p>El <strong>modelo Mandelbrot</strong>, una variante del Zipf, refleja una estructura más compleja y estable, donde coexisten especies dominantes y raras, representando una mayor integridad ecológica.</p></li>
+</ul>
+<p>En este sentido, <strong>los modelos Preemption y Zipf suelen asociarse a ambientes perturbados o de baja integridad ecológica</strong>, mientras que los <strong>modelos Log-normal y Mandelbrot</strong> describen comunidades más equilibradas y diversas. El <strong>modelo nulo</strong>, por su parte, denota ensamblajes sin un patrón ecológico definido.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Matriz de abundancia por sitio para análisis RAD</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:right;"> M </th>
+   <th style="text-align:right;"> P </th>
+   <th style="text-align:right;"> RM </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Achl </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Albv </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrn </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anch </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ancm </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: algorithm did not converge</code></pre>
+</div>
+</div>
+<p><strong>Zona M - mod.mountains (Preemption, AIC = 754.9).</strong><br>
+El modelo de preemptión indica <strong>alta dominancia</strong>: unas pocas especies ocupan gran parte del recurso y el resto cae rápido en abundancia. Es consistente con la <strong>baja equidad</strong> (J’ ≈ 0.55) y con curvas RAD muy empinadas; ecológicamente sugiere <strong>estrés</strong> o <strong>perturbación</strong> que favorece a especies oportunistas y reduce la diversidad efectiva.</p>
+<p><strong>Zona P -</strong> <strong>mod.plain (Preemption, AIC = 276.6).</strong><br>
+También predomina un patrón de <strong>dominancia secuencial</strong>, pero menos extremo que en <strong>M</strong>. Coicide con los índices (J’ ≈ 0.74): aunque existen <strong>pocas especies dominantes</strong>, entre las restantes la <strong>distribución es relativamente homogénea</strong>, por eso q₁ y q₂ son intermedios. Indica <strong>condiciones moderadamente estresantes</strong> o limitación de recursos con cierta recuperación.</p>
+<p><strong>Zona RM - mod.mouth (Mandelbrot, AIC = 178.2).<br>
+</strong>El ajuste Mandelbrot (variante de Zipf con un parámetro adicional) refleja una <strong>estructura compleja</strong> con <strong>coexistencia de especies dominantes y raras</strong> y una cola larga de abundancias. Es congruente con <strong>alta riqueza y equidad</strong> (J’ ≈ 0.81) y una curva RAD más extendida: sugiere <strong>mayor integridad/estabilidad</strong> y heterogeneidad ambiental en la desembocadura.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Modelo con mejor ajuste por sitio (menor AIC)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:left;"> Modelo_Menor_AIC </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Preemption </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Preemption </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Mandelbrot </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+<section id="b.-figuras-de-los-modelos-rad-por-sitio" class="level5">
+<h5 class="anchored" data-anchor-id="b.-figuras-de-los-modelos-rad-por-sitio">b. Figuras de los modelos RAD por sitio</h5>
+<p>La línea de mayor grosor es la que representa al&nbsp;<strong>modelo de mayor ajuste</strong>&nbsp;para cada sitio evaluado. A continuación se grafican los diagramas de mayor ajuste.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig41" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig41-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;3: Ajuste del patron de diversidad de cada sitio evaluado, para los cinco modelos empíricos evaluados</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig42" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig42-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Ajuste del patron de diversidad de cada sitio evaluado, de acuerdo al medelo con menor AIC</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Se intentó evaluar la normalidad multivariada de la base de datos “biol”, pero la matriz es singular, por lo que se omite este paso opcional y a continuación se prueba la homogeneidad de las muestras y la independiencia de los datos.</p>
+<hr>
+<p>Se intentó evaluar la normalidad multivariada de la base de datos “<strong>biol1</strong>”, las matrices de datos de las tres zonas son singulares, por lo que se relaciona de forma opcional y a continuación se prueba la homogeneidad de las muestras y la independiencia de los datos.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'MVN' was built under R version 4.5.2</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="c.-diagnóstico-de-supuestos" class="level5">
+<h5 class="anchored" data-anchor-id="c.-diagnóstico-de-supuestos">c.&nbsp;Diagnóstico de supuestos</h5>
+<p>Los siguientes estadísticos permiten diagnosticar la precisión de los GLMs con la distribución Poisson, para el análisis de las distribuciones de abundancias por rangos (curvas RAD).</p>
+<p>El diagnóstico de homogeneidad de covarianzas es uno de los requisitos para los GLMs. De acuerdo con <strong>Zuur et al.&nbsp;(2009)</strong> y <strong>Crawley (2012)</strong>, este diagnóstico aplica especialmente en estructuras jerárquicas o gradientes ambientales, donde las diferencias en el esfuerzo de muestreo o en la dominancia de especies pueden inducir heterogeneidad de varianzas. Además, <strong>Anderson (2001)</strong> y <strong>Legendre &amp; Legendre (2012)</strong> destacan que la comprobación de este supuesto mediante permutaciones, como se hace en los procedimientos de PERMANOVA, refuerza la validez de las conclusiones sobre diferencias espaciales o ambientales en la composición de los ensamblajes o comunidades.</p>
+<p>El segundo requisito es la independencia, que según <strong>Durbin &amp; Watson (1950)</strong>, permite detectar dependencias seriales en modelos lineales y generalizados, mientras que <strong>Fox &amp; Weisberg (2018)</strong> y <strong>Faraway (2016)</strong> recomiendan su uso rutinario en la validación de GLMs aplicados a datos ecológicos o ambientales. En este contexto, la independencia observada sugiere que las abundancias de las especies no presentan patrones espaciales o temporales autocorrelacionados dentro de las zonas, lo que refuerza la confiabilidad de los parámetros estimados. Según <strong>Zuur et al.&nbsp;(2009)</strong>, la validación de este supuesto es fundamental cuando los modelos buscan describir procesos ecológicos donde las observaciones provienen de hábitats conectados o sujetos a gradientes ambientales continuos.</p>
+<section id="c.1-homogeneidad-de-covarianzas." class="level6">
+<h6 class="anchored" data-anchor-id="c.1-homogeneidad-de-covarianzas.">c.1 Homogeneidad de covarianzas.</h6>
+<p>La verificación de la homogeneidad de covarianzas constituye un paso esencial en los análisis basados en Modelos Lineales Generalizados (GLMs), ya que garantiza que las relaciones entre las variables explicativas y la respuesta se mantengan consistentes a lo largo de los niveles del factor evaluado. En este ejercicio, los estadísticos derivados del ANOVA y las permutaciones muestran valores de <strong><em>p</em></strong> <strong>&gt; 0.05</strong>, lo cual indica que <strong>el supuesto de homogeneidad se cumple adecuadamente</strong>. Este resultado implica que las varianzas multivariadas de las abundancias de las especies son comparables entre zonas, sin evidencias de dispersión desigual que pudieran sesgar las inferencias.<br>
+</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Distances
+          Df  Sum Sq   Mean Sq F value Pr(&gt;F)
+Groups     2 0.03091 0.0154569   1.608 0.2136
+Residuals 38 0.36528 0.0096127               </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 999
+
+Response: Distances
+          Df  Sum Sq   Mean Sq     F N.Perm Pr(&gt;F)
+Groups     2 0.03091 0.0154569 1.608    999  0.224
+Residuals 38 0.36528 0.0096127                    </code></pre>
+</div>
+</div>
+</section>
+<section id="c.2-independencia-de-los-datos." class="level6">
+<h6 class="anchored" data-anchor-id="c.2-independencia-de-los-datos.">c.2 Independencia de los datos.</h6>
+<p>El supuesto de independencia de los datos es otro requisito crítico en el ajuste de modelos GLM, ya que la presencia de autocorrelación puede inflar la significancia estadística y distorsionar la interpretación de los efectos ecológicos. En este análisis, el estadístico de <strong>Durbin–Watson</strong> mostró valores de <strong><em>p</em></strong> <strong>&gt; 0.05</strong>, indicando ausencia de autocorrelación significativa entre los residuos del modelo, y por tanto, <strong>cumplimiento del supuesto de independencia</strong>.<br>
+</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> lag Autocorrelation D-W Statistic p-value
+   1      0.00591006      1.979668    0.55
+ Alternative hypothesis: rho != 0</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="comparación-de-zonas-con-glms-y-permanovas" class="level4">
+<h4 class="anchored" data-anchor-id="comparación-de-zonas-con-glms-y-permanovas">3. Comparación de zonas con GLMs y Permanovas</h4>
+<p>Los análisis que se describen a continuación, buscan determinar si las diferencias observadas en la composición y abundancia de especies responden a <strong>variaciones espaciales reales</strong>— como cambios en la conectividad, la disponibilidad de recursos o la influencia antrópica— o si se deben al azar o a la heterogeneidad del muestreo. Para ello, se aplican tanto <strong>modelos paramétricos</strong> (GLM y manyGLM, bajo distribuciones Poisson y Binomial Negativa), que permiten evaluar la respuesta de una o múltiples especies considerando la estructura de dispersión de los datos, como <strong>métodos no paramétricos</strong> (PERMANOVA), que analizan la disimilitud global entre zonas sin asumir una distribución específica. En conjunto, estos procedimientos proporcionan una <strong>visión complementaria y robusta</strong> de los patrones de diversidad y dominancia, permitiendo identificar gradientes ecológicos significativos y zonas de mayor diferenciación biológica dentro de los ecosistemas.</p>
+<p>Los <strong>Modelos Lineales Generalizados (GLM)</strong> y sus extensiones multivariadas (<strong>manyGLM</strong>) constituyen herramientas fundamentales para analizar patrones de abundancia y composición de especies bajo distintos gradientes ambientales o espaciales. De acuerdo con <strong>Warton et al.&nbsp;(2012)</strong>, el enfoque <strong>manyGLM</strong> mejora la interpretación de respuestas multiespecíficas, ya que permite separar los efectos de estructura comunitaria general de los patrones particulares de cada especie, proporcionando inferencias más sólidas sobre los gradientes ambientales que las aproximaciones univariadas. Asimismo, <strong>Zuur et al.&nbsp;(2009)</strong> y <strong>Crawley (2013)</strong> destacan que los GLMs resultan especialmente apropiados en ecología de comunidades por su flexibilidad en el modelado de datos no normales y su capacidad para representar procesos ecológicos complejos, como la dominancia, la agregación espacial y la coexistencia interespecífica. En conjunto, estas herramientas permiten discernir si las diferencias en abundancia y composición de especies entre zonas son estadísticamente significativas y ecológicamente consistentes, controlando al mismo tiempo la estructura de dispersión intrínseca de los datos.</p>
+<p>La <strong>PERMANOVA (Permutational Multivariate Analysis of Variance)</strong>, desarrollada originalmente por <strong>Anderson (2001)</strong>, es un método no paramétrico diseñado para evaluar diferencias multivariadas en la composición de comunidades biológicas a partir de una matriz de disimilitudes (por ejemplo, Bray–Curtis). A diferencia de los GLMs, este enfoque no requiere supuestos de normalidad o homogeneidad de varianzas en los datos originales, lo que lo hace especialmente apropiado para analizar ensamblajes de especies caracterizados por alta heterogeneidad y presencia de muchos ceros o ausencias de individuos. Según <strong>Anderson &amp; Walsh (2013)</strong> y <strong>Legendre &amp; Legendre (2012)</strong>, la PERMANOVA permite identificar diferencias estructurales entre grupos (zonas, hábitats o tratamientos) mediante permutaciones, evaluando si la variación observada entre grupos supera la esperada por azar. En el contexto de estudios de ensamblajes acuáticos, su aplicación resulta particularmente útil para contrastar patrones espaciales de diversidad y determinar si las comunidades responden de forma coherente a gradientes ambientales.</p>
+<hr>
+<section id="a.-prueba-con-distribución-poisson-y-binomial-negativa-para-una-especie" class="level5">
+<h5 class="anchored" data-anchor-id="a.-prueba-con-distribución-poisson-y-binomial-negativa-para-una-especie">a. Prueba con distribución Poisson y binomial negativa para una especie</h5>
+<p>Se seleccionó a <strong><em>Poecilia mexicana</em></strong> <strong>(Pclm)</strong> como especie representativa, dado que domina en abundancia en la mayoría de las zonas evaluadas.</p>
+<p>El ajuste mediante un <strong>modelo Poisson</strong> arrojó una <strong>devianza residual de 12 249 con 38 grados de libertad</strong> y un <strong>AIC = 12 434</strong>. Aunque el modelo converge estadísticamente, los coeficientes presentan <strong>errores estándar elevados y valores de p no significativos</strong>, lo que sugiere una falta de ajuste adecuado. Este comportamiento indica que los datos <strong>no cumplen el supuesto de equidispersión</strong> (igualdad entre la media y la varianza) característico de la distribución Poisson. En consecuencia, la varianza observada supera a la esperada, revelando un patrón de <strong>heterogeneidad espacial en las abundancias</strong>: la especie es muy frecuente en algunas zonas (especialmente en RM) y escasa o ausente en otras. Esta desigualdad induce <strong>sobre– o subdispersión</strong>, limitando la capacidad del modelo Poisson para describir correctamente la estructura espacial de la abundancia entre sitios.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Pclm ~ Sites1, family = "poisson", data = biol1b)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   5.25576    0.01474 356.463   &lt;2e-16 ***
+Sites1P      -1.11474    0.03575 -31.184   &lt;2e-16 ***
+Sites1RM    -16.55834  122.08518  -0.136    0.892    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 14016  on 40  degrees of freedom
+Residual deviance: 12249  on 38  degrees of freedom
+AIC: 12434
+
+Number of Fisher Scoring iterations: 9</code></pre>
+</div>
+</div>
+<p>Al ajustar un <strong>modelo Binomial Negativo</strong>, se obtiene una representación más realista del patrón de abundancia observado. Este modelo introduce un <strong>parámetro de dispersión (θ = 0.28 ± 0.06)</strong> que permite modelar explícitamente la varianza extra, capturando la <strong>agregación y heterogeneidad espacial</strong> de la especie.</p>
+<p>Aunque el <strong>AIC (411.3)</strong> es mayor que el del modelo Poisson, este valor no implica un peor ajuste, ya que el cambio de distribución modifica la escala de comparación; más bien refleja un <strong>modelo ecológicamente más coherente</strong> con la naturaleza de los datos de conteo sobredispersos.</p>
+<p>En este caso, el modelo Binomial Negativo describe de manera más estable las diferencias entre zonas, mostrando un patrón consistente con la ecología de la especie: <strong><em>P. mexicana</em></strong> <strong>tiende a concentrarse en ambientes estuarinos (RM)</strong>, donde la disponibilidad trófica y las condiciones físico–químicas son más favorables, mientras que su presencia en zonas montañosas o de ladera es limitada.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm.nb(formula = Pclm ~ Sites1, data = biol1b, start = coef(mod_p), 
+    control = glm.control(maxit = 200), init.theta = 0.2795629391, 
+    link = log)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    5.2558     0.3863  13.604   &lt;2e-16 ***
+Sites1P       -1.1147     0.6235  -1.788   0.0738 .  
+Sites1RM     -23.5583  4042.9060  -0.006   0.9954    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Negative Binomial(0.2796) family taken to be 1)
+
+    Null deviance: 56.981  on 40  degrees of freedom
+Residual deviance: 47.217  on 38  degrees of freedom
+AIC: 411.32
+
+Number of Fisher Scoring iterations: 1
+
+              Theta:  0.2796 
+          Std. Err.:  0.0586 
+
+ 2 x log-likelihood:  -403.3220 </code></pre>
+</div>
+</div>
+<p>Para confirmar la robustez del resultado, se ajustó también el modelo mediante <strong>GLMMs con la función <code>glmmTMB</code></strong>, obteniendo parámetros equivalentes y un comportamiento residual estable.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: nbinom2  ( log )
+Formula:          Pclm ~ Sites1
+Data: biol1b
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    411.3     418.2    -201.7     403.3        37 
+
+
+Dispersion parameter for nbinom2 family (): 0.28 
+
+Conditional model:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    5.2558     0.3863  13.604   &lt;2e-16 ***
+Sites1P       -1.1147     0.6235  -1.788   0.0738 .  
+Sites1RM     -23.5732  6715.4760  -0.004   0.9972    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>El patrón obtenido refleja la <strong>influencia de gradientes ambientales</strong> —como la salinidad, la turbidez o la disponibilidad del recurso— sobre la distribución de <em>P. mexicana</em>. La mayor abundancia en la zona de desembocadura - RM sugiere <strong>preferencia por ambientes estuarinos</strong> y posibles limitaciones ecológicas en zonas más continentales.</p>
+<p>En este sentido, el modelo Binomial Negativo resulta <strong>más apropiado para representar la estructura de abundancia de una especie dominante con distribución agrupada, agregada o heterogénea</strong>. En contraste, el modelo Poisson es más adecuado cuando se analizan especies con abundancias homogéneas y sus varianzas se aproximan a sus medias.</p>
+<hr>
+</section>
+<section id="b.-evaluación-conjunta-del-efecto-de-la-zona-sobre-todas-las-especies" class="level5">
+<h5 class="anchored" data-anchor-id="b.-evaluación-conjunta-del-efecto-de-la-zona-sobre-todas-las-especies">b. Evaluación conjunta del efecto de la zona sobre todas las especies</h5>
+<p>Para evaluar el efecto conjunto de la <strong>zona</strong> sobre la composición y abundancia de todas las especies, se ajustaran <strong>Modelos Lineales Generalizados Multivariados (manyGLM)</strong> bajo las distribuciones <strong>Poisson</strong> y <strong>Binomial Negativa</strong>, considerando simultáneamente las abundancias de todas las especies registradas en las tres zonas (M, P y RM).</p>
+<p>En el <strong>modelo Poisson</strong>, se detecta un efecto altamente significativo de la zona (<strong>p = 0.001</strong>) sobre la estructura del ensamblaje, lo que indica que las abundancias relativas difieren de manera consistente entre zonas. En términos ecológicos, este resultado sugiere la existencia de un <strong>gradiente espacial de composición</strong>, en el que los peces varían en riqueza y dominancia específica a lo largo del río, desde las zonas montañosas (M) hasta la desembocadura (RM).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Test statistics:
+            wald value Pr(&gt;wald)    
+(Intercept)    522.798     0.001 ***
+Sites1P         57.275     0.001 ***
+Sites1RM         0.563     0.001 ***
+--- 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Test statistic:  57.38, p-value: 0.001 
+Arguments:
+ Test statistics calculated assuming response assumed to be uncorrelated 
+ P-value calculated using 999 resampling iterations via pit.trap resampling (to account for correlation in testing).</code></pre>
+</div>
+</div>
+<p>No obstante, los datos de abundancia de organismos acuáticos continentales, suelen presentar <strong>sobre-dispersión</strong> (varianza mucho mayor que la media), fenómeno que puede inflar las pruebas en los modelos Poisson y generar un exceso de significancia estadística (<strong>error tipo I</strong>). Para controlar este efecto, a continuación se ajusta un modelo <strong>Binomial Negativo</strong>, que incorpora un parámetro de dispersión (<strong>θ</strong>) y modela explícitamente la varianza adicional atribuida a la heterogeneidad entre especies y sitios.</p>
+<p>El <strong>modelo Binomial Negativo</strong> confirmó el patrón detectado por el Poisson (p = 0.001), evidenciando que las diferencias observadas entre zonas son <strong>estadística y ecológicamente robustas</strong>, y no un artefacto de la sobre-dispersión. La consistencia entre ambos modelos valida la existencia de un <strong>gradiente ambiental real</strong> que modula la composición y abundancia de los ensamblajes de peces, asociado posiblemente a variaciones en la conectividad, la productividad trófica y la presión antrópica a lo largo del gradiente altitudinal.</p>
+<p>En síntesis, el uso complementario de las distribuciones <strong>Poisson y Binomial Negativa</strong> demuestra que la variable “zona” ejerce un <strong>efecto significativo y coherente</strong> sobre la estructura de los ensamblajes, reflejando diferencias espaciales marcadas en la diversidad alfa y en la dominancia de especies en este tipo de ambientes fluviales contrastantes.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Test statistics:
+            wald value Pr(&gt;wald)    
+(Intercept)     29.248     0.001 ***
+Sites1P         10.183     0.001 ***
+Sites1RM         0.563     0.001 ***
+--- 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Test statistic:  10.24, p-value: 0.001 
+Arguments:
+ Test statistics calculated assuming response assumed to be uncorrelated 
+ P-value calculated using 999 resampling iterations via pit.trap resampling (to account for correlation in testing).</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="c.-comparación-de-muestras-con-pemanovas" class="level5">
+<h5 class="anchored" data-anchor-id="c.-comparación-de-muestras-con-pemanovas">c.&nbsp;Comparación de muestras con Pemanovas</h5>
+<p>La <strong>PERMANOVA</strong> (<em>Permutational Multivariate Analysis of Variance</em>) es una herramienta robusta para evaluar el <strong>efecto conjunto de la zona</strong> sobre la composición y abundancia relativa de las especies. A diferencia de los modelos GLM multivariados, este método *<strong>no asume distribuciones paramétricas</strong> de los datos, sino que se basa directamente en una <strong>matriz de disimilitud</strong> (en este caso, el índice de <strong>Bray–Curtis</strong>), lo que la convierte en una alternativa apropiada para comunidades ecológicas con estructuras complejas y abundancias heterogéneas.</p>
+<p>En este análisis, la PERMANOVA revela un <strong>efecto significativo de la zona</strong> sobre la estructura comunitaria (<strong>F = 2.64; p = 0.001; R² = 0.12</strong>), lo cual indica que aproximadamente el <strong>12% de la variación total</strong> en la composición de especies se explica por diferencias espaciales entre zonas, mientras que el resto se atribuye a variabilidad interna o a factores ambientales no incluidos en el modelo.<br>
+</p>
+<p>Sin embargo, es importante tener en cuenta que la PERMANOVA <strong>puede ser sensible a diferencias en la dispersión multivariada</strong> entre grupos (heterogeneidad de varianza–covarianza). En casos de *dispersión desigual, el método podría sobreestimar la significancia o reducir su potencia. Por esta razón, se recomienda <strong>complementar su interpretación</strong> con enfoques basados en <strong>GLMs multivariados</strong> (como la Binomial Negativa), que modelan explícitamente la varianza y proporcionan inferencias más robustas sobre los patrones de estructura comunitaria.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = bray.dis ~ Sites1, data = biol1, permutations = 999)
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     2   1.7324 0.12207 2.6419  0.001 ***
+Residual 38  12.4589 0.87793                  
+Total    40  14.1913 1.00000                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="d.-prueba-de-comparaciones-múltiples-del-pemanova" class="level5">
+<h5 class="anchored" data-anchor-id="d.-prueba-de-comparaciones-múltiples-del-pemanova">d.&nbsp;Prueba de comparaciones múltiples del Pemanova</h5>
+<p>Para identificar entre qué pares de zonas se presentan diferencias significativas, se aplica una <strong>prueba post hoc de comparaciones múltiples</strong> basada en permutaciones (1000 iteraciones) utilizando el paquete <strong>RVAideMemoire</strong>.</p>
+<p>Los resultados muestran que todas las comparaciones por pares son <strong>estadísticamente significativas (p &lt; 0.05)</strong>, especialmente entre <strong>M–P (p = 0.003)</strong> y <strong>M–RM (p = 0.003)</strong>, mientras que la diferencia entre <strong>P–RM (p = 0.012)</strong> también es relevante aunque ligeramente menor. Esto confirma que <strong>las tres zonas difieren significativamente entre sí</strong> en términos de composición y abundancia de especies, reforzando la evidencia del gradiente espacial detectado en los análisis previos.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pairwise comparisons using permutation MANOVAs on a distance matrix 
+
+data:  bray.dis by biol1$Sites1
+1000 permutations 
+
+   M     P    
+P  0.007 -    
+RM 0.006 0.006
+
+P value adjustment method: fdr </code></pre>
+</div>
+</div>
+<hr>
+<p>La siguiente tabla resume las principales diferencias entre los enfoques <strong>paramétricos (GLM)</strong> y <strong>no paramétricos (PERMANOVA)</strong> utilizados en la comparación de zonas. Mientras la <strong>PERMANOVA</strong> permite identificar diferencias globales en la estructura comunitaria sin asumir una distribución particular, los <strong>GLMs</strong> y <strong>manyGLMs</strong> ofrecen una aproximación más flexible y ecológicamente detallada, modelando explícitamente la relación entre abundancia y factores ambientales. El uso combinado de ambos métodos fortalece la interpretación, integrando <strong>robustez estadística</strong> y <strong>capacidad explicativa ecológica</strong>.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Comparación entre la PERMANOVA y los Modelos GLM (una y múltiples especies, con distribuciones Poisson y Binomial Negativa)</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Método...Modelo </th>
+   <th style="text-align:center;"> Tipo.de.análisis </th>
+   <th style="text-align:center;"> Supuestos.principales </th>
+   <th style="text-align:center;"> Variable.respuesta </th>
+   <th style="text-align:center;"> Interpretación.ecológica </th>
+   <th style="text-align:center;"> Ventajas </th>
+   <th style="text-align:center;"> Limitaciones </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 3.5cm; font-weight: bold;"> PERMANOVA </td>
+   <td style="text-align:center;width: 3.5cm; "> No paramétrico (basado en distancias) </td>
+   <td style="text-align:center;width: 3.5cm; "> No requiere normalidad; sensible a dispersión desigual </td>
+   <td style="text-align:center;width: 3.5cm; "> Matriz de disimilitud (Bray–Curtis) </td>
+   <td style="text-align:center;width: 3.5cm; "> Evalúa diferencias globales en la estructura comunitaria entre zonas o tratamientos </td>
+   <td style="text-align:center;width: 3.5cm; "> Robusto; no requiere supuestos de distribución; útil para comparar comunidades </td>
+   <td style="text-align:center;width: 3.5cm; "> Sensibilidad a dispersión multivariada; no modela varianza explícitamente </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 3.5cm; font-weight: bold;"> GLM (una especie, Poisson) </td>
+   <td style="text-align:center;width: 3.5cm; "> Paramétrico (frecuencias de una especie) </td>
+   <td style="text-align:center;width: 3.5cm; "> Media ≈ varianza (equidispersión) </td>
+   <td style="text-align:center;width: 3.5cm; "> Abundancia de una sola especie </td>
+   <td style="text-align:center;width: 3.5cm; "> Describe el patrón espacial o ambiental de una especie dominante </td>
+   <td style="text-align:center;width: 3.5cm; "> Sencillo de ajustar e interpretar; permite inferencia ecológica directa </td>
+   <td style="text-align:center;width: 3.5cm; "> Puede inflar la significancia con varianza alta (error tipo I) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 3.5cm; font-weight: bold;"> GLM (una especie, Binomial Negativa) </td>
+   <td style="text-align:center;width: 3.5cm; "> Paramétrico (frecuencias de una especie) </td>
+   <td style="text-align:center;width: 3.5cm; "> Varianza &gt; media (sobredispersión controlada por θ) </td>
+   <td style="text-align:center;width: 3.5cm; "> Abundancia de una sola especie </td>
+   <td style="text-align:center;width: 3.5cm; "> Describe la respuesta espacial de una especie con distribución agregada </td>
+   <td style="text-align:center;width: 3.5cm; "> Adecuado para conteos sobredispersos; evita sobreajuste </td>
+   <td style="text-align:center;width: 3.5cm; "> Más complejo; requiere estimar el parámetro θ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 3.5cm; font-weight: bold;"> manyGLM (todas las especies, Poisson) </td>
+   <td style="text-align:center;width: 3.5cm; "> Paramétrico multivariado (todas las especies) </td>
+   <td style="text-align:center;width: 3.5cm; "> Media ≈ varianza para cada especie; independencia entre respuestas </td>
+   <td style="text-align:center;width: 3.5cm; "> Matriz de abundancias por especie </td>
+   <td style="text-align:center;width: 3.5cm; "> Evalúa la respuesta conjunta de todas las especies al factor zona </td>
+   <td style="text-align:center;width: 3.5cm; "> Permite analizar múltiples especies simultáneamente; alta potencia estadística </td>
+   <td style="text-align:center;width: 3.5cm; "> Asume independencia entre especies; sensible a sobredispersión </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 3.5cm; font-weight: bold;"> manyGLM (todas las especies, Binomial Negativa) </td>
+   <td style="text-align:center;width: 3.5cm; "> Paramétrico multivariado (todas las especies) </td>
+   <td style="text-align:center;width: 3.5cm; "> Varianza &gt; media; incluye parámetro θ para sobredispersión </td>
+   <td style="text-align:center;width: 3.5cm; "> Matriz de abundancias por especie </td>
+   <td style="text-align:center;width: 3.5cm; "> Evalúa la respuesta conjunta de todas las especies controlando la heterogeneidad </td>
+   <td style="text-align:center;width: 3.5cm; "> Más realista para comunidades con especies dominantes o alta varianza </td>
+   <td style="text-align:center;width: 3.5cm; "> Mayor complejidad computacional; requiere interpretación conjunta </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+<section id="e.-análisis-simper" class="level5">
+<h5 class="anchored" data-anchor-id="e.-análisis-simper">e. Análisis SIMPER</h5>
+<p>El <strong>análisis SIMPER (Similarity Percentage Analysis)</strong>, propuesto originalmente por <strong>Clarke (1993)</strong>, permite identificar las especies que más contribuyen a las diferencias observadas entre grupos o zonas, descomponiendo la disimilitud promedio (basada en el índice de <strong>Bray–Curtis</strong>) en contribuciones específicas por especie. Este método, ampliamente desarrollado en los trabajos de <strong>Clarke &amp; Warwick (2001)</strong> y actualizado por <strong>Clarke et al.&nbsp;(2014)</strong>, facilita una interpretación ecológica más detallada de los resultados obtenidos mediante <strong>PERMANOVA</strong>, al señalar qué especies son responsables de la diferenciación entre los grupos o zonas comparadas.</p>
+<p>En este caso, se presentan las tres comparaciones posibles entre las zonas (M, P y RM), con el objetivo de determinar <strong>qué especies son responsables de la disimilitud entre pares de zonas</strong>. Se incluyen únicamente las <strong>diez primeras especies de cada comparación</strong>, ordenadas de menor a mayor valor de <em>p</em>, para resaltar aquellas que presentan <strong>efectos estadísticamente significativos</strong> (<em>p</em> &lt; 0.05).</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Significado ecológico de las principales columnas del análisis SIMPER</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Columna </th>
+   <th style="text-align:left;"> Significado_ecologico </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> average </td>
+   <td style="text-align:left;"> Magnitud de contribución promedio de la especie a la disimilitud entre grupos </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sd </td>
+   <td style="text-align:left;"> Desviación estándar de esa contribución entre réplicas </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio </td>
+   <td style="text-align:left;"> average / sd </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ava </td>
+   <td style="text-align:left;"> Abundancia promedio en el grupo A </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> avb </td>
+   <td style="text-align:left;"> Abundancia promedio en el grupo B </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cusum </td>
+   <td style="text-align:left;"> Contribución acumulada (proporción) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> p </td>
+   <td style="text-align:left;"> p &lt; 0.05 → significancia de la contribución a la disimilitud entre grupos </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Los resultados del SIMPER muestran que <strong>varias especies explican de manera significativa las diferencias en la composición faunística entre las zonas evaluadas</strong>. En la comparación <strong>M vs.&nbsp;P</strong>, destacan <em>Lpmm</em>, <em>Gbmd</em> y <em>Gmbsaf</em> con valores <em>p</em> &lt; 0.05, indicando que estas especies contribuyen de forma consistente a la disimilitud entre ambas zonas. En la comparación <strong>M vs.&nbsp;RM</strong>, especies como <em>Elps</em>, <em>Crnh</em>, <em>Lgdr</em> y <em>Trcf</em> presentan las contribuciones más altas y significativas (<em>p</em> = 0.002), evidenciando un cambio marcado en la composición hacia la desembocadura. De manera similar, en la comparación <strong>P vs.&nbsp;RM</strong>, las especies <em>Brvg</em>, <em>Elps</em> y <em>Crnh</em> se ubican entre las de mayor peso (<em>p</em> = 0.001), lo que sugiere un gradiente ecológico bien definido. En conjunto, estos resultados confirman que <strong>las diferencias entre zonas no son aleatorias</strong>, sino que están determinadas por un subconjunto de especies clave cuya abundancia varía sistemáticamente a lo largo del gradiente ambiental.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "M_P"  "M_RM" "P_RM"</code></pre>
+</div>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Diez primeras especies ordenadas por valor-p (menor a mayor) en el SIMPER de zonas M vs P</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:center;"> average </th>
+   <th style="text-align:center;"> sd </th>
+   <th style="text-align:center;"> ratio </th>
+   <th style="text-align:center;"> ava </th>
+   <th style="text-align:left;"> avb </th>
+   <th style="text-align:center;"> cumsum </th>
+   <th style="text-align:center;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Lpmm </td>
+   <td style="text-align:center;"> 0.010 </td>
+   <td style="text-align:center;"> 0.023 </td>
+   <td style="text-align:center;"> 0.466 </td>
+   <td style="text-align:center;"> 0.542 </td>
+   <td style="text-align:left;"> 4.267 </td>
+   <td style="text-align:center;"> 0.922 </td>
+   <td style="text-align:center;"> 0.004 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gbmd </td>
+   <td style="text-align:center;"> 0.011 </td>
+   <td style="text-align:center;"> 0.029 </td>
+   <td style="text-align:center;"> 0.387 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:left;"> 3.000 </td>
+   <td style="text-align:center;"> 0.910 </td>
+   <td style="text-align:center;"> 0.020 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gmbsaf </td>
+   <td style="text-align:center;"> 0.046 </td>
+   <td style="text-align:center;"> 0.091 </td>
+   <td style="text-align:center;"> 0.502 </td>
+   <td style="text-align:center;"> 2.167 </td>
+   <td style="text-align:left;"> 32.400 </td>
+   <td style="text-align:center;"> 0.696 </td>
+   <td style="text-align:center;"> 0.022 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Orca </td>
+   <td style="text-align:center;"> 0.016 </td>
+   <td style="text-align:center;"> 0.038 </td>
+   <td style="text-align:center;"> 0.429 </td>
+   <td style="text-align:center;"> 2.583 </td>
+   <td style="text-align:left;"> 8.667 </td>
+   <td style="text-align:center;"> 0.897 </td>
+   <td style="text-align:center;"> 0.039 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gsp. </td>
+   <td style="text-align:center;"> 0.035 </td>
+   <td style="text-align:center;"> 0.081 </td>
+   <td style="text-align:center;"> 0.427 </td>
+   <td style="text-align:center;"> 0.042 </td>
+   <td style="text-align:left;"> 34.733 </td>
+   <td style="text-align:center;"> 0.737 </td>
+   <td style="text-align:center;"> 0.055 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pcll </td>
+   <td style="text-align:center;"> 0.004 </td>
+   <td style="text-align:center;"> 0.011 </td>
+   <td style="text-align:center;"> 0.371 </td>
+   <td style="text-align:center;"> 0.292 </td>
+   <td style="text-align:left;"> 2.467 </td>
+   <td style="text-align:center;"> 0.982 </td>
+   <td style="text-align:center;"> 0.105 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Djsm </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 0.006 </td>
+   <td style="text-align:center;"> 0.301 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:left;"> 0.600 </td>
+   <td style="text-align:center;"> 0.994 </td>
+   <td style="text-align:center;"> 0.109 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drsc </td>
+   <td style="text-align:center;"> 0.008 </td>
+   <td style="text-align:center;"> 0.024 </td>
+   <td style="text-align:center;"> 0.333 </td>
+   <td style="text-align:center;"> 0.042 </td>
+   <td style="text-align:left;"> 5.467 </td>
+   <td style="text-align:center;"> 0.942 </td>
+   <td style="text-align:center;"> 0.115 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Msp. </td>
+   <td style="text-align:center;"> 0.024 </td>
+   <td style="text-align:center;"> 0.047 </td>
+   <td style="text-align:center;"> 0.517 </td>
+   <td style="text-align:center;"> 2.750 </td>
+   <td style="text-align:left;"> 25.067 </td>
+   <td style="text-align:center;"> 0.805 </td>
+   <td style="text-align:center;"> 0.130 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drsp </td>
+   <td style="text-align:center;"> 0.021 </td>
+   <td style="text-align:center;"> 0.067 </td>
+   <td style="text-align:center;"> 0.319 </td>
+   <td style="text-align:center;"> 0.083 </td>
+   <td style="text-align:left;"> 15.600 </td>
+   <td style="text-align:center;"> 0.830 </td>
+   <td style="text-align:center;"> 0.133 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Diez primeras especies ordenadas por valor-p (menor a mayor) en el SIMPER de zonas M vs. RM</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:center;"> average </th>
+   <th style="text-align:center;"> sd </th>
+   <th style="text-align:center;"> ratio </th>
+   <th style="text-align:center;"> ava </th>
+   <th style="text-align:left;"> avb </th>
+   <th style="text-align:center;"> cumsum </th>
+   <th style="text-align:center;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Elps </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.006 </td>
+   <td style="text-align:center;"> 1.195 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 3.0 </td>
+   <td style="text-align:center;"> 0.867 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trcf </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.195 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.958 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ltjnscy </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.195 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.961 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brdr </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.195 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.963 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brvg </td>
+   <td style="text-align:center;"> 0.013 </td>
+   <td style="text-align:center;"> 0.013 </td>
+   <td style="text-align:center;"> 0.933 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 4.5 </td>
+   <td style="text-align:center;"> 0.831 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crnh </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 1.021 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.5 </td>
+   <td style="text-align:center;"> 0.873 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lgdr </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 1.021 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.5 </td>
+   <td style="text-align:center;"> 0.880 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crnl </td>
+   <td style="text-align:center;"> 0.006 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.845 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.0 </td>
+   <td style="text-align:center;"> 0.886 </td>
+   <td style="text-align:center;"> 0.008 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cyna </td>
+   <td style="text-align:center;"> 0.006 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.845 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.0 </td>
+   <td style="text-align:center;"> 0.892 </td>
+   <td style="text-align:center;"> 0.008 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mglc </td>
+   <td style="text-align:center;"> 0.014 </td>
+   <td style="text-align:center;"> 0.019 </td>
+   <td style="text-align:center;"> 0.739 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 4.5 </td>
+   <td style="text-align:center;"> 0.804 </td>
+   <td style="text-align:center;"> 0.028 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Diez primeras especies ordenadas por valor-p (menor a mayor) en el SIMPER de zonas M vs. RM</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:center;"> average </th>
+   <th style="text-align:center;"> sd </th>
+   <th style="text-align:center;"> ratio </th>
+   <th style="text-align:center;"> ava </th>
+   <th style="text-align:left;"> avb </th>
+   <th style="text-align:center;"> cumsum </th>
+   <th style="text-align:center;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Brvg </td>
+   <td style="text-align:center;"> 0.015 </td>
+   <td style="text-align:center;"> 0.014 </td>
+   <td style="text-align:center;"> 1.052 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 4.5 </td>
+   <td style="text-align:center;"> 0.780 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Elps </td>
+   <td style="text-align:center;"> 0.009 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 1.388 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 3.0 </td>
+   <td style="text-align:center;"> 0.839 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crnh </td>
+   <td style="text-align:center;"> 0.008 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 1.162 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.5 </td>
+   <td style="text-align:center;"> 0.848 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Lgdr </td>
+   <td style="text-align:center;"> 0.008 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 1.162 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.5 </td>
+   <td style="text-align:center;"> 0.856 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Crnl </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.008 </td>
+   <td style="text-align:center;"> 0.946 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.0 </td>
+   <td style="text-align:center;"> 0.871 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cyna </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> 0.008 </td>
+   <td style="text-align:center;"> 0.946 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 2.0 </td>
+   <td style="text-align:center;"> 0.878 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trcf </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.388 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.952 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ltjnscy </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.388 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.955 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brdr </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.388 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 1.0 </td>
+   <td style="text-align:center;"> 0.958 </td>
+   <td style="text-align:center;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mglc </td>
+   <td style="text-align:center;"> 0.018 </td>
+   <td style="text-align:center;"> 0.021 </td>
+   <td style="text-align:center;"> 0.823 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:left;"> 4.5 </td>
+   <td style="text-align:center;"> 0.731 </td>
+   <td style="text-align:center;"> 0.006 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="diversidad-alfa-en-4-pasos.-chao-et-al.-2020." class="level4">
+<h4 class="anchored" data-anchor-id="diversidad-alfa-en-4-pasos.-chao-et-al.-2020.">4. Diversidad alfa en 4 Pasos. Chao <em>et al</em>. (2020).</h4>
+<p>El procedimiento de <strong>diversidad alfa en cuatro pasos</strong> propuesto por <strong>Chao et al.&nbsp;(2020)</strong> constituye una aproximación reciente para evaluar la diversidad ecológica mediante los <strong>números de Hill</strong> y la <strong>completitud de las muestras</strong>. Este enfoque integra la riqueza observada, la diversidad estimada (asintótica), la extrapolación estandarizada por cobertura (no asintótica) y la uniformidad de las abundancias. Los fundamentos teóricos derivan de los trabajos de <strong>Jost (2006)</strong> y <strong>Chao et al.&nbsp;(2014, 2015)</strong>, quienes demostraron que las comparaciones basadas en la cobertura son más robustas que las basadas en el tamaño muestral, especialmente en ecosistemas tropicales donde la proporción de especies raras puede ser elevada. En conjunto, este método permite comparar ensamblajes de especies con distinto esfuerzo de muestreo, identificar gradientes ecológicos reales y garantizar interpretaciones más consistentes sobre la estructura de la diversidad alfa o local. Este procedimiento permite calcular los siguientes cuatro pasos o insumos:&nbsp;<strong>(1) la completitud o integridad de la muestra</strong>,&nbsp;<strong>(2) la diversidad asintótica</strong>,&nbsp;<strong>(3) la diversidad no asintótica</strong>&nbsp;y&nbsp;<strong>(4) la uniformidad de las abundancias</strong>&nbsp;(<a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102">Chao et al.&nbsp;2020</a>).</p>
+<hr>
+<section id="patrón-general-de-diversidad-alfa-por-cada-zona." class="level5">
+<h5 class="anchored" data-anchor-id="patrón-general-de-diversidad-alfa-por-cada-zona.">4.1 Patrón general de diversidad alfa por cada zona.</h5>
+<p>La <strong>zona M</strong> registró la <strong>mayor abundancia total de individuos (13.211 individuos)</strong>, acompañada de una <strong>riqueza moderada de especies (31)</strong>. La <strong>zona P</strong> presentó una abundancia intermedia (5.090 individuos) y una riqueza ligeramente inferior (29 especies), mientras que la <strong>zona RM</strong>, aunque con una abundancia total mucho menor (414 individuos), mostró la <strong>mayor riqueza específica (53 especies)</strong>. Este contraste sugiere que la desembocadura alberga a un ensamblaje más diverso pero menos denso, posiblemente influenciada por una mayor heterogeneidad ambiental y un gradiente de conectividad con zonas marinas o estuarinas.</p>
+<p>En cuanto a la rareza, la <strong>frecuencia de especies únicas (singletons: f₁)</strong> y dobles (doubletons: f₂) fue relativamente baja en las zonas M y P (f₁ = 5 y 3; f₂ = 1 y 0, respectivamente), lo que indica que la mayoría de las especies fueron representadas por varios individuos, reflejando un <strong>muestreo adecuado y representativo</strong>. En contraste, la zona RM registró un número mayor de especies raras (f₁ = 16; f₂ = 9), lo que sugiere la presencia de <strong>componentes faunísticos poco frecuentes o específicos del ambiente estuarino</strong>. Esta mayor proporción de especies raras en RM podría indicar una <strong>transición ecológica compleja</strong>, donde confluyen especies de afinidades dulceacuícolas y costeras.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla. Estimadores generales de diversidad alfa</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> zona </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:right;"> Riqueza </th>
+   <th style="text-align:right;"> f1 </th>
+   <th style="text-align:right;"> f2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 13166 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 5151 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 414 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>–</p>
+</section>
+<section id="cuatro-pasos-por-zonas" class="level5">
+<h5 class="anchored" data-anchor-id="cuatro-pasos-por-zonas">4.2 Cuatro pasos por zonas</h5>
+<p>El procedimiento de diversidad alfa en <strong>cuatro pasos</strong>, propuesto por Chao et al.&nbsp;(2020), se aplicó a los datos de abundancia de la base <em>biol2</em> mediante la función <code>iNEXT4steps</code>. Esta rutina integra en un solo flujo de trabajo los principales estimadores y gráficos que permiten evaluar la completitud del muestreo, el perfil de diversidad asintótica, la estandarización por cobertura y la comparación de diversidades entre comunidades.</p>
+<p>Cabe señalar que en algunas versiones de la librería <strong>iNEXT</strong> los nombres de los insumos generados por <code>iNEXT4steps</code> pueden variar ligeramente. Por esta razón, se recomienda revisar los tutoriales disponibles en la ayuda (<code>help(iNEXT4steps)</code>), especialmente los ejemplos con datos de abundancia, para confirmar la forma correcta de invocar el comando y la interpretación de sus salidas.</p>
+<div class="cell">
+
+</div>
+<p><strong>Nota:</strong> en caso que el siguiente comando no se ejecute, se debe a que el paso 1 (perfil de completitud) presenta un nombre diferente, para lo cual se sugiere ejecutar el siguiente comando, que muestra los insumos de este ejercicio: names(<strong>result1$summary</strong>). Para este caso, los insumos son:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "STEP 1. Sample completeness profiles"                                                                                        
+[2] "STEP 2b. Observed diversity values and asymptotic estimates"                                                                 
+[3] "STEP 3. Non-asymptotic coverage-based rarefaction and extrapolation analysis"                                                
+[4] "STEP 4. Evenness among species abundances of orders q = 1 and 2 at Cmax based on the normalized slope of a diversity profile"</code></pre>
+</div>
+</div>
+<hr>
+<section id="a.-paso-1.-perfil-de-completitud" class="level6">
+<h6 class="anchored" data-anchor-id="a.-paso-1.-perfil-de-completitud">a. Paso 1. Perfil de completitud</h6>
+<p>El perfil de completitud evalúa la <strong>proporción de la diversidad observada con respecto a la esperada</strong>, es decir, qué tan representativo fue el esfuerzo de muestreo en cada zona para capturar la riqueza total de taxones presentes. En este análisis, las estimaciones de completitud varían según el orden de diversidad (<em>q</em>), el cual pondera de forma distinta la rareza de las especies:</p>
+<ul>
+<li><p><em>q = 0</em> corresponde a la <strong>riqueza de especies (todas las especies cuentan igual)</strong>.</p></li>
+<li><p><em>q = 1</em> pondera la <strong>diversidad de Shannon (especies comunes)</strong>.</p></li>
+<li><p><em>q = 2</em> refleja la <strong>diversidad de Simpson (especies más abundantes)</strong>.</p></li>
+</ul>
+<p>El <strong>perfil de completitud</strong> indica que las dos muestras (zonas: M y RM) no son completas para el primer orden de diversidad “q=0” representado por los valores de riqueza de taxones (completitud &lt; 0.9 requerido en ambientes tropicales) (<a href="#tbl-tbl42">Tabla&nbsp;5</a>), lo cual puede ser un indicador de requerimiento de mayor esfuerzo de muestreo. Esto guarda una relación directa con la proporción de especies únicas o f1, registradas en la tabla anterior.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl42" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;5:  Perfil de completitud entre los Estaciones evaluados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Assemblage </th>
+   <th style="text-align:right;"> q = 0 </th>
+   <th style="text-align:right;"> q = 1 </th>
+   <th style="text-align:right;"> q = 2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0.71 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="b.-paso-2.-perfil-asintótico" class="level6">
+<h6 class="anchored" data-anchor-id="b.-paso-2.-perfil-asintótico">b. Paso 2. Perfil asintótico</h6>
+<p>El perfil asintótico permite comparar la <strong>diversidad observada en campo</strong> con la <strong>diversidad estimada</strong> <strong>a partir de modelos de extrapolación</strong>. La diferencia entre ambos valores define a las especies <strong>no detectados</strong> (<em>sin.det</em>), lo que proporciona un indicador de qué tan completa es la muestra.</p>
+<p><strong>Nota</strong>: siguiendo con los insumos de names(result1$summary), el paso 2 se debe copiar y pegar en el siguiente fragmento de esta manera: <strong>“STEP 2b. Observed diversity values and asymptotic estimates”</strong></p>
+<p><strong>asinto</strong> es la manera como se asignará la tabla resultado de este segundo paso, para luego incluirle una columna de Especies sin detectar, que mostrará que tan completa es cada muestra (zona evaluada).</p>
+<div class="cell">
+
+</div>
+<p>A continuación se crea la columna de Especies sin detectar y se asigna como sin.det. Esta columna es el resultado de la diferencia entre la diversidad estimada (TD_asy) y la diversidad observada (TD_obs), lo cual permitirá conocer si las muestras son completas (sus pendientes se vuelven asintóticas o se estabilizan o por el contrario no son asintóticas por haber Especies sin detectar hasta en el doble de su proyección, ver <strong>?@fig-fig43</strong>). <strong>asinto$TD_asy</strong> es la diversidad asintótica estimada, <strong>asinto$TD_obs</strong> es la diversidad observada u obtenida en campo</p>
+<p>Nota: En caso que los nombres de los insumos hayan cambiado, se requiere usar el comando <strong>names</strong>, para encontrarlos:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(asinto)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+
+</div>
+<p>Los resultados del perfil asintótico muestran que, para el orden <em>q = 0</em> (riqueza de especies), las zonas <strong>M</strong> y <strong>RM</strong> presentan una diferencia apreciable entre la diversidad observada y la estimada: <strong>12 y 14 especies sin detectar</strong>, respectivamente (<a href="#tbl-tbl43">Tabla&nbsp;6</a>). Esto confirma que en ambas zonas existe un número importante de especies raras o poco representadas, por lo que el esfuerzo de muestreo podría ampliarse para lograr una cobertura más completa. En contraste, la zona <strong>P</strong> presenta un valor de <em>sin.det = 3</em>, lo que indica una <strong>muestra más completa y representativa</strong> de su comunidad. Para los órdenes de diversidad <em>q = 1</em> (Shannon) y <em>q = 2</em> (Simpson), las diferencias entre diversidad observada y estimada son prácticamente nulas o muy pequeñas (≤ 2 especies), lo que sugiere que las <strong>especies comunes y dominantes fueron registradas casi por completo</strong> en todas las zonas. En este sentido, el perfil asintótico indica que el <strong>muestreo fue adecuado para describir la estructura ecológica dominante</strong> y un aumento del esfuerzo de muestreo podría mejorar la detección de especies raras y fortalecer las estimaciones globales de diversidad alfa.</p>
+<p><strong>Nota:</strong> En caso que se requiera realizar algún ajuste en el siguiente comando, habrá que volver a correr todo el paso 2.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl43" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;6:  Perfil asintótico entre los Estaciones evaluados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Ensamblaje </th>
+   <th style="text-align:left;"> Estimador </th>
+   <th style="text-align:right;"> D.Observada </th>
+   <th style="text-align:right;"> D.Estimada </th>
+   <th style="text-align:right;"> Sin.Det </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> q=0, Riqueza </td>
+   <td style="text-align:right;"> 30.00 </td>
+   <td style="text-align:right;"> 42.50 </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> q=1, Shannon </td>
+   <td style="text-align:right;"> 6.53 </td>
+   <td style="text-align:right;"> 6.54 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> q=2, Simpson </td>
+   <td style="text-align:right;"> 4.72 </td>
+   <td style="text-align:right;"> 4.72 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> q=0, Riqueza </td>
+   <td style="text-align:right;"> 30.00 </td>
+   <td style="text-align:right;"> 38.00 </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> q=1, Shannon </td>
+   <td style="text-align:right;"> 12.41 </td>
+   <td style="text-align:right;"> 12.46 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> q=2, Simpson </td>
+   <td style="text-align:right;"> 9.48 </td>
+   <td style="text-align:right;"> 9.49 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> q=0, Riqueza </td>
+   <td style="text-align:right;"> 53.00 </td>
+   <td style="text-align:right;"> 67.19 </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> q=1, Shannon </td>
+   <td style="text-align:right;"> 24.47 </td>
+   <td style="text-align:right;"> 26.74 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> q=2, Simpson </td>
+   <td style="text-align:right;"> 15.39 </td>
+   <td style="text-align:right;"> 15.94 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="c.-paso-3.-perfil-no-asintótico" class="level6">
+<h6 class="anchored" data-anchor-id="c.-paso-3.-perfil-no-asintótico">c.&nbsp;Paso 3. Perfil no asintótico</h6>
+<p>ESte perfil se basa en procedimientos de <strong>rarefacción y extrapolación por cobertura</strong>, permitiendo comparar la diversidad alfa entre zonas bajo una <strong>condición estandarizada de completitud (Cmax = 1)</strong>. Este enfoque corrige las diferencias asociadas al esfuerzo de muestreo y garantiza que todas las zonas sean evaluadas con una misma fracción de la diversidad potencial observada. A diferencia del perfil asintótico —que proyecta la riqueza esperada al incrementar teóricamente el tamaño de muestra—, el enfoque no asintótico <strong>nivela la cobertura efectiva</strong> de la comunidad muestreada, permitiendo comparaciones más justas cuando el número de individuos o de unidades de muestreo difiere entre zonas.</p>
+<p>A pesar de que el perfil de completitud (<em>Paso 1</em>) mostró valores inferiores al umbral recomendado de 0.9 para <em>q = 0</em> en las zonas <strong>M</strong> y <strong>RM</strong>, y que el perfil asintótico (<em>Paso 2</em>) evidenció la existencia de especies no detectadas, el análisis no asintótico sigue siendo <strong>metodológicamente viable y ecológicamente informativo</strong>. Este tipo de perfil, como plantean <em>Jost</em> (2006) y <em>Chao et al.</em> (2014), permite realizar comparaciones robustas incluso en en este tipo de comunidades tropicales altamente diversas, donde la completitud total es difícil de alcanzar debido a la abundancia de especies raras.</p>
+<p>Los resultados del perfil no asintótico indican que la <strong>zona RM presenta la mayor diversidad</strong> en los tres órdenes de diversidad (<em>q = 0, 1 y 2</em>), seguida por la <strong>zona P</strong> y finalmente la <strong>zona M</strong> (<a href="#tbl-tbl44">Tabla&nbsp;7</a>). Este patrón sugiere que la zona de desembocadura alberga un <strong>ensamblaje ecológicamente más heterogéneo</strong>, caracterizado por un balance entre especies comunes y raras, mientras que las zonas intermedia (P) y de montaña (M) presentan ensamblajes más simples o dominados. En conjunto, este análisis confirma la existencia de un <strong>gradiente espacial de diversidad alfa</strong>, donde la zona RM actúa como un <strong>núcleo de alta heterogeneidad y transición ecológica</strong>, reflejando la influencia de factores ambientales y de conectividad propios de los sistemas tropicales con conexión estuarina o marina.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl44" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;7:  Perfil no asintótico para los tres Estaciones evaluados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Cmax = 0.988 </th>
+   <th style="text-align:right;"> q = 0 </th>
+   <th style="text-align:right;"> q = 1 </th>
+   <th style="text-align:right;"> q = 2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 14.15 </td>
+   <td style="text-align:right;"> 6.30 </td>
+   <td style="text-align:right;"> 4.66 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 20.92 </td>
+   <td style="text-align:right;"> 11.90 </td>
+   <td style="text-align:right;"> 9.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 62.59 </td>
+   <td style="text-align:right;"> 25.85 </td>
+   <td style="text-align:right;"> 15.66 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="d.-paso-4.-uniformidad" class="level6">
+<h6 class="anchored" data-anchor-id="d.-paso-4.-uniformidad">d.&nbsp;Paso 4. Uniformidad</h6>
+<p>El <strong>perfil de uniformidad</strong> evalúa el grado de <strong>equidad en la distribución de las abundancias</strong> de las especies dentro de cada zona, estandarizado al nivel máximo de cobertura (<em>Cmax = 1</em>). Este enfoque permite analizar en qué medida las especies comparten los recursos o dominan el ensamblaje, proporcionando una visión complementaria a la riqueza y la diversidad total. Se emplean tres indicadores principales: el <strong>índice de Pielou (J’)</strong>, que mide la equidad general de abundancias, y las <strong>diversidades normalizadas</strong> para los órdenes <em>q = 1</em> (Shannon) y <em>q = 2</em> (Simpson), que reflejan la uniformidad considerando la importancia relativa de especies comunes y dominantes (<a href="#tbl-tbl45">Tabla&nbsp;8</a>).</p>
+<p>Los resultados muestran que la <strong>zona P</strong> presenta la <strong>mayor uniformidad</strong> entre las tres zonas evaluadas, con valores de <strong>Pielou J’ = 0.81</strong>, <strong>q₁ = 0.54</strong> y <strong>q₂ = 0.40</strong>, claramente superiores a los registrados en las zonas <strong>M</strong> y <strong>RM</strong>. Este patrón indica que el ensamblaje de la zona P exhibe <strong>abundancias más equilibradas</strong>, donde tanto las especies comunes como las menos frecuentes aportan de manera significativa a la estructura comunitaria. En cambio, las zonas M y RM presentan valores menores y relativamente similares entre sí (J’ ≈ 0.68–0.79), lo que sugiere <strong>ensamblajes más desiguales y dominados por pocas especies</strong>, probablemente influenciados por condiciones ambientales más restrictivas o por procesos de perturbación.</p>
+<p>Este patrón de uniformidad <strong>contrasta parcialmente con los resultados de riqueza y diversidad total</strong> observados en los pasos anteriores. Mientras la zona RM mostró la mayor riqueza de especies (q = 0) y diversidad efectiva, su uniformidad es menor que la de la zona P, lo que sugiere la coexistencia de muchas especies pero con <strong>marcadas diferencias en abundancia</strong>. Por el contrario, la zona P combina <strong>alta equidad y diversidad intermedia</strong>, lo que puede interpretarse como un <strong>estado de equilibrio ecológico</strong>, donde la competencia y la disponibilidad de recursos promueven una distribución más homogénea de individuos entre especies. En conjunto, estos resultados refuerzan la idea de que la zona P representa un ambiente <strong>más estable y menos perturbado</strong>, actuando como un punto de transición balanceado entre la dominancia de la zona montañosa - M y la heterogeneidad elevada de la zona de desembocadura - RM.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl45" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;8:  Perfil de uniformidad para los tres Estaciones evaluados </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Cmax = 0.988 </th>
+   <th style="text-align:right;"> Pielou J' </th>
+   <th style="text-align:right;"> q = 1 </th>
+   <th style="text-align:right;"> q = 2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0.69 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.24 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="figuras-de-diversidad-alfa-en-esta-propuesta-de-cuatro-pasos" class="level5">
+<h5 class="anchored" data-anchor-id="figuras-de-diversidad-alfa-en-esta-propuesta-de-cuatro-pasos">4.3 Figuras de diversidad alfa en esta propuesta de cuatro pasos</h5>
+<section id="a.-figuras-del-perfil-asintótico-paso-1" class="level6">
+<h6 class="anchored" data-anchor-id="a.-figuras-del-perfil-asintótico-paso-1">a. Figuras del perfil asintótico (paso 1)</h6>
+<p>La <a href="#fig-fig42">Figura&nbsp;4</a> muestra que las zonas P y M alcanzan una cobertura cercana al 100 % para los órdenes de diversidad <em>q = 1</em> y <em>q = 2</em>, mientras que la zona RM presenta una completitud menor, especialmente para <em>q = 0</em> (riqueza). Este resultado coincide con lo descrito en el <strong>Paso 1</strong>, donde se señaló que las zonas M y P poseen una mayor proporción de especies comunes detectadas, mientras que RM conserva un número considerable de especies raras aún no representadas completamente en el muestreo. En conjunto, esta figura confirma que las diferencias observadas en la diversidad alfa entre zonas reflejan tanto el esfuerzo de muestreo como la estructura real de las comunidades.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="b.-figuras-del-perfil-asintótico-paso-2" class="level6">
+<h6 class="anchored" data-anchor-id="b.-figuras-del-perfil-asintótico-paso-2">b. Figuras del perfil asintótico (paso 2)</h6>
+<p>Las <strong>curvas de rarefacción/extrapolación</strong> muestran que la <strong>zona RM</strong> alcanza los valores más altos de diversidad para los tres órdenes (<em>q = 0, 1, 2</em>), seguida por <strong>P</strong> y luego <strong>M</strong>. En <strong>q = 0 (riqueza)</strong>, ninguna de las tres curvas se estabiliza <strong>ni siquiera al duplicar el tamaño de muestra</strong> (trazos punteados), lo que indica <strong>especies no detectadas</strong> y sugiere incrementar el esfuerzo de muestreo. En <strong>q = 1 (Shannon)</strong> y <strong>q = 2 (Simpson)</strong>, las curvas tienden a estabilizarse antes, reflejando que las <strong>especies comunes y dominantes</strong> están mejor representadas. La curva <strong>más empinada y la mayor incertidumbre</strong> en RM señalan la presencia de muchas <strong>especies raras</strong>, mientras que M y P exhiben menor riqueza pero patrones más contenidos. En conjunto, la figura confirma lo visto en los pasos 1–2: <strong>submuestreo en q = 0</strong>, especialmente en <strong>M</strong> y <strong>RM</strong>, y buena cobertura para las fracciones de diversidad que ponderan especies abundantes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig143" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig143-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Perfil de rarefacción y extrapolación por Estaciones</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="c.-figuras-del-perfil-no-asintótico-paso-3" class="level6">
+<h6 class="anchored" data-anchor-id="c.-figuras-del-perfil-no-asintótico-paso-3">c.&nbsp;Figuras del perfil no asintótico (paso 3)</h6>
+<p>El <strong>perfil de cobertura basado en rarefacción y extrapolación</strong> (<a href="#fig-fig44">Figura&nbsp;6</a>) permite comparar la diversidad entre zonas bajo una <strong>condición estandarizada de completitud</strong> (Cmax ≈ 1). A diferencia de los perfiles asintóticos, este enfoque <strong>no depende del tamaño de muestra</strong>, sino de la fracción de la comunidad efectivamente muestreada. Esto lo convierte en una <strong>alternativa robusta y viable</strong> cuando algunas zonas presentan valores de completitud bajos (por ejemplo, q = 0 &lt; 0.9) o cuando los análisis asintóticos revelan un número considerable de especies no detectadas. En tales casos —comunes en ecosistemas tropicales con alta riqueza y dominancia— la rarefacción por cobertura permite comparaciones más justas entre ensamblajes con esfuerzos de muestreo desiguales.</p>
+<p>En los resultados, la <strong>zona RM</strong> mantiene la mayor diversidad en los tres órdenes de diversidad (q = 0, q = 1, q = 2), seguida por la <strong>zona P</strong> y, finalmente, la <strong>zona M</strong>. Este patrón refleja que la desembocadura (RM) alberga un ensamblaje con <strong>mayor heterogeneidad estructural</strong>, donde coexisten especies raras, comunes y dominantes en proporciones más equilibradas. Este perfil no asintótico confirma la presencia de un <strong>gradiente espacial de diversidad alfa</strong>, en el que RM actúa como un punto de <strong>mayor estabilidad y complejidad ecológica</strong>, mientras que M y P exhiben comunidades más simples o dominadas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig44" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig44-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Perfil de diversidad no asintótico para los Estaciones evaluados</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="d.-figuras-del-perfil-de-uniformidad-paso-4" class="level6">
+<h6 class="anchored" data-anchor-id="d.-figuras-del-perfil-de-uniformidad-paso-4">d.&nbsp;Figuras del perfil de uniformidad (paso 4)</h6>
+<p>La <a href="#fig-fig45">Figura&nbsp;7</a> representa de manera visual cómo se distribuyen las abundancias de las especies dentro de cada zona (M, P y RM), expresadas como función del <strong>orden q</strong> (de 0 a 2). En este eje, los valores bajos de <em>q</em> (cercanos a 0) reflejan el peso de las especies raras, mientras que los valores altos (q = 2) destacan la influencia de las especies más dominantes.</p>
+<p>Las tres curvas muestran la tendencia típica de disminución de la uniformidad al aumentar el orden q, indicando que las especies dominantes contribuyen de manera desigual a la abundancia total. Sin embargo, <strong>la zona P mantiene valores de uniformidad más altos en todo el gradiente</strong>, lo que sugiere un ensamble más equilibrado en la distribución de las abundancias. <strong>La zona RM</strong> ocupa una posición intermedia, con buena equidad en q = 0–1 pero una leve caída al ponderar especies dominantes, mientras que <strong>la zona M</strong> es la menos uniforme, reflejando una mayor dominancia de pocas especies y posible estrés ambiental o perturbación.</p>
+<p>Estos resultados complementan los pasos anteriores del análisis de diversidad alfa. Aunque la zona RM presentó mayor riqueza (q = 0), la zona P destaca por su <strong>mayor equidad</strong> en la participación de especies comunes y raras. Esto sugiere diferencias en la estructura trófica o en las condiciones ambientales entre zonas: la zona P podría representar un entorno más estable o menos impactado, mientras que la dominancia observada en M y RM podría estar asociada a condiciones de mayor selectividad ecológica o alteración ambiental.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig45" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="5.1_div_alfa_mex_s.c._files/figure-html/fig-fig45-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Paso 4. Perfil de uniformidad (Pielou y pendientes normalizadas) para M, P y RM.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="cuestionario" class="level2">
+<h2 class="anchored" data-anchor-id="cuestionario">Cuestionario</h2>
+<hr>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Instrucciones</strong>: Responder cada pregunta con base en los códigos ejecutados y los resultados obtenidos en los pasos 1 a 4 del análisis de diversidad alfa. Fundamentar las respuestas utilizando tanto los valores tabulados como las figuras interpretadas.</p>
+</div>
+</div>
+<ol type="1">
+<li><p>¿Qué zona presentó la <strong>mayor diversidad alfa total</strong> considerando los tres órdenes de diversidad (q = 0, q = 1, q = 2)? ¿Y cuál presentó la menor?</p></li>
+<li><p>Según los resultados del <strong>perfil de completitud</strong>, ¿qué zonas alcanzaron el criterio mínimo de completitud (≥ 0.9)? ¿Qué implicaciones tiene esto sobre la calidad del muestreo en cada zona?</p></li>
+<li><p>A partir del <strong>perfil asintótico</strong>, ¿cuántas especies adicionales se proyectan como no detectadas en cada zona? ¿Qué zonas requerirían mayor esfuerzo de muestreo?</p></li>
+<li><p>Analiza el <strong>perfil no asintótico</strong>: ¿qué zona mantiene la mayor diversidad ajustada por cobertura (Cmax)? ¿Qué representa ecológicamente esta corrección?</p></li>
+<li><p>En el <strong>perfil de uniformidad</strong>, ¿qué zona muestra la distribución más equitativa de abundancias entre especies? ¿Qué interpretación ecológica se puede derivar de ello?</p></li>
+<li><p>¿Existe correspondencia entre la riqueza total (q = 0) y la uniformidad (índice de Pielou J’)? Explica por qué zonas con alta riqueza no siempre presentan alta equidad.</p></li>
+<li><p>Con base en el análisis <strong>SIMPER</strong>, ¿qué especies explican la mayor disimilitud entre zonas? ¿Alguna especie presenta contribuciones significativas (p &lt; 0.05) de manera consistente?</p></li>
+<li><p>¿Qué patrones de reemplazo o dominancia de especies se observan entre zonas M, P y RM? Relaciónalo con los resultados de los modelos RAD ajustados (Preemption y Mandelbrot).</p></li>
+<li><p>Interpreta ecológicamente el gradiente observado en los tres órdenes de diversidad (q = 0, q = 1 y q = 2). ¿Qué sugiere sobre la estructura trófica y la estabilidad ambiental de cada zona?</p></li>
+<li><p>Si se priorizara una zona como <strong>indicadora de mayor integridad ecológica</strong>, ¿cuál sería y por qué? Sustenta tu elección con al menos dos evidencias (numéricas o gráficas).</p></li>
+</ol>
+<hr>
+</section>
+<section id="errores-comunes-e-interpretación-ecológica" class="level2">
+<h2 class="anchored" data-anchor-id="errores-comunes-e-interpretación-ecológica">Errores comunes e interpretación ecológica</h2>
+<p>Un error frecuente en el análisis de diversidad es <strong>asumir que la riqueza de especies refleja completamente la complejidad ecológica del sistema</strong>, ignorando que la <strong>equidad en las abundancias</strong> y la <strong>completitud del muestreo</strong> son determinantes para la interpretación. Confundir los distintos órdenes de diversidad puede llevar a conclusiones erradas:</p>
+<ul>
+<li><p><em>q = 0</em> enfatiza las especies raras,</p></li>
+<li><p><em>q = 1</em> pondera la abundancia equitativa,</p></li>
+<li><p><em>q = 2</em> destaca las especies dominantes.</p></li>
+</ul>
+<p>Asimismo, una lectura superficial de las curvas de rarefacción o extrapolación puede ocultar deficiencias en el muestreo o sobreestimar la diversidad real. La correcta interpretación requiere siempre contrastar los perfiles asintóticos, no asintóticos y de uniformidad.</p>
+<hr>
+</section>
+<section id="aplicaciones-ecológicas-y-ambientales" class="level2">
+<h2 class="anchored" data-anchor-id="aplicaciones-ecológicas-y-ambientales">Aplicaciones ecológicas y ambientales</h2>
+<p>El análisis integral de la diversidad alfa por zonas ecológicas permite inferir <strong>gradientes espaciales de heterogeneidad y dominancia</strong>. En este caso, la zona <strong>RM (desembocadura)</strong> muestra un ensamblaje con alta riqueza y aporte de especies raras, mientras que la <strong>zona P (laderas)</strong> se destaca por su equidad y estabilidad, sugiriendo condiciones ambientales más balanceadas. Estas evidencias son fundamentales para la <strong>gestión y conservación de sistemas fluviales</strong>, ya que orientan el esfuerzo de monitoreo hacia las zonas que aportan mayor complejidad ecológica o que presentan signos de perturbación.</p>
+<hr>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
+<p>El ejercicio evidencia que la diversidad alfa varía de manera significativa entre zonas dentro del mismo sistema fluvial.</p>
+<p>El uso de perfiles de completitud, asintóticos, no asintóticos y de uniformidad permite obtener una visión multidimensional de la comunidad biológica, integrando <strong>riqueza, equidad y representatividad del muestreo</strong>.</p>
+<p>Se reafirma así la importancia de emplear <strong>enfoques de diversidad basados en cobertura y en diferentes órdenes de q</strong>, los cuales proporcionan estimaciones más robustas y ecológicamente interpretables, especialmente en ecosistemas tropicales con alta complejidad y especies raras.</p>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p><strong>Anderson, M. J.</strong> (2001). A new method for non‐parametric multivariate analysis of variance.&nbsp;<em>Austral ecology</em>,&nbsp;<em>26</em>(1), 32-46. <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1442-9993.2001.01070.pp.x" class="uri">https://onlinelibrary.wiley.com/doi/10.1111/j.1442-9993.2001.01070.pp.x</a></p>
+<p><strong>Anderson, M. J.</strong>, &amp; Walsh, D. C. (2013). PERMANOVA, ANOSIM, and the Mantel test in the face of heterogeneous dispersions: what null hypothesis are you testing?.&nbsp;<em>Ecological monographs</em>,&nbsp;<em>83</em>(4), 557-574. <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/12-2010.1" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/12-2010.1</a></p>
+<p><strong>Baldridge, E.</strong>, Harris, D. J., Xiao, X., &amp; White, E. P. (2016). An extensive comparison of species-abundance distribution models.&nbsp;<em>PeerJ</em>,&nbsp;<em>4</em>, e2823. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5183127/" class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC5183127/</a></p>
+<p><strong>Borcard, D.</strong>, Gillet, F., &amp; Legendre, P. (2018). Spatial analysis of ecological data. In&nbsp;<em>Numerical ecology with R</em>&nbsp;(pp.&nbsp;299-367). Cham: Springer International Publishing. <a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/book/10.1007/978-3-319-71404-2">https://link-springer-com/book/10.1007/978-3-319-71404-2</a></p>
+<p><strong>Chao, A.</strong>, Gotelli, N. J., Hsieh, T. C., Sander, E. L., Ma, K. H., Colwell, R. K., &amp; Ellison, A. M. (2014). Rarefaction and extrapolation with Hill numbers: a framework for sampling and estimation in species diversity studies.&nbsp;<em>Ecological monographs</em>,&nbsp;<em>84</em>(1), 45-67. <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/13-0133.1" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/13-0133.1</a></p>
+<p><strong>Chao, A.</strong>, Hsieh, T. C., Chazdon, R. L., Colwell, R. K., &amp; Gotelli, N. J. (2015). Unveiling the species‐rank abundance distribution by generalizing the Good‐Turing sample coverage theory.&nbsp;<em>Ecology</em>,&nbsp;<em>96</em>(5), 1189-1201. <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/14-0550.1" class="uri">https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/14-0550.1</a></p>
+<p><strong>Chao, A.</strong>, &amp; Jost, L. (2015). Estimating diversity and entropy profiles via discovery rates of new species.&nbsp;<em>Methods in Ecology and Evolution</em>,&nbsp;<em>6</em>(8), 873-882. <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12349" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12349</a></p>
+<p><strong>Chao, A.</strong>, &amp; Jost, L. (2015). Estimating diversity and entropy profiles via discovery rates of new species.&nbsp;<em>Methods in Ecology and Evolution</em>,&nbsp;<em>6</em>(8), 873-882. <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12349" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12349</a></p>
+<p><strong>Chao, A.</strong>, Kubota, Y., Zelený, D., Chiu, C. H., Li, C. F., Kusumoto, B., … &amp; Colwell, R. K. (2020). Quantifying sample completeness and comparing diversities among assemblages.&nbsp;<em>Ecological Research</em>,&nbsp;<em>35</em>(2), 292-314. <a href="https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102" class="uri">https://esj-journals.onlinelibrary.wiley.com/doi/10.1111/1440-1703.12102</a></p>
+<p><strong>Jost, L.</strong> (2006). Entropy and diversity.&nbsp;<em>Oikos</em>,&nbsp;<em>113</em>(2), 363-375. <a href="https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/j.2006.0030-1299.14714.x" class="uri">https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/j.2006.0030-1299.14714.x</a></p>
+<p><strong>Clarke, K. R.</strong> (1993). Non‐parametric multivariate analyses of changes in community structure.&nbsp;<em>Australian journal of ecology</em>,&nbsp;<em>18</em>(1), 117-143. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.1993.tb00438.x" class="uri">https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1442-9993.1993.tb00438.x</a></p>
+<p><strong>Clarke, K. R.</strong>, &amp; Warwick, R. M. (2001). Change in marine communities.&nbsp;<em>An approach to statistical analysis and interpretation</em>,&nbsp;<em>2</em>, 1-168. <a href="https://www.researchgate.net/publication/221962838_Clarke_KR_Warwick_RMChange_in_Marine_Communities_An_Approach_to_Statistical_Analysis_and_Interpretation_Primer-E_Ltd_Plymouth_UK" class="uri">https://www.researchgate.net/publication/221962838_Clarke_KR_Warwick_RMChange_in_Marine_Communities_An_Approach_to_Statistical_Analysis_and_Interpretation_Primer-E_Ltd_Plymouth_UK</a></p>
+<p><strong>Clarke, K.R</strong>., Gorley, R.N., Somerfield, P.J. and Warwick, R.M. (2014) Change in Marine Communities: An Approach to Statistical Analysis and Interpretation. 3rd Edition, PRIMER-E, Plymouth. <a href="https://www.scirp.org/reference/referencespapers?referenceid=3584919" class="uri">https://www.scirp.org/reference/referencespapers?referenceid=3584919</a></p>
+<p><strong>Crane, M. S</strong>., Strine, C. T., Knierim, T. K., Artchawakom, T., &amp; Suwanwaree, P. (2018). Herpetofaunal species abundance, richness, and diversity in a dry tropical forest and agricultural matrix at the Sakaerat Biosphere Reserve, Thailand.&nbsp;<em>Herpetological Conservation and Biology</em>,&nbsp;<em>13</em>(3), 586-597. <a href="https://www.herpconbio.org/Volume_13/Issue_3/Crane_etal_2018.pdf" class="uri">https://www.herpconbio.org/Volume_13/Issue_3/Crane_etal_2018.pdf</a></p>
+<p><strong>Crawley, M. J.</strong> (2012).&nbsp;<em>The R book</em>. John Wiley &amp; Sons. <a href="https://livresbioapp.wordpress.com/wp-content/uploads/2015/07/crawley-the_r_book.pdf" class="uri">https://livresbioapp.wordpress.com/wp-content/uploads/2015/07/crawley-the_r_book.pdf</a></p>
+<p><strong>Durbin, J.</strong>, &amp; Watson, G. S. (1950). Testing for serial correlation in least squares regression: I.&nbsp;<em>Biometrika</em>,&nbsp;<em>37</em>(3/4), 409-428. <a href="https://academic.oup.com/biomet/article-abstract/37/3-4/409/176531?redirectedFrom=fulltext&amp;login=false" class="uri">https://academic.oup.com/biomet/article-abstract/37/3-4/409/176531?redirectedFrom=fulltext&amp;login=false</a></p>
+<p><strong>Espinosa</strong> C.I. (2019). Medidas de Alpha Diversidad. <a href="https://ciespinosa.github.io/AlphaDiversidad/" class="uri">https://ciespinosa.github.io/AlphaDiversidad/</a></p>
+<p><strong>Faraway, J. J.</strong> (2016).&nbsp;<em>Extending the linear model with R: generalized linear, mixed effects and nonparametric regression models</em>. Chapman and Hall/CRC. <a href="https://englianhu.wordpress.com/wp-content/uploads/2016/01/faraway-extending-the-linear-model-with-r-e28093-2006.pdf" class="uri">https://englianhu.wordpress.com/wp-content/uploads/2016/01/faraway-extending-the-linear-model-with-r-e28093-2006.pdf</a></p>
+<p><strong>Fox, J.</strong>, &amp; Weisberg, S. (2018).&nbsp;<em>An R companion to applied regression</em>. Sage publications. <a href="https://www.john-fox.ca/Companion/" class="uri">https://www.john-fox.ca/Companion/</a></p>
+<p><strong>Foster, S. D.</strong>, &amp; Dunstan, P. K. (2010). The analysis of biodiversity using rank abundance distributions.&nbsp;<em>Biometrics</em>,&nbsp;<em>66</em>(1), 186-195. <a href="https://pubmed.ncbi.nlm.nih.gov/19432789/" class="uri">https://pubmed.ncbi.nlm.nih.gov/19432789/</a></p>
+<p><strong>Hsieh T. C.</strong> , K. H. Ma, and Anne Chao (2022). A Quick Introduction to iNEXT via Examples. 29 p.&nbsp;<a href="https://cran.r-project.org/web/packages/iNEXT/vignettes/Introduction.pdf" class="uri">https://cran.r-project.org/web/packages/iNEXT/vignettes/Introduction.pdf</a></p>
+<p><strong>Legendre, P.</strong>, &amp; Legendre, L. (2012). Interpretation of Ecological Structures. Numerical ecology 3rd English edn. <a href="https://es.scribd.com/document/927385412/Numerical-Ecology-3rd-Edition-Pierre-Legendre-full" class="uri">https://es.scribd.com/document/927385412/Numerical-Ecology-3rd-Edition-Pierre-Legendre-full</a></p>
+<p><strong>Martin, C. A.</strong>, Watson, C. J., de Grandpré, A., Desrochers, L., Deschamps, L., Giacomazzo, M., … &amp; Proulx, R. (2023). The dominance–diversity dilemma in animal conservation biology.&nbsp;<em>Plos one</em>,&nbsp;<em>18</em>(3), e0283439. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0283439" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0283439</a></p>
+<p><strong>Matthews, T. J.</strong>, &amp; Whittaker, R. J. (2015). On the species abundance distribution in applied ecology and biodiversity management.&nbsp;<em>Journal of Applied Ecology</em>,&nbsp;<em>52</em>(2), 443-454. <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.12380" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.12380</a></p>
+<p><strong>Oksanen, J.</strong>, Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., O’Hara, R. B., … &amp; Wagner, H. (2025). <em>vegan: Community Ecology Package.</em> R package version 2.7-2. <a href="#0" style="font-size: 11pt;">https://cran.r-project.org/web/packages/vegan/vegan.pdf</a><a href="https://cran.r-project.org/web/packages/vegan/vegan.pdf?utm_source=chatgpt.com"></a></p>
+<p><strong>Ruiz-Campos, G.,</strong> Martínez-Vázquez, A. V., Contreras-Catala, F., Hernández-Guzmán, R., &amp; García-De León, F. J. (2021). Diversity and longitudinal distribution of fishes in the Soto La Marina River basin, Mexico, and relationship with environmental variables.&nbsp;<em>Environmental Biology of Fishes</em>,&nbsp;<em>104</em>(10), 1321-1339. <a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/article/10.1007/s10641-021-01158-9">https://link-springer-com/article/10.1007/s10641-021-01158-9</a></p>
+<p><strong>Whittaker, R. H.</strong> (1965). Dominance and Diversity in Land Plant Communities: Numerical relations of species express the importance of competition in community function and evolution.&nbsp;<em>Science</em>,&nbsp;<em>147</em>(3655), 250-260. <a href="https://pubmed.ncbi.nlm.nih.gov/17788203/" class="uri">https://pubmed.ncbi.nlm.nih.gov/17788203/</a></p>
+<p><strong>RPubs</strong> (2019). Análisis de biodiversidad. <a href="https://rpubs.com/dsfernandez/468964" class="uri">https://rpubs.com/dsfernandez/468964</a></p>
+<p><strong>Warton, D. I.</strong>, Wright, S. T., &amp; Wang, Y. (2012). Distance‐based multivariate analyses confound location and dispersion effects.&nbsp;<em>Methods in Ecology and Evolution</em>,&nbsp;<em>3</em>(1), 89-101. <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00127.x" class="uri">https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2011.00127.x</a></p>
+<p><strong>Zuur, A. F.</strong>, Ieno, E. N., Walker, N. J., Saveliev, A. A., &amp; Smith, G. M. (2009).&nbsp;<em>Mixed effects models and extensions in ecology with R</em>&nbsp;(Vol. 574, p.&nbsp;574). New York: springer. <a href="https://www.scirp.org/reference/referencespapers?referenceid=1969890" class="uri">https://www.scirp.org/reference/referencespapers?referenceid=1969890</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
