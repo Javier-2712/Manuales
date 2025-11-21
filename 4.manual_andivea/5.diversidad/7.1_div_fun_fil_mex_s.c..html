@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
-<meta name="dcterms.date" content="2025-11-20">
+<meta name="dcterms.date" content="2025-11-21">
 <meta name="description" content="Ejercicios de entrenamiento para la el análisis de diversidad funcional y filogenética en muestras de peces en ríos en Mexico.">
 
 <title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
@@ -141,7 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 20, 2025</p>
+        <p class="date">November 21, 2025</p>
       </div>
     </div>
     
@@ -3437,15 +3437,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El análisis se realiza mediante la función <code>ObsAsy3D()</code>, que permite estimar la diversidad observada y asintótica para una gama continua de órdenes de diversidad (q) entre 0 y 2, lo que genera los llamados <strong>perfiles-q</strong> o <strong>curvas de Hill</strong>.</p>
 <p>El argumento <code>diversity = "TD"</code> indica que se calculará la diversidad taxonómica, y <code>datatype = "abundance"</code> especifica que los datos corresponden a abundancias de individuos. La salida del comando ($qTD) incluye el nombre del ensamblaje, el orden de diversidad (Order.q), los valores observados y asintóticos de TD, el error estándar (s.e.) y los intervalos de confianza (qTD.LCL, qTD.UCL).</p>
 <p>Estos perfiles muestran cómo la diversidad efectiva varía según el peso relativo que se asigne a las especies comunes o raras: <strong>q = 0</strong> refleja la riqueza de especies (todas pesan igual), <strong>q = 1</strong> corresponde a la diversidad de Shannon (pondera por abundancia proporcional), y <strong>q = 2</strong> aproxima la diversidad de Simpson (resalta las especies dominantes).</p>
-<p>De esta forma, <strong>los perfiles-q</strong> permiten visualizar de manera continua la estructura de dominancia y equidad en cada ensamblaje, constituyendo el punto de partida para comparar las tres dimensiones de la diversidad: taxonómica, filogenética y funcional (<strong>?@tbl-tbl19</strong>).</p>
-<div id="tbl-tbl19" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Perfiles de diversidad TD (Taxonomic Diversity) para datos de abundancia">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>De esta forma, <strong>los perfiles-q</strong> permiten visualizar de manera continua la estructura de dominancia y equidad en cada ensamblaje, constituyendo el punto de partida para comparar las tres dimensiones de la diversidad: taxonómica, filogenética y funcional (<a href="#tbl-tbl19">Tabla&nbsp;18</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl19" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;18:  Perfiles de diversidad TD (Taxonomic Diversity) para datos de abundancia </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -3560,15 +3557,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="calculo-de-la-diversidad-filogenética-pd" class="level5">
 <h5 class="anchored" data-anchor-id="calculo-de-la-diversidad-filogenética-pd">3) Calculo de la diversidad filogenética (PD)</h5>
 <p>Para estimar la diversidad filogenética (PD) con el paquete <strong>iNEXT.3D</strong>, es indispensable contar con un árbol filogenético que refleje las relaciones evolutivas entre las especies registradas en las comunidades analizadas. En este ejercicio, el objeto <strong><code>arbol_filo_alfa</code></strong> corresponde a dicho árbol, construido previamente a partir de los nombres científicos presentes en la matriz de abundancia <strong><code>biol_PD</code></strong>. El árbol se generó mediante consultas taxonómicas automáticas en la base de datos <strong>NCBI</strong>. Durante el proceso, se excluyeron especies con nomenclatura incompleta o no reconocida por la base de datos (por ejemplo, <em>Notropis aguirrepequenoi</em>) para mantener la coherencia taxonómica entre el árbol y la matriz de abundancias. A continuación se muestra el código utilizado para calcular la diversidad filogenética mediante <strong>iNEXT.3D</strong>, empleando la matriz <strong><code>biol_PD</code></strong> y el árbol <strong><code>arbol_filo_alfa</code></strong> previamente armonizados.</p>
-<p>Los resultados de la diversidad filogenética (PD) evidencian diferencias claras entre las tres zonas analizadas de la cuenca (<strong>?@tbl-tbl20</strong>). La <strong>zona de desembocadura (RM)</strong> presentó el valor más alto de diversidad filogenética observada (PD = 840.35), lo que indica que las especies registradas en esta zona pertenecen a linajes evolutivamente más distantes entre sí. Este patrón sugiere una mayor heterogeneidad filogenética y una posible mezcla de especies marinas y dulceacuícolas asociadas a la influencia estuarina. En contraste, las <strong>zonas de montaña (M)</strong> y <strong>laderas (P)</strong> mostraron valores de PD más bajos (359.92 y 427.45, respectivamente), reflejando comunidades conformadas por especies más emparentadas y con una historia evolutiva más homogénea. La alta completitud de muestreo (SC ≈ 1.0) en los tres ensamblajes confirma que las estimaciones de PD son robustas. En conjunto, los resultados sugieren un gradiente filogenético asociado a la transición ambiental desde los tramos altos hacia la desembocadura, donde la conectividad y la diversidad de hábitats favorecen la coexistencia de linajes evolutivamente diversos (<strong>?@tbl-tbl20</strong>).</p>
-<div id="tbl-tbl20" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de la diversidad filogenética (PD), para los ensamblajes M, P y RM. Se incluyen la riqueza observada (S.obs), la completitud de la muestra (SC), la diversidad filogenética observada (PD.obs) y los estimadores asociados (f1, f2, g1, g2).">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los resultados de la diversidad filogenética (PD) evidencian diferencias claras entre las tres zonas analizadas de la cuenca (<a href="#tbl-tbl20">Tabla&nbsp;19</a>). La <strong>zona de desembocadura (RM)</strong> presentó el valor más alto de diversidad filogenética observada (PD = 840.35), lo que indica que las especies registradas en esta zona pertenecen a linajes evolutivamente más distantes entre sí. Este patrón sugiere una mayor heterogeneidad filogenética y una posible mezcla de especies marinas y dulceacuícolas asociadas a la influencia estuarina. En contraste, las <strong>zonas de montaña (M)</strong> y <strong>laderas (P)</strong> mostraron valores de PD más bajos (359.92 y 427.45, respectivamente), reflejando comunidades conformadas por especies más emparentadas y con una historia evolutiva más homogénea. La alta completitud de muestreo (SC ≈ 1.0) en los tres ensamblajes confirma que las estimaciones de PD son robustas. En conjunto, los resultados sugieren un gradiente filogenético asociado a la transición ambiental desde los tramos altos hacia la desembocadura, donde la conectividad y la diversidad de hábitats favorecen la coexistencia de linajes evolutivamente diversos (<a href="#tbl-tbl20">Tabla&nbsp;19</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl20" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;19:  Resumen de la diversidad filogenética (PD), para los ensamblajes M, P y RM. Se incluyen la riqueza observada (S.obs), la completitud de la muestra (SC), la diversidad filogenética observada (PD.obs) y los estimadores asociados (f1, f2, g1, g2). </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -3636,15 +3630,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5 class="anchored" data-anchor-id="estimaciones-estandarizadas-de-diversidad-filogenética">4) Estimaciones estandarizadas de diversidad filogenética</h5>
 <p>La segunda lista del objeto de salida (<code>$PDiNextEst</code>) presenta las <strong>estimaciones estandarizadas de diversidad filogenética</strong> obtenidas por rarefacción y extrapolación. Estas estimaciones se calculan por defecto para 40 tamaños de muestra (<em>knots</em>), distribuidos entre el tamaño mínimo y el doble del tamaño de muestra observado. El componente <code>$size_based</code> muestra los valores de diversidad filogenética en función del <strong>tamaño de muestra (m)</strong>, junto con los intervalos de confianza generados mediante <em>bootstrap</em>.</p>
 <p>En esta tabla se incluyen: el nombre del <strong>ensamblaje (Assemblage)</strong>, el <strong>orden de diversidad (Order.q)</strong>, el <strong>método de estimación</strong> (<em>Rarefaction</em>, <em>Observed</em> o <em>Extrapolation</em>), el <strong>valor estimado de diversidad (qPD)</strong> y sus límites inferior y superior (<em>qPD.LCL</em> y <em>qPD.UCL</em>), la <strong>cobertura muestral (SC)</strong> y sus intervalos de confianza, el <strong>tiempo de referencia (Reftime)</strong> y el <strong>tipo de diversidad filogenética (Type)</strong> —en este caso, <code>meanPD</code>.</p>
-<p>Estas estimaciones permiten comparar los ensamblajes bajo un mismo nivel de esfuerzo de muestreo, identificando si la diversidad filogenética tiende a estabilizarse o continúa aumentando con la incorporación de nuevas especies (<strong>?@tbl-tbl21</strong>). Esta información es clave para determinar la suficiencia del muestreo y para realizar comparaciones ecológicamente válidas entre sitios con diferentes intensidades de colecta.</p>
-<div id="tbl-tbl21" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de las estimaciones tamaño-dependientes (size-based) de la diversidad filogenética (qPD) para las tres zonas comparadas. Se muestran los valores de qPD, sus intervalos de confianza y la completitud de la muestra (SC) a diferentes tamaños de referencia.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Estas estimaciones permiten comparar los ensamblajes bajo un mismo nivel de esfuerzo de muestreo, identificando si la diversidad filogenética tiende a estabilizarse o continúa aumentando con la incorporación de nuevas especies (<a href="#tbl-tbl21">Tabla&nbsp;20</a>). Esta información es clave para determinar la suficiencia del muestreo y para realizar comparaciones ecológicamente válidas entre sitios con diferentes intensidades de colecta.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl21" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;20:  Resumen de las estimaciones tamaño-dependientes (size-based) de la diversidad filogenética (qPD) para las tres zonas comparadas. Se muestran los valores de qPD, sus intervalos de confianza y la completitud de la muestra (SC) a diferentes tamaños de referencia. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -3757,17 +3748,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="estimaciones-de-diversidad-filogenética-estandarizadas-por-cobertura" class="level5">
 <h5 class="anchored" data-anchor-id="estimaciones-de-diversidad-filogenética-estandarizadas-por-cobertura">5) Estimaciones de diversidad filogenética estandarizadas por cobertura</h5>
 <p>El segundo conjunto de resultados del análisis (<code>$coverage_based</code>) muestra los valores de diversidad filogenética estandarizados por <strong>cobertura muestral</strong> (en lugar de por tamaño de muestra).</p>
-<p>En la <strong>?@tbl-tbl22</strong> se presentan, para cada ensamblaje y orden de diversidad (q = 0, 1, 2): el <strong>nivel de cobertura</strong> alcanzado (<em>SC</em>), el <strong>tamaño de muestra correspondiente</strong> (<em>m</em>), el <strong>método de estimación</strong> (<em>Rarefaction</em>, <em>Observed</em> o <em>Extrapolation</em>), la <strong>diversidad filogenética estimada</strong> (<em>qPD</em>) junto con sus límites de confianza (<em>qPD.LCL</em> y <em>qPD.UCL</em>), además del <strong>tiempo de referencia (Reftime)</strong> y el <strong>tipo de PD</strong> (<em>meanPD</em>).</p>
+<p>En la <a href="#tbl-tbl22">Tabla&nbsp;21</a> se presentan, para cada ensamblaje y orden de diversidad (q = 0, 1, 2): el <strong>nivel de cobertura</strong> alcanzado (<em>SC</em>), el <strong>tamaño de muestra correspondiente</strong> (<em>m</em>), el <strong>método de estimación</strong> (<em>Rarefaction</em>, <em>Observed</em> o <em>Extrapolation</em>), la <strong>diversidad filogenética estimada</strong> (<em>qPD</em>) junto con sus límites de confianza (<em>qPD.LCL</em> y <em>qPD.UCL</em>), además del <strong>tiempo de referencia (Reftime)</strong> y el <strong>tipo de PD</strong> (<em>meanPD</em>).</p>
 <p>Este enfoque permite comparar ensamblajes con diferente tamaño de muestra bajo un mismo nivel de completitud del muestreo, lo cual elimina el sesgo producido por diferencias en esfuerzo de captura o abundancia total.</p>
 <p>Es importante notar que, al fijar un valor de cobertura, los intervalos de confianza suelen ser <strong>más amplios</strong> que en la estandarización por tamaño de muestra, debido a la variación asociada al número de individuos necesarios para alcanzar dicho nivel de completitud.</p>
-<div id="tbl-tbl22" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de las estimaciones basadas en cobertura (coverage based) de la diversidad filogenética (qPD). Se presentan los valores de qPD, sus intervalos de confianza y los tamaños de muestra requeridos para alcanzar niveles específicos de completitud (SC).">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl22" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;21:  Resumen de las estimaciones basadas en cobertura (coverage based) de la diversidad filogenética (qPD). Se presentan los valores de qPD, sus intervalos de confianza y los tamaños de muestra requeridos para alcanzar niveles específicos de completitud (SC). </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -3866,16 +3854,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="estimaciones-observadas-y-asintóticas-de-la-diversidad-filogenética" class="level5">
 <h5 class="anchored" data-anchor-id="estimaciones-observadas-y-asintóticas-de-la-diversidad-filogenética">6) Estimaciones observadas y asintóticas de la diversidad filogenética</h5>
 <p>El tercer conjunto de resultados (<code>$PDAsyEst</code>) resume la <strong>diversidad filogenética observada y asintótica</strong> para cada ensamblaje y para los tres órdenes de diversidad de Hill (q = 0, 1, 2).</p>
-<p>En esta <strong>?@tbl-tbl23</strong> se reporta: <strong>qPD</strong>: la diversidad filogenética correspondiente a cada orden (riqueza, Shannon y Simpson filogenéticos). <strong>PD_obs</strong>: la diversidad observada en los datos muestreados. <strong>PD_asy</strong>: la diversidad asintótica estimada mediante extrapolación, es decir, la diversidad esperada si el muestreo fuera completo. <strong>s.e.</strong>: el error estándar del estimador bootstrap. <strong>qPD.LCL</strong> y <strong>qPD.UCL</strong>: los límites inferior y superior del intervalo de confianza (95%). <strong>Reftime</strong> y <strong>Type</strong>, que corresponden al tiempo de referencia del árbol y al tipo de métrica usada (en este caso, <em>meanPD</em>).</p>
+<p>En esta <a href="#tbl-tbl23">Tabla&nbsp;22</a> se reporta: <strong>qPD</strong>: la diversidad filogenética correspondiente a cada orden (riqueza, Shannon y Simpson filogenéticos). <strong>PD_obs</strong>: la diversidad observada en los datos muestreados. <strong>PD_asy</strong>: la diversidad asintótica estimada mediante extrapolación, es decir, la diversidad esperada si el muestreo fuera completo. <strong>s.e.</strong>: el error estándar del estimador bootstrap. <strong>qPD.LCL</strong> y <strong>qPD.UCL</strong>: los límites inferior y superior del intervalo de confianza (95%). <strong>Reftime</strong> y <strong>Type</strong>, que corresponden al tiempo de referencia del árbol y al tipo de métrica usada (en este caso, <em>meanPD</em>).</p>
 <p>Esta salida permite comparar la diversidad filogenética observada con la estimada bajo un muestreo completo, mostrando qué tan cercana está la diversidad actual a su valor potencial. Cuando los valores observados (PD_obs) son similares a los asintóticos (PD_asy), se interpreta que el muestreo filogenético fue <strong>suficiente</strong> para capturar la mayor parte de la diversidad evolutiva presente en los ensamblajes.</p>
-<div id="tbl-tbl23" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de los estimadores asintóticos de diversidad filogenética (PD), para los órdenes q = 0, 1 y 2. Se incluyen los valores observados (PD.obs), las estimaciones asintóticas (PD.asy), sus errores estándar e intervalos de confianza.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl23" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;22:  Resumen de los estimadores asintóticos de diversidad filogenética (PD), para los órdenes q = 0, 1 y 2. Se incluyen los valores observados (PD.obs), las estimaciones asintóticas (PD.asy), sus errores estándar e intervalos de confianza. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4048,15 +4033,12 @@ En el ejemplo, el ensamblaje RM muestra un incremento abrupto en la diversidad p
 <section id="perfiles-tau-de-diversidad-funcional-con-datos-de-abundancia" class="level5">
 <h5 class="anchored" data-anchor-id="perfiles-tau-de-diversidad-funcional-con-datos-de-abundancia">7) Perfiles tau de diversidad funcional con datos de abundancia</h5>
 <p>En PD, el eje del tiempo de referencia (<em>Reftime</em>) “corta” el árbol desde la raíz hacia el presente: a tiempos muy pequeños solo se reconocen linajes muy profundos (pocas ramas largas); a tiempos grandes se van incorporando divisiones más recientes (más ramas y longitud total efectiva). Con <strong>meanPD</strong> se expresa la diversidad en “número efectivo de linajes igualmente divergentes”, de modo que las curvas son comparables entre los ensamblajes. Para cada zona (M, P y RM) y para cada orden <span class="math inline">\(q\in{0,1,2}\)</span>, el perfil muestra: (i) <strong>observado vs.&nbsp;asintótico</strong> (líneas segmentadas/continuas) y sus <strong>IC</strong>; (ii) <strong>sensibilidad al tiempo</strong>: si una curva crece rápido al aumentar <em>Reftime</em>, el ensamblaje gana linajes por encima de ramas recientes (historia evolutiva más “ramificada” en escalas cortas); si crece lento, la señal está concentrada en clados profundos.</p>
-<p>Además, la comparación entre órdenes resume <strong>equidad filogenética</strong>: <span class="math inline">\(q=0\)</span> (todas las ramas cuentan por igual) tiende a ser mayor y con IC más anchos; <span class="math inline">\(q=1\)</span> (Shannon filogenético) y <span class="math inline">\(q=2\)</span> (Simpson filogenético) penalizan dominancia de linajes comunes y reducen la incertidumbre. En tus resultados, <strong>RM</strong> suele superar a <strong>P</strong> y <strong>M</strong> en <span class="math inline">\(q=0\)</span> para <em>Reftime</em> altos (más linajes recientes incorporados), mientras que en <span class="math inline">\(q=1,2\)</span> las diferencias se atenúan si unos pocos clados dominan la abundancia (<strong>?@tbl-tbl24</strong>).</p>
-<div id="tbl-tbl24" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Estimaciones observadas y asintóticas de la diversidad filogenética (qPD) para los órdenes q = 0, 1 y 2. Se incluyen los intervalos de confianza, errores estándar y los tiempos de referencia empleados.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Además, la comparación entre órdenes resume <strong>equidad filogenética</strong>: <span class="math inline">\(q=0\)</span> (todas las ramas cuentan por igual) tiende a ser mayor y con IC más anchos; <span class="math inline">\(q=1\)</span> (Shannon filogenético) y <span class="math inline">\(q=2\)</span> (Simpson filogenético) penalizan dominancia de linajes comunes y reducen la incertidumbre. En tus resultados, <strong>RM</strong> suele superar a <strong>P</strong> y <strong>M</strong> en <span class="math inline">\(q=0\)</span> para <em>Reftime</em> altos (más linajes recientes incorporados), mientras que en <span class="math inline">\(q=1,2\)</span> las diferencias se atenúan si unos pocos clados dominan la abundancia (<a href="#tbl-tbl24">Tabla&nbsp;23</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl24" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;23:  Estimaciones observadas y asintóticas de la diversidad filogenética (qPD) para los órdenes q = 0, 1 y 2. Se incluyen los intervalos de confianza, errores estándar y los tiempos de referencia empleados. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4182,16 +4164,13 @@ En el ejemplo, el ensamblaje RM muestra un incremento abrupto en la diversidad p
 </section>
 <section id="base-de-abundancia-por-cada-zona-comparada-m-p-y-rm" class="level5">
 <h5 class="anchored" data-anchor-id="base-de-abundancia-por-cada-zona-comparada-m-p-y-rm">2) Base de abundancia por cada zona comparada (M, P y RM)</h5>
-<p>A partir de la hoja <em>tax</em>, se organiza la información de abundancia en una matriz especie × ensamblaje, consolidando valores numéricos, eliminando inconsistencias y sumando registros duplicados cuando fue necesario. Posteriormente, esta matriz se alineó con la matriz funcional <code>biol.dist.alfa</code> para asegurar que ambas compartieran exactamente las mismas especies y en el mismo orden. Este procedimiento garantiza la compatibilidad entre las fuentes de información antes de ejecutar los análisis de diversidad funcional y comparaciones entre ensamblajes (<a href="#tbl-tbl25">Tabla&nbsp;18</a>).</p>
-<div id="tbl-tbl25" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de la matriz de abundancia de especies por cada ensamblaje (M, P y RM), generada a partir de la hoja tax luego de depurar nombres, estandarizar valores y alinear las especies con la matriz funcional (biol.dist.alfa).">
-<div class="panel-caption table-caption">
-<p>Tabla&nbsp;18: <strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-tbl25-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-tbl25" style="flex-basis: 100.0%;justify-content: center;">
+<p>A partir de la hoja <em>tax</em>, se organiza la información de abundancia en una matriz especie × ensamblaje, consolidando valores numéricos, eliminando inconsistencias y sumando registros duplicados cuando fue necesario. Posteriormente, esta matriz se alineó con la matriz funcional <code>biol.dist.alfa</code> para asegurar que ambas compartieran exactamente las mismas especies y en el mismo orden. Este procedimiento garantiza la compatibilidad entre las fuentes de información antes de ejecutar los análisis de diversidad funcional y comparaciones entre ensamblajes (<a href="#tbl-tbl25">Tabla&nbsp;24</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl25" class="anchored">
 
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(a) </caption>
+<caption>Tabla&nbsp;24:  Resumen de la matriz de abundancia de especies por cada ensamblaje (M, P y RM), generada a partir de la hoja tax luego de depurar nombres, estandarizar valores y alinear las especies con la matriz funcional (biol.dist.alfa). </caption>
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -4247,21 +4226,18 @@ En el ejemplo, el ensamblaje RM muestra un incremento abrupto en la diversidad p
 </section>
 <section id="estimación-general-de-la-diversidad-funcional-fd-en-ensamblajes-de-especies" class="level5">
 <h5 class="anchored" data-anchor-id="estimación-general-de-la-diversidad-funcional-fd-en-ensamblajes-de-especies">3) Estimación general de la diversidad funcional (FD) en ensamblajes de especies</h5>
-<p>En este análisis se estima la <strong>diversidad funcional (FD)</strong> a partir de los datos de abundancia de especies y de una <strong>matriz de distancias funcionales</strong> construida con base en los rasgos morfológicos y tróficos de cada taxón (<em>biol.dist.alfa</em>) (<strong>?@tbl-tbl26</strong>).<br>
+<p>En este análisis se estima la <strong>diversidad funcional (FD)</strong> a partir de los datos de abundancia de especies y de una <strong>matriz de distancias funcionales</strong> construida con base en los rasgos morfológicos y tróficos de cada taxón (<em>biol.dist.alfa</em>) (<a href="#tbl-tbl26">Tabla&nbsp;25</a>).<br>
 La estimación se realiza mediante la función <code>iNEXT3D()</code> del paquete <strong>iNEXT.3D</strong>, especificando <code>diversity = "FD"</code>. Este procedimiento permite calcular la <strong>diversidad funcional observada, interpolada y extrapolada</strong> para distintos órdenes de diversidad (<em>q</em> = 0, 1 y 2), lo que posibilita una descripción integral del espacio funcional ocupado por las especies.</p>
 <p>El argumento <strong><code>FDdistM</code></strong> indica la matriz de disimilitudes funcionales entre especies, mientras que <strong><code>FDtype = "AUC"</code></strong> solicita que la diversidad se obtenga a partir de la <strong>integración del perfil de distintividad (τ-profile)</strong>, considerando todos los posibles umbrales de similitud entre 0 y 1. Este enfoque resume la <strong>contribución funcional total</strong> de las especies, integrando tanto su <strong>singularidad</strong> (especies con rasgos únicos) como su <strong>redundancia</strong> (especies que comparten funciones ecológicas similares) dentro del espacio funcional.</p>
 <p>La salida inicial del análisis (<code>$FDInfo</code>) resume información básica de cada ensamblaje o sitio, que incluye: <strong>n:</strong> tamaño muestral total (número de individuos); <strong>S.obs:</strong> riqueza funcional observada; <strong>C(n)</strong> y <strong>SC(2n):</strong> coberturas muestrales observadas y extrapoladas, que reflejan el grado de completitud del muestreo; <strong>dmin, dmean y dmax:</strong> valores mínimo, medio y máximo de disimilitud funcional, que expresan la heterogeneidad de los rasgos dentro de cada comunidad.</p>
 <p>Estos indicadores permiten valorar la <strong>representatividad funcional</strong> de los ensamblajes y examinar el grado de <strong>diferenciación o redundancia</strong> entre las especies en función de sus rasgos ecológicos.</p>
 <p>Dado que el cálculo integral del perfil τ (con <code>FDtype = "AUC"</code>) implica procesar numerosas combinaciones de especies, órdenes de diversidad y remuestreos (<em>nboot</em>), se recomienda emplear un número moderado de puntos en las curvas (<code>knots = 20</code>) para mantener un tiempo de ejecución razonable sin comprometer la calidad de las estimaciones.</p>
-<p>El resumen de salida de esta <strong>?@tbl-tbl26</strong>, confirma que la <strong>cobertura muestral (SC)</strong> alcanza valores cercanos a 1.00 en todos los ensamblajes, lo cual indica una <strong>alta completitud del muestreo</strong> y una <strong>buena representación de la diversidad funcional</strong> presente en las zonas de montaña (M), laderas (P) y desembocadura (RM).</p>
-<div id="tbl-tbl26" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de la diversidad funcional (FD) para los ensamblajes M, P y RM. Se presentan el tamaño de muestra (n), la riqueza observada (S.obs), la completitud de la muestra SC(n) y SC(2n) y los valores mínimo, medio y máximo de disimilitud funcional (dmin, dmean, dmax) derivados de la matriz de distancias Gower.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>El resumen de salida de esta <a href="#tbl-tbl26">Tabla&nbsp;25</a>, confirma que la <strong>cobertura muestral (SC)</strong> alcanza valores cercanos a 1.00 en todos los ensamblajes, lo cual indica una <strong>alta completitud del muestreo</strong> y una <strong>buena representación de la diversidad funcional</strong> presente en las zonas de montaña (M), laderas (P) y desembocadura (RM).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl26" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;25:  Resumen de la diversidad funcional (FD) para los ensamblajes M, P y RM. Se presentan el tamaño de muestra (n), la riqueza observada (S.obs), la completitud de la muestra SC(n) y SC(2n) y los valores mínimo, medio y máximo de disimilitud funcional (dmin, dmean, dmax) derivados de la matriz de distancias Gower. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4315,19 +4291,16 @@ La estimación se realiza mediante la función <code>iNEXT3D()</code> del paquet
 </section>
 <section id="estimaciones-estandarizadas-de-diversidad-funcional-fd" class="level5">
 <h5 class="anchored" data-anchor-id="estimaciones-estandarizadas-de-diversidad-funcional-fd">4) Estimaciones estandarizadas de diversidad funcional (FD)</h5>
-<p>La segunda salida principal del análisis (<strong>?@tbl-tbl27</strong>), contenida en la lista <code>$FDiNextEst</code>, presenta las <strong>estimaciones estandarizadas de diversidad funcional (FD)</strong> obtenidas mediante <strong>rarefacción y extrapolación</strong>. Este componente permite comparar los ensamblajes bajo condiciones de <strong>igual tamaño de muestra o cobertura muestral</strong>, eliminando los sesgos asociados a diferencias en el número total de individuos entre sitios.</p>
-<p>En este bloque se muestran las estimaciones de diversidad funcional para una secuencia de tamaños de muestra estandarizados. Cada registro incluye: <strong>Assemblage:</strong> el sitio o ensamblaje analizado. <strong>Order.q:</strong> el orden de diversidad (<em>q</em> = 0, 1 o 2). <strong>m:</strong> tamaño de muestra evaluado. <strong>Method:</strong> tipo de estimación, donde <em>Rarefaction</em> representa interpolación, <em>Observed</em> el valor empírico y <em>Extrapolation</em> la proyección más allá del tamaño original de muestra. <strong>qFD:</strong> valor estimado de diversidad funcional. <strong>qFD.LCL</strong> y <strong>qFD.UCL:</strong> límites inferior y superior del intervalo de confianza al 95 %. <strong>SC:</strong> nivel de cobertura muestral asociado a cada estimación (<strong>?@tbl-tbl27</strong>).</p>
+<p>La segunda salida principal del análisis (<a href="#tbl-tbl27">Tabla&nbsp;26</a>), contenida en la lista <code>$FDiNextEst</code>, presenta las <strong>estimaciones estandarizadas de diversidad funcional (FD)</strong> obtenidas mediante <strong>rarefacción y extrapolación</strong>. Este componente permite comparar los ensamblajes bajo condiciones de <strong>igual tamaño de muestra o cobertura muestral</strong>, eliminando los sesgos asociados a diferencias en el número total de individuos entre sitios.</p>
+<p>En este bloque se muestran las estimaciones de diversidad funcional para una secuencia de tamaños de muestra estandarizados. Cada registro incluye: <strong>Assemblage:</strong> el sitio o ensamblaje analizado. <strong>Order.q:</strong> el orden de diversidad (<em>q</em> = 0, 1 o 2). <strong>m:</strong> tamaño de muestra evaluado. <strong>Method:</strong> tipo de estimación, donde <em>Rarefaction</em> representa interpolación, <em>Observed</em> el valor empírico y <em>Extrapolation</em> la proyección más allá del tamaño original de muestra. <strong>qFD:</strong> valor estimado de diversidad funcional. <strong>qFD.LCL</strong> y <strong>qFD.UCL:</strong> límites inferior y superior del intervalo de confianza al 95 %. <strong>SC:</strong> nivel de cobertura muestral asociado a cada estimación (<a href="#tbl-tbl27">Tabla&nbsp;26</a>).</p>
 <p>Estas estimaciones permiten explorar cómo varía la <strong>diversidad funcional observada e inferida</strong> conforme aumenta el tamaño de muestra, proporcionando la base para construir las <strong>curvas de rarefacción y extrapolación funcionales</strong>. Dichas curvas ilustran la ganancia de diversidad funcional (es decir, la incorporación de nuevas funciones ecológicas) a medida que se incrementa el número de individuos muestreados.</p>
 <p>Este enfoque permite distinguir si las diferencias en diversidad funcional entre los ensamblajes se deben a una <strong>mayor variedad de funciones ecológicas</strong> representadas o simplemente a un <strong>mayor esfuerzo de muestreo o abundancia total</strong>.</p>
-<p>Los resultados de la <strong>?@tbl-tbl27</strong> evidencian que la diversidad funcional en la <strong>zona de montaña (M)</strong> alcanza rápidamente una <strong>cobertura total (SC ≈ 1.00)</strong>, lo que indica que el muestreo fue suficientemente exhaustivo para representar la mayoría de las funciones ecológicas presentes. La estabilidad de los valores de <strong>qFD</strong> al aumentar el tamaño de muestra sugiere una <strong>composición funcional bien definida</strong>, con <strong>baja redundancia</strong> entre especies y un espacio funcional ya saturado por las funciones dominantes en el ensamblaje.</p>
-<div id="tbl-tbl27" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de las estimaciones tamaño-dependientes (size based) de la diversidad funcional (qFD) para los ensamblajes M, P y RM. Se incluyen los valores de qFD, sus intervalos de confianza, los tamaños de muestra evaluados (m) y los niveles de cobertura de la muestra (SC).">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los resultados de la <a href="#tbl-tbl27">Tabla&nbsp;26</a> evidencian que la diversidad funcional en la <strong>zona de montaña (M)</strong> alcanza rápidamente una <strong>cobertura total (SC ≈ 1.00)</strong>, lo que indica que el muestreo fue suficientemente exhaustivo para representar la mayoría de las funciones ecológicas presentes. La estabilidad de los valores de <strong>qFD</strong> al aumentar el tamaño de muestra sugiere una <strong>composición funcional bien definida</strong>, con <strong>baja redundancia</strong> entre especies y un espacio funcional ya saturado por las funciones dominantes en el ensamblaje.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl27" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;26:  Resumen de las estimaciones tamaño-dependientes (size based) de la diversidad funcional (qFD) para los ensamblajes M, P y RM. Se incluyen los valores de qFD, sus intervalos de confianza, los tamaños de muestra evaluados (m) y los niveles de cobertura de la muestra (SC). </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4425,18 +4398,15 @@ La estimación se realiza mediante la función <code>iNEXT3D()</code> del paquet
 </section>
 <section id="diversidad-funcional-estandarizada-por-cobertura-muestral" class="level5">
 <h5 class="anchored" data-anchor-id="diversidad-funcional-estandarizada-por-cobertura-muestral">5) Diversidad funcional estandarizada por cobertura muestral</h5>
-<p>En esta etapa del análisis se presentan las <strong>estimaciones de diversidad funcional (FD)</strong> estandarizadas por <strong>cobertura muestral</strong>, obtenidas del componente <code>$FDiNextEst$coverage_based</code> del objeto de salida (<a href="#tbl-tbl25">Tabla&nbsp;18</a>). Este procedimiento ajusta las estimaciones de diversidad funcional a un <strong>nivel de completitud común (SC)</strong> entre los ensamblajes, lo que permite realizar <strong>comparaciones equitativas</strong> entre comunidades con distintos tamaños de muestra o abundancias totales.</p>
+<p>En esta etapa del análisis se presentan las <strong>estimaciones de diversidad funcional (FD)</strong> estandarizadas por <strong>cobertura muestral</strong>, obtenidas del componente <code>$FDiNextEst$coverage_based</code> del objeto de salida (<a href="#tbl-tbl25">Tabla&nbsp;24</a>). Este procedimiento ajusta las estimaciones de diversidad funcional a un <strong>nivel de completitud común (SC)</strong> entre los ensamblajes, lo que permite realizar <strong>comparaciones equitativas</strong> entre comunidades con distintos tamaños de muestra o abundancias totales.</p>
 <p>A diferencia de la estandarización por tamaño de muestra, este enfoque <strong>homologa la representatividad funcional</strong> de los datos, no el número de individuos. En otras palabras, las comunidades se comparan bajo un <strong>mismo grado de completitud muestral</strong>, eliminando los efectos del esfuerzo de muestreo y permitiendo identificar <strong>diferencias reales en la estructura funcional</strong> de las comunidades.</p>
 <p>Es importante señalar que los <strong>intervalos de confianza</strong> tienden a ser más amplios que en el caso del análisis por tamaño de muestra, debido a que la cobertura fija requiere estimar —mediante remuestreo (<em>bootstrap</em>)— el tamaño de muestra necesario para alcanzar cada nivel de completitud, lo cual incrementa la variabilidad de las estimaciones.</p>
-<p>Los resultados evidencian que, bajo una <strong>cobertura completa (SC ≈ 1.00)</strong>, las estimaciones de diversidad funcional en el ensamblaje de montaña (M) se mantienen <strong>estables y consistentes</strong> con las obtenidas por tamaño de muestra (<strong>?@tbl-tbl28</strong>). Esto confirma una <strong>alta completitud funcional del muestreo</strong> y sugiere una <strong>baja redundancia de rasgos ecológicos</strong>, reflejando una comunidad con funciones bien representadas y una estructura funcional equilibrada.</p>
-<div id="tbl-tbl28" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de estimaciones basadas en cobertura (coverage based) de la diversidad funcional (qFD) para los ensamblajes M, P y RM. Se presentan los valores de qFD, sus intervalos de confianza, los tamaños de muestra requeridos (m) y los niveles de cobertura de la muestra (SC) alcanzados.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los resultados evidencian que, bajo una <strong>cobertura completa (SC ≈ 1.00)</strong>, las estimaciones de diversidad funcional en el ensamblaje de montaña (M) se mantienen <strong>estables y consistentes</strong> con las obtenidas por tamaño de muestra (<a href="#tbl-tbl28">Tabla&nbsp;27</a>). Esto confirma una <strong>alta completitud funcional del muestreo</strong> y sugiere una <strong>baja redundancia de rasgos ecológicos</strong>, reflejando una comunidad con funciones bien representadas y una estructura funcional equilibrada.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl28" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;27:  Resumen de estimaciones basadas en cobertura (coverage based) de la diversidad funcional (qFD) para los ensamblajes M, P y RM. Se presentan los valores de qFD, sus intervalos de confianza, los tamaños de muestra requeridos (m) y los niveles de cobertura de la muestra (SC) alcanzados. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4520,17 +4490,14 @@ La estimación se realiza mediante la función <code>iNEXT3D()</code> del paquet
 </section>
 <section id="estimaciones-asintóticas-de-diversidad-funcional-fdasyest" class="level5">
 <h5 class="anchored" data-anchor-id="estimaciones-asintóticas-de-diversidad-funcional-fdasyest">6) Estimaciones asintóticas de diversidad funcional (FDAsyEst)</h5>
-<p>La <strong>?@tbl-tbl29</strong> muestra la última salida del análisis, contenida en la lista <code>$FDAsyEst</code>, presenta las <strong>estimaciones observadas y asintóticas de la diversidad funcional (FD)</strong> para distintos órdenes de diversidad (<em>q</em> = 0, 1 y 2).<br>
+<p>La <a href="#tbl-tbl29">Tabla&nbsp;28</a> muestra la última salida del análisis, contenida en la lista <code>$FDAsyEst</code>, presenta las <strong>estimaciones observadas y asintóticas de la diversidad funcional (FD)</strong> para distintos órdenes de diversidad (<em>q</em> = 0, 1 y 2).<br>
 Este componente permite evaluar tanto la <strong>magnitud de la diversidad funcional</strong> en cada ensamblaje como su <strong>grado de completitud muestral</strong> y la <strong>consistencia estadística</strong> de las inferencias derivadas del modelo.</p>
 <p>En términos ecológicos, <strong>valores cercanos entre FD_obs y FD_asy</strong> indican que el muestreo logró capturar adecuadamente la diversidad funcional del ensamblaje, mientras que <strong>diferencias notorias</strong> sugieren un posible submuestreo o la existencia de especies con rasgos funcionales únicos que aún no han sido registradas.</p>
-<div id="tbl-tbl29" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Estimadores asintóticos de la diversidad funcional (qFD) para los ensamblajes M y P. Se muestran los valores observados (FD.obs), las estimaciones asintóticas (FD.asy), sus errores estándar e intervalos de confianza para los órdenes de diversidad q = 0, 1 y 2.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl29" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;28:  Estimadores asintóticos de la diversidad funcional (qFD) para los ensamblajes M y P. Se muestran los valores observados (FD.obs), las estimaciones asintóticas (FD.asy), sus errores estándar e intervalos de confianza para los órdenes de diversidad q = 0, 1 y 2. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4714,16 +4681,13 @@ En este procedimiento, el <strong>parámetro τ (tau)</strong> define el umbral 
 <li><p><strong>q = 2</strong>: enfatiza las especies dominantes, equivalente a la <strong>diversidad de Simpson</strong>.</p></li>
 </ul>
 <p>Curvas que <strong>descienden rápidamente con q</strong> evidencian que <strong>pocas especies dominan el espacio funcional</strong>, mientras que descensos más suaves indican un <strong>reparto más equitativo</strong> de las funciones ecológicas. En conjunto, los <strong>q-profiles</strong> describen cómo la diversidad funcional se distribuye entre especies comunes y raras, y cómo la estructura funcional responde al peso relativo que se les otorga.</p>
-<p>Los resultados de la <a href="#tbl-tbl30">Tabla&nbsp;19</a> permiten visualizar cómo la <strong>diversidad funcional (FD)</strong> cambia con los diferentes órdenes de diversidad y niveles de <strong>distintividad funcional (τ)</strong>. En el ejemplo mostrado, el ensamblaje <strong>de montaña (M)</strong> presenta una disminución progresiva de FD a medida que aumenta <strong>q</strong>, indicando que la comunidad posee <strong>algunas especies dominantes</strong> que concentran gran parte de las funciones ecológicas. Por otro lado, los valores relativamente altos de FD en τ bajos (0–0.1) reflejan la <strong>presencia de especies con rasgos únicos</strong>, que amplían el espacio funcional incluso si son poco abundantes.</p>
-<div id="tbl-tbl30" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Estimaciones observadas y asintóticas de la diversidad funcional (FD) para los órdenes de diversidad q = 0, 1 y 2, obtenidas mediante perfiles tau. La tabla muestra valores qFD, errores estándar, intervalos de confianza y el valor de tau correspondiente para cada ensamblaje.">
-<div class="panel-caption table-caption">
-<p>Tabla&nbsp;19: <strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-tbl30-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-tbl30" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los resultados de la <a href="#tbl-tbl30">Tabla&nbsp;29</a> permiten visualizar cómo la <strong>diversidad funcional (FD)</strong> cambia con los diferentes órdenes de diversidad y niveles de <strong>distintividad funcional (τ)</strong>. En el ejemplo mostrado, el ensamblaje <strong>de montaña (M)</strong> presenta una disminución progresiva de FD a medida que aumenta <strong>q</strong>, indicando que la comunidad posee <strong>algunas especies dominantes</strong> que concentran gran parte de las funciones ecológicas. Por otro lado, los valores relativamente altos de FD en τ bajos (0–0.1) reflejan la <strong>presencia de especies con rasgos únicos</strong>, que amplían el espacio funcional incluso si son poco abundantes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl30" class="anchored">
 
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(a) Estimaciones observadas y asintóticas de diversidad funcional (q-profiles)</caption>
+<caption>Tabla&nbsp;29:  Estimaciones observadas y asintóticas de la diversidad funcional (FD) para los órdenes de diversidad q = 0, 1 y 2, obtenidas mediante perfiles tau. La tabla muestra valores qFD, errores estándar, intervalos de confianza y el valor de tau correspondiente para cada ensamblaje. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -4826,17 +4790,14 @@ En este procedimiento, el <strong>parámetro τ (tau)</strong> define el umbral 
 <h5 class="anchored" data-anchor-id="estimación-de-la-diversidad-funcional-fd-basada-en-los-números-de-hill">8) Estimación de la diversidad funcional (FD) basada en los números de Hill</h5>
 <p>En esta sección se estima la <strong>diversidad funcional (FD)</strong> de los ensamblajes utilizando el enfoque de los <strong>números de Hill (q)</strong>, el cual permite caracterizar la estructura funcional de las comunidades desde diferentes grados de sensibilidad a la abundancia de las especies.</p>
 <p>A través de este enfoque, se puede analizar cómo la composición funcional de los ensamblajes se modifica al pasar de valorar la simple presencia de especies a ponderar su dominancia ecológica.</p>
-<p>Los resultados obtenidos en la <a href="#tbl-tbl31">Tabla&nbsp;20</a> muestran que la <strong>diversidad funcional disminuye de forma progresiva al aumentar el orden q</strong>, lo que refleja que las <strong>especies dominantes son funcionalmente más redundantes</strong> que las raras. Esto implica que, aunque las comunidades puedan albergar un número elevado de especies funcionalmente distintas (alto FD para <em>q = 0</em>), gran parte de las funciones ecológicas se concentran en unas pocas especies comunes cuando se pondera por abundancia (<em>q = 1</em> o <em>q = 2</em>).</p>
+<p>Los resultados obtenidos en la <a href="#tbl-tbl31">Tabla&nbsp;30</a> muestran que la <strong>diversidad funcional disminuye de forma progresiva al aumentar el orden q</strong>, lo que refleja que las <strong>especies dominantes son funcionalmente más redundantes</strong> que las raras. Esto implica que, aunque las comunidades puedan albergar un número elevado de especies funcionalmente distintas (alto FD para <em>q = 0</em>), gran parte de las funciones ecológicas se concentran en unas pocas especies comunes cuando se pondera por abundancia (<em>q = 1</em> o <em>q = 2</em>).</p>
 <p>En el ensamblaje <strong>Montaña (M)</strong>, la FD asintótica desciende de <strong>2.36 (q = 0)</strong> a <strong>1.21 (q = 2)</strong>, indicando una pérdida de diversidad funcional efectiva al considerar la dominancia de las especies. En contraste, el ensamblaje <strong>Laderas (P)</strong> mantiene valores más altos (FD ≈ 2.95 en <em>q = 0</em>), lo que sugiere una <strong>mayor amplitud de funciones ecológicas</strong> y una comunidad <strong>más heterogénea en sus rasgos funcionales</strong>.</p>
-<div id="tbl-tbl31" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Estimaciones observadas y asintóticas de la diversidad funcional (FD) para los ensamblajes M y P, calculadas mediante el método AUC en distintos órdenes de diversidad (q 0, 0.5, 1, 1.5 y 2). La tabla incluye los valores qFD, errores estándar e intervalos de confianza generados.">
-<div class="panel-caption table-caption">
-<p>Tabla&nbsp;20: <strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-tbl31-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-tbl31" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl31" class="anchored">
 
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(a) </caption>
+<caption>Tabla&nbsp;30:  Estimaciones observadas y asintóticas de la diversidad funcional (FD) para los ensamblajes M y P, calculadas mediante el método AUC en distintos órdenes de diversidad (q 0, 0.5, 1, 1.5 y 2). La tabla incluye los valores qFD, errores estándar e intervalos de confianza generados. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Assemblage </th>
@@ -5036,13 +4997,13 @@ $species_kept
 <li><p><strong>β (beta)</strong>: el grado de <strong>diferenciación filogenética entre zonas</strong>, expresado como el cociente γ/α.</p></li>
 </ul>
 <p>Estos componentes pueden estandarizarse por cobertura o tamaño de muestra, y se acompañan de estimadores de incertidumbre obtenidos mediante <strong>bootstrap</strong> (aquí con <code>nboot = 10</code> repeticiones).</p>
-<p>El resultado, como se muestra en la <strong>?@tbl-tbl32</strong>, presenta para cada comparación (por ejemplo, pareja de zonas: M_vs_P) los valores de diversidad filogenética (qPD) en función del orden de diversidad q, el nivel de cobertura (SC), el tamaño de muestra equivalente y los intervalos de confianza. En este caso, los resultados indican cómo la <strong>diversidad filogenética efectiva</strong> varía con el grado de completitud muestral, permitiendo identificar qué tan diferentes son las comunidades en términos de su historia evolutiva compartida. <strong>Ejemplo</strong>: comparación M_vs_P</p>
+<p>El resultado, como se muestra en la <a href="#tbl-tbl32">Tabla&nbsp;31</a>, presenta para cada comparación (por ejemplo, pareja de zonas: M_vs_P) los valores de diversidad filogenética (qPD) en función del orden de diversidad q, el nivel de cobertura (SC), el tamaño de muestra equivalente y los intervalos de confianza. En este caso, los resultados indican cómo la <strong>diversidad filogenética efectiva</strong> varía con el grado de completitud muestral, permitiendo identificar qué tan diferentes son las comunidades en términos de su historia evolutiva compartida. <strong>Ejemplo</strong>: comparación M_vs_P</p>
 <p><strong>Orden q = 0</strong> → refleja la riqueza filogenética total (todas las especies pesan igual).</p>
 <p><strong>Orden q = 1</strong> → pondera las ramas según su abundancia relativa.</p>
 <p><strong>Orden q = 2</strong> → enfatiza las especies (o linajes) dominantes.</p>
 <p>De este modo, un valor de <code>meanPD</code> mayor en una comparación implica una <strong>mayor diferenciación evolutiva</strong> entre las comunidades, mientras que valores cercanos a uno indican un <strong>ensamblaje filogenéticamente similar</strong> entre zonas. Esta información resulta clave para interpretar la estructura biogeográfica y los <strong>patrones de recambio filogenético</strong> en gradientes ambientales o espaciales, como los observados entre las zonas de montaña, laderas y desembocadura de la cuenca (M, P y RM).</p>
 <blockquote class="blockquote">
-<p><strong>Nota</strong>: Los valores de <strong>Gamma (meanPD)</strong> representan el número efectivo de linajes filogenéticamente diferenciados bajo el enfoque de cobertura estandarizada (<strong>?@tbl-tbl28</strong>). También se pueden ejecutar los insumos <strong>Alpha</strong> y <strong>Beta</strong>.</p>
+<p><strong>Nota</strong>: Los valores de <strong>Gamma (meanPD)</strong> representan el número efectivo de linajes filogenéticamente diferenciados bajo el enfoque de cobertura estandarizada (<a href="#tbl-tbl28">Tabla&nbsp;27</a>). También se pueden ejecutar los insumos <strong>Alpha</strong> y <strong>Beta</strong>.</p>
 </blockquote>
 <div class="cell">
 <details>
@@ -5059,14 +5020,11 @@ $species_kept
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="tbl-tbl32" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de las estimaciones de diversidad filogenética gamma para la comparación pareada entre las zonas M y P, mostrando los valores estimados bajo rarefacción, sus errores estándar e intervalos de confianza a distintos niveles de cobertura muestral.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl32" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;31:  Resumen de las estimaciones de diversidad filogenética gamma para la comparación pareada entre las zonas M y P, mostrando los valores estimados bajo rarefacción, sus errores estándar e intervalos de confianza a distintos niveles de cobertura muestral. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -5195,7 +5153,7 @@ $species_kept
 </section>
 <section id="diversidad-beta-filogenética-pd-por-tamaño-de-las-muestras" class="level6">
 <h6 class="anchored" data-anchor-id="diversidad-beta-filogenética-pd-por-tamaño-de-las-muestras">1.4) Diversidad beta filogenética (PD) por tamaño de las muestras</h6>
-<p>El segundo enfoque disponible en <strong>iNEXT.beta3D()</strong> permite estandarizar la diversidad en función del <strong>tamaño de muestra (base = “size”)</strong>, en lugar de la cobertura de muestreo. En este caso, las curvas se construyen incrementando progresivamente el número de individuos (<em>Number of individuals</em>) hasta el doble del tamaño de muestra de referencia, lo que permite observar cómo varía la diversidad filogenética esperada a medida que aumenta el esfuerzo de colecta (<strong>?@tbl-tbl33</strong>).</p>
+<p>El segundo enfoque disponible en <strong>iNEXT.beta3D()</strong> permite estandarizar la diversidad en función del <strong>tamaño de muestra (base = “size”)</strong>, en lugar de la cobertura de muestreo. En este caso, las curvas se construyen incrementando progresivamente el número de individuos (<em>Number of individuals</em>) hasta el doble del tamaño de muestra de referencia, lo que permite observar cómo varía la diversidad filogenética esperada a medida que aumenta el esfuerzo de colecta (<a href="#tbl-tbl33">Tabla&nbsp;32</a>).</p>
 <p>El gráfico muestra las curvas de rarefacción (líneas continuas) y extrapolación (líneas discontinuas) para la <strong>diversidad filogenética gamma (γ)</strong> y <strong>alfa (α)</strong>, bajo tres órdenes de diversidad (q = 0, 1, 2). El panel superior (γ) refleja la <strong>diversidad filogenética total combinada</strong> de las zonas comparadas. El panel inferior (α) representa la <strong>diversidad promedio dentro de las comunidades</strong>.</p>
 <p>En ambos casos, el eje <em>x</em> corresponde al número acumulado de individuos, mientras que el eje <em>y</em> muestra el valor promedio de diversidad filogenética (<em>mean phylogenetic diversity</em>). Las comparaciones entre ensamblajes —<strong>M_vs_P</strong>, <strong>M_vs_RM</strong> y <strong>P_vs_RM</strong>— permiten observar cómo la diversidad total y la interna responden al incremento del tamaño de muestra.</p>
 <p>A diferencia del enfoque basado en cobertura, el método <em>size-based</em> <strong>no genera estimaciones válidas para la diversidad beta (β)</strong> ni para los índices de disimilitud, ya que el tamaño de muestra no controla adecuadamente la heterogeneidad entre ensamblajes. Por ello, los resultados se limitan a los componentes γ y α.</p>
@@ -5214,14 +5172,11 @@ $species_kept
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="tbl-tbl33" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Estimaciones de la diversidad filogenética gamma para la comparación M–P, basadas en tamaños de muestra crecientes. La tabla muestra los valores gamma estimados bajo rarefacción, junto con errores estándar e intervalos de confianza para q = 0.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl33" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;32:  Estimaciones de la diversidad filogenética gamma para la comparación M–P, basadas en tamaños de muestra crecientes. La tabla muestra los valores gamma estimados bajo rarefacción, junto con errores estándar e intervalos de confianza para q = 0. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -5346,21 +5301,18 @@ Se observa un incremento inicial pronunciado de la diversidad filogenética tota
 </section>
 <section id="información-general-de-la-beta-filogenética-pd" class="level5">
 <h5 class="anchored" data-anchor-id="información-general-de-la-beta-filogenética-pd">2) Información general de la beta filogenética (PD)</h5>
-<p>La función <strong><code>DataInfobeta3D()</code></strong> cumple un papel diagnóstico esencial antes del cálculo de la diversidad funcional beta. Su finalidad es <strong>resumir las características básicas de los datos funcionales y de abundancia</strong>, permitiendo evaluar la <strong>representatividad</strong> y <strong>completitud</strong> de los ensamblajes antes de aplicar los modelos de rarefacción y extrapolación (<strong>?@tbl-tbl34</strong>). El procedimiento entrega información resumida para tres niveles de organización:</p>
+<p>La función <strong><code>DataInfobeta3D()</code></strong> cumple un papel diagnóstico esencial antes del cálculo de la diversidad funcional beta. Su finalidad es <strong>resumir las características básicas de los datos funcionales y de abundancia</strong>, permitiendo evaluar la <strong>representatividad</strong> y <strong>completitud</strong> de los ensamblajes antes de aplicar los modelos de rarefacción y extrapolación (<a href="#tbl-tbl34">Tabla&nbsp;33</a>). El procedimiento entrega información resumida para tres niveles de organización:</p>
 <ol type="1">
 <li><p><strong>Cada ensamblaje individual (α):</strong> evalúa la diversidad funcional local de cada sitio.</p></li>
 <li><p><strong>El ensamblaje combinado (γ):</strong> representa la diversidad total al unir ambos sitios del par.</p></li>
 <li><p><strong>El ensamblaje conjunto (base de β):</strong> resume el conjunto funcional compartido y las diferencias entre comunidades.</p></li>
 </ol>
-<p>Los valores de <strong>cobertura (SC)</strong> próximos a <strong>1.00</strong> indican que el muestreo fue <strong>altamente completo</strong>, tanto a nivel local (α) como combinado (γ), garantizando la representatividad de los linajes observados (<a href="#tbl-tbl30">Tabla&nbsp;19</a>). El aumento de <strong>PD.obs</strong> en los ensamblajes combinados y conjuntos evidencia una <strong>ampliación del espacio filogenético</strong>, producto de la incorporación de especies que pertenecen a diferentes ramas del árbol evolutivo. Los valores más altos de <strong>f₁*</strong>, <strong>f₂*</strong>, <strong>g₁</strong> y <strong>g₂</strong> en la <strong>zona de desembocadura (RM)</strong> reflejan la presencia de <strong>linajes únicos y evolutivamente distantes</strong>, lo que sugiere un aporte significativo de esta zona a la diversidad filogenética regional.</p>
-<div id="tbl-tbl34" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Información general para los análisis de diversidad beta filogenética (beta.PD) en las comparaciones pareadas M vs P, M vs RM y P vs RM. La tabla resume, para cada ensamblaje involucrado, el tamaño de muestra (n), la riqueza observada (S.obs), la cobertura muestral para n y 2n, la diversidad filogenética observada (PD.obs), así como los conteos de especies únicas y dobles (f1, f2), sus contribuciones estimadas (g1, g2) y el tiempo de referencia usado en los cálculos (Reftime).">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los valores de <strong>cobertura (SC)</strong> próximos a <strong>1.00</strong> indican que el muestreo fue <strong>altamente completo</strong>, tanto a nivel local (α) como combinado (γ), garantizando la representatividad de los linajes observados (<a href="#tbl-tbl30">Tabla&nbsp;29</a>). El aumento de <strong>PD.obs</strong> en los ensamblajes combinados y conjuntos evidencia una <strong>ampliación del espacio filogenético</strong>, producto de la incorporación de especies que pertenecen a diferentes ramas del árbol evolutivo. Los valores más altos de <strong>f₁*</strong>, <strong>f₂*</strong>, <strong>g₁</strong> y <strong>g₂</strong> en la <strong>zona de desembocadura (RM)</strong> reflejan la presencia de <strong>linajes únicos y evolutivamente distantes</strong>, lo que sugiere un aporte significativo de esta zona a la diversidad filogenética regional.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl34" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;33:  Información general para los análisis de diversidad beta filogenética (beta.PD) en las comparaciones pareadas M vs P, M vs RM y P vs RM. La tabla resume, para cada ensamblaje involucrado, el tamaño de muestra (n), la riqueza observada (S.obs), la cobertura muestral para n y 2n, la diversidad filogenética observada (PD.obs), así como los conteos de especies únicas y dobles (f1, f2), sus contribuciones estimadas (g1, g2) y el tiempo de referencia usado en los cálculos (Reftime). </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -5630,16 +5582,13 @@ Este enfoque evita depender de un umbral arbitrario para definir “diferencias 
 
 </div>
 <p>El objeto <code>salida_abun31</code> es una lista anidada que contiene los resultados para cada par de zonas o ensamblajes (p.&nbsp;ej. <code>M_vs_P</code>, <code>M_vs_RM</code>, <code>P_vs_RM</code>). Dentro de cada par se incluyen tres componentes <code>alpha</code>: diversidad promedio dentro de los ensamblajes (local o intra-sitio), <code>beta</code>: diferenciación funcional entre los ensamblajes y <code>gamma</code>: diversidad total combinada (regional o inter-sitio).</p>
-<p>El ejemplo mostrado tabula los primeros valores de <strong>diversidad funcional gamma (γ)</strong> para la comparación entre las zonas <strong>montaña (M)</strong> y <strong>laderas (P)</strong> (<a href="#tbl-tbl35">Tabla&nbsp;21</a>).</p>
-<div id="tbl-tbl35" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Resumen de las estimaciones de la diversidad funcional gamma para la comparación M vs P, calculadas mediante rarefacción bajo el método FD.AUC. La tabla muestra los valores estimados de gamma, sus errores estándar e intervalos de confianza para distintos niveles de cobertura muestral.">
-<div class="panel-caption table-caption">
-<p>Tabla&nbsp;21: <strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-tbl35-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-tbl35" style="flex-basis: 100.0%;justify-content: center;">
+<p>El ejemplo mostrado tabula los primeros valores de <strong>diversidad funcional gamma (γ)</strong> para la comparación entre las zonas <strong>montaña (M)</strong> y <strong>laderas (P)</strong> (<a href="#tbl-tbl35">Tabla&nbsp;34</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl35" class="anchored">
 
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(a) Diversidad funcional gamma (γ) entre las zonas de montaña (M) y laderas (P)</caption>
+<caption>Tabla&nbsp;34:  Resumen de las estimaciones de la diversidad funcional gamma para la comparación M vs P, calculadas mediante rarefacción bajo el método FD.AUC. La tabla muestra los valores estimados de gamma, sus errores estándar e intervalos de confianza para distintos niveles de cobertura muestral. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -5767,18 +5716,15 @@ En <strong>α</strong>, la diversidad local aumenta con la cobertura, pero tiend
 <div class="cell">
 
 </div>
-<p>Esta <a href="#tbl-tbl36">Tabla&nbsp;22</a> resume los resultados del análisis de <strong>diversidad funcional gamma (γ)</strong> obtenidos para el par de zonas <strong>montaña (M)</strong> y <strong>laderas (P)</strong>, a partir del enfoque de <strong>rarefacción y extrapolación (R/E)</strong> basado en el <strong>tamaño de muestra</strong>.</p>
+<p>Esta <a href="#tbl-tbl36">Tabla&nbsp;35</a> resume los resultados del análisis de <strong>diversidad funcional gamma (γ)</strong> obtenidos para el par de zonas <strong>montaña (M)</strong> y <strong>laderas (P)</strong>, a partir del enfoque de <strong>rarefacción y extrapolación (R/E)</strong> basado en el <strong>tamaño de muestra</strong>.</p>
 <p>La diversidad <strong>gamma (γ)</strong> representa la <strong>diversidad funcional total combinada</strong> de los dos ensamblajes (M y P). En este caso, los valores se expresan bajo el método <strong>AUC (área bajo la curva)</strong>, que integra toda la variación funcional entre las especies sin depender de un umbral arbitrario de distancia. Cada fila de la tabla corresponde a un punto de la curva de rarefacción, donde se incrementa progresivamente el <strong>tamaño de muestra (Size)</strong>.</p>
-<p>Los resultados de la <a href="#tbl-tbl36">Tabla&nbsp;22</a> muestran que la <strong>diversidad funcional gamma</strong> aumenta gradualmente con el <strong>tamaño de muestra</strong>, pasando de 1.00 a 10.22 conforme se incorporan más individuos. Este patrón indica que la combinación de las zonas de <strong>montaña y laderas</strong> amplía el espectro funcional del ensamblaje, incorporando <strong>nuevas funciones ecológicas</strong> a medida que crece el esfuerzo de muestreo.</p>
-<div id="tbl-tbl36" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Diversidad funcional gamma basada en el tamaño de muestra para la comparación entre las zonas de montaña (M) y laderas (P), obtenida mediante curvas de rarefacción y extrapolación estandarizadas por abundancia.">
-<div class="panel-caption table-caption">
-<p>Tabla&nbsp;22: <strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-tbl36-1" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-tbl36" style="flex-basis: 100.0%;justify-content: center;">
+<p>Los resultados de la <a href="#tbl-tbl36">Tabla&nbsp;35</a> muestran que la <strong>diversidad funcional gamma</strong> aumenta gradualmente con el <strong>tamaño de muestra</strong>, pasando de 1.00 a 10.22 conforme se incorporan más individuos. Este patrón indica que la combinación de las zonas de <strong>montaña y laderas</strong> amplía el espectro funcional del ensamblaje, incorporando <strong>nuevas funciones ecológicas</strong> a medida que crece el esfuerzo de muestreo.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl36" class="anchored">
 
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(a) Diversidad funcional gamma (γ) entre las zonas de montaña (M) y laderas (P)</caption>
+<caption>Tabla&nbsp;35:  Diversidad funcional gamma basada en el tamaño de muestra para la comparación entre las zonas de montaña (M) y laderas (P), obtenida mediante curvas de rarefacción y extrapolación estandarizadas por abundancia. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -5893,16 +5839,13 @@ En <strong>α</strong>, la diversidad local aumenta con la cobertura, pero tiend
 <section id="información-general-de-la-beta-funcional---fd" class="level5">
 <h5 class="anchored" data-anchor-id="información-general-de-la-beta-funcional---fd">9) Información general de la beta funcional - FD</h5>
 <p>La función <strong><code>DataInfobeta3D()</code></strong> cumple un papel diagnóstico esencial antes del cálculo de la diversidad funcional beta. Su finalidad es <strong>resumir las características básicas de los datos funcionales y de abundancia</strong>, permitiendo evaluar la <strong>representatividad</strong> y <strong>completitud</strong> de los ensamblajes antes de aplicar los modelos de rarefacción y extrapolación.</p>
-<p>La <strong>?@tbl-tbl37</strong> resume estos valores para los tres pares de zonas comparadas: <strong>montaña (M)</strong>, <strong>laderas (P)</strong> y <strong>desembocadura (RM)</strong>. Los valores de <strong>cobertura (SC)</strong> cercanos a <strong>1.00</strong> en todos los ensamblajes indican que el muestreo fue <strong>altamente completo</strong> y que la información funcional disponible es representativa. Los mayores valores de <strong>S.obs</strong> y <strong>n</strong> en los ensamblajes combinados (γ) evidencian una <strong>ampliación del espacio funcional</strong> al integrar las comunidades.</p>
+<p>La <a href="#tbl-tbl37">Tabla&nbsp;36</a> resume estos valores para los tres pares de zonas comparadas: <strong>montaña (M)</strong>, <strong>laderas (P)</strong> y <strong>desembocadura (RM)</strong>. Los valores de <strong>cobertura (SC)</strong> cercanos a <strong>1.00</strong> en todos los ensamblajes indican que el muestreo fue <strong>altamente completo</strong> y que la información funcional disponible es representativa. Los mayores valores de <strong>S.obs</strong> y <strong>n</strong> en los ensamblajes combinados (γ) evidencian una <strong>ampliación del espacio funcional</strong> al integrar las comunidades.</p>
 <p>El número relativamente bajo de <strong>simgletones funcionales (a₁*)</strong> y la contribución moderada de <strong>h₁ y h₂</strong> reflejan que la mayoría de las especies comparten funciones similares, es decir, existe <strong>cierto grado de redundancia funcional</strong> dentro de las comunidades.</p>
-<div id="tbl-tbl37" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Diversidad funcional beta (FD) para las comparaciones pareadas entre zonas. Tamaños de muestra (n), la riqueza observada (S.obs), la completitud de la muestra (SC), y los parámetros derivados del perfil tau, así como el valor de tau empleado en la estandarización.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl37" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;36:  Diversidad funcional beta (FD) para las comparaciones pareadas entre zonas. Tamaños de muestra (n), la riqueza observada (S.obs), la completitud de la muestra (SC), y los parámetros derivados del perfil tau, así como el valor de tau empleado en la estandarización. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
@@ -6081,17 +6024,14 @@ En <strong>α</strong>, la diversidad local aumenta con la cobertura, pero tiend
 </div>
 </div>
 </div>
-<p>Esta <strong>?@tbl-tbl38</strong> desarrollada con la función <strong><code>DataInfobeta3D(),</code></strong> emplea el método <strong>AUC (Área Bajo la Curva)</strong> para describir la <strong>estructura funcional</strong> de las comunidades antes de calcular la diversidad funcional beta. Mientras que la versión con <code>FDtype = "tau_value"</code> se centra en el número de especies funcionalmente indistintas, esta versión <strong>evalúa la amplitud y forma del espacio funcional</strong> representado por los rasgos ecológicos.</p>
+<p>Esta <a href="#tbl-tbl38">Tabla&nbsp;37</a> desarrollada con la función <strong><code>DataInfobeta3D(),</code></strong> emplea el método <strong>AUC (Área Bajo la Curva)</strong> para describir la <strong>estructura funcional</strong> de las comunidades antes de calcular la diversidad funcional beta. Mientras que la versión con <code>FDtype = "tau_value"</code> se centra en el número de especies funcionalmente indistintas, esta versión <strong>evalúa la amplitud y forma del espacio funcional</strong> representado por los rasgos ecológicos.</p>
 <p>Los valores de <strong>cobertura (SC)</strong> próximos a <strong>1.00</strong> en casi todos los ensamblajes confirman un muestreo completo y representativo del espacio funcional. Las <strong>distancias mínimas (dmin)</strong>, generalmente entre <strong>0.07 y 0.14</strong>, indican que existen grupos de especies con rasgos muy similares (redundancia funcional), mientras que las <strong>distancias máximas (dmax)</strong>, que alcanzan valores entre <strong>0.65 y 0.85</strong>, evidencian una <strong>amplia diferenciación funcional</strong> entre otros pares de especies.</p>
 <p>La <strong>distancia media (dmean)</strong>, comprendida entre <strong>0.23 y 0.34</strong>, sugiere un <strong>grado intermedio de disimilitud</strong> funcional en la mayoría de los ensamblajes, coherente con comunidades que comparten funciones básicas pero mantienen cierta heterogeneidad en los rasgos.</p>
-<div id="tbl-tbl38" class="cell tbl-parent quarto-layout-panel anchored" data-tab.cap="Diversidad funcional beta (FD) basada en el método AUC. Tamaño de muestra (n), la riqueza observada (S.obs), la completitud de la muestra (SC), los valores mínimo, medio y máximo de las distancias funcionales entre especies para cada ensamblaje y combinación pareada de zonas.">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl38" class="anchored">
 
-<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;37:  Diversidad funcional beta (FD) basada en el método AUC. Tamaño de muestra (n), la riqueza observada (S.obs), la completitud de la muestra (SC), los valores mínimo, medio y máximo de las distancias funcionales entre especies para cada ensamblaje y combinación pareada de zonas. </caption>
  <thead>
   <tr>
    <th style="text-align:left;"> Dataset </th>
