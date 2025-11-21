@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Es-es" xml:lang="Es-es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz">
+<meta name="dcterms.date" content="2025-11-21">
+<meta name="description" content="Ejercicios de entrenamiento para la el análisis de diversidad beta en muestras de peces en ríos en Mexico.">
+
+<title>Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/clipboard/clipboard.min.js"></script>
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/quarto.js"></script>
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/popper.min.js"></script>
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/anchor.min.js"></script>
+<link href="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="6.1_div_beta_peces.mex_s.c._files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="6.1_div_beta_peces.mex_s.c._files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="6.1_div_beta_peces.mex_s.c._files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: #2b8cbe;
+    }
+    </style>
+
+<script src="6.1_div_beta_peces.mex_s.c._files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="6.1_div_beta_peces.mex_s.c._files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles2..css">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Manual de Análisis y Visualización de datos ecológicos y ambientales - Anvidea</h1>
+            <p class="subtitle lead">Capítulo 6.1 Visualización gráfica - Diversidad Beta</p>
+                  <div>
+        <div class="description">
+          Ejercicios de entrenamiento para la el análisis de diversidad beta en muestras de peces en ríos en Mexico.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p>Javier Rodríguez-Barrios, Kenedith Méndez y Javier de la Hoz </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 21, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a>
+  <ul>
+  <li><a href="#propuesta-de-whittaker-de-diversidad-beta-en-relación-a-gamma-y-alfa." id="toc-propuesta-de-whittaker-de-diversidad-beta-en-relación-a-gamma-y-alfa." class="nav-link" data-scroll-target="#propuesta-de-whittaker-de-diversidad-beta-en-relación-a-gamma-y-alfa.">1. Propuesta de Whittaker de diversidad beta en relación a gamma y alfa.</a></li>
+  <li><a href="#propuesta-de-legendre-de-diversidad-beta-por-variaciones-en-especies-y-sitios" id="toc-propuesta-de-legendre-de-diversidad-beta-por-variaciones-en-especies-y-sitios" class="nav-link" data-scroll-target="#propuesta-de-legendre-de-diversidad-beta-por-variaciones-en-especies-y-sitios">2. Propuesta de Legendre de diversidad beta por variaciones en especies y sitios</a></li>
+  <li><a href="#propuesta-de-componentes-de-la-diversidad-beta" id="toc-propuesta-de-componentes-de-la-diversidad-beta" class="nav-link" data-scroll-target="#propuesta-de-componentes-de-la-diversidad-beta">3. Propuesta de componentes de la diversidad beta</a></li>
+  <li><a href="#diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2" id="toc-diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2" class="nav-link" data-scroll-target="#diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2">4. Diversidad beta con estandarización de muestras y números efectivos q = 0, 1 y 2</a></li>
+  <li><a href="#a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" id="toc-a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" class="nav-link" data-scroll-target="#a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico">A. Ejercicio de visualización de diversidad alfa de peces en ríos de México</a>
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#procedimiento-a-realizar" id="toc-procedimiento-a-realizar" class="nav-link" data-scroll-target="#procedimiento-a-realizar">Procedimiento a realizar</a></li>
+  </ul></li>
+  <li><a href="#diversidad-beta-en-un-solo-valor" id="toc-diversidad-beta-en-un-solo-valor" class="nav-link" data-scroll-target="#diversidad-beta-en-un-solo-valor">1. Diversidad beta en un solo valor</a>
+  <ul>
+  <li><a href="#a.-cargar-librerías" id="toc-a.-cargar-librerías" class="nav-link" data-scroll-target="#a.-cargar-librerías">a. Cargar Librerías</a></li>
+  <li><a href="#b.-organización-de-los-datos" id="toc-b.-organización-de-los-datos" class="nav-link" data-scroll-target="#b.-organización-de-los-datos">b. Organización de los datos</a></li>
+  <li><a href="#c.-diversidad-gamma" id="toc-c.-diversidad-gamma" class="nav-link" data-scroll-target="#c.-diversidad-gamma">c.&nbsp;Diversidad gamma</a></li>
+  <li><a href="#d.-diversidad-alfa-promedio" id="toc-d.-diversidad-alfa-promedio" class="nav-link" data-scroll-target="#d.-diversidad-alfa-promedio">d.&nbsp;Diversidad alfa promedio</a></li>
+  <li><a href="#e.-diversidad-beta-total-beta_w" id="toc-e.-diversidad-beta-total-beta_w" class="nav-link" data-scroll-target="#e.-diversidad-beta-total-beta_w">e. Diversidad beta total <span class="math inline">\(\beta_W\)</span></a></li>
+  <li><a href="#f.-diversidad-beta-entre-parejas-de-zonas-beta_wp" id="toc-f.-diversidad-beta-entre-parejas-de-zonas-beta_wp" class="nav-link" data-scroll-target="#f.-diversidad-beta-entre-parejas-de-zonas-beta_wp">f.&nbsp;Diversidad beta entre parejas de zonas <span class="math inline">\(\beta_{WP}\)</span></a></li>
+  </ul></li>
+  <li><a href="#diversidad-beta-con-la-varianza-en-la-composición-de-especies" id="toc-diversidad-beta-con-la-varianza-en-la-composición-de-especies" class="nav-link" data-scroll-target="#diversidad-beta-con-la-varianza-en-la-composición-de-especies">2. Diversidad beta con la varianza en la composición de especies</a>
+  <ul>
+  <li><a href="#a.-diversidad-beta-general" id="toc-a.-diversidad-beta-general" class="nav-link" data-scroll-target="#a.-diversidad-beta-general">a. Diversidad beta general</a></li>
+  <li><a href="#b.-contribución-de-las-especies-a-la-diversdad-beta--scbd" id="toc-b.-contribución-de-las-especies-a-la-diversdad-beta--scbd" class="nav-link" data-scroll-target="#b.-contribución-de-las-especies-a-la-diversdad-beta--scbd">b. Contribución de las especies a la diversdad beta- SCBD</a></li>
+  <li><a href="#c.-contribución-de-las-localidades-a-la-diversdad-beta--lcbd" id="toc-c.-contribución-de-las-localidades-a-la-diversdad-beta--lcbd" class="nav-link" data-scroll-target="#c.-contribución-de-las-localidades-a-la-diversdad-beta--lcbd">c.&nbsp;Contribución de las localidades a la diversdad beta- LCBD</a></li>
+  <li><a href="#d.-visualización-de-las-localidades-y-su-contribución-a-beta" id="toc-d.-visualización-de-las-localidades-y-su-contribución-a-beta" class="nav-link" data-scroll-target="#d.-visualización-de-las-localidades-y-su-contribución-a-beta">d.&nbsp;Visualización de las localidades y su contribución a beta</a></li>
+  </ul></li>
+  <li><a href="#diversidad-beta-en-sus-componentes-de-reemplazo-diferencia-de-riqueza-y-anidamiento." id="toc-diversidad-beta-en-sus-componentes-de-reemplazo-diferencia-de-riqueza-y-anidamiento." class="nav-link" data-scroll-target="#diversidad-beta-en-sus-componentes-de-reemplazo-diferencia-de-riqueza-y-anidamiento.">3. Diversidad beta en sus componentes de reemplazo, diferencia de riqueza y anidamiento.</a>
+  <ul>
+  <li><a href="#a.-beta-general-con-datos-binarios-familia-podani-schmera-2011" id="toc-a.-beta-general-con-datos-binarios-familia-podani-schmera-2011" class="nav-link" data-scroll-target="#a.-beta-general-con-datos-binarios-familia-podani-schmera-2011">a. Beta general con datos binarios (Familia Podani &amp; Schmera, 2011)</a></li>
+  <li><a href="#b.-beta-por-parejas-de-sitios-familia-podani-schmera-2011" id="toc-b.-beta-por-parejas-de-sitios-familia-podani-schmera-2011" class="nav-link" data-scroll-target="#b.-beta-por-parejas-de-sitios-familia-podani-schmera-2011">b. Beta por parejas de sitios (Familia Podani &amp; Schmera, 2011)</a></li>
+  <li><a href="#c.-graficos-triangulares-o-símpex-legendre-2014" id="toc-c.-graficos-triangulares-o-símpex-legendre-2014" class="nav-link" data-scroll-target="#c.-graficos-triangulares-o-símpex-legendre-2014">c.&nbsp;Graficos triangulares o símpex (Legendre, 2014)</a></li>
+  <li><a href="#d.-clasificación-de-zonas-por-componentes-de-beta-familia-podani-schmera-2011" id="toc-d.-clasificación-de-zonas-por-componentes-de-beta-familia-podani-schmera-2011" class="nav-link" data-scroll-target="#d.-clasificación-de-zonas-por-componentes-de-beta-familia-podani-schmera-2011">d.&nbsp;Clasificación de zonas por componentes de beta (Familia Podani &amp; Schmera, 2011)</a></li>
+  <li><a href="#e.-clasificación-de-sitios-por-componentes-de-beta-familia-podani-schmera-2011" id="toc-e.-clasificación-de-sitios-por-componentes-de-beta-familia-podani-schmera-2011" class="nav-link" data-scroll-target="#e.-clasificación-de-sitios-por-componentes-de-beta-familia-podani-schmera-2011">e. Clasificación de sitios por componentes de beta (Familia Podani &amp; Schmera, 2011)</a></li>
+  <li><a href="#f.-efecto-de-variables-ambientales-sobre-componentes-de-beta-legendre-2014" id="toc-f.-efecto-de-variables-ambientales-sobre-componentes-de-beta-legendre-2014" class="nav-link" data-scroll-target="#f.-efecto-de-variables-ambientales-sobre-componentes-de-beta-legendre-2014">f.&nbsp;Efecto de variables ambientales sobre componentes de beta (Legendre, 2014)</a></li>
+  </ul></li>
+  <li><a href="#diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2-1" id="toc-diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2-1" class="nav-link" data-scroll-target="#diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2-1">4. Diversidad beta con estandarización de muestras y números efectivos q = 0, 1 y 2</a>
+  <ul>
+  <li><a href="#a.-organización-de-los-datos" id="toc-a.-organización-de-los-datos" class="nav-link" data-scroll-target="#a.-organización-de-los-datos">a. Organización de los datos</a></li>
+  <li><a href="#b.-visualización-de-diversidad-alfa" id="toc-b.-visualización-de-diversidad-alfa" class="nav-link" data-scroll-target="#b.-visualización-de-diversidad-alfa">b. Visualización de diversidad alfa</a></li>
+  <li><a href="#c.-diversidad-beta-por-parejas-de-zonas" id="toc-c.-diversidad-beta-por-parejas-de-zonas" class="nav-link" data-scroll-target="#c.-diversidad-beta-por-parejas-de-zonas">c.&nbsp;Diversidad beta por parejas de zonas</a></li>
+  <li><a href="#d.-visualización-de-diversidad-gamma-γ-y-alfa-α-por-parejas-de-zonas" id="toc-d.-visualización-de-diversidad-gamma-γ-y-alfa-α-por-parejas-de-zonas" class="nav-link" data-scroll-target="#d.-visualización-de-diversidad-gamma-γ-y-alfa-α-por-parejas-de-zonas">d.&nbsp;Visualización de diversidad gamma-<em>γ</em> y alfa-<em>α</em> por parejas de zonas</a></li>
+  <li><a href="#e.-visualización-de-diversidad-gamma-γ-alfa-α-y-beta--β-con-estandarización" id="toc-e.-visualización-de-diversidad-gamma-γ-alfa-α-y-beta--β-con-estandarización" class="nav-link" data-scroll-target="#e.-visualización-de-diversidad-gamma-γ-alfa-α-y-beta--β-con-estandarización">e. Visualización de diversidad gamma-<em>γ</em>, alfa-<em>α</em> y beta- <em>β</em> con estandarización</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<hr>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<section id="propuesta-de-whittaker-de-diversidad-beta-en-relación-a-gamma-y-alfa." class="level4">
+<h4 class="anchored" data-anchor-id="propuesta-de-whittaker-de-diversidad-beta-en-relación-a-gamma-y-alfa.">1. Propuesta de Whittaker de diversidad beta en relación a gamma y alfa.</h4>
+<p>El concepto de <strong>diversidad beta</strong> fue introducido por <strong>Whittaker (1960)</strong>, quien distinguió tres niveles de diversidad:</p>
+<ul>
+<li><p>La <strong>diversidad alfa</strong>, entendida como la <strong>diversidad local</strong> o dentro de un sitio (o el alfa promedio de varios sitios).</p></li>
+<li><p>La <strong>diversidad gamma</strong>, correspondiente a la <strong>diversidad regional</strong> o total (suma de las especies de todos los siots).</p></li>
+<li><p>La <strong>diversidad beta</strong>, representa la <strong>variación en la composición de especies entre sitios</strong> y describe cómo cambia la biota a lo largo del espacio o del tiempo.</p></li>
+</ul>
+<p>Según Whittaker (1960), la <strong>diversidad beta</strong> se refiere al <strong>cambio en la composición de especies entre distintos sitios o zonas</strong>. En otras palabras, mide <strong>cuánto difieren las comunidades</strong> cuando se comparan entre sí. Para cuantificarla, se utilizan <strong>índices de disimilitud</strong>, los cuales tienen en cuenta <strong>cuántas especies son compartidas</strong> entre los sitios y <strong>cuántas son exclusivas</strong> de cada uno. Este autor plantea que para calcular la diversidad beta, se fundamente en la siguiente formula:</p>
+<p><span class="math inline">\(β = S/α\)</span></p>
+<p>donde, <strong><em>S</em></strong>&nbsp;es el número de especies en el vector de composición del ensamblaje total (<em><strong>S</strong>:</em> <strong>diversidad</strong> <strong>gamma-</strong> <span class="math inline">\(\gamma\)</span>), <strong>α</strong> es el número promedio de especies en los&nbsp;<strong><em>n</em></strong>&nbsp;sitios de muestreo. <strong>β</strong> indica cuántas especies adicionales hay presentes en toda el área evaluada (<span class="math inline">\(\gamma\)</span>), comparado a un sitio individual promedio (<em>α</em>).</p>
+<p>Whittaker asume que el índice <strong>β</strong> es&nbsp;<em>multiplicativo,</em>&nbsp;por ser una razón. En este sentido, para calcular <strong>β</strong> con esta propuesta, es necesario calcular <span class="math inline">\(\gamma\)</span> y <strong>α</strong> promedio. A continuación se muestra la forma de organizar los datos para el cálculo de este índice beta.</p>
+<p>En términos simples, <strong>la diversidad beta</strong> conecta a la diversidad local con la regional, reflejando <strong>qué tanto difieren los ensamblajes o comunidades entre localidades</strong>. Además, puede ofrecer información sobre la <strong>variedad de ambientes o nichos ecológicos</strong> disponibles, especialmente cuando existen diferencias marcadas en la diversidad alfa entre sitios. Cabe resaltar que los tres tipos de diversidad (alfa, beta y gamma) son <strong>relativos a la escala espacial o temporal</strong> de análisis; por ejemplo, “alfa” puede referirse a un parche de bosque o a un sitio de muestreo, mientras que “gamma” puede aplicarse a todo un ecosistema o incluso a una región geográfica más amplia.</p>
+<p>Whittaker además propuso que la diversidad beta puede abordarse desde <strong>dos perspectivas complementarias</strong>:</p>
+<ol type="1">
+<li><p><strong>El recambio de especies (Recambio)</strong>: representa el cambio direccional en la composición de especies a lo largo de un gradiente espacial, temporal o ambiental definido.</p></li>
+<li><p><strong>La variación entre comunidades sin gradiente explícito</strong>, que refleja diferencias en la composición debidas al <strong>anidamiento o pérdida de especies</strong>, sin que necesariamente exista un gradiente ambiental detrás.</p></li>
+</ol>
+<p>En esta sección se analiza <strong>cómo surgió esta forma de particionar la diversidad beta</strong>, mostrando algunos <strong>ejemplos y aplicaciones</strong> que ayudan a comprender su utilidad. También exploraremos cómo esta aproximación se ha extendido para incluir <strong>índices que consideran la abundancia de las especies</strong>, así como otras dimensiones de la diversidad, como la <strong>filogenética</strong> y la <strong>funcional</strong>. De esta manera, podremos entender <strong>cómo y por qué cambia la diversidad entre comunidades</strong>, y <strong>qué factores ecológicos</strong> influyen en esos patrones espaciales y temporales.</p>
+</section>
+<section id="propuesta-de-legendre-de-diversidad-beta-por-variaciones-en-especies-y-sitios" class="level4">
+<h4 class="anchored" data-anchor-id="propuesta-de-legendre-de-diversidad-beta-por-variaciones-en-especies-y-sitios">2. Propuesta de Legendre de diversidad beta por variaciones en especies y sitios</h4>
+<p>A partir de las consideraciones de Whittaker (1960) en cuanto a la variación en la composición de especies entre sitios, <strong>Legendre y De Cáceres (2013)</strong>, desarrollan ecuaciones para calcular la diversidad beta (beta total) a partir de la varianza de las abudancias de especies (SCBD) y entre sitios (LCBD). Lo novedoso de este enfoque es que permite identificar las especies que más aportan a ese nivel de diversidad y que por ende, revisten importancia ecológica, así como los sitios con mayor diversidad de hábitats que aportan a la variabilidad espacial o temporal de las muestras en estudio.</p>
+</section>
+<section id="propuesta-de-componentes-de-la-diversidad-beta" class="level4">
+<h4 class="anchored" data-anchor-id="propuesta-de-componentes-de-la-diversidad-beta">3. Propuesta de componentes de la diversidad beta</h4>
+<p>Autores como <strong>Harrison et al.&nbsp;(1992)</strong>, <strong>Williams (1996)</strong>, <strong>Lennon et al.&nbsp;(2001)</strong>, <strong>Podani (2011)</strong> y <strong>Legendre (2014)</strong> retomaron la propuesta de Whittaker, coincidiendo en que las diferencias entre comunidades se deben principalmente a <strong>dos procesos ecológicos</strong>:</p>
+<ol type="1">
+<li><p><strong>Recambio o reemplazo de especies</strong>, también conocido como <em>rotación</em>, y</p></li>
+<li><p><strong>Diferencias en riqueza de especies</strong>, que pueden manifestarse como <strong>ganancia o pérdida local de especies</strong>, o en casos particulares, como el <strong>anidamiento</strong> (cuando una comunidad menos diversa es un subconjunto de otra más rica).</p></li>
+</ol>
+<p>De forma similar, <strong>Baselga (2010)</strong> y <strong>Baselga y Gómez-Rodríguez (2019)</strong> enfatizaron que la diversidad beta se origina por dos componentes:</p>
+<ul>
+<li><p>el <strong>recambio (replacement o Recambio)</strong>, que describe la sustitución de unas especies por otras; y</p></li>
+<li><p>el <strong>anidamiento (nestedness)</strong>, que refleja la pérdida de especies de una comunidad más diversa hacia una menos diversa.</p></li>
+</ul>
+<p>El <strong>reemplazo o recambio de especies</strong> suele observarse a lo largo de <strong>gradientes ecológicos</strong> (por ejemplo, altitudinales, de humedad o de temperatura). En estos casos, algunas especies ocupan solo una parte del gradiente, limitada por sus <strong>tolerancias y óptimos ecológicos</strong>. Así, unas especies desaparecen y son <strong>reemplazadas</strong> por otras conforme cambian las condiciones ambientales. Estos patrones pueden originarse por <strong>forzamientos ambientales</strong>, <strong>competencia interespecífica</strong> o <strong>procesos históricos</strong>, como perturbaciones pasadas que dejaron su huella en la composición actual de las comunidades. La <strong>configuración del hábitat</strong>, la <strong>presencia de bordes o ecotonos</strong>, y las <strong>presiones antrópicas</strong> que alteran el paisaje también pueden influir significativamente en estos procesos (Filgeras et al., 2016).</p>
+<p>Por su parte, las <strong>diferencias de riqueza</strong> entre comunidades pueden surgir por <strong>extinciones locales</strong>, <strong>condiciones abióticas contrastantes</strong> o por <strong>procesos ecológicos</strong> que determinan cuántos nichos pueden ser ocupados en cada sitio. Cuando una comunidad contiene menos especies, y estas forman un <strong>subconjunto estricto</strong> de las especies presentes en otra más rica, se dice que existe <strong>anidamiento</strong>.</p>
+<p>Los <strong>índices de reemplazo</strong>, <strong>diferencia de riqueza</strong> y <strong>anidamiento</strong> no constituyen por sí mismos índices de diversidad beta, sino que <strong>descomponen coeficientes de disimilitud</strong> (como Sørensen o Jaccard) que se utilizan para estimarla.</p>
+<p><strong>Legendre (2014)</strong> propuso un <strong>marco algebraico unificador</strong> para comparar las distintas fórmulas publicadas, agrupándolas en <strong>dos familias principales de índices</strong>:</p>
+<ol type="1">
+<li><p>La <strong>familia de Baselga (BAS)</strong>.</p></li>
+<li><p>La <strong>familia de Podani (POD)</strong>.</p></li>
+</ol>
+<p>En la <strong>familia Baselga</strong> (BAS) (Baselga, 2010) desarrolla una propuesta matemática para dividir a la <strong>diversidad β total</strong> (β Sørensen: βsor) en dos componentes independientes: el <strong>recambio</strong> de especies, medido con el índice de Simpson (βsim), y el <strong>anidamiento</strong> o <strong>diferencias en riqueza</strong> medido con el índice βnes. Este autor definió el <strong>índice de recambio</strong> o <em>rotación</em> de especies a partir de la <strong>similitud de Sørensen</strong>, de modo que al <strong>restar el componente de recambio del índice total</strong>, se obtiene el <strong>componente de anidamiento</strong>. En ese sentido la diversidad beta se define como <span class="math inline">\(β_{sor}= β_{sim} + β_{nes}\)</span>.</p>
+<p>En la <strong>familia de Podani</strong> (POD) (Schmera y Podani, 2011), primero se discriminan tres fracciones en las parejas de sitios: (1) número de especies compartidas (superposición), (2) reemplazo de especies (<strong>recambio espacial:</strong> βsim) y (3) la <strong>diferencia de riqueza</strong> (βrich). La propuesta matemática para dividir a la diversidad β total (β Jaccard: βjac) solo tiene en cuenta a las fracciones (2) y (3), al no incluir las especies compartidas, el anidamiento será solo una fracción del descrito por Baselga (anidamiento relativizado). Lo anterior promueve a que en esta propuesta se trabaje con la similitud de Jaccard y no la de Sorensen de la familia Baselga.En ese sentido la diversidad beta se define como <span class="math inline">\(β_{jac}= β_{sim} + β_{nes}\)</span>.</p>
+<p>Según Legendre (2014), los <strong>índices de reemplazo</strong> de ambas familias son fáciles de interpretar ecológicamente, mientras que los <strong>índices de anidamiento de Baselga</strong> son más complejos y han generado cierta <strong>controversia</strong> en su interpretación. La criticas a la propuesta de Baselga se fundamentan a que el componente de anidamiento (índice βnes) carece de una justificación teórica y matemática consistente (Almeida-Neto, 2011, Carvalho et al.&nbsp;2012, 2013), siendo poco sensible a fluctuaciones en el tamaño de las muestras, a pesar que el β total pueda cambiar.</p>
+<p>Otras criticas a la familia Baselga, coinciden en que el “anidamiento” debe ser reemplazado por “diferencias de riqueza” como lo propone Podani (Carvalho et al.&nbsp;2012). Esto es confirmado por medio de experimentos en gradientes hipotéticos y con datos reales, registrando una respuesta linear de β total (βjac), diferente al patrón curvilinear de βsor de Baselga, además, cuando parejas de sitios no comparten ninguna especie, el recambio (βsim de Baselga) es 1 (β máxima), pero βsim de Podani solo alcanza 1 cuando el número de especies exclusivas de ambos sitios es igual. βsim de Podani es constante (reemplazo constante) en gradientes de diferencias de riqueza (βrich), mientras que el βsim de Baselga decrece. En Baselga, βsim &gt; βnes cuando se presenta una perdida importante de especies en uno de los sitios comparados, pero en Podani βsim &lt; βrich. Lo anterior demuestra que en Baselga, la partición de βsor en βsim y βnes sobreestima el componente de reemplazo y subestima las diferencias en riqueza, lo cual no ocurre en Podani (Carvalho et al., 2012).</p>
+<p>Sin embargo, Baselga (2012) realiza una revisión a la propuesta matemática de Podani, en el componente de reemplazo (βsim), encontrando que el índice de Jaccard puede sesgarse en la valoración de las especies reemplazadas, para casos en los que hay diferencias notables de riqueza en las parejas de sitios comparados. El autor también menciona que βrich puede sobreestimar las diferencias de riqueza. Sin embargo Carvalho et al.&nbsp;(2013), vuelven a demostrar que las propuestas de Baselga (2010, 2012) carecen de consistencia matemática y generan contradicciones, especialmente en escenarios el componente de reemplazo de Baselga es sobreestimado. Según estos autores la diversidad beta se define como <span class="math inline">\(β_{cc}= β_{-3} + β_{rich}\)</span>, donde <span class="math inline">\(β_{cc}=β_{sor}\)</span> y <span class="math inline">\(β_{-3} = β_{sin}\)</span> de Podani.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/5.diversidad/figuras/ej_venn-01.png" class="img-fluid figure-img" width="271"></p>
+</figure>
+</div>
+<p>Figura 1. Diagrama de Venn que representa la relación en una pareja de sitios, donde <strong>a</strong>= especies compartidas en sitios A y B. <strong>b</strong>= especies exclusivas del sitio A. <strong>c</strong>= especies exclusivas del sitio B.</p>
+<p>Basado en el diagrama anterior, a continuación se muestras tres escenarios, en la comparación de parejas de sitios, para valorar la diversidad beta, de acuerdo a la propuesta de Podani (<span class="math inline">\(β_{jac}= β_{sim} + β_{nes}\)</span>).</p>
+<p>donde,</p>
+<p><span class="math display">\[
+β_{jac}=\frac{b+c}{a+b+c}\
+\]</span></p>
+<p><span class="math display">\[
+β_{sim}=2*\frac{min(b+c)}{a+b+c}\
+\]</span> <span class="math display">\[
+β_{rich}=\frac{|b-c|}{a+b+c}\
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://javier-2712.github.io/Manuales/4.manual_andivea/5.diversidad/figuras/ej_venn-02.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p><strong>Escenario (1). Especies exclusivas- cinco</strong>: tres en el sitio A y dos en el sitio B, permitiendo que dos especies exclusivas de cada sitio se reemplacen o <strong>recambien</strong>, involucrando de esta forma a cuatro especies exclusivas en total. <strong>Diferencia de riqueza- una especie</strong>. En este escenario, el recambio &gt; diferencia de riqueza.</p>
+<ol type="1">
+<li><strong>Beta total</strong> <span class="math inline">\(β_{jac}=\frac{3+2}{2+3+2}=0.7\)</span><br>
+</li>
+<li><strong>Recambio</strong> <span class="math inline">\(β_{sim}=2*\frac{(2)}{2+3+2}=0.57\)</span><br>
+</li>
+<li><strong>Diferencia de riqueza</strong> <span class="math inline">\(β_{rich}=\frac{|3-2|}{2+3+2}=0.14\)</span></li>
+</ol>
+<p>En este caso, la <strong>diversidad beta</strong> asociada a la disimilitud o diferencia ente sitios es del 70%, debido a la las cinco especies no compartidas (numerador de la ecuación), de las <strong>siete</strong> especies totales (denominador). El <strong>recambio</strong> indica que el 57% del 70% total, seasocia a la sustitución de <strong>dos</strong> especies del sitio A por <strong>dos</strong> del sitio B, o que cuatro/siete especies son reemplazadas. La <strong>diferencia de especies</strong> entre los dos sitios (<strong>una</strong> especie), representa el 14% del total.</p>
+<p><strong>Prioridad de conservación.</strong> Especies exclusivas del sitio A &gt; sitio B, por lo que se podría pensar en priorizar la conservación del sitio A, por presentar una especie exclusiva más que el sitio B. En este sentido, las parejas de sitios con alta disimilitud relacionada al recambio pueden priorizarse para conservar, debido a que serán aquellas que presentan especies exclusivas o que no se comparten con el resto de lugares.</p>
+<hr>
+<p><strong>Escenario (2). Especies exclusivas- dos</strong>: una en el sitio A y otra en el sitio B, permitiendo que solo una especie exclusiva de cada sitio se reemplace o <strong>recambie</strong>, involucrando de esta forma a dos especies exclusivas en total. <strong>Diferencia de riqueza- ninguna especie</strong>. En este escenario, el recambio &gt; diferencia de riqueza.</p>
+<ol type="1">
+<li><strong>Beta total</strong> <span class="math inline">\(β_{jac}=\frac{1+1}{3+1+1}=0.5\)</span></li>
+<li><strong>Recambio</strong> <span class="math inline">\(β_{sim}=2*\frac{(1)}{3+1+1}=0.5\)</span></li>
+<li><strong>Diferencia de riqueza</strong> <span class="math inline">\(β_{rich}=\frac{|1-1|}{3+1+1}=0.0\)</span></li>
+</ol>
+<p>En este caso, la <strong>diversidad beta</strong> asociada a la disimilitud o diferencia ente sitios es del 50% y está representada en su totalidad por el recambio.</p>
+<p><strong>Prioridad de conservación.</strong> Especies exclusivas del sitio A = sitio B, por lo que los dos sitios presentan el mismo valor de conservación. Esto corresponde a casos en los que la diversidad beta se debe solo al recambio de las especies exclusivas.</p>
+<hr>
+<p><strong>Escenario (3). Especies exclusivas- dos</strong>: una en el sitio A y otra en el sitio B, permitiendo que solo una especie exclusiva de cada sitio se reemplace o <strong>recambie</strong>, involucrando de esta forma a dos especies exclusivas en total. <strong>Diferencia de riqueza- ninguna especie</strong>. En este escenario, el recambio &gt; diferencia de riqueza.</p>
+<ol type="1">
+<li><strong>Beta total</strong> <span class="math inline">\(β_{jac}=\frac{3+0}{3+2+0}=0.6\)</span></li>
+<li><strong>Recambio</strong> <span class="math inline">\(β_{sim}=2*\frac{(0)}{3+2+0}=0.0\)</span></li>
+<li><strong>Diferencia de riqueza</strong> <span class="math inline">\(β_{rich}=\frac{|3-0|}{3+2+0}=0.6\)</span></li>
+</ol>
+<p>En este caso, la <strong>diversidad beta</strong> asociada a la disimilitud o diferencia ente sitios es del 60% y está representada en su totalidad por la diferencia de riqueza.</p>
+<p><strong>Prioridad de conservación.</strong> Especies exclusivas del sitio A &gt; sitio B, en este caso el sitio A presenta mayor valor de conservación por presentar mayor riqueza de especies (6) y mayor número de especies exclusivas (3).</p>
+</section>
+<section id="diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2" class="level4">
+<h4 class="anchored" data-anchor-id="diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2">4. Diversidad beta con estandarización de muestras y números efectivos q = 0, 1 y 2</h4>
+<p><a href="https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecm.1588">Chao et al.&nbsp;(2023)</a> proponen un método de estandarización riguroso para medir y comparar la <strong>diversidad beta</strong> entre conjuntos de datos. Son varios los aspectos que diferencian a este procedimiento de los anteriores, por ejemplo, se crean listas con parejas de muestras, que pueden ser sitios o gradientes dentro de sitios, de esta forma, los insumos tabulares y gráficos se presentan en parejas de muestras y no de forma individual.</p>
+<p>Los autores evalúan a la <strong>diversidad beta</strong> cuantificando el grado de diferenciación entre muestras o ensamblajes y soportado en la <strong>descomposición multiplicativa original de Whittaker</strong>, complementado con los <strong>números efectivos de Hill</strong> para cualquier orden de diversidad, en especial <em>q =</em> 0, 1 y 2. Es así como la <strong>diversidad beta basada en la riqueza</strong> (<em>q</em>&nbsp; = 0) cuantifica el grado de cambio de identidad de las especies, mientras que la <strong>diversidad beta basada en la abundancia</strong> (<em>q</em> &gt; 0) también cuantifica el grado de diferencia entre ensamblajes en la abundancia de especies.&nbsp;</p>
+<p>Otra novedad del método propuesto, es que la <strong>diversidad beta observada (= gamma/alfa)</strong> depende no solo de la diferenciación entre muestrass, sino también del <strong>esfuerzo/completitud del muestreo,</strong> lo que a su vez <strong>induce dependencia de beta en la diversidad alfa y gamma</strong>. En este sentido <strong>se estandariza las diversidades gamma y alfa</strong> con base en la misma <strong>cobertura de la muestra</strong> (una medida objetiva de la completitud de la muestra), para formular la <strong>diversidad beta estandarizada basada en la cobertura</strong>. Se propone que la <strong>diversidad beta estandarizada resultante elimina la dependencia de la diversidad beta con los valores gamma y alfa</strong>, reflejando una diferenciación más exacta entre conjuntos o muestras. La estandarización propuesta se ilustra con conjuntos de datos espaciales, temporales y espacio-temporales.</p>
+<hr>
+</section>
+<section id="a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico" class="level3">
+<h3 class="anchored" data-anchor-id="a.-ejercicio-de-visualización-de-diversidad-alfa-de-peces-en-ríos-de-méxico">A. Ejercicio de visualización de diversidad alfa de peces en ríos de México</h3>
+<section id="resumen" class="level4">
+<h4 class="anchored" data-anchor-id="resumen">Resumen</h4>
+<p>En el presente ejercicio, se empleará una base de datos derivada del estudio de Ruiz-Campos et al.&nbsp;(2021) (<a href="https://link-springer-com.biblioteca.unimagdalena.edu.co/article/10.1007/s10641-021-01158-9">enlace_artículo</a>), donde se analiza la diversidad y distribución longitudinal de ensamblajes de peces en la cuenca del río Soto La Marina, al noreste de México. A través del análisis de datos ambientales y biológicos recolectados en 42 sitios, los autores identifican tres ensamblajes principales asociados a zonas fisiográficas (montaña, planicie y desembocadura), y exploran cómo variables como salinidad, conductividad, turbidez y estructura del hábitat explican la composición de esta ictiofauna a lo largo del gradiente ambiental.</p>
+<p>A continuación se presentan cuatro formas de medir la diversidad beta, partiendo de la propuesta inicial de Whittaker (1960), el análisis de varianzas de especies propuesto por Legendre (2014), la partición de beta en recambio y diferencia de riqueza de la familia Podani (Schmera y Podani, 2011; Legendre 2014 entre otros) y la propuesta con números efectivos de Hill y estandarización de parejas de muestras de Chao et al.&nbsp;(2023).</p>
+<hr>
+</section>
+<section id="procedimiento-a-realizar" class="level4">
+<h4 class="anchored" data-anchor-id="procedimiento-a-realizar">Procedimiento a realizar</h4>
+<p>Como ocurre con la diversidad gamma y alfa taxonómica, se han descrito <strong>diferentes enfoques para la valoración de la diversidad beta</strong>, tanto para datos de presencia-ausencia como datos cuantitativos en: <strong>(1)</strong> un solo valor (Whittaker 1960; Legendre 2012), <strong>(2)</strong> como en sus componentes de variación de especies (Legendre 2014) o <strong>(3)</strong> en sus particiones como el recambio y la diferencia de riqueza o anidamiento (Baselga 2010; Schmera y Podani, 2011). Recientemente se ha descrito la diversidad beta con <strong>(4)</strong> métodos de estandarización en la comparación de parejas de sitios y números efectivos de Hill: q = 0, q = 1, q = 2 (Chao et al.&nbsp;2023).</p>
+<hr>
+</section>
+</section>
+<section id="diversidad-beta-en-un-solo-valor" class="level3">
+<h3 class="anchored" data-anchor-id="diversidad-beta-en-un-solo-valor">1. Diversidad beta en un solo valor</h3>
+<p>La propuesta de Whittaker (1960) para calcular la diversidad beta, se fundamente en la siguiente formula: <strong>β = <em>S</em>/α</strong></p>
+<p>donde, <strong><em>S</em></strong>&nbsp;es el número de especies en el vector de composición del ensamblaje total (<em><strong>S</strong>:</em> <strong>diversidad</strong> <strong>gamma-</strong> <span class="math inline">\(\gamma\)</span>), <strong>α</strong> es el número promedio de especies en los&nbsp;<strong><em>n</em></strong>&nbsp;sitios de muestreo. <strong>β</strong> indica cuántas especies adicionales hay presentes en toda el área evaluada (<span class="math inline">\(\gamma\)</span>), comparado a un sitio individual promedio (<em>α</em>). Se dice que este índice <strong>β</strong> es&nbsp;<em>multiplicativo,</em>&nbsp;por ser una razón. En este sentido, para calcular <strong>β</strong> con esta propuesta, es necesario calcular <span class="math inline">\(\gamma\)</span> y <strong>α</strong> promedio. A continuación se muestra la forma de organizar los datos para el cálculo de este índice beta.</p>
+<section id="a.-cargar-librerías" class="level5">
+<h5 class="anchored" data-anchor-id="a.-cargar-librerías">a. Cargar Librerías</h5>
+<p>Los siguientes procedimientos para el componente tabular son tomados del capítulo de visualización, en el ejercicio de plancton, con algunos ajustes, ya que para este caso solo se seleccionan las abundancias de los taxones, descartando a las variables ambientales.</p>
+<p>Se cargan las librerías para el análisis de diversidad beta, especialmente la <strong>betapart</strong>, para la propuesta de Baselga (2010) con datos binarios y la <strong>adespatial</strong>, para la diversidad beta con datos de abundancias.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="b.-organización-de-los-datos" class="level5">
+<h5 class="anchored" data-anchor-id="b.-organización-de-los-datos">b. Organización de los datos</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl1" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;1:  Base de datos con el total de especies por cada zona (montañas- M, laderas- P y desembocadura- RM </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sites1 </th>
+   <th style="text-align:right;"> Hyps </th>
+   <th style="text-align:right;"> Elps </th>
+   <th style="text-align:right;"> Mgla </th>
+   <th style="text-align:right;"> Albv </th>
+   <th style="text-align:right;"> Angr </th>
+   <th style="text-align:right;"> Myrp </th>
+   <th style="text-align:right;"> Ancm </th>
+   <th style="text-align:right;"> Anch </th>
+   <th style="text-align:right;"> Brvg </th>
+   <th style="text-align:right;"> Brvp </th>
+   <th style="text-align:right;"> Drsc </th>
+   <th style="text-align:right;"> Drsp </th>
+   <th style="text-align:right;"> Hrnj </th>
+   <th style="text-align:right;"> Opso </th>
+   <th style="text-align:right;"> Cmpa </th>
+   <th style="text-align:right;"> Cypl </th>
+   <th style="text-align:right;"> Dnde </th>
+   <th style="text-align:right;"> Dsp. </th>
+   <th style="text-align:right;"> Ntra </th>
+   <th style="text-align:right;"> Mxsc </th>
+   <th style="text-align:right;"> Astm </th>
+   <th style="text-align:right;"> Arpf </th>
+   <th style="text-align:right;"> Amrm </th>
+   <th style="text-align:right;"> Amrn </th>
+   <th style="text-align:right;"> Ictl </th>
+   <th style="text-align:right;"> Ictp </th>
+   <th style="text-align:right;"> Isp. </th>
+   <th style="text-align:right;"> Pylo </th>
+   <th style="text-align:right;"> Synf </th>
+   <th style="text-align:right;"> Prcp </th>
+   <th style="text-align:right;"> Djsm </th>
+   <th style="text-align:right;"> Mglc </th>
+   <th style="text-align:right;"> Mmbm </th>
+   <th style="text-align:right;"> Mndb </th>
+   <th style="text-align:right;"> Hmrb </th>
+   <th style="text-align:right;"> Strt </th>
+   <th style="text-align:right;"> Fndg </th>
+   <th style="text-align:right;"> Lcnp </th>
+   <th style="text-align:right;"> Gmbsaf </th>
+   <th style="text-align:right;"> Gmbsar </th>
+   <th style="text-align:right;"> Gmbr </th>
+   <th style="text-align:right;"> Gsp. </th>
+   <th style="text-align:right;"> Pclf </th>
+   <th style="text-align:right;"> Pcll </th>
+   <th style="text-align:right;"> Pclm </th>
+   <th style="text-align:right;"> Psp. </th>
+   <th style="text-align:right;"> Xphv </th>
+   <th style="text-align:right;"> Prnr </th>
+   <th style="text-align:right;"> Cntu </th>
+   <th style="text-align:right;"> Mycb </th>
+   <th style="text-align:right;"> Srra </th>
+   <th style="text-align:right;"> Lpmm </th>
+   <th style="text-align:right;"> Msp. </th>
+   <th style="text-align:right;"> Crnc </th>
+   <th style="text-align:right;"> Crnh </th>
+   <th style="text-align:right;"> Crnl </th>
+   <th style="text-align:right;"> Olgs </th>
+   <th style="text-align:right;"> Trcc </th>
+   <th style="text-align:right;"> Trcf </th>
+   <th style="text-align:right;"> Ltjnscm </th>
+   <th style="text-align:right;"> Ltjnscy </th>
+   <th style="text-align:right;"> Ltjg </th>
+   <th style="text-align:right;"> Dpta </th>
+   <th style="text-align:right;"> Dptr </th>
+   <th style="text-align:right;"> Ecnm </th>
+   <th style="text-align:right;"> Grrc </th>
+   <th style="text-align:right;"> Anss </th>
+   <th style="text-align:right;"> Arcp </th>
+   <th style="text-align:right;"> Lgdr </th>
+   <th style="text-align:right;"> Aplg </th>
+   <th style="text-align:right;"> Brdc </th>
+   <th style="text-align:right;"> Brdr </th>
+   <th style="text-align:right;"> Cyna </th>
+   <th style="text-align:right;"> Cynn </th>
+   <th style="text-align:right;"> Lstx </th>
+   <th style="text-align:right;"> Mcru </th>
+   <th style="text-align:right;"> Pgnc </th>
+   <th style="text-align:right;"> Hrcl </th>
+   <th style="text-align:right;"> Hrcc </th>
+   <th style="text-align:right;"> Orca </th>
+   <th style="text-align:right;"> Drmm </th>
+   <th style="text-align:right;"> Gbmd </th>
+   <th style="text-align:right;"> Gbno </th>
+   <th style="text-align:right;"> Scmr </th>
+   <th style="text-align:right;"> Etrc </th>
+   <th style="text-align:right;"> Achl </th>
+   <th style="text-align:right;"> Symc </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 994 </td>
+   <td style="text-align:right;"> 186 </td>
+   <td style="text-align:right;"> 3176 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:right;"> 1436 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 725 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4600 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1353 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 234 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 827 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 486 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 521 </td>
+   <td style="text-align:right;"> 497 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 973 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 382 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 313 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="c.-diversidad-gamma" class="level5">
+<h5 class="anchored" data-anchor-id="c.-diversidad-gamma">c.&nbsp;Diversidad gamma</h5>
+<p>La diversidad gamma que corresponde al número total de especies en el área evaluada, se puede dividir en gamma observada y gamma estimada. (a) La diversidad gamma observada (<strong>gamma.obs</strong>), corresponde al total de especies censadas en las 42 localidades de las tres zonas, corresponde a <strong>90 especies de peces</strong>, que están respresentadas por las columnas de la base de datos.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87</code></pre>
+</div>
+</div>
+<p>(b) La diversidad gamma estimada (<strong>gamma.est</strong>), con función <strong>specpool()</strong> del paquete <strong>vegan</strong>, se fundamenta en la frecuncia de especies raras u ocultas, apoyandose además en el uso de <strong>estimadores tradicionales de presencia-ausencia</strong> como Chao, Jack Nife o Bootstrap. En este sentido, hay diferentes formas de calcular este índice estimado (<a href="#tbl-tbl2">Tabla&nbsp;2</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl2" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;2:  Estimadores de diversidad gamma, n= localidades, chao, jack1 y boot (bootstrap)= diversidad esperada y ee= error estándar de los estimadores </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> n </th>
+   <th style="text-align:right;"> Riqueza </th>
+   <th style="text-align:right;"> chao </th>
+   <th style="text-align:right;"> ee.chao </th>
+   <th style="text-align:right;"> jack1 </th>
+   <th style="text-align:right;"> ee.jack1 </th>
+   <th style="text-align:right;"> boot </th>
+   <th style="text-align:right;"> de.boot </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 134.7 </td>
+   <td style="text-align:right;"> 16.87 </td>
+   <td style="text-align:right;"> 127.7 </td>
+   <td style="text-align:right;"> 40.5 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 21.73 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="d.-diversidad-alfa-promedio" class="level5">
+<h5 class="anchored" data-anchor-id="d.-diversidad-alfa-promedio">d.&nbsp;Diversidad alfa promedio</h5>
+<p>Esta diversidad alfa promedio estimada (alfa.est), se puede calcular con estimadores cuantitativos (frecuencias, conteos o abundancias de individuos por especies), mediante la función <strong>estimateR()</strong> del paquete <strong>vegan</strong>, usando estimadores como Chao corregido (Chao1) o ACE, por sitios y el promedio de estos (alfa.prom), puede ser utilizado para calcular la diversidad beta, con esta propuesta de Whittaker (<a href="#tbl-tbl3">Tabla&nbsp;3</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl3" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;3:  Estimadores de diversidad (S.obs, Chao1, ACE) y diversidad alfa promedio (Whittaker, 1960) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> M </th>
+   <th style="text-align:right;"> P </th>
+   <th style="text-align:right;"> RM </th>
+   <th style="text-align:right;"> alfa.prom </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> S.obs </td>
+   <td style="text-align:right;"> 30.0 </td>
+   <td style="text-align:right;"> 30.0 </td>
+   <td style="text-align:right;"> 53.0 </td>
+   <td style="text-align:right;"> 37.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> S.chao1 </td>
+   <td style="text-align:right;"> 35.0 </td>
+   <td style="text-align:right;"> 33.0 </td>
+   <td style="text-align:right;"> 65.0 </td>
+   <td style="text-align:right;"> 44.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> se.chao1 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 4.2 </td>
+   <td style="text-align:right;"> 8.0 </td>
+   <td style="text-align:right;"> 6.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> S.ACE </td>
+   <td style="text-align:right;"> 34.7 </td>
+   <td style="text-align:right;"> 33.5 </td>
+   <td style="text-align:right;"> 68.4 </td>
+   <td style="text-align:right;"> 45.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> se.ACE </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> 4.1 </td>
+   <td style="text-align:right;"> 3.3 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="e.-diversidad-beta-total-beta_w" class="level5">
+<h5 class="anchored" data-anchor-id="e.-diversidad-beta-total-beta_w">e. Diversidad beta total <span class="math inline">\(\beta_W\)</span></h5>
+<p>Continuando con el <strong>enfoque clásico de Whittaker (1960)</strong>, donde:</p>
+<p><span class="math display">\[
+\beta_W = \frac{\gamma}{\bar{\alpha}}
+\]</span></p>
+<p><span class="math inline">\(\bar{\alpha}\)</span> = promedio de las diversidades <strong>α</strong> de los sitios considerados.</p>
+<p>Se cuenta con gamma.est y alfa.est, entonces la <strong>diversidad beta de Whittaker (</strong><span class="math inline">\(\beta_W\)</span><strong>)</strong> se puede obtener de la siguiente forma resumida. La beta observada (<strong>beta_w_ob</strong>) y la estimada con índices como el de Chao (<strong>beta_w_est</strong>). Como se comparan las tres zonas (M, P y RM), <strong>el valor máximo de</strong> <span class="math inline">\(\beta_W\)</span> <strong>puede ser 3 (sin especies compartidas) y el mínimo de 1 (zonas idénticas)</strong>.</p>
+<p>Valores de 2.3 y 2.98 para beta observado y beta estimado, indican <strong>un recambio de especies de nivel moderado-alto</strong>, por lo que <strong>gran parte de la diversidd gamma (</strong>γ<strong>) proviene de especies unicos o exclusivas que promueven ese recambio</strong>. Como se verá más adelante (propuesta de estandarización de Chao et al.&nbsp;2023), <strong>el aumento de ese recambio, se debe al aporte de la zona de desembocadura- RM.</strong> El aumento de beta estimado, en comparación al observado (2.98 &gt; 2.3), se debe a que hay especies raras o no detectadas que aumentan el valor del índice. <strong>En este sentido se demuestra que</strong> <span class="math inline">\(\beta_W\)</span> <strong>es sensible o sesgada a especies raras.</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.309735</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.038346</code></pre>
+</div>
+</div>
+</section>
+<section id="f.-diversidad-beta-entre-parejas-de-zonas-beta_wp" class="level5">
+<h5 class="anchored" data-anchor-id="f.-diversidad-beta-entre-parejas-de-zonas-beta_wp">f.&nbsp;Diversidad beta entre parejas de zonas <span class="math inline">\(\beta_{WP}\)</span></h5>
+<p>La diversidad beta (beta.est) entre parejas de sitios o zonas (<a href="#tbl-tbl4">Tabla&nbsp;4</a>), se puede calcular con la función <strong>betadiver()</strong> del paquete <strong>vegan</strong>, muestra 24 índices clásicos de diversidad beta- β, basados en datos de presencia-ausencia (binarios) que pueden encontrarse en este “<a href="https://rdrr.io/rforge/vegan/man/betadiver.html">enlace</a>”.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl4" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;4:  Índices de diversidad β entre pares de zonas (Jaccard, Sørensen y Whittaker) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Comparación </th>
+   <th style="text-align:right;"> Jaccard </th>
+   <th style="text-align:right;"> Sorensen </th>
+   <th style="text-align:right;"> Whittaker </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_RM </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 1.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P_vs_RM </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.90 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Se comparan tres de los 24 índices disponibles, en donde valores cercanos a 1 sugieren zonas distintas en cuanto a su composición de especies. Para el caso de la <strong>disimilitud de</strong> <strong>Jaccard</strong> se registran valores entre 0 y 0.59, relacionado al porcentaje de especies no compartidas, teniendo en cuenta que valores de cero (0) pueden indicar error de estimacón.</p>
+<p>La <strong>disimilitud de Sorensen</strong> muestra valores un diferentes pero proporcionales a los de Jaccard, que fluctuan entre 0 y 0.74. Estos valores son mayores a los e Jaccard, porque se da más peso a las especies comunes entre las parejas de sitios. Este índice es sensible o aumenta en parejas de sitios con especies compartidas.</p>
+<p>El <strong>índice de Whittker</strong>, representa un recambio relativo (0 = zonas iguales, &gt;1 = zonas muy diferentes). Los valores fluctúan entre 0.26 y 1, mostrando como las combinaciones con la zona RM marcan la mayor disimilitud taxonómica o el mayor recambio de especies. Se podría inferir que este índice muestra mayor congruencia con lascondiciones taxonómicas de las zonas evaluadas.</p>
+<hr>
+</section>
+</section>
+<section id="diversidad-beta-con-la-varianza-en-la-composición-de-especies" class="level3">
+<h3 class="anchored" data-anchor-id="diversidad-beta-con-la-varianza-en-la-composición-de-especies">2. Diversidad beta con la varianza en la composición de especies</h3>
+<p>Esta forma de calcular a beta, también se fundamenta en la propuesta de Whittaker (1960), en cuanto a la variación en la composición de especies entre sitios. A continuación se muestra la forma de calcular la diversidad beta, sin depender de la diversidad gamma y alfa, con la propuesta de <strong>Legendre y De Cáceres (2013)</strong>, usando la varianza de las abudancias de especies entre sitios.</p>
+<p><strong>beta.div()</strong>, calcula la diversidad beta- β total (y sus componentes) a partir de la varianza de los datos de comunidad (matriz sitios × especies) o de una matriz de disimilitud. Permite identificar los sitios o localidades (LCBD) y las especies (SCBD) que más aportan a la diversidad beta, lo cual representa a la novedad de esta propuesta de diversidad beta.</p>
+<p>Se utiliza el comando <strong>beta.div()</strong> del paquete <strong>adespatial</strong>, se calcula la <em>diversidad beta total</em> (<strong>BDtotal</strong>) y la suma total de cuadrados de <em>Y</em> (<strong>SStotal</strong>) que es la suma de los valores al cuadrado en la <strong>matriz S</strong>, Está asiciada a la <strong>varianza de Y</strong> o de la matriz de taxones (matriz de desviaciones al cuadrado de los valores de abundancia de las especies). A partir de la descomposición de <strong>SStotal</strong> se obtienen la descomposición de la <em>diversidad beta</em> en <strong>LCBD</strong> (contribución de las localidades a la diversidad beta) y <strong>SCBD</strong> (contribución relativa de las especies a la diversidad beta).</p>
+<section id="a.-diversidad-beta-general" class="level5">
+<h5 class="anchored" data-anchor-id="a.-diversidad-beta-general">a. Diversidad beta general</h5>
+<p>Para este ejercicio se obtuvo un <strong>SStotal</strong> de 1.50 (variación de las abundancias de las especies de peces) y la <strong>Diversidad Beta</strong> total es 0.75 (75%), lo cual muestra una alta variabilidad en la composición de especies entre las tres zonas.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>SStotal BDtotal 
+   1.50    0.75 </code></pre>
+</div>
+</div>
+</section>
+<section id="b.-contribución-de-las-especies-a-la-diversdad-beta--scbd" class="level5">
+<h5 class="anchored" data-anchor-id="b.-contribución-de-las-especies-a-la-diversdad-beta--scbd">b. Contribución de las especies a la diversdad beta- SCBD</h5>
+<p>Las abundancias de los taxones transformados con Hellinger: En la <a href="#tbl-tbl5">Tabla&nbsp;5</a> se relaciona a las especies que más varían en las tres zonas en comparación (valor p&lt;0.05). Con excepción de <strong>cuatro (Arpf, … , Pclm)</strong> de 16 especies (Arpf, … Etrc) presentan variación significativa entre zonas. <strong>Las abundancias de estas especies transformadas por Hellinger, las puede hacer interesantes como indicadores ecológicos u objetos de conservación.</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl5" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;5:  Especies que más varían en las tres zonas en comparación (valor p&lt;0.05) </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especie </th>
+   <th style="text-align:right;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Ancm </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Drsp </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Opso </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Trcc </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hrnj </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ntra </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Strt </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pclf </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Msp. </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Aplg </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gmbsaf </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gmbr </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gsp. </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hrcc </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Etrc </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mmbm </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ecnm </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Astm </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pclm </td>
+   <td style="text-align:right;"> 0.13 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="c.-contribución-de-las-localidades-a-la-diversdad-beta--lcbd" class="level5">
+<h5 class="anchored" data-anchor-id="c.-contribución-de-las-localidades-a-la-diversdad-beta--lcbd">c.&nbsp;Contribución de las localidades a la diversdad beta- LCBD</h5>
+<p>Las pruebas de permutación con el <strong>estadístico “holm”</strong> que solo la desembocadura- RM es la que presenta una contibución relevante en la diversidad beta- LCBD (valor p&lt; 0.05 o p= 0.005).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.0000 1.0000 0.0048</code></pre>
+</div>
+</div>
+</section>
+<section id="d.-visualización-de-las-localidades-y-su-contribución-a-beta" class="level5">
+<h5 class="anchored" data-anchor-id="d.-visualización-de-las-localidades-y-su-contribución-a-beta">d.&nbsp;Visualización de las localidades y su contribución a beta</h5>
+<p>La <a href="#fig-fig1">Figura&nbsp;1</a> muestra la distribución espacial de los aportes de las seis localidades a la diversidad beta (<strong>LCBD</strong>), basados en un cálculo de la abundancia de los Groups taxonómicos transformados por Hellinger.</p>
+<p>En la <a href="#fig-fig1">Figura&nbsp;1</a> se aprovecha para graficar a las 42 localidades relacionadas con las zonas de montañas (M), laderas (P) y desembocadura (RM), para visualizar patrones o gradientes más detallados, asociados a las tres zonas en comparación.</p>
+<p>Los tamaños de los circulos son proporcionales a los valores de <strong>LCBD</strong>; por lo tanto, los más grandes corresponden a las localidades que más contribuyen a la diversidad beta general del conjunto de datos. En este sentido, las localidades de RM seguidas de algunas de P son las que generan un mayor cambio en la composición de las especies entre zonas.</p>
+<p>Se observa que la desembocadura- RM es la que presentó el mayor aporte (valores LCBD) y efecto sobre la diversidad beta (p de Holm &lt;0.05 ***), en terminos de las abundancias de las especies allí presentes, transformadas con la función de Hellinger, por lo que los circulos son más grandes y significativos (***).</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig1-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Aportes de diversidad beta general con datos de abundancia (LCBD) por cada Estación evaluado.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="diversidad-beta-en-sus-componentes-de-reemplazo-diferencia-de-riqueza-y-anidamiento." class="level3">
+<h3 class="anchored" data-anchor-id="diversidad-beta-en-sus-componentes-de-reemplazo-diferencia-de-riqueza-y-anidamiento.">3. Diversidad beta en sus componentes de reemplazo, diferencia de riqueza y anidamiento.</h3>
+<p>Se tendrá en cuenta la propuesta de hace tres decadas sobre la diversidad beta o diferencias entre comunidades: (1) <strong>reemplazo de especies</strong> (recambio o rotación) y la (2) <strong>diferencia de riqueza</strong>, relacionada a la ganancia o perdida de especies, incluyendo a la <strong>anidación como un caso especial</strong> Harrison et al.&nbsp;(1992), Williams (1996) y Lennon et al.&nbsp;(2001).</p>
+<p>En este sentido, el <strong>reemplazo</strong> se enfoca en como los gradientes ecológicos (ambiente abiótico o interacciones ecológicas) generan efectos en la tolerancia de algunas especies, restringiendo su distibución a ciertos lugares y siendo reemplazadas por otras en otros gradientes ambientales o lugares.</p>
+<p>La <strong>diferencia de riqueza</strong>, también se relaciona con el forzamiento ecológico y la disponibilidad de hábitats o nichos, que promueven a que se presenten diferencias en el número de especies en distintos lugares, independiente de su composición. Los detalles de los métodos que soportan a estas propuestas están en la introducción a la diversidad beta de este documento.</p>
+<p>Teniendo en cuenta a esos dos factores, <strong>Legendre (2014)</strong> propone un marco unificador de formulas que discrimina en dos familias: Baselga (BAS) y Podani (POD), en honor a sus desarrolladores, aclarando además, que estas propuestas solo aplican para datos de presencia-ausencia o binarios. Se propone al indice de Ružička (equivalente cuantitativo del índice binario de Jaccard), como una opción válida para datos de abundancias.</p>
+<hr>
+<section id="a.-beta-general-con-datos-binarios-familia-podani-schmera-2011" class="level5">
+<h5 class="anchored" data-anchor-id="a.-beta-general-con-datos-binarios-familia-podani-schmera-2011">a. Beta general con datos binarios (Familia Podani &amp; Schmera, 2011)</h5>
+<p>Este procedimiento inicia con el calculo de las matrices de <strong>disimilitud de Jaccard</strong>, de <strong>reemplazo</strong> (recambio o rotación) y de <strong>diferencia de riqueza</strong> (o su caso especial de anidamiento). Posteriormente se aplican estrategias graficas para visualizar los patrones de diversidad beta y de su partición.</p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> se trabajará con los 42 sitios. También se puede hacer el análisis para las 3 zonas comparadas.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     Length Class  Mode     
+repl 861    dist   numeric  
+rich 861    dist   numeric  
+D    861    dist   numeric  
+part   5    -none- numeric  
+Note   1    -none- character</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        BDtotal            Repl         RichDif    Repl/BDtotal RichDif/BDtotal 
+          0.355           0.191           0.164           0.539           0.461 </code></pre>
+</div>
+</div>
+<p>La función <strong>beta.div.comp</strong> del paquete <strong>adespatial</strong>, utiliza a los índices de Jaccard o de Sorensen y a su forma cuantitativa (Ružička) en los componentes de reemplazo y de diferencia de riqueza, según la propuesta de Legendre (2014).</p>
+<ul>
+<li><p><strong>BDtotal</strong> es la <strong>diversidad beta total</strong> según Legendre &amp; Ce Cáceres (2013), para las familias de Podani y de Baselga.</p></li>
+<li><p><strong>Repl</strong> es la fracción de <strong>reemplazamiento</strong> (recambio o rotación) total.</p></li>
+<li><p><strong>RichDiff</strong> es la fracción de <strong>diferencia de riqueza</strong> (o anidamiento).</p></li>
+<li><p><strong>Repl/BDtotal</strong> es la fracción de reemplazo sobre la diversidd beta total.</p></li>
+<li><p><strong>RichDiff/BDtotal</strong> es la fracción de diferencia de riqueza sobre la diversidd beta total.</p></li>
+</ul>
+<p>En este sentido se obtiene una <strong>BDtotal</strong> = 0.36 lo que indica que hay una variabilidad moderada entre las tres zonas del 36%, donde el 19% corresponde al <strong>reemplazo</strong> por especies exclusivas o únicas en RM (Repl: 0.19) y el 17% corresponde a la <strong>diferencia de riqueza</strong> entre las zonas (RichDif: 0.17).</p>
+<p>Siguiendo la propuesta de Legendre (2014), <strong>el sitio 42 ubicado en la desembocadura (43RM) se considera como el lugar de referencia</strong>, asumiendo que el proceso de colonización de los peces inció en ese lugar, por lo cual puede considerarse como el que más aporta a fracción de <strong>diferencia de riqueza</strong>. En la <a href="#fig-fig2">Figura&nbsp;2</a> se visualiza el componente de diferencia de riqueza con el índice Jaccard de Podani, se espera que esa fracción aumente hacia la zona de montaña de la cuenca evaluada.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: Patrón espacial de diferencias de riqueza de especies respecto al sitio de referencia- 42</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig2">Figura&nbsp;2</a> muestra la gran diferencia de riqueza en todos los sitios (&gt;0.55), con excepción del sitio 41 que también es de desembocadura (RM42), destacandose los sitios de montaña 7, 9 y 11, donde la diferencia de riqueza es notable (&gt; 0.8 o al 80%). Como se ha descrito anteriormente, la influencia marina de los dos sitios de desembocadura, hacen que su biota sea superior y muy diferente al del resto de sitios.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;3: Patrón espacial de diferencias de los componentes de recambio y diferencia de especies respecto al sitio de referencia- 42</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En la <a href="#fig-fig3">Figura&nbsp;3</a>, se incluye a los componentes de recambio y diferencia de riqueza, respecto al sitio 42, confirmando los valores elevados de Beta de Podani para todos los sitios, excepto el 41 que también es de desembocadura (barras grises oscuras), el recambio es bajo (barras grises), comparado a la diferencia de riqueza (barras grises claras), lo cual indica que la zona de desembocadura puede considerarse como un ensamblaje independiente del resto de zonas de la cuenca en estudio.</p>
+<hr>
+</section>
+<section id="b.-beta-por-parejas-de-sitios-familia-podani-schmera-2011" class="level5">
+<h5 class="anchored" data-anchor-id="b.-beta-por-parejas-de-sitios-familia-podani-schmera-2011">b. Beta por parejas de sitios (Familia Podani &amp; Schmera, 2011)</h5>
+<p>Para este caso no se requiere contar con un lugar de referencia como en el anterior caso. Lo que se busca es evaluar la diversidad beta por parejas de sitios cercanos, para analizar como es el patrón de esta diversidad en gradientes locales.</p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> se trabajará con parejas vecinas de los 42 sitios. También se puede hacer el análisis para las 3 zonas comparadas, aunque por ser pocas muestras, se puede analizar atodas las combinaciones de parejas posibles.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Patrón espacial de diferencias de los componentes de recambio y diferencia de especies respecto al sitio de referencia- 42</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En la <a href="#fig-fig4">Figura&nbsp;4</a> se grafica la <strong>diversidad beta de Pdani</strong>, el <strong>reemplazo</strong> y la <strong>diferencia de riqueza</strong>, a diferencia de las figuras anteriores, no se usa un sitio de referencia, sino a las <strong>parejas de sitios vecinos</strong>, para enfatizar lo que sucede con esta diversidad a nivel local (pares de sitios). Se observa que <strong>hay sitios donde la diversidad beta (disimilitudes entre parejas de sitios) se debe a la diferencia de riqueza</strong>, <strong>especialmente en la zona de montañas (sitios 1 al 12 - barras de color gris claro)</strong>, el <strong>reemplazo o reambio de especies ocurre principalmente en la zona media (P) y de desembocadura (RM) (sitios 19 al 42 - barras gris oscuro)</strong>. Hay sitios donde toda la riqueza (sitios 13-14, 20-21) o todo el recambio (sitios 8 - 12) explican todo el valor de la diversidad beta de Podani.</p>
+<hr>
+</section>
+<section id="c.-graficos-triangulares-o-símpex-legendre-2014" class="level5">
+<h5 class="anchored" data-anchor-id="c.-graficos-triangulares-o-símpex-legendre-2014">c.&nbsp;Graficos triangulares o símpex (Legendre, 2014)</h5>
+<p>Los <strong>graficos triangulares o símpex</strong> se construyen con la función <strong>triangle.plot()</strong> del paquete <strong>ade4()</strong>. Los puntos representan a las parejas de sitios con <strong>datos de presencia-ausencia</strong> (Jaccard, Sorensen) y <strong>cuantitativos o de abundancias</strong> (Ružička, porcentaje de diferencia), asociados a los tres componentes: beta total de Podani (similitud) con diferentes estimadores (Jaccard, Sorensen, Ružička, porcentaje de diferencia), el reemplazo y la diferencia de riqueza.</p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> se trabajará con los 42 sitios. También se puede hacer el análisis para las 3 zonas comparadas.</p>
+</blockquote>
+<p>En los cuatro triangulos (<a href="#fig-fig5">Figura&nbsp;5</a>) se logra apreciar que l<strong>a diversidad beta se asocia más al componente de reemplazamiento</strong> <strong>por la presencia de especies exclusivas de la zona de desembocadura - RM</strong>, excepto en Ružička, donde hay un aporte importante de la diferencia de riquezas, generado por la mayor abundancia de individuos en las zonas de montaña (M) y de laderas (P), con una mayor riqueza de especies en la desembocadura (RM).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Graficos triangulares de diversidad beta. (a) beta con Jaccard, (b) beta con Sorensen, (c) beta cuantitativa con Ruzicka, (c) beta cuantitativa con porcentaje de diferencias</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De acuerdo a <strong>Borcar et al.&nbsp;(2018)</strong>, si se quiere analizar el <strong>efecto del ambiente sobre esta diversidad beta de Podani, con sus componentes de recambio y de diferencia de riqueza</strong>, se requiere hacer uso de herramientas de ordenación canónica como el <strong>análisis de redundancias basado en distancias (db-RDA)</strong> con la función <strong>dbrda()</strong> del paquete <strong>vegan</strong>.</p>
+<hr>
+</section>
+<section id="d.-clasificación-de-zonas-por-componentes-de-beta-familia-podani-schmera-2011" class="level5">
+<h5 class="anchored" data-anchor-id="d.-clasificación-de-zonas-por-componentes-de-beta-familia-podani-schmera-2011">d.&nbsp;Clasificación de zonas por componentes de beta (Familia Podani &amp; Schmera, 2011)</h5>
+<p>La <a href="#fig-fig6">Figura&nbsp;6</a> presenta otra forma de comparar a las tres zonas, mediante estrategias de clasificación multivariada como los dendogramas, haciendo uso de las matrices de diversidad beta total (Jacard de Podani), de reemplanamiento o recamvio y de diferencias de riqueza. Se resalta, que en los tres componentes de diversidad beta, la desembocadura- RM genera un clúster independiente, por su composición de especies particular.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Clasificación de las localidades de acuerdo a su diversidad beta general, por recambio y por anidamiento.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="e.-clasificación-de-sitios-por-componentes-de-beta-familia-podani-schmera-2011" class="level5">
+<h5 class="anchored" data-anchor-id="e.-clasificación-de-sitios-por-componentes-de-beta-familia-podani-schmera-2011">e. Clasificación de sitios por componentes de beta (Familia Podani &amp; Schmera, 2011)</h5>
+<p>En este caso se clasifican los 42 sitios con los tres componentes de diversidad (beta total, recambio y diferencia de riqueza), de manera similar al procedimiento anterior. <strong>Las localidades de desembocadura se separan del resto de sitios</strong>, que presenta una mayor similitud. En el caso de la <strong>diferencia de riqueza</strong>, un par de localidades de montaña también se separan del resto, debido a la exclusividad de algunas de sus especies presentes, lo cual también se aprecia en <strong>beta total</strong>.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1) Construir matriz binaria e imponer rótulos desde biol2[,1] ---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># biol2: primera columna = nombres de zonas (o sitios), resto = especies</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>labs1 <span class="ot">&lt;-</span> <span class="fu">make.unique</span>(<span class="fu">as.character</span>(biol[[<span class="dv">1</span>]]))  <span class="co"># garantiza caracteres y unicidad</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar NAs de la base original (biol1)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>biol4 <span class="ot">&lt;-</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  biol1[,<span class="sc">-</span><span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">as.numeric</span>(.x))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>()) <span class="sc">%&gt;%</span>    <span class="co"># no cambia numéricos; por seguridad</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># reemplazar Inf/NA por 0 si hubiera</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>biol4[<span class="sc">!</span><span class="fu">is.finite</span>(<span class="fu">as.matrix</span>(biol4))] <span class="ot">&lt;-</span> <span class="dv">0</span>   </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de datos de abundancia a datos binarios</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>biol.bin <span class="ot">=</span> (<span class="fu">as.matrix</span>(biol4) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">*</span> <span class="dv">1</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Poner nombres de fila = zonas/sitios</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(biol.bin) <span class="ot">&lt;-</span> labs1</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de similitud de Jaccard según Podani, con datos binarios</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>beta.pod <span class="ot">&lt;-</span> <span class="fu">beta.div.comp</span>(biol.bin, <span class="at">coef =</span> <span class="st">"J"</span>, <span class="at">quant =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Dendogramas con método UPGMA</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>Cl.upgma1 <span class="ot">=</span> <span class="fu">hclust</span>(beta.pod<span class="sc">$</span>D, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>Cl.upgma2 <span class="ot">=</span> <span class="fu">hclust</span>(beta.pod<span class="sc">$</span>rich, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>Cl.upgma3 <span class="ot">=</span> <span class="fu">hclust</span>(beta.pod<span class="sc">$</span>repl, <span class="at">method=</span><span class="st">"average"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Clasificación del dendograma en dos Groups (negro y rojo)</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma1, <span class="at">k =</span> <span class="dv">3</span>,       <span class="co"># k Groups (opcionales)</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.6</span>,                    <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Jaccard"</span>,   <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Beta Total"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(a)"</span>)  </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma2, <span class="at">k =</span> <span class="dv">3</span>,        <span class="co"># k Groups (opcionales)</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>          <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.6</span>,                     <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Jaccard"</span>,    <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Dif. Riqueza"</span>,</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(b)"</span>)  </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.upgma3, <span class="at">k =</span> <span class="dv">3</span>,        <span class="co"># k Groups (opcionales)</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>          <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>), </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.6</span>,                     <span class="co"># tamaño del texto de las ramas</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">"Distancia Jaccard"</span>,    <span class="co"># Rotulo de la distancia</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">"Recambio"</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"(c)"</span>)  </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(f1,f2,f3, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig7-1.png" class="img-fluid figure-img" width="2700"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Clasificación de las localidades de acuerdo a su diversidad beta general, por recambio y por anidamiento.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-fig7">Figura&nbsp;7</a> muestra tres <strong>clúster no jerárquicos</strong> — con la estructura <strong>PAM (Partitioning Around Medoids)</strong> o el <strong>k-means</strong>, los cuales agrupan a los sitios de manera directa en un número <strong>k</strong> de grupos previamente definido (k=3). A diferencia de los dendrogramas jerárquicos de la anterior <a href="#fig-fig8">Figura&nbsp;8</a>, que construyen una estructura de fusión paso a paso, los métodos no jerárquicos <strong>optimizan la asignación de cada punto</strong> a un centro representativo (llamado <em>medoide</em>) minimizando la disimilitud promedio dentro del grupo. Este enfoque es especialmente útil cuando el número de sitios es grande, ya que <strong>reduce el exceso de ramas y solapamientos visuales</strong> que se presentan en los dendrogramas. Además, permite representar a los clústeres en un plano bidimensional (PCoA o PCA), facilitando una interpretación más intuitiva de la separación espacial entre grupos de ensamblajes. La única limitante es que el número de k-grupos se define de forma manual y no automatizada como en el caso de los dendogramas jerárquicos.</p>
+<p>La <a href="#fig-fig8">Figura&nbsp;8</a> permite visualizar a los resultados del análisis <strong>PAM aplicado a los tres componentes beta de Podani (basadas en Jaccard): beta total, diferencia de riqueza y recambio.</strong> Cada panel (a–c) corresponde a una de estas componentes, proyectadas sobre las dos primeras coordenadas del <strong>análisis de coordenadas principales (PCoA)</strong>. Los símbolos (círculos, triángulos y cuadrados) representan los tres clústeres obtenidos:</p>
+<p>El clúster <strong>(a)</strong> muestra a la <strong>beta total</strong> con tres grupos bien definidos, indicando conjuntos de sitios con composiciones taxonómicas marcadamente distintas. En el clúster <strong>(b)</strong>, la <strong>diferencia de riqueza</strong> presenta una segregación más clara entre zonas con mayor y menor número de especies. En el cluster <strong>(c)</strong>, el <strong>recambio</strong> exhibe una mayor dispersión y solapamiento, lo que sugiere que la sustitución de especies entre sitios es más gradual y menos estructurada.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;8: Clasificación no jerárquica de las localidades de acuerdo a su diversidad beta general, por recambio y por anidamiento.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="f.-efecto-de-variables-ambientales-sobre-componentes-de-beta-legendre-2014" class="level5">
+<h5 class="anchored" data-anchor-id="f.-efecto-de-variables-ambientales-sobre-componentes-de-beta-legendre-2014">f.&nbsp;Efecto de variables ambientales sobre componentes de beta (Legendre, 2014)</h5>
+<p>Cuando se quiere analizar el <strong>efecto del ambiente sobre la diversidad beta</strong> y sus componentes de recambio y de diferncia de riqueza, se puede hacer uso de los <strong>analisis de redundancia basados en distancias (dbRDA)</strong>, haciendo uso de la fnción <strong>dbrda()</strong> del paquete <strong>vegan</strong> y siguiendo el procedimiento descrito por Legendre (2014).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.009    NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$r.squared
+[1] 0.3530595
+
+$adj.r.squared
+[1] 0.01760883</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.28   NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$r.squared
+[1] 0.3557163
+
+$adj.r.squared
+[1] 0.02164333</code></pre>
+</div>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Variable </th>
+   <th style="text-align:right;"> valor_p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Salinity </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Phosphates </td>
+   <td style="text-align:right;"> 0.018 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Transparency </td>
+   <td style="text-align:right;"> 0.020 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hardness </td>
+   <td style="text-align:right;"> 0.035 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conductivity </td>
+   <td style="text-align:right;"> 0.037 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.072    NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$r.squared
+[1] 0.2077301
+
+$adj.r.squared
+[1] 0.04461577</code></pre>
+</div>
+</div>
+<p>Las matrices de <strong>recambio (peces.repl)</strong> suelen ser no euclideanas, por lo que su análisis de redundancias por distancias (dbrda.repl), pierde aplicación, esto se demuestra en el valor de R cuadrado ajustado (<em>R</em><sup>2</sup>adj&nbsp;= 0,018, p = 0,16), indicando que <strong>no hay un efecto relevante de las variables ambientales seleccionadas sobre el recambio</strong>.</p>
+<p>Por otro lado, la <strong>diferencia de riqueza (peces.riq)</strong> se relacionó con variables ambientales con un efecto significativo sobre <strong>peces.riq</strong> (función envfit), tambien <strong>muestra una relación muy débil pero significativa de las variables ambientales seleccionadas sobre la diferencia de riqueza</strong> (<em>R</em><sup>2</sup>adj&nbsp;= 0,04, p = 0,05). A pesar que Borcard et al.&nbsp;(2018) recomiendan no realizar visualizaciones por la posibilidad de genarar falsos patrones de ordenación, a continuación se procede a realizar la figura del dbRDA, solo para dines didácticos y de replicar en otros ejercicios con mayor efecto ambiental sobre la diferencia de riqueza.</p>
+<p>En el siguiente procedimiento <strong>se extraen las coordenadas de (1) sitios y zonas (factor), (2) variables ambientales, para usarlas en la visualización con ggplot2 y ggforce</strong>. No se realiza un análisis del patrón por la baa relación entre las variables.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<p>La <a href="#fig-fig9">Figura&nbsp;9</a> muestra como la <strong>diferencia de riqueza</strong> de la zona de desembocadura se separa del resto (sitios 41 y 42), asociadas a variables ambientales como la salinidad, la transparencia del agua, la conductividad, la dureza y los solidos totales disueltos (TDS). Las zonas de montaña y de laderas, presentan un patrón ambiental muy similar asociado a nutrientes como nitritos- NO2 y fosfatos- PO4.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;9: Relación entre las variables ambientales y la diferencia de riqueza como componente de la diversidad beta de Podani</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="diversidad-beta-con-estandarización-de-muestras-y-números-efectivos-q-0-1-y-2-1">4. Diversidad beta con estandarización de muestras y números efectivos q = 0, 1 y 2</h3>
+<p>Se utilizará la base de datos con las 90 especies de peces, para las tres zonas de la cuenca evaluada (<a href="#tbl-tbl6">Tabla&nbsp;6</a>). Si los nombres de los taxones son demasiado largos, se pueden abreviar con el número de letras que se requiera (ej: minlength = 4), esto para que las figuras que incluyan a los taxones, no queden tan saturadas de texto (<a href="#tbl-tbl6">Tabla&nbsp;6</a>).</p>
+<p>En este ejercicio no se analizan con los 42 sitios, debido a que no es factible ni práctico comparar simultáneamente muchas curvas. Para casos en los que se analicen hasta 10 parejas de sitios, los autores sugieren extraer <strong>la diversidad beta estandarizada para seis niveles</strong> <strong>de cobertura</strong> <strong>estandarizada</strong>(60%, 70%, 80%, 90%, 95%, 100%); para esos casos, la diversidad estandarizada correspondiente a un valor de cobertura del 100% y representa la estimación asintótica, que puede estar sujeta a cierto sesgo para&nbsp;<em>q</em> = 0. Para más detalles teóricos y de visualización, se sugiere revisar el documento de Chao et al.&nbsp;(2023).</p>
+<section id="a.-organización-de-los-datos" class="level5">
+<h5 class="anchored" data-anchor-id="a.-organización-de-los-datos">a. Organización de los datos</h5>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl6" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;6:  Resumen de las seis primeras filas de abundancia por sitio </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Especies </th>
+   <th style="text-align:right;"> M </th>
+   <th style="text-align:right;"> P </th>
+   <th style="text-align:right;"> RM </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Achl </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Albv </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrn </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anch </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ancm </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="b.-visualización-de-diversidad-alfa" class="level5">
+<h5 class="anchored" data-anchor-id="b.-visualización-de-diversidad-alfa">b. Visualización de diversidad alfa</h5>
+<p>Como ya se describió en la sesión anterior, se presenta un gradiente deaumento de la abundancia y disminución de la riqueza de especies, de los singletons (f1) y de los doubletons (f2), desde la desembocadura (RM) hacia la zona de montañas (M), sugiriendo que la desembocadura alberga a un ensamblaje más diverso pero menos denso, posiblemente influenciada por una mayor heterogeneidad ambiental y un gradiente de conectividad con zonas marinas o estuarinas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl7" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Tabla&nbsp;7:  Estimadores generales de diversidad alfa </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Sitio </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:right;"> Riqueza </th>
+   <th style="text-align:right;"> f1 </th>
+   <th style="text-align:right;"> f2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:right;"> 13166 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:right;"> 5151 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:right;"> 414 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="c.-diversidad-beta-por-parejas-de-zonas" class="level5">
+<h5 class="anchored" data-anchor-id="c.-diversidad-beta-por-parejas-de-zonas">c.&nbsp;Diversidad beta por parejas de zonas</h5>
+<p>A continuación se realiza el análisis de <strong>diversidad beta con la función iNEXTbeta3D() del paquete iNEXTbeta.3D</strong>, teniendo en cuenta que puede realziarse de dos formas: (1) base = “coverage”, (2) base = “size”, para analizar la cobertura y la abundancia en el eje x, respectivamente. Incialmente se genera el dataframe en *<strong>formato de lista</strong> (biol.pares), que tabula las parejas de sitios por separado (<a href="#tbl-tbl8">Tabla&nbsp;8</a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl8" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;8:  Estimadores generales de diversidad alfa </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> M </th>
+   <th style="text-align:right;"> P </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Achl </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Albv </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amrn </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anch </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ancm </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>A continuación se muestra el resumen tabular con el que se realizarán las figuras (<a href="#tbl-tbl9">Tabla&nbsp;9</a>). Para el caso tabular, se trabaja con “<strong>coverage</strong>”, dado que permite gererar a la diversidad beta (con size no lo genera).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-tbl9" class="anchored">
+
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Tabla&nbsp;9:  Estimadores generales de diversidad beta para la pareja de zonas M y P, con estimadores de abundancia basada en coberturas </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Dataset </th>
+   <th style="text-align:right;"> Order.q </th>
+   <th style="text-align:right;"> SC </th>
+   <th style="text-align:right;"> Size </th>
+   <th style="text-align:right;"> Beta </th>
+   <th style="text-align:left;"> Method </th>
+   <th style="text-align:right;"> s.e. </th>
+   <th style="text-align:right;"> LCL </th>
+   <th style="text-align:right;"> UCL </th>
+   <th style="text-align:left;"> Diversity </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.500 </td>
+   <td style="text-align:right;"> 7.254 </td>
+   <td style="text-align:right;"> 1.331 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0.008 </td>
+   <td style="text-align:right;"> 1.315 </td>
+   <td style="text-align:right;"> 1.346 </td>
+   <td style="text-align:left;"> TD </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.525 </td>
+   <td style="text-align:right;"> 8.020 </td>
+   <td style="text-align:right;"> 1.323 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0.008 </td>
+   <td style="text-align:right;"> 1.307 </td>
+   <td style="text-align:right;"> 1.339 </td>
+   <td style="text-align:left;"> TD </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.550 </td>
+   <td style="text-align:right;"> 8.902 </td>
+   <td style="text-align:right;"> 1.317 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0.008 </td>
+   <td style="text-align:right;"> 1.302 </td>
+   <td style="text-align:right;"> 1.332 </td>
+   <td style="text-align:left;"> TD </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.575 </td>
+   <td style="text-align:right;"> 9.896 </td>
+   <td style="text-align:right;"> 1.309 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0.008 </td>
+   <td style="text-align:right;"> 1.294 </td>
+   <td style="text-align:right;"> 1.324 </td>
+   <td style="text-align:left;"> TD </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="d.-visualización-de-diversidad-gamma-γ-y-alfa-α-por-parejas-de-zonas" class="level5">
+<h5 class="anchored" data-anchor-id="d.-visualización-de-diversidad-gamma-γ-y-alfa-α-por-parejas-de-zonas">d.&nbsp;Visualización de diversidad gamma-<em>γ</em> y alfa-<em>α</em> por parejas de zonas</h5>
+<p>La <strong>?@fig-fig10</strong> muestra las curvas de rarefacción y extrapolación, *sin estandarización, basadas en el tamaño de la muestra (size) para la diversidad gamma y alfa hasta el doble del tamaño de la muestra de referencia. <strong>Estas curvas en q=0</strong> <strong>no se estabilizan</strong> (no alcanzan la asíntota) por lo cual <strong>no se puede inferir de manera correcta en la verdadera diversidad gamma y alfa</strong>. Esto puede deberse a la <strong>presencia de muchas especies raras no detectadas.</strong> Por lo cual se procede a hacer la estandarización de la cobertura hasta un valor limitado (figura 2).</p>
+<p>De forma consistente, <strong>M_vs_RM</strong> (curva azul) y <strong>P_vs_RM</strong> (curva magenta) se ubican por encima de <strong>M_vs_P</strong> (curva naranja) tanto en <strong>γ</strong> como en <strong>α</strong>, lo cual se debe a que la zona de desembocadura- <strong>RM aporta más especies (γ mayor) y también mayor diversidad interna (α) en los pares que la incluyen</strong>, frente a la pareja de zonas de montaña y de planicie- M_vs_P. El tamaño de muestra en cada parcela se extrapola hasta 2n (el doble de abundancia observada) para la proyección de las curvas (línea punteada), buscando su estabilidad o asintota que corresponde a la diversidad total esperada, pero solo en la pareja de zonas M_vs_P es que se acerca a esa estabilidad, debido a la gran similitud de especies entre ellas.</p>
+<div class="cell" data-fig="fig-fig10">
+<div class="cell-output-display">
+<p><img src="fig/Rarefacción%20basada%20en%20el%20tamaño%20de%20la%20muestra%20(curvas%20sólidas)%20y%20extrapolación%20(curvas%20discontinuas)%20con%20diversidad%20gamma%20y%20diversidad%20alfa.-1.png" class="img-fluid" width="2100"></p>
+</div>
+</div>
+</section>
+<section id="e.-visualización-de-diversidad-gamma-γ-alfa-α-y-beta--β-con-estandarización" class="level5">
+<h5 class="anchored" data-anchor-id="e.-visualización-de-diversidad-gamma-γ-alfa-α-y-beta--β-con-estandarización">e. Visualización de diversidad gamma-<em>γ</em>, alfa-<em>α</em> y beta- <em>β</em> con estandarización</h5>
+<p>La <a href="#fig-fig11">Figura&nbsp;10</a> muestra las curvas de rarefacción y extrapolación basadas en la cobertura para la diversidad alfa, gamma y beta <strong>hasta una cobertura completa</strong> (es decir, cobertura = 1) para&nbsp;<em>q</em> = 1 y 2, y hasta un valor de cobertura limitado para&nbsp;<em>q</em>&nbsp; = 0. Las combinaciones de la zona RM con P y M, presenta los mayores valores de diversidad, comparado a la combinación de las zonas P y M. Vale la pena mencionar que en q = 0 la cobertura de la muestra común <strong>no alcanza el valor de 1,0</strong> (se corta cerca de 0,95–0,98), debido a la presencia de especies raras.</p>
+<p>Similar a lo presentado en la figura anterior, la <strong>diversidad gamma (γ</strong> en la fila superior) y <strong>alfa (α</strong> en la fila media), las combinaciones de zonas con <strong>RM</strong> es mayor, debido a aporte representativo de esa zona, respecto al resto, lo cual lleva a una mayor <strong>diversidad</strong> <strong>beta estandarizada (β</strong> de la fila inferior) en esas zonas.</p>
+<p><strong>Por qué beta en</strong> <strong>RM con P y M</strong> <strong>es mayor:</strong> El número de especies en las combinaciones con la <strong>zona de desembocadura-</strong> <strong>RM</strong> es mayor, debido a la influencia continental y marina que presenta esos lugares, lo cual favorece al aumento de la diversidad en las diferentes esaclas valoradas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-fig11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="fig/fig-fig11-1.png" class="img-fluid figure-img" width="2100"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10: Rarefacción basada en la cobertura (curvas sólidas) y extrapolación (curvas punteadas) con diversidad gamma, alfa y beta, basadas en las especies de peces para parejas de zonas de montaña (M), laderas (P) y desembocadura (RM), para q = 0, 1 y 2.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
