@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Estilos - Repositorio de Estadística Multivariada
+   Programa de Biología - Universidad del Magdalena
+   ==========================================================================
+   Paleta central del repositorio. Los .qmd ya NO deben usar
+   <b style='color:#xxxxxx;'>...</b> ni <n style='color:#xxxxxx;'>...</n>.
+   En su lugar:
+     - Para encabezados de actividad:   ## Actividad 1. Xxxx {.titulo-seccion}
+     - Para subsecciones/avances:       #### Primer avance {.titulo-subseccion}
+     - Para etiquetas numeradas en linea: <span class="titulo-subseccion">1. Conducta de entrada.</span>
+     - Para un tercer nivel (objetivo, documento de soporte, sub-actividades):
+                                         ### Objetivo de la actividad {.titulo-objetivo}
+     - Para creditos de imagen:         <span class="credito-imagen">Imágen tomada de ...</span>
+     - Para etiqueta de periodo (en Videos_clases): <span class="etiqueta-periodo">(2025-I)</span>
+   ========================================================================== */
+
+:root {
+  --color-azul:    #1f78b4; /* Titulos de seccion/actividad y creditos de imagen */
+  --color-naranja: #d95f02; /* Subsecciones, avances y etiquetas numeradas */
+  --color-salmon:  #fc8d62; /* Tercer nivel: objetivo, documento de soporte, sub-actividades */
+  --color-morado:  #c994c7; /* Reservado: subsecciones de procedimiento dentro de un taller */
+  --color-verde:   #2ca25f; /* Reservado: etiquetas de teoria */
+}
+
+/* -------------------- Encabezados generales del documento -------------------- */
+h1 { color: #1a3552; text-align: left; }
+h2 { color: #d83838; text-align: left; }
+h3 { color: #018571; text-align: left; }
+h4 { color: #a6611a; text-align: left; }
+h5 { color: #fd8d3c; text-align: left; }
+
+/* -------------------- Listas -------------------- */
+ul {
+  color: #4CAF50;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+ul li { margin-bottom: 5px; }
+
+ol {
+  color: #0571b0;
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+ol li { margin-bottom: 8px; }
+
+/* -------------------- Texto justificado -------------------- */
+body, p, .justified-text {
+  text-align: justify;
+}
+
+/* ==========================================================================
+   Clases reutilizables (reemplazan los estilos en linea repetidos)
+   ========================================================================== */
+
+/* Titulo de seccion/actividad dentro de un taller.
+   Antes: <b style='color:#1f78b4;'>## Actividad 1. Xxxx</b> */
+.titulo-seccion {
+  color: var(--color-azul);
+  font-weight: bold;
+}
+
+/* Credito de imagen ("Imagen tomada de..."). Antes: <n style='color:#1f78b4;'> */
+.credito-imagen {
+  color: var(--color-azul);
+  font-size: 0.9em;
+}
+
+/* Subseccion / avance / etiqueta numerada en linea (ej. "1. Conducta de entrada.",
+   "Primer avance o seguimiento"). Antes: <b style='color:#d95f02;'> */
+.titulo-subseccion {
+  color: var(--color-naranja);
+  font-weight: bold;
+}
+
+/* Tercer nivel dentro de una seccion (ej. "Objetivo de la actividad",
+   "Documento de soporte", "1. Operaciones matriciales básicas").
+   Antes: <b style='color:#fc8d62;'> */
+.titulo-objetivo {
+  color: var(--color-salmon);
+  font-weight: bold;
+}
+
+/* Etiqueta de periodo academico, ej. (2025-I). Para Videos_clases.qmd. */
+.etiqueta-periodo {
+  color: var(--color-salmon);
+  font-style: italic;
+}
+
+/* Titulo de modulo, para Videos_clases.qmd (uno por cada "# modulo"). */
+.titulo-modulo {
+  color: var(--color-azul);
+  font-weight: bold;
+}
+
+/* Titulo de tema/subtema dentro de un modulo, para Videos_clases.qmd. */
+.titulo-tema {
+  color: var(--color-naranja);
+  font-weight: bold;
+}
+
+/* Nota para el estudiante */
+.nota-docente {
+  font-style: italic;
+}
