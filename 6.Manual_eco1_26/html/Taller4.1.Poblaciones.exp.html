@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Repositorio de Talleres de Ecología 1 - 2026 - Taller4.1 Mod. Exponenciales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller3.Ambiente.eco.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Taller4.1 Mod. Exponenciales</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Ecología 1 - 2026</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./videos.clases.html" class="sidebar-item-text sidebar-link">Videos clases</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">Taller1. Introducción</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2.Análisis.climático.html" class="sidebar-item-text sidebar-link">Taller2. A. Climático</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3.Ambiente.eco.html" class="sidebar-item-text sidebar-link">Taller3. Ambiente</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4.1.Poblaciones.exp.html" class="sidebar-item-text sidebar-link active">Taller4.1 Mod. Exponenciales</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
+  <li><a href="#programa-ramas-ecolab" id="toc-programa-ramas-ecolab" class="nav-link" data-scroll-target="#programa-ramas-ecolab">💻 Programa Ramas Ecolab</a></li>
+  <li><a href="#programas-rstudio-y-r" id="toc-programas-rstudio-y-r" class="nav-link" data-scroll-target="#programas-rstudio-y-r">💻 Programas RStudio y R</a></li>
+  <li><a href="#procedimiento-del-taller-en-clase" id="toc-procedimiento-del-taller-en-clase" class="nav-link" data-scroll-target="#procedimiento-del-taller-en-clase">Procedimiento del taller en clase</a>
+  <ul>
+  <li><a href="#paso-1.-descarga-de-los-programas-requeridos" id="toc-paso-1.-descarga-de-los-programas-requeridos" class="nav-link" data-scroll-target="#paso-1.-descarga-de-los-programas-requeridos"><strong>Paso 1. Descarga de los programas requeridos</strong></a></li>
+  <li><a href="#paso-2.-procedimiento-del-taller-en-ramas-ecolab" id="toc-paso-2.-procedimiento-del-taller-en-ramas-ecolab" class="nav-link" data-scroll-target="#paso-2.-procedimiento-del-taller-en-ramas-ecolab"><strong>Paso 2. Procedimiento del taller en Ramas Ecolab</strong></a></li>
+  <li><a href="#paso-3.-procedimiento-del-taller-en-rstudio" id="toc-paso-3.-procedimiento-del-taller-en-rstudio" class="nav-link" data-scroll-target="#paso-3.-procedimiento-del-taller-en-rstudio"><strong>Paso 3. Procedimiento del taller en RStudio</strong></a></li>
+  </ul></li>
+  <li><a href="#referencias-bibliográficas" id="toc-referencias-bibliográficas" class="nav-link" data-scroll-target="#referencias-bibliográficas">Referencias bibliográficas</a></li>
+  <li><a href="#cuestionario-de-estudio" id="toc-cuestionario-de-estudio" class="nav-link" data-scroll-target="#cuestionario-de-estudio">Cuestionario de estudio</a>
+  <ul>
+  <li><a href="#preguntas-sobre-modelos-de-crecimiento-exponencial" id="toc-preguntas-sobre-modelos-de-crecimiento-exponencial" class="nav-link" data-scroll-target="#preguntas-sobre-modelos-de-crecimiento-exponencial">Preguntas sobre modelos de crecimiento exponencial</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Taller4.1 Mod. Exponenciales</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="https://images.pexels.com/photos/4147986/pexels-photo-4147986.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid" style="width:49.0%"></p>
+<p><em>Imagen tomada de <a href="https://www.pexels.com/es-es/@vladimir-blyufer-1991484/">Vladimir Blyufer</a> en Pexels.</em></p>
+<section id="introducción" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="introducción">Introducción</h2>
+<p><strong>La Ecología de Poblaciones</strong> puede ser considerada como un cuerpo teórico y conjunto de metodologías que estudian los aspectos cuantitativos de los individuos en sus poblaciones. Tiene como objetivo el estudio de las poblaciones y que trata de su dimensión, estructura, evolución y características generales, considerados desde un punto de vista cuantitativo. <strong>La dinámica de poblaciones</strong> utiliza conceptos demográficos, para saber si una población aumenta, disminuye o se mantiene constante. Lo anterior es de suma importancia, para entender el estatus de conservación de una población, explotación sostenida, control de plagas o especies exóticas, o conocer la acción de la selección natural. La dinámica poblacional consiste en saber cómo cambia una población en el tiempo, a partir de estimaciones de nacimientos, muertes, inmigraciones o emigraciones. Aunque suele considerarse a las poblaciones cerradas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://javier-2712.github.io/Ecologia1/Figuras/Captura1.JPG" class="img-fluid figure-img" style="width:70.0%"></p>
+<p></p><figcaption class="figure-caption">Figura: Elementos en la ecología de poblaciones</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="objetivo-de-la-actividad" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="objetivo-de-la-actividad">Objetivo de la actividad</h2>
+<p><img src="https://t3.ftcdn.net/jpg/06/24/02/44/240_F_624024485_fNiSstDIEEclBP5bgvs2Rd5uMVtZenaN.jpg" class="img-fluid" style="width:50.0%"></p>
+<p><em>Imagen tomada de <a href="https://stock.adobe.com/co/contributor/211350149/damianius?load_type=author&amp;prev_url=detail">Damianius</a> en Adobe Stock.</em></p>
+<p>Entrenamiento de procedimientos básicos para el análisis de modelos exponenciales continuos y discretos en poblaciones silvestres y humana, con la aplicación de diferentes programas computacionales.</p>
+<blockquote class="blockquote">
+<p>📋 <strong>Evaluación:</strong> Este taller se valora dentro del rubro <em>Asistencia y participación en actividades de cómputo</em> (puntualidad + dominio de los programas + análisis lógico de resultados, discutidos con escenarios de la vida real). Ten a mano el repositorio de clases: haberlo revisado también hace parte de la nota.</p>
+</blockquote>
+</section>
+<section id="programa-ramas-ecolab" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="programa-ramas-ecolab">💻 Programa Ramas Ecolab</h2>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://pictures.abebooks.com/isbn/9780878930289-es.jpg" class="img-fluid figure-img" width="133"></p>
+<p></p><figcaption class="figure-caption"><em>Akcakaya et al.&nbsp;(1999)</em></figcaption><p></p>
+</figure>
+</div>
+<p>EcoLab es un programa que sirve de complemento interactivo a los capítulos del libro de <strong>Akcakaya et al.&nbsp;(1999)</strong>, el cual se encuentra en una versión física en la biblioteca de la Universidad (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/kc5p7o/alma990000155580107076">enlace</a>).</p>
+<p>Este programa cuenta con cuatro módulos para: (1) generar números aleatorios, (2) realizar modelos simples que incorporan variabilidad y dependencia de la densidad, (3) producir modelos matriciales que incorporan estructura de edad y denso-dependientes, (4) realizar modelos de metapoblaciones.</p>
+<p>Algunos de estos módulos los veremos en la asignatura (2 y 3), para que los estudiantes puedan manipular sus propios modelos y observar la simulación de sus trayectorias en el tiempo, complementando esta información con la que se ofrece en los capítulos del libro guía de Akcakaya et al.&nbsp;(1999).</p>
+</section>
+<section id="programas-rstudio-y-r" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="programas-rstudio-y-r">💻 Programas RStudio y R</h2>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://bookdown.org/oscar_teach/estadistica_aplicada_con_r/r-rstudio.png" class="img-fluid figure-img" width="198"></p>
+<p></p><figcaption class="figure-caption">Programas de R y RStudio</figcaption><p></p>
+</figure>
+</div>
+<p>Son dos programas que trabajan de forma simultánea y que permitirán el diseño y edición de diferentes variantes a los modelos de crecimiento exponencial y logístico de poblaciones. A diferencia del programa anterior (Ramas Ecolab), su manejo no es tan básico e intuitivo, porque requieren un manejo más complejo, pero con la ventaja de poder producir resultados con un mayor nivel de calidad, para informes y publicaciones en casi cualquier revista científica, entre otras ventajas.</p>
+</section>
+<section id="procedimiento-del-taller-en-clase" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="procedimiento-del-taller-en-clase">Procedimiento del taller en clase</h2>
+<p><img src="https://as1.ftcdn.net/v2/jpg/06/07/91/14/1000_F_607911458_OSemRM34vhjtwEQE2Ug4F87bgYtI66Tl.jpg" class="img-fluid" style="width:40.0%"></p>
+<p><em>Imagen tomada de <a href="https://stock.adobe.com/co/contributor/211153814/karina?load_type=author&amp;prev_url=detail">Karina</a> en Adobe Stock.</em></p>
+<p><strong>Nota</strong>: Previo a la sesión del taller de cómputo, es necesario que revisen el video de la clase en donde se explica el procedimiento; estos videos se encuentran en el repositorio del docente (ver 🎥<a href="https://javier-2712.github.io/Manuales/6.Manual_eco1/videos.clases.html">enlace del repositorio</a>, sección <em>Semanas 5-6 - Poblaciones</em>). El día de la sesión, el docente evaluará la revisión que se haya hecho de ese material.</p>
+<section id="paso-1.-descarga-de-los-programas-requeridos" class="level3 paso-taller">
+<h3 class="paso-taller anchored" data-anchor-id="paso-1.-descarga-de-los-programas-requeridos"><strong>Paso 1. Descarga de los programas requeridos</strong></h3>
+<ul>
+<li><p>💻<strong>Ramas Ecolab</strong>. Se requiere descargar el siguiente archivo y descomprimirlo en un directorio, previo a su apertura: <a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/EcoLab.zip">Programa_Ramas_Ecolab</a>.</p></li>
+<li><p>💻<strong>RStudio y R</strong>. Para la descarga e instalación de estos programas, seguir el paso a paso del siguiente enlace (<a href="https://posit.co/download/rstudio-desktop/">enlace</a>). Instalar primero el <strong>R</strong> y posteriormente <strong>RStudio</strong>.</p></li>
+</ul>
+</section>
+<section id="paso-2.-procedimiento-del-taller-en-ramas-ecolab" class="level3 paso-taller">
+<h3 class="paso-taller anchored" data-anchor-id="paso-2.-procedimiento-del-taller-en-ramas-ecolab"><strong>Paso 2. Procedimiento del taller en Ramas Ecolab</strong></h3>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://pictures.abebooks.com/isbn/9780878930289-es.jpg" class="img-fluid figure-img" width="115"></p>
+<p></p><figcaption class="figure-caption">Libro de Akcakaya et al.&nbsp;(1999)</figcaption><p></p>
+</figure>
+</div>
+<p>Las pautas resumidas de este taller se encuentran en el siguiente enlace 📖<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Taller_ramas_ecolab.pdf">Enlace al pdf del Taller</a>.</p>
+<p><strong>1. Simulaciones de crecimiento exponencial (determinístico y estocástico).</strong></p>
+<p>A_ Entrar al programa RAMAS EcoLab y seleccionar el subprograma “<strong>Population Grow</strong>”.</p>
+<p>B_ Seleccionar “<strong>General Information</strong>” e incluir el título y comentarios para el ejercicio.</p>
+<p>C_ Entrar los siguientes parámetros al modelo:</p>
+<ul>
+<li>Replication: 0</li>
+<li>Duration: 12</li>
+</ul>
+<p>D_ Entrar en “<strong>Model</strong>” y hacer click en “<strong>Population</strong>”. Editar los siguientes valores:</p>
+<ol type="1">
+<li>Initial abundance: 31</li>
+<li>Growth rate (R): 1.148</li>
+</ol>
+<p>E_ ¿<em>Cuál será la tasa instantánea de crecimiento exponencial</em>? ¿<em>Cuál será la velocidad de crecimiento</em>?</p>
+<p>F_ Seleccionar “<strong>Simulation</strong>” y hacer click en “<strong>Run</strong>”. Se desarrollará una simulación en 12 pasos de tiempo. Salir de la simulación.</p>
+<p>G_ Seleccionar “<strong>Trajectory summary</strong>”, la cual simulará el crecimiento exponencial. ¿Cuál será el tamaño final de la población?</p>
+<p>H_ Seleccionar “<strong>General Information</strong>” y editar el número de réplicas a 100, y hacer click en “<strong>Demographic stochasticity</strong>”.</p>
+<p>I_ Entrar en “<strong>Population</strong>”. Editar los siguientes valores:</p>
+<ul>
+<li>Initial abundance: 31</li>
+<li>Growth rate (R): 1.148</li>
+<li>Survival rate (s): 0.921</li>
+<li>Standard deviation of R: 0.075</li>
+</ul>
+<p>J_ Repetir los pasos E y F. ¿Alguna trayectoria es similar a la trayectoria determinística? ¿Qué causa estas diferencias? Salvar el documento.</p>
+<p>K_ Seleccionar “<strong>Extinction/Decline</strong>”.</p>
+<ul>
+<li>¿Cuál es el riesgo de que desciendan 31 individuos basados en la curva?</li>
+<li>Hacer clic en “<strong>Show numbers</strong>” y responder esta interrogante.</li>
+</ul>
+</section>
+<section id="paso-3.-procedimiento-del-taller-en-rstudio" class="level3 paso-taller">
+<h3 class="paso-taller anchored" data-anchor-id="paso-3.-procedimiento-del-taller-en-rstudio"><strong>Paso 3. Procedimiento del taller en RStudio</strong></h3>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://bookdown.org/oscar_teach/estadistica_aplicada_con_r/r-rstudio.png" class="img-fluid figure-img" width="155"></p>
+<p></p><figcaption class="figure-caption">Programas de R y RStudio</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Simulaciones de crecimiento exponencial.</strong></p>
+<p>A_ Abrir RStudio y crear un script nuevo (<code>Taller4.1_exponencial.R</code>), o usar el archivo <code>.qmd</code> base del taller (enlace al final de esta sección).</p>
+<p>B_ Cargar los paquetes necesarios (instalarlos la primera vez si hace falta):</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"ggplot2"</span>))  <span class="co"># solo la primera vez</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.5.3</code></pre>
+</div>
+</div>
+<p>C_ Reproducir el <strong>modelo discreto</strong> (<span class="math inline">N_{t}=N_{0}\lambda^{t}</span>) con los <em>mismos parámetros</em> usados en RAMAS EcoLab (Initial abundance = 31, Growth rate R = 1.148, Duration = 12), para poder comparar los resultados entre los dos programas:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">31</span>        <span class="co"># abundancia inicial</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.148</span> <span class="co"># tasa finita de crecimiento (R en EcoLab)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">12</span>       <span class="co"># duración (pasos de tiempo)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Nt_discreto <span class="ot">&lt;-</span> N0 <span class="sc">*</span> lambda<span class="sc">^</span>t</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">tiempo =</span> t, <span class="at">N =</span> <span class="fu">round</span>(Nt_discreto, <span class="dv">1</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tiempo     N
+1       0  31.0
+2       1  35.6
+3       2  40.9
+4       3  46.9
+5       4  53.8
+6       5  61.8
+7       6  71.0
+8       7  81.5
+9       8  93.5
+10      9 107.4
+11     10 123.2
+12     11 141.5
+13     12 162.4</code></pre>
+</div>
+</div>
+<p>D_ Calcular la <strong>tasa instantánea de crecimiento</strong> <span class="math inline">r</span> a partir de <span class="math inline">\lambda</span> (<span class="math inline">r=\ln(\lambda)</span>), y reproducir el <strong>modelo continuo</strong> (<span class="math inline">N_{t}=N_{0}e^{rt}</span>):</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">log</span>(lambda)   <span class="co"># tasa intrínseca de crecimiento</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1380213</code></pre>
+</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Nt_continuo <span class="ot">&lt;-</span> N0 <span class="sc">*</span> <span class="fu">exp</span>(r <span class="sc">*</span> t)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">tiempo =</span> t, <span class="at">N =</span> <span class="fu">round</span>(Nt_continuo, <span class="dv">1</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   tiempo     N
+1       0  31.0
+2       1  35.6
+3       2  40.9
+4       3  46.9
+5       4  53.8
+6       5  61.8
+7       6  71.0
+8       7  81.5
+9       8  93.5
+10      9 107.4
+11     10 123.2
+12     11 141.5
+13     12 162.4</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>¿Cuál fue la tasa instantánea de crecimiento que obtuviste? Compárala con la que calculaste manualmente en el paso E de RAMAS EcoLab. ¿<code>Nt_discreto</code> y <code>Nt_continuo</code> coinciden? ¿Por qué deberían ser prácticamente iguales si usan la misma tasa de crecimiento?</p>
+</blockquote>
+<p>E_ Graficar la trayectoria poblacional:</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">tiempo =</span> t, <span class="at">N =</span> Nt_continuo), <span class="fu">aes</span>(<span class="at">x =</span> tiempo, <span class="at">y =</span> N)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#1f78b4"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#fc8d62"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Crecimiento exponencial continuo"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Tiempo"</span>, <span class="at">y =</span> <span class="st">"Tamaño poblacional (N)"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Taller4.1.Poblaciones.exp_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>F_ <strong>(Opcional) Estocasticidad demográfica.</strong> Simular 100 réplicas incorporando variabilidad en <span class="math inline">\lambda</span> — equivalente al ejercicio de estocasticidad realizado en RAMAS EcoLab (pasos H a K) — usando la misma desviación estándar de R (0.075):</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>replicas <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sd_lambda <span class="ot">&lt;-</span> <span class="fl">0.075</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span>replicas, <span class="cf">function</span>(i) {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  lambda_var <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(t), <span class="at">mean =</span> lambda, <span class="at">sd =</span> sd_lambda)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  N0 <span class="sc">*</span> <span class="fu">cumprod</span>(<span class="fu">c</span>(<span class="dv">1</span>, lambda_var[<span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(t, sim, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"grey80"</span>, <span class="at">lty =</span> <span class="dv">1</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Tiempo"</span>, <span class="at">ylab =</span> <span class="st">"Tamaño poblacional (N)"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Trayectorias estocásticas (100 réplicas)"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(t, Nt_discreto, <span class="at">col =</span> <span class="st">"#1f78b4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Trayectorias simuladas"</span>, <span class="st">"Trayectoria determinística"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"grey80"</span>, <span class="st">"#1f78b4"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">bty =</span> <span class="st">"n"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Taller4.1.Poblaciones.exp_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Compara esta figura con la curva de riesgo de extinción/declive que obtuviste en RAMAS EcoLab (paso K). ¿Alguna trayectoria simulada en R se aleja mucho de la trayectoria determinística? ¿A qué se debe esa variabilidad?</p>
+</blockquote>
+<p>G_ <strong>Aplicación al contexto Caribe colombiano.</strong> Reemplaza <span class="math inline">N_{0}</span>, <span class="math inline">\lambda</span> y la duración por los de una población real o hipotética de la región — por ejemplo, el crecimiento de una colonia de aves acuáticas en la Ciénaga Grande de Santa Marta, o la expansión de una especie invasora como el pez león (<em>Pterois volitans</em>) en un arrecife del Parque Tayrona — y responde: bajo el modelo exponencial, ¿en cuántos años se duplicaría esa población? ¿Es razonable asumir crecimiento exponencial indefinido para ese caso? ¿Qué factor limitaría ese crecimiento en la realidad?</p>
+<ul>
+<li>El archivo de base para este taller (extensión quarto - <em>qmd</em>) se encuentra en el siguiente enlace (📖<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Taller4.poblaciones.exp.qmd">Enlace_Taller</a>).</li>
+<li>Seguir las indicaciones adicionales del docente durante la sesión.</li>
+</ul>
+</section>
+</section>
+<section id="referencias-bibliográficas" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="referencias-bibliográficas">Referencias bibliográficas</h2>
+<ol type="1">
+<li><p><strong>Akçakaya,</strong> H. Resit, Mark A. Burgman, and Lev R. Ginzburg. Applied Population Ecology: Principles and Computer Exercises Using RAMAS EcoLab 2.0. Segunda edición. Sunderland: Sinauer Associates, 1999. (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/kc5p7o/alma990000155580107076">enlace del libro</a>)</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://m.media-amazon.com/images/I/41w-rdJNSCL._SX357_BO1,204,203,200_.jpg" class="img-fluid figure-img" style="width:15.0%"></p>
+<p></p><figcaption class="figure-caption">Capítulo 1. Population Growth.</figcaption><p></p>
+</figure>
+</div></li>
+<li><p><strong>Gotelli</strong>, Nicholas J. A Primer of Ecology. Cuarta edición. Massachusetts: Sinauer Associates, 2008. (📖<a href="https://unimagdalena.primo.exlibrisgroup.com/permalink/57UMA_INST/1mttj4m/alma990000339950107076">enlace del libro</a>)</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://i.ebayimg.com/images/g/eAAAAOSwRv1jR8ko/s-l500.jpg" class="img-fluid figure-img" style="width:15.0%"></p>
+<p></p><figcaption class="figure-caption">Capítulo 1. Exponential Population Growth.</figcaption><p></p>
+</figure>
+</div></li>
+<li><p><strong>Notas de clase de poblaciones</strong>. Javier Rodríguez-Barrios. 📃<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Notas_clase_poblaciones.pdf">Enlace al pdf de las notas de clase</a></p>
+<p><img src="https://images.pexels.com/photos/6238030/pexels-photo-6238030.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" class="img-fluid" style="width:22.0%"></p></li>
+<li><p><strong>Ecuaciones requeridas</strong> para las clases de poblaciones. Javier Rodríguez-Barrios. 📃<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Ecuaciones_poblaciones_ex_log.pdf">Enlace al pdf de las ecuaciones</a></p>
+<p><img src="https://media.istockphoto.com/id/467782423/es/foto/pizarra.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=qQgX6gxRoi4TYneBKbV8iQyCzKSB8K9hKRyJuK5H8-E=" class="img-fluid" style="width:21.0%"></p></li>
+<li><p><strong>Diapositivas</strong> para las clases de poblaciones. Javier Rodríguez-Barrios. 📰<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Clase4.Poblaciones_Diapositivas.pdf">Enlace al pdf de las diapositivas</a></p>
+<p><img src="https://media.istockphoto.com/id/1452436256/es/foto/diapositiva-de-control-remoto-de-mano-de-hombre-de-negocios-con-presentaci%C3%B3n-en-pantalla.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=YmUqCtGDSRNLlBO1v_b44o8O1JD6ZXQqKz2KIoIbfiI=" class="img-fluid" style="width:21.0%"></p></li>
+</ol>
+</section>
+<section id="cuestionario-de-estudio" class="level2 titulo-modulo">
+<h2 class="titulo-modulo anchored" data-anchor-id="cuestionario-de-estudio">Cuestionario de estudio</h2>
+<p><img src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" class="img-fluid" style="width:36.0%"></p>
+<p><em>Imagen tomada de <a href="https://www.pexels.com/es-es/@alex-green/">Alex Green</a> en Pexels.</em></p>
+<p>El siguiente cuestionario es tomado de las notas de clase 📰<a href="https://javier-2712.github.io/Ecologia1/Taller4.poblaciones.exp/Notas_clase_poblaciones.pdf">Enlace</a>; se requiere resolver las siguientes preguntas, que servirán para realizar un entrenamiento previo a la evaluación que realizará el docente sobre modelos exponenciales en poblaciones. En la medida de las posibilidades, es necesario que cada ejercicio sea graficado y se analicen los resultados obtenidos.</p>
+<section id="preguntas-sobre-modelos-de-crecimiento-exponencial" class="level3 paso-taller">
+<h3 class="paso-taller anchored" data-anchor-id="preguntas-sobre-modelos-de-crecimiento-exponencial">Preguntas sobre modelos de crecimiento exponencial</h3>
+<ol type="1">
+<li>Una población biológica crece a una tasa anual del 6%. Si la población actual es de 5000, ¿cuál será en 7 años?</li>
+</ol>
+<hr>
+<ol start="2" type="1">
+<li>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</li>
+</ol>
+<hr>
+<ol start="3" type="1">
+<li>Un virus se propaga en una comunidad duplicándose cada 1.5 días. Si inicialmente hay 500 virus, ¿cuál es la población después de 10 días?</li>
+</ol>
+<hr>
+<ol start="4" type="1">
+<li>Una población de peces crece a una tasa del 5% anual. Si en 12 años la población alcanza los 6,000 individuos, ¿cuál era la población inicial?</li>
+</ol>
+<hr>
+<ol start="5" type="1">
+<li>Una colonia de bacterias crece a una tasa anual del 8%. Si inicialmente hay 1,500 bacterias, ¿cuántas bacterias habrá al cabo de 10 años?</li>
+</ol>
+<hr>
+<ol start="6" type="1">
+<li>En un experimento, se observa que una población de microbios se triplica en 10 horas. Si la población inicial es de 200 microbios,</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>determina la tasa ( r );</li>
+<li>calcula la población después de 15 horas.</li>
+</ol>
+<hr>
+<ol start="7" type="1">
+<li>Una población de aves crece a un ritmo anual del 5%. Si la población actual es de 2000, ¿cuántos años se tardará para que la población se duplique? (Redondea tu respuesta a la centésima más cercana.)</li>
+</ol>
+<hr>
+<ol start="8" type="1">
+<li>Una población de insectos se duplica cada 8 años. Si actualmente hay 5,000 insectos, ¿cuál será la población en 24 años?</li>
+</ol>
+<hr>
+<ol start="9" type="1">
+<li>Una población de hormigas presenta una tasa de disminución anual del 7,2%. ¿Cuántos años le tomará a esta población, cuya biomasa es de 227 gramos, reducirse a 93 gramos?</li>
+</ol>
+<hr>
+<ol start="10" type="1">
+<li>Una población de conejos decrece a una tasa anual del 4%. Si actualmente hay 1,200 conejos, ¿cuántos años se necesitarán para que la población se reduzca a 800?</li>
+</ol>
+<hr>
+<ol start="11" type="1">
+<li>Supongamos que la población de peces marinos crece a una tasa anual del 7%. Si la población actual es de 8000 individuos, ¿cuántos años se tardará para que la población alcance los 18000 individuos?</li>
+</ol>
+<hr>
+<ol start="12" type="1">
+<li>Una población de algas en un lago crece a una tasa anual del 9%. Si actualmente hay 10,000 unidades, ¿en cuántos años se alcanzarán 50,000 unidades?</li>
+</ol>
+<hr>
+<ol start="13" type="1">
+<li>Se estima que una población de ardillas aumentará de 1,800 a 2,500 en 10 años. Determina la tasa de crecimiento instantáneo <span class="math inline">r</span>.</li>
+</ol>
+<hr>
+<ol start="14" type="1">
+<li>Una población silvestre crece a una tasa anual del 7%. Si la población alcanza los 2000 individuos en 7 años, ¿cuál era el tamaño de la población inicial?</li>
+</ol>
+<hr>
+<ol start="15" type="1">
+<li>Una población de curíes de interés para consumo crece a una tasa anual del 3%. Si la población actual es de 3000 individuos, ¿cuántos años se tardará para que la población doble su densidad?</li>
+</ol>
+<hr>
+<ol start="16" type="1">
+<li>En un cultivo de hongos, la población aumenta de 300 a 1200 en 6 días.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Determina la tasa ( r ).</li>
+<li>Calcula el tiempo de duplicación de la población.</li>
+</ol>
+<hr>
+<ol start="17" type="1">
+<li>Una población de virus en un cultivo crece exponencialmente. Si la población aumenta de <span class="math inline">10^3</span> a <span class="math inline">10^9</span> en 24 horas, ¿cuál es la tasa de crecimiento instantáneo <span class="math inline">r</span> y cuál es el tiempo de duplicación?</li>
+</ol>
+<hr>
+<ol start="18" type="1">
+<li>Una población endémica de mariposas declina su densidad anual en un 12,5%. A partir de una muestra de 127 gramos de biomasa, ¿cuál será su biomasa a los 6 años?</li>
+</ol>
+<hr>
+<ol start="19" type="1">
+<li>Según el artículo “U.S. reaching the 300 million person milestone”, la población de EE.UU. alcanzó los 200 millones en 1967. Asumiendo que en 2007 la población es de 303 millones,</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de incremento instantáneo anual.</li>
+<li>Si esta tendencia continúa por los 20 años siguientes, ¿cuál será el tamaño de la población en 2027?</li>
+</ol>
+<hr>
+<ol start="20" type="1">
+<li>Una población de elefantes crece a una tasa anual del 2%. Actualmente hay 800 elefantes, ¿en cuántos años se triplicará la población?</li>
+</ol>
+<hr>
+<ol start="21" type="1">
+<li>Según las proyecciones de las Naciones Unidas, para el año 2050 se estima que la población mundial estará en un rango:</li>
+</ol>
+<!-- -->
+<ul>
+<li>Menor estimador: 7.3 billones de personas.</li>
+<li>Mayor estimador: 10.7 billones de personas.</li>
+</ul>
+<!-- -->
+<p>Si se asume que la población mundial inicia con 8.1 billones en 2023, ¿cuál es la tasa de incremento anual en cada estimador? (El tiempo transcurrido es de 27 años, de 2023 a 2050). <a href="https://countrymeters.info/es/World" class="uri">https://countrymeters.info/es/World</a></p>
+<hr>
+<ol start="22" type="1">
+<li>Con una tasa de crecimiento poblacional de ( r = 2.8% ) anual, ¿cuánto tiempo tomaría que un par de individuos produzca la población mundial actual (cerca de 10 billones de personas)? Además, ¿en qué tiempo se duplicaría esta población? Discuta el resultado.</li>
+</ol>
+<hr>
+<ol start="23" type="1">
+<li>Se esperaba que la población humana mundial doblara en tamaño en aproximadamente 50 años.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ) asumiendo este tiempo de duplicación.</li>
+<li>Si la población en 1993 era de 5400 millones, ¿cuál es el tamaño proyectado para el año 2030?</li>
+</ol>
+<hr>
+<ol start="24" type="1">
+<li>Usted estudia una población de escarabajos con un tamaño inicial de 3000. Durante un mes se registraron 400 nacimientos y 150 muertes.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Estime la tasa de crecimiento ( r ).</li>
+<li>Proyecte el tamaño poblacional en 6 meses.</li>
+</ol>
+<hr>
+<ol start="25" type="1">
+<li>Usted estudia una población de orquídeas en peligro, para las cuales la tasa de nacimientos es ( b = 0.0021 ) nacimientos/individuo.año y la tasa de muertes es ( d = 0.0020 ) muertes/individuo.año. La población actual es de 40 plantas. Se proyecta que un nuevo centro comercial reducirá esta población a 20 plantas. Explique el efecto del desarrollo propuesto sobre la probabilidad de extinción de esta población.</li>
+</ol>
+<hr>
+<ol start="26" type="1">
+<li>Si una población de <em>E. coli</em> crece de 1000 células a ( 2 ^9 ) células en 6 horas, ¿cuál es su tasa intrínseca de incremento? ¿Está la población duplicándose en el tiempo esperado?</li>
+</ol>
+<hr>
+<ol start="27" type="1">
+<li>Una especie invasora de plantas disminuye su población a una tasa del 3% anual debido a medidas de control. Si inicialmente hay 5,000 plantas: a) ¿Cuál será el número aproximado de plantas después de 20 años? b) ¿Cuánto tiempo se necesitará para reducir la población a la mitad?</li>
+</ol>
+<hr>
+<ol start="28" type="1">
+<li>Una colonia de bacterias se duplica cada 4 horas.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Determina la tasa de crecimiento instantáneo ( r ).</li>
+<li>Calcula el tiempo necesario para que la población se incremente a 10 veces la cantidad inicial.</li>
+</ol>
+<hr>
+<ol start="29" type="1">
+<li>Una población de conejos aumenta de 250 a 800 individuos en 12 meses siguiendo un modelo exponencial.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Estima la población al cabo de 24 meses.</li>
+</ol>
+<hr>
+<ol start="30" type="1">
+<li>Un cultivo de células aumenta de 10,000 a 25,000 en 48 horas siguiendo un modelo exponencial.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento ( r ).</li>
+<li>Estima la población a las 72 horas.</li>
+</ol>
+<hr>
+<ol start="31" type="1">
+<li>Una colonia de algas en un estanque aumenta en un 200% en 30 días (es decir, la población se convierte en 3 veces la inicial).</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Determina la tasa ( r );</li>
+<li>¿En cuántos días se habrá cuadruplicado la población respecto a la inicial?</li>
+</ol>
+<hr>
+<ol start="32" type="1">
+<li>Una población de bacterias crece un 25% cada 2 horas de forma compuesta.</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>Calcula la tasa de crecimiento instantáneo ( r ).</li>
+<li>Estima la población después de 10 horas si la población inicial es de 800 bacterias.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller3.Ambiente.eco.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller3. Ambiente</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
