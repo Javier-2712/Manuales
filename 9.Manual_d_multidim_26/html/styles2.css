@@ -1,0 +1,58 @@
+/* TITULOS Y SUBTITULOS */
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+}
+
+h1 { color: #1f78b4; }  /* Azul */
+h2 { color: #018571; }  /* Rojo */
+h3 { color: #fd8d3c; }  /* Verde */
+h4 { color: #a6611a; }  /* Marrón */
+h5 { color: #d83838; }  /* Naranja */
+h6 { color: #999999; }  /* Gris */
+
+/* LISTAS */
+ul, ol {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+ul {
+    color: #4CAF50; /* Verde */
+    font-family: 'Arial', sans-serif;
+}
+ol {
+    color: #0571b0; /* Azul */
+    font-family: 'Verdana', sans-serif;
+}
+
+/* TEXTO JUSTIFICADO GENERAL, EXCEPTO TABLAS */
+body, p {
+    text-align: justify;
+}
+
+/* TABLAS: EVITAR EXPANSIÓN COMPLETA DEL ANCHO */
+table {
+    text-align: left !important;  /* Asegura alineación izquierda */
+    width: auto !important;  /* Evita que las tablas ocupen el 100% del ancho */
+    max-width: 80%;  /* Controla el tamaño máximo */
+    margin: auto;  /* Centra la tabla si no usa toda la página */
+    border-collapse: collapse;
+}
+
+/* CELDAS: ALINEACIÓN A LA IZQUIERDA */
+th, td {
+    text-align: left !important; /* Evita justificación en celdas */
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* OPCIÓN ADICIONAL: APLICAR CLASE MANUALMENTE EN CASO DE CONFLICTO */
+.table-left, .table-left th, .table-left td {
+    text-align: left !important;
+}
+
+/* PARA TABLAS QUE NECESITAN OCUPAR TODO EL ANCHO, APLICA ESTA CLASE */
+.table-full {
+    width: 100% !important;
+    max-width: 100% !important;
+}
