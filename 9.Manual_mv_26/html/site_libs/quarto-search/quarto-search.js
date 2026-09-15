@@ -55,12 +55,7 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
 
   // highlight matches on the page
   if (query && mainEl) {
-<<<<<<< HEAD
     highlight(query, mainEl);
-=======
-    // perform any highlighting
-    highlight(escapeRegExp(query), mainEl);
->>>>>>> 50598a584314567f4ea125c2a8adc36f878bb473
 
     // Activate tabs on pageshow — after tabsets.js restores localStorage state.
     // tabsets.js registers its pageshow handler during module execution (before
@@ -323,14 +318,8 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
               return createElement(
                 "div",
                 {
-<<<<<<< HEAD
                   class: `quarto-search-no-results${hasQuery ? "" : " no-query"
                     }`,
-=======
-                  class: `quarto-search-no-results${
-                    hasQuery ? "" : " no-query"
-                  }`,
->>>>>>> 50598a584314567f4ea125c2a8adc36f878bb473
                 },
                 language["search-no-results-text"]
               );
@@ -1130,20 +1119,9 @@ function clearHighlight(searchterm, el) {
   }
 }
 
-<<<<<<< HEAD
 /** Get all html nodes under the given `root` that don't have children. */
 function getLeafNodes(root) {
   let leaves = [];
-=======
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
-}
-
-// highlight matches
-function highlight(term, el) {
-  const termRegex = new RegExp(term, "ig");
-  const childNodes = el.childNodes;
->>>>>>> 50598a584314567f4ea125c2a8adc36f878bb473
 
   function traverse(node) {
     if (node.childNodes.length === 0) {
