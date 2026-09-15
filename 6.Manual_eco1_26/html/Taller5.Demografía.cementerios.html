@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Taller1. Introducción – Repositorio de Talleres de Ecología 1 - 2026</title>
+<title>Taller5. Demog.Humana – Repositorio de Talleres de Ecología 1 - 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Taller2.Análisis.climático.html" rel="next">
-<link href="./videos.clases.html" rel="prev">
+<link href="./Salida.campo.eco1-.html" rel="next">
+<link href="./Taller4.2.Poblaciones.log.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,6 +82,49 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -95,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller1.Introducción.eco.html">Taller1. Introducción</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller5.Demografía.cementerios.html">Taller5. Demog.Humana</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -134,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Taller1.Introducción.eco.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller1. Introducción</span></a>
   </div>
 </li>
@@ -164,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link">
+  <a href="./Taller5.Demografía.cementerios.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller5. Demog.Humana</span></a>
   </div>
 </li>
@@ -184,16 +227,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#taller-introductorio-a-ecología-1" id="toc-taller-introductorio-a-ecología-1" class="nav-link active" data-scroll-target="#taller-introductorio-a-ecología-1">Taller introductorio a Ecología 1</a></li>
-  <li><a href="#objetivo-de-la-actividad" id="toc-objetivo-de-la-actividad" class="nav-link" data-scroll-target="#objetivo-de-la-actividad">Objetivo de la actividad</a></li>
-  <li><a href="#integrantes-del-grupo-de-trabajo" id="toc-integrantes-del-grupo-de-trabajo" class="nav-link" data-scroll-target="#integrantes-del-grupo-de-trabajo">Integrantes del grupo de trabajo</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#requerimientos-del-informe" id="toc-requerimientos-del-informe" class="nav-link" data-scroll-target="#requerimientos-del-informe">Requerimientos del Informe</a>
   <ul>
-  <li><a href="#lecturas-para-la-clase." id="toc-lecturas-para-la-clase." class="nav-link" data-scroll-target="#lecturas-para-la-clase.">1. Lecturas para la clase.</a></li>
-  <li><a href="#trabajos-ecológicos." id="toc-trabajos-ecológicos." class="nav-link" data-scroll-target="#trabajos-ecológicos.">2. Trabajos ecológicos.</a></li>
-  <li><a href="#propuesta-de-proyecto." id="toc-propuesta-de-proyecto." class="nav-link" data-scroll-target="#propuesta-de-proyecto.">3. Propuesta de proyecto.</a></li>
+  <li><a href="#paso-1-resumen-introducción-y-metodología-del-informe." id="toc-paso-1-resumen-introducción-y-metodología-del-informe." class="nav-link" data-scroll-target="#paso-1-resumen-introducción-y-metodología-del-informe.">Paso 1: Resumen, introducción y metodología del informe.</a></li>
+  <li><a href="#paso-2-recopilación-de-datos-del-cementerio" id="toc-paso-2-recopilación-de-datos-del-cementerio" class="nav-link" data-scroll-target="#paso-2-recopilación-de-datos-del-cementerio">Paso 2: Recopilación de datos del cementerio</a></li>
+  <li><a href="#paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex." id="toc-paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex." class="nav-link" data-scroll-target="#paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex.">Paso 3: Resultados del informe. Estimadores demográficos por cada cementerio (q<sub>x</sub>, l<sub>x</sub>, S<sub>x</sub>, e<sub>x</sub>).</a></li>
   </ul></li>
-  <li><a href="#entrega-y-socialización-del-taller" id="toc-entrega-y-socialización-del-taller" class="nav-link" data-scroll-target="#entrega-y-socialización-del-taller">Entrega y socialización del taller</a></li>
-  <li><a href="#referencias-bibliográficas-sobre-introducción-a-la-ecología" id="toc-referencias-bibliográficas-sobre-introducción-a-la-ecología" class="nav-link" data-scroll-target="#referencias-bibliográficas-sobre-introducción-a-la-ecología">Referencias bibliográficas sobre introducción a la ecología</a></li>
+  <li><a href="#cuestionario" id="toc-cuestionario" class="nav-link" data-scroll-target="#cuestionario">Cuestionario</a></li>
+  <li><a href="#discusión-de-los-resultados." id="toc-discusión-de-los-resultados." class="nav-link" data-scroll-target="#discusión-de-los-resultados.">Discusión de los resultados.</a></li>
+  <li><a href="#citas-bibliográficas" id="toc-citas-bibliográficas" class="nav-link" data-scroll-target="#citas-bibliográficas">Citas Bibliográficas</a></li>
   </ul>
 </nav>
     </div>
@@ -202,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Taller1. Introducción</h1>
+<h1 class="title">Taller5. Demog.Humana</h1>
 </div>
 
 
@@ -219,122 +262,236 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="taller-introductorio-a-ecología-1" class="level2 titulo-modulo">
-<h2 class="titulo-modulo anchored" data-anchor-id="taller-introductorio-a-ecología-1">Taller introductorio a Ecología 1</h2>
-<p><img src="Figuras/intro_ecología.png" class="img-fluid" style="width:100.0%"></p>
-<p>La ecología es una disciplina de las ciencias que ha venido evolucionando de acuerdo a los retos ambientales que se presentan a diferentes escalas, en donde convergen problemáticas que fluctúan en <strong>espacio</strong> y <strong>tiempo</strong>. Ya no basta con analizar los elementos bióticos y abióticos que ineractúan en la naturaleza, debido a que la especie humana se convierte en un tensor relevante, que en su dinámica social, interviene de forma directa sobre los diferentes niveles de organización de la naturaleza. Es por ello que el presente taller se orienta hacia una reflexión profunda de cómo podemos intervenir en aspectos como la conservación, recuperación, rehabilitación, restauración, entre otros tecnicismos, de ambientes alterados ya sea por factores naturales (ej. variación climática o gradientes de altura y/o profundidad), eventos naturales de gran escala (ej. cambio climático) o tensores antrópicos (ej. ausencia de una cultura ambiental, de sostenibilidad o de conocimiento de procesos ecológicos).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras/cementerio.jpg" class="img-fluid figure-img" style="width:90.0%" data-fig-pos="!htbp"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>La <strong>demografía</strong>, la ciencia que se dedica al estudio de las poblaciones humanas, desempeña un papel fundamental en la comprensión de la historia y evolución de nuestra especie, Homo sapiens. Uno de los métodos más fascinantes para analizar la demografía de poblaciones pasadas es el uso de <strong>tablas de vida</strong> estáticas, las cuales proporcionan un vistazo detallado a la mortalidad y la esperanza de vida en un momento particular en la historia.</p>
+<p>Las <strong>tablas de vida</strong> son herramientas esenciales para la demografía, desempeñan un papel fundamental en la comprensión de la dinámica de poblaciones y de su calidad de vida. Estas tablas proporcionan un retrato detallado de la mortalidad y la esperanza de vida en diferentes grupos de edad, lo que permite a los investigadores analizar y comparar las características demográficas de poblaciones humanas a lo largo del tiempo y en diversas regiones geográficas.</p>
+<p>Como señala <em>Coale (1972)</em>, pionero en el campo de la demografía, “las tablas de vida son un registro histórico de la experiencia de una población con respecto a su mortalidad” y, por lo tanto, son una herramienta invaluable para rastrear la evolución de las poblaciones. Además, las tablas de vida estánticas, que se centran en una cohorte específica en un período dado, ofrecen una visión única de la estructura de edad y los patrones de mortalidad en un momento concreto.</p>
+<p>Como señala <em>Wachter (2014)</em>, “las tablas de vida estáticas son herramientas esenciales en la investigación demográfica, permitiéndonos desentrañar los misterios de cómo las poblaciones humanas han evolucionado a lo largo del tiempo”. En palabras de <em>Carey (2001)</em> “las tablas de vida estáticas nos brindan una visión instantánea y detallada de cómo las poblaciones están estructuradas por edades y géneros en un momento particular, lo que es fundamental para comprender los desafíos demográficos y sociales que enfrenta una sociedad en un período histórico específico”.</p>
+<p>El presente taller tiene como <strong>objetivo</strong> elaborar tablas de vida estáticas y analizar su aplicación en el análisis de poblaciones humanas, centrándose en su capacidad para revelar tendencias históricas y diferencias en la esperanza de vida y las tasas de mortalidad, siguiendo los principios definidos por la Sociedad Ecológica de América (ESA) en su enfoque interdisciplinario para la investigación demográfica (<em>Ellis et al., 2012</em>). A través de este análisis, se valorará la demografía de <em>Homo sapiens</em>, en un período específico en el pasado, en muestras tomadas de cementerios, para brindar información sobre las tasas de mortalidad, la distribución por grupos de edad y la esperanza de vida al nacer.</p>
 </section>
-<section id="objetivo-de-la-actividad" class="level2 titulo-modulo">
-<h2 class="titulo-modulo anchored" data-anchor-id="objetivo-de-la-actividad">Objetivo de la actividad</h2>
-<p><img src="https://images.pexels.com/photos/2213443/pexels-photo-2213443.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600&amp;lazy=load" class="img-fluid" width="400"></p>
-<p>[<span class="credito-imagen">Imágen tomada de <a href="https://www.pexels.com/es-es/@tomfisk/">Tom Fisk</a></span>]</p>
-<p>Generar competencias en como aplicamos elementos del contexto ecológico, sobre problemáticas ambientales de nuestro entorno, desde una mirada interdisciplinaria y sistémica.</p>
-</section>
-<section id="integrantes-del-grupo-de-trabajo" class="level2 titulo-modulo">
-<h2 class="titulo-modulo anchored" data-anchor-id="integrantes-del-grupo-de-trabajo">Integrantes del grupo de trabajo</h2>
-<p><img src="https://as1.ftcdn.net/v2/jpg/07/45/35/58/1000_F_745355810_mBTyJNWERNmzs4J4c2DqWX88y2ioJQUg.jpg" class="img-fluid" width="400"></p>
-<p>[<span class="credito-imagen">Imágen tomada de <a href="https://stock.adobe.com/co/contributor/205898751/urbanscape?load_type=author&amp;prev_url=detail">Urbanscape</a></span>]</p>
-<p>Grupos de máximo 4 estudiantes. El primer punto debe ser realizado de forma individual pero todo el taller debe ser ingresado por un estudiante que represente al grupo, colocando los nombres y apellidos de los integrantes, para poderlos identificar. Para más detalles de requerimientos de esta actividad, ver: 📖<a href="#entrega-y-socialización-del-taller">Entrega y socialización del taller</a></p>
-<section id="lecturas-para-la-clase." class="level3 titulo-tema">
-<h3 class="titulo-tema anchored" data-anchor-id="lecturas-para-la-clase.">1. Lecturas para la clase.</h3>
-<p><strong>Requerimiento</strong>. Basado en el capítulo de <strong>Rodríguez (2016). Ecología (4a. ed.)</strong>, El capítulo se llama <strong><em>Introducción. Ecología: del organismo al ecosistema</em></strong>, que se encuentra en el siguiente enlace: 📖<a href="https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/49165?page=21">ENLACE_DEL_LIBRO</a></p>
-<p>Basado en el capítulo de <strong>Smith y Smith (2008). Elementos de Ecología (9a. ed.)</strong>. El Capítulo se titula <strong><em>Naturaleza de la ecología</em></strong> y se encuentra en este enlace de la biblioteca: 📖<a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=3488&amp;pg=24">ENLACE_DEL_LIBRO</a></p>
+<section id="requerimientos-del-informe" class="level2">
+<h2 class="anchored" data-anchor-id="requerimientos-del-informe">Requerimientos del Informe</h2>
+<p><img src="Figuras/Cementerio.PNG" class="img-fluid" width="400"></p>
+<p>modificada de González et al.&nbsp;(2023)<br>
+</p>
+<section id="paso-1-resumen-introducción-y-metodología-del-informe." class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-resumen-introducción-y-metodología-del-informe.">Paso 1: Resumen, introducción y metodología del informe.</h4>
 <ul>
-<li><p><strong>Mapa conceptual</strong>. Basado en las lecturas introductorias y otras referencias bibliográficas revisadas, se requiere elaborar un <strong><em>mapa conceptual</em></strong> en donde se indique el campo de acción de la ecología y otras disciplinas de apoyo, que brindan respuesta a temas ecológicos o ambientales complejos.</p></li>
-<li><p><strong>Nota.</strong> Cada estudiante entregará en la asignación grupal, su mapa conceptual en una página y la valoración de este punto será individual.</p></li>
+<li><p><strong><em>Título del taller.</em></strong> Redactar un título, acorde al ejercicio realizdo.</p></li>
+<li><p><strong><em>Resumen</em></strong>. Resumir en un párrafo, la ubicación de los cementerios evaluados, el objetivo del trabajo, la metodología empleada y los resultados encontrados. Incluir tres palabras clave al final del resumen.</p></li>
+<li><p><strong><em>Introducción.</em></strong> Relacionar estudios realizados sobre el tema, a nivel mundial, nacional y local. Finalizar con el objetivo del trabajo (pude incluir las hipótesis a evaluar).</p></li>
+<li><p><strong>Metodología del informe.</strong> Explicar cómo fue el diseño de muestreo en cada cementerio, así como el análisis de datos realizado. Incluir fotos y un dibujo del croquis realizado en los sitios censados.</p></li>
 </ul>
 </section>
-<section id="trabajos-ecológicos." class="level3 titulo-tema">
-<h3 class="titulo-tema anchored" data-anchor-id="trabajos-ecológicos.">2. Trabajos ecológicos.</h3>
-<p><strong>Requerimiento</strong>. Revisar en fuentes confiables y contrastadas experimentalmente (ej. google académico, revistas científicas, libros de la biblioteca, etc.), <strong><em>dos trabajos</em></strong> relacionados con un tema ecológico o ambiental, preferiblemente en el ámbito local o nacional. Diligenciar en la tabla que se relaciona a continuació, los siguientes aspectos:</p>
-<ul>
-<li><p>Titulo y año del trabajo.</p></li>
-<li><p>Autores del trabajo.</p></li>
-<li><p>Referencia bibliográfica del trabajo.</p></li>
-<li><p>Numerar el nivel de organización abordado (ej. poblaciones, comunidades, ambiente, …).</p></li>
-<li><p>Cómo se resolvió cada problema planteado.</p></li>
-<li><p><strong>Nota.</strong> Este punto será entregado de forma grupal.</p></li>
-</ul>
-<p><strong>Tabla 1</strong>. Para diligenciar la información solicitada. En cada fila, se relaciona a la información de cada trabajo.</p>
-<p><img src="Figuras/tabla1.jpg" class="img-fluid" style="width:100.0%"></p>
-<ul>
-<li><p>Elaborar un <strong><em>mapa conceptual</em></strong> o un <strong><em>flujograma</em></strong>, en el que relacionen los dos trabajos analizados.</p></li>
-<li><p>Además de la ecología, indique otras áreas del conocimiento evaluadas en el trabajo y su importancia para dar respuesta a las problemáticas abordadas.</p></li>
-</ul>
+<section id="paso-2-recopilación-de-datos-del-cementerio" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-recopilación-de-datos-del-cementerio">Paso 2: Recopilación de datos del cementerio</h4>
+<p><img src="Figuras/Cementerio2.PNG" class="img-fluid" width="400"></p>
+<p>Se requieren datos de las fechas de nacimiento y defunción, así como el género de las personas censadas. Organizarse en grupos de tres estudiantes, tomar datos de mínimo 200 tumbas seleccionadas al azar. Si es un mausoleo (tumbas familiares), tomar datos de una sola tumba. Tabular los siguientes datos:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>No</th>
+<th>Año de nacimiento</th>
+<th>Año de Muerte</th>
+<th>Edad de muerte</th>
+<th><p>Sexo</p>
+<p>F (Fem), M (Masc)</p></th>
+<th>Observaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1960</td>
+<td>1980</td>
+<td>20</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1970</td>
+<td>2010</td>
+<td>30</td>
+<td>M</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1950</td>
+<td>2020</td>
+<td>70</td>
+<td>M</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cada grupo debe tabular los datos en el siguiente enlace, posteriormente se debe descargar la tabla en formato&nbsp;<em><code>xlsx</code></em>&nbsp;y anexarla al informe: <a href="https://universidadmag-my.sharepoint.com/:x:/g/personal/jrodriguez_unimagdalena_edu_co/EYwVnNlnz6ZGnMLiNeRMqdMBgSDJdnn9yhOT-LRmCYH8vg?e=2z7R3R">Enlace_tabla</a></p>
+<p>Diseñar un croquis del cementerio, con la ubicación de las tumbas censadas. Este documento debe ser cargado en la asignación del taller.</p>
+<p><img src="Figuras/Cementerio1.png" class="img-fluid" width="400"></p>
+<p>[Ejemplo del diseño de muestreo del cementerio Jardines de Jerusalen de Santa Marta. {.smallcaps}</p>
 </section>
-<section id="propuesta-de-proyecto." class="level3 titulo-tema">
-<h3 class="titulo-tema anchored" data-anchor-id="propuesta-de-proyecto.">3. Propuesta de proyecto.</h3>
-<p><strong>Requerimiento</strong>. Elaborar una propuesta de solución ante un problema ambiental o ecológico local (ej. Alguna cuenca de la ciudad, bahías aledañas, sector urbano, parques naturales cercanos, municipio de tu procedencia, etc.), aplicando los conceptos básicos de Ecología vistos en clase.</p>
+<section id="paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex." class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-resultados-del-informe.-estimadores-demográficos-por-cada-cementerio-qx-lx-sx-ex.">Paso 3: Resultados del informe. Estimadores demográficos por cada cementerio (q<sub>x</sub>, l<sub>x</sub>, S<sub>x</sub>, e<sub>x</sub>).</h4>
+<p>: Para construir la <strong><em>tabla de vida estática</em></strong>, hay que clasificar a las personas fallecidas en diferentes grupos de edad. Esto puede hacerse en rangos de 10 años. Son tres tablas de vida (tv): (1) tv general, (2) tv de hombres y (3) tv de mujeres. <strong>Ej. para hombres:</strong></p>
 <ul>
-<li><p>Discutirán y documentarán los problemas ambientales más importantes de nuestra ciudad o departamento y seleccionarán uno, que no coincida con el de los demás grupos.</p></li>
-<li><p>Investigar y realizar un listado resumido de las causas y consecuencias de la problemática planteada, así como las posibles soluciones. Pueden apoyarse de la siguiente tabla.</p></li>
+<li><p>Grupo de edad 0-9 años</p></li>
+<li><p>Grupo de edad 10-19 años, hasta 90-99 años</p></li>
 </ul>
-<p><strong>Tabla 2a</strong>. Para diligenciar la información solicitada del proyecto en construcción.</p>
-<p><img src="Figuras/tabla2.jpg" class="img-fluid" style="width:100.0%"></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 33%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Clase de Edad</th>
+<th>Frecuencia de Hombres</th>
+<th>Cohorte Ficticia<br>
+(Número de vivos)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0 - 9</td>
+<td>10</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>10 - 19</td>
+<td>30</td>
+<td>500 - 10 = 490</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>90 - 99</td>
+<td>5 (Total: 500)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Insertar columnas adicionales para calcular los siguientes estimadores:</p>
 <ul>
-<li>En la siguiente tabla diligenciar los siguientes aspectos del proyecto presentado:
-<ul>
-<li><strong>Temática o problema</strong>: ej. Contaminación del río Gaira en Santa Marta.</li>
-<li><strong>Objetivo</strong>: Objetivo general que se pretende.</li>
-<li><strong>Actividades</strong>: Listar las actividades que pueden dar solución al problema.</li>
-<li><strong>Indicadores</strong>: que sean medible, ej: protocolo para el diagnóstico de la contaminación en …</li>
-<li><strong>Responsables</strong>: Además de los estudiantes del grupo, que entidades piensan que pueden financiar este proyecto y hacerse responsables.</li>
-<li><strong>Apoyo</strong>: entidades que pueden apoyar en las actividades a realizar.</li>
-</ul></li>
+<li><strong>Proporción de sobrevivientes (<code>lx</code>).</strong></li>
 </ul>
-<p><strong>Tabla 2b</strong>. Para diligenciar la información solicitada del proyecto en construcción.</p>
-<p><img src="Figuras/tabla3.jpg" class="img-fluid" style="width:100.0%"></p>
+<!-- -->
+<ul>
+<li><strong>Probabilidad de sobrevivientes (<code>Sx</code>). &lt;/b&gt;</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Esperanza de vida (<code>ex</code>)</strong></li>
+</ul>
+<p><strong>Nota:</strong> Para cada cementerio, analizar los siguientes insumos:</p>
+<ul>
+<li><p><strong><em>Supervivencia y esperanza de vida de la población total.</em></strong> Analizar cómo se presentó la supervivencia y la esperanza de vida, para los sexos combinados. Incluir figuras con sus leyendas (párrafo 1) y la explicación de patrones encontrados (párrafo 2).</p></li>
+<li><p><strong>Supervivencia y esperanza de vida en hombres y en mujeres.</strong> Hacer lo mismo que lo anterior, pero por cada sexo.</p></li>
+</ul>
+<p><strong>Graficar</strong> las siguientes curvas de sobrevivencia (<code>lx</code>) para:</p>
+<ul>
+<li><p>Población total</p></li>
+<li><p>Muestra de Hombres</p></li>
+<li><p>Muestra de Mujeres</p></li>
+</ul>
+<p>Incluir figuras con sus leyendas (párrafo 1) y la explicación de patrones encontrados (párrafo 2). Analizar la gráficas e interpretar las relaciones y las diferencias.</p>
+<section id="proporción-de-sobrevivientes-para-cada-clase-de-edad-lx." class="level5">
+<h5 class="anchored" data-anchor-id="proporción-de-sobrevivientes-para-cada-clase-de-edad-lx.">Proporción de sobrevivientes para cada clase de edad (l<sub>x</sub>).</h5>
+<p>Se calcula dividiendo el número de personas sobrervivientes en su clase de edad, por el número total de personas nacidas en ese grupo. <strong>Ej</strong>: grupo de edad 0-9 y de 10-19 años:</p>
+<ul>
+<li><p>Tamaño inicial de la población (<strong>No</strong>)</p></li>
+<li><p>Tamaño de la población en la clase de edad evaluada (<strong>N<sub>x</sub></strong>)</p></li>
+<li><p>Probabilidad de supervivientes <code>lx = Nx  / No</code></p></li>
+</ul>
+<p><strong>l<sub>x</sub>(0-9 años) =</strong> N<sub>x</sub> / No = 500 / 500 = 1 (100%)</p>
+<p><strong>l<sub>x</sub>(10-19 años) =</strong> N<sub>x</sub> / No = 490 / 500 = 0.98 (98%)</p>
+</section>
+<section id="probabilidad-de-supervivencia-ara-cada-clase-de-edad-sx." class="level5">
+<h5 class="anchored" data-anchor-id="probabilidad-de-supervivencia-ara-cada-clase-de-edad-sx.">Probabilidad de supervivencia ara cada clase de edad (S<sub>x</sub>).</h5>
+<p>La probabilidad de sobrevivientes (Sx) hasta una determinada edad se calcula multiplicando las proporciones de sobrevivientes de cada grupo de edad sucesiva. <strong>Ej:</strong> probabilidad de sobrevivir hasta los 10-19 años:</p>
+<ul>
+<li><p>Tamaño de la población en la clase de edad evaluada (<strong>N<sub>x</sub></strong>)</p></li>
+<li><p>Tamaño de la población en la clase siguiente (<strong>N<sub>x+1</sub></strong>)</p></li>
+<li><p>Probabilidad de superviviencia <code>Sx = Nx+1 / Nx</code></p></li>
+</ul>
+<p><strong>S<sub>x</sub>(10-19 años) =</strong> Nx<sub>+1</sub> / N<sub>x</sub> = 490 / 500 = 0.98</p>
+<p><em>Otra forma de calcular Sx:</em></p>
+<p><strong>S<sub>x</sub>(10-19 años) =</strong> &nbsp;l<sub>x</sub>(10-19 años) = 1 * 0.98 = 0.98</p>
+</section>
+<section id="esperanza-de-vida-al-nacer-ex" class="level5">
+<h5 class="anchored" data-anchor-id="esperanza-de-vida-al-nacer-ex">Esperanza de vida al nacer (e<sub>x</sub>):</h5>
+<p>La esperanza de vida al nacer (<code>ex</code>) se calcula sumando las probabilidades de sobrevivir a todas las edades y luego invirtiendo el resultado. <strong>Ej:</strong> Supongamos que hemos calculado N<sub>x</sub> hasta los 100 años.</p>
+<ul>
+<li><p>Promedio de individuos de cada clase de edad <em>x</em> a la siguiente clase <em>x +1 (</em><strong>L<sub>x</sub></strong>)</p></li>
+<li><p>Sumatoria de los L<sub>x</sub> (<strong>T<sub>x</sub></strong>)</p></li>
+<li><p>Esperanza de vida <code>ex = Tx / Lx</code></p></li>
+</ul>
+<p><strong>L<sub>x</sub>(10-19 años) =</strong> L<sub>x</sub> = (Nx + Nx+1)/2 = (500 + 490) / 2 = 495</p>
+<p>e<sub>x</sub> = (⅀ L<sub>x</sub>) / L<sub>x</sub>.</p>
+<hr>
+<div style="page-break-after: always;"></div>
 </section>
 </section>
-<section id="entrega-y-socialización-del-taller" class="level2 titulo-modulo">
-<h2 class="titulo-modulo anchored" data-anchor-id="entrega-y-socialización-del-taller">Entrega y socialización del taller</h2>
-<ul>
-<li><p>Un estudiante representante de cada grupo, debe cargar el taller en pdf (máximo 5 páginas) y las diapositivas (máximo 4 por presentación), siguiendo las indicaciones definidas y referenciando a todos los integrantes del grupo (máximo 4 integrantes).</p></li>
-<li><p>Preparar una socialización (puntos 2 y 3), de máximo 4 diapositivas y 8 minutos por cada grupo. Lo que se debe reportar son las tablas solicitadas. Se valorará la claridad y organización de la presentación.</p></li>
-<li><p>La valoración tendrá en cuenta la puntualidad en la entrega y socialización del trabajo. Así como su aplicación en un contexto de nuestra realidad ecologica o ambiental.</p></li>
-</ul>
 </section>
-<section id="referencias-bibliográficas-sobre-introducción-a-la-ecología" class="level2 titulo-modulo">
-<h2 class="titulo-modulo anchored" data-anchor-id="referencias-bibliográficas-sobre-introducción-a-la-ecología">Referencias bibliográficas sobre introducción a la ecología</h2>
+<section id="cuestionario" class="level2">
+<h2 class="anchored" data-anchor-id="cuestionario">Cuestionario</h2>
+<p><img src="Figuras/Cementerio5.PNG" class="img-fluid" width="400"></p>
 <ol type="1">
-<li><strong>CAPÍTULO:</strong> Introduction to Ecology. De: Molles, M. C., Sher, A. A.(2019). Ecology: concepts &amp; applications. McGraw-Hill.</li>
+<li><p>Cohorte ficticia y significado de <span class="math inline">N_x</span>​. Explicar por qué, en una tabla de vida estática, el cálculo <span class="math inline">N_x=\sum_{y\ge x} n_y</span>​ se interpreta como una <em>cohorte ficticia</em>. ¿Qué supuesto ecológico o demográfico permite esa lectura?</p></li>
+<li><p>Interpretación de <span class="math inline">l_x</span>​, <span class="math inline">S_x</span>​ y <span class="math inline">q_x</span>​. Con base en la tabla de vida del primer cementerio, describir qué representa cada uno de los siguientes estimadores y cómo se relacionan entre sí: <span class="math inline">l_x</span>​, <span class="math inline">S_x</span>​, <span class="math inline">q_x</span>​. Indique qué patrón esperaría observar si existiera alta mortalidad infantil.</p></li>
+<li><p>Último intervalo abierto. ¿Por qué el último intervalo se considera “abierto” y por qué se aproxima con <span class="math inline">L_\omega \approx \tfrac{n}{2}N_\omega</span>? Explicar qué tipo de sesgo se produciría si se tratara el último intervalo como cerrado.</p></li>
+<li><p>Curvas <span class="math inline">l_x</span>​ y <span class="math inline">e_x</span>​. Interpretar conjuntamente las curvas de supervivencia <span class="math inline">l_x</span>​ y esperanza de vida <span class="math inline">e_x</span>​. ¿Qué indica que <span class="math inline">l_x</span>​ caiga lentamente al inicio y más rápido al final? ¿Cómo se refleja eso en <span class="math inline">e_x</span>​?</p></li>
+<li><p>Comparación por sexos. A partir de las curvas y del estimador <span class="math inline">e_0</span>​ por sexo, explicar por qué una diferencia visual entre curvas debe respaldarse con un análisis de incertidumbre. ¿Qué aporta el bootstrap a esta comparación?</p></li>
+<li><p>¿Qué tipo de prueba estadística se puede realizar para comparar la supervivencia <span class="math inline">l_x</span> y la esperanza de vida <span class="math inline">e_x</span> entre sitios y sexos por rangos de edades? Explique cómo sería ese procedimiento.</p></li>
+<li><p>Cómo se puede calcula el tamaño mínimo de muestra y la prueba de potencia para la tabla de vida de este taller, con el objeto de definir cuántas tumbas deberían censarse para obtener una estimación más precisa de <span class="math inline">(i)</span> la esperanza de vida al nacer - <span class="math inline">e_x</span> y <span class="math inline">(ii)</span> la supervivencia - <span class="math inline">l_x</span>.</p></li>
 </ol>
-<p>📖<a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=9960&amp;pg=24" class="uri">https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=9960&amp;pg=24</a></p>
-<p><img src="https://i.ebayimg.com/images/g/z68AAOSw2~NcPcvI/s-l500.jpg" class="img-fluid" style="width:12.0%"></p>
-<ol start="2" type="1">
-<li><strong>CAPÍTULO:</strong> Conceptos fundamentales en Ecología. De: Fernández Gama, D. (2017). Ecología. Pearson Educación.</li>
-</ol>
-<p>📖<a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=7286&amp;pg=21" class="uri">https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=7286&amp;pg=21</a></p>
-<p><img src="http://www.sancristoballibros.com/imagenes/9786073/978607323918.GIF" class="img-fluid" style="width:12.0%"></p>
-<ol start="3" type="1">
-<li><strong>CAPÍTULO:</strong> Introducción. Ecología del Organismo al ecosistema. De: Rodríguez Martínez, J. (2016). Ecología (4a. ed.). Madrid, Mexico: Difusora Larousse - Ediciones Pirámide.</li>
-</ol>
-<p>📖<a href="https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/49165?page=21" class="uri">https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/49165?page=21</a></p>
-<p><img src="https://www.lavanguardia.com/libros/images/posters/2016/9/9788436835915-image.jpg?v=1" class="img-fluid" style="width:20.0%"></p>
-<ol start="4" type="1">
-<li><strong>CAPÍTULO:</strong> The Nature of Ecology. De: Smith, T. M., Smith, R. L.(2015). Elements of ecology. Pearson Educación.</li>
-</ol>
-<p><a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=6804&amp;pg=19" class="uri">https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=6804&amp;pg=19</a></p>
-<p><img src="https://m.media-amazon.com/images/I/51AUIIdBA9L._AC_UF1000,1000_QL80_.jpg" class="img-fluid" style="width:12.0%"></p>
-<ol start="5" type="1">
-<li><strong>CAPÍTULO:</strong> Definiciones, raíces y fundamento. De: Donato Rondón, J. C. (2015). Fundamentos de ecología: un enfoque ecosistémico. Bogotá, Universidad Nacional de Colombia. Recuperado de:</li>
-</ol>
-<p><a href="https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/129861?page=19" class="uri">https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/129861?page=19</a>.</p>
-<p><img src="https://df5kbf1hky40.cloudfront.net/content/book_covers/129861_29160100.png" class="img-fluid" style="width:12.0%"></p>
-<ol start="6" type="1">
-<li><strong>CAPÍTULO:</strong> ECOLOGIA: LA CIENCIA Y SU ORIGEN. De: Luis Fontana, J. (2015). Principios de ecología. Córdoba, Argentina: Editorial Brujas. Recuperado de:</li>
-</ol>
-<p><a href="https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/78148?page=8" class="uri">https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/78148?page=8</a>.</p>
-<p><img src="https://df5kbf1hky40.cloudfront.net/content/book_covers/78148_26064028.png" class="img-fluid" style="width:12.0%"></p>
-<ol start="7" type="1">
-<li><strong>CAPÍTULO:</strong> Ecología y sus campos de estudio. De: Vázquez Conde, R. (2017). Ecología y medio ambiente. México, D.F, Mexico: Grupo Editorial Patria. Recuperado de:</li>
-</ol>
-<p><a href="https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/40505?page=15" class="uri">https://elibro-net.biblioteca.unimagdalena.edu.co/es/ereader/unimagdalena/40505?page=15</a>.</p>
-<p><img src="https://df5kbf1hky40.cloudfront.net/content/book_covers/40505_24231847.png" class="img-fluid" style="width:12.0%"></p>
-<ol start="8" type="1">
-<li><strong>CAPÍTULO:</strong> Introducción y antecedentes. De: Smith, T. M., Smith, R. L.(2007). Ecología. Pearson Educación.</li>
-</ol>
-<p><a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=3488&amp;pg=24" class="uri">https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=3488&amp;pg=24</a>.</p>
+<hr>
+</section>
+<section id="discusión-de-los-resultados." class="level2">
+<h2 class="anchored" data-anchor-id="discusión-de-los-resultados.">Discusión de los resultados.</h2>
+<p><img src="Figuras/Cementerio3.PNG" class="img-fluid" width="400"></p>
+<p>[Imágen modificada de <a href="https://www.google.com/maps/contrib/100767267100033862050/photos/@11.2537289,-74.2050285,14z/data=!3m1!4b1!4m3!8m2!3m1!1e1?entry=ttu">Andres Acosta</a>]</p>
+<p>Discutir los resultados encontrados, con los de otros estudios locales y en Colombia. De igual forma, la diacusión debe dar respuesta a las siguientes interrogantes y discutirlas con otros interlocutores nacionales o internacionales:</p>
+<ul>
+<li><p>¿Cuál de los dos sexos es más longevo?</p></li>
+<li><p>¿En cuáles clases de edad hay mayor esperanza de vida?</p></li>
+<li><p>¿Qué disciplinas complementarias a la ecología analizan estos trabajos y que han encontrado?</p></li>
+<li><p>¿Qué estrategias sugiere que se pueden inplementar para mejorar la supervivencia y la esperanza de vida en la ciudad?</p></li>
+</ul>
+</section>
+<section id="citas-bibliográficas" class="level2">
+<h2 class="anchored" data-anchor-id="citas-bibliográficas">Citas Bibliográficas</h2>
+<p><strong>Acsádi, G. Y., &amp; Nemeskéri, J. (1970)</strong>. History of human life span. Budapest.</p>
+<p><strong>Bonilla, M. y Guillot, G. (2003)</strong>. Notas de clase: Prácticas de Ecología. Universidad Nacional de Colombia.</p>
+<p><strong>Ellis, E. C., Kaplan, J. O., Fuller, D. Q., Vavrus, S., Klein Goldewijk, K., &amp; Verburg, P. H. (2013)</strong>. Used planet: A global history. Proceedings of the National Academy of Sciences, 110(20), 7978-7985.</p>
+<p><strong>Coale, A. J. (1972).</strong> Growth and Structure of Human Populations: A Mathematical Investigation. Princeton University Press.</p>
+<p><strong>Coale, A. J. (2015).</strong> Growth and structure of human populations: a mathematical investigation (Vol. 1333). Princeton University Press.</p>
+<p><strong>Dong, X., Milholland, B., &amp; Vijg, J. (2016).</strong> Evidence for a limit to human lifespan. Nature, 538(7624), 257-259.</p>
+<p><strong>González-Narváez, S., Peñafiel, L., Ríos, A., Ruíz, J. 2023</strong>. Historia a través de las tablas de vida: Análisis demográfico del Homo sapiens en cementerios de Santa Marta, Colombia. Informe de la asignatura Ecología 1. Programa de Biología. Universidad del Magdalena. 28 p.</p>
+<p><strong>Manton, K. G., Stallard, E., &amp; Tolley, H. D. (1991).</strong> Limits to human life expectancy: evidence, prospects, and implications. Population and Development Review, 603-637.</p>
+<p><strong>Murdock, S. H. (2008).</strong> Applied demography in the 21st century. D. Swanson (Ed.). Netherlands: Springer.</p>
 
 
 </section>
@@ -749,13 +906,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./videos.clases.html" class="pagination-link" aria-label="Videos clases">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Videos clases</span>
+      <a href="./Taller4.2.Poblaciones.log.html" class="pagination-link" aria-label="Taller4.2 Mod. Logísticos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller4.2 Mod. Logísticos</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Taller2.Análisis.climático.html" class="pagination-link" aria-label="Taller2. A. Climático">
-        <span class="nav-page-text">Taller2. A. Climático</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Salida.campo.eco1-.html" class="pagination-link" aria-label="Salida de campo">
+        <span class="nav-page-text">Salida de campo</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
