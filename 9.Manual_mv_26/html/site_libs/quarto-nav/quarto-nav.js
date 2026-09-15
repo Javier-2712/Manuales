@@ -274,10 +274,14 @@ window.document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < links.length; i++) {
       if (links[i].href) {
         links[i].dataset.originalHref = links[i].href;
+<<<<<<< HEAD
         // only strip index.html at the end of the path (optionally followed
         // by a query or fragment) so that files like index.html.md
         // (alternate-format twins) are left alone (#14667)
         links[i].href = links[i].href.replace(/\/index\.html(?=[?#]|$)/, "/");
+=======
+        links[i].href = links[i].href.replace(/\/index\.html/, "/");
+>>>>>>> 50598a584314567f4ea125c2a8adc36f878bb473
       }
     }
 
