@@ -320,6 +320,56 @@
     ]
   },
   {
+    "objectID": "Taller4.1.pca.marino.html",
+    "href": "Taller4.1.pca.marino.html",
+    "title": "Taller4.1 PCA Bahías",
+    "section": "",
+    "text": "Ejemplo de bahías de Santa Marta\nEl siguiente ejemplo relaciona a 7 lugares en playas de de Santa Marta (observaciones) y en cada una de ellas se midieron 7 variables ambientales (descriptores). En este análisis de comonentes principales - PCA, se intenta saber cuál es la relación entre variables ambientales y cómo estas estructuran o caracterizan a las localidades estudiadas. La base de datos a trabajar es FQmarino.csv.\nEjercicio tomado de: Rodríguez-Barrios (2023) Enlace del libro\nEnlace de los archivos del libro\nFuentes bibliográficas sobre el análisis de componentes principales:\n# LIBRERÍAS REQUERIDAS\nlibrary(factoextra)   # Para el PCA\nlibrary(rlang)        # \nlibrary(FactoMineR)   # Para el PCA\nlibrary(vegan)        # Para el PCA\nlibrary(ade4)         # Para el PCA\nlibrary(corrplot)     # Figuras de elipses\nlibrary(ggplot2)      # Figuras de dispersión\n# Lectura de la base de datos \"FQmarino\"\ndatos &lt;-read.csv2(\"FQmarino.csv\",row.names=1) # file.choose()\nView(datos)\nstr(datos)\n\n'data.frame':   7 obs. of  7 variables:\n $ pH        : num  8.42 8.49 8.51 8.56 8.61 ...\n $ Cond      : num  38 38.1 37.8 37.3 37.3 ...\n $ Turbidez  : num  1.364 0.545 1.273 1.273 0.636 ...\n $ Temp      : num  29.5 29.5 29.6 29.3 29.3 ...\n $ Salinidad : num  2.42 2.43 2.42 2.38 2.38 ...\n $ CapaFotica: num  19.7 22.1 22.1 10.8 9 ...\n $ Oxigeno   : num  0.097 0.147 0.331 0.17 0.098 0.098 0.098",
+    "crumbs": [
+      "Taller4.1 PCA Bahías"
+    ]
+  },
+  {
+    "objectID": "Taller4.1.pca.marino.html#ejemplo-de-bahías-de-santa-marta",
+    "href": "Taller4.1.pca.marino.html#ejemplo-de-bahías-de-santa-marta",
+    "title": "Taller4.1 PCA Bahías",
+    "section": "",
+    "text": "Métodos de componentes principales en R - STHDA\nArtículos - Métodos de componentes principales - STHDA\nPCA en factoextra - datanovia\nGuía práctica sobre el PCA - datanovia\nPCA para variables categóricas - R-bloggers\nCapítulo PCA - Libro Numerical Ecology with R - Borcard et al. 2018",
+    "crumbs": [
+      "Taller4.1 PCA Bahías"
+    ]
+  },
+  {
+    "objectID": "Taller4.2.pca.tayrona.html",
+    "href": "Taller4.2.pca.tayrona.html",
+    "title": "Taller4.2 PCA PNNTayrona",
+    "section": "",
+    "text": "Ejemplo de bahías de Santa Marta\nEl siguiente ejemplo tiene en cuenta a la propuesta de Legendre & Gallagher (2001), en el cual se realiza una linealización de datos de abundancias de taxones, mediante la transformación de Hellinger, para poderlas ordenar en un PCA. Adicionalmente se incorporan las variables ambientales, con el objeto de analizar como estas caracterizan a las biológicas en gradientes espaciales y/o temporales. La base de datos que se utilizará es Tayrona.csv y el archivo de R es Tayrona.pca.r. Estos datos corresponden a un estudio realizado en el 2015, en el Parque Nacional Natural Tayrona (PNNT), valorando la fauna de invertebrados acuáticos y variables fisicoquímicas asociadas en diferentes quebradas de ese lugar. Estos datos hacen parte del trabajo realizado por Bruges Emilio (2022).\nEjercicio tomado de: Rodríguez-Barrios (2023) Enlace del libro\nEnlace de los archivos del libro\nFuentes bibliográficas sobre el análisis de componentes principales:\n# Librerías requeridas\nlibrary(ggplot2)\nlibrary(reshape2)\nlibrary(ggrepel)\nlibrary(vegan)\nlibrary(factoextra)\nlibrary(ggsci)\nlibrary(ggforce)\nlibrary(concaveman)\nlibrary(corrplot)\n# Lectura de la base de datos \"FQmarino\"\ndatos &lt;-read.csv2(\"Tayrona.csv\",row.names=1) # file.choose()\n# View(datos)\n# str(datos)",
+    "crumbs": [
+      "Taller4.2 PCA PNNTayrona"
+    ]
+  },
+  {
+    "objectID": "Taller4.2.pca.tayrona.html#ejemplo-de-bahías-de-santa-marta",
+    "href": "Taller4.2.pca.tayrona.html#ejemplo-de-bahías-de-santa-marta",
+    "title": "Taller4.2 PCA PNNTayrona",
+    "section": "",
+    "text": "Métodos de componentes principales en R - STHDA\nArtículos - Métodos de componentes principales - STHDA\nPCA en factoextra - datanovia\nGuía práctica sonre el PCA - datanovia\nPCA para variables categóricas - R-bloggers\nCapítulo PCA - Libro Numerical Ecology with R - Borcard et al. 2018",
+    "crumbs": [
+      "Taller4.2 PCA PNNTayrona"
+    ]
+  },
+  {
+    "objectID": "Taller4.2.pca.tayrona.html#taller-de-entrenamiento",
+    "href": "Taller4.2.pca.tayrona.html#taller-de-entrenamiento",
+    "title": "Taller4.2 PCA PNNTayrona",
+    "section": "Taller de entrenamiento",
+    "text": "Taller de entrenamiento\nObjetivo: Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un PCA que integgre a las variables biológicas (taxones) y a las ambientalñes de la base seleccionada. Enviar los resultados al Teams del profesor.",
+    "crumbs": [
+      "Taller4.2 PCA PNNTayrona"
+    ]
+  },
+  {
     "objectID": "Pautas_Estudio_Caso.html#descripción-de-la-actividad",
     "href": "Pautas_Estudio_Caso.html#descripción-de-la-actividad",
     "title": "Pautas Estudios de Caso",
@@ -444,7 +494,7 @@
     "href": "Pautas_Estudio_Caso.html#paso-6.-técnica-de-nmds",
     "title": "Pautas Estudios de Caso",
     "section": "Paso 6. Técnica de NMDS",
-    "text": "Paso 6. Técnica de NMDS\n\n\n6.1 NMDS para variables biológicas - vegan\nNo muestra un buen estrés o ajuste, por lo que se descarta.\n\n# 1) Ordenación con el nmds\ndatos.nmds1 &lt;- metaMDS(spe[,-1],trace = FALSE)\ndatos.nmds1\n\n\nCall:\nmetaMDS(comm = spe[, -1], trace = FALSE) \n\nglobal Multidimensional Scaling using monoMDS\n\nData:     spe[, -1] \nDistance: bray \n\nDimensions: 2 \nStress:     0.1362223 \nStress type 1, weak ties\nBest solution was repeated 7 times in 20 tries\nThe best solution was from try 9 (random start)\nScaling: centring, PC rotation, halfchange scaling \nSpecies: expanded scores based on 'spe[, -1]' \n\n\nSe visualiza la formación de tres grupos de localiades.\n\n\n\n\n\n\n\n\n\n\n\n6.2 NMDS para variables biológicas - factoExtra\nEscalamiento tomado del siguiente enlace Enlace Ver: Kruskal’s non-metric multidimensional scaling\nDe izquierda a derecha se visualizan mejor los tres grupos\n\n\ninitial  value 25.045099 \niter   5 value 19.383491\niter  10 value 18.444357\niter  15 value 18.255199\niter  20 value 18.115864\nfinal  value 18.031070 \nconverged",
+    "text": "Paso 6. Técnica de NMDS\n\n\n6.1 NMDS para variables biológicas - vegan\nNo muestra un buen estrés o ajuste, por lo que se descarta.\n\n# 1) Ordenación con el nmds\ndatos.nmds1 &lt;- metaMDS(spe[,-1],trace = FALSE)\ndatos.nmds1\n\n\nCall:\nmetaMDS(comm = spe[, -1], trace = FALSE) \n\nglobal Multidimensional Scaling using monoMDS\n\nData:     spe[, -1] \nDistance: bray \n\nDimensions: 2 \nStress:     0.1362223 \nStress type 1, weak ties\nBest solution was repeated 2 times in 20 tries\nThe best solution was from try 18 (random start)\nScaling: centring, PC rotation, halfchange scaling \nSpecies: expanded scores based on 'spe[, -1]' \n\n\nSe visualiza la formación de tres grupos de localiades.\n\n\n\n\n\n\n\n\n\n\n\n6.2 NMDS para variables biológicas - factoExtra\nEscalamiento tomado del siguiente enlace Enlace Ver: Kruskal’s non-metric multidimensional scaling\nDe izquierda a derecha se visualizan mejor los tres grupos\n\n\ninitial  value 25.045099 \niter   5 value 19.383491\niter  10 value 18.444357\niter  15 value 18.255199\niter  20 value 18.115864\nfinal  value 18.031070 \nconverged",
     "crumbs": [
       "Pautas Estudios de Caso"
     ]
