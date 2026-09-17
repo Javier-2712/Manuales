@@ -116,6 +116,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -217,22 +221,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#diapositivas-en-vivo---slides.com" id="toc-diapositivas-en-vivo---slides.com" class="nav-link" data-scroll-target="#diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</a></li>
   </ul></li>
-  <li><a href="#caso-guiado-bahías-de-santa-marta" id="toc-caso-guiado-bahías-de-santa-marta" class="nav-link" data-scroll-target="#caso-guiado-bahías-de-santa-marta">Caso guiado: Bahías de Santa Marta</a></li>
-  <li><a href="#exploración-gráfica" id="toc-exploración-gráfica" class="nav-link" data-scroll-target="#exploración-gráfica">Exploración Gráfica</a></li>
-  <li><a href="#ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" id="toc-ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" class="nav-link" data-scroll-target="#ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel">1) Ajuste de las bases de datos fisiqcoquimica (amb) y biológica (tax.hel)</a></li>
+  <li><a href="#caso-guiado-quebradas-del-pnn-tayrona" id="toc-caso-guiado-quebradas-del-pnn-tayrona" class="nav-link" data-scroll-target="#caso-guiado-quebradas-del-pnn-tayrona">Caso guiado: Quebradas del PNN Tayrona</a></li>
+  <li><a href="#ajuste-de-la-base-de-datos-y-exploración-gráfica" id="toc-ajuste-de-la-base-de-datos-y-exploración-gráfica" class="nav-link" data-scroll-target="#ajuste-de-la-base-de-datos-y-exploración-gráfica">1) Ajuste de la base de datos y exploración Gráfica</a>
+  <ul class="collapse">
+  <li><a href="#ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" id="toc-ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" class="nav-link" data-scroll-target="#ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel">1.1) Ajuste de las bases de datos fisiqcoquimica (amb) y biológica (tax.hel)</a></li>
+  <li><a href="#exploración-gráfica" id="toc-exploración-gráfica" class="nav-link" data-scroll-target="#exploración-gráfica">1.2) Exploración gráfica</a>
+  <ul class="collapse">
+  <li><a href="#con-datos-crudos" id="toc-con-datos-crudos" class="nav-link" data-scroll-target="#con-datos-crudos">Con datos crudos</a></li>
+  <li><a href="#con-datos-transformados" id="toc-con-datos-transformados" class="nav-link" data-scroll-target="#con-datos-transformados">Con datos transformados</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#pca-con-paquete-factoextra" id="toc-pca-con-paquete-factoextra" class="nav-link" data-scroll-target="#pca-con-paquete-factoextra">2) PCA con paquete factoextra</a>
   <ul class="collapse">
-  <li><a href="#contribución-eje-1" id="toc-contribución-eje-1" class="nav-link" data-scroll-target="#contribución-eje-1"><strong>2.1) Contribución eje 1</strong></a></li>
-  <li><a href="#escala-de-contribuciones-de-las-observaciones-y-las-variables" id="toc-escala-de-contribuciones-de-las-observaciones-y-las-variables" class="nav-link" data-scroll-target="#escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>2.3) Escala de contribuciones de las observaciones y las variables</strong></a></li>
-  </ul></li>
-  <li><a href="#pca-con-paquete-ggplot2" id="toc-pca-con-paquete-ggplot2" class="nav-link" data-scroll-target="#pca-con-paquete-ggplot2">4) PCA con paquete ggplot2</a>
+  <li><a href="#insumos-numéricos-del-pca" id="toc-insumos-numéricos-del-pca" class="nav-link" data-scroll-target="#insumos-numéricos-del-pca">2.1) Insumos numéricos del PCA</a></li>
+  <li><a href="#insumos-gráficos" id="toc-insumos-gráficos" class="nav-link" data-scroll-target="#insumos-gráficos">2.2) Insumos gráficos</a>
   <ul class="collapse">
-  <li><a href="#coordenadas-de-los-sitios-y-el-factor-coord.sit" id="toc-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="nav-link" data-scroll-target="#coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>4.1 Coordenadas de los sitios y el factor “coord.sit”</strong></a></li>
-  <li><a href="#coordenadas-de-los-taxones-coord.tax" id="toc-coordenadas-de-los-taxones-coord.tax" class="nav-link" data-scroll-target="#coordenadas-de-los-taxones-coord.tax"><strong>4.2 Coordenadas de los taxones “coord.tax”</strong></a></li>
-  <li><a href="#coordenadas-de-las-ambientales-coord.amb" id="toc-coordenadas-de-las-ambientales-coord.amb" class="nav-link" data-scroll-target="#coordenadas-de-las-ambientales-coord.amb"><strong>4.3 Coordenadas de las ambientales “coord.amb”</strong></a></li>
-  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>4.4 Figura con de elipses por concavidades - geom_mark_hull</strong></a></li>
-  <li><a href="#figura-con-vectores-de-especies-y-ambientales" id="toc-figura-con-vectores-de-especies-y-ambientales" class="nav-link" data-scroll-target="#figura-con-vectores-de-especies-y-ambientales"><strong>4.5 Figura con vectores de especies y ambientales</strong></a></li>
-  <li><a href="#taller-de-entrenamiento" id="toc-taller-de-entrenamiento" class="nav-link" data-scroll-target="#taller-de-entrenamiento"><strong>Taller de entrenamiento</strong></a></li>
+  <li><a href="#contribución-eje-1" id="toc-contribución-eje-1" class="nav-link" data-scroll-target="#contribución-eje-1">2.2.1) Contribución eje 1</a></li>
+  <li><a href="#elipses-por-cada-periodo-climático" id="toc-elipses-por-cada-periodo-climático" class="nav-link" data-scroll-target="#elipses-por-cada-periodo-climático">2.2.2) Elipses por cada periodo climático</a></li>
+  <li><a href="#escala-de-contribuciones-de-las-observaciones-y-las-variables" id="toc-escala-de-contribuciones-de-las-observaciones-y-las-variables" class="nav-link" data-scroll-target="#escala-de-contribuciones-de-las-observaciones-y-las-variables">2.2.3) Escala de contribuciones de las observaciones y las variables</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#pca-con-paquete-ggplot2" id="toc-pca-con-paquete-ggplot2" class="nav-link" data-scroll-target="#pca-con-paquete-ggplot2">3) PCA con paquete ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#insumos-numéricos" id="toc-insumos-numéricos" class="nav-link" data-scroll-target="#insumos-numéricos">3.1) Insumos numéricos</a>
+  <ul class="collapse">
+  <li><a href="#a-coordenadas-de-los-sitios-y-el-factor-coord.sit" id="toc-a-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="nav-link" data-scroll-target="#a-coordenadas-de-los-sitios-y-el-factor-coord.sit">a) Coordenadas de los sitios y el factor “coord.sit”</a></li>
+  <li><a href="#b-coordenadas-de-los-taxones-coord.tax" id="toc-b-coordenadas-de-los-taxones-coord.tax" class="nav-link" data-scroll-target="#b-coordenadas-de-los-taxones-coord.tax">b) Coordenadas de los taxones “coord.tax”</a></li>
+  <li><a href="#c-coordenadas-de-las-ambientales-coord.amb" id="toc-c-coordenadas-de-las-ambientales-coord.amb" class="nav-link" data-scroll-target="#c-coordenadas-de-las-ambientales-coord.amb">c) Coordenadas de las ambientales “coord.amb”</a></li>
+  </ul></li>
+  <li><a href="#insumos-gráficos-1" id="toc-insumos-gráficos-1" class="nav-link" data-scroll-target="#insumos-gráficos-1">3.2) Insumos gráficos</a>
+  <ul class="collapse">
+  <li><a href="#figura-con-vectores-ambientales" id="toc-figura-con-vectores-ambientales" class="nav-link" data-scroll-target="#figura-con-vectores-ambientales">3.2.1) Figura con vectores ambientales</a></li>
+  <li><a href="#figura-con-vectores-ambientales-1" id="toc-figura-con-vectores-ambientales-1" class="nav-link" data-scroll-target="#figura-con-vectores-ambientales-1">3.2.2) Figura con vectores ambientales</a></li>
+  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull">3.2.3) Figura con de elipses por concavidades - geom_mark_hull</a></li>
+  <li><a href="#figura-con-vectores-de-especies-y-ambientales" id="toc-figura-con-vectores-de-especies-y-ambientales" class="nav-link" data-scroll-target="#figura-con-vectores-de-especies-y-ambientales">3.2.4) Figura con vectores de especies y ambientales</a></li>
+  </ul></li>
+  <li><a href="#taller-de-entrenamiento" id="toc-taller-de-entrenamiento" class="nav-link" data-scroll-target="#taller-de-entrenamiento">Taller de entrenamiento</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -285,8 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="caso-guiado-bahías-de-santa-marta" class="level2">
-<h2 class="anchored" data-anchor-id="caso-guiado-bahías-de-santa-marta">Caso guiado: Bahías de Santa Marta</h2>
+<section id="caso-guiado-quebradas-del-pnn-tayrona" class="level2">
+<h2 class="anchored" data-anchor-id="caso-guiado-quebradas-del-pnn-tayrona">Caso guiado: Quebradas del PNN Tayrona</h2>
 <p>El siguiente ejemplo tiene en cuenta a la propuesta de Legendre &amp; Gallagher (2001), en el cual se realiza una linealización de datos de abundancias de taxones, mediante la transformación de Hellinger, para poderlas ordenar en un PCA. Adicionalmente se incorporan las variables ambientales, con el objeto de analizar como estas caracterizan a las biológicas en gradientes espaciales y/o temporales. La base de datos que se utilizará es Tayrona.csv y el archivo de R es Tayrona.pca.r. Estos datos corresponden a un estudio realizado en el 2015, en el Parque Nacional Natural Tayrona (PNNT), valorando la fauna de invertebrados acuáticos y variables fisicoquímicas asociadas en diferentes quebradas de ese lugar. Estos datos hacen parte del trabajo realizado por Bruges Emilio (2022).</p>
 <p>Ejercicio tomado de: Rodríguez-Barrios (2023) <a href="https://www.editdiazdesantos.com/libros/9788490524817/Rodr%C3%ADguez-Barrios-An%C3%A1lisis-de-datos-ecol%C3%B3gicos-y-ambientales-aplicaciones-con-el-programa-R.html?isbn=978849052481">Enlace del libro</a></p>
 <p><a href="https://www.editdiazdesantos.com/libros/lanza_anejo.php?isbn=9788490524817&amp;formato=.zip">Enlace de los archivos del libro</a></p>
@@ -301,15 +325,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(concaveman)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(concaveman)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de la base de datos "FQmarino"</span></span>
@@ -318,26 +344,243 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># str(datos)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exploración-gráfica" class="level1">
-<h1>Exploración Gráfica</h1>
+<section id="ajuste-de-la-base-de-datos-y-exploración-gráfica" class="level1">
+<h1>1) Ajuste de la base de datos y exploración Gráfica</h1>
+<section id="ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" class="level2">
+<h2 class="anchored" data-anchor-id="ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel">1.1) Ajuste de las bases de datos fisiqcoquimica (amb) y biológica (tax.hel)</h2>
+<p>Usar “#| html-table-processing: none” para ajustar el render de las tablas en <code>kbl</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones (M)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>)]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">63</span>)]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, biol)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Epoca <span class="ot">=</span> <span class="fu">as.factor</span> (datos<span class="sc">$</span>Epoca)   <span class="co"># Convertir Epoca a factor</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>amb<span class="ot">=</span> <span class="fu">log10</span>(datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>)]<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(amb),<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Alca </th>
+   <th style="text-align:right;"> Condu </th>
+   <th style="text-align:right;"> Dure </th>
+   <th style="text-align:right;"> Fosfa </th>
+   <th style="text-align:right;"> Nitri </th>
+   <th style="text-align:right;"> Nitra </th>
+   <th style="text-align:right;"> Amon </th>
+   <th style="text-align:right;"> Oxíg </th>
+   <th style="text-align:right;"> pH </th>
+   <th style="text-align:right;"> Sol </th>
+   <th style="text-align:right;"> Temp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M.s </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.0 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.6 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.s </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.8 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.s </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.8 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M.l </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.7 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.l </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.7 </td>
+   <td style="text-align:right;"> 0.9 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.l </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.6 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 1.4 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Siete primeros Taxones transformados con Hellinger</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tax.hel<span class="ot">=</span> <span class="fu">decostand</span>(datos[,<span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">63</span>)],<span class="st">"hellinger"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(tax.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Amb </th>
+   <th style="text-align:right;"> Amer </th>
+   <th style="text-align:right;"> Anch </th>
+   <th style="text-align:right;"> Anac </th>
+   <th style="text-align:right;"> Ancy </th>
+   <th style="text-align:right;"> Argi </th>
+   <th style="text-align:right;"> Ata </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M.s </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.s </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.s </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M.l </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.l </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.l </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.10 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="exploración-gráfica" class="level2">
+<h2 class="anchored" data-anchor-id="exploración-gráfica">1.2) Exploración gráfica</h2>
+<section id="con-datos-crudos" class="level3">
+<h3 class="anchored" data-anchor-id="con-datos-crudos">Con datos crudos</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones (M)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>)]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">63</span>)]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, biol)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La <a href="#fig-fig1" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> muestra la relación entre las variables, a partir de figuras de elipses.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"ellipse"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.cex =</span> <span class="fl">0.8</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig1 <span class="ot">&lt;-</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"ellipse"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-fig1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig1-1.svg" class="img-fluid figure-img" width="960">
+<img src="outputs/fig/fig-fig1-1.png" class="img-fluid figure-img" width="3000">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;1.1: Relación de variables ambientales en las siete bahías estudiadas.
@@ -346,144 +589,380 @@ Figura&nbsp;1.1: Relación de variables ambientales en las siete bahías estudia
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar figura 1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("outputs/fig/fig1.png",</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#       fig1, width = 8, </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#       height = 5, </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#       dpi = 300)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="ajuste-de-las-bases-de-datos-fisiqcoquimica-amb-y-biológica-tax.hel" class="level1">
-<h1>1) Ajuste de las bases de datos fisiqcoquimica (amb) y biológica (tax.hel)</h1>
+<section id="con-datos-transformados" class="level3">
+<h3 class="anchored" data-anchor-id="con-datos-transformados">Con datos transformados</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Epoca <span class="ot">=</span> <span class="fu">as.factor</span> (datos<span class="sc">$</span>Epoca)   <span class="co"># Convertir Epoca a factor</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>amb<span class="ot">=</span> <span class="fu">log10</span>(datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>)]<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(amb),<span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Alca Condu Dure Fosfa Nitri Nitra Amon Oxíg  pH Sol Temp
-M.s   2.2   2.8  1.7   0.0   0.0   0.2    0  0.6 1.0 2.3  1.4
-ST.s  2.1   2.8  1.7   0.1   0.1   0.2    0  0.8 1.0 2.4  1.4
-Bo.s  2.2   3.0  1.7   0.1   0.1   0.5    0  0.8 1.0 2.6  1.4
-M.l   2.2   2.9  1.7   0.1   0.1   0.5    0  0.7 1.0 2.5  1.4
-ST.l  2.2   2.5  1.6   0.2   0.1   0.3    0  0.7 0.9 2.5  1.4
-Bo.l  2.2   2.4  1.7   0.1   0.1   0.3    0  0.6 1.0 2.6  1.4</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones con variables transformadas (M1)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, tax.hel)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Siete primeros Taxones transformados con Hellinger</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tax.hel<span class="ot">=</span> <span class="fu">decostand</span>(datos[,<span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">63</span>)],<span class="st">"hellinger"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">head</span>(tax.hel[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]),<span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      Amb Amer Anch Anac Ancy Argi  Ata
-M.s  0.11 0.13 0.04 0.00 0.03 0.07 0.30
-ST.s 0.07 0.07 0.00 0.08 0.00 0.04 0.14
-Bo.s 0.04 0.06 0.00 0.00 0.00 0.00 0.06
-M.l  0.09 0.17 0.10 0.00 0.00 0.00 0.00
-ST.l 0.00 0.20 0.00 0.14 0.00 0.00 0.31
-Bo.l 0.00 0.32 0.00 0.00 0.00 0.00 0.10</code></pre>
-</div>
-</div>
+<p>La <a href="#fig-fig2" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> muestra la relación entre las variables, con las transformaciones realizadas.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones con variables transformadas (M1)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, tax.hel)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>La <a href="#fig-fig2" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> muestra la relación entre las variables, con las transformaciones realizadas.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"ellipse"</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.cex =</span> <span class="fl">0.8</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"ellipse"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.cex =</span> <span class="fl">0.8</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">cl.cex =</span> <span class="fl">0.9</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-fig2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig2-1.svg" class="img-fluid figure-img" width="672">
+<img src="outputs/fig/fig-fig2-1.png" class="img-fluid figure-img" width="2100">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;2.1: Relación de variables ambientales en las siete bahías estudiadas.
+Figura&nbsp;1.2: Relación de variables ambientales en las siete bahías estudiadas.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
+</section>
+</section>
 <section id="pca-con-paquete-factoextra" class="level1">
 <h1>2) PCA con paquete factoextra</h1>
+<section id="insumos-numéricos-del-pca" class="level2">
+<h2 class="anchored" data-anchor-id="insumos-numéricos-del-pca">2.1) Insumos numéricos del PCA</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(amb,<span class="at">scale.=</span>T)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(amb,<span class="at">scale.=</span>T)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Autovectores</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
-                          PC1    PC2    PC3     PC4     PC5       PC6
-Standard deviation     2.1415 1.8802 1.3296 0.90111 0.54661 1.857e-15
-Proportion of Variance 0.4169 0.3214 0.1607 0.07382 0.02716 0.000e+00
-Cumulative Proportion  0.4169 0.7383 0.8990 0.97284 1.00000 1.000e+00</code></pre>
+                         PC1    PC2    PC3     PC4     PC5       PC6
+Standard deviation     2.092 1.9075 1.3270 0.95127 0.56348 1.274e-15
+Proportion of Variance 0.398 0.3308 0.1601 0.08226 0.02886 0.000e+00
+Cumulative Proportion  0.398 0.7288 0.8889 0.97114 1.00000 1.000e+00</code></pre>
 </div>
 </div>
-<section id="contribución-eje-1" class="level3">
-<h3 class="anchored" data-anchor-id="contribución-eje-1"><strong>2.1) Contribución eje 1</strong></h3>
-<p>La <a href="#fig-fig3" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca1,<span class="at">choice=</span><span class="st">"var"</span>,<span class="at">axes=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Autovectores</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>autovec <span class="ot">&lt;-</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca1<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],<span class="dv">3</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>autovec <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Alca </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Condu </td>
+   <td style="text-align:right;"> -0.09 </td>
+   <td style="text-align:right;"> -0.45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dure </td>
+   <td style="text-align:right;"> -0.42 </td>
+   <td style="text-align:right;"> -0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fosfa </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitri </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitra </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> -0.44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amon </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> -0.36 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oxíg </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pH </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sol </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> -0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temp </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.39 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar datos</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">guardar_tabla</span>(autovec, <span class="st">"autovec"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scores - Coordenadas de las localidades</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca1<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">3</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>scores <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M.s </td>
+   <td style="text-align:right;"> -2.35 </td>
+   <td style="text-align:right;"> 1.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.s </td>
+   <td style="text-align:right;"> -2.65 </td>
+   <td style="text-align:right;"> -0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.s </td>
+   <td style="text-align:right;"> 1.94 </td>
+   <td style="text-align:right;"> -2.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M.l </td>
+   <td style="text-align:right;"> -0.24 </td>
+   <td style="text-align:right;"> -2.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.l </td>
+   <td style="text-align:right;"> 1.48 </td>
+   <td style="text-align:right;"> 1.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.l </td>
+   <td style="text-align:right;"> 1.82 </td>
+   <td style="text-align:right;"> 1.70 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de variables ambientales</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">=</span> <span class="fu">envfit</span>(pca1,amb) </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>amb1</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+***VECTORS
+
+           PC1      PC2     r2  Pr(&gt;r)  
+Alca   0.99874  0.05019 0.6670 0.16806  
+Condu -0.19283 -0.98123 0.7735 0.13333  
+Dure  -0.99277 -0.12007 0.7844 0.14583  
+Fosfa  0.99451  0.10464 0.6629 0.17639  
+Nitri  0.98688  0.16144 0.7420 0.15278  
+Nitra  0.40735 -0.91327 0.8786 0.09306 .
+Amon   0.54842 -0.83620 0.7246 0.19444  
+Oxíg  -0.01747 -0.99985 0.1714 0.69444  
+pH    -0.06248 -0.99805 0.9154 0.03750 *
+Sol    0.97274 -0.23190 0.9008 0.04722 *
+Temp   0.51277  0.85852 0.7961 0.12361  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Permutation: free
+Number of permutations: 719</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenadas de variables ambientales</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">&lt;-</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">scores</span>(amb1, <span class="st">"vectors"</span>), <span class="dv">3</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>amb1 <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Alca </td>
+   <td style="text-align:right;"> 0.82 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Condu </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> -0.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dure </td>
+   <td style="text-align:right;"> -0.88 </td>
+   <td style="text-align:right;"> -0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fosfa </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitri </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitra </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> -0.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amon </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> -0.71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oxíg </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pH </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sol </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> -0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temp </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.77 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="insumos-gráficos" class="level2">
+<h2 class="anchored" data-anchor-id="insumos-gráficos">2.2) Insumos gráficos</h2>
+<section id="contribución-eje-1" class="level3">
+<h3 class="anchored" data-anchor-id="contribución-eje-1">2.2.1) Contribución eje 1</h3>
+<p>La <a href="#fig-fig3" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca1,<span class="at">choice=</span><span class="st">"var"</span>,<span class="at">axes=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-fig3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig3-1.svg" class="img-fluid figure-img" width="672">
+<img src="outputs/fig/fig-fig3-1.png" class="img-fluid figure-img" width="2100">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.1: Contribuciones de las variables ambientales.
+Figura&nbsp;2.1: Contribuciones de las variables ambientales.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="elipses-por-cada-periodo-climático" class="level4">
-<h4 class="anchored" data-anchor-id="elipses-por-cada-periodo-climático"><strong>2.2) Elipses por cada periodo climático</strong></h4>
-<p>La <a href="#fig-fig4" class="quarto-xref">Figura&nbsp;<span>3.2</span></a> muestra la ordenación de las localidades por cada periodo climático.</p>
+</section>
+<section id="elipses-por-cada-periodo-climático" class="level3">
+<h3 class="anchored" data-anchor-id="elipses-por-cada-periodo-climático">2.2.2) Elipses por cada periodo climático</h3>
+<p>La <a href="#fig-fig4" class="quarto-xref">Figura&nbsp;<span>2.2</span></a> muestra la ordenación de las localidades por cada periodo climático.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.ind =</span> datos<span class="sc">$</span>Epoca,   <span class="co"># Colores por grupo - periodo</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="st">"Groups"</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.ind =</span> datos<span class="sc">$</span>Epoca,   <span class="co"># Colores por grupo - periodo</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="st">"Groups"</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-fig4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig4-1.svg" class="img-fluid figure-img" width="672">
+<img src="outputs/fig/fig-fig4-1.png" class="img-fluid figure-img" width="2100">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.2: Odenación por cada periodo climático.
+Figura&nbsp;2.2: Odenación por cada periodo climático.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-</section>
 <section id="escala-de-contribuciones-de-las-observaciones-y-las-variables" class="level3">
-<h3 class="anchored" data-anchor-id="escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>2.3) Escala de contribuciones de las observaciones y las variables</strong></h3>
-<p>La <a href="#fig-fig5" class="quarto-xref">Figura&nbsp;<span>3.3</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
+<h3 class="anchored" data-anchor-id="escala-de-contribuciones-de-las-observaciones-y-las-variables">2.2.3) Escala de contribuciones de las observaciones y las variables</h3>
+<p>La <a href="#fig-fig5" class="quarto-xref">Figura&nbsp;<span>2.3</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones (Sitios)                </span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill.ind =</span> datos<span class="sc">$</span>Epoca, <span class="at">col.ind =</span> <span class="st">"black"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">pointshape =</span> <span class="dv">21</span>, <span class="at">pointsize =</span> <span class="dv">2</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">addEllipses =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.var =</span> <span class="st">"contrib"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="st">"RdYlBu"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"Epocas"</span>, <span class="at">color =</span> <span class="st">"Contrib"</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">alpha =</span> <span class="st">"Contrib"</span>)) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones (Sitios)                </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill.ind =</span> datos<span class="sc">$</span>Epoca, <span class="at">col.ind =</span> <span class="st">"black"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">pointshape =</span> <span class="dv">21</span>, <span class="at">pointsize =</span> <span class="dv">2</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">addEllipses =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.var =</span> <span class="st">"contrib"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="st">"RdYlBu"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"Epocas"</span>, <span class="at">color =</span> <span class="st">"Contrib"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">alpha =</span> <span class="st">"Contrib"</span>)) <span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-fig5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig5-1.svg" class="img-fluid figure-img" width="672">
+<img src="outputs/fig/fig-fig5-1.png" class="img-fluid figure-img" width="2100">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.3: Contribuciones de las variables ambientales.
+Figura&nbsp;2.3: Contribuciones de las variables ambientales.
 </figcaption>
 </figure>
 </div>
@@ -492,101 +971,344 @@ Figura&nbsp;3.3: Contribuciones de las variables ambientales.
 <p>#—-</p>
 </section>
 </section>
+</section>
 <section id="pca-con-paquete-ggplot2" class="level1">
-<h1>4) PCA con paquete ggplot2</h1>
+<h1>3) PCA con paquete ggplot2</h1>
 <p>Realización pca de los paquetes factoextra y ggbiplot Para gererar las coordenadas de los sitios y taxones</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pca3 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(tax.hel)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="coordenadas-de-los-sitios-y-el-factor-coord.sit" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>4.1 Coordenadas de los sitios y el factor “coord.sit”</strong></h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca3<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Epoca               <span class="co"># Adicionar columna de grupos por Epoca</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pca3 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(tax.hel)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca3)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             PC1        PC2 sitio    grp
-M.s  -0.20509987  0.4633949   M.s   Seca
-ST.s -0.47947160  0.2828349  ST.s   Seca
-Bo.s  0.79183051  0.1058759  Bo.s   Seca
-M.l  -0.39969319 -0.4779970   M.l Lluvia
-ST.l  0.07910077 -0.2650291  ST.l Lluvia
-Bo.l  0.21333338 -0.1090797  Bo.l Lluvia</code></pre>
+<pre><code>Importance of components:
+                          PC1    PC2    PC3    PC4     PC5       PC6
+Standard deviation     0.4713 0.3512 0.2953 0.2362 0.17749 1.057e-16
+Proportion of Variance 0.4272 0.2372 0.1678 0.1073 0.06059 0.000e+00
+Cumulative Proportion  0.4272 0.6643 0.8321 0.9394 1.00000 1.000e+00</code></pre>
+</div>
+</div>
+<section id="insumos-numéricos" class="level2">
+<h2 class="anchored" data-anchor-id="insumos-numéricos">3.1) Insumos numéricos</h2>
+<section id="a-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="level3">
+<h3 class="anchored" data-anchor-id="a-coordenadas-de-los-sitios-y-el-factor-coord.sit">a) Coordenadas de los sitios y el factor “coord.sit”</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca3<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Epoca               <span class="co"># Adicionar columna de grupos por Epoca</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                             </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vista resumida de las coordenadas de sitios</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+   <th style="text-align:left;"> sitio </th>
+   <th style="text-align:left;"> grp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> M.s </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:left;"> M.s </td>
+   <td style="text-align:left;"> Seca </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.s </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:left;"> ST.s </td>
+   <td style="text-align:left;"> Seca </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.s </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:left;"> Bo.s </td>
+   <td style="text-align:left;"> Seca </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M.l </td>
+   <td style="text-align:right;"> -0.40 </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:left;"> M.l </td>
+   <td style="text-align:left;"> Lluvia </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ST.l </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:left;"> ST.l </td>
+   <td style="text-align:left;"> Lluvia </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Bo.l </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:left;"> Bo.l </td>
+   <td style="text-align:left;"> Lluvia </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </section>
-<section id="coordenadas-de-los-taxones-coord.tax" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-de-los-taxones-coord.tax"><strong>4.2 Coordenadas de los taxones “coord.tax”</strong></h3>
+<section id="b-coordenadas-de-los-taxones-coord.tax" class="level3">
+<h3 class="anchored" data-anchor-id="b-coordenadas-de-los-taxones-coord.tax">b) Coordenadas de los taxones “coord.tax”</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>coord.tax <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca3<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])    <span class="co"># Dos primeros ejes</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>coord.tax<span class="sc">$</span>especies <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.tax)         <span class="co"># Insertar columna con nombres de las especies</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.tax) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              PC1         PC2 especies
-Amb  -0.050809593  0.05712214      Amb
-Amer  0.005666684 -0.12845725     Amer
-Anch -0.042528327 -0.04368374     Anch
-Anac -0.024746853 -0.02282280     Anac
-Ancy -0.006287099  0.02558412     Ancy
-Argi -0.029886629  0.06956166     Argi</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>coord.tax <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(pca3<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])    <span class="co"># Dos primeros ejes</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>coord.tax<span class="sc">$</span>especies <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.tax)         <span class="co"># Insertar columna con nombres de las especies</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vista resumida de las coordenadas de taxones</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.tax) <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+   <th style="text-align:left;"> especies </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Amb </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:left;"> Amb </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amer </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:left;"> Amer </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anch </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:left;"> Anch </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anac </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:left;"> Anac </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ancy </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:left;"> Ancy </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Argi </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:left;"> Argi </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </section>
-<section id="coordenadas-de-las-ambientales-coord.amb" class="level3">
-<h3 class="anchored" data-anchor-id="coordenadas-de-las-ambientales-coord.amb"><strong>4.3 Coordenadas de las ambientales “coord.amb”</strong></h3>
+<section id="c-coordenadas-de-las-ambientales-coord.amb" class="level3">
+<h3 class="anchored" data-anchor-id="c-coordenadas-de-las-ambientales-coord.amb">c) Coordenadas de las ambientales “coord.amb”</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">=</span> <span class="fu">envfit</span>(pca3,amb) </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(amb1, <span class="st">"vectors"</span>))</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>amb <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las ambientales</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              PC1        PC2   amb
-Alca   0.84803475 -0.2427936  Alca
-Condu  0.03410165  0.3025273 Condu
-Dure  -0.67034682  0.5206620  Dure
-Fosfa  0.37835304 -0.7719269 Fosfa
-Nitri  0.32400015 -0.8109169 Nitri
-Nitra  0.23720481 -0.6939225 Nitra</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">=</span> <span class="fu">envfit</span>(pca3,amb) </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">scores</span>(amb1, <span class="st">"vectors"</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>amb <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las ambientales</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vista resumida de las coordenadas de taxones</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) <span class="sc">%&gt;%</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs  =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">longtable =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> PC1 </th>
+   <th style="text-align:right;"> PC2 </th>
+   <th style="text-align:left;"> amb </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Alca </td>
+   <td style="text-align:right;"> 0.88 </td>
+   <td style="text-align:right;"> -0.22 </td>
+   <td style="text-align:left;"> Alca </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Condu </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:left;"> Condu </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dure </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:right;"> 0.53 </td>
+   <td style="text-align:left;"> Dure </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fosfa </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> -0.75 </td>
+   <td style="text-align:left;"> Fosfa </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitri </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> -0.80 </td>
+   <td style="text-align:left;"> Nitri </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitra </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:left;"> Nitra </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+</section>
+<section id="insumos-gráficos-1" class="level2">
+<h2 class="anchored" data-anchor-id="insumos-gráficos-1">3.2) Insumos gráficos</h2>
+<section id="figura-con-vectores-ambientales" class="level3">
+<h3 class="anchored" data-anchor-id="figura-con-vectores-ambientales">3.2.1) Figura con vectores ambientales</h3>
+<p>La <a href="#fig-fig10" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> muestra la ordenación de las localidades, los taxones, las variables ambientales y los periodos climáticos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sitios</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambiental  </span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-fig10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="outputs/fig/fig-fig10-1.png" class="img-fluid figure-img" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: las variables ambientales y los periodos climáticos.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="figura-con-vectores-ambientales-1" class="level3">
+<h3 class="anchored" data-anchor-id="figura-con-vectores-ambientales-1">3.2.2) Figura con vectores ambientales</h3>
+<p>La <a href="#fig-fig11" class="quarto-xref">Figura&nbsp;<span>3.2</span></a> muestra la ordenación de las localidades, los taxones, las variables ambientales y los periodos climáticos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sitios</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambiental  </span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">group=</span>grp,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-fig11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="outputs/fig/fig-fig11-1.png" class="img-fluid figure-img" width="2100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.2: las variables ambientales y los periodos climáticos.
+</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="figura-con-de-elipses-por-concavidades---geom_mark_hull" class="level3">
-<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>4.4 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
-<p>La <a href="#fig-fig9" class="quarto-xref">Figura&nbsp;<span>4.1</span></a> muestra la ordenación de las localidades, los taxones y los periodos climáticos.</p>
+<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull">3.2.3) Figura con de elipses por concavidades - geom_mark_hull</h3>
+<p>La <a href="#fig-fig12" class="quarto-xref">Figura&nbsp;<span>3.3</span></a> muestra la ordenación de las localidades, los taxones y los periodos climáticos.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>                              <span class="co"># Muestra el cuadro de la figura</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"CP1"</span>, <span class="at">y =</span> <span class="st">"CP2"</span>, <span class="at">color =</span> <span class="st">"Épocas"</span>) <span class="sc">+</span>        <span class="co"># Capa 4. Rótulos de los ejes</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Puntos de la figura</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">group=</span>grp,</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>                              <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"CP1"</span>, <span class="at">y =</span> <span class="st">"CP2"</span>, <span class="at">color =</span> <span class="st">"Épocas"</span>) <span class="sc">+</span>        <span class="co"># Capa 4. Rótulos de los ejes</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Puntos de la figura</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">group=</span>grp,</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-fig9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-fig12" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig9-1.png" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="outputs/fig/fig-fig12-1.png" class="img-fluid figure-img" width="2100">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.1: Ordenación de las localidades, los taxones y los periodos climáticos.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.3: Ordenación de las localidades, los taxones y los periodos climáticos.
 </figcaption>
 </figure>
 </div>
@@ -594,52 +1316,55 @@ Figura&nbsp;4.1: Ordenación de las localidades, los taxones y los periodos clim
 </div>
 </section>
 <section id="figura-con-vectores-de-especies-y-ambientales" class="level3">
-<h3 class="anchored" data-anchor-id="figura-con-vectores-de-especies-y-ambientales"><strong>4.5 Figura con vectores de especies y ambientales</strong></h3>
-<p>La <a href="#fig-fig10" class="quarto-xref">Figura&nbsp;<span>4.2</span></a> muestra la ordenación de las localidades, los taxones, las variables ambientales y los periodos climáticos.</p>
+<h3 class="anchored" data-anchor-id="figura-con-vectores-de-especies-y-ambientales">3.2.4) Figura con vectores de especies y ambientales</h3>
+<p>La <a href="#fig-fig13" class="quarto-xref">Figura&nbsp;<span>3.4</span></a> muestra la ordenación de las localidades, los taxones, las variables ambientales y los periodos climáticos.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sitios</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># especies  </span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambiental  </span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor</span></span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sitios</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="dv">0</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"cm"</span>),</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">0</span>,<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.tax,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>especies),<span class="at">colour =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Ambiental  </span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.amb)),<span class="at">colour =</span> <span class="st">"#00abff"</span>)<span class="sc">+</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-fig10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-fig13" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Taller4.2.pca.tayrona_files/figure-html/fig-fig10-1.png" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-fig13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="outputs/fig/fig-fig13-1.png" class="img-fluid figure-img" width="2100">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.2: las localidades, los taxones, las variables ambientales y los periodos climáticos.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.4: las localidades, los taxones, las variables ambientales y los periodos climáticos.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>#—-</p>
+</section>
 </section>
 <section id="taller-de-entrenamiento" class="level2">
-<h2 class="anchored" data-anchor-id="taller-de-entrenamiento"><strong>Taller de entrenamiento</strong></h2>
-<p><strong>Objetivo:</strong> Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un PCA que integgre a las variables biológicas (taxones) y a las ambientalñes de la base seleccionada. Enviar los resultados al <em>Teams</em> del profesor.</p>
+<h2 class="anchored" data-anchor-id="taller-de-entrenamiento">Taller de entrenamiento</h2>
+<p><strong>Objetivo:</strong> Poner en práctica los conceptos vistos en este taller, realizando las siguientes opciones realizando un PCA que integgre a las variables biológicas (taxones) y a las ambientalñes de la base seleccionada.</p>
 
 
 </section>
