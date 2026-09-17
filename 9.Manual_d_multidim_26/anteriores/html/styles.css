@@ -2,17 +2,9 @@
    Estilos - Repositorio de Estadística Multivariada
    Programa de Biología - Universidad del Magdalena
    ==========================================================================
-   Paleta central del repositorio (versión formal, 2026-II).
-   Se redujo la paleta de 8+ tonos distintos a 3 tonos coherentes
-   (azul marino, azul grisáceo y gris oscuro), diferenciando la
-   jerarquía con peso/tamaño/cursiva en vez de colores adicionales.
-   Se conservan los NOMBRES de variables y de clases (--color-azul,
-   --color-naranja, --color-salmon, --color-morado, --color-verde,
-   .titulo-seccion, .titulo-subseccion, etc.) para no romper el resto
-   de los .qmd del repositorio; solo cambian los valores.
-
-   Los .qmd NO deben usar <b style='color:#xxxxxx;'>...</b> ni
-   <n style='color:#xxxxxx;'>...</n>. En su lugar:
+   Paleta central del repositorio. Los .qmd ya NO deben usar
+   <b style='color:#xxxxxx;'>...</b> ni <n style='color:#xxxxxx;'>...</n>.
+   En su lugar:
      - Para encabezados de actividad:   ## Actividad 1. Xxxx {.titulo-seccion}
      - Para subsecciones/avances:       #### Primer avance {.titulo-subseccion}
      - Para etiquetas numeradas en linea: <span class="titulo-subseccion">1. Conducta de entrada.</span>
@@ -23,34 +15,32 @@
    ========================================================================== */
 
 :root {
-  --color-texto:   #2b2b2b; /* Texto de cuerpo, listas */
-  --color-azul:    #1a3552; /* Azul marino - marca del repositorio: h1, h2, titulos de seccion/actividad, creditos de imagen, modulos */
-  --color-naranja: #3d6478; /* Azul grisáceo - h3, subsecciones/avances, etiquetas numeradas, temas */
-  --color-salmon:  #555555; /* Gris oscuro - tercer nivel: objetivo, documento de soporte, sub-actividades, etiqueta de periodo */
-  --color-morado:  #555555; /* Reservado: subsecciones de procedimiento dentro de un taller (gris oscuro, coherente con el resto) */
-  --color-verde:   #3d6478; /* Reservado: etiquetas de teoria (azul grisáceo, coherente con el resto) */
+  --color-azul:    #1f78b4; /* Titulos de seccion/actividad y creditos de imagen */
+  --color-naranja: #d95f02; /* Subsecciones, avances y etiquetas numeradas */
+  --color-salmon:  #fc8d62; /* Tercer nivel: objetivo, documento de soporte, sub-actividades */
+  --color-morado:  #c994c7; /* Reservado: subsecciones de procedimiento dentro de un taller */
+  --color-verde:   #2ca25f; /* Reservado: etiquetas de teoria */
 }
 
-/* -------------------- Encabezados generales del documento --------------------
-   Jerarquía marcada por tamaño/peso, no por una gama de colores distintos. */
-h1 { color: var(--color-azul);    text-align: left; }
-h2 { color: var(--color-azul);    text-align: left; }
-h3 { color: var(--color-naranja); text-align: left; }
-h4 { color: #4a4a4a; text-align: left; font-weight: 700; }
-h5 { color: #4a4a4a; text-align: left; font-weight: 600; font-style: italic; }
+/* -------------------- Encabezados generales del documento -------------------- */
+h1 { color: #1a3552; text-align: left; }
+h2 { color: #d83838; text-align: left; }
+h3 { color: #018571; text-align: left; }
+h4 { color: #a6611a; text-align: left; }
+h5 { color: #fd8d3c; text-align: left; }
 
-/* -------------------- Listas --------------------
-   Sin color de texto propio ni fuentes distintas entre ul/ol: heredan
-   la tipografía del documento para mantener un aspecto uniforme. */
+/* -------------------- Listas -------------------- */
 ul {
-  color: var(--color-texto);
+  color: #4CAF50;
+  font-family: 'Arial', sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 ul li { margin-bottom: 5px; }
 
 ol {
-  color: var(--color-texto);
+  color: #0571b0;
+  font-family: 'Verdana', sans-serif;
   font-size: 16px;
   line-height: 1.8;
 }
