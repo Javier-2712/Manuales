@@ -270,7 +270,83 @@ window.Quarto = {
   <li><a href="#cargar-datos-de-rasgoss" id="toc-cargar-datos-de-rasgoss" class="nav-link" data-scroll-target="#cargar-datos-de-rasgoss">3. Cargar datos de rasgoss</a></li>
   <li><a href="#cargar-datos-de-coordenadas." id="toc-cargar-datos-de-coordenadas." class="nav-link" data-scroll-target="#cargar-datos-de-coordenadas.">4. Cargar datos de coordenadas.</a></li>
   </ul></li>
-  <li><a href="#distancia-funcional-gower" id="toc-distancia-funcional-gower" class="nav-link" data-scroll-target="#distancia-funcional-gower">Distancia funcional: Gower</a></li>
+  <li><a href="#distancia-funcional-gower" id="toc-distancia-funcional-gower" class="nav-link" data-scroll-target="#distancia-funcional-gower">Distancia funcional: Gower</a>
+  <ul>
+  <li><a href="#dendrograma-funcional-de-las-especies" id="toc-dendrograma-funcional-de-las-especies" class="nav-link" data-scroll-target="#dendrograma-funcional-de-las-especies">Dendrograma funcional de las especies</a></li>
+  <li><a href="#agrupamiento-no-jerárquico-k-medias-en-el-espacio-pcoa" id="toc-agrupamiento-no-jerárquico-k-medias-en-el-espacio-pcoa" class="nav-link" data-scroll-target="#agrupamiento-no-jerárquico-k-medias-en-el-espacio-pcoa">Agrupamiento no jerárquico (k-medias en el espacio PCoA)</a></li>
+  </ul></li>
+  <li><a href="#a1.-estimadores-clásicos-de-diversidad-funcional" id="toc-a1.-estimadores-clásicos-de-diversidad-funcional" class="nav-link" data-scroll-target="#a1.-estimadores-clásicos-de-diversidad-funcional">A1. Estimadores clásicos de diversidad funcional</a>
+  <ul>
+  <li><a href="#estructura-funcional-con-dbfd" id="toc-estructura-funcional-con-dbfd" class="nav-link" data-scroll-target="#estructura-funcional-con-dbfd">Estructura funcional con <code>dbFD()</code></a>
+  <ul>
+  <li><a href="#ejecutar-dbfd" id="toc-ejecutar-dbfd" class="nav-link" data-scroll-target="#ejecutar-dbfd">Ejecutar <code>dbFD()</code></a></li>
+  <li><a href="#índices-de-diversidad-funcional-por-sitio" id="toc-índices-de-diversidad-funcional-por-sitio" class="nav-link" data-scroll-target="#índices-de-diversidad-funcional-por-sitio">Índices de diversidad funcional por sitio</a></li>
+  <li><a href="#índices-de-diversidad-funcional-por-zona" id="toc-índices-de-diversidad-funcional-por-zona" class="nav-link" data-scroll-target="#índices-de-diversidad-funcional-por-zona">Índices de diversidad funcional por zona</a></li>
+  <li><a href="#calidad-del-espacio-funcional" id="toc-calidad-del-espacio-funcional" class="nav-link" data-scroll-target="#calidad-del-espacio-funcional">Calidad del espacio funcional</a></li>
+  <li><a href="#mapa-espacial-de-los-índices-funcionales-por-sitio" id="toc-mapa-espacial-de-los-índices-funcionales-por-sitio" class="nav-link" data-scroll-target="#mapa-espacial-de-los-índices-funcionales-por-sitio">Mapa espacial de los índices funcionales por sitio</a></li>
+  <li><a href="#espacio-funcional-por-zona-vs.-por-clúster" id="toc-espacio-funcional-por-zona-vs.-por-clúster" class="nav-link" data-scroll-target="#espacio-funcional-por-zona-vs.-por-clúster">Espacio funcional por zona (vs.&nbsp;por clúster)</a></li>
+  <li><a href="#espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026" id="toc-espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026" class="nav-link" data-scroll-target="#espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026">Espacio total vs.&nbsp;ocupado, por zona (estilo Tette-Pomárico et al., 2026)</a></li>
+  <li><a href="#rasgo-dominante-en-cada-zona-community-weighted-means-cwm" id="toc-rasgo-dominante-en-cada-zona-community-weighted-means-cwm" class="nav-link" data-scroll-target="#rasgo-dominante-en-cada-zona-community-weighted-means-cwm">Rasgo dominante en cada zona: Community Weighted Means (CWM)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#a2.-entropía-cuadrática-de-rao-y-partición-αβγ" id="toc-a2.-entropía-cuadrática-de-rao-y-partición-αβγ" class="nav-link" data-scroll-target="#a2.-entropía-cuadrática-de-rao-y-partición-αβγ">A2. Entropía cuadrática de Rao y partición α–β–γ</a>
+  <ul>
+  <li><a href="#partición-multiescalar-con-rao" id="toc-partición-multiescalar-con-rao" class="nav-link" data-scroll-target="#partición-multiescalar-con-rao">Partición multiescalar con <code>Rao()</code></a>
+  <ul>
+  <li><a href="#diversidad-funcional-de-zonas" id="toc-diversidad-funcional-de-zonas" class="nav-link" data-scroll-target="#diversidad-funcional-de-zonas">Diversidad funcional de zonas</a></li>
+  <li><a href="#ejecutar-rao" id="toc-ejecutar-rao" class="nav-link" data-scroll-target="#ejecutar-rao">Ejecutar <code>Rao()</code></a></li>
+  <li><a href="#diversidad-funcional-multiescalar-α-β-y-γ" id="toc-diversidad-funcional-multiescalar-α-β-y-γ" class="nav-link" data-scroll-target="#diversidad-funcional-multiescalar-α-β-y-γ">Diversidad funcional multiescalar: α, β y γ</a></li>
+  <li><a href="#comparación-rápida-entre-td-y-fd" id="toc-comparación-rápida-entre-td-y-fd" class="nav-link" data-scroll-target="#comparación-rápida-entre-td-y-fd">Comparación rápida entre TD y FD</a></li>
+  <li><a href="#mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd" id="toc-mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd" class="nav-link" data-scroll-target="#mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd">Mapa espacial de la diversidad alfa por sitio (TD y FD)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#b1.-números-efectivos-de-hill-para-diversidad-funcional-alfa" id="toc-b1.-números-efectivos-de-hill-para-diversidad-funcional-alfa" class="nav-link" data-scroll-target="#b1.-números-efectivos-de-hill-para-diversidad-funcional-alfa">B1. Números efectivos de Hill para diversidad funcional alfa</a>
+  <ul>
+  <li><a href="#diversidad-funcional-alfa-con-inext3d" id="toc-diversidad-funcional-alfa-con-inext3d" class="nav-link" data-scroll-target="#diversidad-funcional-alfa-con-inext3d">Diversidad funcional alfa con <code>iNEXT3D()</code></a>
+  <ul>
+  <li><a href="#información-básica-de-fd-y-cobertura-observada" id="toc-información-básica-de-fd-y-cobertura-observada" class="nav-link" data-scroll-target="#información-básica-de-fd-y-cobertura-observada">Información básica de FD y cobertura observada</a></li>
+  <li><a href="#curvas-de-rarefacciónextrapolación-por-tamaño-de-muestra" id="toc-curvas-de-rarefacciónextrapolación-por-tamaño-de-muestra" class="nav-link" data-scroll-target="#curvas-de-rarefacciónextrapolación-por-tamaño-de-muestra">Curvas de rarefacción/extrapolación por tamaño de muestra</a></li>
+  <li><a href="#curvas-de-cobertura" id="toc-curvas-de-cobertura" class="nav-link" data-scroll-target="#curvas-de-cobertura">Curvas de cobertura</a></li>
+  <li><a href="#comparar-las-zonas-a-una-cobertura-común" id="toc-comparar-las-zonas-a-una-cobertura-común" class="nav-link" data-scroll-target="#comparar-las-zonas-a-una-cobertura-común">Comparar las zonas a una cobertura común</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#b2.-números-efectivos-de-hill-para-diversidad-funcional-beta" id="toc-b2.-números-efectivos-de-hill-para-diversidad-funcional-beta" class="nav-link" data-scroll-target="#b2.-números-efectivos-de-hill-para-diversidad-funcional-beta">B2. Números efectivos de Hill para diversidad funcional beta</a>
+  <ul>
+  <li><a href="#diversidad-funcional-beta-con-inextbeta3d" id="toc-diversidad-funcional-beta-con-inextbeta3d" class="nav-link" data-scroll-target="#diversidad-funcional-beta-con-inextbeta3d">Diversidad funcional beta con <code>iNEXTbeta3D()</code></a>
+  <ul>
+  <li><a href="#construir-los-pares-de-zonas" id="toc-construir-los-pares-de-zonas" class="nav-link" data-scroll-target="#construir-los-pares-de-zonas">Construir los pares de zonas</a></li>
+  <li><a href="#chequeos-de-consistencia" id="toc-chequeos-de-consistencia" class="nav-link" data-scroll-target="#chequeos-de-consistencia">Chequeos de consistencia</a></li>
+  <li><a href="#ejecutar-inextbeta3d" id="toc-ejecutar-inextbeta3d" class="nav-link" data-scroll-target="#ejecutar-inextbeta3d">Ejecutar <code>iNEXTbeta3D()</code></a></li>
+  <li><a href="#curvas-de-gamma-alfa-y-beta" id="toc-curvas-de-gamma-alfa-y-beta" class="nav-link" data-scroll-target="#curvas-de-gamma-alfa-y-beta">Curvas de gamma, alfa y beta</a></li>
+  <li><a href="#extraer-las-tres-comparaciones-beta-a-cobertura-común" id="toc-extraer-las-tres-comparaciones-beta-a-cobertura-común" class="nav-link" data-scroll-target="#extraer-las-tres-comparaciones-beta-a-cobertura-común">Extraer las tres comparaciones beta a cobertura común</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#integración-a1-a2-b1-b2" id="toc-integración-a1-a2-b1-b2" class="nav-link" data-scroll-target="#integración-a1-a2-b1-b2">Integración A1 → A2 → B1 → B2</a>
+  <ul>
+  <li><a href="#cuatro-preguntas-cuatro-herramientas" id="toc-cuatro-preguntas-cuatro-herramientas" class="nav-link" data-scroll-target="#cuatro-preguntas-cuatro-herramientas">Cuatro preguntas, cuatro herramientas</a></li>
+  <li><a href="#comparar-bloques-a2-y-b2-fd-multiescalar" id="toc-comparar-bloques-a2-y-b2-fd-multiescalar" class="nav-link" data-scroll-target="#comparar-bloques-a2-y-b2-fd-multiescalar">Comparar bloques A2 y B2 (FD multiescalar)</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-de-práctica-dirigida-individual" id="toc-ejercicios-de-práctica-dirigida-individual" class="nav-link" data-scroll-target="#ejercicios-de-práctica-dirigida-individual">Ejercicios de práctica dirigida (individual)</a>
+  <ul>
+  <li><a href="#ejercicio-1-bloque-a1" id="toc-ejercicio-1-bloque-a1" class="nav-link" data-scroll-target="#ejercicio-1-bloque-a1">Ejercicio 1 — Bloque A1</a></li>
+  <li><a href="#ejercicio-2-cálculo-de-cwm" id="toc-ejercicio-2-cálculo-de-cwm" class="nav-link" data-scroll-target="#ejercicio-2-cálculo-de-cwm">Ejercicio 2 — Cálculo de CWM</a></li>
+  <li><a href="#ejercicio-3-bloque-a2" id="toc-ejercicio-3-bloque-a2" class="nav-link" data-scroll-target="#ejercicio-3-bloque-a2">Ejercicio 3 — Bloque A2</a></li>
+  <li><a href="#ejercicio-4-b1" id="toc-ejercicio-4-b1" class="nav-link" data-scroll-target="#ejercicio-4-b1">Ejercicio 4 — B1</a></li>
+  <li><a href="#ejercicio-5-b2" id="toc-ejercicio-5-b2" class="nav-link" data-scroll-target="#ejercicio-5-b2">Ejercicio 5 — B2</a></li>
+  <li><a href="#ejercicio-6-a2-vs-b2" id="toc-ejercicio-6-a2-vs-b2" class="nav-link" data-scroll-target="#ejercicio-6-a2-vs-b2">Ejercicio 6 — A2 vs B2</a></li>
+  <li><a href="#ejercicio-7-transferencia-al-estudio-de-caso" id="toc-ejercicio-7-transferencia-al-estudio-de-caso" class="nav-link" data-scroll-target="#ejercicio-7-transferencia-al-estudio-de-caso">Ejercicio 7 — Transferencia al estudio de caso</a></li>
+  </ul></li>
+  <li><a href="#conexión-con-td-fd-y-pd" id="toc-conexión-con-td-fd-y-pd" class="nav-link" data-scroll-target="#conexión-con-td-fd-y-pd">Conexión con TD, FD y PD</a></li>
+  <li><a href="#anticipando-el-estudio-de-caso" id="toc-anticipando-el-estudio-de-caso" class="nav-link" data-scroll-target="#anticipando-el-estudio-de-caso">Anticipando el estudio de caso</a></li>
+  <li><a href="#lecturas-de-referencia" id="toc-lecturas-de-referencia" class="nav-link" data-scroll-target="#lecturas-de-referencia">Lecturas de referencia</a>
+  <ul>
+  <li><a href="#enlaces-de-materiales-complementarios" id="toc-enlaces-de-materiales-complementarios" class="nav-link" data-scroll-target="#enlaces-de-materiales-complementarios">Enlaces de materiales complementarios</a>
+  <ul>
+  <li><a href="#mapa-mental-fd" id="toc-mapa-mental-fd" class="nav-link" data-scroll-target="#mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="73"> Mapa Mental FD</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="73">Flashcards</a></li>
+  <li><a href="#guía-de-estudio" id="toc-guía-de-estudio" class="nav-link" data-scroll-target="#guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="73">Guía de estudio</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -430,111 +506,112 @@ Nota
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Hypanus sabinus</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Elops saurus</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Megalops atlanticus</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Albula vulpes</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Anguilla rostrata</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Myrophis punctatus</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Anchoa mitchilli</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Anchoa hepsetus</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;">   </th>
+   <th style="text-align:right;font-weight: bold;"> Hypanus sabinus </th>
+   <th style="text-align:right;font-weight: bold;"> Elops saurus </th>
+   <th style="text-align:right;font-weight: bold;"> Megalops atlanticus </th>
+   <th style="text-align:right;font-weight: bold;"> Albula vulpes </th>
+   <th style="text-align:right;font-weight: bold;"> Anguilla rostrata </th>
+   <th style="text-align:right;font-weight: bold;"> Myrophis punctatus </th>
+   <th style="text-align:right;font-weight: bold;"> Anchoa mitchilli </th>
+   <th style="text-align:right;font-weight: bold;"> Anchoa hepsetus </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">11M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">12M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">13M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">14M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">17M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">18M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">20M</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> 11M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 12M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 13M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 14M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 17M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 18M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 20M </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -573,102 +650,103 @@ Nota
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">TrophicLevel</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">BodyLength</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">BodyLengthMax</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">ShapeFactor</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">omnivory</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">detritivory</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">herbivory</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;">   </th>
+   <th style="text-align:right;font-weight: bold;"> TrophicLevel </th>
+   <th style="text-align:right;font-weight: bold;"> BodyLength </th>
+   <th style="text-align:right;font-weight: bold;"> BodyLengthMax </th>
+   <th style="text-align:right;font-weight: bold;"> ShapeFactor </th>
+   <th style="text-align:right;font-weight: bold;"> omnivory </th>
+   <th style="text-align:right;font-weight: bold;"> detritivory </th>
+   <th style="text-align:right;font-weight: bold;"> herbivory </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Hypanus sabinus</td>
-<td style="text-align: right;">3.3</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Elops saurus</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Megalops atlanticus</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Albula vulpes</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Anguilla rostrata</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">420.00</td>
-<td style="text-align: right;">840.00</td>
-<td style="text-align: right;">16.67</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Myrophis punctatus</td>
-<td style="text-align: right;">3.3</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Anchoa mitchilli</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Anchoa hepsetus</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">431.76</td>
-<td style="text-align: right;">5.73</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> Hypanus sabinus </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Elops saurus </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Megalops atlanticus </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Albula vulpes </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anguilla rostrata </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 420.00 </td>
+   <td style="text-align:right;"> 840.00 </td>
+   <td style="text-align:right;"> 16.67 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Myrophis punctatus </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anchoa mitchilli </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anchoa hepsetus </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 431.76 </td>
+   <td style="text-align:right;"> 5.73 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -712,57 +790,58 @@ Nota
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Longitude</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Latitude</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;">   </th>
+   <th style="text-align:right;font-weight: bold;"> Longitude </th>
+   <th style="text-align:right;font-weight: bold;"> Latitude </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">11M</td>
-<td style="text-align: right;">-99.50</td>
-<td style="text-align: right;">24.48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">12M</td>
-<td style="text-align: right;">-99.68</td>
-<td style="text-align: right;">24.53</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">13M</td>
-<td style="text-align: right;">-99.38</td>
-<td style="text-align: right;">24.51</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">14M</td>
-<td style="text-align: right;">-99.27</td>
-<td style="text-align: right;">24.41</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">17M</td>
-<td style="text-align: right;">-99.46</td>
-<td style="text-align: right;">24.13</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">18M</td>
-<td style="text-align: right;">-99.57</td>
-<td style="text-align: right;">24.35</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1M</td>
-<td style="text-align: right;">-99.18</td>
-<td style="text-align: right;">23.59</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">20M</td>
-<td style="text-align: right;">-99.18</td>
-<td style="text-align: right;">24.09</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> 11M </td>
+   <td style="text-align:right;"> -99.50 </td>
+   <td style="text-align:right;"> 24.48 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 12M </td>
+   <td style="text-align:right;"> -99.68 </td>
+   <td style="text-align:right;"> 24.53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 13M </td>
+   <td style="text-align:right;"> -99.38 </td>
+   <td style="text-align:right;"> 24.51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 14M </td>
+   <td style="text-align:right;"> -99.27 </td>
+   <td style="text-align:right;"> 24.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 17M </td>
+   <td style="text-align:right;"> -99.46 </td>
+   <td style="text-align:right;"> 24.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 18M </td>
+   <td style="text-align:right;"> -99.57 </td>
+   <td style="text-align:right;"> 24.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1M </td>
+   <td style="text-align:right;"> -99.18 </td>
+   <td style="text-align:right;"> 23.59 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 20M </td>
+   <td style="text-align:right;"> -99.18 </td>
+   <td style="text-align:right;"> 24.09 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -831,7 +910,7 @@ Albula vulpes               0.000</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -840,9 +919,12 @@ Albula vulpes               0.000</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Tres de los diez rasgos de la distancia funcional <code>rasgos.d</code>, como <code>BodyLength</code>, <code>BodyLengthMax</code> y <code>ShapeFactor</code>, presentan valores hipottéticos, que están repetidos en varias especies, lo cual se puede evidenciar en este chequeo básico para el caso de <code>BodyLength</code>:</p>
+<p>Tres de los diez rasgos de la distancia funcional <code>rasgos.d</code>, como <code>BodyLength</code>, <code>BodyLengthMax</code> y <code>ShapeFactor</code>, presentan valores hipottéticos, que están repetidos en varias especies, lo cual se puede evidenciar en este chequeo básico para el caso de <code>BodyLength</code></p>
+</div>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -858,20 +940,21 @@ Albula vulpes               0.000</code></pre>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">BodyLength</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">n</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;font-weight: bold;"> BodyLength </th>
+   <th style="text-align:right;font-weight: bold;"> n </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: right;">227.45</td>
-<td style="text-align: right;">73</td>
-</tr>
+  <tr>
+   <td style="text-align:right;"> 227.45 </td>
+   <td style="text-align:right;"> 73 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <p>Un mismo valor de <code>BodyLength</code> se repite en el 84 % de las especies (73/84 especies con el mismo valor), indicando que es un valor de relleno, no una coincidencia biológica. Lo mismo ocurre en <code>BodyLengthMax</code> y <code>ShapeFactor</code>. Por lo que para este caso, la distancia de Gower descansa casi por completo en <code>TrophicLevel</code> y los seis rasgos binarios de dieta. Lo anterior se hizo con fines didácticos del presente ejercicio y porque puede ocurrir en varios estudios funcionales del Caribe colomiano. Una opción que se podría probar es excluir estos rasgos con valores repetidos, pero no es objeto del presente ejercicio.</p>
@@ -1003,7 +1086,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1012,7 +1095,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Dendrograma y k-medias parten de la misma matriz de distancias, pero son algoritmos distintos (jerárquico vs.&nbsp;particional) y no tienen por qué asignar las mismas especies a cada grupo. Cuando ambos coinciden en los mismos tres grupos, es señal de que la estructura funcional es robusta, no un artefacto del método.</p>
 </div>
@@ -1020,6 +1103,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 <hr>
 <div style="page-break-after: always;"></div>
+</section>
 </section>
 <section id="a1.-estimadores-clásicos-de-diversidad-funcional" class="level1">
 <h1>A1. Estimadores clásicos de diversidad funcional</h1>
@@ -1039,7 +1123,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig_portada/espacio.funcional.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" data-fig-pos="H"></p>
+<p><img src="fig_portada/espacio.funcional.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
@@ -1065,7 +1149,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </details>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1074,7 +1158,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Ambas correcciones vuelven euclidiana la distancia de Gower, pero no producen la misma escala en FDis y RaoQ. Aquí se usa <code>"cailliez"</code>.</p>
 <ul>
@@ -1115,112 +1199,113 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#2E4057"</span>)   <span class="co"># Resalta el encabezado</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Índices clásicos de diversidad funcional — primeros 10 sitios</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Sitio</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FRic</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FEve</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FDiv</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FDis</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">RaoQ</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Zona</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Sitio </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FRic </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FEve </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FDiv </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FDis </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> RaoQ </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Zona </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">11M</td>
-<td style="text-align: center;">0.021</td>
-<td style="text-align: center;">0.864</td>
-<td style="text-align: center;">0.520</td>
-<td style="text-align: center;">0.109</td>
-<td style="text-align: center;">0.018</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12M</td>
-<td style="text-align: center;">0.003</td>
-<td style="text-align: center;">0.376</td>
-<td style="text-align: center;">0.799</td>
-<td style="text-align: center;">0.066</td>
-<td style="text-align: center;">0.005</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">13M</td>
-<td style="text-align: center;">0.031</td>
-<td style="text-align: center;">0.690</td>
-<td style="text-align: center;">0.711</td>
-<td style="text-align: center;">0.110</td>
-<td style="text-align: center;">0.017</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">14M</td>
-<td style="text-align: center;">0.021</td>
-<td style="text-align: center;">0.555</td>
-<td style="text-align: center;">0.405</td>
-<td style="text-align: center;">0.071</td>
-<td style="text-align: center;">0.013</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">17M</td>
-<td style="text-align: center;">0.257</td>
-<td style="text-align: center;">0.381</td>
-<td style="text-align: center;">0.634</td>
-<td style="text-align: center;">0.127</td>
-<td style="text-align: center;">0.031</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">18M</td>
-<td style="text-align: center;">0.025</td>
-<td style="text-align: center;">0.464</td>
-<td style="text-align: center;">0.260</td>
-<td style="text-align: center;">0.068</td>
-<td style="text-align: center;">0.012</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1M</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">0.000</td>
-<td style="text-align: center;">0.000</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">20M</td>
-<td style="text-align: center;">0.067</td>
-<td style="text-align: center;">0.398</td>
-<td style="text-align: center;">0.524</td>
-<td style="text-align: center;">0.089</td>
-<td style="text-align: center;">0.013</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">25M</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">0.000</td>
-<td style="text-align: center;">0.000</td>
-<td style="text-align: center;">M</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">26M</td>
-<td style="text-align: center;">0.024</td>
-<td style="text-align: center;">0.294</td>
-<td style="text-align: center;">0.452</td>
-<td style="text-align: center;">0.060</td>
-<td style="text-align: center;">0.007</td>
-<td style="text-align: center;">M</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> 11M </td>
+   <td style="text-align:center;"> 0.021 </td>
+   <td style="text-align:center;"> 0.864 </td>
+   <td style="text-align:center;"> 0.520 </td>
+   <td style="text-align:center;"> 0.109 </td>
+   <td style="text-align:center;"> 0.018 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 12M </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.376 </td>
+   <td style="text-align:center;"> 0.799 </td>
+   <td style="text-align:center;"> 0.066 </td>
+   <td style="text-align:center;"> 0.005 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 13M </td>
+   <td style="text-align:center;"> 0.031 </td>
+   <td style="text-align:center;"> 0.690 </td>
+   <td style="text-align:center;"> 0.711 </td>
+   <td style="text-align:center;"> 0.110 </td>
+   <td style="text-align:center;"> 0.017 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 14M </td>
+   <td style="text-align:center;"> 0.021 </td>
+   <td style="text-align:center;"> 0.555 </td>
+   <td style="text-align:center;"> 0.405 </td>
+   <td style="text-align:center;"> 0.071 </td>
+   <td style="text-align:center;"> 0.013 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 17M </td>
+   <td style="text-align:center;"> 0.257 </td>
+   <td style="text-align:center;"> 0.381 </td>
+   <td style="text-align:center;"> 0.634 </td>
+   <td style="text-align:center;"> 0.127 </td>
+   <td style="text-align:center;"> 0.031 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 18M </td>
+   <td style="text-align:center;"> 0.025 </td>
+   <td style="text-align:center;"> 0.464 </td>
+   <td style="text-align:center;"> 0.260 </td>
+   <td style="text-align:center;"> 0.068 </td>
+   <td style="text-align:center;"> 0.012 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 1M </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 20M </td>
+   <td style="text-align:center;"> 0.067 </td>
+   <td style="text-align:center;"> 0.398 </td>
+   <td style="text-align:center;"> 0.524 </td>
+   <td style="text-align:center;"> 0.089 </td>
+   <td style="text-align:center;"> 0.013 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 25M </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 26M </td>
+   <td style="text-align:center;"> 0.024 </td>
+   <td style="text-align:center;"> 0.294 </td>
+   <td style="text-align:center;"> 0.452 </td>
+   <td style="text-align:center;"> 0.060 </td>
+   <td style="text-align:center;"> 0.007 </td>
+   <td style="text-align:center;"> M </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 </section>
@@ -1253,49 +1338,50 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 <span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)   <span class="co"># Resalta la columna de zona</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Promedio de los índices clásicos de FD por zona</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Zona</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">n</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FRic</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FEve</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FDiv</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FDis</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">RaoQ</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Zona </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> n </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FRic </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FEve </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FDiv </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> FDis </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> RaoQ </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">M</td>
-<td style="text-align: center;">24</td>
-<td style="text-align: center;">0.031</td>
-<td style="text-align: center;">0.493</td>
-<td style="text-align: center;">0.500</td>
-<td style="text-align: center;">0.062</td>
-<td style="text-align: center;">0.009</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">P</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">0.049</td>
-<td style="text-align: center;">0.499</td>
-<td style="text-align: center;">0.652</td>
-<td style="text-align: center;">0.121</td>
-<td style="text-align: center;">0.024</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">RM</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0.633</td>
-<td style="text-align: center;">0.486</td>
-<td style="text-align: center;">0.738</td>
-<td style="text-align: center;">0.177</td>
-<td style="text-align: center;">0.037</td>
-</tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> M </td>
+   <td style="text-align:center;"> 24 </td>
+   <td style="text-align:center;"> 0.031 </td>
+   <td style="text-align:center;"> 0.493 </td>
+   <td style="text-align:center;"> 0.500 </td>
+   <td style="text-align:center;"> 0.062 </td>
+   <td style="text-align:center;"> 0.009 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> P </td>
+   <td style="text-align:center;"> 16 </td>
+   <td style="text-align:center;"> 0.049 </td>
+   <td style="text-align:center;"> 0.499 </td>
+   <td style="text-align:center;"> 0.652 </td>
+   <td style="text-align:center;"> 0.121 </td>
+   <td style="text-align:center;"> 0.024 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> RM </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 0.633 </td>
+   <td style="text-align:center;"> 0.486 </td>
+   <td style="text-align:center;"> 0.738 </td>
+   <td style="text-align:center;"> 0.177 </td>
+   <td style="text-align:center;"> 0.037 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -1455,7 +1541,7 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1464,7 +1550,7 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><code>escalar_cex()</code> funciona con cualquier índice y cualquier conjunto de datos porque depende del rango real de los valores, no de un número copiado. Al usar datos propios o al ejercicio del estudio de caso, solo es necesario revisar que <code>min_cex</code>/<code>max_cex</code> den círculos legibles.</p>
 </div>
@@ -1507,160 +1593,161 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 <span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Zona</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Especie</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Abundancia</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">PCoA1</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">PCoA2</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Abrev</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">cluster</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Zona </th>
+   <th style="text-align:left;font-weight: bold;"> Especie </th>
+   <th style="text-align:right;font-weight: bold;"> Abundancia </th>
+   <th style="text-align:right;font-weight: bold;"> PCoA1 </th>
+   <th style="text-align:right;font-weight: bold;"> PCoA2 </th>
+   <th style="text-align:left;font-weight: bold;"> Abrev </th>
+   <th style="text-align:left;font-weight: bold;"> cluster </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">Aplodinotus grunniens</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">-0.04</td>
-<td style="text-align: left;">Aplg</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">Micropterus spp.</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: left;">Msp.</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">Lepomis macrochirus</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">-0.04</td>
-<td style="text-align: right;">-0.13</td>
-<td style="text-align: left;">Lpmm</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">Oreochromis aureus</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">-0.27</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: left;">Orca</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">M</td>
-<td style="text-align: left;">Dionda episcopa</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">-0.34</td>
-<td style="text-align: right;">0.26</td>
-<td style="text-align: left;">Dnde</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">P</td>
-<td style="text-align: left;">Micropterus spp.</td>
-<td style="text-align: right;">382</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">-0.16</td>
-<td style="text-align: left;">Msp.</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">P</td>
-<td style="text-align: left;">Lepomis macrochirus</td>
-<td style="text-align: right;">81</td>
-<td style="text-align: right;">-0.04</td>
-<td style="text-align: right;">-0.13</td>
-<td style="text-align: left;">Lpmm</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">P</td>
-<td style="text-align: left;">Oreochromis aureus</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">-0.27</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: left;">Orca</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">P</td>
-<td style="text-align: left;">Cyprinella lutrensis</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.33</td>
-<td style="text-align: right;">0.26</td>
-<td style="text-align: left;">Cypl</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">P</td>
-<td style="text-align: left;">Centropomus undecimalis</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">-0.01</td>
-<td style="text-align: left;">Cntu</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RM</td>
-<td style="text-align: left;">Scomberomorus regalis</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.26</td>
-<td style="text-align: right;">-0.02</td>
-<td style="text-align: left;">Scmr</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">RM</td>
-<td style="text-align: left;">Mycteroperca bonaci</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.11</td>
-<td style="text-align: right;">-0.09</td>
-<td style="text-align: left;">Mycb</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RM</td>
-<td style="text-align: left;">Brevoortia gunteri</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">-0.19</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: left;">Brvg</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">RM</td>
-<td style="text-align: left;">Pogonias cromis</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">-0.03</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: left;">Pgnc</td>
-<td style="text-align: left;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RM</td>
-<td style="text-align: left;">Anguilla rostrata</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.28</td>
-<td style="text-align: right;">0.59</td>
-<td style="text-align: left;">Angr</td>
-<td style="text-align: left;">3</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Aplodinotus grunniens </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:left;"> Aplg </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Micropterus spp. </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.16 </td>
+   <td style="text-align:left;"> Msp. </td>
+   <td style="text-align:left;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Lepomis macrochirus </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:left;"> Lpmm </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Oreochromis aureus </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:left;"> Orca </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M </td>
+   <td style="text-align:left;"> Dionda episcopa </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> -0.34 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:left;"> Dnde </td>
+   <td style="text-align:left;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Micropterus spp. </td>
+   <td style="text-align:right;"> 382 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.16 </td>
+   <td style="text-align:left;"> Msp. </td>
+   <td style="text-align:left;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Lepomis macrochirus </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:left;"> Lpmm </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Oreochromis aureus </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:left;"> Orca </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Cyprinella lutrensis </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.33 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:left;"> Cypl </td>
+   <td style="text-align:left;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> P </td>
+   <td style="text-align:left;"> Centropomus undecimalis </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:left;"> Cntu </td>
+   <td style="text-align:left;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Scomberomorus regalis </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:left;"> Scmr </td>
+   <td style="text-align:left;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Mycteroperca bonaci </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.09 </td>
+   <td style="text-align:left;"> Mycb </td>
+   <td style="text-align:left;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Brevoortia gunteri </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> -0.19 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:left;"> Brvg </td>
+   <td style="text-align:left;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Pogonias cromis </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:left;"> Pgnc </td>
+   <td style="text-align:left;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RM </td>
+   <td style="text-align:left;"> Anguilla rostrata </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:right;"> 0.59 </td>
+   <td style="text-align:left;"> Angr </td>
+   <td style="text-align:left;"> 3 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1669,7 +1756,7 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Este polígono usa solo los dos primeros ejes de la PCoA, mientras que <code>dbFD()</code> calcula FRic con tantos ejes como retenga internamente (puede ser más de dos). Es una <strong>ilustración del concepto</strong>, no un recálculo exacto de FRic. Si el orden visual no coincide con el orden numérico de FRic, la causa más probable es esta diferencia de dimensionalidad, no un error.</p>
 </div>
@@ -1744,7 +1831,7 @@ Figura&nbsp;1.3: Espacio funcional total (gris, de fondo; PCoA1–PCoA2) frente 
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1753,7 +1840,7 @@ Figura&nbsp;1.3: Espacio funcional total (gris, de fondo; PCoA1–PCoA2) frente 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>El gris de fondo es el techo funcional máximo del conjunto de datos; cuánto de ese gris se cubre de color en cada panel indica qué fracción del espacio disponible ocupa esa zona. El tamaño de los circulos (abundancia) añade una tercera lectura: una zona puede ocupar poco espacio con especies muy abundantes, o mucho espacio con especies raras.</p>
 <p>Un espacio más grande no implica “más” especies, sino especies más <strong>dispersas</strong> en el espacio de rasgos. Si <code>RM</code> se ve grande con solo 2 sitios, es la misma advertencia que se confirma numéricamente en B1/B2: puede parecer más diversa porque sus pocas muestras capturaron especies muy distintas entre sí.</p>
@@ -1786,7 +1873,7 @@ Figura&nbsp;1.3: Espacio funcional total (gris, de fondo; PCoA1–PCoA2) frente 
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1795,7 +1882,7 @@ Figura&nbsp;1.3: Espacio funcional total (gris, de fondo; PCoA1–PCoA2) frente 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Con <code>CWM.type = "all"</code>, <code>functcomp()</code> trata cada rasgo binario como dos clases (0/1) y devuelve la abundancia relativa de cada una por separado — por eso, en variables como <code>piscivory</code> se divide en <code>piscivory_0</code> y <code>piscivory_1</code>. No es un error: es el comportamiento por defecto. La columna <code>..._1</code> es la que interesa.</p>
 </div>
@@ -2026,48 +2113,49 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">M</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">P</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">RM</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;">   </th>
+   <th style="text-align:right;font-weight: bold;"> M </th>
+   <th style="text-align:right;font-weight: bold;"> P </th>
+   <th style="text-align:right;font-weight: bold;"> RM </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Hypanus sabinus</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Elops saurus</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Megalops atlanticus</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Albula vulpes</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Anguilla rostrata</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> Hypanus sabinus </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Elops saurus </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Megalops atlanticus </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Albula vulpes </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Anguilla rostrata </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="cell">
@@ -2142,29 +2230,30 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)   <span class="co"># Resalta la columna de zona</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Diversidad funcional alfa por zona</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Zona</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Alfa_FD</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Zona </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Alfa_FD </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">M</td>
-<td style="text-align: center;">0.083</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">P</td>
-<td style="text-align: center;">0.154</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">RM</td>
-<td style="text-align: center;">0.219</td>
-</tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> M </td>
+   <td style="text-align:center;"> 0.083 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> P </td>
+   <td style="text-align:center;"> 0.154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> RM </td>
+   <td style="text-align:center;"> 0.219 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -2188,33 +2277,34 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">background =</span> <span class="st">"#FDF3E7"</span>)   <span class="co"># Resalta las dos filas de beta (aditiva y multiplicativa)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Partición regional de la diversidad funcional</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Componente</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Valor</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Componente </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Valor </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">Alfa media</td>
-<td style="text-align: center;">0.152</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Gamma</td>
-<td style="text-align: center;">0.175</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">Beta aditiva</td>
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">0.023</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">Beta multiplicativa</td>
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">1.151</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> Alfa media </td>
+   <td style="text-align:center;"> 0.152 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> Gamma </td>
+   <td style="text-align:center;"> 0.175 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 243, 231, 255) !important;"> Beta aditiva </td>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 243, 231, 255) !important;"> 0.023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 243, 231, 255) !important;"> Beta multiplicativa </td>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 243, 231, 255) !important;"> 1.151 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <p>Como ya se mencionó: La <strong>beta aditiva</strong> (<span class="math inline">\(\beta_{add}\)</span>) se expresa mediante <code>γ = α + βadd</code>, mientras que la <strong>beta multiplicativa</strong> (<span class="math inline">\(\beta_{mult}\)</span>) se obtiene mediante <code>γ / α</code>. El objeto <code>Beta_prop</code> de <code>Rao()</code> se conserva como medida proporcional para las comparaciones entre pares.</p>
@@ -2258,33 +2348,34 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">which.max</span>(rao_beta_pares<span class="sc">$</span>Beta_prop), <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#FDECEC"</span>)   <span class="co"># Resalta el par más divergente</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Beta funcional entre pares de zonas (Rao, sin estandarizar)</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Comparacion</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta_add</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta_prop</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Comparacion </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Beta_add </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Beta_prop </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">M_vs_P</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.597</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">M_vs_RM</td>
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">0.028</td>
-<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">15.756</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">P_vs_RM</td>
-<td style="text-align: center;">0.021</td>
-<td style="text-align: center;">10.313</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_P </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.597 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 236, 236, 255) !important;"> M_vs_RM </td>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 236, 236, 255) !important;"> 0.028 </td>
+   <td style="text-align:center;font-weight: bold;background-color: rgba(253, 236, 236, 255) !important;"> 15.756 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P_vs_RM </td>
+   <td style="text-align:center;"> 0.021 </td>
+   <td style="text-align:center;"> 10.313 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <p>La <span class="citation" data-cites="rao-pares">(<a href="Taller2_Diversidad_Funcional1.html#ref-rao-pares" role="doc-biblioref"><strong>rao-pares?</strong></a>)</span> muestra que <strong>la diferenciación funcional</strong> no se acumula gradualmente de las zonas M hasta RM, sino que se concentra en RM, por sus diferentes combinaciones con otras zonas (M_vs_RM = 15.756, P_vs_RM = 10.313), coherente además, con el desplazamiento trófico de RM visto en el CWM.</p>
@@ -2329,33 +2420,34 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Comparación entre diversidad taxonómica (TD) y funcional (FD) por zona</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Zona</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Alfa_TD</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Alfa_FD</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Zona </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Alfa_TD </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Alfa_FD </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">M</td>
-<td style="text-align: center;">0.788</td>
-<td style="text-align: center;">0.083</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">P</td>
-<td style="text-align: center;">0.894</td>
-<td style="text-align: center;">0.154</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">RM</td>
-<td style="text-align: center;">0.935</td>
-<td style="text-align: center;">0.219</td>
-</tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> M </td>
+   <td style="text-align:center;"> 0.788 </td>
+   <td style="text-align:center;"> 0.083 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> P </td>
+   <td style="text-align:center;"> 0.894 </td>
+   <td style="text-align:center;"> 0.154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> RM </td>
+   <td style="text-align:center;"> 0.935 </td>
+   <td style="text-align:center;"> 0.219 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -2495,55 +2587,54 @@ Figura&nbsp;2.1: Distribución espacial de la diversidad alfa taxonómica (TD) y
 <span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"100%"</span>)   <span class="co"># Habilita desplazamiento horizontal si la tabla no cabe en pantalla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; "><table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>Información muestral por zona: tamaño de muestra (n), riqueza observada (S.obs) y cobertura muestral (SC), con valores mínimos y máximos de las distancias funcionales entre las especies por cada zona</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Assemblage</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">n</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">S.obs</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">SC(n)</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">SC(2n)</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">dmin</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">dmean</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">dmax</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Assemblage </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> n </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> S.obs </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> SC(n) </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> SC(2n) </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> dmin </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> dmean </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> dmax </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">M</td>
-<td style="text-align: center;">13166</td>
-<td style="text-align: center;">30</td>
-<td style="text-align: center;">1.000</td>
-<td style="text-align: center;">1.000</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.083</td>
-<td style="text-align: center;">0.623</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">P</td>
-<td style="text-align: center;">5151</td>
-<td style="text-align: center;">30</td>
-<td style="text-align: center;">0.999</td>
-<td style="text-align: center;">1.000</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.154</td>
-<td style="text-align: center;">0.638</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">RM</td>
-<td style="text-align: center;">414</td>
-<td style="text-align: center;">53</td>
-<td style="text-align: center;">0.961</td>
-<td style="text-align: center;">0.988</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.219</td>
-<td style="text-align: center;">0.808</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> M </td>
+   <td style="text-align:center;"> 13166 </td>
+   <td style="text-align:center;"> 30 </td>
+   <td style="text-align:center;"> 1.000 </td>
+   <td style="text-align:center;"> 1.000 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.083 </td>
+   <td style="text-align:center;"> 0.623 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P </td>
+   <td style="text-align:center;"> 5151 </td>
+   <td style="text-align:center;"> 30 </td>
+   <td style="text-align:center;"> 0.999 </td>
+   <td style="text-align:center;"> 1.000 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.154 </td>
+   <td style="text-align:center;"> 0.638 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> RM </td>
+   <td style="text-align:center;"> 414 </td>
+   <td style="text-align:center;"> 53 </td>
+   <td style="text-align:center;"> 0.961 </td>
+   <td style="text-align:center;"> 0.988 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.219 </td>
+   <td style="text-align:center;"> 0.808 </td>
+  </tr>
 </tbody>
-</table>
-</div>
+</table></div>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2931,96 +3022,97 @@ Figura&nbsp;3.2: Curvas de rarefacción/extrapolación de diversidad funcional a
 <span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="lightable-classic caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Dataset</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Order.q</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">SC</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Size</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Beta</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Method</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">s.e.</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">LCL</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">UCL</th>
-<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Diversity</th>
-</tr>
-</thead>
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Dataset </th>
+   <th style="text-align:right;font-weight: bold;"> Order.q </th>
+   <th style="text-align:right;font-weight: bold;"> SC </th>
+   <th style="text-align:right;font-weight: bold;"> Size </th>
+   <th style="text-align:right;font-weight: bold;"> Beta </th>
+   <th style="text-align:left;font-weight: bold;"> Method </th>
+   <th style="text-align:right;font-weight: bold;"> s.e. </th>
+   <th style="text-align:right;font-weight: bold;"> LCL </th>
+   <th style="text-align:right;font-weight: bold;"> UCL </th>
+   <th style="text-align:left;font-weight: bold;"> Diversity </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">7.25</td>
-<td style="text-align: right;">1.14</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.13</td>
-<td style="text-align: right;">1.14</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.52</td>
-<td style="text-align: right;">8.02</td>
-<td style="text-align: right;">1.12</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.12</td>
-<td style="text-align: right;">1.12</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.55</td>
-<td style="text-align: right;">8.90</td>
-<td style="text-align: right;">1.11</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.10</td>
-<td style="text-align: right;">1.11</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.58</td>
-<td style="text-align: right;">9.90</td>
-<td style="text-align: right;">1.09</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.09</td>
-<td style="text-align: right;">1.10</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.60</td>
-<td style="text-align: right;">11.03</td>
-<td style="text-align: right;">1.08</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.08</td>
-<td style="text-align: right;">1.08</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">M_vs_P</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">12.34</td>
-<td style="text-align: right;">1.07</td>
-<td style="text-align: left;">Rarefaction</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1.07</td>
-<td style="text-align: right;">1.07</td>
-<td style="text-align: left;">FD_AUC</td>
-</tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 7.25 </td>
+   <td style="text-align:right;"> 1.14 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.13 </td>
+   <td style="text-align:right;"> 1.14 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.52 </td>
+   <td style="text-align:right;"> 8.02 </td>
+   <td style="text-align:right;"> 1.12 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.12 </td>
+   <td style="text-align:right;"> 1.12 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 8.90 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.10 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 9.90 </td>
+   <td style="text-align:right;"> 1.09 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.09 </td>
+   <td style="text-align:right;"> 1.10 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.60 </td>
+   <td style="text-align:right;"> 11.03 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> M_vs_P </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.62 </td>
+   <td style="text-align:right;"> 12.34 </td>
+   <td style="text-align:right;"> 1.07 </td>
+   <td style="text-align:left;"> Rarefaction </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.07 </td>
+   <td style="text-align:right;"> 1.07 </td>
+   <td style="text-align:left;"> FD_AUC </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -3145,158 +3237,141 @@ Figura&nbsp;4.1: Curvas de rarefacción/extrapolación por cobertura para la div
 <span id="cb53-42"><a href="#cb53-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"100%"</span>)   <span class="co"># Habilita desplazamiento horizontal (la tabla tiene muchas columnas)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
-<caption>Beta funcional estimada a cobertura común (0,5 o 50%)</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
-<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Estimación
-</div></th>
-<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
-<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Intervalo de confianza
-</div></th>
-<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; "><table class="table table-striped table-hover table-condensed" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Beta funcional estimada a cobertura común (0,5 o 50%)</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="4"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Estimación</div></th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Intervalo de confianza</div></th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
 </tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Comparacion</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Order.q</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">SC</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Size</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Method</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">s.e.</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">LCL</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">UCL</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Diversity</th>
-</tr>
-</thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Comparacion </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Order.q </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> SC </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Size </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Beta </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Method </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> s.e. </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> LCL </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> UCL </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Diversity </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">M_vs_P</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">7.254</td>
-<td style="text-align: center;">1.136</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.132</td>
-<td style="text-align: center;">1.139</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">M_vs_P</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">7.254</td>
-<td style="text-align: center;">1.239</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.236</td>
-<td style="text-align: center;">1.243</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">M_vs_P</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">7.254</td>
-<td style="text-align: center;">1.328</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.324</td>
-<td style="text-align: center;">1.332</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">M_vs_RM</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">3.608</td>
-<td style="text-align: center;">1.903</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.003</td>
-<td style="text-align: center;">1.898</td>
-<td style="text-align: center;">1.908</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">M_vs_RM</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">3.608</td>
-<td style="text-align: center;">1.932</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.929</td>
-<td style="text-align: center;">1.936</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">M_vs_RM</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">3.608</td>
-<td style="text-align: center;">1.951</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.001</td>
-<td style="text-align: center;">1.948</td>
-<td style="text-align: center;">1.953</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">P_vs_RM</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">8.611</td>
-<td style="text-align: center;">1.638</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.633</td>
-<td style="text-align: center;">1.643</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">P_vs_RM</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">8.611</td>
-<td style="text-align: center;">1.767</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.763</td>
-<td style="text-align: center;">1.772</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">P_vs_RM</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">8.611</td>
-<td style="text-align: center;">1.838</td>
-<td style="text-align: center;">Rarefaction</td>
-<td style="text-align: center;">0.002</td>
-<td style="text-align: center;">1.834</td>
-<td style="text-align: center;">1.842</td>
-<td style="text-align: center;">FD_AUC</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_P </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 7.254 </td>
+   <td style="text-align:center;"> 1.136 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.132 </td>
+   <td style="text-align:center;"> 1.139 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_P </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 7.254 </td>
+   <td style="text-align:center;"> 1.239 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.236 </td>
+   <td style="text-align:center;"> 1.243 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_P </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 7.254 </td>
+   <td style="text-align:center;"> 1.328 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.324 </td>
+   <td style="text-align:center;"> 1.332 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_RM </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 3.608 </td>
+   <td style="text-align:center;"> 1.903 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 1.898 </td>
+   <td style="text-align:center;"> 1.908 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_RM </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 3.608 </td>
+   <td style="text-align:center;"> 1.932 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.929 </td>
+   <td style="text-align:center;"> 1.936 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_RM </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 3.608 </td>
+   <td style="text-align:center;"> 1.951 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.001 </td>
+   <td style="text-align:center;"> 1.948 </td>
+   <td style="text-align:center;"> 1.953 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P_vs_RM </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 8.611 </td>
+   <td style="text-align:center;"> 1.638 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.633 </td>
+   <td style="text-align:center;"> 1.643 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P_vs_RM </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 8.611 </td>
+   <td style="text-align:center;"> 1.767 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.763 </td>
+   <td style="text-align:center;"> 1.772 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P_vs_RM </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 0.5 </td>
+   <td style="text-align:center;"> 8.611 </td>
+   <td style="text-align:center;"> 1.838 </td>
+   <td style="text-align:center;"> Rarefaction </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 1.834 </td>
+   <td style="text-align:center;"> 1.842 </td>
+   <td style="text-align:center;"> FD_AUC </td>
+  </tr>
 </tbody>
-</table>
-</div>
+</table></div>
+
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -3416,29 +3491,30 @@ Intervalo de confianza
 <span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">background =</span> <span class="st">"#2E4057"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>A2: Beta funcional según Rao (A2), sin estandarizar por cobertura</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Comparacion</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta_prop_Rao</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Comparacion </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Beta_prop_Rao </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">M_vs_P</td>
-<td style="text-align: center;">1.60</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">M_vs_RM</td>
-<td style="text-align: center;">15.76</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">P_vs_RM</td>
-<td style="text-align: center;">10.31</td>
-</tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_P </td>
+   <td style="text-align:center;"> 1.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> M_vs_RM </td>
+   <td style="text-align:center;"> 15.76 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> P_vs_RM </td>
+   <td style="text-align:center;"> 10.31 </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <div class="cell">
@@ -3712,33 +3788,34 @@ Intervalo de confianza
 <p>La misma arquitectura puede reutilizarse cuando se incorpore la dimensión filogenética:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>Las tres dimensiones de la biodiversidad y su insumo de entrada</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Dimensión</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Ejemplo de insumo</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Pregunta</th>
-</tr>
-</thead>
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Dimensión </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Ejemplo de insumo </th>
+   <th style="text-align:center;font-weight: bold;color: white !important;background-color: rgba(46, 64, 87, 255) !important;"> Pregunta </th>
+  </tr>
+ </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">TD</td>
-<td style="text-align: center;">Identidad/composición de especies</td>
-<td style="text-align: center;">¿Qué tan diversa es la comunidad taxonómicamente?</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; font-weight: bold;">FD</td>
-<td style="text-align: center;">Rasgos + distancia funcional</td>
-<td style="text-align: center;">¿Qué tan diversa es funcionalmente?</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; font-weight: bold;">PD</td>
-<td style="text-align: center;">Árbol filogenético</td>
-<td style="text-align: center;">¿Qué tan diversa es filogenéticamente?</td>
-</tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> TD </td>
+   <td style="text-align:center;"> Identidad/composición de especies </td>
+   <td style="text-align:center;"> ¿Qué tan diversa es la comunidad taxonómicamente? </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> FD </td>
+   <td style="text-align:center;"> Rasgos + distancia funcional </td>
+   <td style="text-align:center;"> ¿Qué tan diversa es funcionalmente? </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;font-weight: bold;"> PD </td>
+   <td style="text-align:center;"> Árbol filogenético </td>
+   <td style="text-align:center;"> ¿Qué tan diversa es filogenéticamente? </td>
+  </tr>
 </tbody>
 </table>
+
 </div>
 </div>
 <p>Y en cualquiera de las tres dimensiones se puede estudiar la escala:</p>
@@ -3856,28 +3933,27 @@ framework in functional ecology. <em>Ecology</em>, <em>89</em>(8),
 <div style="page-break-after: always;"></div>
 <section id="enlaces-de-materiales-complementarios" class="level2">
 <h2 class="anchored" data-anchor-id="enlaces-de-materiales-complementarios">Enlaces de materiales complementarios</h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="left">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="fig_portada/materiales-nblm.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" data-fig-pos="H"></p>
+<p><img src="fig_portada/materiales-nblm.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
 </div>
-<ul>
-<li><p><a href="https://notebook.google.com/notebook/50d90e03-6753-4cea-ad26-bbdabef77b64/artifact/e85065aa-4c01-4203-bbea-2774de64862d?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_">(Mapa Mental FD</a>)</p></li>
-<li><p><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/flashcards.html">(flashcards</a>)</p></li>
-<li><p><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/Guía%20de%20Estudio_%20Marco%20A1-A2-B1-B2.pdf">(Guía de estudio</a>)</p></li>
-<li><p><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/quiz.html">(Guía de estudio</a>)</p></li>
-</ul>
+<section id="mapa-mental-fd" class="level3">
+<h3 class="anchored" data-anchor-id="mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="73"> <a href="https://notebook.google.com/notebook/50d90e03-6753-4cea-ad26-bbdabef77b64/artifact/e85065aa-4c01-4203-bbea-2774de64862d?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_">Mapa Mental FD</a></h3>
 </section>
+<section id="flashcards" class="level3">
+<h3 class="anchored" data-anchor-id="flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="73"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/flashcards.html">Flashcards</a></h3>
 </section>
-</div>
-</div>
-</div>
+<section id="guía-de-estudio" class="level3">
+<h3 class="anchored" data-anchor-id="guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="73"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/Guía%20de%20Estudio_%20Marco%20A1-A2-B1-B2.pdf">Guía de estudio</a></h3>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

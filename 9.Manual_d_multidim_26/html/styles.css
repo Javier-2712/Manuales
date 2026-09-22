@@ -61,6 +61,20 @@ body, p, .justified-text {
   text-align: justify;
 }
 
+/* -------------------- Sidebar de navegación (capítulos del libro) --------------------
+   El sidebar (#quarto-sidebar) y el TOC flotante de la derecha
+   (#quarto-margin-sidebar) son descendientes del body, así que heredan
+   el "text-align: justify" de la regla anterior. Eso hace que el título
+   del libro y los títulos de capítulo largos se vean con las palabras
+   estiradas para llenar cada línea, en vez de alinearse limpio a la
+   izquierda. Aquí se revierte solo para esos dos contenedores. */
+#quarto-sidebar,
+#quarto-sidebar *,
+#quarto-margin-sidebar,
+#quarto-margin-sidebar * {
+  text-align: left;
+}
+
 /* ==========================================================================
    Clases reutilizables (reemplazan los estilos en linea repetidos)
    ========================================================================== */
