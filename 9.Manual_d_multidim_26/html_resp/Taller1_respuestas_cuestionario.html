@@ -2514,7 +2514,7 @@ max-width: 450px !important;
    
   <ul>
   <li><a href="#respuestas-de-un-vistazo" id="toc-respuestas-de-un-vistazo" class="nav-link active" data-scroll-target="#respuestas-de-un-vistazo">0. Respuestas de un vistazo</a></li>
-  <li><a href="#hallazgo-previo-una-celda-en-blanco-que-afecta-las-respuestas" id="toc-hallazgo-previo-una-celda-en-blanco-que-afecta-las-respuestas" class="nav-link" data-scroll-target="#hallazgo-previo-una-celda-en-blanco-que-afecta-las-respuestas">1. Hallazgo previo: una celda en blanco que afecta las respuestas</a></li>
+  <li><a href="#hallazgo-previo-una-celda-en-blanco-en-datos.xlsx" id="toc-hallazgo-previo-una-celda-en-blanco-en-datos.xlsx" class="nav-link" data-scroll-target="#hallazgo-previo-una-celda-en-blanco-en-datos.xlsx">1. Hallazgo previo: una celda en blanco en <code>datos.xlsx</code></a></li>
   <li><a href="#preparación-de-datos-reproduce-los-pasos-1-y-5-del-taller" id="toc-preparación-de-datos-reproduce-los-pasos-1-y-5-del-taller" class="nav-link" data-scroll-target="#preparación-de-datos-reproduce-los-pasos-1-y-5-del-taller">2. Preparación de datos (reproduce los Pasos 1 y 5 del taller)</a></li>
   <li><a href="#respuestas-p1p3" id="toc-respuestas-p1p3" class="nav-link" data-scroll-target="#respuestas-p1p3">3. Respuestas P1–P3</a>
   <ul>
@@ -2549,7 +2549,7 @@ max-width: 450px !important;
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22 de septiembre de 2026</p>
+      <p class="date">23 de septiembre de 2026</p>
     </div>
   </div>
   
@@ -2567,11 +2567,11 @@ max-width: 450px !important;
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Advertencia</span>Documento de uso docente — no distribuir a estudiantes
+<span class="screen-reader-only">Advertencia</span>Uso docente — no distribuir a estudiantes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Contiene las respuestas de referencia del ítem 10 del Taller 1 y notas de revisión del taller. Los valores de esta guía se obtuvieron replicando de forma independiente la lógica del taller sobre <code>datos.xlsx</code>; al renderizar este documento en RStudio deben reproducirse exactamente.</p>
+<p>Respuestas de referencia del ítem 10 del Taller 1 y notas de revisión. Los valores se verificaron de forma independiente con <code>datos.xlsx</code> y deben reproducirse al renderizar.</p>
 </div>
 </div>
 <section id="respuestas-de-un-vistazo" class="level2">
@@ -2589,101 +2589,139 @@ max-width: 450px !important;
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>P1.</strong> Sitio con mayor riqueza</td>
-<td><strong>43RM</strong> (Desembocadura) con <strong>37 especies</strong>. Le sigue 42RM (27) y 16P (13). No hay empate en el máximo.</td>
+<td><strong>P1.</strong> Sitio más rico</td>
+<td><strong>43RM</strong> (Desembocadura), <strong>37 especies</strong>. Siguen 42RM (27) y 16P (13).</td>
 </tr>
 <tr class="even">
-<td><strong>P2.</strong> Especie más ampliamente distribuida</td>
-<td><strong><em>Astyanax mexicanus</em></strong> — presente en <strong>37 de 42 sitios</strong> (88 %). Le siguen <em>Herichthys cyanoguttatus</em> (35) y <em>Poecilia mexicana</em> (32).</td>
+<td><strong>P2.</strong> Especie más distribuida</td>
+<td><strong><em>Astyanax mexicanus</em></strong>, en <strong>37 de 42 sitios</strong> (88 %). Siguen <em>H. cyanoguttatus</em> (35) y <em>P. mexicana</em> (32).</td>
 </tr>
 <tr class="odd">
 <td><strong>P3.</strong> Tabla por zona</td>
-<td>M: 24 sitios, 30 especies · P: 16 sitios, 30 especies · RM: 2 sitios, 53 especies.</td>
+<td>M: 24 sitios, 30 spp. · P: 16 sitios, 30 spp. · RM: 2 sitios, 53 spp.</td>
 </tr>
 <tr class="even">
 <td><strong>P4.</strong> ¿Por qué no coinciden?</td>
-<td>Escalas distintas (muestra local vs. unión de listas de varios sitios) y los sitios comparten especies: la riqueza no es aditiva. Ver argumento completo en la sección 4.</td>
+<td>Escalas distintas (sitio vs. unión de sitios) y especies compartidas: la riqueza no es aditiva (sección 4).</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
-<section id="hallazgo-previo-una-celda-en-blanco-que-afecta-las-respuestas" class="level2">
-<h2 class="anchored" data-anchor-id="hallazgo-previo-una-celda-en-blanco-que-afecta-las-respuestas">1. Hallazgo previo: una celda en blanco que afecta las respuestas</h2>
-<p>Al revisar <code>datos.xlsx</code> (hoja <code>tax</code>) aparece un problema que <strong>no está en el taller</strong> y que cambia lo que los estudiantes obtendrán en R:</p>
+<section id="hallazgo-previo-una-celda-en-blanco-en-datos.xlsx" class="level2">
+<h2 class="anchored" data-anchor-id="hallazgo-previo-una-celda-en-blanco-en-datos.xlsx">1. Hallazgo previo: una celda en blanco en <code>datos.xlsx</code></h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>La celda 19P × <em>Strongylura timucu</em> no contiene un número
+<span class="screen-reader-only">Importante</span>19P × <em>Strongylura timucu</em> no contiene un número
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Es una cadena de <strong>58 espacios en blanco</strong> (columna AL, fila 29 de Excel). Al leerla con <code>read_xlsx()</code>, el texto se recorta (<code>trim_ws = TRUE</code>) y la celda queda como <code>NA</code>. Es la <strong>única</strong> celda con este problema en toda la matriz.</p>
+<p>La celda AL29 de la hoja <code>tax</code> tiene 58 espacios en blanco; <code>read_xlsx()</code> la lee como <code>NA</code>. Es la única celda con este problema en la matriz.</p>
 </div>
 </div>
-<p><strong>Consecuencias verificables:</strong></p>
-<ul>
-<li>El cuarto chequeo del Paso 5 (<code>!any(biol1 &lt; 0)</code>) devuelve <code>NA</code> en lugar de <code>TRUE</code>. Ese <code>NA</code> <strong>no es un resultado esperado</strong>: es la señal de que hay un dato faltante. La versión actual del taller dice <em>“si las tres filas dicen TRUE y la última NA, las matrices están listas”</em>, lo cual normaliza un problema real (la versión del 7 de septiembre decía <em>“las cuatro filas TRUE”</em>).</li>
-<li>Sin tratar el <code>NA</code>, <code>rowSums(biol1 &gt; 0)</code> da <code>NA</code> para el sitio 19P, y <code>sum(colSums(sub) &gt; 0)</code> da <code>NA</code> para la zona P (P3). Con <code>which.max()</code> la P1 sale bien por casualidad, porque <code>which.max</code> ignora los <code>NA</code>.</li>
-<li>Con enfoques tipo <code>pivot_longer()</code> + <code>n_distinct(especie[abund &gt; 0])</code>, el <code>NA</code> se cuenta como un valor distinto y la zona P puede resultar con <strong>31</strong> especies en lugar de 30, sin ningún aviso.</li>
-</ul>
-<p><strong>Decisión adoptada en esta guía:</strong> la celda se trata como <strong>0</strong> (no registro). Se justifica porque <em>S. timucu</em> solo se registra en 43RM (27 individuos) y en los otros 41 sitios vale 0. Es un supuesto que conviene documentar y, si es posible, contrastar con la fuente original (Ruiz-Campos et al., 2021).</p>
-<p><strong>Sugerencia:</strong> en lugar de limpiar el Excel, aprovecharlo como <strong>segundo “error real”</strong> del taller, junto al espacio de no separación de <code>coord</code>. El siguiente chunk puede insertarse al final del Paso 1:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagnóstico de abundancias ANTES de calcular nada</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(biol1, class)[<span class="fu">sapply</span>(biol1, class) <span class="sc">!=</span> <span class="st">&quot;numeric&quot;</span>]  <span class="co"># columnas no numéricas</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(biol1))                                        <span class="co"># ¿hay NA?</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(biol1), <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)                      <span class="co"># ¿dónde?</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Pendiente de verificar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el render del 22 de septiembre el diagnóstico de la sección 2 dio <strong>0 NA</strong>. Es posible que se haya usado un <code>datos.xlsx</code> ya corregido o que otra versión de <code>readxl</code> lea la celda como 0. Confirmar con qué archivo se renderizó antes de usar esta sección con los estudiantes.</p>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dónde</th>
+<th>Qué ocurre si no se trata el <code>NA</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paso 5, chequeo 4 (<code>!any(biol1 &lt; 0)</code>)</td>
+<td>Devuelve <code>NA</code>, no <code>TRUE</code>. El taller actual lo da por normal (<em>“tres TRUE y la última NA”</em>); la versión del 7 de septiembre pedía cuatro <code>TRUE</code>.</td>
+</tr>
+<tr class="even">
+<td>P1 (<code>rowSums(biol1 &gt; 0)</code>)</td>
+<td>19P queda en <code>NA</code>; <code>which.max()</code> lo ignora y la respuesta sale bien por casualidad.</td>
+</tr>
+<tr class="odd">
+<td>P3 (<code>sum(colSums(sub) &gt; 0)</code>)</td>
+<td>La zona P da <code>NA</code>.</td>
+</tr>
+<tr class="even">
+<td>P3 con <code>pivot_longer()</code> + <code>n_distinct()</code></td>
+<td>El <code>NA</code> cuenta como una especie más: P = 31 en vez de 30, sin aviso.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decisión:</strong> la celda se trata como <strong>0</strong>, porque <em>S. timucu</em> solo aparece en 43RM (27 ind.) y vale 0 en los otros 41 sitios. Es un supuesto que conviene documentar y, si es posible, contrastar con Ruiz-Campos et al. (2021).</p>
+<p><strong>Sugerencia:</strong> no limpiar el Excel y usarlo como segundo “error real” del taller (junto al espacio de no separación de <code>coord</code>), insertando este chunk al final del Paso 1:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(biol1, class)[<span class="fu">sapply</span>(biol1, class) <span class="sc">!=</span> <span class="st">&quot;numeric&quot;</span>]  <span class="co"># columnas que no llegaron como números</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(biol1))                                        <span class="co"># ¿cuántos NA hay?</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(biol1), <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)                      <span class="co"># ¿en qué fila y columna están?</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="preparación-de-datos-reproduce-los-pasos-1-y-5-del-taller" class="level2">
 <h2 class="anchored" data-anchor-id="preparación-de-datos-reproduce-los-pasos-1-y-5-del-taller">2. Preparación de datos (reproduce los Pasos 1 y 5 del taller)</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># dplyr, tidyr, tibble y el operador %&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># read_xlsx(): lee hojas de Excel</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)   <span class="co"># kbl(): tablas con formato en HTML</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ruta_datos <span class="ot">&lt;-</span> <span class="st">&quot;datos.xlsx&quot;</span>   <span class="co"># ajustar si el archivo está en otra carpeta</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ruta_datos <span class="ot">&lt;-</span> <span class="st">&quot;datos.xlsx&quot;</span>   </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, <span class="at">sheet =</span> <span class="st">&quot;tax&quot;</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> tax <span class="sc">%&gt;%</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sites, <span class="sc">-</span>Sites1) <span class="sc">%&gt;%</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(biol1) <span class="ot">&lt;-</span> tax<span class="sc">$</span>Sites</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>zonas <span class="ot">&lt;-</span> tax <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(Sites, <span class="at">Zona =</span> Sites1)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sheet =</span> <span class="st">&quot;tax&quot;</span>)        <span class="co"># hoja sitios × especies</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> tax <span class="sc">%&gt;%</span>                       <span class="co"># matriz de abundancias &quot;pura&quot;:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sites, <span class="sc">-</span>Sites1) <span class="sc">%&gt;%</span>   <span class="co">#   quita las columnas de identificación</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()                      <span class="co">#   data.frame (admite rownames; un tibble no)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(biol1) <span class="ot">&lt;-</span> tax<span class="sc">$</span>Sites           <span class="co"># nombres de fila = código de sitio (p. ej. &quot;43RM&quot;)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla auxiliar sitio–zona (M, P, RM); renombra Sites1 → Zona</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>zonas <span class="ot">&lt;-</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  tax <span class="sc">%&gt;%</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Sites, <span class="at">Zona =</span> Sites1)  </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Diagnóstico de la celda problemática:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas que no llegaron como numéricas (puede ser ninguna, según la versión de readxl)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(biol1, class)[<span class="fu">sapply</span>(biol1, class) <span class="sc">!=</span> <span class="st">&quot;numeric&quot;</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(biol1, class)[<span class="fu">sapply</span>(biol1, class) <span class="sc">!=</span> <span class="st">&quot;numeric&quot;</span>]   <span class="co"># clase de cada columna; muestra solo las NO numéricas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>named character(0)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(biol1))                       <span class="co"># esperado: 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(biol1))         <span class="co"># total de celdas NA (1 si la celda de 19P llega como NA; ver nota de la sección 1)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(biol1), <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)     <span class="co"># esperado: fila 19P, columna 36 (Strongylura timucu)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(biol1), <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)   <span class="co"># fila y columna de cada NA (esperado: 19P, col. 36 = S. timucu)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     row col</code></pre>
 </div>
 </div>
 <p>Limpieza (documentando el supuesto: blanco = no registrado = 0):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Forzar todo a numérico (por si alguna columna llegó como texto)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>biol1[] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(biol1, <span class="cf">function</span>(x) <span class="fu">as.numeric</span>(<span class="fu">trimws</span>(x)))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Blanco = no registro = 0  (supuesto a documentar en el informe)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>biol1[<span class="fu">is.na</span>(biol1)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Chequeo duro</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyNA</span>(biol1), <span class="fu">all</span>(biol1 <span class="sc">&gt;=</span> <span class="dv">0</span>), <span class="fu">identical</span>(zonas<span class="sc">$</span>Sites, <span class="fu">rownames</span>(biol1)))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>biol1[] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(biol1, <span class="cf">function</span>(x) <span class="fu">as.numeric</span>(<span class="fu">trimws</span>(x)))   <span class="co"># 1) quita espacios y pasa cada columna a número; [] conserva data.frame y rownames</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>biol1[<span class="fu">is.na</span>(biol1)] <span class="ot">&lt;-</span> <span class="dv">0</span>   <span class="co"># 2) blanco = no registro = 0 (supuesto a documentar en el informe)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="sc">!</span><span class="fu">anyNA</span>(biol1),             <span class="co"># 3) chequeo duro (detiene el render si algo falla): sin NA,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">all</span>(biol1 <span class="sc">&gt;=</span> <span class="dv">0</span>),               <span class="co"># abundancias no negativas</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">identical</span>(zonas<span class="sc">$</span>Sites, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">rownames</span>(biol1)))    <span class="co"># y mismo orden de sitios en zonas y en biol1</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)   <span class="co"># 42 x 87</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)   <span class="co"># dimensiones: 42 sitios × 87 especies</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42 87</code></pre>
 </div>
@@ -2699,7 +2737,7 @@ max-width: 450px !important;
 </div>
 <div class="callout-body-container callout-body">
 <p>Cambiar el cuarto chequeo por una versión que no devuelva <code>NA</code> cuando hay datos faltantes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">anyNA</span>(biol1) <span class="sc">&amp;&amp;</span> <span class="fu">all</span>(biol1 <span class="sc">&gt;=</span> <span class="dv">0</span>)   <span class="co"># TRUE / FALSE, nunca NA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">anyNA</span>(biol1) <span class="sc">&amp;&amp;</span> <span class="fu">all</span>(biol1 <span class="sc">&gt;=</span> <span class="dv">0</span>)   <span class="co"># &amp;&amp; evalúa primero los NA; solo si no hay, revisa ≥ 0 → siempre TRUE/FALSE</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>y actualizar la frase final a: <em>“Si las cuatro filas dicen <code>TRUE</code>, las matrices están listas.”</em></p>
 </div>
 </div>
@@ -2711,19 +2749,19 @@ max-width: 450px !important;
 <h3 class="anchored" data-anchor-id="p1.-sitio-con-mayor-riqueza-observada">P1. Sitio con mayor riqueza observada</h3>
 <p>Una especie está <strong>presente</strong> en un sitio si su abundancia es mayor que cero; la riqueza observada es el número de especies presentes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>riqueza_sitio <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(biol1 <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>riqueza_sitio <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(biol1 <span class="sc">&gt;</span> <span class="dv">0</span>)   <span class="co"># biol1 &gt; 0 da TRUE/FALSE (presencia); rowSums cuenta los TRUE por sitio = riqueza S</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(riqueza_sitio, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(riqueza_sitio, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]   <span class="co"># los 4 sitios más ricos, de mayor a menor</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>43RM 42RM  16P  22P 
   37   27   13   12 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sitio_max <span class="ot">&lt;-</span> <span class="fu">names</span>(riqueza_sitio)[riqueza_sitio <span class="sc">==</span> <span class="fu">max</span>(riqueza_sitio)]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sitio_max</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sitio_max <span class="ot">&lt;-</span> <span class="fu">names</span>(riqueza_sitio)[riqueza_sitio <span class="sc">==</span> <span class="fu">max</span>(riqueza_sitio)]   <span class="co"># TODOS los sitios con el máximo (no oculta empates)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sitio_max            <span class="co"># → &quot;43RM&quot;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;43RM&quot;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(riqueza_sitio)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(riqueza_sitio)   <span class="co"># → 37 especies</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 37</code></pre>
 </div>
@@ -2738,21 +2776,21 @@ max-width: 450px !important;
 <section id="p2.-especie-más-ampliamente-distribuida" class="level3">
 <h3 class="anchored" data-anchor-id="p2.-especie-más-ampliamente-distribuida">P2. Especie más ampliamente distribuida</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ocurrencia <span class="ot">&lt;-</span> <span class="fu">colSums</span>(biol1 <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ocurrencia <span class="ot">&lt;-</span> <span class="fu">colSums</span>(biol1 <span class="sc">&gt;</span> <span class="dv">0</span>)   <span class="co"># nº de sitios donde está cada especie (frecuencia de ocurrencia)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(ocurrencia, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(ocurrencia, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]   <span class="co"># las 5 especies más distribuidas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Astyanax mexicanus Herichthys cyanoguttatus        Poecilia mexicana 
                       37                       35                       32 
         Poecilia formosa         Micropterus spp. 
                       27                       17 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sp_max <span class="ot">&lt;-</span> <span class="fu">names</span>(ocurrencia)[ocurrencia <span class="sc">==</span> <span class="fu">max</span>(ocurrencia)]</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sp_max</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sp_max <span class="ot">&lt;-</span> <span class="fu">names</span>(ocurrencia)[ocurrencia <span class="sc">==</span> <span class="fu">max</span>(ocurrencia)]   <span class="co"># especie(s) con la máxima ocurrencia; names() evita teclear el nombre</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sp_max                                          <span class="co"># → &quot;Astyanax  mexicanus&quot; (con doble espacio)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;Astyanax mexicanus&quot;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">max</span>(ocurrencia) <span class="sc">/</span> <span class="fu">nrow</span>(biol1), <span class="dv">1</span>)   <span class="co"># % de sitios</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">max</span>(ocurrencia) <span class="sc">/</span> <span class="fu">nrow</span>(biol1), <span class="dv">1</span>)   <span class="co"># % de sitios ocupados: 37 / 42 × 100 = 88.1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 88.1</code></pre>
 </div>
@@ -2790,7 +2828,7 @@ max-width: 450px !important;
 </table>
 <p><strong>Distinguir ocurrencia de abundancia</strong> (error conceptual frecuente):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">colSums</span>(biol1), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">colSums</span>(biol1), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]   <span class="co"># SIN &quot;&gt; 0&quot;: suma individuos por especie (abundancia), no sitios</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Poecilia mexicana       Astyanax mexicanus Herichthys cyanoguttatus 
                     5573                     4003                     1616 </code></pre>
@@ -2815,29 +2853,28 @@ max-width: 450px !important;
 <section id="p3.-tabla-por-zona" class="level3">
 <h3 class="anchored" data-anchor-id="p3.-tabla-por-zona">P3. Tabla por zona</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tabla_completa <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>), <span class="cf">function</span>(z) {</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  sub      <span class="ot">&lt;-</span> biol1[zonas<span class="sc">$</span>Zona <span class="sc">==</span> z, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  r_sitio  <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(sub <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  S_zona   <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">colSums</span>(sub) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tabla_completa <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>), <span class="cf">function</span>(z) {   <span class="co"># calcula una fila por zona; rbind las apila</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  sub      <span class="ot">&lt;-</span> biol1[zonas<span class="sc">$</span>Zona <span class="sc">==</span> z, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]   <span class="co"># submatriz con los sitios de la zona z (drop = FALSE: sigue siendo tabla)</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  r_sitio  <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(sub <span class="sc">&gt;</span> <span class="dv">0</span>)                         <span class="co"># riqueza de cada sitio de la zona (α)</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  S_zona   <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">colSums</span>(sub) <span class="sc">&gt;</span> <span class="dv">0</span>)                    <span class="co"># especies con ≥ 1 individuo en la zona = riqueza total (γ de zona)</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Zona            =</span> z,</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_sitios        =</span> <span class="fu">nrow</span>(sub),</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">riqueza_total   =</span> S_zona,</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_media_sitio =</span> <span class="fu">round</span>(<span class="fu">mean</span>(r_sitio), <span class="dv">2</span>),</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_min         =</span> <span class="fu">min</span>(r_sitio),</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_max         =</span> <span class="fu">max</span>(r_sitio),</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_individuos    =</span> <span class="fu">sum</span>(sub),</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">beta_whittaker  =</span> <span class="fu">round</span>(S_zona <span class="sc">/</span> <span class="fu">mean</span>(r_sitio), <span class="dv">2</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Zona            =</span> z,                                   <span class="co"># código de zona</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_sitios        =</span> <span class="fu">nrow</span>(sub),                           <span class="co"># nº de sitios = filas de la submatriz</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">riqueza_total   =</span> S_zona,                              <span class="co"># γ de la zona</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_media_sitio =</span> <span class="fu">round</span>(<span class="fu">mean</span>(r_sitio), <span class="dv">2</span>),             <span class="co"># ᾱ: riqueza media por sitio</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_min         =</span> <span class="fu">min</span>(r_sitio),                        <span class="co"># sitio más pobre</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">riq_max         =</span> <span class="fu">max</span>(r_sitio),                        <span class="co"># sitio más rico</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_individuos    =</span> <span class="fu">sum</span>(sub),                            <span class="co"># esfuerzo: total de individuos capturados</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">beta_whittaker  =</span> <span class="fu">round</span>(S_zona <span class="sc">/</span> <span class="fu">mean</span>(r_sitio), <span class="dv">2</span>)     <span class="co"># β de Whittaker = γ / ᾱ (recambio entre sitios)</span></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>}))</span>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla que pide la pregunta 3</span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>tabla_zonas <span class="ot">&lt;-</span> tabla_completa[, <span class="fu">c</span>(<span class="st">&quot;Zona&quot;</span>, <span class="st">&quot;n_sitios&quot;</span>, <span class="st">&quot;riqueza_total&quot;</span>)]</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>tabla_zonas <span class="sc">%&gt;%</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>tabla_zonas <span class="ot">&lt;-</span> tabla_completa[, <span class="fu">c</span>(<span class="st">&quot;Zona&quot;</span>, <span class="st">&quot;n_sitios&quot;</span>, <span class="st">&quot;riqueza_total&quot;</span>)]   <span class="co"># solo las 3 columnas que pide la P3</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>tabla_zonas <span class="sc">%&gt;%</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>             <span class="co"># convierte el data.frame en tabla HTML</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span>  <span class="co"># ancho ajustado al contenido</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)             <span class="co"># fila 0 = encabezado, en negrita</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small">
 <thead>
@@ -2898,14 +2935,14 @@ max-width: 450px !important;
 <p>Alternativa <em>tidyverse</em> que los estudiantes pueden usar (requiere el paso de limpieza de la sección 2):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>biol1 <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&quot;Sites&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(zonas, <span class="at">by =</span> <span class="st">&quot;Sites&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(Sites, Zona), <span class="at">names_to =</span> <span class="st">&quot;especie&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;abund&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Zona) <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">&quot;Sites&quot;</span>) <span class="sc">%&gt;%</span>      <span class="co"># pasa los nombres de fila a una columna (necesaria para unir)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(zonas, <span class="at">by =</span> <span class="st">&quot;Sites&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># añade la zona de cada sitio</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(Sites, Zona), <span class="at">names_to =</span> <span class="st">&quot;especie&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;abund&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># formato largo: una fila por sitio × especie</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Zona) <span class="sc">%&gt;%</span>                   <span class="co"># los cálculos siguientes se hacen por zona</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_sitios      =</span> <span class="fu">n_distinct</span>(Sites),</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">riqueza_total =</span> <span class="fu">n_distinct</span>(especie[abund <span class="sc">&gt;</span> <span class="dv">0</span>]),</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_sitios      =</span> <span class="fu">n_distinct</span>(Sites),                <span class="co"># sitios distintos de la zona</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">riqueza_total =</span> <span class="fu">n_distinct</span>(especie[abund <span class="sc">&gt;</span> <span class="dv">0</span>]),   <span class="co"># especies distintas con abundancia &gt; 0 (un NA aquí contaría como especie)</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>                                  <span class="co"># devuelve la tabla sin agrupación</span></span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -2930,12 +2967,12 @@ max-width: 450px !important;
 <section id="argumento-ampliado-con-los-datos-para-la-socialización" class="level3">
 <h3 class="anchored" data-anchor-id="argumento-ampliado-con-los-datos-para-la-socialización">Argumento ampliado con los datos (para la socialización)</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>tabla_completa <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>tabla_completa <span class="sc">%&gt;%</span>                     <span class="co"># la tabla completa de la P3, con todas las columnas</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Zona&quot;</span>, <span class="st">&quot;Sitios&quot;</span>, <span class="st">&quot;Riqueza total (S zona)&quot;</span>, <span class="st">&quot;Riqueza media por sitio&quot;</span>,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Mín.&quot;</span>, <span class="st">&quot;Máx.&quot;</span>, <span class="st">&quot;Individuos&quot;</span>, <span class="st">&quot;β Whittaker (S zona / media)&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Zona&quot;</span>, <span class="st">&quot;Sitios&quot;</span>, <span class="st">&quot;Riqueza total (S zona)&quot;</span>, <span class="st">&quot;Riqueza media por sitio&quot;</span>,     <span class="co"># encabezados legibles,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Mín.&quot;</span>, <span class="st">&quot;Máx.&quot;</span>, <span class="st">&quot;Individuos&quot;</span>, <span class="st">&quot;β Whittaker (S zona / media)&quot;</span>)) <span class="sc">%&gt;%</span>      <span class="co"># en el mismo orden de las columnas</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span>  <span class="co"># ancho ajustado al contenido</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)             <span class="co"># encabezado en negrita</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small">
 <thead>
@@ -3040,33 +3077,32 @@ max-width: 450px !important;
 </ol>
 <p>Comprobación adicional: la suma de las riquezas de las tres zonas es <strong>113</strong>, pero la riqueza total de la cuenca es <strong>87</strong>, porque 26 especies aparecen en más de una zona.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pres_zona <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>), <span class="cf">function</span>(z) {</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(biol1)[<span class="fu">colSums</span>(biol1[zonas<span class="sc">$</span>Zona <span class="sc">==</span> z, , <span class="at">drop =</span> <span class="cn">FALSE</span>]) <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pres_zona <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>), <span class="cf">function</span>(z) {                       <span class="co"># para cada zona, una lista de especies presentes:</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(biol1)[<span class="fu">colSums</span>(biol1[zonas<span class="sc">$</span>Zona <span class="sc">==</span> z, , <span class="at">drop =</span> <span class="cn">FALSE</span>]) <span class="sc">&gt;</span> <span class="dv">0</span>]     <span class="co">#   nombres de especies con ≥ 1 individuo en la zona</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pres_zona) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pres_zona) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;RM&quot;</span>)   <span class="co"># nombra cada elemento de la lista con su zona</span></span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">lengths</span>(pres_zona))                        <span class="co"># 113 (suma de riquezas por zona)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">lengths</span>(pres_zona))                        <span class="co"># 113: suma de las riquezas por zona (cuenta repetidas)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 113</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">Reduce</span>(union, pres_zona))               <span class="co"># 87  (riqueza total, gamma)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">Reduce</span>(union, pres_zona))               <span class="co"># 87: unión de las tres listas = γ de la cuenca</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>M,  pres_zona<span class="sc">$</span>P))   <span class="co"># 22 especies compartidas M-P</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>M,  pres_zona<span class="sc">$</span>P))   <span class="co"># 22 especies compartidas M–P</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 22</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>P,  pres_zona<span class="sc">$</span>RM))  <span class="co"># 4  especies compartidas P-RM</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>P,  pres_zona<span class="sc">$</span>RM))  <span class="co"># 4 especies compartidas P–RM</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>M,  pres_zona<span class="sc">$</span>RM))  <span class="co"># 0  especies compartidas M-RM</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">intersect</span>(pres_zona<span class="sc">$</span>M,  pres_zona<span class="sc">$</span>RM))  <span class="co"># 0 especies compartidas M–RM (sin continuidad montaña–desembocadura)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solapamiento entre los dos sitios de RM</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">colSums</span>(biol1[<span class="fu">c</span>(<span class="st">&quot;42RM&quot;</span>, <span class="st">&quot;43RM&quot;</span>), ] <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">==</span> <span class="dv">2</span>)   <span class="co"># 11</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">colSums</span>(biol1[<span class="fu">c</span>(<span class="st">&quot;42RM&quot;</span>, <span class="st">&quot;43RM&quot;</span>), ] <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">==</span> <span class="dv">2</span>)   <span class="co"># 11: especies presentes en AMBOS sitios de RM (suma de presencias = 2)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11</code></pre>
 </div>
@@ -3144,10 +3180,10 @@ max-width: 450px !important;
 <p>En la hoja “Resumida” de la Programación de asignaciones 2026-II, la semana 2 tiene dos valoraciones: el <strong>taller en clase (10 pts)</strong> y el <strong>cuestionario para la casa (50 pts)</strong>. Se asume que este cuestionario de práctica dirigida (ítem 10) corresponde a los 50 pts; si en realidad se califica dentro del taller en clase, basta reescalar los porcentajes.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
