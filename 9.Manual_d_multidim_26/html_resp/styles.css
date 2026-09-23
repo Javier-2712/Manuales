@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Estilos - Repositorio de Estadística Multivariada
+   Programa de Biología - Universidad del Magdalena
+   ==========================================================================
+   Paleta central del repositorio (versión formal, 2026-II).
+   Se redujo la paleta de 8+ tonos distintos a 3 tonos coherentes
+   (azul marino, azul grisáceo y gris oscuro), diferenciando la
+   jerarquía con peso/tamaño/cursiva en vez de colores adicionales.
+   Se conservan los NOMBRES de variables y de clases (--color-azul,
+   --color-naranja, --color-salmon, --color-morado, --color-verde,
+   .titulo-seccion, .titulo-subseccion, etc.) para no romper el resto
+   de los .qmd del repositorio; solo cambian los valores.
+
+   Los .qmd NO deben usar <b style='color:#xxxxxx;'>...</b> ni
+   <n style='color:#xxxxxx;'>...</n>. En su lugar:
+     - Para encabezados de actividad:   ## Actividad 1. Xxxx {.titulo-seccion}
+     - Para subsecciones/avances:       #### Primer avance {.titulo-subseccion}
+     - Para etiquetas numeradas en linea: <span class="titulo-subseccion">1. Conducta de entrada.</span>
+     - Para un tercer nivel (objetivo, documento de soporte, sub-actividades):
+                                         ### Objetivo de la actividad {.titulo-objetivo}
+     - Para creditos de imagen:         <span class="credito-imagen">Imágen tomada de ...</span>
+     - Para etiqueta de periodo (en Videos_clases): <span class="etiqueta-periodo">(2025-I)</span>
+   ========================================================================== */
+
+:root {
+  --color-texto:   #2b2b2b; /* Texto de cuerpo, listas */
+  --color-azul:    #1a3552; /* Azul marino - marca del repositorio: h1, h2, titulos de seccion/actividad, creditos de imagen, modulos */
+  --color-naranja: #3d6478; /* Azul grisáceo - h3, subsecciones/avances, etiquetas numeradas, temas */
+  --color-salmon:  #555555; /* Gris oscuro - tercer nivel: objetivo, documento de soporte, sub-actividades, etiqueta de periodo */
+  --color-morado:  #555555; /* Reservado: subsecciones de procedimiento dentro de un taller (gris oscuro, coherente con el resto) */
+  --color-verde:   #3d6478; /* Reservado: etiquetas de teoria (azul grisáceo, coherente con el resto) */
+}
+
+/* -------------------- Encabezados generales del documento --------------------
+   Jerarquía marcada por tamaño/peso, no por una gama de colores distintos. */
+h1 { color: var(--color-azul);    text-align: left; }
+h2 { color: var(--color-azul);    text-align: left; }
+h3 { color: var(--color-naranja); text-align: left; }
+h4 { color: #4a4a4a; text-align: left; font-weight: 700; }
+h5 { color: #4a4a4a; text-align: left; font-weight: 600; font-style: italic; }
+
+/* -------------------- Listas --------------------
+   Sin color de texto propio ni fuentes distintas entre ul/ol: heredan
+   la tipografía del documento para mantener un aspecto uniforme. */
+ul {
+  color: var(--color-texto);
+  font-size: 16px;
+  line-height: 1.6;
+}
+ul li { margin-bottom: 5px; }
+
+ol {
+  color: var(--color-texto);
+  font-size: 16px;
+  line-height: 1.8;
+}
+ol li { margin-bottom: 8px; }
+
+/* -------------------- Texto justificado -------------------- */
+body, p, .justified-text {
+  text-align: justify;
+}
+
+/* ==========================================================================
+   Clases reutilizables (reemplazan los estilos en linea repetidos)
+   ========================================================================== */
+
+/* Titulo de seccion/actividad dentro de un taller.
+   Antes: <b style='color:#1f78b4;'>## Actividad 1. Xxxx</b> */
+.titulo-seccion {
+  color: var(--color-azul);
+  font-weight: bold;
+}
+
+/* Credito de imagen ("Imagen tomada de..."). Antes: <n style='color:#1f78b4;'> */
+.credito-imagen {
+  color: var(--color-azul);
+  font-size: 0.9em;
+}
+
+/* Subseccion / avance / etiqueta numerada en linea (ej. "1. Conducta de entrada.",
+   "Primer avance o seguimiento"). Antes: <b style='color:#d95f02;'> */
+.titulo-subseccion {
+  color: var(--color-naranja);
+  font-weight: bold;
+}
+
+/* Tercer nivel dentro de una seccion (ej. "Objetivo de la actividad",
+   "Documento de soporte", "1. Operaciones matriciales básicas").
+   Antes: <b style='color:#fc8d62;'> */
+.titulo-objetivo {
+  color: var(--color-salmon);
+  font-weight: bold;
+}
+
+/* Etiqueta de periodo academico, ej. (2025-I). Para Videos_clases.qmd. */
+.etiqueta-periodo {
+  color: var(--color-salmon);
+  font-style: italic;
+}
+
+/* Titulo de modulo, para Videos_clases.qmd (uno por cada "# modulo"). */
+.titulo-modulo {
+  color: var(--color-azul);
+  font-weight: bold;
+}
+
+/* Titulo de tema/subtema dentro de un modulo, para Videos_clases.qmd. */
+.titulo-tema {
+  color: var(--color-naranja);
+  font-weight: bold;
+}
+
+/* Nota para el estudiante */
+.nota-docente {
+  font-style: italic;
+}
+
+.quarto-cover-image {
+  max-width: 450px !important;   /* ajusta este valor a tu gusto */
+}
