@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Pautas_Estudio_Caso.html" rel="next">
+<link href="./Taller5.2.nmds.peces.html" rel="next">
 <link href="./Taller3.exploratorios1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -199,6 +199,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./Taller4.2.pca.tayrona.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller4. PCA PNN Tayrona</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5.2.nmds.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller5.2 NMDS Peces Francia</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -570,7 +576,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">=</span> datos[,<span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">63</span>)]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, biol)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La <a href="#fig-fig1" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> muestra la relación entre las variables, a partir de figuras de elipses.</p>
+<p>La <a href="Taller5.2.nmds.peces.html#fig-fig1" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> muestra la relación entre las variables, a partir de figuras de elipses.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig1 <span class="ot">&lt;-</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,</span>
@@ -603,7 +609,7 @@ Figura&nbsp;1.1: Relación de variables ambientales en las siete bahías estudia
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlaciones con variables transformadas (M1)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(amb, tax.hel)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La <a href="#fig-fig2" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> muestra la relación entre las variables, con las transformaciones realizadas.</p>
+<p>La <a href="Taller5.2.nmds.peces.html#fig-fig2" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> muestra la relación entre las variables, con las transformaciones realizadas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M1,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"ellipse"</span>,</span>
@@ -896,7 +902,7 @@ Number of permutations: 719</code></pre>
 <h2 class="anchored" data-anchor-id="insumos-gráficos">2.2) Insumos gráficos</h2>
 <section id="contribución-eje-1" class="level3">
 <h3 class="anchored" data-anchor-id="contribución-eje-1">2.2.1) Contribución eje 1</h3>
-<p>La <a href="#fig-fig3" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
+<p>La <a href="Taller5.2.nmds.peces.html#fig-fig3" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca1,<span class="at">choice=</span><span class="st">"var"</span>,<span class="at">axes=</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1785,8 +1791,8 @@ Figura&nbsp;3.4: las localidades, los taxones, las variables ambientales y los p
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Pautas_Estudio_Caso.html" class="pagination-link" aria-label="Pautas Estudios de Caso">
-        <span class="nav-page-text">Pautas Estudios de Caso</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Taller5.2.nmds.peces.html" class="pagination-link" aria-label="Taller5.2 NMDS Peces Francia">
+        <span class="nav-page-text">Taller5.2 NMDS Peces Francia</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
