@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Taller 1. Diseño Experimental en R – Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Videos_clases.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ea061be198c2aecd6f2dfc699520ccf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller1_Diseno_Exp.html">Taller 1. Diseño Experimental en R</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Videos y presentaciones de las clases</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1_Diseno_Exp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Taller 1. Diseño Experimental en R</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#materiales-requeridos-para-el-taller-en-clase" id="toc-materiales-requeridos-para-el-taller-en-clase" class="nav-link active" data-scroll-target="#materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</a>
+  <ul>
+  <li><a href="#diapositivas-en-vivo---slides.com" id="toc-diapositivas-en-vivo---slides.com" class="nav-link" data-scroll-target="#diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</a></li>
+  </ul></li>
+  <li><a href="#objetivos-del-taller" id="toc-objetivos-del-taller" class="nav-link" data-scroll-target="#objetivos-del-taller">Objetivos del taller</a></li>
+  <li><a href="#antes-de-empezar" id="toc-antes-de-empezar" class="nav-link" data-scroll-target="#antes-de-empezar">Antes de empezar</a>
+  <ul>
+  <li><a href="#cargar-librerías-requeridas" id="toc-cargar-librerías-requeridas" class="nav-link" data-scroll-target="#cargar-librerías-requeridas">Cargar librerías requeridas</a></li>
+  </ul></li>
+  <li><a href="#sec-aleatorizacion" id="toc-sec-aleatorizacion" class="nav-link" data-scroll-target="#sec-aleatorizacion">Parte 0 — Aleatorización en la práctica</a></li>
+  <li><a href="#sec-ca" id="toc-sec-ca" class="nav-link" data-scroll-target="#sec-ca">Parte 1 — Diseño completamente al azar: riqueza de macroalgas</a></li>
+  <li><a href="#sec-bloques" id="toc-sec-bloques" class="nav-link" data-scroll-target="#sec-bloques">Parte 2 — Diseño de bloques al azar: artes de pesca por temporada</a></li>
+  <li><a href="#sec-factorial" id="toc-sec-factorial" class="nav-link" data-scroll-target="#sec-factorial">Parte 3 — Diseño factorial: refugio × densidad en langosta espinosa</a></li>
+  <li><a href="#sec-splitplot" id="toc-sec-splitplot" class="nav-link" data-scroll-target="#sec-splitplot">Parte 4 — Parcelas divididas: restauración de manglares</a></li>
+  <li><a href="#cierre-el-diseño-de-un-estudio-propio" id="toc-cierre-el-diseño-de-un-estudio-propio" class="nav-link" data-scroll-target="#cierre-el-diseño-de-un-estudio-propio">Cierre — El diseño de un estudio propio</a></li>
+  <li><a href="#cuestionario-1" id="toc-cuestionario-1" class="nav-link" data-scroll-target="#cuestionario-1">Cuestionario 1</a>
+  <ul>
+  <li><a href="#instrucciones" id="toc-instrucciones" class="nav-link" data-scroll-target="#instrucciones">Instrucciones</a></li>
+  </ul></li>
+  <li><a href="#cuestionario-2" id="toc-cuestionario-2" class="nav-link" data-scroll-target="#cuestionario-2">Cuestionario 2</a>
+  <ul>
+  <li><a href="#parte-a-diseñar-escenarios-nuevos" id="toc-parte-a-diseñar-escenarios-nuevos" class="nav-link" data-scroll-target="#parte-a-diseñar-escenarios-nuevos">Parte A — Diseñar: escenarios nuevos</a>
+  <ul>
+  <li><a href="#sec-a1" id="toc-sec-a1" class="nav-link" data-scroll-target="#sec-a1">A1 — Dispositivo excluidor de tortugas (TED)</a></li>
+  <li><a href="#sec-a2" id="toc-sec-a2" class="nav-link" data-scroll-target="#sec-a2">A2 — Erizos entre arrecifes</a></li>
+  <li><a href="#sec-a3" id="toc-sec-a3" class="nav-link" data-scroll-target="#sec-a3">A3 — Luz y nutrientes en piscinas intermareales</a></li>
+  <li><a href="#sec-a4" id="toc-sec-a4" class="nav-link" data-scroll-target="#sec-a4">A4 — Restauración de pastos marinos: sedimento y densidad</a></li>
+  </ul></li>
+  <li><a href="#parte-b-encontrar-el-error-diagnóstico-de-diseños-fallidos" id="toc-parte-b-encontrar-el-error-diagnóstico-de-diseños-fallidos" class="nav-link" data-scroll-target="#parte-b-encontrar-el-error-diagnóstico-de-diseños-fallidos">Parte B — Encontrar el error: diagnóstico de diseños fallidos</a>
+  <ul>
+  <li><a href="#sec-b1" id="toc-sec-b1" class="nav-link" data-scroll-target="#sec-b1">B1 — Abundancia de peces en dos áreas marinas protegidas</a></li>
+  <li><a href="#sec-b2" id="toc-sec-b2" class="nav-link" data-scroll-target="#sec-b2">B2 — Técnica de restauración de coral</a></li>
+  <li><a href="#sec-b3" id="toc-sec-b3" class="nav-link" data-scroll-target="#sec-b3">B3 — Selección de sitios por accesibilidad</a>
+  <ul>
+  <li><a href="#sec-b4" id="toc-sec-b4" class="nav-link" data-scroll-target="#sec-b4">B4 — Dosis de fertilizante en restauración de pastos marinos</a></li>
+  </ul></li>
+  <li><a href="#cierre" id="toc-cierre" class="nav-link" data-scroll-target="#cierre">Cierre</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 1. Diseño Experimental en R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="page-break-after: always;"></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/portada_diseño_experim2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<section id="materiales-requeridos-para-el-taller-en-clase" class="level2 titulo-seccion">
+<h2 class="titulo-seccion anchored" data-anchor-id="materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</h2>
+<p>En los siguientes enlaces se podrán descargar archivos comprimidos de los dos talleres donde se pueden aplicar procedimientos para la manipulación y organización de las bases de datos requeridas en este taller de diseño experimental, con datos simulados en ecosistemas marins y estuarinos del Carbe colombaino (📰 Taller1 Diseno Exp.).</p>
+<ul>
+<li>📰 <a href="https://">Taller1 Diseno Exp.</a> * Pendiente de incluir.</li>
+</ul>
+<p><strong>Nota:</strong> una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos.</p>
+<section id="diapositivas-en-vivo---slides.com" class="level3">
+<h3 class="anchored" data-anchor-id="diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</h3>
+<p><img src="https://javier-2712.github.io/Manuales/9.Manual_mv_26/html/Figuras/slides.com.png" class="img-fluid" width="110"></p>
+<ul>
+<li>📰 <a href="(https://) * Pendiente de incluir.">Diapositivas del Taller1_bases_datos_diversidad</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="objetivos-del-taller" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-del-taller">Objetivos del taller</h2>
+<p>Este taller acompaña la sesión de diapositivas <em>“Principios y Tipos de Diseño Experimental”</em> (RA1). Al finalizar, se estará en capacidad de:</p>
+<ul>
+<li>Aplicar en R los 4 principios del diseño experimental: <strong>aleatorización, replicación, control y bloqueo</strong>.</li>
+<li>Simular y analizar en R los 4 tipos de diseño vistos en clase: <strong>completamente al azar, bloques al azar, factorial y parcelas divididas</strong>.</li>
+<li>Reconocer, antes de correr cualquier análisis, qué estructura tiene el diseño — porque de eso depende qué modelo estadístico usar.</li>
+</ul>
+<p>Cada sección usa un <strong>dataset simulado</strong>, inspirado en líneas de investigación reales del grupo (bentos, pesquerías, langosta espinosa, manglares), para que el código resulte transferible a un proyecto de investigación propio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los datos de este taller son <strong>simulados</strong> (<code>set.seed()</code> fija la semilla, así que a todos les da exactamente lo mismo). No corresponden a mediciones reales de ningún estudio; están construidos para ilustrar cada diseño con claridad pedagógica.</p>
+</div>
+</div>
+</section>
+<section id="antes-de-empezar" class="level2">
+<h2 class="anchored" data-anchor-id="antes-de-empezar">Antes de empezar</h2>
+<p>Todo el taller corre con R base — no es necesario instalar nada adicional. Si ya está <code>tidyverse</code> instalado (recomendado para el resto del curso), así como el paquete gráfico <code>ggplot2</code>, el paquete de carga de bases de datos <code>readxl</code> y el de edición y presentación de tablas <code>kableExtra</code>.</p>
+<section id="cargar-librerías-requeridas" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-librerías-requeridas">Cargar librerías requeridas</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)    <span class="co"># Para la manipulación de datos</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)        <span class="co"># Para ejecutar algunos comandos de tidy</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)   <span class="co"># Para la edición de tablas</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)        <span class="co"># Para la edición de tablas con tidy</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)       <span class="co"># Cargar bases de Excel</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>A continuación se genera una muestra aleatoria con el comando <strong>sed.seed()</strong>, para poder reproducir datos hipotéticos y constrastable en el ejercicio.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Si tidyverse está instalado, descomentar la siguiente línea:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>) <span class="co"># fija la semilla para que los resultados sean reproducibles</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+</section>
+</section>
+<section id="sec-aleatorizacion" class="level2">
+<h2 class="anchored" data-anchor-id="sec-aleatorizacion">Parte 0 — Aleatorización en la práctica</h2>
+<p>Antes de analizar nada, se practica el <strong>principio 1</strong>: seleccionar unidades al azar en vez de “a mano”.</p>
+<p>Se plantea el caso de un estudio de comunidades bentónicas de fondos blandos, con 20 puntos candidatos de muestreo, de los cuales solo es posible visitar 8.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/diseño_aleatorio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sitios_candidatos <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"P"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(sitios_candidatos, <span class="at">size =</span> <span class="dv">8</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "P1"  "P11" "P12" "P13" "P15" "P4"  "P5"  "P6" </code></pre>
+</div>
+</div>
+<p>Cada vez que se ejecute esta línea sin fijar la semilla, se obtendrá una selección distinta — así es como debe ser: ni quien ejecuta el análisis ni un evaluador externo puede acusar a la muestra de estar sesgada por conveniencia.</p>
+<p>También es posible usar <code>sample()</code> para <strong>aleatorizar la asignación de tratamientos</strong> a unidades experimentales ya organizadas físicamente (por ejemplo, tanques en una fila):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TRAT <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">24</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>asignacion <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">as.character</span>(TRAT)), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>asignacion</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,] "B"  "C"  "A"  "A"  "A"  "A" 
+[2,] "A"  "C"  "D"  "B"  "B"  "D" 
+[3,] "D"  "D"  "D"  "C"  "B"  "C" 
+[4,] "C"  "B"  "D"  "A"  "C"  "B" </code></pre>
+</div>
+</div>
+<p>Cada celda de esta matriz representa una posición física (p.&nbsp;ej. una fila y columna de tanques); el tratamiento que le tocó a cada una salió por sorteo, no por decisión del investigador.</p>
+<hr>
+</section>
+<section id="sec-ca" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ca">Parte 1 — Diseño completamente al azar: riqueza de macroalgas</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/diseño_completo_azar1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿la riqueza de macroalgas difiere entre 4 sitios de sustrato rocoso similar?</p>
+<p>Como los 4 sitios son razonablemente homogéneos (no hay una fuente de variación conocida que controlar), un <strong>diseño completamente al azar (CA)</strong> es apropiado: 6 cuadrantes por sitio, asignados sin ninguna restricción adicional.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                                        <span class="co"># Fijar la semilla</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sitio <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">6</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>))           <span class="co"># Crea sitios</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>medias_sitio <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">15</span>)[<span class="fu">as.integer</span>(sitio)]  <span class="co"># Asigna medias</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>riqueza <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">24</span>, <span class="at">mean =</span> medias_sitio, <span class="at">sd =</span> <span class="dv">2</span>))             <span class="co"># Genera riqueza</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>macroalgas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(sitio, riqueza)              <span class="co"># Crea tabla</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla de datos</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(macroalgas, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> sitio </th>
+   <th style="text-align:right;font-weight: bold;"> riqueza </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(macroalgas)                                       <span class="co"># Explora estructura  </span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   24 obs. of  2 variables:
+ $ sitio  : Factor w/ 4 levels "A","B","C","D": 1 1 1 1 1 1 2 2 2 2 ...
+ $ riqueza: num  13 10 12 12 11 7 13 12 14 13 ...</code></pre>
+</div>
+</div>
+<p>Como siempre, primero se grafica:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(riqueza <span class="sc">~</span> sitio, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> macroalgas, <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Sitio"</span>, <span class="at">ylab =</span> <span class="st">"Riqueza de macroalgas (spp.)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="outputs/fig/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Versión con <code>ggplot2</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(macroalgas, <span class="fu">aes</span>(<span class="at">x =</span> sitio, <span class="at">y =</span> riqueza)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sitio"</span>, <span class="at">y =</span> <span class="st">"Riqueza de macroalgas (spp.)"</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+<p>Y ahora el ANOVA de una vía:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anova</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod_ca <span class="ot">&lt;-</span> <span class="fu">aov</span>(riqueza <span class="sc">~</span> sitio, <span class="at">data =</span> macroalgas)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(mod_ca)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># tabulación de la tabla de anova</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod_ca) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fuente =</span> term,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">gl =</span> df,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">SC</span><span class="st">`</span> <span class="ot">=</span> sumsq,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">CM</span><span class="st">`</span> <span class="ot">=</span> meansq,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F</span><span class="st">`</span> <span class="ot">=</span> statistic,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p</span><span class="st">`</span> <span class="ot">=</span> p.value</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">F =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(F), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, F)),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(p), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, p))</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Fuente </th>
+   <th style="text-align:right;font-weight: bold;"> gl </th>
+   <th style="text-align:right;font-weight: bold;"> SC </th>
+   <th style="text-align:right;font-weight: bold;"> CM </th>
+   <th style="text-align:left;font-weight: bold;"> F </th>
+   <th style="text-align:left;font-weight: bold;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 44.33 </td>
+   <td style="text-align:right;"> 14.78 </td>
+   <td style="text-align:left;"> 3.56 </td>
+   <td style="text-align:left;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residuals </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 83.00 </td>
+   <td style="text-align:right;"> 4.15 </td>
+   <td style="text-align:left;"> - </td>
+   <td style="text-align:left;"> - </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado de la comparación múltiple</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(mod_ca)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = riqueza ~ sitio, data = macroalgas)
+
+$sitio
+          diff        lwr      upr     p adj
+B-A  2.1666667 -1.1253075 5.458641 0.2838204
+C-A  2.0000000 -1.2919741 5.291974 0.3494649
+D-A  3.8333333  0.5413592 7.125307 0.0188972
+C-B -0.1666667 -3.4586408 3.125307 0.9989493
+D-B  1.6666667 -1.6253075 4.958641 0.5037771
+D-C  1.8333333 -1.4586408 5.125307 0.4233027</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla editada</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(mod_ca) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Comp =</span> contrast,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Dif. =</span> estimate,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">IC 95% inf.</span><span class="st">`</span> <span class="ot">=</span> conf.low,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">IC 95% sup.</span><span class="st">`</span> <span class="ot">=</span> conf.high,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p ajus.</span><span class="st">`</span> <span class="ot">=</span> adj.p.value</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> term </th>
+   <th style="text-align:left;font-weight: bold;"> Comp </th>
+   <th style="text-align:right;font-weight: bold;"> null.value </th>
+   <th style="text-align:right;font-weight: bold;"> Dif. </th>
+   <th style="text-align:right;font-weight: bold;"> IC 95% inf. </th>
+   <th style="text-align:right;font-weight: bold;"> IC 95% sup. </th>
+   <th style="text-align:right;font-weight: bold;"> p ajus. </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> B-A </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2.17 </td>
+   <td style="text-align:right;"> -1.13 </td>
+   <td style="text-align:right;"> 5.46 </td>
+   <td style="text-align:right;"> 0.28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> C-A </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2.00 </td>
+   <td style="text-align:right;"> -1.29 </td>
+   <td style="text-align:right;"> 5.29 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> D-A </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3.83 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 7.13 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> C-B </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> -3.46 </td>
+   <td style="text-align:right;"> 3.13 </td>
+   <td style="text-align:right;"> 1.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> D-B </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.67 </td>
+   <td style="text-align:right;"> -1.63 </td>
+   <td style="text-align:right;"> 4.96 </td>
+   <td style="text-align:right;"> 0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sitio </td>
+   <td style="text-align:left;"> D-C </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1.83 </td>
+   <td style="text-align:right;"> -1.46 </td>
+   <td style="text-align:right;"> 5.13 </td>
+   <td style="text-align:right;"> 0.42 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Para discutir:</strong> ¿cuál es la unidad experimental? ¿Y la unidad de observación? (Pista: revisar la diapositiva 4 de la sesión anterior en caso de dudas.)</p>
+<hr>
+</section>
+<section id="sec-bloques" class="level2">
+<h2 class="anchored" data-anchor-id="sec-bloques">Parte 2 — Diseño de bloques al azar: artes de pesca por temporada</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/diseño_bloques_azar.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿la abundancia capturada difiere entre 3 artes de pesca?</p>
+<p>Se sabe que la abundancia de peces varía naturalmente con la temporada (seca vs.&nbsp;lluviosa). Si se ignora esa fuente de variación, se corre el riesgo de que “tape” el efecto real del arte de pesca. Por eso se usa un <strong>diseño de bloques al azar</strong>, con la temporada como bloque.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                    <span class="co"># Fijar la semilla</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>temporada <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">15</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Seca"</span>, <span class="st">"Lluviosa"</span>))     <span class="co"># Crea temporadas</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>arte <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">30</span>, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Red_agallera"</span>, <span class="st">"Palangre"</span>, <span class="st">"Trampa"</span>))  <span class="co"># Crea artes</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>efecto_arte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="sc">-</span><span class="dv">3</span>)[<span class="fu">as.integer</span>(arte)]        <span class="co"># Define efectos</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>efecto_temporada <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>)[<span class="fu">as.integer</span>(temporada)]  <span class="co"># Define efectos</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>abundancia <span class="ot">&lt;-</span> </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>,<span class="at">mean =</span> <span class="dv">20</span> <span class="sc">+</span> efecto_arte <span class="sc">+</span> </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                efecto_temporada,<span class="at">sd =</span> <span class="dv">3</span>))          <span class="co"># Genera abundancia</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>pesca <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(temporada,arte,abundancia)     <span class="co"># Crea tabla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Se compara qué ocurre si <strong>no</strong> se controla por temporada, frente a lo que ocurre si sí se controla:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sin bloquear (incorrecto para este caso: ignora la temporada)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mod_sin_bloque <span class="ot">&lt;-</span> <span class="fu">aov</span>(abundancia <span class="sc">~</span> arte, <span class="at">data =</span> pesca)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(mod_sin_bloque)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de los resultados</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod_sin_bloque) <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fuente =</span> term,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">gl =</span> df,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">SC</span><span class="st">`</span> <span class="ot">=</span> sumsq,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">CM</span><span class="st">`</span> <span class="ot">=</span> meansq,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F</span><span class="st">`</span> <span class="ot">=</span> statistic,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p</span><span class="st">`</span> <span class="ot">=</span> p.value</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">F =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(F), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, F)),</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(p), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, p))</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Fuente </th>
+   <th style="text-align:right;font-weight: bold;"> gl </th>
+   <th style="text-align:right;font-weight: bold;"> SC </th>
+   <th style="text-align:right;font-weight: bold;"> CM </th>
+   <th style="text-align:left;font-weight: bold;"> F </th>
+   <th style="text-align:left;font-weight: bold;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> arte </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 126.07 </td>
+   <td style="text-align:right;"> 63.03 </td>
+   <td style="text-align:left;"> 1.41 </td>
+   <td style="text-align:left;"> 0.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residuals </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 1203.40 </td>
+   <td style="text-align:right;"> 44.57 </td>
+   <td style="text-align:left;"> - </td>
+   <td style="text-align:left;"> - </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bloqueando por temporada (correcto)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mod_bloques <span class="ot">&lt;-</span> <span class="fu">aov</span>(abundancia <span class="sc">~</span> arte <span class="sc">+</span> temporada, <span class="at">data =</span> pesca)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(mod_bloques)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de los resultados</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod_bloques) <span class="sc">%&gt;%</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fuente =</span> term,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">gl =</span> df,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">SC</span><span class="st">`</span> <span class="ot">=</span> sumsq,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">CM</span><span class="st">`</span> <span class="ot">=</span> meansq,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F</span><span class="st">`</span> <span class="ot">=</span> statistic,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p</span><span class="st">`</span> <span class="ot">=</span> p.value</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">F =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(F), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, F)),</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(p), <span class="st">"-"</span>, <span class="fu">format.pval</span>(p, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">eps =</span> <span class="fl">0.001</span>))</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Fuente </th>
+   <th style="text-align:right;font-weight: bold;"> gl </th>
+   <th style="text-align:right;font-weight: bold;"> SC </th>
+   <th style="text-align:right;font-weight: bold;"> CM </th>
+   <th style="text-align:left;font-weight: bold;"> F </th>
+   <th style="text-align:left;font-weight: bold;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> arte </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 126.07 </td>
+   <td style="text-align:right;"> 63.03 </td>
+   <td style="text-align:left;"> 8.44 </td>
+   <td style="text-align:left;"> 0.0015 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> temporada </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1009.20 </td>
+   <td style="text-align:right;"> 1009.20 </td>
+   <td style="text-align:left;"> 135.11 </td>
+   <td style="text-align:left;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residuals </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 194.20 </td>
+   <td style="text-align:right;"> 7.47 </td>
+   <td style="text-align:left;"> - </td>
+   <td style="text-align:left;"> - </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Nótese la diferencia:</strong> sin bloquear, el arte de pesca no parece tener efecto (p &gt; 0.05). Bloqueando por temporada, el mismo factor resulta claramente significativo. La variación estacional estaba “escondiendo” el verdadero efecto del arte de pesca — exactamente el problema que el bloqueo está diseñado para resolver.</p>
+</section>
+<section id="sec-factorial" class="level2">
+<h2 class="anchored" data-anchor-id="sec-factorial">Parte 3 — Diseño factorial: refugio × densidad en langosta espinosa</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/diseño_factorial.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿el tipo de refugio y la densidad de siembra afectan la supervivencia de juveniles, y —lo más interesante— depende el efecto del refugio de qué tan alta sea la densidad?</p>
+<p>Este es el tipo de pregunta que un diseño factorial responde mejor que dos experimentos separados: cruzamos <strong>refugio</strong> (artificial / natural) × <strong>densidad</strong> (baja / media / alta), con 4 réplicas (tanques) por combinación.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                                      <span class="co"># Fijar la semilla</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>refugio <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">24</span>, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Artificial"</span>, <span class="st">"Natural"</span>))   <span class="co"># Crea refugios</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>densidad <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">24</span>, </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Baja"</span>, <span class="st">"Media"</span>, <span class="st">"Alta"</span>))  <span class="co"># Crea densidades</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de medias esperadas (supervivencia %) por combinación</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">63</span>, <span class="dv">60</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>               <span class="dv">63</span>, <span class="dv">45</span>, <span class="dv">20</span>), </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Artificial"</span>, <span class="st">"Natural"</span>), </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">c</span>(<span class="st">"Baja"</span>, <span class="st">"Media"</span>, <span class="st">"Alta"</span>)))  <span class="co"># Define medias</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>mu                                                   <span class="co"># Muestra matriz</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Baja Media Alta
+Artificial   65    63   60
+Natural      63    45   20</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> mu[</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="fu">as.integer</span>(refugio), <span class="fu">as.integer</span>(densidad))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>]                                                    <span class="co"># Asigna medias</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>supervivencia <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmin</span>(<span class="dv">100</span>, <span class="fu">pmax</span>(<span class="dv">0</span>, </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rnorm</span>(<span class="dv">24</span>, <span class="at">mean =</span> medias, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  )), <span class="dv">1</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Genera supervivencia</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>langosta <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  refugio,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  densidad,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  supervivencia</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Crea tabla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(langosta, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">tapply</span>(supervivencia, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">list</span>(refugio, densidad), </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>            mean))                                  <span class="co"># Medias por combinación</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Baja  Media   Alta
+Artificial 64.375 61.125 60.900
+Natural    56.825 42.950 19.475</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(langosta<span class="sc">$</span>densidad, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                 langosta<span class="sc">$</span>refugio, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                 langosta<span class="sc">$</span>supervivencia,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xlab =</span> <span class="st">"Densidad de siembra"</span>, </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylab =</span> <span class="st">"Supervivencia media (%)"</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trace.label =</span> <span class="st">"Refugio"</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkorange"</span>), <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="outputs/fig/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Versión con <code>ggplot2</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>langosta_resumen <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(supervivencia <span class="sc">~</span> refugio <span class="sc">+</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                                densidad, <span class="at">data =</span> langosta, mean)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(langosta_resumen, <span class="fu">aes</span>(<span class="at">x =</span> densidad, <span class="at">y =</span> supervivencia,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">color =</span> refugio, <span class="at">group =</span> refugio)) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Densidad de siembra"</span>, <span class="at">y =</span> <span class="st">"Supervivencia media (%)"</span>, </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Refugio"</span>) <span class="sc">+</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># anova factorial</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>mod_fact <span class="ot">&lt;-</span> <span class="fu">aov</span>(supervivencia <span class="sc">~</span> refugio <span class="sc">*</span> densidad, <span class="at">data =</span> langosta)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(mod_fact)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulación de los resultados del Anova</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod_fact) <span class="sc">%&gt;%</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Fuente =</span> term,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">gl =</span> df,</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">SC</span><span class="st">`</span> <span class="ot">=</span> sumsq,</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">CM</span><span class="st">`</span> <span class="ot">=</span> meansq,</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">F</span><span class="st">`</span> <span class="ot">=</span> statistic,</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">p</span><span class="st">`</span> <span class="ot">=</span> p.value</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">F =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(F), <span class="st">"-"</span>, <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, F)),</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">p =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(p), <span class="st">"-"</span>, <span class="fu">format.pval</span>(p, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">eps =</span> <span class="fl">0.001</span>))</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Fuente </th>
+   <th style="text-align:right;font-weight: bold;"> gl </th>
+   <th style="text-align:right;font-weight: bold;"> SC </th>
+   <th style="text-align:right;font-weight: bold;"> CM </th>
+   <th style="text-align:left;font-weight: bold;"> F </th>
+   <th style="text-align:left;font-weight: bold;"> p </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> refugio </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3006.08 </td>
+   <td style="text-align:right;"> 3006.08 </td>
+   <td style="text-align:left;"> 124.99 </td>
+   <td style="text-align:left;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> densidad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1681.09 </td>
+   <td style="text-align:right;"> 840.55 </td>
+   <td style="text-align:left;"> 34.95 </td>
+   <td style="text-align:left;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> refugio:densidad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1200.65 </td>
+   <td style="text-align:right;"> 600.32 </td>
+   <td style="text-align:left;"> 24.96 </td>
+   <td style="text-align:left;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Residuals </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 432.90 </td>
+   <td style="text-align:right;"> 24.05 </td>
+   <td style="text-align:left;"> - </td>
+   <td style="text-align:left;"> - </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p><strong>Fíjate en el término <code>refugio:densidad</code></strong>: es significativo. Eso significa que no basta con decir “el refugio artificial es mejor” — hay que decir <em>cuánto</em> mejor depende de la densidad. A baja densidad, ambos refugios rinden parecido; a alta densidad, la brecha se dispara. Esa es la información que un diseño factorial captura y que dos experimentos separados (uno por refugio, otro por densidad) jamás hubieran mostrado.</p>
+<hr>
+</section>
+<section id="sec-splitplot" class="level2">
+<h2 class="anchored" data-anchor-id="sec-splitplot">Parte 4 — Parcelas divididas: restauración de manglares</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/diseño_parcelas_div1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿el tratamiento de restauración afecta el crecimiento de plántulas, y depende esto del nivel de exposición al oleaje del sitio?</p>
+<p>Aquí hay una complicación logística real: el nivel de exposición (expuesto / protegido) solo puede asignarse a <strong>sitios completos</strong> (no es posible que la mitad de un sitio esté “protegida” y la otra mitad “expuesta”). Sin embargo, dentro de cada sitio sí es posible aplicar los 3 tratamientos de restauración a subparcelas distintas. Esta es la firma de un <strong>diseño de parcelas divididas</strong>: exposición = factor de parcela grande; tratamiento = factor de subparcela.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)   <span class="co"># Fijar la semilla</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>exposicion <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">18</span>, </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Expuesto"</span>, <span class="st">"Protegido"</span>)) <span class="co"># Crea exposiciones</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>sitio2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">3</span>))                  <span class="co"># Crea sitios</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 sitios: 3 por exposición, con 3 subparcelas c/u</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>tratamiento <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">18</span>, </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Siembra"</span>, </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Fertilizacion"</span>))        <span class="co"># Crea tratamientos</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>efecto_exposicion <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)[<span class="fu">as.integer</span>(exposicion)] <span class="co"># Define efectos</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>efecto_tratamiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">9</span>)[<span class="fu">as.integer</span>(tratamiento)] <span class="co"># Define efectos</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>efecto_sitio <span class="ot">&lt;-</span> <span class="fu">rep</span>(</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">each =</span> <span class="dv">3</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Añade variación</span></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>crecimiento <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">25</span> <span class="sc">+</span> efecto_exposicion <span class="sc">+</span> efecto_tratamiento <span class="sc">+</span> </span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    efecto_sitio <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">18</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Genera crecimiento</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>manglar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  exposicion, sitio2, tratamiento, crecimiento</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Crea tabla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>manglar <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span>   </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> exposicion </th>
+   <th style="text-align:left;font-weight: bold;"> sitio2 </th>
+   <th style="text-align:left;font-weight: bold;"> tratamiento </th>
+   <th style="text-align:right;font-weight: bold;"> crecimiento </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 24.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 30.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 35.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 21.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 28.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 30.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 24.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 30.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Expuesto </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 29.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 37.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 42.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 44.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 32.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 41.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 5 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 42.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:left;"> Control </td>
+   <td style="text-align:right;"> 29.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:left;"> Siembra </td>
+   <td style="text-align:right;"> 33.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegido </td>
+   <td style="text-align:left;"> 6 </td>
+   <td style="text-align:left;"> Fertilizacion </td>
+   <td style="text-align:right;"> 41.9 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>El análisis de un split-plot necesita <strong>dos términos de error distintos</strong>: uno para el factor de parcela grande (<code>sitio</code>) y otro para el factor de subparcela. En R, eso se indica con <code>Error()</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mod_split <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  crecimiento <span class="sc">~</span> exposicion <span class="sc">*</span> tratamiento <span class="sc">+</span> <span class="fu">Error</span>(sitio2), </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> manglar</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Ajusta modelo con error</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_split)                                   <span class="co"># Muestra ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error: sitio2
+           Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+exposicion  1  437.1   437.1   22.72 0.00886 **
+Residuals   4   77.0    19.2                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Error: Within
+                       Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+tratamiento             2 238.22  119.11  25.956 0.000318 ***
+exposicion:tratamiento  2   3.50    1.75   0.381 0.694867    
+Residuals               8  36.71    4.59                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Obsérvese que el resultado sale en <strong>dos bloques separados</strong> (<code>Error: sitio2</code> y <code>Error: Within</code>). Si se ejecutara un <code>aov()</code> normal sin el término <code>Error()</code>, R usaría un solo error para todo — y eso subestimaría la incertidumbre del factor de parcela grande (<code>exposicion</code>), inflando artificialmente su significancia. Por eso la estructura del diseño determina el modelo, no al revés.</p>
+<hr>
+</section>
+<section id="cierre-el-diseño-de-un-estudio-propio" class="level2">
+<h2 class="anchored" data-anchor-id="cierre-el-diseño-de-un-estudio-propio">Cierre — El diseño de un estudio propio</h2>
+<p>Antes de cerrar, se recomienda adaptar este taller a un proyecto propio:</p>
+<ol type="1">
+<li>Copiar la sección (<a href="#sec-ca" class="quarto-xref"><span>Parte 1 — Diseño completamente al azar: riqueza de macroalgas</span></a>, <a href="#sec-bloques" class="quarto-xref"><span>Parte 2 — Diseño de bloques al azar: artes de pesca por temporada</span></a>, <a href="#sec-factorial" class="quarto-xref"><span>Parte 3 — Diseño factorial: refugio × densidad en langosta espinosa</span></a> o <a href="#sec-splitplot" class="quarto-xref"><span>Parte 4 — Parcelas divididas: restauración de manglares</span></a>) que más se parezca al diseño identificado en el ejercicio de la sesión de diapositivas.</li>
+<li>Reemplazar los nombres de las variables y los valores de las medias simuladas por lo que se esperaría encontrar en el sistema de estudio propio.</li>
+<li>Ejecutar el análisis con los datos simulados propios y revisar: ¿la salida de R tiene sentido con lo planteado?</li>
+</ol>
+<p>Esto no reemplaza los datos reales, pero es una forma barata de <strong>poner a prueba el diseño antes de salir a campo</strong> — el mensaje con el que se abrió la sesión.</p>
+<hr>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="cuestionario-1" class="level2">
+<h2 class="anchored" data-anchor-id="cuestionario-1">Cuestionario 1</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/cuestionario.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="instrucciones" class="level4">
+<h4 class="anchored" data-anchor-id="instrucciones">Instrucciones</h4>
+<p>Este cuestionario acompaña el <code>Taller 1 · Principios y Tipos de Diseño Experimental</code> y cierra el bloque de diseño experimental de la Semana 1. Son <strong>10 preguntas de opción múltiple</strong>: 8 basadas directamente en las Partes 0 a 4 del taller (aleatorización, replicación, control, bloqueo, y los 4 tipos de diseño) y 2 preguntas de aplicación que plantean escenarios nuevos, no cubiertos literalmente en el taller, para poner a prueba si los conceptos se transfieren a un caso distinto.</p>
+<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve — conviene usarlo para repasar, no solo para calificar el resultado.</p>
+<style>
+  #quizApp{
+    --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;
+    --qz-white:#FFFFFF; --qz-muted:#6B7A8F; --qz-ok:#2E9E5B; --qz-bad:#C0392B;
+    max-width:680px; margin:1.5rem 0; font-family:inherit; color:var(--qz-navy);
+  }
+  #quizApp *{box-sizing:border-box;}
+  #quizApp .progress-wrap{margin-bottom:1.1rem;}
+  #quizApp .progress-track{background:#D5E3EF; border-radius:6px; height:8px; overflow:hidden;}
+  #quizApp .progress-fill{background:var(--qz-blue); height:100%; width:0%; transition:width .3s;}
+  #quizApp .progress-label{font-size:.8rem; color:var(--qz-muted); margin-top:.4rem;}
+  #quizApp .qz-card{
+    background:var(--qz-card); border-radius:14px; padding:1.5rem 1.4rem;
+    box-shadow:0 2px 10px rgba(21,44,74,.06);
+  }
+  #quizApp .question{font-size:1.08rem; line-height:1.5; margin:0 0 1.1rem; font-weight:700;}
+  #quizApp .options{display:flex; flex-direction:column; gap:.55rem;}
+  #quizApp .opt{
+    text-align:left; border:1.5px solid #D5E3EF; background:var(--qz-white); border-radius:10px;
+    padding:.7rem .9rem; font-size:.94rem; color:var(--qz-navy); cursor:pointer;
+    transition:border-color .15s, background .15s; font-family:inherit;
+  }
+  #quizApp .opt:hover:not(:disabled){border-color:var(--qz-blue);}
+  #quizApp .opt.correct{border-color:var(--qz-ok); background:#EAF7EF; font-weight:700;}
+  #quizApp .opt.incorrect{border-color:var(--qz-bad); background:#FBEAEA;}
+  #quizApp .opt.dim{opacity:.55;}
+  #quizApp .opt:disabled{cursor:default;}
+  #quizApp .hint-row{margin-top:.9rem;}
+  #quizApp .hint-btn{
+    background:none; border:none; color:var(--qz-blue); font-size:.82rem; cursor:pointer;
+    padding:0; text-decoration:underline; font-family:inherit;
+  }
+  #quizApp .hint-text{font-size:.85rem; color:var(--qz-muted); margin-top:.5rem; font-style:italic;}
+  #quizApp .feedback{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; font-size:.9rem; display:none;}
+  #quizApp .feedback.show{display:block;}
+  #quizApp .feedback.ok{background:#EAF7EF; color:var(--qz-ok);}
+  #quizApp .feedback.bad{background:#FBEAEA; color:var(--qz-bad);}
+  #quizApp .explain{margin-top:.5rem; color:var(--qz-navy); font-style:normal;}
+  #quizApp .nav-row{margin-top:1.2rem; text-align:right;}
+  #quizApp .next-btn{
+    background:var(--qz-navy); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; display:none; font-family:inherit;
+  }
+  #quizApp .next-btn.show{display:inline-block;}
+  #quizApp .result{text-align:center; padding:.8rem 0;}
+  #quizApp .result .score{font-size:2.4rem; font-weight:700; color:var(--qz-navy); margin:0;}
+  #quizApp .result .score span{font-size:1.1rem; color:var(--qz-muted); font-weight:400;}
+  #quizApp .result p{color:var(--qz-muted); font-size:.92rem;}
+  #quizApp .restart-btn{
+    background:var(--qz-blue); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; margin-top:.6rem; font-family:inherit;
+  }
+</style>
+
+<div id="quizApp">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="qzFill"></div></div>
+    <div class="progress-label" id="qzLabel">Pregunta 1 de 10</div>
+  </div>
+  <div class="qz-card" id="qzCard"></div>
+</div>
+
+<script id="qz-data" type="application/json">
+[
+{"question":"En el ejercicio de selección de 8 puntos de muestreo entre 20 candidatos (Parte 0), ¿por qué se usa sample() en vez de elegir \"a mano\" los sitios más accesibles?",
+ "options":[{"text":"Porque sample() es más rápido de escribir en R","correct":false},
+            {"text":"Porque evita que factores no controlados favorezcan sistemáticamente ciertos sitios, permitiendo atribuir diferencias al tratamiento y no a un sesgo de selección","correct":true},
+            {"text":"Porque garantiza que todos los sitios tengan exactamente la misma riqueza","correct":false},
+            {"text":"Porque reduce el número de réplicas necesarias","correct":false}],
+ "hint":"Pensar en qué principio de diseño se practicó en la Parte 0.",
+ "explain":"Ese es el principio de aleatorización: protege contra sesgos de selección, conocidos o no, y es lo que permite atribuir diferencias al tratamiento y no a cómo se eligieron las unidades."},
+
+{"question":"En el cultivo de langosta espinosa (Parte 3), cada tanque es una réplica. Si en vez de usar 4 tanques por combinación se hubiera usado 1 solo tanque por combinación, pero midiendo 4 langostas dentro de ese tanque, ¿qué error se estaría cometiendo?",
+ "options":[{"text":"Ninguno — 4 langostas siguen siendo 4 réplicas","correct":false},
+            {"text":"Pseudoreplicación: las langostas del mismo tanque no son independientes entre sí","correct":true},
+            {"text":"Confusión de factores (confounding)","correct":false},
+            {"text":"Falta de control","correct":false}],
+ "hint":"¿Recibieron las 4 langostas el tratamiento de forma independiente, o comparten el mismo tanque?",
+ "explain":"Las langostas de un mismo tanque comparten el mismo ambiente y no reciben el tratamiento de forma independiente — son submuestras, no réplicas. Tratarlas como réplicas es pseudoreplicación."},
+
+{"question":"En el diseño de restauración de manglares (Parte 4), el nivel \"Control\" del factor tratamiento cumple qué función?",
+ "options":[{"text":"Es una réplica adicional de los otros tratamientos","correct":false},
+            {"text":"Sirve como línea base para saber si el cambio observado se debe a los tratamientos activos o habría ocurrido de todas formas","correct":true},
+            {"text":"Bloquea el efecto de la exposición al oleaje","correct":false},
+            {"text":"Aumenta artificialmente la potencia estadística","correct":false}],
+ "hint":"¿Qué principio de diseño responde a la pregunta \"¿comparado con qué?\"?",
+ "explain":"Sin un control, no hay línea base: no se puede saber si el crecimiento observado se debe a la siembra/fertilización o habría pasado igual sin intervención."},
+
+{"question":"En el ejemplo de artes de pesca (Parte 2), al comparar el ANOVA sin bloquear por temporada contra el ANOVA bloqueado, el efecto del arte de pesca…",
+ "options":[{"text":"Fue significativo en ambos casos, sin diferencia real","correct":false},
+            {"text":"No fue significativo sin bloquear, y se volvió claramente significativo al bloquear por temporada","correct":true},
+            {"text":"Fue significativo sin bloquear, y dejó de serlo al bloquear","correct":false},
+            {"text":"No cambió, porque bloquear no afecta el valor de F","correct":false}],
+ "hint":"¿Qué le pasa al error residual cuando se aísla una fuente de variación conocida?",
+ "explain":"La variación estacional estaba \"escondiendo\" el efecto real del arte de pesca. Al aislarla con el bloqueo, el error residual baja y el efecto del tratamiento sale a la luz."},
+
+{"question":"En el diseño factorial de langosta espinosa (refugio × densidad), ¿cuál es la unidad experimental?",
+ "options":[{"text":"Cada langosta juvenil individual","correct":false},
+            {"text":"Cada tanque, porque recibe la combinación de refugio y densidad de forma independiente","correct":true},
+            {"text":"Cada combinación de refugio × densidad, en abstracto","correct":false},
+            {"text":"El experimento completo","correct":false}],
+ "hint":"¿A qué nivel se asignó el tratamiento: langosta o tanque?",
+ "explain":"El tratamiento (una combinación específica de refugio y densidad) se asigna a nivel de tanque, no de langosta individual — por eso el tanque es la unidad experimental."},
+
+{"question":"¿Cuál de las siguientes situaciones justifica usar un diseño completamente al azar (CA) en vez de bloques al azar?",
+ "options":[{"text":"Cuando hay una fuente de variación conocida (sitio, temporada) que se quiere controlar","correct":false},
+            {"text":"Cuando las unidades experimentales son razonablemente homogéneas y no hay ninguna fuente de variación conocida que controlar","correct":true},
+            {"text":"Cuando interesa la interacción entre dos factores","correct":false},
+            {"text":"Cuando un factor solo puede manipularse a una escala espacial mayor que otro","correct":false}],
+ "hint":"Revisar la tabla de \"¿qué diseño elijo?\" de las diapositivas.",
+ "explain":"El CA es la opción por defecto cuando no hay ninguna fuente de variación conocida que amenace con \"tapar\" el efecto del tratamiento — como en la riqueza de macroalgas de la Parte 1."},
+
+{"question":"En el diseño factorial de langosta (Parte 3), el término refugio:densidad resultó significativo. ¿Qué significa esto en la práctica?",
+ "options":[{"text":"Que ni el refugio ni la densidad afectan la supervivencia","correct":false},
+            {"text":"Que el efecto del tipo de refugio sobre la supervivencia depende de la densidad de siembra — no es el mismo en todos los niveles","correct":true},
+            {"text":"Que hay que ignorar los efectos principales y quedarse solo con la interacción","correct":false},
+            {"text":"Que el diseño tiene un error de pseudoreplicación","correct":false}],
+ "hint":"¿Qué significa \"interacción\" entre dos factores?",
+ "explain":"Una interacción significativa significa que la brecha entre refugios cambia según la densidad — a baja densidad ambos refugios rinden parecido, a alta densidad la brecha se dispara."},
+
+{"question":"En el diseño de parcelas divididas de manglares (Parte 4), ¿por qué el modelo usa aov(crecimiento ~ exposicion * tratamiento + Error(sitio)) en vez de un aov() simple?",
+ "options":[{"text":"Porque R exige usar Error() en cualquier modelo con dos factores","correct":false},
+            {"text":"Porque el diseño tiene dos escalas de aleatorización distintas — exposición a nivel de sitio, tratamiento a nivel de subparcela — que necesitan dos términos de error separados","correct":true},
+            {"text":"Porque exposicion es una variable continua","correct":false},
+            {"text":"Porque Error() calcula automáticamente los supuestos de normalidad","correct":false}],
+ "hint":"¿A qué escala se asignó cada factor: sitio completo o subparcela?",
+ "explain":"Sin Error(), R usaría un solo error para todo el modelo, subestimando la incertidumbre del factor de parcela grande (exposición) e inflando artificialmente su significancia."},
+
+{"question":"Un equipo va a desplegar módulos de arrecife artificial en 4 sitios de despliegue, y sabe de antemano que esos 4 sitios difieren en corrientes y complejidad del fondo. Ese dato debería llevar a proponer…",
+ "options":[{"text":"Un diseño completamente al azar, ignorando el sitio","correct":false},
+            {"text":"Un diseño de bloques al azar, con el sitio como bloque","correct":true},
+            {"text":"Un diseño factorial, tratando sitio y módulo como dos factores de interés igual de importantes","correct":false},
+            {"text":"Un diseño de parcelas divididas, con el sitio como parcela grande","correct":false}],
+ "hint":"¿El sitio es algo que interesa estudiar por sí mismo, o algo que se busca controlar?",
+ "explain":"El sitio es una fuente de variación conocida de antemano pero no es el foco de la pregunta — la firma exacta de cuándo bloquear. No es factorial porque el sitio no es un factor de interés propio, y no es parcelas divididas porque el módulo sí pudo asignarse al azar dentro de cada sitio."},
+
+{"question":"Un colega va a comparar la cobertura de coral en 3 zonas de manejo, tomando 1 sitio por zona pero fotografiando 15 cuadrantes dentro de ese sitio, y trata cada cuadrante como una réplica independiente en el ANOVA. ¿Cuál es el problema?",
+ "options":[{"text":"Ninguno — 15 cuadrantes por zona es una muestra suficientemente grande","correct":false},
+            {"text":"Pseudoreplicación: los cuadrantes están anidados dentro de 1 solo sitio por zona, así que no son réplicas verdaderamente independientes del tratamiento \"zona\"","correct":true},
+            {"text":"Debería usar un diseño factorial en vez de esto","correct":false},
+            {"text":"El problema es que le faltan controles","correct":false}],
+ "hint":"¿Cuántos sitios independientes hay realmente por zona?",
+ "explain":"El tratamiento (\"zona\") se aplicó a nivel de sitio, no de cuadrante. Con 1 sitio por zona, no hay réplicas verdaderas del tratamiento — solo submuestras dentro de una única réplica, sin importar cuántos cuadrantes se midan."}
+]
+</script>
+
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('qz-data').textContent);
+  let idx = 0, score = 0, answered = false;
+  const card = document.getElementById('qzCard');
+  const fill = document.getElementById('qzFill');
+  const label = document.getElementById('qzLabel');
+
+  function render(){
+    if(idx >= DATA.length){ renderResult(); return; }
+    answered = false;
+    const q = DATA[idx];
+    fill.style.width = (idx/DATA.length*100) + '%';
+    label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;
+    card.innerHTML = `
+      <p class="question">${q.question}</p>
+      <div class="options">
+        ${q.options.map((o,i)=>`<button class="opt" data-i="${i}">${o.text}</button>`).join('')}
+      </div>
+      <div class="hint-row">
+        <button class="hint-btn" id="qzHintBtn">Mostrar pista</button>
+        <div class="hint-text" id="qzHintText" style="display:none;">${q.hint || ''}</div>
+      </div>
+      <div class="feedback" id="qzFeedback"></div>
+      <div class="nav-row"><button class="next-btn" id="qzNextBtn">Siguiente →</button></div>
+    `;
+    document.getElementById('qzHintBtn').onclick = () => {
+      const t = document.getElementById('qzHintText');
+      t.style.display = t.style.display === 'none' ? 'block' : 'none';
+    };
+    card.querySelectorAll('.opt').forEach(btn=>{
+      btn.onclick = () => selectOption(parseInt(btn.dataset.i));
+    });
+    document.getElementById('qzNextBtn').onclick = () => { idx++; render(); };
+  }
+
+  function selectOption(i){
+    if(answered) return;
+    answered = true;
+    const q = DATA[idx];
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((btn,j)=>{
+      btn.disabled = true;
+      if(q.options[j].correct) btn.classList.add('correct');
+      else if(j===i) btn.classList.add('incorrect');
+      else btn.classList.add('dim');
+    });
+    const fb = document.getElementById('qzFeedback');
+    if(q.options[i].correct){
+      score++;
+      fb.innerHTML = '¡Correcto! <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show ok';
+    } else {
+      fb.innerHTML = 'No es correcto. <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show bad';
+    }
+    document.getElementById('qzNextBtn').classList.add('show');
+  }
+
+  function renderResult(){
+    fill.style.width = '100%';
+    label.textContent = `${DATA.length} de ${DATA.length}`;
+    const pct = Math.round(score/DATA.length*100);
+    card.innerHTML = `
+      <div class="result">
+        <p class="score">${score}<span>/${DATA.length}</span></p>
+        <p>${pct}% de aciertos. ${pct>=80?'Excelente dominio de los principios y tipos de diseño experimental.':pct>=60?'Buen manejo general — conviene repasar los temas con más errores.':'Vale la pena repasar el taller antes de la próxima sesión.'}</p>
+        <button class="restart-btn" id="qzRestartBtn">Intentar de nuevo</button>
+      </div>
+    `;
+    document.getElementById('qzRestartBtn').onclick = () => { idx=0; score=0; render(); };
+  }
+
+  render();
+})();
+</script>
+<hr>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="cuestionario-2" class="level2">
+<h2 class="anchored" data-anchor-id="cuestionario-2">Cuestionario 2</h2>
+<p>Este es un material <strong>complementario</strong> al Taller 1 y al <strong>cuestionario 1</strong> de opción múltiple — no los reemplaza. Mientras el cuestionario evalúa si se reconoce la respuesta correcta, esta guía entrena dos habilidades necesarias para un proyecto de tesis propio: <strong>proponer</strong> un diseño desde cero, y <strong>detectar</strong> cuándo un diseño (propio o ajeno) tiene un problema serio.</p>
+<p>Tiene dos partes:</p>
+<ul>
+<li><strong>Parte A — Diseñar:</strong> 4 escenarios nuevos, uno por cada tipo de diseño del Taller 1. No se indica de entrada qué tipo es.</li>
+<li><strong>Parte B — Encontrar el error:</strong> 4 viñetas de diseños ya “ejecutados”, cada una con exactamente uno de los 4 errores vistos en las diapositivas (pseudoreplicación, confusión de factores, falta de aleatorización, ausencia de control). El trabajo consiste en diagnosticar, no en calcular.</li>
+</ul>
+<p>Cada ejercicio tiene una respuesta guardada en un bloque colapsable — conviene intentar resolverlo antes de abrirlo.</p>
+<hr>
+<section id="parte-a-diseñar-escenarios-nuevos" class="level4">
+<h4 class="anchored" data-anchor-id="parte-a-diseñar-escenarios-nuevos">Parte A — Diseñar: escenarios nuevos</h4>
+<section id="sec-a1" class="level5">
+<h5 class="anchored" data-anchor-id="sec-a1">A1 — Dispositivo excluidor de tortugas (TED)</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/A1.diseño_ted1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo de manejo pesquero quiere saber si instalar un <strong>dispositivo excluidor de tortugas (TED)</strong> en las redes de arrastre artesanal reduce la captura incidental de tortugas carey juveniles. Trabajan en <strong>3 zonas de pesca</strong> (Norte, Central, Sur) que, por su batimetría y corrientes, se sabía de antemano que tienen niveles base de captura incidental distintos. En cada zona probaron 4 faenas con red convencional y 4 con red equipada con TED.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Cuál es la unidad experimental?</li>
+<li>Las 3 zonas tienen niveles base de captura distintos, algo que el equipo <strong>ya sabía antes de salir a pescar</strong>. ¿Qué principio de diseño aprovecha esa información a favor del análisis?</li>
+<li>¿Qué tipo de diseño es este?</li>
+<li>Escribir la fórmula de <code>aov()</code> que se usaría.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)            <span class="co"># Fijar la semilla</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>zona <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">8</span>, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Zona_Norte"</span>, <span class="st">"Zona_Central"</span>, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Zona_Sur"</span>))                    <span class="co"># Crea zonas</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>ted <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">24</span>, </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sin_TED"</span>, <span class="st">"Con_TED"</span>))           <span class="co"># Crea tratamientos</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>efecto_ted <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Sin_TED =</span> <span class="dv">0</span>, <span class="at">Con_TED =</span> <span class="sc">-</span><span class="fl">4.5</span>)[ted]     <span class="co"># Define efecto TED</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>efecto_zona <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Zona_Norte =</span> <span class="dv">0</span>, <span class="at">Zona_Central =</span> <span class="dv">3</span>, </span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Zona_Sur =</span> <span class="sc">-</span><span class="dv">2</span>)[zona]                 <span class="co"># Define efecto zona</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>capturas_tortuga <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">24</span>, </span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean =</span> <span class="dv">9</span> <span class="sc">+</span> efecto_ted <span class="sc">+</span> efecto_zona, </span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">sd =</span> <span class="dv">2</span>)))                             <span class="co"># Genera capturas</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>bycatch <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>  zona, ted, capturas_tortuga)                        <span class="co"># Crea tabla</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bycatch)                                          <span class="co"># Explora estructura</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   24 obs. of  3 variables:
+ $ zona            : Factor w/ 3 levels "Zona_Norte","Zona_Central",..: 1 1 1 1 1 1 1 1 2 2 ...
+ $ ted             : Factor w/ 2 levels "Sin_TED","Con_TED": 1 1 1 1 2 2 2 2 1 1 ...
+ $ capturas_tortuga: num  10 7 9 9 3 0 3 2 12 11 ...</code></pre>
+</div>
+</div>
+<p>Conviene ejecutar una propuesta de análisis antes de seguir leyendo.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Unidad experimental:</strong> cada faena de pesca (recibe, de forma independiente, red con o sin TED).</p>
+<p><strong>2. Principio:</strong> <strong>bloqueo</strong> — la zona es una fuente de variación conocida de antemano, no el foco de la pregunta.</p>
+<p><strong>3. Tipo de diseño:</strong> bloques al azar, con <code>zona</code> como bloque y <code>ted</code> como tratamiento.</p>
+<p><strong>4. Modelo:</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anova</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>mod_a1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  capturas_tortuga <span class="sc">~</span> ted <span class="sc">+</span> zona, </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> bycatch</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Ajusta modelo</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_a1)                                      <span class="co"># Muestra ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+ted          1 176.04  176.04   51.34 6.13e-07 ***
+zona         2  82.33   41.17   12.01 0.000376 ***
+Residuals   20  68.58    3.43                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Se compara sin bloquear:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen del anova</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(capturas_tortuga <span class="sc">~</span> ted, <span class="at">data =</span> bycatch))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+ted          1  176.0  176.04   25.66 4.49e-05 ***
+Residuals   22  150.9    6.86                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>En este caso el efecto del TED ya era significativo sin bloquear — pero, al bloquear por zona, el error residual baja (de 6.86 a 3.43) y el estadístico F del TED prácticamente se <strong>duplica</strong> (de 25.7 a 51.3). Bloquear no solo “revela” efectos escondidos (como se vio en el Taller 1); también hace más preciso un efecto que ya era detectable, y de paso muestra que la zona en sí también importa.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-a2" class="level5">
+<h5 class="anchored" data-anchor-id="sec-a2">A2 — Erizos entre arrecifes</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/A2.diseño_erizos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo quiere comparar la abundancia de erizos de mar (<em>Diadema antillarum</em>) entre <strong>4 arrecifes</strong> con profundidad, tipo de sustrato y exposición al oleaje muy similares entre sí — no hay ninguna razón conocida para esperar que un arrecife sea sistemáticamente distinto de otro antes de muestrear. Contaron erizos en 7 cuadrantes por arrecife.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Hay alguna fuente de variación conocida de antemano que deba controlarse?</li>
+<li>¿Qué tipo de diseño es este?</li>
+<li>Escribir la fórmula de <code>aov()</code> que se usaría.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)         <span class="co"># Fijar la semilla</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>arrecife <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">7</span>, </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R2"</span>, <span class="st">"R3"</span>, <span class="st">"R4"</span>))        <span class="co"># Crea arrecifes</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>medias_ar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">R1 =</span> <span class="dv">6</span>, <span class="at">R2 =</span> <span class="dv">11</span>, <span class="at">R3 =</span> <span class="dv">9</span>, <span class="at">R4 =</span> <span class="dv">7</span>)[arrecife] <span class="co"># Asigna medias</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>erizos <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">28</span>, <span class="at">mean =</span> medias_ar, <span class="at">sd =</span> <span class="fl">2.3</span>))</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>)                                                         <span class="co"># Genera abundancias</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>diadema <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  arrecife, erizos)                                       <span class="co"># Crea tabla</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  erizos <span class="sc">~</span> arrecife, </span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> diadema, </span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Arrecife"</span>, </span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Abundancia de erizos (conteo)"</span>)                 <span class="co"># Grafica distribución</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="outputs/fig/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Sin fuente de variación conocida que controlar → diseño completamente al azar (CA)</strong>, igual que la riqueza de macroalgas del Taller 1. No hay bloque porque no hay nada identificado de antemano que bloquear — eso es precisamente lo que distingue un CA de un diseño de bloques.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>mod_a2 <span class="ot">&lt;-</span> <span class="fu">aov</span>(erizos <span class="sc">~</span> arrecife, <span class="at">data =</span> diadema)  <span class="co"># Ajusta modelo</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_a2)    <span class="co"># Muestra el ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+arrecife     3  115.9   38.62   7.083 0.00143 **
+Residuals   24  130.9    5.45                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>El resultado es significativo — hay diferencias reales entre arrecifes, a pesar de que a priori no había ninguna razón conocida para esperarlas. Eso es información nueva que el estudio genera, no algo que el diseño necesitaba controlar de antemano.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-a3" class="level5">
+<h5 class="anchored" data-anchor-id="sec-a3">A3 — Luz y nutrientes en piscinas intermareales</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/A3.diseño_piscinas.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo quiere saber si la <strong>exposición solar</strong> (sol pleno / sombra) y el <strong>enriquecimiento de nutrientes</strong> (ninguno / bajo / alto) afectan el crecimiento de macroalgas en piscinas intermareales — y, sobre todo, si el efecto de la luz depende del nivel de nutrientes disponible. Cruzaron ambos factores con 3 réplicas por combinación.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Cuántos factores hay, y qué pregunta específica (más allá del efecto de cada uno por separado) motiva cruzarlos?</li>
+<li>¿Qué tipo de diseño es este?</li>
+<li>Escribir la fórmula de <code>aov()</code> que se usaría.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                                      <span class="co"># Fija semilla</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>luz <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">18</span>, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Sol_pleno"</span>, <span class="st">"Sombra"</span>))          <span class="co"># Crea niveles luz</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>nutrientes <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">18</span>, </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Ninguno"</span>, <span class="st">"Bajo"</span>, <span class="st">"Alto"</span>)) <span class="co"># Crea nutrientes</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>mu_a3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">28</span>,</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>), </span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">2</span>, </span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Sol_pleno"</span>, <span class="st">"Sombra"</span>), </span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Ninguno"</span>, <span class="st">"Bajo"</span>, <span class="st">"Alto"</span>)</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Define medias</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>medias_a3 <span class="ot">&lt;-</span> mu_a3[</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="fu">as.integer</span>(luz), <span class="fu">as.integer</span>(nutrientes))</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>]                                                    <span class="co"># Asigna medias</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>crecimiento_macroalgas <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">18</span>, <span class="at">mean =</span> medias_a3, <span class="at">sd =</span> <span class="dv">2</span>)), <span class="dv">1</span>)   <span class="co"># Genera crecimiento</span></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>piscinas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>  luz, nutrientes, crecimiento_macroalgas)           <span class="co"># Crea tabla</span></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(piscinas)                                        <span class="co"># Explora estructura</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   18 obs. of  3 variables:
+ $ luz                   : Factor w/ 2 levels "Sol_pleno","Sombra": 1 1 1 2 2 2 1 1 1 2 ...
+ $ nutrientes            : Factor w/ 3 levels "Ninguno","Bajo",..: 1 2 3 1 2 3 1 2 3 1 ...
+ $ crecimiento_macroalgas: num  19 19.8 28.3 17.8 17.7 15 16.5 20 28.2 17.1 ...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Dos factores cruzados, con interés explícito en si interactúan → diseño factorial</strong> (2 × 3), misma lógica que refugio × densidad en langosta (Taller 1).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>mod_a3 <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento_macroalgas <span class="sc">~</span> luz <span class="sc">*</span> nutrientes, <span class="at">data =</span> piscinas)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_a3)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+luz             1  44.18   44.18  10.657 0.00677 **
+nutrientes      2  51.87   25.93   6.256 0.01377 * 
+luz:nutrientes  2  69.74   34.87   8.412 0.00521 **
+Residuals      12  49.75    4.15                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(piscinas<span class="sc">$</span>nutrientes, piscinas<span class="sc">$</span>luz, piscinas<span class="sc">$</span>crecimiento_macroalgas,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">xlab =</span> <span class="st">"Nutrientes"</span>, <span class="at">ylab =</span> <span class="st">"Crecimiento medio"</span>, <span class="at">trace.label =</span> <span class="st">"Luz"</span>,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"steelblue"</span>), <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="outputs/fig/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La interacción <code>luz:nutrientes</code> es significativa: en sol pleno, agregar nutrientes dispara el crecimiento; en sombra, casi no importa cuánto nutriente haya — la luz es el factor limitante ahí, y los nutrientes no pueden compensarlo. Ese matiz solo se observa con un diseño factorial.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-a4" class="level5">
+<h5 class="anchored" data-anchor-id="sec-a4">A4 — Restauración de pastos marinos: sedimento y densidad</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/A4.diseño_pastos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un proyecto de restauración de pastos marinos quiere comparar dos <strong>tipos de sedimento</strong> (arenoso / fangoso) y tres <strong>densidades de siembra</strong> (baja / media / alta). El tipo de sedimento es una característica de toda la <strong>laguna costera</strong> — no se puede cambiar la composición del sedimento en una sola parcela dentro de la laguna, es una propiedad de la laguna completa. La densidad de siembra, en cambio, sí se puede variar libremente dentro de cada laguna, parcela por parcela. Trabajaron en 6 lagunas (3 de cada tipo de sedimento), con 3 parcelas de densidad distinta en cada una.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿A qué escala se puede asignar cada factor: laguna completa, o parcela dentro de la laguna?</li>
+<li>¿Qué tipo de diseño es este, y por qué <strong>no</strong> es simplemente un factorial como el ejercicio A3?</li>
+<li>Escribir la fórmula de <code>aov()</code> que se usaría, incluyendo el término <code>Error()</code> si corresponde.</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)               <span class="co"># Fijar la semilla</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>sedimento <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">18</span>, </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Arenoso"</span>, <span class="st">"Fangoso"</span>))     <span class="co"># Crea sedimentos</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>laguna <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">3</span>))                  <span class="co"># Crea lagunas</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>densidad_siembra <span class="ot">&lt;-</span> <span class="fu">gl</span>(</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">18</span>, </span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Baja"</span>, <span class="st">"Media"</span>, <span class="st">"Alta"</span>))                <span class="co"># Crea densidades</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>efecto_sed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Arenoso =</span> <span class="dv">0</span>, <span class="at">Fangoso =</span> <span class="sc">-</span><span class="dv">8</span>)[sedimento] <span class="co"># Define efecto sedimento</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>efecto_dens <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Baja =</span> <span class="dv">0</span>, <span class="at">Media =</span> <span class="dv">5</span>, <span class="at">Alta =</span> <span class="dv">8</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>)[densidad_siembra]                                   <span class="co"># Define efecto densidad</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>efecto_laguna <span class="ot">&lt;-</span> <span class="fu">rep</span>(</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">each =</span> <span class="dv">3</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Añade variación</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>supervivencia_pastos <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">pmin</span>(<span class="dv">100</span>, </span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>      <span class="dv">55</span> <span class="sc">+</span> efecto_sed <span class="sc">+</span> efecto_dens <span class="sc">+</span> </span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>        efecto_laguna <span class="sc">+</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rnorm</span>(<span class="dv">18</span>, <span class="at">sd =</span> <span class="dv">2</span>))), <span class="dv">1</span>)                     <span class="co"># Genera supervivencia</span></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>restauracion <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>  sedimento, laguna, densidad_siembra, </span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a>  supervivencia_pastos)                             <span class="co"># Crea tabla</span></span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(restauracion)                                   <span class="co"># Explora estructura</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   18 obs. of  4 variables:
+ $ sedimento           : Factor w/ 2 levels "Arenoso","Fangoso": 1 1 1 1 1 1 1 1 1 2 ...
+ $ laguna              : Factor w/ 6 levels "1","2","3","4",..: 1 1 1 2 2 2 3 3 3 4 ...
+ $ densidad_siembra    : Factor w/ 3 levels "Baja","Media",..: 1 2 3 1 2 3 1 2 3 1 ...
+ $ supervivencia_pastos: num  54.6 59 64.3 51.9 57 59.4 54.8 59.8 58.2 49.5 ...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Escala:</strong> sedimento se asigna a nivel de laguna completa (parcela grande); densidad se asigna a nivel de parcela dentro de la laguna (subparcela).</p>
+<p><strong>2. Tipo de diseño:</strong> <strong>parcelas divididas</strong>. No es un factorial simple porque las dos aleatorizaciones ocurren a escalas distintas — igual que exposición × tratamiento en el ejemplo de manglares del Taller 1. Un <code>aov()</code> factorial normal usaría un solo término de error para todo, lo que subestimaría la incertidumbre real del factor de parcela grande (sedimento).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># anova</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>mod_a4 <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  supervivencia_pastos <span class="sc">~</span> sedimento <span class="sc">*</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>              densidad_siembra <span class="sc">+</span> <span class="fu">Error</span>(laguna), </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> restauracion)                   <span class="co"># Ajustar modelo</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_a4)                                      <span class="co"># Muestra ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Error: laguna
+          Df Sum Sq Mean Sq F value Pr(&gt;F)  
+sedimento  1 298.49  298.49   15.51  0.017 *
+Residuals  4  76.96   19.24                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Error: Within
+                           Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+densidad_siembra            2 184.08   92.04  20.058 0.000764 ***
+sedimento:densidad_siembra  2   3.50    1.75   0.381 0.694867    
+Residuals                   8  36.71    4.59                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>El resultado sale en dos bloques de error (<code>laguna</code> y <code>Within</code>), cada uno con su propia incertidumbre — exactamente la firma de un split-plot bien especificado.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="parte-b-encontrar-el-error-diagnóstico-de-diseños-fallidos" class="level4">
+<h4 class="anchored" data-anchor-id="parte-b-encontrar-el-error-diagnóstico-de-diseños-fallidos">Parte B — Encontrar el error: diagnóstico de diseños fallidos</h4>
+<p>Cada viñeta describe un estudio ya “hecho”, con exactamente uno de los 4 errores de la diapositiva “Errores que invalidan un diseño”. Se debe identificar cuál, y cómo se rediseñaría.</p>
+<section id="sec-b1" class="level5">
+<h5 class="anchored" data-anchor-id="sec-b1">B1 — Abundancia de peces en dos áreas marinas protegidas</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/B1.diseño_peces1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La viñeta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un investigador quiere comparar la abundancia de peces entre un área marina protegida (AMP) de no-pesca y una zona de uso múltiple. Seleccionó <strong>1 sitio representativo</strong> de cada tipo, y dentro de cada sitio hizo <strong>20 transectos de censo visual</strong>. Corrió un t-test tratando los 40 transectos (20 + 20) como 40 observaciones independientes.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Cuál es la unidad experimental real: el transecto, o el sitio?</li>
+<li>Con esa unidad experimental real, ¿cuántas réplicas verdaderas tiene cada grupo?</li>
+<li>¿Qué error de diseño es este?</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                                      <span class="co"># Fija semilla</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>efecto_sitio_amp1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">4</span>)      <span class="co"># Genera efecto sitio</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>efecto_sitio_amp2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">4</span>)      <span class="co"># Genera efecto sitio</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>abundancia_amp1 <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">20</span>, </span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean =</span> <span class="dv">30</span> <span class="sc">+</span> efecto_sitio_amp1, </span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">sd =</span> <span class="dv">2</span>)))                            <span class="co"># Genera abundancia</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>abundancia_amp2 <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">20</span>, </span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean =</span> <span class="dv">30</span> <span class="sc">+</span> efecto_sitio_amp2, </span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">sd =</span> <span class="dv">2</span>)))                            <span class="co"># Genera abundancia</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Error: pseudoreplicación.</strong> El tratamiento (“tipo de AMP”) se asignó a nivel de <strong>sitio</strong>, no de transecto — con 1 sitio por tipo, hay exactamente <strong>1 réplica real por grupo</strong>. Los 20 transectos dentro de un mismo sitio comparten el mismo entorno y no son independientes entre sí.</p>
+<p>Para hacerlo vívido: en esta simulación <strong>no se programó ningún efecto real del tipo de AMP</strong> — la única diferencia entre los dos grupos es ruido aleatorio a nivel de sitio. Aun así:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de medias</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(abundancia_amp1, abundancia_amp2)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  abundancia_amp1 and abundancia_amp2
+t = 8.3455, df = 37.967, p-value = 4.061e-10
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 3.787106 6.212894
+sample estimates:
+mean of x mean of y 
+     31.3      26.3 </code></pre>
+</div>
+</div>
+<p>El t-test ingenuo puede salir “significativo” (p = 4.06e-10), a pesar de que no hay ningún efecto real del tratamiento — es puro ruido de sitio disfrazado de señal, porque el análisis cuenta 40 “réplicas” donde en realidad solo hay 2.</p>
+<p><strong>Cómo rediseñarlo:</strong> muestrear varios sitios (no solo 1) por tipo de AMP, y usar el sitio como la unidad de análisis — exactamente el mismo problema que la Parte 0 del Taller 1, aplicado aquí a una comparación real.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-b2" class="level5">
+<h5 class="anchored" data-anchor-id="sec-b2">B2 — Técnica de restauración de coral</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/B2.diseño_coraless.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La viñeta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo compara dos técnicas de restauración coralina — fragmentación asistida vs.&nbsp;trasplante directo. Por razones logísticas, la <strong>técnica de fragmentación se aplicó solo en el Sitio X</strong>, y el <strong>trasplante directo solo en el Sitio Y</strong>. Midieron el crecimiento de 15 colonias en cada sitio y compararon las técnicas con un t-test.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Qué cambia junto con la técnica, sin que el diseño lo pueda separar?</li>
+<li>Si encuentran una diferencia significativa entre técnicas, ¿pueden atribuirla honestamente a la técnica?</li>
+<li>¿Qué error de diseño es este?</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)             <span class="co"># Fija semilla</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>n_frag <span class="ot">&lt;-</span> <span class="dv">15</span>                                         <span class="co"># Define réplicas</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>sitio_efecto_X <span class="ot">&lt;-</span> <span class="dv">8</span>                                  <span class="co"># Define efecto X</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>sitio_efecto_Y <span class="ot">&lt;-</span> <span class="dv">0</span>                                  <span class="co"># Define efecto Y</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>crecimiento_A_sitioX <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(n_frag, </span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean =</span> <span class="dv">20</span> <span class="sc">+</span> sitio_efecto_X, </span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">sd =</span> <span class="dv">3</span>)), <span class="dv">1</span>)                         <span class="co"># Genera crecimiento</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>crecimiento_B_sitioY <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(n_frag, </span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean =</span> <span class="dv">20</span> <span class="sc">+</span> sitio_efecto_Y, </span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">sd =</span> <span class="dv">3</span>)), <span class="dv">1</span>)                         <span class="co"># Genera crecimiento</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Error: confusión de factores (confounding).</strong> La técnica y el sitio cambian <strong>exactamente juntos</strong> — cada colonia con fragmentación también está en el Sitio X, y cada colonia con trasplante también está en el Sitio Y. No hay forma de separar estadísticamente “efecto de la técnica” de “efecto del sitio”.</p>
+<p>En esta simulación se programó una diferencia real entre sitios (el Sitio X tiene mejores condiciones) y <strong>ninguna diferencia real entre técnicas</strong>. Aun así:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de las dos muestras</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(crecimiento_A_sitioX, crecimiento_B_sitioY)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  crecimiento_A_sitioX and crecimiento_B_sitioY
+t = 4.3828, df = 27.581, p-value = 0.0001536
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2.377629 6.555705
+sample estimates:
+mean of x mean of y 
+ 26.01333  21.54667 </code></pre>
+</div>
+</div>
+<p>Sale claramente “significativo” (p = 1.54e-04) — pero es enteramente atribuible al sitio, no a la técnica. Con este diseño, es <strong>imposible</strong> saberlo a partir de los datos.</p>
+<p><strong>Cómo rediseñarlo:</strong> aplicar ambas técnicas en ambos sitios (diseño factorial técnica × sitio), o aplicar cada técnica en varios sitios asignados al azar — cualquiera de los dos rompe la confusión entre técnica y sitio.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-b3" class="level5">
+<h5 class="anchored" data-anchor-id="sec-b3">B3 — Selección de sitios por accesibilidad</h5>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figuras_portadas/2_diseno/B3.diseño_coraless.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La viñeta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para comparar la cobertura de coral entre una zona con alto tráfico de embarcaciones y una con bajo tráfico, un estudiante eligió los sitios de muestreo de la zona de alto tráfico entre los <strong>más cercanos y accesibles en bote desde el muelle</strong>, y los sitios de la zona de bajo tráfico entre los <strong>más alejados y de difícil acceso</strong>, “para ahorrar tiempo de navegación”.</p>
+</div>
+</div>
+<ol type="1">
+<li>¿Qué otras características ambientales podrían estar correlacionadas con “qué tan accesible es un sitio en bote” (profundidad, protección del oleaje, cercanía a la costa)?</li>
+<li>¿Qué error de diseño es este?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Error: falta de aleatorización.</strong> La accesibilidad en bote casi nunca es independiente de otras variables ambientales (profundidad, oleaje, distancia a la costa, sedimentación) — al seleccionar los sitios por conveniencia en vez de al azar, cualquiera de esas variables no medidas puede ser la verdadera causa de una diferencia observada, disfrazada de “efecto del tráfico de embarcaciones”. Es el mismo principio revisado en la Parte 0 del Taller 1 (selección de puntos de muestreo con <code>sample()</code>), pero aquí se saltó por conveniencia logística.</p>
+<p><strong>Cómo rediseñarlo:</strong> generar coordenadas candidatas dentro de cada zona y seleccionar los sitios de muestreo al azar entre ellas (con <code>sample()</code>), aceptando el costo logístico adicional — o, si de verdad no es viable navegar a sitios lejanos, medir y reportar honestamente las covariables ambientales de cada sitio para poder controlarlas en el análisis.</p>
+</div>
+</div>
+</div>
+<section id="sec-b4" class="level6">
+<h6 class="anchored" data-anchor-id="sec-b4">B4 — Dosis de fertilizante en restauración de pastos marinos</h6>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La viñeta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un proyecto de restauración prueba dos dosis de un fertilizante nuevo (dosis baja, dosis alta) sobre el crecimiento de plántulas de pasto marino trasplantadas. No incluyeron un grupo sin fertilizante, “porque el interés es solo comparar las dos dosis entre sí”. Encontraron que la dosis alta produce más crecimiento que la baja, y concluyeron que el fertilizante mejora la restauración.</p>
+</div>
+</div>
+<ol type="1">
+<li>Con este diseño, ¿pueden saber si <em>cualquier</em> dosis de fertilizante mejora el crecimiento frente a no aplicar nada?</li>
+<li>¿Qué error de diseño es este?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Error: ausencia de control.</strong> Comparar dosis baja vs.&nbsp;alta permite concluir que <em>entre esas dos</em>, la alta produce más crecimiento — pero no dice nada sobre si el fertilizante en sí mejora la restauración frente a no usar nada. Es posible, por ejemplo, que <strong>ambas</strong> dosis sean peores que no fertilizar (si el fertilizante favorece algas epífitas que compiten con el pasto), y aun así la dosis alta “gane” la comparación entre las dos.</p>
+<p><strong>Cómo rediseñarlo:</strong> agregar un tercer grupo sin fertilizante (control), para poder comparar cada dosis contra la línea base real, no solo entre sí.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="cierre" class="level5">
+<h5 class="anchored" data-anchor-id="cierre">Cierre</h5>
+<p>Estos 8 ejercicios cubren, de extremo a extremo, lo que se hará una y otra vez al diseñar un proyecto de investigación propio: mirar un sistema aún desconocido, decidir qué estructura de diseño le queda, y —igual de importante— revisar el propio diseño (o el de un compañero) buscando estos mismos 4 errores antes de salir a campo. Ese hábito de revisión es, en la práctica, más valioso que memorizar cuál fórmula de <code>aov()</code> usar.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li>Quinn, G. P., &amp; Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2nd ed.). Cambridge University Press. — Capítulos sobre diseños de bloques, factoriales y de parcelas divididas.</li>
+<li>Logan, M. (2011). <em>Biostatistical Design and Analysis Using R</em>. Wiley-Blackwell. — Capítulo sobre asignación aleatoria de tratamientos y estructura de diseños.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los ejemplos y datasets de este taller son de elaboración propia para este curso; no reproducen los ejercicios ni el código de las fuentes citadas.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Videos_clases.html" class="pagination-link" aria-label="**Videos y presentaciones de las clases**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><strong>Videos y presentaciones de las clases</strong></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
