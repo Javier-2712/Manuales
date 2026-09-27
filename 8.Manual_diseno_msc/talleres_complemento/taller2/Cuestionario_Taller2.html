@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Maestría en Ecología y Biodiversidad · Universidad del Magdalena">
+
+<title>Cuestionario · Estimación por Intervalos y Pruebas de Hipótesis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Cuestionario_Taller2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Cuestionario_Taller2_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Cuestionario_Taller2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Cuestionario_Taller2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Cuestionario_Taller2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Cuestionario_Taller2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Cuestionario_Taller2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Cuestionario_Taller2_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Cuestionario_Taller2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Cuestionario_Taller2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Cuestionario_Taller2_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cuestionario · Estimación por Intervalos y Pruebas de Hipótesis</h1>
+<p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 1 · 2026-II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Maestría en Ecología y Biodiversidad · Universidad del Magdalena </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
+<p>Este cuestionario acompaña el <code>Taller 2 · Estimación por Intervalos y Pruebas de Hipótesis</code> y cierra el bloque de bioestadística de la Semana 1. Son <strong>11 preguntas de opción múltiple</strong> basadas en las Partes 1 a 8 del taller: intervalos de confianza (media/proporción/varianza), t-test independiente y pareado, ANOVA, diagnóstico de supuestos (numérico y visual), comparaciones <em>post hoc</em>, alternativas no paramétricas, ANOVA de Welch, potencia/tamaño de muestra, y el estudio de caso aplicado.</p>
+<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve — úsalo para repasar, no solo para calificarte.</p>
+<style>
+  #quizApp{
+    --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;
+    --qz-white:#FFFFFF; --qz-muted:#6B7A8F; --qz-ok:#2E9E5B; --qz-bad:#C0392B;
+    max-width:680px; margin:1.5rem 0; font-family:inherit; color:var(--qz-navy);
+  }
+  #quizApp *{box-sizing:border-box;}
+  #quizApp .progress-wrap{margin-bottom:1.1rem;}
+  #quizApp .progress-track{background:#D5E3EF; border-radius:6px; height:8px; overflow:hidden;}
+  #quizApp .progress-fill{background:var(--qz-blue); height:100%; width:0%; transition:width .3s;}
+  #quizApp .progress-label{font-size:.8rem; color:var(--qz-muted); margin-top:.4rem;}
+  #quizApp .qz-card{
+    background:var(--qz-card); border-radius:14px; padding:1.5rem 1.4rem;
+    box-shadow:0 2px 10px rgba(21,44,74,.06);
+  }
+  #quizApp .question{font-size:1.08rem; line-height:1.5; margin:0 0 1.1rem; font-weight:700;}
+  #quizApp .options{display:flex; flex-direction:column; gap:.55rem;}
+  #quizApp .opt{
+    text-align:left; border:1.5px solid #D5E3EF; background:var(--qz-white); border-radius:10px;
+    padding:.7rem .9rem; font-size:.94rem; color:var(--qz-navy); cursor:pointer;
+    transition:border-color .15s, background .15s; font-family:inherit;
+  }
+  #quizApp .opt:hover:not(:disabled){border-color:var(--qz-blue);}
+  #quizApp .opt.correct{border-color:var(--qz-ok); background:#EAF7EF; font-weight:700;}
+  #quizApp .opt.incorrect{border-color:var(--qz-bad); background:#FBEAEA;}
+  #quizApp .opt.dim{opacity:.55;}
+  #quizApp .opt:disabled{cursor:default;}
+  #quizApp .hint-row{margin-top:.9rem;}
+  #quizApp .hint-btn{
+    background:none; border:none; color:var(--qz-blue); font-size:.82rem; cursor:pointer;
+    padding:0; text-decoration:underline; font-family:inherit;
+  }
+  #quizApp .hint-text{font-size:.85rem; color:var(--qz-muted); margin-top:.5rem; font-style:italic;}
+  #quizApp .feedback{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; font-size:.9rem; display:none;}
+  #quizApp .feedback.show{display:block;}
+  #quizApp .feedback.ok{background:#EAF7EF; color:var(--qz-ok);}
+  #quizApp .feedback.bad{background:#FBEAEA; color:var(--qz-bad);}
+  #quizApp .explain{margin-top:.5rem; color:var(--qz-navy); font-style:normal;}
+  #quizApp .nav-row{margin-top:1.2rem; text-align:right;}
+  #quizApp .next-btn{
+    background:var(--qz-navy); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; display:none; font-family:inherit;
+  }
+  #quizApp .next-btn.show{display:inline-block;}
+  #quizApp .result{text-align:center; padding:.8rem 0;}
+  #quizApp .result .score{font-size:2.4rem; font-weight:700; color:var(--qz-navy); margin:0;}
+  #quizApp .result .score span{font-size:1.1rem; color:var(--qz-muted); font-weight:400;}
+  #quizApp .result p{color:var(--qz-muted); font-size:.92rem;}
+  #quizApp .restart-btn{
+    background:var(--qz-blue); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; margin-top:.6rem; font-family:inherit;
+  }
+</style>
+
+<div id="quizApp">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="qzFill"></div></div>
+    <div class="progress-label" id="qzLabel">Pregunta 1 de 10</div>
+  </div>
+  <div class="qz-card" id="qzCard"></div>
+</div>
+
+<script id="qz-data" type="application/json">
+[
+{"question":"El intervalo de confianza para la longitud cefalotorácica de la langosta espinosa (Parte 1) usa la distribución t en vez de la normal. ¿Por qué?",
+ "options":[{"text":"Porque R no tiene implementada la distribución normal para este cálculo","correct":false},
+            {"text":"Porque con muestras pequeñas también se está estimando la desviación estándar, y la distribución t tiene colas más anchas que compensan esa incertidumbre extra","correct":true},
+            {"text":"Porque la distribución t siempre da intervalos más angostos que la normal","correct":false},
+            {"text":"Porque la distribución normal solo aplica a proporciones, nunca a medias","correct":false}],
+ "hint":"Piensa en qué más, además de la media, estás estimando a partir de la muestra.",
+ "explain":"Con n pequeño no conoces la desviación estándar poblacional de antemano — también la estimas de la muestra. Esa incertidumbre extra se compensa con las colas más anchas de la t (df = n − 1)."},
+
+{"question":"El IC para la varianza de la salinidad (Parte 1) usa la distribución chi-cuadrado en vez de la t. ¿Por qué?",
+ "options":[{"text":"Porque la varianza siempre es un número entero","correct":false},
+            {"text":"Porque (n − 1)s²/σ² sigue una distribución chi-cuadrado, no una t — es una cantidad distinta a la media con su propia distribución muestral","correct":true},
+            {"text":"Porque en ese ejemplo n es mayor a 30","correct":false},
+            {"text":"Porque la varianza no tiene fórmula de IC, solo se aproxima con simulación","correct":false}],
+ "hint":"La lógica (\"un rango plausible\") es la misma que para la media — lo que cambia es la distribución de referencia.",
+ "explain":"La cantidad (n − 1)s²/σ² sigue una distribución chi-cuadrado con n − 1 grados de libertad — por eso la fórmula del IC luce distinta a la de la media, aunque la idea de fondo (un rango plausible, no un solo número) es la misma."},
+
+{"question":"En el ejemplo del blanqueamiento de coral (mismo arrecife medido antes y después), el t-test pareado dio un p-valor mucho más pequeño y un intervalo más angosto que si se tratan las dos columnas como grupos independientes. ¿Por qué?",
+ "options":[{"text":"Porque el t-test pareado usa una muestra más grande","correct":false},
+            {"text":"Porque parear remueve la variabilidad entre arrecifes (unos parten con más cobertura que otros), dejando solo la variabilidad del cambio real","correct":true},
+            {"text":"Porque el t-test pareado no necesita verificar ningún supuesto","correct":false},
+            {"text":"Porque los datos pareados siempre son significativos, sin importar el efecto real","correct":false}],
+ "hint":"¿Qué fuente de variación (arrecife a arrecife) deja de \"contaminar\" la comparación cuando pareas?",
+ "explain":"Al parear, la variabilidad propia de cada arrecife (unos con más cobertura de base que otros) ya no se mezcla con el efecto del blanqueamiento — el mismo principio que el bloqueo del Taller 1, aplicado aquí al diseño de la prueba."},
+
+{"question":"¿Cuál de las siguientes situaciones pide un t-test pareado en vez de uno de dos muestras independientes?",
+ "options":[{"text":"Comparar la cobertura de pastos marinos entre la Bahía de Santa Marta y el Parque Tayrona","correct":false},
+            {"text":"Medir la cobertura de coral en los mismos 12 arrecifes antes y después de un evento de blanqueamiento","correct":true},
+            {"text":"Comparar la riqueza de macroalgas entre 4 sitios distintos de sustrato rocoso","correct":false},
+            {"text":"Comparar la densidad de juveniles de pargo entre 3 niveles de conectividad manglar-pastos","correct":false}],
+ "hint":"¿En cuál caso la misma unidad se mide dos veces, en vez de comparar dos grupos distintos?",
+ "explain":"El t-test pareado aplica cuando la misma unidad (el mismo arrecife) se mide dos veces — las otras opciones comparan grupos independientes o tienen más de 2 grupos, así que no son ni t-test pareado ni independiente de 2 grupos."},
+
+{"question":"En el Q-Q plot de los residuos del ANOVA de macroalgas (Parte 4), ¿qué información aporta que el p-valor de Shapiro-Wilk, por sí solo, no muestra tan claramente?",
+ "options":[{"text":"Nada — el Q-Q plot y el Shapiro-Wilk dan exactamente la misma información, en el mismo formato","correct":false},
+            {"text":"Permite ver el patrón de la desviación (p. ej. colas pesadas, un solo punto atípico, asimetría) y no solo un sí/no binario sobre normalidad","correct":true},
+            {"text":"El Q-Q plot mide homocedasticidad, no normalidad","correct":false},
+            {"text":"El Q-Q plot solo es válido cuando n es mayor a 100","correct":false}],
+ "hint":"Un p-valor es un solo número; un gráfico muestra una forma completa.",
+ "explain":"Shapiro-Wilk resume todo en un p-valor (sí/no hay evidencia de no-normalidad). El Q-Q plot muestra el patrón completo de la desviación — útil, por ejemplo, para distinguir un solo dato atípico de una asimetría generalizada."},
+
+{"question":"Si la normalidad de los residuos del ANOVA de macroalgas hubiera fallado claramente, ¿qué prueba usarías en su lugar, y por qué no depende del supuesto de normalidad?",
+ "options":[{"text":"ANOVA de Welch, porque corrige automáticamente la falta de normalidad","correct":false},
+            {"text":"Kruskal-Wallis, porque trabaja con los rangos de los datos en vez de sus valores exactos","correct":true},
+            {"text":"t-test de Welch, porque siempre es más robusto que cualquier otra prueba","correct":false},
+            {"text":"prop.test(), porque convierte los datos en proporciones antes de compararlos","correct":false}],
+ "hint":"¿Qué prueba de la Parte 5 es la alternativa directa al ANOVA?",
+ "explain":"Kruskal-Wallis convierte los datos en rangos antes de compararlos, así que no depende de que los valores originales sigan una distribución normal — por eso es la alternativa cuando falla ese supuesto (el ANOVA de Welch resuelve otro problema distinto: varianzas desiguales, no falta de normalidad)."},
+
+{"question":"En el ejemplo de cobertura de coral en 3 zonas de manejo (Parte 6), Bartlett detecta heterocedasticidad clara entre zonas. ¿Cuál es la corrección correcta para 3 o más grupos, equivalente al \"Welch\" que t.test() aplica automáticamente para 2 grupos?",
+ "options":[{"text":"shapiro.test() con una corrección de Bonferroni","correct":false},
+            {"text":"oneway.test(..., var.equal = FALSE) — el ANOVA de Welch","correct":true},
+            {"text":"kruskal.test(), porque cualquier violación de un supuesto exige ir directo a una prueba no paramétrica","correct":false},
+            {"text":"Repetir el ANOVA clásico sin cambios, ya que Bartlett es solo informativo y no obliga a nada","correct":false}],
+ "hint":"¿Qué problema detecta Bartlett específicamente: normalidad, o igualdad de varianzas?",
+ "explain":"Bartlett evalúa homocedasticidad, no normalidad. Cuando esa es la que falla (y no la normalidad), oneway.test(var.equal = FALSE) es la corrección correcta para 3+ grupos — Kruskal-Wallis es la respuesta cuando falla la normalidad, un problema distinto."},
+
+{"question":"En la Parte 7, power.anova.test() (usando la variabilidad realmente observada en el taller anterior) sugiere más réplicas por sitio que las que efectivamente se usaron. ¿Qué implica esa comparación?",
+ "options":[{"text":"Que el taller anterior usó demasiadas réplicas y debió usar menos","correct":false},
+            {"text":"Que, con la variabilidad observada, el diseño original pudo haber tenido menos potencia de la deseada para detectar el efecto — información valiosa para planear antes de salir a campo","correct":true},
+            {"text":"Que el ANOVA de la Parte 3 no es válido porque le faltaron réplicas en cualquier escenario","correct":false},
+            {"text":"Que power.anova.test() siempre sobreestima el número de réplicas necesario","correct":false}],
+ "hint":"¿Para qué sirve calcular el n necesario antes de salir a campo, no después?",
+ "explain":"Comparar el n sugerido contra el n realmente usado, hecho antes de salir a campo, es exactamente lo que evita gastar presupuesto en un diseño con poca potencia para detectar el efecto que te importa."},
+
+{"question":"En el estudio de caso de conectividad manglar-pastos marinos y juveniles de pargo (Parte 8), Shapiro no detecta problema de normalidad, pero Bartlett sí detecta heterocedasticidad. ¿Cuál es la prueba correcta?",
+ "options":[{"text":"Kruskal-Wallis, porque cualquier supuesto que falle amerita ir a una prueba no paramétrica","correct":false},
+            {"text":"ANOVA de Welch, porque el problema es la homocedasticidad, no la normalidad","correct":true},
+            {"text":"ANOVA clásico, porque Shapiro sí pasó y eso es lo único que hace falta revisar","correct":false},
+            {"text":"t-test pareado, porque son mediciones repetidas en el mismo sitio","correct":false}],
+ "hint":"Compara esta situación con la Parte 6 — ¿cuál supuesto es el que realmente falló aquí?",
+ "explain":"Es la misma lógica de la Parte 6, aplicada a un contexto nuevo: cuando falla la homocedasticidad pero no la normalidad, la corrección correcta es el ANOVA de Welch, no Kruskal-Wallis — que resuelve un problema distinto (falta de normalidad)."},
+
+{"question":"Un estudiante mide la cobertura de pastos marinos en 2 bahías, pero dentro de cada bahía toma 12 mediciones tan cercanas entre sí que están claramente correlacionadas — no son puntos independientes dentro de la bahía. Aun así, corre t.test(cobertura ~ bahia) tratando esas 24 mediciones como si fueran independientes. ¿Qué problema, ya visto en el Taller 1, está cometiendo?",
+ "options":[{"text":"Ninguno — el t-test de Welch corrige automáticamente ese tipo de dependencia","correct":false},
+            {"text":"Pseudoreplicación: las 12 mediciones dentro de cada bahía no son réplicas verdaderamente independientes, así que el tamaño de muestra real es 2 (las bahías), no 24","correct":true},
+            {"text":"Confusión de factores (confounding) entre bahía y ubicación","correct":false},
+            {"text":"Falta de control, porque no hay una bahía de referencia sin tráfico de embarcaciones","correct":false}],
+ "hint":"¿Cuántas unidades experimentales verdaderamente independientes hay: 2, o 24?",
+ "explain":"El tratamiento (\"bahía\") se aplicó a nivel de bahía, no de medición individual. Con mediciones correlacionadas dentro de cada bahía, la unidad experimental real sigue siendo la bahía — tratar las 24 mediciones como independientes es pseudoreplicación, el mismo error del Taller 1 aplicado aquí a una prueba de hipótesis."},
+
+{"question":"En la Parte 4, el ANOVA de riqueza de macroalgas fue significativo (p = 0,033) y la prueba de Tukey indicó que solo el par D–A difiere. ¿Cuál es la interpretación correcta?",
+ "options":[{"text":"Los 4 sitios difieren entre sí, porque el ANOVA fue significativo","correct":false},
+            {"text":"El ANOVA indica que al menos un sitio difiere; Tukey muestra que la diferencia se concentra en el par D–A, controlando el error tipo I acumulado de las 6 comparaciones","correct":true},
+            {"text":"El ANOVA no es válido, porque Tukey no encontró diferencias en la mayoría de los pares","correct":false},
+            {"text":"Habría sido equivalente correr 6 t-tests independientes, uno por cada par de sitios","correct":false}],
+ "hint":"¿Qué pregunta responde el ANOVA y cuál responde la prueba post hoc?",
+ "explain":"El ANOVA responde si hay alguna diferencia entre los sitios; Tukey responde entre cuáles. Un ANOVA significativo no implica que todos los grupos difieran. Correr 6 t-tests sin corrección inflaría la probabilidad de al menos un falso positivo a cerca del 26 %."}
+]
+</script>
+
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('qz-data').textContent);
+  let idx = 0, score = 0, answered = false;
+  const card = document.getElementById('qzCard');
+  const fill = document.getElementById('qzFill');
+  const label = document.getElementById('qzLabel');
+
+  function render(){
+    if(idx >= DATA.length){ renderResult(); return; }
+    answered = false;
+    const q = DATA[idx];
+    fill.style.width = (idx/DATA.length*100) + '%';
+    label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;
+    card.innerHTML = `
+      <p class="question">${q.question}</p>
+      <div class="options">
+        ${q.options.map((o,i)=>`<button class="opt" data-i="${i}">${o.text}</button>`).join('')}
+      </div>
+      <div class="hint-row">
+        <button class="hint-btn" id="qzHintBtn">Mostrar pista</button>
+        <div class="hint-text" id="qzHintText" style="display:none;">${q.hint || ''}</div>
+      </div>
+      <div class="feedback" id="qzFeedback"></div>
+      <div class="nav-row"><button class="next-btn" id="qzNextBtn">Siguiente →</button></div>
+    `;
+    document.getElementById('qzHintBtn').onclick = () => {
+      const t = document.getElementById('qzHintText');
+      t.style.display = t.style.display === 'none' ? 'block' : 'none';
+    };
+    card.querySelectorAll('.opt').forEach(btn=>{
+      btn.onclick = () => selectOption(parseInt(btn.dataset.i));
+    });
+    document.getElementById('qzNextBtn').onclick = () => { idx++; render(); };
+  }
+
+  function selectOption(i){
+    if(answered) return;
+    answered = true;
+    const q = DATA[idx];
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((btn,j)=>{
+      btn.disabled = true;
+      if(q.options[j].correct) btn.classList.add('correct');
+      else if(j===i) btn.classList.add('incorrect');
+      else btn.classList.add('dim');
+    });
+    const fb = document.getElementById('qzFeedback');
+    if(q.options[i].correct){
+      score++;
+      fb.innerHTML = '¡Correcto! <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show ok';
+    } else {
+      fb.innerHTML = 'No es correcto. <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show bad';
+    }
+    document.getElementById('qzNextBtn').classList.add('show');
+  }
+
+  function renderResult(){
+    fill.style.width = '100%';
+    label.textContent = `${DATA.length} de ${DATA.length}`;
+    const pct = Math.round(score/DATA.length*100);
+    card.innerHTML = `
+      <div class="result">
+        <p class="score">${score}<span>/${DATA.length}</span></p>
+        <p>${pct}% de aciertos. ${pct>=80?'Excelente dominio de estimación y pruebas de hipótesis.':pct>=60?'Buen manejo general — repasa los temas donde fallaste.':'Vale la pena repasar el taller antes de la próxima sesión.'}</p>
+        <button class="restart-btn" id="qzRestartBtn">Intentar de nuevo</button>
+      </div>
+    `;
+    document.getElementById('qzRestartBtn').onclick = () => { idx=0; score=0; render(); };
+  }
+
+  render();
+})();
+</script>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p>Las preguntas y escenarios de este cuestionario son de elaboración propia para este curso; no reproducen ejercicios ni datos de las fuentes citadas en el taller.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
