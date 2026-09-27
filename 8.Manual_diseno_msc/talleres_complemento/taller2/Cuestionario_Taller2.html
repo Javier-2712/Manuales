@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="instrucciones" class="level2">
 <h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
 <p>Este cuestionario acompaña el <code>Taller 2 · Estimación por Intervalos y Pruebas de Hipótesis</code> y cierra el bloque de bioestadística de la Semana 1. Son <strong>11 preguntas de opción múltiple</strong> basadas en las Partes 1 a 8 del taller: intervalos de confianza (media/proporción/varianza), t-test independiente y pareado, ANOVA, diagnóstico de supuestos (numérico y visual), comparaciones <em>post hoc</em>, alternativas no paramétricas, ANOVA de Welch, potencia/tamaño de muestra, y el estudio de caso aplicado.</p>
-<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve — úsalo para repasar, no solo para calificarte.</p>
+<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve; se recomienda usarlas para repasar, no solo para obtener una calificación. El orden de las opciones cambia en cada intento.</p>
 <style>
   #quizApp{
     --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;
@@ -144,107 +144,52 @@ ul.task-list li input[type="checkbox"] {
 <div id="quizApp">
   <div class="progress-wrap">
     <div class="progress-track"><div class="progress-fill" id="qzFill"></div></div>
-    <div class="progress-label" id="qzLabel">Pregunta 1 de 10</div>
+    <div class="progress-label" id="qzLabel">Pregunta 1 de 11</div>
   </div>
   <div class="qz-card" id="qzCard"></div>
 </div>
 
 <script id="qz-data" type="application/json">
 [
-{"question":"El intervalo de confianza para la longitud cefalotorácica de la langosta espinosa (Parte 1) usa la distribución t en vez de la normal. ¿Por qué?",
- "options":[{"text":"Porque R no tiene implementada la distribución normal para este cálculo","correct":false},
-            {"text":"Porque con muestras pequeñas también se está estimando la desviación estándar, y la distribución t tiene colas más anchas que compensan esa incertidumbre extra","correct":true},
-            {"text":"Porque la distribución t siempre da intervalos más angostos que la normal","correct":false},
-            {"text":"Porque la distribución normal solo aplica a proporciones, nunca a medias","correct":false}],
- "hint":"Piensa en qué más, además de la media, estás estimando a partir de la muestra.",
- "explain":"Con n pequeño no conoces la desviación estándar poblacional de antemano — también la estimas de la muestra. Esa incertidumbre extra se compensa con las colas más anchas de la t (df = n − 1)."},
+{"question": "El intervalo de confianza para la longitud cefalotorácica de la langosta espinosa (Parte 1) usa la distribución t en vez de la normal. ¿Por qué?", "options": [{"text": "Porque la distribución t produce intervalos más angostos que la normal cuando la muestra es pequeña", "correct": false}, {"text": "Porque también se estima la desviación estándar, y las colas más anchas de la t compensan esa incertidumbre adicional", "correct": true}, {"text": "Porque la longitud cefalotorácica no sigue una distribución normal, y la t es la alternativa para variables asimétricas", "correct": false}, {"text": "Porque la normal solo se usa para proporciones, mientras que la t es la referencia para cualquier media", "correct": false}], "hint": "¿Qué otro parámetro, además de la media, se estima a partir de la muestra?", "explain": "Con n pequeño no se conoce la desviación estándar poblacional: también se estima con la muestra. Esa incertidumbre adicional se compensa con las colas más anchas de la t (gl = n − 1)."},
 
-{"question":"El IC para la varianza de la salinidad (Parte 1) usa la distribución chi-cuadrado en vez de la t. ¿Por qué?",
- "options":[{"text":"Porque la varianza siempre es un número entero","correct":false},
-            {"text":"Porque (n − 1)s²/σ² sigue una distribución chi-cuadrado, no una t — es una cantidad distinta a la media con su propia distribución muestral","correct":true},
-            {"text":"Porque en ese ejemplo n es mayor a 30","correct":false},
-            {"text":"Porque la varianza no tiene fórmula de IC, solo se aproxima con simulación","correct":false}],
- "hint":"La lógica (\"un rango plausible\") es la misma que para la media — lo que cambia es la distribución de referencia.",
- "explain":"La cantidad (n − 1)s²/σ² sigue una distribución chi-cuadrado con n − 1 grados de libertad — por eso la fórmula del IC luce distinta a la de la media, aunque la idea de fondo (un rango plausible, no un solo número) es la misma."},
+{"question": "El IC para la varianza de la salinidad (Parte 1) usa la distribución chi-cuadrado en vez de la t. ¿Por qué?", "options": [{"text": "Porque con más de 30 datos el IC de cualquier parámetro se construye con chi-cuadrado en lugar de t", "correct": false}, {"text": "Porque la chi-cuadrado corrige la falta de normalidad de la salinidad, algo que la t no puede hacer con datos ambientales", "correct": false}, {"text": "Porque la cantidad (n − 1)s²/σ² sigue una distribución chi-cuadrado, no una t", "correct": true}, {"text": "Porque la t solo genera intervalos simétricos, y R exige intervalos asimétricos para cualquier parámetro distinto de la media", "correct": false}], "hint": "La lógica (\"un rango plausible\") es la misma que para la media; lo que cambia es la distribución de referencia.", "explain": "La cantidad (n − 1)s²/σ² sigue una distribución chi-cuadrado con n − 1 grados de libertad. Por eso la fórmula del IC luce distinta a la de la media, aunque la idea de fondo (un rango plausible, no un solo número) es la misma."},
 
-{"question":"En el ejemplo del blanqueamiento de coral (mismo arrecife medido antes y después), el t-test pareado dio un p-valor mucho más pequeño y un intervalo más angosto que si se tratan las dos columnas como grupos independientes. ¿Por qué?",
- "options":[{"text":"Porque el t-test pareado usa una muestra más grande","correct":false},
-            {"text":"Porque parear remueve la variabilidad entre arrecifes (unos parten con más cobertura que otros), dejando solo la variabilidad del cambio real","correct":true},
-            {"text":"Porque el t-test pareado no necesita verificar ningún supuesto","correct":false},
-            {"text":"Porque los datos pareados siempre son significativos, sin importar el efecto real","correct":false}],
- "hint":"¿Qué fuente de variación (arrecife a arrecife) deja de \"contaminar\" la comparación cuando pareas?",
- "explain":"Al parear, la variabilidad propia de cada arrecife (unos con más cobertura de base que otros) ya no se mezcla con el efecto del blanqueamiento — el mismo principio que el bloqueo del Taller 1, aplicado aquí al diseño de la prueba."},
+{"question": "En el ejemplo del blanqueamiento de coral (mismo arrecife medido antes y después), el t-test pareado dio un p-valor mucho más pequeño y un intervalo más angosto que si se tratan las dos columnas como grupos independientes. ¿Por qué?", "options": [{"text": "Porque el t-test pareado duplica el tamaño de muestra al contar por separado las mediciones de antes y de después", "correct": false}, {"text": "Porque el t-test pareado asume varianzas iguales, mientras que el de Welch las corrige y por eso pierde potencia", "correct": false}, {"text": "Porque el pareo elimina la variabilidad entre arrecifes y deja solo la variación del cambio dentro de cada uno", "correct": true}, {"text": "Porque la cobertura bajó en todos los arrecifes, y el pareado siempre da valores p más bajos cuando el cambio es negativo", "correct": false}], "hint": "¿Qué fuente de variación (de arrecife a arrecife) deja de \"contaminar\" la comparación cuando se parea?", "explain": "Al parear, la variabilidad propia de cada arrecife (unos con más cobertura de base que otros) ya no se mezcla con el efecto del blanqueamiento: es el mismo principio del bloqueo visto en el Taller 1, aplicado aquí a la prueba."},
 
-{"question":"¿Cuál de las siguientes situaciones pide un t-test pareado en vez de uno de dos muestras independientes?",
- "options":[{"text":"Comparar la cobertura de pastos marinos entre la Bahía de Santa Marta y el Parque Tayrona","correct":false},
-            {"text":"Medir la cobertura de coral en los mismos 12 arrecifes antes y después de un evento de blanqueamiento","correct":true},
-            {"text":"Comparar la riqueza de macroalgas entre 4 sitios distintos de sustrato rocoso","correct":false},
-            {"text":"Comparar la densidad de juveniles de pargo entre 3 niveles de conectividad manglar-pastos","correct":false}],
- "hint":"¿En cuál caso la misma unidad se mide dos veces, en vez de comparar dos grupos distintos?",
- "explain":"El t-test pareado aplica cuando la misma unidad (el mismo arrecife) se mide dos veces — las otras opciones comparan grupos independientes o tienen más de 2 grupos, así que no son ni t-test pareado ni independiente de 2 grupos."},
+{"question": "¿Cuál de las siguientes situaciones pide un t-test pareado en vez de uno de dos muestras independientes?", "options": [{"text": "Comparar la cobertura de pastos marinos entre la Bahía de Santa Marta y el Parque Tayrona, con 12 parcelas por bahía", "correct": false}, {"text": "Comparar la talla de langostas capturadas en época seca con la de otras langostas capturadas en época de lluvias", "correct": false}, {"text": "Comparar la riqueza de macroalgas en 12 cuadrantes de un sitio protegido y en 12 de un sitio con pesca artesanal", "correct": false}, {"text": "Medir la cobertura de coral en los mismos 12 arrecifes, antes y después de un evento de blanqueamiento", "correct": true}], "hint": "¿En cuál caso la misma unidad se mide dos veces, en lugar de comparar dos grupos distintos?", "explain": "El t-test pareado aplica cuando la misma unidad (el mismo arrecife) se mide dos veces. En los otros casos se comparan unidades distintas: parcelas, cuadrantes o langostas diferentes en cada época, aunque el estudio incluya dos momentos."},
 
-{"question":"En el Q-Q plot de los residuos del ANOVA de macroalgas (Parte 4), ¿qué información aporta que el p-valor de Shapiro-Wilk, por sí solo, no muestra tan claramente?",
- "options":[{"text":"Nada — el Q-Q plot y el Shapiro-Wilk dan exactamente la misma información, en el mismo formato","correct":false},
-            {"text":"Permite ver el patrón de la desviación (p. ej. colas pesadas, un solo punto atípico, asimetría) y no solo un sí/no binario sobre normalidad","correct":true},
-            {"text":"El Q-Q plot mide homocedasticidad, no normalidad","correct":false},
-            {"text":"El Q-Q plot solo es válido cuando n es mayor a 100","correct":false}],
- "hint":"Un p-valor es un solo número; un gráfico muestra una forma completa.",
- "explain":"Shapiro-Wilk resume todo en un p-valor (sí/no hay evidencia de no-normalidad). El Q-Q plot muestra el patrón completo de la desviación — útil, por ejemplo, para distinguir un solo dato atípico de una asimetría generalizada."},
+{"question": "En el Q-Q plot de los residuos del ANOVA de macroalgas (Parte 4), ¿qué información aporta que el p-valor de Shapiro-Wilk, por sí solo, no muestra tan claramente?", "options": [{"text": "Muestra el patrón de la desviación (colas, asimetría o un dato atípico), no solo un sí o un no sobre la normalidad", "correct": true}, {"text": "Indica si las varianzas son homogéneas entre sitios, algo que Shapiro-Wilk no evalúa porque solo revisa la normalidad", "correct": false}, {"text": "Da un valor p más confiable que Shapiro-Wilk cuando hay pocas réplicas, porque no depende del tamaño de muestra", "correct": false}, {"text": "Permite saber si los residuos son independientes, porque ordena los puntos según la secuencia de muestreo", "correct": false}], "hint": "Un p-valor es un solo número; un gráfico muestra una forma completa.", "explain": "Shapiro-Wilk resume todo en un p-valor (hay o no evidencia de falta de normalidad). El Q-Q plot muestra el patrón completo de la desviación, útil, por ejemplo, para distinguir un solo dato atípico de una asimetría generalizada."},
 
-{"question":"Si la normalidad de los residuos del ANOVA de macroalgas hubiera fallado claramente, ¿qué prueba usarías en su lugar, y por qué no depende del supuesto de normalidad?",
- "options":[{"text":"ANOVA de Welch, porque corrige automáticamente la falta de normalidad","correct":false},
-            {"text":"Kruskal-Wallis, porque trabaja con los rangos de los datos en vez de sus valores exactos","correct":true},
-            {"text":"t-test de Welch, porque siempre es más robusto que cualquier otra prueba","correct":false},
-            {"text":"prop.test(), porque convierte los datos en proporciones antes de compararlos","correct":false}],
- "hint":"¿Qué prueba de la Parte 5 es la alternativa directa al ANOVA?",
- "explain":"Kruskal-Wallis convierte los datos en rangos antes de compararlos, así que no depende de que los valores originales sigan una distribución normal — por eso es la alternativa cuando falla ese supuesto (el ANOVA de Welch resuelve otro problema distinto: varianzas desiguales, no falta de normalidad)."},
+{"question": "Si la normalidad de los residuos del ANOVA de macroalgas hubiera fallado claramente, ¿qué prueba se usaría en su lugar, y por qué no depende de ese supuesto?", "options": [{"text": "ANOVA de Welch, porque al no asumir varianzas iguales tampoco necesita residuos normales", "correct": false}, {"text": "Prueba de Tukey, porque las comparaciones post hoc no dependen de la normalidad y reemplazan al ANOVA cuando esta falla", "correct": false}, {"text": "Kruskal-Wallis, porque compara los rangos de las observaciones y no sus valores originales", "correct": true}, {"text": "Wilcoxon, porque es la alternativa no paramétrica que compara los cuatro sitios en un solo contraste", "correct": false}], "hint": "¿Qué prueba de la Parte 5 es la alternativa directa al ANOVA?", "explain": "Kruskal-Wallis convierte los datos en rangos antes de compararlos, así que no depende de que los valores originales sigan una distribución normal. El ANOVA de Welch resuelve otro problema (varianzas desiguales), y Wilcoxon compara solo dos grupos."},
 
-{"question":"En el ejemplo de cobertura de coral en 3 zonas de manejo (Parte 6), Bartlett detecta heterocedasticidad clara entre zonas. ¿Cuál es la corrección correcta para 3 o más grupos, equivalente al \"Welch\" que t.test() aplica automáticamente para 2 grupos?",
- "options":[{"text":"shapiro.test() con una corrección de Bonferroni","correct":false},
-            {"text":"oneway.test(..., var.equal = FALSE) — el ANOVA de Welch","correct":true},
-            {"text":"kruskal.test(), porque cualquier violación de un supuesto exige ir directo a una prueba no paramétrica","correct":false},
-            {"text":"Repetir el ANOVA clásico sin cambios, ya que Bartlett es solo informativo y no obliga a nada","correct":false}],
- "hint":"¿Qué problema detecta Bartlett específicamente: normalidad, o igualdad de varianzas?",
- "explain":"Bartlett evalúa homocedasticidad, no normalidad. Cuando esa es la que falla (y no la normalidad), oneway.test(var.equal = FALSE) es la corrección correcta para 3+ grupos — Kruskal-Wallis es la respuesta cuando falla la normalidad, un problema distinto."},
+{"question": "En el ejemplo de cobertura de coral en 3 zonas de manejo (Parte 6), Bartlett detecta heterocedasticidad clara entre zonas. ¿Cuál es la corrección correcta para 3 o más grupos, equivalente al \"Welch\" que t.test() aplica automáticamente para 2 grupos?", "options": [{"text": "kruskal.test(), porque cualquier supuesto que falle obliga a pasar a una prueba no paramétrica", "correct": false}, {"text": "TukeyHSD(), porque sus comparaciones por pares ya corrigen las diferencias de varianza entre las zonas", "correct": false}, {"text": "t.test() entre cada par de zonas, porque aplica Welch por defecto y con eso se resuelve el problema", "correct": false}, {"text": "oneway.test(..., var.equal = FALSE), el ANOVA de Welch, que no asume varianzas iguales entre zonas", "correct": true}], "hint": "¿Qué problema detecta Bartlett específicamente: normalidad o igualdad de varianzas?", "explain": "Bartlett evalúa homocedasticidad, no normalidad. Cuando esa es la que falla, oneway.test(var.equal = FALSE) es la corrección para 3 o más grupos. Kruskal-Wallis responde a otro problema (falta de normalidad), y correr t-tests por pares sin corrección infla el error tipo I."},
 
-{"question":"En la Parte 7, power.anova.test() (usando la variabilidad realmente observada en el taller anterior) sugiere más réplicas por sitio que las que efectivamente se usaron. ¿Qué implica esa comparación?",
- "options":[{"text":"Que el taller anterior usó demasiadas réplicas y debió usar menos","correct":false},
-            {"text":"Que, con la variabilidad observada, el diseño original pudo haber tenido menos potencia de la deseada para detectar el efecto — información valiosa para planear antes de salir a campo","correct":true},
-            {"text":"Que el ANOVA de la Parte 3 no es válido porque le faltaron réplicas en cualquier escenario","correct":false},
-            {"text":"Que power.anova.test() siempre sobreestima el número de réplicas necesario","correct":false}],
- "hint":"¿Para qué sirve calcular el n necesario antes de salir a campo, no después?",
- "explain":"Comparar el n sugerido contra el n realmente usado, hecho antes de salir a campo, es exactamente lo que evita gastar presupuesto en un diseño con poca potencia para detectar el efecto que te importa."},
+{"question": "En la Parte 7, power.anova.test() (usando la variabilidad realmente observada en el taller anterior) sugiere más réplicas por sitio que las que efectivamente se usaron. ¿Qué implica esa comparación?", "options": [{"text": "Que el taller anterior usó más réplicas de las necesarias y habría podido reducir el esfuerzo de muestreo", "correct": false}, {"text": "Que con esa variabilidad el diseño original tenía poca potencia, algo que conviene calcular antes de salir a campo", "correct": true}, {"text": "Que el resultado significativo del ANOVA de la Parte 3 es falso y debe descartarse por falta de réplicas", "correct": false}, {"text": "Que power.anova.test() sobreestima las réplicas cuando la variabilidad proviene de datos simulados", "correct": false}], "hint": "¿Para qué sirve calcular el n necesario antes de salir a campo, y no después?", "explain": "Comparar el n sugerido con el n realmente usado, antes de salir a campo, es lo que evita gastar presupuesto en un diseño con poca potencia para detectar el efecto de interés. No invalida el resultado ya obtenido: indica que, con otros datos, el mismo diseño podría no detectar un efecto real."},
 
-{"question":"En el estudio de caso de conectividad manglar-pastos marinos y juveniles de pargo (Parte 8), Shapiro no detecta problema de normalidad, pero Bartlett sí detecta heterocedasticidad. ¿Cuál es la prueba correcta?",
- "options":[{"text":"Kruskal-Wallis, porque cualquier supuesto que falle amerita ir a una prueba no paramétrica","correct":false},
-            {"text":"ANOVA de Welch, porque el problema es la homocedasticidad, no la normalidad","correct":true},
-            {"text":"ANOVA clásico, porque Shapiro sí pasó y eso es lo único que hace falta revisar","correct":false},
-            {"text":"t-test pareado, porque son mediciones repetidas en el mismo sitio","correct":false}],
- "hint":"Compara esta situación con la Parte 6 — ¿cuál supuesto es el que realmente falló aquí?",
- "explain":"Es la misma lógica de la Parte 6, aplicada a un contexto nuevo: cuando falla la homocedasticidad pero no la normalidad, la corrección correcta es el ANOVA de Welch, no Kruskal-Wallis — que resuelve un problema distinto (falta de normalidad)."},
+{"question": "En el estudio de caso de conectividad manglar-pastos marinos y juveniles de pargo (Parte 8), Shapiro no detecta problema de normalidad, pero Bartlett sí detecta heterocedasticidad. ¿Cuál es la prueba correcta?", "options": [{"text": "Kruskal-Wallis, porque se trata de conteos, y con datos de conteo siempre se usa una prueba no paramétrica", "correct": false}, {"text": "ANOVA clásico, porque Shapiro no detectó problemas y la normalidad es el supuesto más importante", "correct": false}, {"text": "ANOVA clásico seguido de Games-Howell, que corrige la heterocedasticidad en la etapa post hoc", "correct": false}, {"text": "ANOVA de Welch, porque falla la homocedasticidad, mientras que la normalidad de los residuos sí se cumple", "correct": true}], "hint": "Conviene compararla con la Parte 6: ¿cuál supuesto es el que realmente falló aquí?", "explain": "Es la misma lógica de la Parte 6 en un contexto nuevo: cuando falla la homocedasticidad pero no la normalidad, corresponde el ANOVA de Welch. Games-Howell es el post hoc que lo acompaña, pero no corrige un ANOVA clásico mal aplicado, y Kruskal-Wallis responde a otro problema (falta de normalidad)."},
 
-{"question":"Un estudiante mide la cobertura de pastos marinos en 2 bahías, pero dentro de cada bahía toma 12 mediciones tan cercanas entre sí que están claramente correlacionadas — no son puntos independientes dentro de la bahía. Aun así, corre t.test(cobertura ~ bahia) tratando esas 24 mediciones como si fueran independientes. ¿Qué problema, ya visto en el Taller 1, está cometiendo?",
- "options":[{"text":"Ninguno — el t-test de Welch corrige automáticamente ese tipo de dependencia","correct":false},
-            {"text":"Pseudoreplicación: las 12 mediciones dentro de cada bahía no son réplicas verdaderamente independientes, así que el tamaño de muestra real es 2 (las bahías), no 24","correct":true},
-            {"text":"Confusión de factores (confounding) entre bahía y ubicación","correct":false},
-            {"text":"Falta de control, porque no hay una bahía de referencia sin tráfico de embarcaciones","correct":false}],
- "hint":"¿Cuántas unidades experimentales verdaderamente independientes hay: 2, o 24?",
- "explain":"El tratamiento (\"bahía\") se aplicó a nivel de bahía, no de medición individual. Con mediciones correlacionadas dentro de cada bahía, la unidad experimental real sigue siendo la bahía — tratar las 24 mediciones como independientes es pseudoreplicación, el mismo error del Taller 1 aplicado aquí a una prueba de hipótesis."},
+{"question": "Un estudiante mide la cobertura de pastos marinos en 2 bahías, pero dentro de cada bahía toma 12 mediciones tan cercanas entre sí que están claramente correlacionadas: no son puntos independientes. Aun así, corre t.test(cobertura ~ bahia) tratando esas 24 mediciones como independientes. ¿Qué problema, ya visto en el Taller 1, está cometiendo?", "options": [{"text": "Ninguno, porque el t-test de Welch corrige tanto las varianzas desiguales como la dependencia entre mediciones", "correct": false}, {"text": "Confusión de factores, porque el efecto de la bahía queda mezclado con el de la profundidad de cada medición", "correct": false}, {"text": "Pseudorreplicación: las mediciones de cada bahía no son independientes, y la unidad experimental real es la bahía", "correct": true}, {"text": "Falta de aleatorización, porque las 24 mediciones debieron asignarse al azar a cada bahía antes del muestreo", "correct": false}], "hint": "¿Cuántas unidades experimentales verdaderamente independientes hay: 2 o 24?", "explain": "El tratamiento (\"bahía\") se aplicó a nivel de bahía, no de medición individual. Con mediciones correlacionadas dentro de cada bahía, la unidad experimental sigue siendo la bahía (n = 2, no 24): tratar las 24 mediciones como independientes es pseudorreplicación, el mismo error del Taller 1 aplicado a una prueba de hipótesis."},
 
-{"question":"En la Parte 4, el ANOVA de riqueza de macroalgas fue significativo (p = 0,033) y la prueba de Tukey indicó que solo el par D–A difiere. ¿Cuál es la interpretación correcta?",
- "options":[{"text":"Los 4 sitios difieren entre sí, porque el ANOVA fue significativo","correct":false},
-            {"text":"El ANOVA indica que al menos un sitio difiere; Tukey muestra que la diferencia se concentra en el par D–A, controlando el error tipo I acumulado de las 6 comparaciones","correct":true},
-            {"text":"El ANOVA no es válido, porque Tukey no encontró diferencias en la mayoría de los pares","correct":false},
-            {"text":"Habría sido equivalente correr 6 t-tests independientes, uno por cada par de sitios","correct":false}],
- "hint":"¿Qué pregunta responde el ANOVA y cuál responde la prueba post hoc?",
- "explain":"El ANOVA responde si hay alguna diferencia entre los sitios; Tukey responde entre cuáles. Un ANOVA significativo no implica que todos los grupos difieran. Correr 6 t-tests sin corrección inflaría la probabilidad de al menos un falso positivo a cerca del 26 %."}
+{"question": "En la Parte 4, el ANOVA de riqueza de macroalgas fue significativo (p = 0,033) y la prueba de Tukey indicó que solo el par D–A difiere. ¿Cuál es la interpretación correcta?", "options": [{"text": "Que los cuatro sitios difieren entre sí, porque el ANOVA fue significativo y Tukey solo confirma ese resultado", "correct": false}, {"text": "Que al menos un sitio difiere, y Tukey ubica esa diferencia en el par D–A controlando el error tipo I", "correct": true}, {"text": "Que el ANOVA no es válido, porque si lo fuera, Tukey habría encontrado diferencias en la mayoría de los pares", "correct": false}, {"text": "Que habría dado lo mismo correr seis t-tests independientes, uno por cada par de sitios, sin ninguna corrección", "correct": false}], "hint": "¿Qué pregunta responde el ANOVA y cuál responde la prueba post hoc?", "explain": "El ANOVA responde si hay alguna diferencia entre los sitios; Tukey responde entre cuáles. Un ANOVA significativo no implica que todos los grupos difieran. Correr 6 t-tests sin corrección elevaría a cerca del 26 % la probabilidad de al menos un falso positivo."}
 ]
 </script>
 
 <script>
 (function(){
   const DATA = JSON.parse(document.getElementById('qz-data').textContent);
-  let idx = 0, score = 0, answered = false;
+  let idx = 0, score = 0, answered = false, opciones = [];
+
+  // Baraja las opciones (Fisher-Yates) para que la respuesta correcta
+  // no quede siempre en la misma posición
+  function barajar(arr){
+    const a = arr.slice();
+    for(let k = a.length - 1; k > 0; k--){
+      const r = Math.floor(Math.random() * (k + 1));
+      [a[k], a[r]] = [a[r], a[k]];
+    }
+    return a;
+  }
   const card = document.getElementById('qzCard');
   const fill = document.getElementById('qzFill');
   const label = document.getElementById('qzLabel');
@@ -253,12 +198,13 @@ ul.task-list li input[type="checkbox"] {
     if(idx >= DATA.length){ renderResult(); return; }
     answered = false;
     const q = DATA[idx];
+    opciones = barajar(q.options);
     fill.style.width = (idx/DATA.length*100) + '%';
     label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;
     card.innerHTML = `
       <p class="question">${q.question}</p>
       <div class="options">
-        ${q.options.map((o,i)=>`<button class="opt" data-i="${i}">${o.text}</button>`).join('')}
+        ${opciones.map((o,i)=>`<button class="opt" data-i="${i}">${o.text}</button>`).join('')}
       </div>
       <div class="hint-row">
         <button class="hint-btn" id="qzHintBtn">Mostrar pista</button>
@@ -284,12 +230,12 @@ ul.task-list li input[type="checkbox"] {
     const opts = card.querySelectorAll('.opt');
     opts.forEach((btn,j)=>{
       btn.disabled = true;
-      if(q.options[j].correct) btn.classList.add('correct');
+      if(opciones[j].correct) btn.classList.add('correct');
       else if(j===i) btn.classList.add('incorrect');
       else btn.classList.add('dim');
     });
     const fb = document.getElementById('qzFeedback');
-    if(q.options[i].correct){
+    if(opciones[i].correct){
       score++;
       fb.innerHTML = '¡Correcto! <div class="explain">' + q.explain + '</div>';
       fb.className = 'feedback show ok';
