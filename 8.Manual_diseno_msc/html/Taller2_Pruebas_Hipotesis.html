@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Taller 2. Pruebas de Hipótesis – Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller1_Diseno_Exp.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ea061be198c2aecd6f2dfc699520ccf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller2_Pruebas_Hipotesis.html">Taller 2. Pruebas de Hipótesis</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Videos y presentaciones de las clases</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1_Diseno_Exp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 1. Diseño Experimental en R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2_Pruebas_Hipotesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Taller 2. Pruebas de Hipótesis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#objetivos-del-taller" id="toc-objetivos-del-taller" class="nav-link active" data-scroll-target="#objetivos-del-taller">Objetivos del taller</a></li>
+  <li><a href="#sec-ic" id="toc-sec-ic" class="nav-link" data-scroll-target="#sec-ic">Parte 1 — Intervalos de confianza: langosta espinosa</a>
+  <ul>
+  <li><a href="#ic-para-una-proporción" id="toc-ic-para-una-proporción" class="nav-link" data-scroll-target="#ic-para-una-proporción">IC para una proporción</a></li>
+  <li><a href="#ic-para-una-varianza" id="toc-ic-para-una-varianza" class="nav-link" data-scroll-target="#ic-para-una-varianza">IC para una varianza</a></li>
+  </ul></li>
+  <li><a href="#sec-ttest" id="toc-sec-ttest" class="nav-link" data-scroll-target="#sec-ttest">Parte 2 — t-test: pastos marinos en dos bahías</a>
+  <ul>
+  <li><a href="#sec-pareado" id="toc-sec-pareado" class="nav-link" data-scroll-target="#sec-pareado">t-test pareado: cobertura de coral antes/después de un blanqueamiento</a></li>
+  </ul></li>
+  <li><a href="#sec-anova" id="toc-sec-anova" class="nav-link" data-scroll-target="#sec-anova">Parte 3 — ANOVA de una vía: retomando la riqueza de macroalgas</a></li>
+  <li><a href="#sec-supuestos" id="toc-sec-supuestos" class="nav-link" data-scroll-target="#sec-supuestos">Parte 4 — ¿Se cumplen los supuestos?</a>
+  <ul>
+  <li><a href="#independencia-de-los-residuos" id="toc-independencia-de-los-residuos" class="nav-link" data-scroll-target="#independencia-de-los-residuos">Independencia de los residuos</a></li>
+  <li><a href="#sec-posthoc" id="toc-sec-posthoc" class="nav-link" data-scroll-target="#sec-posthoc">¿Entre qué sitios están las diferencias? Comparaciones <em>post hoc</em></a></li>
+  </ul></li>
+  <li><a href="#sec-noparametricas" id="toc-sec-noparametricas" class="nav-link" data-scroll-target="#sec-noparametricas">Parte 5 — Cuando fallan los supuestos: alternativas no paramétricas</a></li>
+  <li><a href="#sec-welch" id="toc-sec-welch" class="nav-link" data-scroll-target="#sec-welch">Parte 6 — Cuando solo falla la homocedasticidad: Prueba de Welch</a></li>
+  <li><a href="#sec-potencia" id="toc-sec-potencia" class="nav-link" data-scroll-target="#sec-potencia">Parte 7 — Potencia y tamaño de muestra</a></li>
+  <li><a href="#sec-caso-be" id="toc-sec-caso-be" class="nav-link" data-scroll-target="#sec-caso-be">Parte 8 — Estudio de caso: elección autónoma de la prueba</a></li>
+  <li><a href="#cierre-una-base-para-el-futuro-proyecto-de-grado" id="toc-cierre-una-base-para-el-futuro-proyecto-de-grado" class="nav-link" data-scroll-target="#cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</a>
+  <ul>
+  <li><a href="#actividad-en-clase-10-minutos-sin-código" id="toc-actividad-en-clase-10-minutos-sin-código" class="nav-link" data-scroll-target="#actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</a></li>
+  <li><a href="#antes-de-la-próxima-sesión-tarea-corta" id="toc-antes-de-la-próxima-sesión-tarea-corta" class="nav-link" data-scroll-target="#antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</a></li>
+  </ul></li>
+  <li><a href="#sec-apoyo" id="toc-sec-apoyo" class="nav-link" data-scroll-target="#sec-apoyo">Material de apoyo</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 2. Pruebas de Hipótesis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figuras_portadas/3_hipotesis/portada_hipotesis.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<section id="objetivos-del-taller" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-del-taller">Objetivos del taller</h2>
+<p>Este taller acompaña la sesión de diapositivas <em>“Estimación por Intervalos y Pruebas de Hipótesis”</em> (RA1, RA2) y cierra el ciclo de la Semana 1. Al terminar, se podrá:</p>
+<ul>
+<li>Calcular e interpretar un <strong>intervalo de confianza</strong> para una media, proporción y varianza.</li>
+<li>Elegir y ejecutar en R la prueba de hipótesis correcta (<strong>t-test, ANOVA, Wilcoxon, Kruskal-Wallis</strong>) según los datos cumplan o no sus supuestos.</li>
+<li>Verificar los <strong>tres supuestos</strong> (normalidad, homocedasticidad, independencia).</li>
+<li>Identificar <strong>entre qué grupos</strong> están las diferencias (comparaciones <em>post hoc</em>) y reportar el <strong>tamaño del efecto</strong>.</li>
+<li>Calcular el <strong>tamaño de muestra</strong> necesario para detectar un efecto, previo a la fase de campo.</li>
+</ul>
+<p>Como en el taller anterior, se <strong>reutiliza la base de macroalgas</strong>, para ver el ciclo completo: diseñar → recolectar (simular) → analizar.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los datos siguen siendo <strong>simulados</strong> con <code>set.seed()</code> fijando la semilla. Construidos para ilustrar cada prueba con claridad, no para representar mediciones reales.</p>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)        <span class="co"># durbinWatsonTest()</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)    <span class="co"># games_howell_test()</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Si se tiene tidyverse instalado, descomentar la siguiente línea:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)   <span class="co"># Reproducibilidad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="sec-ic" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ic">Parte 1 — Intervalos de confianza: langosta espinosa</h2>
+<p><strong>Pregunta:</strong> ¿Cuál es la <strong>longitud cefalotorácica promedio</strong> de los juveniles de langosta espinosa que han sido medidos, con un <strong>rango de incertidumbre</strong> apropiado?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamaño de muestra</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar muestra</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cefalotorax <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">45.2</span>, <span class="at">sd =</span> <span class="fl">6.1</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Media muestral</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(cefalotorax)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Desviación estándar</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(cefalotorax)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Grados de libertad</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Valor crítico t</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>t_critico <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, df)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>xbar; s; df; t_critico</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 41.15951</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.348401</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.144787</code></pre>
+</div>
+</div>
+<p>Aplicando la fórmula que se vio en las diapositivas:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Margen de error</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>error <span class="ot">&lt;-</span> t_critico <span class="sc">*</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Límites del IC 95%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">inferior =</span> xbar <span class="sc">-</span> error,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">superior =</span> xbar <span class="sc">+</span> error)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>inferior superior 
+38.19766 44.12136 </code></pre>
+</div>
+</div>
+<p>R hace este cálculo automáticamente con <code>t.test()</code> — se puede usar para verificar el cálculo manual:</p>
+<p>t.test(cefalotorax)</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t + IC 95%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(cefalotorax)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  cefalotorax
+t = 29.805, df = 14, p-value = 4.564e-14
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 38.19766 44.12136
+sample estimates:
+mean of x 
+ 41.15951 </code></pre>
+</div>
+</div>
+<p><strong>Para discutir:</strong> si se repitiera este muestreo 100 veces, ¿qué significa exactamente que sea un intervalo “de confianza del 95%”? (Pista: no es “95% de probabilidad de que la media esté ahí”.)</p>
+<section id="ic-para-una-proporción" class="level3">
+<h3 class="anchored" data-anchor-id="ic-para-una-proporción">IC para una proporción</h3>
+<p>El mismo principio aplica a proporciones — por ejemplo, la proporción de colonias de coral blanqueadas en un transecto:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Casos observados</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>colonias_blanqueadas <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamaño de muestra</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>colonias_totales <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de una proporción</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(colonias_blanqueadas, colonias_totales)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test with continuity correction
+
+data:  colonias_blanqueadas out of colonias_totales, null probability 0.5
+X-squared = 13.225, df = 1, p-value = 0.0002762
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.09614522 0.36137437
+sample estimates:
+  p 
+0.2 </code></pre>
+</div>
+</div>
+</section>
+<section id="ic-para-una-varianza" class="level3">
+<h3 class="anchored" data-anchor-id="ic-para-una-varianza">IC para una varianza</h3>
+<p>Y también a la varianza — útil cuando lo que interesa no es la media sino qué tan variable es algo (p.&nbsp;ej., la salinidad en un estuario):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar muestra</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>salinidad <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">mean =</span> <span class="dv">28</span>, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sd =</span> <span class="fl">3.5</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamaño muestral</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(salinidad)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianza muestral</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="fu">var</span>(salinidad)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores críticos χ²</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>chi_inferior <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>chi_superior <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalo de confianza</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>ic_varianza <span class="ot">&lt;-</span> <span class="fu">c</span>((n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> s2 <span class="sc">/</span> chi_superior,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>                 (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> s2 <span class="sc">/</span> chi_inferior)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>n; s2; chi_inferior; ic_varianza</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.35522</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.906516</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  6.56724 24.22374</code></pre>
+</div>
+</div>
+<p>A diferencia de la media, el IC de una varianza usa la distribución <strong>chi-cuadrado</strong> (no la t) — por eso la fórmula luce distinta, aunque la lógica (“un rango plausible, no un solo número”) es la misma.</p>
+<p>Como con la media (<code>t.test()</code>) y la proporción (<code>prop.test()</code>), existe un atajo que hace este cálculo de forma automática:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere install.packages("EnvStats")</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>EnvStats<span class="sc">::</span><span class="fu">varTest</span>(salinidad)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$statistic
+Chi-Squared 
+   215.7491 
+
+$parameters
+df 
+19 
+
+$p.value
+[1] 0
+
+$estimate
+variance 
+11.35522 
+
+$null.value
+variance 
+       1 
+
+$alternative
+[1] "two.sided"
+
+$method
+[1] "Chi-Squared Test on Variance"
+
+$data.name
+[1] "salinidad"
+
+$conf.int
+     LCL      UCL 
+ 6.56724 24.22374 
+attr(,"conf.level")
+[1] 0.95
+
+attr(,"class")
+[1] "htestEnvStats"</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="sec-ttest" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ttest">Parte 2 — t-test: pastos marinos en dos bahías</h2>
+<p><strong>Pregunta:</strong> ¿Difiere la <strong>cobertura de pastos marinos</strong> entre la Bahía de Santa Marta (alto tráfico portuario) y una zona de bajo tráfico como el Parque Tayrona?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir grupos</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>bahia <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">12</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Santa_Marta"</span>, <span class="st">"Tayrona"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar coberturas</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>cobertura <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">24</span>, </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">mean =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">52</span>)[<span class="fu">as.integer</span>(bahia)], </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sd =</span> <span class="dv">9</span>), <span class="dv">1</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>pastos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(bahia, cobertura)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar coberturas</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cobertura <span class="sc">~</span> bahia, <span class="at">data =</span> pastos, </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Bahía"</span>, </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Cobertura de pastos marinos (%)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Versión con <code>ggplot2</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir gráfico</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pastos, <span class="fu">aes</span>(<span class="at">x =</span> bahia, <span class="at">y =</span> cobertura)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas de ejes</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bahía"</span>, </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Cobertura de pastos marinos (%)"</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar tema</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar dos medias</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(cobertura <span class="sc">~</span> bahia, <span class="at">data =</span> pastos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  cobertura by bahia
+t = -5.1052, df = 19.591, p-value = 5.739e-05
+alternative hypothesis: true difference in means between group Santa_Marta and group Tayrona is not equal to 0
+95 percent confidence interval:
+ -25.64633 -10.75367
+sample estimates:
+mean in group Santa_Marta     mean in group Tayrona 
+                 32.79167                  50.99167 </code></pre>
+</div>
+</div>
+<p>R llama a esto <strong>“Welch Two Sample t-test”</strong> — por defecto, <code>t.test()</code> en R ya usa la corrección de Welch (no asume varianzas iguales).</p>
+<section id="sec-pareado" class="level3">
+<h3 class="anchored" data-anchor-id="sec-pareado">t-test pareado: cobertura de coral antes/después de un blanqueamiento</h3>
+<p>El t-test de la sección anterior compara <strong>dos grupos independientes</strong> (dos bahías distintas). Pero hay otra situación, igual de común, y conceptualmente distinta: medir el <strong>mismo sitio dos veces</strong> — por ejemplo, la pregunta que se planteó en las diapositivas: <em>¿cambió la cobertura de coral vivo antes y después de un evento de blanqueamiento?</em></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir número de sitios</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>n_sitios <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar cobertura inicial</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>cobertura_antes <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n_sitios, </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">mean =</span> <span class="dv">45</span>, </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sd =</span> <span class="dv">8</span>), <span class="dv">1</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Simular reducción</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>reduccion <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n_sitios, </span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">mean =</span> <span class="dv">10</span>, </span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sd =</span> <span class="dv">3</span>), <span class="dv">1</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular cobertura final</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>cobertura_despues <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">pmax</span>(<span class="dv">0</span>, cobertura_antes <span class="sc">-</span> reduccion), <span class="dv">1</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>blanqueamiento <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">arrecife =</span> <span class="fu">paste0</span>(<span class="st">"Arrecife_"</span>, <span class="dv">1</span><span class="sc">:</span>n_sitios),</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  cobertura_antes,</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  cobertura_despues</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Como cada arrecife se midió dos veces, las dos columnas <strong>no son independientes</strong> — el arrecife que tenía más cobertura antes probablemente sigue teniendo más después. Ignorar esa dependencia desperdicia información. Por eso se usa <code>paired = TRUE</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar mediciones pareadas</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(blanqueamiento<span class="sc">$</span>cobertura_antes, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>       blanqueamiento<span class="sc">$</span>cobertura_despues, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  blanqueamiento$cobertura_antes and blanqueamiento$cobertura_despues
+t = 9.9057, df = 11, p-value = 8.126e-07
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+  7.512316 11.804351
+sample estimates:
+mean difference 
+       9.658333 </code></pre>
+</div>
+</div>
+<p>Se puede comparar ese resultado con lo que pasaría si (incorrectamente) se trataran las dos columnas como grupos independientes:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar mediciones pareadas</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(blanqueamiento<span class="sc">$</span>cobertura_antes, </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       blanqueamiento<span class="sc">$</span>cobertura_despues, </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  blanqueamiento$cobertura_antes and blanqueamiento$cobertura_despues
+t = 3.3227, df = 20.913, p-value = 0.003247
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  3.611822 15.704845
+sample estimates:
+mean of x mean of y 
+ 40.37500  30.71667 </code></pre>
+</div>
+</div>
+<p><strong>¿Se observa la diferencia?</strong> Ambos detectan una diferencia significativa, pero el t-test pareado tiene un intervalo de confianza mucho más angosto y un p-valor muchísimo más pequeño (8.1e-07 vs.&nbsp;0.003).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un t-test pareado con <code>paired = TRUE</code> es matemáticamente idéntico a un t-test de una muestra sobre las diferencias (<code>t.test(cobertura_antes - cobertura_despues)</code>) — se recomienda comprobarlo y comparar ambos resultados.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="sec-anova" class="level2">
+<h2 class="anchored" data-anchor-id="sec-anova">Parte 3 — ANOVA de una vía: retomando la riqueza de macroalgas</h2>
+<p>Esta es la misma base de datos que se analizó como <strong>diseño completamente al azar</strong> en el taller anterior — ahora se aborda desde el lado de la prueba de hipótesis. Se reinicia la semilla para reproducirlo exactamente:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir sitios</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>sitio <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>))</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar medias</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>medias_sitio <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">15</span>)[<span class="fu">as.integer</span>(sitio)]</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar riqueza</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>riqueza <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">24</span>, <span class="at">mean =</span> medias_sitio, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>macroalgas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(sitio, riqueza)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla con los datos</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(macroalgas, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> sitio </th>
+   <th style="text-align:right;font-weight: bold;"> riqueza </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> A </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> B </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajustar modelo ANOVA</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>mod_ca <span class="ot">&lt;-</span> <span class="fu">aov</span>(riqueza <span class="sc">~</span> sitio, <span class="at">data =</span> macroalgas)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Consultar resultados</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_ca)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)  
+sitio        3  44.33   14.78   3.561 0.0326 *
+Residuals   20  83.00    4.15                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>La riqueza de macroalgas difiere entre sitios (F = 3,56; gl = 3 y 20; p = 0,033). El valor p indica que hay diferencias, pero no qué tan grandes son. Para eso se calcula el <strong>tamaño del efecto</strong> (η²), la proporción de la variación total que explica el factor sitio:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer sumas de cuadrados</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sc <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_ca)[[<span class="dv">1</span>]][[<span class="st">"Sum Sq"</span>]]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular eta cuadrado</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>eta2 <span class="ot">&lt;-</span> sc[<span class="dv">1</span>] <span class="sc">/</span> <span class="fu">sum</span>(sc)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>eta2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3481675</code></pre>
+</div>
+</div>
+<p>El sitio explica cerca del <strong>35 %</strong> de la variación en la riqueza (η² = 0,35), un efecto grande según las referencias de Cohen (η² = 0,01, 0,06 y 0,14 para efectos pequeño, mediano y grande). Antes de interpretar qué sitios difieren, se verifican los supuestos del modelo (<a href="#sec-supuestos" class="quarto-xref"><span>Parte 4 — ¿Se cumplen los supuestos?</span></a>).</p>
+<hr>
+</section>
+<section id="sec-supuestos" class="level2">
+<h2 class="anchored" data-anchor-id="sec-supuestos">Parte 4 — ¿Se cumplen los supuestos?</h2>
+<p>Antes de confiar en ese resultado, se verifican los tres supuestos del ANOVA: <strong>normalidad</strong>, <strong>homocedasticidad</strong> e <strong>independencia</strong> de los residuos. Se cumplen los supuestos de normalidad y de homogeneidad (valor p &gt; 0,05).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(mod_ca)) <span class="co"># Normalidad de los residuos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(mod_ca)
+W = 0.92935, p-value = 0.09426</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(riqueza <span class="sc">~</span> sitio, </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> macroalgas) <span class="co"># Homocedasticidad</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  riqueza by sitio
+Bartlett's K-squared = 7.4232, df = 3, p-value = 0.05957</code></pre>
+</div>
+</div>
+<p>Un número (el p-valor) no muestra los detalles de las diferencias — conviene acompañar siempre la prueba numérica con una inspección visual:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dividir ventana gráfica</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluar normalidad</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mod_ca), <span class="at">main =</span> <span class="st">"Normalidad de los residuos"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(mod_ca), <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Revisar distribución</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mod_ca),</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribución de los residuos"</span>,</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Residuos"</span>,</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restaurar ventana</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar dispersión por sitio</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">residuals</span>(mod_ca) <span class="sc">~</span> macroalgas<span class="sc">$</span>sitio,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Sitio"</span>,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Residuos"</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Dispersión de residuos por sitio"</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcar referencia cero</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"gray40"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="independencia-de-los-residuos" class="level3">
+<h3 class="anchored" data-anchor-id="independencia-de-los-residuos">Independencia de los residuos</h3>
+<p>La independencia se asegura, en primer lugar, <strong>desde el diseño</strong> — con aleatorización y réplicas verdaderas, como se practicó en la Parte 0 del taller anterior. Ninguna prueba estadística corrige una pseudorreplicación. Aun así, se puede evaluar si los residuos muestran <strong>autocorrelación</strong> con el estadístico de <strong>Durbin-Watson</strong> (paquete <code>car</code>). Para esto se requiere expresar el ANOVA como un modelo lineal con <code>lm()</code>, que es el mismo modelo ajustado con <code>aov()</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expresar el ANOVA como modelo lineal</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(riqueza <span class="sc">~</span> sitio, <span class="at">data =</span> macroalgas)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Independencia de los residuos</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">durbinWatsonTest</span>(modelo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> lag Autocorrelation D-W Statistic p-value
+   1      -0.3427041       2.49498   0.532
+ Alternative hypothesis: rho != 0</code></pre>
+</div>
+</div>
+<p>La hipótesis nula es que no hay autocorrelación entre residuos consecutivos (ρ = 0). El estadístico D-W varía entre 0 y 4: valores cercanos a <strong>2</strong> indican independencia, valores cercanos a 0 sugieren autocorrelación positiva y valores cercanos a 4, autocorrelación negativa. Aquí D-W ≈ 2,49 y p ≈ 0,56 (&gt; 0,05), por lo que no hay evidencia de autocorrelación y se cumple el supuesto de independencia.</p>
+<p>Como con los otros supuestos, la prueba numérica se acompaña de una inspección visual: el gráfico de los residuos en el orden de las observaciones.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuos en el orden de las observaciones</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(modelo), <span class="at">type =</span> <span class="st">"b"</span>,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Índice (orden de las observaciones)"</span>,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Residuos"</span>,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Residuos vs. orden"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Marcar referencia cero</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"gray40"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si los residuos son independientes, oscilan alrededor de cero sin rachas largas por encima o por debajo de la línea. Una secuencia de varios residuos positivos seguidos de varios negativos indicaría que observaciones cercanas se parecen entre sí (por ejemplo, cuadrantes contiguos en el mismo transecto).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Durbin-Watson evalúa la autocorrelación <strong>según el orden de las filas</strong>. Solo tiene sentido si ese orden refleja la secuencia real de muestreo (en el tiempo o a lo largo del espacio). Si las filas están ordenadas por sitio o al azar, la prueba dice poco sobre la dependencia real de los datos.</li>
+<li><code>durbinWatsonTest()</code> calcula el p-valor por remuestreo (<em>bootstrap</em>), así que puede variar ligeramente entre ejecuciones (p.&nbsp;ej., 0,56 vs.&nbsp;0,58). El estadístico D-W no cambia.</li>
+</ul>
+</div>
+</div>
+<p>En el <strong>Q-Q plot</strong>, los puntos deberían seguir aproximadamente la línea diagonal (aquí lo hacen, consistente con el Shapiro no significativo). En el boxplot de residuos por sitio, la dispersión debería ser parecida entre grupos — si un sitio se ve claramente más disperso que los demás, eso es una señal visual de heterocedasticidad incluso antes de correr <code>bartlett.test()</code>. En el gráfico de residuos vs.&nbsp;orden, la ausencia de rachas es consistente con el Durbin-Watson no significativo.</p>
+<p>Con los tres supuestos verificados (normalidad, homocedasticidad e independencia), el ANOVA de la Parte 3 es confiable tal como está.</p>
+</section>
+<section id="sec-posthoc" class="level3">
+<h3 class="anchored" data-anchor-id="sec-posthoc">¿Entre qué sitios están las diferencias? Comparaciones <em>post hoc</em></h3>
+<p>El ANOVA indica que <em>al menos un</em> sitio difiere, pero no cuáles. La prueba de <strong>Tukey</strong> compara todos los pares de sitios controlando el error tipo I acumulado (con 4 sitios hay 6 pares):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparaciones de Tukey</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>tukey_ca <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(mod_ca)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>tukey_ca</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = riqueza ~ sitio, data = macroalgas)
+
+$sitio
+          diff        lwr      upr     p adj
+B-A  2.1666667 -1.1253075 5.458641 0.2838204
+C-A  2.0000000 -1.2919741 5.291974 0.3494649
+D-A  3.8333333  0.5413592 7.125307 0.0188972
+C-B -0.1666667 -3.4586408 3.125307 0.9989493
+D-B  1.6666667 -1.6253075 4.958641 0.5037771
+D-C  1.8333333 -1.4586408 5.125307 0.4233027</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalos de confianza de Tukey</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>tukey_ca<span class="sc">$</span>sitio <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"par"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diff, <span class="at">y =</span> par)) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lwr, <span class="at">xmax =</span> upr), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>   <span class="co"># Barras horizontales</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Diferencia de medias (IC 95 % familiar)"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Solo el par <strong>D–A</strong> difiere (p = 0,019): su intervalo es el único que no cruza la línea del cero. Los otros cinco pares no difieren. Un ANOVA significativo no implica que <em>todos</em> los grupos sean distintos entre sí.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo reportar el resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En la sección de resultados de un artículo o de la tesis, se reportan el estadístico, los grados de libertad, el valor p, el tamaño del efecto y las comparaciones <em>post hoc</em>. Por ejemplo:</p>
+<blockquote class="blockquote">
+<p>La riqueza de macroalgas difirió entre sitios (ANOVA de una vía, F<sub>3,20</sub> = 3,56; p = 0,033; η² = 0,35). La prueba de Tukey indicó que solo los sitios D y A difieren (diferencia = 3,8 especies; IC 95 %: 0,5–7,1; p = 0,019).</p>
+</blockquote>
+<p>Esta estructura es la que se espera en la Evidencia 1.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El material complementario de este taller (<a href="#sec-apoyo" class="quarto-xref"><span>Material de apoyo</span></a>) amplía las comparaciones múltiples: Dunnett (comparación contra un control), Games-Howell (varianzas desiguales), pruebas por pares con corrección de Holm y alternativas no paramétricas.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="sec-noparametricas" class="level2">
+<h2 class="anchored" data-anchor-id="sec-noparametricas">Parte 5 — Cuando fallan los supuestos: alternativas no paramétricas</h2>
+<p>Si la normalidad fallara, Kruskal-Wallis es la alternativa directa al ANOVA:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(riqueza <span class="sc">~</span> sitio, <span class="at">data =</span> macroalgas)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  riqueza by sitio
+Kruskal-Wallis chi-squared = 9.5771, df = 3, p-value = 0.02252</code></pre>
+</div>
+</div>
+<p>Y Wilcoxon es la alternativa al t-test de dos grupos — se aplica al ejemplo de los pastos marinos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(cobertura <span class="sc">~</span> bahia, <span class="at">data =</span> pastos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  cobertura by bahia
+W = 10, p-value = 0.000382
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es posible que aparezca una advertencia (<em>“cannot compute exact p-value with ties”</em>). Es normal cuando hay valores repetidos entre los grupos; R simplemente usa una aproximación — no invalida el resultado.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> se compara el p-valor del t-test (<a href="#sec-ttest" class="quarto-xref"><span>Parte 2 — t-test: pastos marinos en dos bahías</span></a>) con el de Wilcoxon. ¿Llegan a la misma conclusión? ¿Por qué tiene sentido que sea así cuando los datos sí son razonablemente normales?</p>
+<hr>
+</section>
+<section id="sec-welch" class="level2">
+<h2 class="anchored" data-anchor-id="sec-welch">Parte 6 — Cuando solo falla la homocedasticidad: Prueba de Welch</h2>
+<p>Ahora un caso deliberadamente distinto: cobertura de coral en 3 zonas con <strong>variabilidad muy distinta</strong> entre ellas ((1) una zona protegida y estable, (2) una degradada y (3) una muy heterogénea).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir zonas</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>zona <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Protegida"</span>, <span class="st">"Uso_multiple"</span>, <span class="st">"Degradada"</span>))</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar desviaciones</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>sd_zona <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">15</span>)[<span class="fu">as.integer</span>(zona)]</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar medias</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>media_zona <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">48</span>, <span class="dv">40</span>)[<span class="fu">as.integer</span>(zona)]</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar cobertura</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>cobertura_coral <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmin</span>(<span class="dv">100</span>, <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> media_zona, <span class="at">sd =</span> sd_zona))), <span class="dv">1</span></span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>coral <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(zona, cobertura_coral)</span>
+<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla con los datos</span></span>
+<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coral, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> zona </th>
+   <th style="text-align:right;font-weight: bold;"> cobertura_coral </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 56.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 51.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 55.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 54.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 53.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 47.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 52.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 51.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 55.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Protegida </td>
+   <td style="text-align:right;"> 53.6 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Las desviaciones de cada zona, muestran heterogeneidad o diferencias importantes.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar desviaciones</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(coral<span class="sc">$</span>cobertura_coral, coral<span class="sc">$</span>zona, sd)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Protegida Uso_multiple    Degradada 
+    2.571727     8.526846    16.600552 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La cobertura (%) está acotada entre 0 y 100 — el <code>pmin()</code>/<code>pmax()</code> de arriba es un “efecto piso” real, no un error de simulación: en la zona Degradada, con media baja y <code>sd</code> alta, algunos valores simulados caerían por debajo de 0 sin ese límite. Esta es exactamente la razón por la que, más adelante, se abordarán los <strong>modelos lineales generalizados (GLM)</strong> con familia binomial o beta — diseñados para variables de respuesta acotadas como esta, donde ANOVA (que asume un rango continuo sin límites) es solo una aproximación razonable.</p>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(cobertura_coral <span class="sc">~</span> zona, <span class="at">data =</span> coral)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  cobertura_coral by zona
+Bartlett's K-squared = 21.657, df = 2, p-value = 1.982e-05</code></pre>
+</div>
+</div>
+<p>El p-valor es muy pequeño: <strong>sí hay heterocedasticidad</strong>. Se compara el ANOVA clásico contra el ANOVA de Welch:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA clasico (asume varianzas iguales - no es lo ideal aqui)</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(cobertura_coral <span class="sc">~</span> zona, <span class="at">data =</span> coral))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+zona         2    250   124.9   1.056  0.362
+Residuals   27   3194   118.3               </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA de Welch (no asume varianzas iguales)</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(cobertura_coral <span class="sc">~</span> zona, <span class="at">data =</span> coral, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  cobertura_coral and zona
+F = 3.1626, num df = 2.000, denom df = 13.248, p-value = 0.07536</code></pre>
+</div>
+</div>
+<p>Se observa que el estadístico F, los grados de libertad y el p-valor cambian entre ambos. Cuando <code>bartlett.test()</code> alerta sobre heterocedasticidad, <code>oneway.test(var.equal = FALSE)</code> es la corrección correcta para 3 o más grupos — el equivalente al “Welch” que <code>t.test()</code> ya aplica automáticamente para 2 grupos.</p>
+<p>Con esta semilla, <strong>ninguno de los dos es significativo</strong> (ANOVA clásico p = 0,36; Welch p = 0,075), así que no hay evidencia suficiente de diferencias entre zonas con 10 réplicas por zona. Llama la atención que el valor p de Welch sea <em>menor</em> que el del ANOVA clásico: el ANOVA de Welch no siempre es “más conservador”. Cuando las varianzas son muy desiguales, el ANOVA clásico mezcla la dispersión de todas las zonas en un único error y puede perder potencia.</p>
+<hr>
+</section>
+<section id="sec-potencia" class="level2">
+<h2 class="anchored" data-anchor-id="sec-potencia">Parte 7 — Potencia y tamaño de muestra</h2>
+<p><strong>Caso 1 — planeando un t-test:</strong> se quiere detectar una diferencia de 5 puntos porcentuales de cobertura de coral (con una desviación estándar esperada de 8), con una potencia del 80%:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular tamaño muestral</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">power.t.test</span>(<span class="at">delta =</span> <span class="dv">5</span>, </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">sd =</span> <span class="dv">8</span>, </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">sig.level =</span> <span class="fl">0.05</span>, </span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">power =</span> <span class="fl">0.80</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Two-sample t test power calculation 
+
+              n = 41.16902
+          delta = 5
+             sd = 8
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+</div>
+</div>
+<p><strong>Caso 2 — planeando un ANOVA:</strong> se puede usar la variabilidad observada en un estudio piloto (o, como aquí, en el propio taller anterior) para estimar cuántas réplicas se necesitarían:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer cuadrados medios</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>tabla_anova <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_ca)[[<span class="dv">1</span>]]</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>ms_entre <span class="ot">&lt;-</span> tabla_anova[<span class="st">"sitio"</span>, <span class="st">"Mean Sq"</span>]</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>ms_dentro <span class="ot">&lt;-</span> tabla_anova[<span class="st">"Residuals"</span>, <span class="st">"Mean Sq"</span>]</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimar varianza entre sitios</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>n_replicas_actual <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>between_var <span class="ot">&lt;-</span> (ms_entre <span class="sc">-</span> ms_dentro) <span class="sc">/</span> n_replicas_actual</span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular potencia ANOVA</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="fu">power.anova.test</span>(<span class="at">groups =</span> <span class="dv">4</span>,</span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">between.var =</span> between_var,</span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">within.var =</span> ms_dentro,</span>
+<span id="cb63-14"><a href="#cb63-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sig.level =</span> <span class="fl">0.05</span>,</span>
+<span id="cb63-15"><a href="#cb63-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">power =</span> <span class="fl">0.80</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Balanced one-way analysis of variance power calculation 
+
+         groups = 4
+              n = 9.550265
+    between.var = 1.771296
+     within.var = 4.15
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group</code></pre>
+</div>
+</div>
+<p>Conviene comparar el <code>n</code> sugerido con el <code>n = 6</code> que realmente se usó en el taller anterior — esa comparación, hecha <em>antes</em> de salir a campo, es exactamente lo que evita gastar presupuesto en un diseño con poca potencia.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Una alternativa: el paquete <code>pwr</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>power.t.test()</code> y <code>power.anova.test()</code> (de R base) trabajan con las unidades originales de la variable (delta, sd). El paquete <code>pwr</code> —muy usado en ecología— trabaja con <strong>tamaños de efecto estandarizados</strong> (d de Cohen para 2 grupos, f de Cohen para 3+):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requiere install.packages("pwr")</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>pwr<span class="sc">::</span><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="co"># f de Cohen derivado del propio modelo (Caso 2), no un valor genérico de libro.</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ojo: power.anova.test() define between.var con divisor (k-1) (la convención de var()),</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mientras que la f de Cohen usa divisor k — hay que ajustar por ese factor para</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="co"># que ambas funciones respondan exactamente la misma pregunta:</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>f_cohen <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((between_var <span class="sc">*</span> (k <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> k) <span class="sc">/</span> ms_dentro)</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>pwr<span class="sc">::</span><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> k, <span class="at">f =</span> f_cohen, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Ambos enfoques responden la misma pregunta — de hecho, el <code>pwr.anova.test()</code> de arriba, alimentado con el <code>f_cohen</code> ajustado a partir del propio <code>between_var</code>/<code>ms_dentro</code>, arroja el mismo <code>n ≈ 9.55</code> que ya se obtuvo con <code>power.anova.test()</code> en el Caso 2 (verificado): son la misma matemática expresada en dos convenciones de varianza distintas. <code>pwr</code> es útil cuando se piensa en términos de “efecto pequeño/mediano/grande” en vez de valores concretos de la variable.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="sec-caso-be" class="level2">
+<h2 class="anchored" data-anchor-id="sec-caso-be">Parte 8 — Estudio de caso: elección autónoma de la prueba</h2>
+<p>A continuación se presentan el contexto y los datos, la decisión se toma con los mismos criterios de la tabla “¿qué prueba usar?” de las diapositivas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>El contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo quiere saber si la <strong>conectividad de un manglar con praderas de pastos marinos cercanas</strong> (alta, media, baja) afecta el número de juveniles de pargo (<em>Lutjanus</em> spp.) que se refugian en sus raíces. Se muestrearon 10 sitios de manglar por nivel de conectividad y se contaron los juveniles observados en un transecto estándar en cada uno.</p>
+</div>
+</div>
+<p>Antes de escribir código, conviene responder:</p>
+<ol type="1">
+<li>¿Cuántos grupos se comparan? Con eso, ¿cuáles de las pruebas de la tabla de síntesis (t-test, t-test de Welch, ANOVA, ANOVA de Welch, Wilcoxon, Kruskal-Wallis) quedan descartadas de entrada, sin necesidad de revisar ningún supuesto?</li>
+<li>De las que quedan, ¿qué se necesita revisar <strong>antes</strong> de poder elegir entre ellas?</li>
+</ol>
+<p>A continuación se simulan los datos y se corren los diagnósticos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir conectividad</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>conectividad <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Alta"</span>, <span class="st">"Media"</span>, <span class="st">"Baja"</span>))</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar tasas esperadas</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Alta =</span> <span class="dv">14</span>, <span class="at">Media =</span> <span class="dv">8</span>, <span class="at">Baja =</span> <span class="dv">4</span>)[conectividad]</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar conteos</span></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>juveniles_pargo <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">30</span>, <span class="at">lambda =</span> lambda)</span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>pargo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(conectividad, juveniles_pargo)</span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="co"># tabla con los datos</span></span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pargo, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> conectividad </th>
+   <th style="text-align:right;font-weight: bold;"> juveniles_pargo </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Alta </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar conteos</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(juveniles_pargo <span class="sc">~</span> conectividad, <span class="at">data =</span> pargo,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Conectividad manglar-pastos"</span>,</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Juveniles de pargo (conteo)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Taller2_Pruebas_Hipotesis_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajustar modelo ANOVA</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>mod_pargo <span class="ot">&lt;-</span> <span class="fu">aov</span>(juveniles_pargo <span class="sc">~</span> conectividad, <span class="at">data =</span> pargo)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluar normalidad</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(mod_pargo))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(mod_pargo)
+W = 0.98288, p-value = 0.896</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluar homogeneidad</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(juveniles_pargo <span class="sc">~</span> conectividad, <span class="at">data =</span> pargo)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  juveniles_pargo by conectividad
+Bartlett's K-squared = 7.2879, df = 2, p-value = 0.02615</code></pre>
+</div>
+</div>
+<p>Con esos dos resultados en mano, se debe tomar una decisión <strong>antes de seguir leyendo</strong>: ¿ANOVA a una vía, ANOVA de Welch, o Kruskal-Wallis?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Verificación del razonamiento (clic para revelar)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Grupos:</strong> son 3 (Alta/Media/Baja), así que los dos t-test quedan descartados de entrada — se necesita una prueba de 3+ grupos.</p>
+<p><strong>2. Lo que hay que revisar:</strong> normalidad de los residuos (Shapiro) y homocedasticidad (Bartlett) — exactamente igual que en la Parte 3/4, pero aquí <strong>no se debe asumir</strong> cuál de los dos va a fallar.</p>
+<p><strong>El resultado real</strong> (con esta semilla): Shapiro da p = 0.896 (¡no hay problema de normalidad!), pero Bartlett da p = 0.026 (<strong>sí</strong> hay heterocedasticidad — la varianza de conteos tiende a crecer con la media, un patrón típico de datos de conteo). Es la situación exactamente inversa a la Parte 5: aquí falla la homocedasticidad, no la normalidad.</p>
+<p><strong>Por lo tanto, la prueba correcta es la prueba de Welch</strong> (<a href="#sec-welch" class="quarto-xref"><span>Parte 6 — Cuando solo falla la homocedasticidad: Prueba de Welch</span></a>), no Kruskal-Wallis — Kruskal-Wallis es la respuesta cuando falla la <em>normalidad</em>, no la homocedasticidad.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de Welch</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(juveniles_pargo <span class="sc">~</span> conectividad, </span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> pargo, </span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  juveniles_pargo and conectividad
+F = 11.455, num df = 2.000, denom df = 16.867, p-value = 0.0007205</code></pre>
+</div>
+</div>
+<p>Para observar la comparación completa, así se ven las tres alternativas lado a lado con estos datos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"ANOVA una vía:       p ="</span>, <span class="fu">summary</span>(mod_pargo)[[<span class="dv">1</span>]][[<span class="st">"Pr(&gt;F)"</span>]][<span class="dv">1</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA una vía:       p = 6.775716e-05 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"ANOVA de Welch:      p ="</span>, <span class="fu">oneway.test</span>(juveniles_pargo <span class="sc">~</span> conectividad, <span class="at">data =</span> pargo, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>p.value, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>ANOVA de Welch:      p = 0.0007205385 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Kruskal-Wallis:      p ="</span>, <span class="fu">kruskal.test</span>(juveniles_pargo <span class="sc">~</span> conectividad, <span class="at">data =</span> pargo)<span class="sc">$</span>p.value, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kruskal-Wallis:      p = 0.0007317319 </code></pre>
+</div>
+</div>
+<p>Las tres pruebas coinciden en la conclusión esta vez (valor p &lt; 0.05), pero eso es casualidad de esta base de datos — <strong>no una razón para omitir el diagnóstico</strong>. La prueba correcta es la que cumple los diagnósticos de Shapiro y Bartlett.</p>
+<p><strong>¿Entre qué niveles de conectividad están las diferencias?</strong> Como la prueba elegida fue Welch, la comparación <em>post hoc</em> coherente es <strong>Games-Howell</strong>, que tampoco asume varianzas iguales (Tukey, visto en la <a href="#sec-posthoc" class="quarto-xref"><span>¿Entre qué sitios están las diferencias? Comparaciones post hoc</span></a>, sí las asume):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparaciones múltiples sin asumir varianzas iguales</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">games_howell_test</span>(pargo, juveniles_pargo <span class="sc">~</span> conectividad)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  .y.             group1 group2 estimate conf.low conf.high p.adj p.adj.signif
+* &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       
+1 juveniles_pargo Alta   Media      -4.8    -9.26    -0.336 0.035 *           
+2 juveniles_pargo Alta   Baja       -7.9   -12.4     -3.38  0.001 ***         
+3 juveniles_pargo Media  Baja       -3.1    -5.70    -0.504 0.018 *           </code></pre>
+</div>
+</div>
+<p>Los tres pares difieren (p &lt; 0,05): el número de juveniles disminuye de forma consistente de conectividad alta a media y de media a baja.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="cierre-una-base-para-el-futuro-proyecto-de-grado" class="level2">
+<h2 class="anchored" data-anchor-id="cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</h2>
+<p>Como esta cohorte de maestría inicia, es probable que todavía no se cuente con un diseño, muestreo ni datos propios. Este cierre tiene dos partes:</p>
+<section id="actividad-en-clase-10-minutos-sin-código" class="level3">
+<h3 class="anchored" data-anchor-id="actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</h3>
+<p>En una frase, se puede escribir la idea tentativa de investigación (aunque sea muy preliminar). Luego, se puede responder en papel:</p>
+<ol type="1">
+<li>¿Cuál sería la unidad experimental? ¿Y la unidad de observación?</li>
+<li>De los 4 tipos de diseño (<a href="#sec-anova" class="quarto-xref"><span>Parte 3 — ANOVA de una vía: retomando la riqueza de macroalgas</span></a> y el taller anterior), ¿cuál se ajusta mejor a la idea?</li>
+<li>Según la tabla de síntesis de las diapositivas, ¿qué prueba se usaría?</li>
+</ol>
+<p>No se necesitan datos para esto — es aplicar el marco conceptual a una idea todavía en borrador. Ese es, de hecho, el momento correcto para pensarlo.</p>
+</section>
+<section id="antes-de-la-próxima-sesión-tarea-corta" class="level3">
+<h3 class="anchored" data-anchor-id="antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</h3>
+<p>Se puede adaptar el código de este taller a la propia idea, con <strong>valores simulados pero plausibles</strong> para el sistema de estudio:</p>
+<ol type="1">
+<li>Se copia la sección que más se parezca al diseño propuesto (<a href="#sec-ttest" class="quarto-xref"><span>Parte 2 — t-test: pastos marinos en dos bahías</span></a> o <a href="#sec-anova" class="quarto-xref"><span>Parte 3 — ANOVA de una vía: retomando la riqueza de macroalgas</span></a>).</li>
+<li>Se cambian los nombres de las variables y las medias simuladas por lo que se esperaría encontrar en el propio tema.</li>
+<li>Se puede ejecutar <code>shapiro.test()</code>, <code>bartlett.test()</code> y la prueba correspondiente. ¿La salida de R tiene sentido con lo que se planteó?</li>
+</ol>
+<p>Esto es una manera sencilla de poner a prueba el razonamiento. Cuando más adelante se trabaje con datos reales (propios o de un artículo publicado en la línea de investigación correspondiente), ya se tendrá practicado el flujo completo.</p>
+<hr>
+</section>
+</section>
+<section id="sec-apoyo" class="level2">
+<h2 class="anchored" data-anchor-id="sec-apoyo">Material de apoyo</h2>
+<p>Para repasar y profundizar después de la sesión:</p>
+<ul>
+<li><a href="Cuestionario_Taller2_Estimacion_Pruebas_Hipotesis.html"><strong>Cuestionario · Estimación por intervalos y pruebas de hipótesis</strong></a> — 11 preguntas de opción múltiple con pista y explicación, basadas en las Partes 1 a 8 de este taller.</li>
+<li><a href="Guia_Practica_BE1_Ejercicios_Refuerzo.html"><strong>Guía de práctica · Estimación e inferencia</strong></a> — 4 escenarios nuevos para elegir e implementar la prueba correcta y 4 análisis con errores de inferencia para identificar.</li>
+<li><a href="Complemento_Taller2.html"><strong>Material complementario · Pruebas de hipótesis con insectos acuáticos</strong></a> — ruta de decisión completa, t de una muestra, tamaño del efecto, prueba de permutación, comparaciones múltiples (Tukey, Dunnett, Games-Howell, Holm) y tamaño de muestra por cobertura.</li>
+</ul>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li>Quinn, G. P., &amp; Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2nd ed.). Cambridge University Press.</li>
+<li>Logan, M. (2011). <em>Biostatistical Design and Analysis Using R</em>. Wiley-Blackwell.</li>
+<li>Calvo Sendín, J. F. (2025). <em>Análisis estadístico de datos biológicos en R</em>. Universidad de Murcia. — Consultado como referencia técnica para la distinción Welch/Kruskal-Wallis.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los ejemplos y bases de datos de este taller son de elaboración propia para este curso; no reproducen los ejercicios ni el código de las fuentes citadas.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller1_Diseno_Exp.html" class="pagination-link" aria-label="Taller 1. Diseño Experimental en R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller 1. Diseño Experimental en R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
