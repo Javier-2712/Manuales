@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ES-es" xml:lang="ES-es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nombre del Estudiante">
+
+<title>Cuestionario de Refuerzo · Regresión Lineal en R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/popper.min.js"></script>
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #2098D9;
+      }
+</style>
+
+
+</head>
+
+<body class="quarto-light">
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Cuestionario de Refuerzo · Regresión Lineal en R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+            <p class="subtitle lead">Bioestadística · Semana 2 · 2026-II</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://www.unimagdalena.edu.co/">Nombre del Estudiante</a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">27 de septiembre de 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#bloque-a-conceptos" id="toc-bloque-a-conceptos" class="nav-link active" data-scroll-target="#bloque-a-conceptos">Bloque A — Conceptos</a></li>
+  <li><a href="#sec-jurel" id="toc-sec-jurel" class="nav-link" data-scroll-target="#sec-jurel">Bloque B — Longitud del jurel según su edad</a></li>
+  <li><a href="#sec-bentos" id="toc-sec-bentos" class="nav-link" data-scroll-target="#sec-bentos">Bloque C — Biomasa bentónica, profundidad y distancia a la costa</a></li>
+  <li><a href="#sec-cgsm" id="toc-sec-cgsm" class="nav-link" data-scroll-target="#sec-cgsm">Bloque D — Selección de modelos: diversidad funcional de peces en la CGSM</a></li>
+  <li><a href="#bloque-e-proyecto-de-grado" id="toc-bloque-e-proyecto-de-grado" class="nav-link" data-scroll-target="#bloque-e-proyecto-de-grado">Bloque E — Proyecto de grado</a></li>
+  <li><a href="#retroalimentación" id="toc-retroalimentación" class="nav-link" data-scroll-target="#retroalimentación">Retroalimentación</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Cómo usar este cuestionario
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es un ejercicio de <strong>autoevaluación</strong> (RA1, RA2), no una entrega calificada. Se resuelve después del <code>Taller · Regresión Lineal Simple y Múltiple en R</code> y del cuestionario de opción múltiple, antes de la sesión de GLM. Cada bloque plantea una situación aplicada a una línea de investigación del grupo; no son los datos del taller, de modo que hay que razonar el resultado en lugar de recordarlo. Al final está la retroalimentación con la justificación de cada respuesta.</p>
+</div>
+</div>
+<hr>
+<section id="bloque-a-conceptos" class="level2">
+<h2 class="anchored" data-anchor-id="bloque-a-conceptos">Bloque A — Conceptos</h2>
+<p><strong>A1.</strong> Un compañero mide temperatura y salinidad en 20 estaciones de la Ciénaga Grande de Santa Marta y encuentra una correlación de r = −0.71. Concluye: <em>“la temperatura reduce la salinidad”</em>. ¿Qué le falta a esa conclusión y qué tendría que hacer distinto para poder afirmarla?</p>
+<p><strong>A2.</strong> En una regresión simple, el IC 95 % de la pendiente es [−0.8, 3.2]. ¿Qué se concluye sobre la relación entre X e Y, y por qué el valor de r² por sí solo no basta para responder?</p>
+<p><strong>A3.</strong> ¿Por qué en la relación riqueza de especies–área de un parche (manglar, isla, arrecife) casi siempre conviene ajustar el modelo en escala log-log y no en la escala original? Responder en términos de la forma de la relación, no solo de “porque así sale mejor el r²”.</p>
+<p><strong>A4.</strong> Un modelo múltiple tiene VIF = 1.3 para todos sus predictores. ¿Qué indica eso, y qué tendría que observarse para preocuparse por la interpretación de los coeficientes?</p>
+<p><strong>A5.</strong> Dos modelos candidatos difieren en AIC por 1.1 puntos. ¿Se puede decir con confianza cuál es “el mejor modelo”? Justificar.</p>
+<p><strong>A6.</strong> Al graficar los residuos de <code>lm(Y ~ X)</code> contra los valores ajustados, una compañera observa un patrón en forma de embudo (la dispersión crece hacia la derecha). ¿Qué supuesto se está violando y qué dos caminos tiene para corregirlo?</p>
+<p><strong>A7.</strong> En un modelo con 25 observaciones y 2 parámetros, una observación tiene distancia de Cook = 1.8, mientras que el resto está por debajo de 0.3. ¿Qué significa, y qué NO debería hacerse automáticamente con ese dato?</p>
+<p><strong>A8.</strong> En un modelo log₁₀(riqueza) = 0.60 + 0.31 × log₁₀(área), un estudiante afirma: <em>“por cada hectárea adicional se ganan 0.31 especies”</em>. ¿Por qué es incorrecto? ¿Qué pasa con la riqueza esperada si el área del parche se duplica?</p>
+<hr>
+</section>
+<section id="sec-jurel" class="level2">
+<h2 class="anchored" data-anchor-id="sec-jurel">Bloque B — Longitud del jurel según su edad</h2>
+<p>Un estudiante mide la longitud estándar (mm) y estima la edad (años, por anillos de otolito) de 25 individuos de jurel (<em>Caranx hippos</em>) capturados en la desembocadura del Magdalena. Ajusta una regresión lineal simple y obtiene:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Coeficiente</th>
+<th>Estimado</th>
+<th>IC 95 %</th>
+<th>Valor p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercepto</td>
+<td>145.1</td>
+<td>[128.0, 162.1]</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>Edad (años)</td>
+<td>18.3</td>
+<td>[14.7, 22.0]</td>
+<td>&lt; 0.001</td>
+</tr>
+</tbody>
+</table>
+<p>r² = 0.82, n = 25</p>
+<p><strong>B1.</strong> Escribir la ecuación del modelo y explicar en una frase qué representa cada coeficiente en este contexto biológico.</p>
+<p><strong>B2.</strong> ¿Qué longitud se esperaría, según el modelo, para un individuo de 4.5 años? Mostrar el cálculo.</p>
+<p><strong>B3.</strong> El intercepto (145.1 mm) representaría la longitud esperada a edad = 0. ¿Tiene sentido biológico interpretarlo literalmente? ¿Por qué?</p>
+<p><strong>B4.</strong> Si el estudiante solo hubiera muestreado individuos de 1 a 3 años y quisiera predecir la longitud de un individuo de 8 años con este mismo modelo, ¿qué problema estadístico estaría cometiendo?</p>
+<hr>
+</section>
+<section id="sec-bentos" class="level2">
+<h2 class="anchored" data-anchor-id="sec-bentos">Bloque C — Biomasa bentónica, profundidad y distancia a la costa</h2>
+<p>Para su proyecto sobre comunidades bentónicas de fondos blandos, una estudiante ajusta un modelo múltiple con 28 estaciones:</p>
+<p>biomasa (g/m²) = 116.1 − 0.98 × profundidad − 0.03 × distancia_costa</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 14%">
+<col style="width: 23%">
+<col style="width: 13%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Predictor</th>
+<th>Estimado</th>
+<th>Error estándar</th>
+<th>Valor p</th>
+<th>VIF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Profundidad (m)</td>
+<td>−0.981</td>
+<td>0.394</td>
+<td>0.020</td>
+<td>6.57</td>
+</tr>
+<tr class="even">
+<td>Distancia a la costa (km)</td>
+<td>−0.034</td>
+<td>0.384</td>
+<td>0.930</td>
+<td>6.57</td>
+</tr>
+</tbody>
+</table>
+<p>r² = 0.635, cor(profundidad, distancia_costa) = 0.92</p>
+<p><strong>C1.</strong> El coeficiente de “distancia a la costa” no es significativo (p = 0.93) y su error estándar es grande en relación con su estimado. Con lo visto sobre el VIF, ¿por qué ocurre esto? ¿Significa necesariamente que la distancia a la costa no tiene relación real con la biomasa?</p>
+<p><strong>C2.</strong> Mencionar dos formas distintas en que la estudiante podría resolver el problema antes de reportar el modelo.</p>
+<p><strong>C3.</strong> ¿Por qué no basta con mirar el r² (0.635, razonable) para decidir que este modelo múltiple está bien especificado?</p>
+<hr>
+</section>
+<section id="sec-cgsm" class="level2">
+<h2 class="anchored" data-anchor-id="sec-cgsm">Bloque D — Selección de modelos: diversidad funcional de peces en la CGSM</h2>
+<p>Un estudiante evalúa cómo la variabilidad ambiental modula la diversidad funcional (FD) del ensamblaje íctico en la Ciénaga Grande de Santa Marta, comparando 4 modelos candidatos con 24 estaciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 63%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modelo</th>
+<th>k</th>
+<th>r²</th>
+<th>AIC</th>
+<th>ΔAIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FD ~ salinidad + profundidad</td>
+<td>3</td>
+<td>0.715</td>
+<td>−56.79</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>FD ~ salinidad + profundidad + conectividad</td>
+<td>4</td>
+<td>0.728</td>
+<td>−55.96</td>
+<td>0.83</td>
+</tr>
+<tr class="odd">
+<td>FD ~ salinidad</td>
+<td>2</td>
+<td>0.422</td>
+<td>−41.83</td>
+<td>14.96</td>
+</tr>
+<tr class="even">
+<td>FD ~ profundidad</td>
+<td>2</td>
+<td>0.145</td>
+<td>−32.43</td>
+<td>24.36</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D1.</strong> Ordenar los cuatro modelos de mejor a peor según AIC. ¿Cuál se escogería como modelo final, y por qué no es simplemente “el de r² más alto”?</p>
+<p><strong>D2.</strong> El modelo con conectividad tiene un r² apenas mayor (0.728 frente a 0.715) y un ΔAIC de solo 0.83 respecto al mejor. Bajo la convención habitual (ΔAIC &lt; 2 ≈ soporte similar), ¿qué convendría hacer: reportar el modelo más simple, el más complejo o ambos? Justificar considerando también la interpretabilidad ecológica.</p>
+<p><strong>D3.</strong> Los modelos con un solo predictor tienen ΔAIC muy altos (&gt; 10). ¿Qué indica esto sobre modelar la diversidad funcional en función de una sola variable ambiental en este sistema?</p>
+<hr>
+</section>
+<section id="bloque-e-proyecto-de-grado" class="level2">
+<h2 class="anchored" data-anchor-id="bloque-e-proyecto-de-grado">Bloque E — Proyecto de grado</h2>
+<p><strong>E1.</strong> En un par de frases, plantear una pregunta de regresión (simple o múltiple) relacionada con el propio proyecto. Identificar la variable respuesta, los predictores y si se esperaría necesitar una transformación.</p>
+<p><strong>E2.</strong> Si hubiera dos predictores candidatos que se sospecha están correlacionados (p.&nbsp;ej., dos variables ambientales que suelen variar juntas en el sistema), ¿qué se revisaría antes de interpretar sus coeficientes por separado? ¿Cómo podría el diseño de muestreo reducir el problema?</p>
+<hr>
+</section>
+<section id="retroalimentación" class="level2">
+<h2 class="anchored" data-anchor-id="retroalimentación">Retroalimentación</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ver respuestas y justificación
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>A1.</strong> Una correlación no establece dirección causal ni descarta que ambas variables respondan a una tercera (p.&nbsp;ej., estacionalidad o aporte fluvial). Para afirmar que una “reduce” la otra se necesitaría un diseño que aísle el efecto (manipulación experimental o, como mínimo, un modelo que controle otras covariables). La correlación por sí sola solo describe asociación.</p>
+<p><strong>A2.</strong> Como el IC de la pendiente incluye 0, no hay evidencia de una relación distinta de cero: no se puede afirmar que X predice Y. El r² mide cuánta variación explica el modelo, pero no dice si la pendiente es distinguible de 0; un r² bajo con un IC que excluye 0 sigue siendo evidencia de relación, y viceversa.</p>
+<p><strong>A3.</strong> Las relaciones especie-área siguen típicamente una ley de potencia (S = c·Aᶻ): la riqueza crece rápido en parches pequeños y se desacelera en los grandes, una curva y no una recta. Tomar logaritmos en ambos ejes convierte esa curva en una recta (log S = log c + z·log A), que es lo que asume la regresión lineal; la pendiente estimada es el exponente z.</p>
+<p><strong>A4.</strong> VIF ≈ 1.3 indica muy poca redundancia entre predictores: los coeficientes son estables y pueden interpretarse por separado. Hay motivo de preocupación cuando el VIF supera ~5, sobre todo si además aparecen coeficientes con signo inesperado o errores estándar muy grandes en relación con el estimado.</p>
+<p><strong>A5.</strong> No con confianza. Una diferencia de AIC menor que 2 se interpreta como soporte estadístico similar; la elección puede apoyarse en la parsimonia o en el criterio ecológico, no solo en el número.</p>
+<p><strong>A6.</strong> Se viola la homocedasticidad (varianza constante de los residuos): la dispersión crece con el valor ajustado. Los dos caminos habituales son (1) transformar la variable respuesta (log o raíz cuadrada) para estabilizar la varianza, o (2) usar un GLM cuya familia modele explícitamente la relación media-varianza (p.&nbsp;ej., Poisson o binomial negativa para conteos).</p>
+<p><strong>A7.</strong> La observación es muy influyente: si se elimina, los coeficientes cambiarían sustancialmente (Dᵢ ≥ 1 es la señal clásica de alerta). No debe eliminarse automáticamente para “mejorar” el ajuste o ganar significancia; solo se remueve si hay un error demostrable de medición o registro. Lo correcto es reportar el modelo con y sin la observación. En el taller, el parche M15 (Cook = 1.12) cambia la pendiente de 0.31 a 0.26 sin alterar la conclusión, y su aislamiento se explica por el diseño de muestreo.</p>
+<p><strong>A8.</strong> En escala log-log la pendiente no está en “especies por hectárea”: es una elasticidad. Un aumento de 1 % en el área se asocia con ≈ 0.31 % más especies. Al duplicar el área, la riqueza esperada se multiplica por 2^0.31 ≈ 1.24, es decir, aumenta ≈ 24 %, sin importar si el parche mide 2 o 50 ha.</p>
+<p><strong>B1.</strong> longitud = 145.1 + 18.3 × edad. El intercepto es la longitud esperada a edad = 0 (ver B3) y la pendiente indica que, en promedio, cada año adicional se asocia con 18.3 mm más de longitud estándar.</p>
+<p><strong>B2.</strong> 145.1 + 18.3 × 4.5 = 227.5 mm.</p>
+<p><strong>B3.</strong> No tiene sentido tomarlo literalmente: ningún jurel de la muestra tiene edad = 0 (el rango probablemente empieza en 1 año o más), así que el intercepto es solo un ancla matemática de la recta, no una longitud real al eclosionar.</p>
+<p><strong>B4.</strong> Estaría extrapolando fuera del rango observado (1–3 años). La relación longitud-edad en peces casi nunca es lineal en todo el ciclo de vida (se desacelera con la edad, como en el modelo de von Bertalanffy); extrapolar con un modelo lineal ajustado solo a juveniles sobrestimaría la longitud de un adulto.</p>
+<p><strong>C1.</strong> No necesariamente. Cuando dos predictores están muy correlacionados (r = 0.92), el modelo no logra separar sus efectos: los errores estándar se inflan (eso mide el VIF) y un predictor puede salir no significativo aunque tenga una relación real con la respuesta. El problema es de estimación, no necesariamente de ausencia de efecto biológico.</p>
+<p><strong>C2.</strong> Por ejemplo: (1) quitar uno de los dos predictores y conservar el de mayor sentido biológico o mejor calidad de medición; (2) combinarlos en un índice (p.&nbsp;ej., un componente principal de las variables espaciales); (3) rediseñar el muestreo para romper la correlación (incluir estaciones profundas cerca de la costa y someras lejos de ella).</p>
+<p><strong>C3.</strong> El r² evalúa qué tan bien predice el modelo en conjunto, pero no dice si los coeficientes individuales son confiables. Un modelo puede predecir razonablemente y, a la vez, tener coeficientes inestables por colinealidad, que es lo que ocurre aquí.</p>
+<p><strong>D1.</strong> De mejor a peor: salinidad + profundidad → salinidad + profundidad + conectividad → salinidad → profundidad. No se escoge “el de r² más alto” porque el r² siempre sube (o se mantiene) al agregar predictores; el AIC penaliza esa complejidad y refleja mejor el equilibrio entre ajuste y parsimonia.</p>
+<p><strong>D2.</strong> Con ΔAIC = 0.83 ambos modelos tienen soporte similar. Lo habitual es reportar el más simple (salinidad + profundidad) como modelo principal y mencionar que agregar conectividad no mejora sustancialmente el ajuste, salvo que la conectividad sea central en la pregunta de investigación; en ese caso puede reportarse con esa justificación explícita.</p>
+<p><strong>D3.</strong> Ninguna variable por sí sola explica bien la diversidad funcional: se necesitan ambas para capturar la variabilidad ambiental que modula el ensamblaje. Esto es coherente con un sistema estuarino donde salinidad y profundidad responden a procesos distintos (aporte fluvial, intercambio con el mar, colmatación).</p>
+<p><strong>E1 y E2.</strong> No hay respuesta única: contrastar el razonamiento con el profesor o los compañeros. En E2, lo mínimo es revisar la correlación entre predictores y el VIF; desde el diseño, se busca muestrear combinaciones que rompan la correlación.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li>Quinn, G. P., &amp; Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2nd ed.). Cambridge University Press.</li>
+<li>Logan, M. (2011). <em>Biostatistical Design and Analysis Using R</em>. Wiley-Blackwell.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los escenarios de este cuestionario son de elaboración propia para este curso, inspirados en el estilo de preguntas aplicadas de la bibliografía base (interpretar salidas de modelos en un contexto biológico), pero con datos, contextos y enunciados propios; no reproducen los ejercicios ni las cifras de las fuentes citadas.</p>
+</div>
+</div>
+<!-- -->
+
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cuestionario de Refuerzo · Regresión Lineal en R"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Bioestadística · Semana 2 · 2026-II"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  name: Nombre del Estudiante</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  url: https://www.unimagdalena.edu.co/</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  afiliation: Grupo de Investigación</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  afiliation-url: https://</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> "#2098D9"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true    # Tabla de contenido</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-title: Menú flotante</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true     # Opción para descargar los códigos</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true     # Visualización de los códigos en el reporte</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ES-es</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cómo usar este cuestionario</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Es un ejercicio de **autoevaluación** (RA1, RA2), no una entrega calificada. Se resuelve después del <span class="in">`Taller · Regresión Lineal Simple y Múltiple en R`</span> y del cuestionario de opción múltiple, antes de la sesión de GLM. Cada bloque plantea una situación aplicada a una línea de investigación del grupo; no son los datos del taller, de modo que hay que razonar el resultado en lugar de recordarlo. Al final está la retroalimentación con la justificación de cada respuesta.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bloque A — Conceptos</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**A1.** Un compañero mide temperatura y salinidad en 20 estaciones de la Ciénaga Grande de Santa Marta y encuentra una correlación de r = −0.71. Concluye: *"la temperatura reduce la salinidad"*. ¿Qué le falta a esa conclusión y qué tendría que hacer distinto para poder afirmarla?</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**A2.** En una regresión simple, el IC 95 % de la pendiente es <span class="sc">\[</span>−0.8, 3.2<span class="sc">\]</span>. ¿Qué se concluye sobre la relación entre X e Y, y por qué el valor de r² por sí solo no basta para responder?</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**A3.** ¿Por qué en la relación riqueza de especies–área de un parche (manglar, isla, arrecife) casi siempre conviene ajustar el modelo en escala log-log y no en la escala original? Responder en términos de la forma de la relación, no solo de "porque así sale mejor el r²".</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>**A4.** Un modelo múltiple tiene VIF = 1.3 para todos sus predictores. ¿Qué indica eso, y qué tendría que observarse para preocuparse por la interpretación de los coeficientes?</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**A5.** Dos modelos candidatos difieren en AIC por 1.1 puntos. ¿Se puede decir con confianza cuál es "el mejor modelo"? Justificar.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**A6.** Al graficar los residuos de <span class="in">`lm(Y ~ X)`</span> contra los valores ajustados, una compañera observa un patrón en forma de embudo (la dispersión crece hacia la derecha). ¿Qué supuesto se está violando y qué dos caminos tiene para corregirlo?</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**A7.** En un modelo con 25 observaciones y 2 parámetros, una observación tiene distancia de Cook = 1.8, mientras que el resto está por debajo de 0.3. ¿Qué significa, y qué NO debería hacerse automáticamente con ese dato?</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**A8.** En un modelo log₁₀(riqueza) = 0.60 + 0.31 × log₁₀(área), un estudiante afirma: *"por cada hectárea adicional se ganan 0.31 especies"*. ¿Por qué es incorrecto? ¿Qué pasa con la riqueza esperada si el área del parche se duplica?</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bloque B — Longitud del jurel según su edad {#sec-jurel}</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Un estudiante mide la longitud estándar (mm) y estima la edad (años, por anillos de otolito) de 25 individuos de jurel (*Caranx hippos*) capturados en la desembocadura del Magdalena. Ajusta una regresión lineal simple y obtiene:</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Coeficiente <span class="pp">|</span> Estimado <span class="pp">|</span> IC 95 %          <span class="pp">|</span> Valor p  <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------------|----------|------------------|----------|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Intercepto  <span class="pp">|</span> 145.1    <span class="pp">|</span> <span class="sc">\[</span>128.0, 162.1<span class="sc">\]</span> <span class="pp">|</span> <span class="sc">\&lt;</span> 0.001 <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Edad (años) <span class="pp">|</span> 18.3     <span class="pp">|</span> <span class="sc">\[</span>14.7, 22.0<span class="sc">\]</span>   <span class="pp">|</span> <span class="sc">\&lt;</span> 0.001 <span class="pp">|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>r² = 0.82, n = 25</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>**B1.** Escribir la ecuación del modelo y explicar en una frase qué representa cada coeficiente en este contexto biológico.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**B2.** ¿Qué longitud se esperaría, según el modelo, para un individuo de 4.5 años? Mostrar el cálculo.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**B3.** El intercepto (145.1 mm) representaría la longitud esperada a edad = 0. ¿Tiene sentido biológico interpretarlo literalmente? ¿Por qué?</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**B4.** Si el estudiante solo hubiera muestreado individuos de 1 a 3 años y quisiera predecir la longitud de un individuo de 8 años con este mismo modelo, ¿qué problema estadístico estaría cometiendo?</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bloque C — Biomasa bentónica, profundidad y distancia a la costa {#sec-bentos}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Para su proyecto sobre comunidades bentónicas de fondos blandos, una estudiante ajusta un modelo múltiple con 28 estaciones:</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>biomasa (g/m²) = 116.1 − 0.98 × profundidad − 0.03 × distancia_costa</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Predictor                 <span class="pp">|</span> Estimado <span class="pp">|</span> Error estándar <span class="pp">|</span> Valor p <span class="pp">|</span> VIF  <span class="pp">|</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------------------|----------|----------------|---------|------|</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Profundidad (m)           <span class="pp">|</span> −0.981   <span class="pp">|</span> 0.394          <span class="pp">|</span> 0.020   <span class="pp">|</span> 6.57 <span class="pp">|</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distancia a la costa (km) <span class="pp">|</span> −0.034   <span class="pp">|</span> 0.384          <span class="pp">|</span> 0.930   <span class="pp">|</span> 6.57 <span class="pp">|</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>r² = 0.635, cor(profundidad, distancia_costa) = 0.92</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>**C1.** El coeficiente de "distancia a la costa" no es significativo (p = 0.93) y su error estándar es grande en relación con su estimado. Con lo visto sobre el VIF, ¿por qué ocurre esto? ¿Significa necesariamente que la distancia a la costa no tiene relación real con la biomasa?</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>**C2.** Mencionar dos formas distintas en que la estudiante podría resolver el problema antes de reportar el modelo.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>**C3.** ¿Por qué no basta con mirar el r² (0.635, razonable) para decidir que este modelo múltiple está bien especificado?</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bloque D — Selección de modelos: diversidad funcional de peces en la CGSM {#sec-cgsm}</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>Un estudiante evalúa cómo la variabilidad ambiental modula la diversidad funcional (FD) del ensamblaje íctico en la Ciénaga Grande de Santa Marta, comparando 4 modelos candidatos con 24 estaciones:</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Modelo                                       <span class="pp">|</span> k   <span class="pp">|</span> r²    <span class="pp">|</span> AIC    <span class="pp">|</span> ΔAIC  <span class="pp">|</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------------------------------------|-----|-------|--------|-------|</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FD \~ salinidad + profundidad                <span class="pp">|</span> 3   <span class="pp">|</span> 0.715 <span class="pp">|</span> −56.79 <span class="pp">|</span> 0.00  <span class="pp">|</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FD \~ salinidad + profundidad + conectividad <span class="pp">|</span> 4   <span class="pp">|</span> 0.728 <span class="pp">|</span> −55.96 <span class="pp">|</span> 0.83  <span class="pp">|</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FD \~ salinidad                              <span class="pp">|</span> 2   <span class="pp">|</span> 0.422 <span class="pp">|</span> −41.83 <span class="pp">|</span> 14.96 <span class="pp">|</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> FD \~ profundidad                            <span class="pp">|</span> 2   <span class="pp">|</span> 0.145 <span class="pp">|</span> −32.43 <span class="pp">|</span> 24.36 <span class="pp">|</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>**D1.** Ordenar los cuatro modelos de mejor a peor según AIC. ¿Cuál se escogería como modelo final, y por qué no es simplemente "el de r² más alto"?</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>**D2.** El modelo con conectividad tiene un r² apenas mayor (0.728 frente a 0.715) y un ΔAIC de solo 0.83 respecto al mejor. Bajo la convención habitual (ΔAIC <span class="sc">\&lt;</span> 2 ≈ soporte similar), ¿qué convendría hacer: reportar el modelo más simple, el más complejo o ambos? Justificar considerando también la interpretabilidad ecológica.</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>**D3.** Los modelos con un solo predictor tienen ΔAIC muy altos (<span class="sc">\&gt;</span> 10). ¿Qué indica esto sobre modelar la diversidad funcional en función de una sola variable ambiental en este sistema?</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bloque E — Proyecto de grado</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>**E1.** En un par de frases, plantear una pregunta de regresión (simple o múltiple) relacionada con el propio proyecto. Identificar la variable respuesta, los predictores y si se esperaría necesitar una transformación.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>**E2.** Si hubiera dos predictores candidatos que se sospecha están correlacionados (p. ej., dos variables ambientales que suelen variar juntas en el sistema), ¿qué se revisaría antes de interpretar sus coeficientes por separado? ¿Cómo podría el diseño de muestreo reducir el problema?</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Retroalimentación</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ver respuestas y justificación</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>**A1.** Una correlación no establece dirección causal ni descarta que ambas variables respondan a una tercera (p. ej., estacionalidad o aporte fluvial). Para afirmar que una "reduce" la otra se necesitaría un diseño que aísle el efecto (manipulación experimental o, como mínimo, un modelo que controle otras covariables). La correlación por sí sola solo describe asociación.</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>**A2.** Como el IC de la pendiente incluye 0, no hay evidencia de una relación distinta de cero: no se puede afirmar que X predice Y. El r² mide cuánta variación explica el modelo, pero no dice si la pendiente es distinguible de 0; un r² bajo con un IC que excluye 0 sigue siendo evidencia de relación, y viceversa.</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>**A3.** Las relaciones especie-área siguen típicamente una ley de potencia (S = c·Aᶻ): la riqueza crece rápido en parches pequeños y se desacelera en los grandes, una curva y no una recta. Tomar logaritmos en ambos ejes convierte esa curva en una recta (log S = log c + z·log A), que es lo que asume la regresión lineal; la pendiente estimada es el exponente z.</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>**A4.** VIF ≈ 1.3 indica muy poca redundancia entre predictores: los coeficientes son estables y pueden interpretarse por separado. Hay motivo de preocupación cuando el VIF supera \~5, sobre todo si además aparecen coeficientes con signo inesperado o errores estándar muy grandes en relación con el estimado.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>**A5.** No con confianza. Una diferencia de AIC menor que 2 se interpreta como soporte estadístico similar; la elección puede apoyarse en la parsimonia o en el criterio ecológico, no solo en el número.</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>**A6.** Se viola la homocedasticidad (varianza constante de los residuos): la dispersión crece con el valor ajustado. Los dos caminos habituales son (1) transformar la variable respuesta (log o raíz cuadrada) para estabilizar la varianza, o (2) usar un GLM cuya familia modele explícitamente la relación media-varianza (p. ej., Poisson o binomial negativa para conteos).</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>**A7.** La observación es muy influyente: si se elimina, los coeficientes cambiarían sustancialmente (Dᵢ ≥ 1 es la señal clásica de alerta). No debe eliminarse automáticamente para "mejorar" el ajuste o ganar significancia; solo se remueve si hay un error demostrable de medición o registro. Lo correcto es reportar el modelo con y sin la observación. En el taller, el parche M15 (Cook = 1.12) cambia la pendiente de 0.31 a 0.26 sin alterar la conclusión, y su aislamiento se explica por el diseño de muestreo.</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>**A8.** En escala log-log la pendiente no está en "especies por hectárea": es una elasticidad. Un aumento de 1 % en el área se asocia con ≈ 0.31 % más especies. Al duplicar el área, la riqueza esperada se multiplica por 2\^0.31 ≈ 1.24, es decir, aumenta ≈ 24 %, sin importar si el parche mide 2 o 50 ha.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>**B1.** longitud = 145.1 + 18.3 × edad. El intercepto es la longitud esperada a edad = 0 (ver B3) y la pendiente indica que, en promedio, cada año adicional se asocia con 18.3 mm más de longitud estándar.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>**B2.** 145.1 + 18.3 × 4.5 = 227.5 mm.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>**B3.** No tiene sentido tomarlo literalmente: ningún jurel de la muestra tiene edad = 0 (el rango probablemente empieza en 1 año o más), así que el intercepto es solo un ancla matemática de la recta, no una longitud real al eclosionar.</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>**B4.** Estaría extrapolando fuera del rango observado (1–3 años). La relación longitud-edad en peces casi nunca es lineal en todo el ciclo de vida (se desacelera con la edad, como en el modelo de von Bertalanffy); extrapolar con un modelo lineal ajustado solo a juveniles sobrestimaría la longitud de un adulto.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>**C1.** No necesariamente. Cuando dos predictores están muy correlacionados (r = 0.92), el modelo no logra separar sus efectos: los errores estándar se inflan (eso mide el VIF) y un predictor puede salir no significativo aunque tenga una relación real con la respuesta. El problema es de estimación, no necesariamente de ausencia de efecto biológico.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>**C2.** Por ejemplo: (1) quitar uno de los dos predictores y conservar el de mayor sentido biológico o mejor calidad de medición; (2) combinarlos en un índice (p. ej., un componente principal de las variables espaciales); (3) rediseñar el muestreo para romper la correlación (incluir estaciones profundas cerca de la costa y someras lejos de ella).</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>**C3.** El r² evalúa qué tan bien predice el modelo en conjunto, pero no dice si los coeficientes individuales son confiables. Un modelo puede predecir razonablemente y, a la vez, tener coeficientes inestables por colinealidad, que es lo que ocurre aquí.</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>**D1.** De mejor a peor: salinidad + profundidad → salinidad + profundidad + conectividad → salinidad → profundidad. No se escoge "el de r² más alto" porque el r² siempre sube (o se mantiene) al agregar predictores; el AIC penaliza esa complejidad y refleja mejor el equilibrio entre ajuste y parsimonia.</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>**D2.** Con ΔAIC = 0.83 ambos modelos tienen soporte similar. Lo habitual es reportar el más simple (salinidad + profundidad) como modelo principal y mencionar que agregar conectividad no mejora sustancialmente el ajuste, salvo que la conectividad sea central en la pregunta de investigación; en ese caso puede reportarse con esa justificación explícita.</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>**D3.** Ninguna variable por sí sola explica bien la diversidad funcional: se necesitan ambas para capturar la variabilidad ambiental que modula el ensamblaje. Esto es coherente con un sistema estuarino donde salinidad y profundidad responden a procesos distintos (aporte fluvial, intercambio con el mar, colmatación).</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>**E1 y E2.** No hay respuesta única: contrastar el razonamiento con el profesor o los compañeros. En E2, lo mínimo es revisar la correlación entre predictores y el VIF; desde el diseño, se busca muestrear combinaciones que rompan la correlación.</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quinn, G. P., &amp; Keough, M. J. (2024). *Experimental Design and Data Analysis for Biologists* (2nd ed.). Cambridge University Press.</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Logan, M. (2011). *Biostatistical Design and Analysis Using R*. Wiley-Blackwell.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>Los escenarios de este cuestionario son de elaboración propia para este curso, inspirados en el estilo de preguntas aplicadas de la bibliografía base (interpretar salidas de modelos en un contexto biológico), pero con datos, contextos y enunciados propios; no reproducen los ejercicios ni las cifras de las fuentes citadas.</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

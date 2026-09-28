@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Maestría en Ecología y Biodiversidad · Universidad del Magdalena">
+
+<title>Cuestionario · Regresión Lineal Simple y Múltiple</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Cuestionario_BE2_1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Cuestionario_BE2_1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Cuestionario_BE2_1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Cuestionario_BE2_1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Cuestionario_BE2_1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Cuestionario_BE2_1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Cuestionario_BE2_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Cuestionario_BE2_1_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Cuestionario_BE2_1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Cuestionario_BE2_1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Cuestionario_BE2_1_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cuestionario · Regresión Lineal Simple y Múltiple</h1>
+<p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 2 · 2026-II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Maestría en Ecología y Biodiversidad · Universidad del Magdalena </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
+<p>Este cuestionario acompaña el <code>Taller · Regresión Lineal Simple y Múltiple en R</code> y cierra el bloque de regresión de la Semana 2. Son <strong>12 preguntas de opción múltiple</strong> basadas en las Partes 1 a 8 del taller: correlación vs.&nbsp;regresión, regresión simple y transformación log-log, diagnóstico de supuestos y observaciones influyentes, regresión múltiple y coeficientes parciales, multicolinealidad (VIF), selección de modelos con AIC y el estudio de caso de la relación talla-peso de la langosta espinosa.</p>
+<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve; se recomienda usarlas para repasar, no solo para obtener una calificación. El orden de las opciones cambia en cada intento.</p>
+<style>
+  #quizApp{
+    --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;
+    --qz-white:#FFFFFF; --qz-muted:#6B7A8F; --qz-ok:#2E9E5B; --qz-bad:#C0392B;
+    max-width:680px; margin:1.5rem 0; font-family:inherit; color:var(--qz-navy);
+  }
+  #quizApp *{box-sizing:border-box;}
+  #quizApp .progress-wrap{margin-bottom:1.1rem;}
+  #quizApp .progress-track{background:#D5E3EF; border-radius:6px; height:8px; overflow:hidden;}
+  #quizApp .progress-fill{background:var(--qz-blue); height:100%; width:0%; transition:width .3s;}
+  #quizApp .progress-label{font-size:.8rem; color:var(--qz-muted); margin-top:.4rem;}
+  #quizApp .qz-card{
+    background:var(--qz-card); border-radius:14px; padding:1.5rem 1.4rem;
+    box-shadow:0 2px 10px rgba(21,44,74,.06);
+  }
+  #quizApp .question{font-size:1.08rem; line-height:1.5; margin:0 0 1.1rem; font-weight:700;}
+  #quizApp .options{display:flex; flex-direction:column; gap:.55rem;}
+  #quizApp .opt{
+    text-align:left; border:1.5px solid #D5E3EF; background:var(--qz-white); border-radius:10px;
+    padding:.7rem .9rem; font-size:.94rem; color:var(--qz-navy); cursor:pointer;
+    transition:border-color .15s, background .15s; font-family:inherit;
+  }
+  #quizApp .opt:hover:not(:disabled){border-color:var(--qz-blue);}
+  #quizApp .opt.correct{border-color:var(--qz-ok); background:#EAF7EF; font-weight:700;}
+  #quizApp .opt.incorrect{border-color:var(--qz-bad); background:#FBEAEA;}
+  #quizApp .opt.dim{opacity:.55;}
+  #quizApp .opt:disabled{cursor:default;}
+  #quizApp .hint-row{margin-top:.9rem;}
+  #quizApp .hint-btn{
+    background:none; border:none; color:var(--qz-blue); font-size:.82rem; cursor:pointer;
+    padding:0; text-decoration:underline; font-family:inherit;
+  }
+  #quizApp .hint-text{font-size:.85rem; color:var(--qz-muted); margin-top:.5rem; font-style:italic;}
+  #quizApp .feedback{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; font-size:.9rem; display:none;}
+  #quizApp .feedback.show{display:block;}
+  #quizApp .feedback.ok{background:#EAF7EF; color:var(--qz-ok);}
+  #quizApp .feedback.bad{background:#FBEAEA; color:var(--qz-bad);}
+  #quizApp .explain{margin-top:.5rem; color:var(--qz-navy); font-style:normal;}
+  #quizApp .nav-row{margin-top:1.2rem; text-align:right;}
+  #quizApp .next-btn{
+    background:var(--qz-navy); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; display:none; font-family:inherit;
+  }
+  #quizApp .next-btn.show{display:inline-block;}
+  #quizApp .result{text-align:center; padding:.8rem 0;}
+  #quizApp .result .score{font-size:2.4rem; font-weight:700; color:var(--qz-navy); margin:0;}
+  #quizApp .result .score span{font-size:1.1rem; color:var(--qz-muted); font-weight:400;}
+  #quizApp .result p{color:var(--qz-muted); font-size:.92rem;}
+  #quizApp .restart-btn{
+    background:var(--qz-blue); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; margin-top:.6rem; font-family:inherit;
+  }
+</style>
+
+<div id="quizApp">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="qzFill"></div></div>
+    <div class="progress-label" id="qzLabel">Pregunta 1 de 12</div>
+  </div>
+  <div class="qz-card" id="qzCard"></div>
+</div>
+
+<script id="qz-data" type="application/json">
+[
+{"question": "En la Parte 1 se estudia la biomasa de Rhodophyta y la cobertura de sustrato colonizado. ¿Cuál de las siguientes preguntas requiere una regresión y no solo una correlación?", "options": [{"text": "¿Están asociadas la biomasa de Rhodophyta y la cobertura de sustrato en los 16 sitios muestreados?", "correct": false}, {"text": "¿Qué biomasa se esperaría en un sitio no muestreado que tiene 45 % de cobertura de sustrato colonizado?", "correct": true}, {"text": "¿Qué tan intensa es la relación entre la biomasa y la cobertura, sin importar cuál variable se ponga primero?", "correct": false}, {"text": "¿La asociación entre biomasa y cobertura es positiva o negativa en el conjunto de sitios muestreados?", "correct": false}], "hint": "¿Cuál de las preguntas pide una ecuación para estimar un valor nuevo?", "explain": "La correlación describe la intensidad y la dirección de una asociación, y es simétrica. Solo la regresión asigna papeles (respuesta y predictor) y entrega una ecuación para predecir Y en sitios no muestreados."},
+
+{"question": "En el modelo log₁₀(riqueza) = 0.60 + 0.31 × log₁₀(área) del manglar (Parte 2), ¿cuál es la interpretación correcta de la pendiente?", "options": [{"text": "Por cada hectárea adicional de manglar, la riqueza esperada aumenta en 0.31 especies en todo el rango de áreas", "correct": false}, {"text": "Por cada hectárea adicional de manglar, la riqueza esperada aumenta un 31 %, sin importar el tamaño inicial del parche", "correct": false}, {"text": "Al duplicar el área del parche, la riqueza esperada se multiplica por 2^0.31 ≈ 1.24, es decir, aumenta cerca de un 24 %", "correct": true}, {"text": "El 31 % de la variación de la riqueza entre parches se explica por el área, y el resto por otros factores del hábitat", "correct": false}], "hint": "En escala log-log los cambios son proporcionales, no aditivos.", "explain": "En escala log-log la pendiente es una elasticidad: 1 % más de área se asocia con ≈ 0.31 % más especies. Duplicar el área multiplica la riqueza por 2^0.31 ≈ 1.24. No son \"especies por hectárea\", y la proporción de variación explicada es el r², no la pendiente."},
+
+{"question": "¿Por qué en la relación riqueza de especies–área de manglar conviene ajustar el modelo en escala log-log y no en la escala original?", "options": [{"text": "Porque el logaritmo elimina la necesidad de revisar los supuestos del modelo, ya que los residuos pasan a ser siempre normales", "correct": false}, {"text": "Porque la escala original da un r² bajo, y cualquier transformación que suba el r² es preferible para reportar el modelo", "correct": false}, {"text": "Porque la riqueza es un conteo, y los conteos solo se pueden analizar con regresión lineal después de aplicar logaritmos", "correct": false}, {"text": "Porque la relación sigue una ley de potencia (S = c·A^z), que es curva en escala original y se vuelve recta al tomar logaritmos", "correct": true}], "hint": "Pensar en la forma de la nube de puntos: ¿crece a ritmo constante o se desacelera?", "explain": "La riqueza crece rápido en parches pequeños y se desacelera en los grandes: una ley de potencia. En log-log se vuelve lineal (log S = log c + z·log A) y la pendiente es el exponente z. Transformar no exime de revisar los supuestos, y subir el r² no es por sí solo una razón válida."},
+
+{"question": "Al revisar el panel \"Residuals vs Fitted\" de una regresión, la dispersión de los residuos crece claramente de izquierda a derecha, en forma de embudo. ¿Qué indica?", "options": [{"text": "Que se viola la homocedasticidad: la varianza de los residuos no es constante a lo largo de los valores ajustados", "correct": true}, {"text": "Que se viola la normalidad de los residuos, algo que este panel muestra mejor que el gráfico Q-Q de residuos", "correct": false}, {"text": "Que hay una observación influyente, porque los puntos más alejados de cero siempre superan la distancia de Cook", "correct": false}, {"text": "Que los predictores están correlacionados entre sí, porque el embudo es la forma gráfica de un VIF elevado", "correct": false}], "hint": "¿Qué supuesto habla de la dispersión de los residuos y no de su forma?", "explain": "Un embudo en residuos vs. ajustados es la señal típica de heterocedasticidad. Se corrige transformando la respuesta (log o raíz) o usando un GLM que modele la relación media-varianza. La normalidad se revisa en el Q-Q, la influencia en el panel de Cook y la colinealidad con el VIF."},
+
+{"question": "En la Parte 3, el parche M15 tiene una distancia de Cook de 1.12. Sin él, la pendiente baja de 0.31 a 0.26, pero su IC sigue excluyendo 0. ¿Qué es lo correcto?", "options": [{"text": "Eliminar M15 del análisis, porque cualquier observación con Cook mayor que 1 es un dato atípico que distorsiona el modelo", "correct": false}, {"text": "Reportar el modelo con y sin M15, mostrar que la conclusión se mantiene y no eliminarlo sin un error demostrable", "correct": true}, {"text": "Conservar solo el modelo sin M15, porque su pendiente es más conservadora y por tanto más confiable para publicar", "correct": false}, {"text": "Ignorar la distancia de Cook, porque si el IC de la pendiente excluye 0 la influencia de un solo punto no es relevante", "correct": false}], "hint": "¿Hay alguna evidencia de que el dato de M15 esté mal medido o mal registrado?", "explain": "Un punto influyente no es un error por definición. Solo se elimina si hay un error demostrable de medición o registro; lo correcto es mostrar la sensibilidad del resultado. Aquí M15 es influyente por el diseño: es el único parche pequeño y queda aislado en escala logarítmica."},
+
+{"question": "En el modelo del coral (Parte 4), b(temperatura) = 0.40 mm/año por °C. ¿Cuál es la interpretación correcta de este coeficiente parcial?", "options": [{"text": "Por cada grado adicional, el crecimiento aumenta 0.40 mm/año, sin importar si las colonias difieren en profundidad", "correct": false}, {"text": "La temperatura explica el 40 % de la variación del crecimiento, una vez descontado el efecto de la profundidad", "correct": false}, {"text": "Por cada grado adicional, el crecimiento aumenta 0.40 mm/año al comparar colonias que están a la misma profundidad", "correct": true}, {"text": "Por cada grado adicional, el crecimiento aumenta 0.40 mm/año solo en las colonias ubicadas a la profundidad media", "correct": false}], "hint": "¿Qué quiere decir \"parcial\" en un modelo con dos predictores?", "explain": "Cada coeficiente de un modelo múltiple es el efecto de su variable manteniendo constantes las demás: aquí, comparando colonias a la misma profundidad. No es una proporción de varianza explicada, y en el modelo aditivo el efecto es el mismo a cualquier profundidad."},
+
+{"question": "Con solo la temperatura, la pendiente del crecimiento coralino es 0.31; en el modelo con temperatura y profundidad es 0.40. ¿Por qué el modelo simple subestima el efecto?", "options": [{"text": "Porque el modelo simple tiene menos parámetros, y los modelos con menos parámetros siempre producen pendientes más pequeñas", "correct": false}, {"text": "Porque la profundidad no tiene efecto real sobre el crecimiento, y su inclusión infla artificialmente la pendiente de la temperatura", "correct": false}, {"text": "Porque el VIF de 1.10 indica colinealidad grave, que reduce la pendiente de cualquier predictor en el modelo simple", "correct": false}, {"text": "Porque en la muestra las colonias más cálidas están algo más profundas, y el efecto de la profundidad se mezcla con el de la temperatura", "correct": true}], "hint": "Revisar la correlación entre temperatura y profundidad en la Parte 4 (r = 0.30).", "explain": "Temperatura y profundidad tienen una correlación positiva en la muestra (r = 0.30), y la profundidad reduce el crecimiento. Si se omite la profundidad, parte de su efecto negativo se atribuye a la temperatura. Por eso se necesita el modelo múltiple y no bastan dos regresiones simples."},
+
+{"question": "En la Parte 5, vif(mod_coral) da 1.10 para la temperatura y 1.10 para la profundidad. ¿Qué significa?", "options": [{"text": "Que la colinealidad es baja: con dos predictores el VIF es idéntico para ambos y depende solo de su correlación (r = 0.30)", "correct": true}, {"text": "Que la colinealidad es grave, porque un VIF mayor que 1 indica que los dos predictores miden prácticamente lo mismo", "correct": false}, {"text": "Que ambos predictores tienen el mismo efecto sobre el crecimiento, ya que el VIF compara la magnitud de las pendientes", "correct": false}, {"text": "Que el cálculo es incorrecto, porque dos predictores distintos no pueden tener exactamente el mismo valor de VIF", "correct": false}], "hint": "VIF = 1 / (1 − r²). Con dos predictores, ¿cuántas correlaciones hay?", "explain": "Con dos predictores, cada uno se regresa contra el otro y ambos r² auxiliares son el mismo r² de su correlación, así que el VIF coincide. Un VIF de 1.10 es muy cercano a 1: la varianza de los coeficientes apenas se infla. La alerta empieza hacia VIF > 5–10."},
+
+{"question": "En la Parte 6, agregar la turbidez sube el r² de 0.723 a 0.728, pero el AIC pasa de 44.24 a 45.65 (ΔAIC = 1.4) y la prueba F anidada da p = 0.48. ¿Qué modelo se debe preferir?", "options": [{"text": "El modelo con turbidez, porque tiene el r² más alto y un mayor r² siempre indica un modelo con más poder explicativo", "correct": false}, {"text": "El modelo temperatura + profundidad, porque la turbidez no mejora el ajuste y, con soporte similar, se prefiere el más simple", "correct": true}, {"text": "El modelo con turbidez, porque con ΔAIC < 2 los modelos son equivalentes y se prefiere el que incluye más información", "correct": false}, {"text": "Ninguno de los dos, porque un ΔAIC menor que 2 indica que ambos modelos están mal especificados y deben descartarse", "correct": false}], "hint": "¿Qué pasa con el r² cada vez que se agrega un predictor, aporte o no?", "explain": "El r² siempre sube o se mantiene al agregar predictores, así que no sirve para elegir. El AIC penaliza la complejidad y la prueba F confirma que la turbidez no reduce significativamente la variación residual. Con ΔAIC < 2 el soporte es similar, y por parsimonia se elige el modelo más simple."},
+
+{"question": "step() imprime AIC = −48.57 para el modelo temperatura + profundidad, pero AIC(mod_coral) devuelve 44.24. ¿Cómo se explica?", "options": [{"text": "step() calcula el AIC con los datos transformados a logaritmo, mientras que AIC() usa los datos en la escala original", "correct": false}, {"text": "step() penaliza con el doble de parámetros que AIC(), por lo que sus valores siempre son menores y más conservadores", "correct": false}, {"text": "step() usa extractAIC(), que omite una constante: los valores cambian, pero las diferencias y el orden de los modelos no", "correct": true}, {"text": "Hay un error en el modelo: si ambos valores no coinciden, alguno de los dos fue ajustado con una base de datos distinta", "correct": false}], "hint": "Para comparar modelos con AIC, ¿importa el valor absoluto o la diferencia?", "explain": "El AIC solo tiene sentido en términos relativos. extractAIC() (usado por step()) omite una constante que es igual para todos los modelos ajustados a los mismos datos, así que las diferencias y la elección final son las mismas."},
+
+{"question": "En el estudio de caso (Parte 8), la regresión del peso de la langosta sobre su talla en escala original tiene r² = 0.94, pero los residuos forman una curva y un embudo. ¿Qué se concluye?", "options": [{"text": "Que el modelo es adecuado, porque un r² de 0.94 indica que casi toda la variación del peso está bien representada por la recta", "correct": false}, {"text": "Que se debe eliminar a los individuos más grandes, porque son los que generan el embudo en el gráfico de residuos", "correct": false}, {"text": "Que la talla no es un buen predictor del peso, porque la curva en los residuos indica que no existe una relación real", "correct": false}, {"text": "Que el modelo está mal especificado aunque su r² sea alto: la relación es una ley de potencia y conviene ajustarla en escala log-log", "correct": true}], "hint": "¿Qué evalúa el r² y qué evalúa el gráfico de residuos?", "explain": "Un r² alto no valida un modelo: la curva indica que la forma de la relación está mal especificada y el embudo, heterocedasticidad. El peso crece con el volumen (≈ talla³), una ley de potencia que se vuelve lineal en log-log, donde ambos problemas desaparecen."},
+
+{"question": "En el modelo alométrico log₁₀(peso) ~ log₁₀(talla) de la langosta, b = 2.70 con IC 95 % de 2.55 a 2.85. ¿Qué se concluye sobre la isometría (b = 3)?", "options": [{"text": "Se rechaza la isometría: el IC excluye 3, así que el crecimiento es alométrico negativo y los grandes pesan menos de lo esperado", "correct": true}, {"text": "Se acepta la isometría, porque el IC no incluye 0 y eso confirma que el peso aumenta en proporción al cubo de la talla", "correct": false}, {"text": "Se acepta la isometría, porque 2.70 es un valor cercano a 3 y las diferencias menores de una unidad no son biológicamente relevantes", "correct": false}, {"text": "No se puede evaluar, porque la prueba t de summary() solo contrasta la hipótesis nula b = 0 y no otros valores de la pendiente", "correct": false}], "hint": "¿Cuál es la hipótesis nula relevante aquí: b = 0 o b = 3?", "explain": "La hipótesis biológica es b = 3, no b = 0. Como el IC 95 % [2.55, 2.85] no incluye 3 (t = −4.09; p < 0.001), se rechaza la isometría. summary() prueba b = 0 por defecto, pero se puede contrastar cualquier valor con t = (b − 3) / EE, como se hace en el taller."}
+]
+</script>
+
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('qz-data').textContent);
+  let idx = 0, score = 0, answered = false, opciones = [];
+
+  // Baraja las opciones (Fisher-Yates) para que la respuesta correcta
+  // no quede siempre en la misma posición
+  function barajar(arr){
+    const a = arr.slice();
+    for(let k = a.length - 1; k > 0; k--){
+      const r = Math.floor(Math.random() * (k + 1));
+      [a[k], a[r]] = [a[r], a[k]];
+    }
+    return a;
+  }
+  const card = document.getElementById('qzCard');
+  const fill = document.getElementById('qzFill');
+  const label = document.getElementById('qzLabel');
+
+  function render(){
+    if(idx >= DATA.length){ renderResult(); return; }
+    answered = false;
+    const q = DATA[idx];
+    opciones = barajar(q.options);
+    fill.style.width = (idx/DATA.length*100) + '%';
+    label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;
+    card.innerHTML = `
+      <p class="question">${q.question}</p>
+      <div class="options">
+        ${opciones.map((o,i)=>`<button class="opt" data-i="${i}">${o.text}</button>`).join('')}
+      </div>
+      <div class="hint-row">
+        <button class="hint-btn" id="qzHintBtn">Mostrar pista</button>
+        <div class="hint-text" id="qzHintText" style="display:none;">${q.hint || ''}</div>
+      </div>
+      <div class="feedback" id="qzFeedback"></div>
+      <div class="nav-row"><button class="next-btn" id="qzNextBtn">Siguiente →</button></div>
+    `;
+    document.getElementById('qzHintBtn').onclick = () => {
+      const t = document.getElementById('qzHintText');
+      t.style.display = t.style.display === 'none' ? 'block' : 'none';
+    };
+    card.querySelectorAll('.opt').forEach(btn=>{
+      btn.onclick = () => selectOption(parseInt(btn.dataset.i));
+    });
+    document.getElementById('qzNextBtn').onclick = () => { idx++; render(); };
+  }
+
+  function selectOption(i){
+    if(answered) return;
+    answered = true;
+    const q = DATA[idx];
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((btn,j)=>{
+      btn.disabled = true;
+      if(opciones[j].correct) btn.classList.add('correct');
+      else if(j===i) btn.classList.add('incorrect');
+      else btn.classList.add('dim');
+    });
+    const fb = document.getElementById('qzFeedback');
+    if(opciones[i].correct){
+      score++;
+      fb.innerHTML = '¡Correcto! <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show ok';
+    } else {
+      fb.innerHTML = 'No es correcto. <div class="explain">' + q.explain + '</div>';
+      fb.className = 'feedback show bad';
+    }
+    document.getElementById('qzNextBtn').classList.add('show');
+  }
+
+  function renderResult(){
+    fill.style.width = '100%';
+    label.textContent = `${DATA.length} de ${DATA.length}`;
+    const pct = Math.round(score/DATA.length*100);
+    card.innerHTML = `
+      <div class="result">
+        <p class="score">${score}<span>/${DATA.length}</span></p>
+        <p>${pct}% de aciertos. ${pct>=80?'Excelente dominio de la regresión lineal simple y múltiple.':pct>=60?'Buen manejo general: conviene repasar los temas con errores.':'Vale la pena repasar el taller antes de la sesión de GLM.'}</p>
+        <button class="restart-btn" id="qzRestartBtn">Intentar de nuevo</button>
+      </div>
+    `;
+    document.getElementById('qzRestartBtn').onclick = () => { idx=0; score=0; render(); };
+  }
+
+  render();
+})();
+</script>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p>Las preguntas y escenarios de este cuestionario son de elaboración propia para este curso; no reproducen ejercicios ni datos de las fuentes citadas en el taller.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
