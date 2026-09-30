@@ -218,7 +218,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Videos_clases</strong></span></a>
+ <span class="menu-text"><strong>Videos y presentaciones de las clases</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -245,6 +245,12 @@ window.Quarto = {
  <span class="menu-text">Pautas del estudio de caso</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Guia_complementos_FD_PD_estudios_caso.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guía complementos estudios de caso FD y PD</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -266,8 +272,8 @@ window.Quarto = {
   <li><a href="#cargar-librerías-datos-y-matrices" id="toc-cargar-librerías-datos-y-matrices" class="nav-link" data-scroll-target="#cargar-librerías-datos-y-matrices">Cargar librerías, datos y matrices</a>
   <ul>
   <li><a href="#cargar-librerías." id="toc-cargar-librerías." class="nav-link" data-scroll-target="#cargar-librerías.">1. Cargar librerías.</a></li>
-  <li><a href="#cargar-datos-de-taxonones" id="toc-cargar-datos-de-taxonones" class="nav-link" data-scroll-target="#cargar-datos-de-taxonones">2. Cargar datos de taxonones</a></li>
-  <li><a href="#cargar-datos-de-rasgoss" id="toc-cargar-datos-de-rasgoss" class="nav-link" data-scroll-target="#cargar-datos-de-rasgoss">3. Cargar datos de rasgoss</a></li>
+  <li><a href="#cargar-datos-de-taxones" id="toc-cargar-datos-de-taxones" class="nav-link" data-scroll-target="#cargar-datos-de-taxones">2. Cargar datos de taxones</a></li>
+  <li><a href="#cargar-datos-de-rasgos" id="toc-cargar-datos-de-rasgos" class="nav-link" data-scroll-target="#cargar-datos-de-rasgos">3. Cargar datos de rasgos</a></li>
   <li><a href="#cargar-datos-de-coordenadas." id="toc-cargar-datos-de-coordenadas." class="nav-link" data-scroll-target="#cargar-datos-de-coordenadas.">4. Cargar datos de coordenadas.</a></li>
   </ul></li>
   <li><a href="#distancia-funcional-gower" id="toc-distancia-funcional-gower" class="nav-link" data-scroll-target="#distancia-funcional-gower">Distancia funcional: Gower</a>
@@ -277,26 +283,26 @@ window.Quarto = {
   </ul></li>
   <li><a href="#a1.-estimadores-clásicos-de-diversidad-funcional" id="toc-a1.-estimadores-clásicos-de-diversidad-funcional" class="nav-link" data-scroll-target="#a1.-estimadores-clásicos-de-diversidad-funcional">A1. Estimadores clásicos de diversidad funcional</a>
   <ul>
-  <li><a href="#estructura-funcional-con-dbfd" id="toc-estructura-funcional-con-dbfd" class="nav-link" data-scroll-target="#estructura-funcional-con-dbfd">Estructura funcional con <code>dbFD()</code></a>
-  <ul>
+  <li><a href="#a.-estructura-funcional-con-dbfd" id="toc-a.-estructura-funcional-con-dbfd" class="nav-link" data-scroll-target="#a.-estructura-funcional-con-dbfd">a. Estructura funcional con <code>dbFD()</code></a></li>
   <li><a href="#ejecutar-dbfd" id="toc-ejecutar-dbfd" class="nav-link" data-scroll-target="#ejecutar-dbfd">Ejecutar <code>dbFD()</code></a></li>
-  <li><a href="#índices-de-diversidad-funcional-por-sitio" id="toc-índices-de-diversidad-funcional-por-sitio" class="nav-link" data-scroll-target="#índices-de-diversidad-funcional-por-sitio">Índices de diversidad funcional por sitio</a></li>
-  <li><a href="#índices-de-diversidad-funcional-por-zona" id="toc-índices-de-diversidad-funcional-por-zona" class="nav-link" data-scroll-target="#índices-de-diversidad-funcional-por-zona">Índices de diversidad funcional por zona</a></li>
-  <li><a href="#calidad-del-espacio-funcional" id="toc-calidad-del-espacio-funcional" class="nav-link" data-scroll-target="#calidad-del-espacio-funcional">Calidad del espacio funcional</a></li>
-  <li><a href="#mapa-espacial-de-los-índices-funcionales-por-sitio" id="toc-mapa-espacial-de-los-índices-funcionales-por-sitio" class="nav-link" data-scroll-target="#mapa-espacial-de-los-índices-funcionales-por-sitio">Mapa espacial de los índices funcionales por sitio</a></li>
-  <li><a href="#espacio-funcional-por-zona-vs.-por-clúster" id="toc-espacio-funcional-por-zona-vs.-por-clúster" class="nav-link" data-scroll-target="#espacio-funcional-por-zona-vs.-por-clúster">Espacio funcional por zona (vs.&nbsp;por clúster)</a></li>
-  <li><a href="#espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026" id="toc-espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026" class="nav-link" data-scroll-target="#espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026">Espacio total vs.&nbsp;ocupado, por zona (estilo Tette-Pomárico et al., 2026)</a></li>
-  <li><a href="#rasgo-dominante-en-cada-zona-community-weighted-means-cwm" id="toc-rasgo-dominante-en-cada-zona-community-weighted-means-cwm" class="nav-link" data-scroll-target="#rasgo-dominante-en-cada-zona-community-weighted-means-cwm">Rasgo dominante en cada zona: Community Weighted Means (CWM)</a></li>
-  </ul></li>
+  <li><a href="#b.-índices-de-diversidad-funcional-por-sitio" id="toc-b.-índices-de-diversidad-funcional-por-sitio" class="nav-link" data-scroll-target="#b.-índices-de-diversidad-funcional-por-sitio">b. Índices de diversidad funcional por sitio</a></li>
+  <li><a href="#c.-índices-de-diversidad-funcional-por-zona" id="toc-c.-índices-de-diversidad-funcional-por-zona" class="nav-link" data-scroll-target="#c.-índices-de-diversidad-funcional-por-zona">c.&nbsp;Índices de diversidad funcional por zona</a></li>
+  <li><a href="#d.-calidad-del-espacio-funcional" id="toc-d.-calidad-del-espacio-funcional" class="nav-link" data-scroll-target="#d.-calidad-del-espacio-funcional">d.&nbsp;Calidad del espacio funcional</a></li>
+  <li><a href="#e.-mapa-espacial-de-los-índices-funcionales-por-sitio" id="toc-e.-mapa-espacial-de-los-índices-funcionales-por-sitio" class="nav-link" data-scroll-target="#e.-mapa-espacial-de-los-índices-funcionales-por-sitio">e. Mapa espacial de los índices funcionales por sitio</a></li>
+  <li><a href="#f.-espacio-funcional-por-zona-vs.-por-clúster" id="toc-f.-espacio-funcional-por-zona-vs.-por-clúster" class="nav-link" data-scroll-target="#f.-espacio-funcional-por-zona-vs.-por-clúster">f.&nbsp;Espacio funcional por zona (vs.&nbsp;por clúster)</a></li>
+  <li><a href="#g.-espacio-total-vs.-ocupado-por-zona-tomado-de-tette-pomárico-et-al.-2026" id="toc-g.-espacio-total-vs.-ocupado-por-zona-tomado-de-tette-pomárico-et-al.-2026" class="nav-link" data-scroll-target="#g.-espacio-total-vs.-ocupado-por-zona-tomado-de-tette-pomárico-et-al.-2026">g. Espacio total vs.&nbsp;ocupado, por zona (tomado de: Tette-Pomárico et al., 2026)</a></li>
+  <li><a href="#h.-rasgo-dominante-en-cada-zona-community-weighted-means-cwm" id="toc-h.-rasgo-dominante-en-cada-zona-community-weighted-means-cwm" class="nav-link" data-scroll-target="#h.-rasgo-dominante-en-cada-zona-community-weighted-means-cwm">h. Rasgo dominante en cada zona: Community Weighted Means (CWM)</a></li>
   </ul></li>
   <li><a href="#a2.-entropía-cuadrática-de-rao-y-partición-αβγ" id="toc-a2.-entropía-cuadrática-de-rao-y-partición-αβγ" class="nav-link" data-scroll-target="#a2.-entropía-cuadrática-de-rao-y-partición-αβγ">A2. Entropía cuadrática de Rao y partición α–β–γ</a>
   <ul>
   <li><a href="#partición-multiescalar-con-rao" id="toc-partición-multiescalar-con-rao" class="nav-link" data-scroll-target="#partición-multiescalar-con-rao">Partición multiescalar con <code>Rao()</code></a>
   <ul>
-  <li><a href="#diversidad-funcional-de-zonas" id="toc-diversidad-funcional-de-zonas" class="nav-link" data-scroll-target="#diversidad-funcional-de-zonas">Diversidad funcional de zonas</a></li>
-  <li><a href="#ejecutar-rao" id="toc-ejecutar-rao" class="nav-link" data-scroll-target="#ejecutar-rao">Ejecutar <code>Rao()</code></a></li>
-  <li><a href="#diversidad-funcional-multiescalar-α-β-y-γ" id="toc-diversidad-funcional-multiescalar-α-β-y-γ" class="nav-link" data-scroll-target="#diversidad-funcional-multiescalar-α-β-y-γ">Diversidad funcional multiescalar: α, β y γ</a></li>
-  <li><a href="#comparación-rápida-entre-td-y-fd" id="toc-comparación-rápida-entre-td-y-fd" class="nav-link" data-scroll-target="#comparación-rápida-entre-td-y-fd">Comparación rápida entre TD y FD</a></li>
+  <li><a href="#a.-diversidad-funcional-de-zonas" id="toc-a.-diversidad-funcional-de-zonas" class="nav-link" data-scroll-target="#a.-diversidad-funcional-de-zonas">a. Diversidad funcional de zonas</a>
+  <ul>
+  <li><a href="#a.1-ejecutar-rao" id="toc-a.1-ejecutar-rao" class="nav-link" data-scroll-target="#a.1-ejecutar-rao">a.1 Ejecutar <code>Rao()</code></a></li>
+  <li><a href="#a.2-diversidad-funcional-multiescalar-α-β-y-γ" id="toc-a.2-diversidad-funcional-multiescalar-α-β-y-γ" class="nav-link" data-scroll-target="#a.2-diversidad-funcional-multiescalar-α-β-y-γ">a.2 Diversidad funcional multiescalar: α, β y γ</a></li>
+  <li><a href="#a.3-comparación-rápida-entre-td-y-fd" id="toc-a.3-comparación-rápida-entre-td-y-fd" class="nav-link" data-scroll-target="#a.3-comparación-rápida-entre-td-y-fd">a.3 Comparación rápida entre TD y FD</a></li>
+  </ul></li>
   <li><a href="#mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd" id="toc-mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd" class="nav-link" data-scroll-target="#mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd">Mapa espacial de la diversidad alfa por sitio (TD y FD)</a></li>
   </ul></li>
   </ul></li>
@@ -342,9 +348,9 @@ window.Quarto = {
   <ul>
   <li><a href="#enlaces-de-materiales-complementarios" id="toc-enlaces-de-materiales-complementarios" class="nav-link" data-scroll-target="#enlaces-de-materiales-complementarios">Enlaces de materiales complementarios</a>
   <ul>
-  <li><a href="#guía-de-estudio" id="toc-guía-de-estudio" class="nav-link" data-scroll-target="#guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="74">Guía de estudio</a></li>
-  <li><a href="#mapa-mental-fd" id="toc-mapa-mental-fd" class="nav-link" data-scroll-target="#mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="67"> Mapa Mental FD</a></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="69">Flashcards</a></li>
+  <li><a href="#guía-de-estudio" id="toc-guía-de-estudio" class="nav-link" data-scroll-target="#guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="73">Guía de estudio</a></li>
+  <li><a href="#mapa-mental-fd" id="toc-mapa-mental-fd" class="nav-link" data-scroll-target="#mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="69"> Mapa Mental FD</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="71">Flashcards</a></li>
   <li><a href="#quiz-de-entrenamiento" id="toc-quiz-de-entrenamiento" class="nav-link" data-scroll-target="#quiz-de-entrenamiento"><img src="images/clipboard-2408561300.png" class="img-fluid" width="67">Quiz de entrenamiento</a></li>
   </ul></li>
   </ul></li>
@@ -388,17 +394,19 @@ window.Quarto = {
 <h2 class="titulo-seccion anchored" data-anchor-id="materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</h2>
 <p>En los siguientes enlaces se podrán descargar archivos comprimidos de los dos talleres donde se pueden aplicar procedimientos de diversidad funcional - FD en RStudio, con un caso guiado de peces de México (📰 Taller2_Diversidad_Funcional) y el cuestionario de soporte (📰 Cuestionario_Diversidad_funcional).</p>
 <ul>
-<li>📰 <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/talleres/Taller2.div.funcional.zip">Taller2._Diversidad_Funcional</a><br>
+<li>📰 <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/talleres/Taller2.1_div.funcional.zip">Taller2.1_Diversidad_Funcional_A1_A2</a><br>
+</li>
+<li>📰 <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/talleres/Taller2.2_div.funcional.zip">Taller2.2_Diversidad_Funcional_B1_B2</a><br>
 </li>
 </ul>
 <p><strong>Nota:</strong> una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos.</p>
 <section id="diapositivas-en-vivo---slides.com" class="level3">
 <h3 class="anchored" data-anchor-id="diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</h3>
-<p><img src="https://javier-2712.github.io/Manuales/9.Manual_mv_26/html/Figuras/slides.com.png" class="img-fluid" width="120"></p>
+<p><img src="https://javier-2712.github.io/Manuales/9.Manual_mv_26/figuras/slides.com.jpg" class="img-fluid" width="120"></p>
 <ul>
-<li>📰 <a href="https://slides.com/d/gKzEJg4/speaker/JLpd7sU">Diapositivas del Taller2.1_Diversidad_Funcional_A1_A2</a><br>
+<li>📰 <a href="https://slides.com/d/gKzEJg4/live">Diapositivas del Taller2.1_Diversidad_Funcional_A1_A2</a><br>
 </li>
-<li>📰 <a href="https://slides.com/d/v6K8elQ/speaker/Fe4wKqs">Diapositivas del Taller2.2_Diversidad_Funcional_B1_B2</a><br>
+<li>📰 <a href="https://slides.com/d/v6K8elQ/live">Diapositivas del Taller2.2_Diversidad_Funcional_B1_B2</a><br>
 </li>
 </ul>
 <hr>
@@ -468,43 +476,43 @@ Nota
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)     <span class="co"># Habilita el formato enriquecido de tablas</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FD)             <span class="co"># Aporta gowdis() y dbFD()</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT<span class="fl">.3</span>D)       <span class="co"># Aporta iNEXT3D() y estimate3D(): FD alfa</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT.beta3D)   <span class="co"># Aporta iNEXTbeta3D(): FD beta por números de Hill</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ruta_datos <span class="ot">&lt;-</span> <span class="st">"datos.xlsx"</span>   <span class="co"># Define la ruta relativa del archivo de datos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT.beta3D)   <span class="co"># Aporta iNEXTbeta3D(): FD beta por números de Hill</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="cargar-datos-de-taxonones" class="level3">
-<h3 class="anchored" data-anchor-id="cargar-datos-de-taxonones">2. Cargar datos de taxonones</h3>
+<section id="cargar-datos-de-taxones" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-datos-de-taxones">2. Cargar datos de taxones</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, <span class="at">sheet =</span> <span class="st">"tax"</span>)   <span class="co"># Lee la hoja de abundancias por sitio</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ruta_datos <span class="ot">&lt;-</span> <span class="st">"datos.xlsx"</span>   <span class="co"># Define la ruta relativa del archivo de datos</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  tax <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sites, <span class="sc">-</span>Sites1) <span class="sc">%&gt;%</span>          <span class="co"># Retira las columnas de identificación (no son especies)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">everything</span>(),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">as.numeric</span>(<span class="fu">trimws</span>(<span class="fu">as.character</span>(.)))   <span class="co"># Fuerza cada columna a numérica, quitando espacios ocultos</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>             <span class="fu">replace</span>(.x, <span class="fu">is.na</span>(.x), <span class="dv">0</span>))       <span class="co"># Reemplaza por 0 cualquier celda que no se pudo convertir</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()                             <span class="co"># Convierte a data.frame clásico (formato que exige FD/Rao)</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(biol1) <span class="ot">&lt;-</span> tax<span class="sc">$</span>Sites                  <span class="co"># Asigna el código de sitio como nombre de fila</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, <span class="at">sheet =</span> <span class="st">"tax"</span>)   <span class="co"># Lee la hoja de abundancias por sitio</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  tax <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Sites, <span class="sc">-</span>Sites1) <span class="sc">%&gt;%</span>          <span class="co"># Retira las columnas de identificación (no son especies)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">everything</span>(),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">as.numeric</span>(<span class="fu">trimws</span>(<span class="fu">as.character</span>(.)))   <span class="co"># Fuerza cada columna a numérica, quitando espacios ocultos</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>             <span class="fu">replace</span>(.x, <span class="fu">is.na</span>(.x), <span class="dv">0</span>))       <span class="co"># Reemplaza por 0 cualquier celda que no se pudo convertir</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()                             <span class="co"># Convierte a data.frame clásico (formato que exige FD/Rao)</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla resumida</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol1, <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) <span class="sc">%&gt;%</span>   </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(biol1) <span class="ot">&lt;-</span> tax<span class="sc">$</span>Sites                  <span class="co"># Asigna el código de sitio como nombre de fila</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla resumida</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(biol1, <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) <span class="sc">%&gt;%</span>   </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -622,8 +630,8 @@ Nota
 </details>
 </div>
 </section>
-<section id="cargar-datos-de-rasgoss" class="level3">
-<h3 class="anchored" data-anchor-id="cargar-datos-de-rasgoss">3. Cargar datos de rasgoss</h3>
+<section id="cargar-datos-de-rasgos" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-datos-de-rasgos">3. Cargar datos de rasgos</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -641,7 +649,7 @@ Nota
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>rasgos1 <span class="ot">&lt;-</span> rasgos1[<span class="fu">colnames</span>(biol1), ]         <span class="co"># Reordena las especies para que coincidan con biol1</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">colnames</span>(biol1), </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">rownames</span>(rasgos1)))       <span class="co"># Verifica la alineación especie a especie</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">rownames</span>(rasgos1)))       <span class="co"># Verificar la alineación especie a especie</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla resumida</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rasgos1, <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
@@ -751,14 +759,14 @@ Nota
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)          <span class="co"># Confirma las dimensiones (42 sitios x 87 especies)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)          <span class="co"># Confirmar las dimensiones (42 sitios x 87 especies)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42 87</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(zonas<span class="sc">$</span>Zona)   <span class="co"># Confirma el número de sitios por zona</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(zonas<span class="sc">$</span>Zona)   <span class="co"># Confirmar el número de sitios por zona</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -846,7 +854,7 @@ Nota
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">rownames</span>(coord), <span class="fu">rownames</span>(biol1)))   <span class="co"># Verifica la alineación sitio a sitio</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">rownames</span>(coord), <span class="fu">rownames</span>(biol1)))   <span class="co"># Verificar la alineación sitio a sitio</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1118,8 +1126,8 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 </div>
 <p>El enfoque A1 describe la <strong>estructura funcional de cada unidad de muestreo</strong> mediante índices clásicos, descritos por <span class="citation" data-cites="villeger2008new">Villéger et al. (<a href="Taller2_Diversidad_Funcional1.html#ref-villeger2008new" role="doc-biblioref">2008</a>)</span>. Se utiliza la matriz de distancia de Gower ya construida para mantener el mismo espacio funcional durante todo el taller.</p>
-<section id="estructura-funcional-con-dbfd" class="level2">
-<h2 class="anchored" data-anchor-id="estructura-funcional-con-dbfd">Estructura funcional con <code>dbFD()</code></h2>
+<section id="a.-estructura-funcional-con-dbfd" class="level3">
+<h3 class="anchored" data-anchor-id="a.-estructura-funcional-con-dbfd">a. Estructura funcional con <code>dbFD()</code></h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1130,6 +1138,7 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 </div>
 <p>El comando <code>dbFD()</code> implementa, entre otros, los índices <strong>FRic, FEve</strong> y <strong>FDiv</strong> además de <strong>FDis</strong> y <strong>RaoQ</strong> <span class="citation" data-cites="villeger2008new">(<a href="Taller2_Diversidad_Funcional1.html#ref-villeger2008new" role="doc-biblioref">Villéger et al., 2008</a>)</span>.</p>
+</section>
 <section id="ejecutar-dbfd" class="level3">
 <h3 class="anchored" data-anchor-id="ejecutar-dbfd">Ejecutar <code>dbFD()</code></h3>
 <div class="cell">
@@ -1171,8 +1180,8 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 </div>
 </section>
-<section id="índices-de-diversidad-funcional-por-sitio" class="level3">
-<h3 class="anchored" data-anchor-id="índices-de-diversidad-funcional-por-sitio">Índices de diversidad funcional por sitio</h3>
+<section id="b.-índices-de-diversidad-funcional-por-sitio" class="level3">
+<h3 class="anchored" data-anchor-id="b.-índices-de-diversidad-funcional-por-sitio">b. Índices de diversidad funcional por sitio</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -1310,8 +1319,8 @@ Figura&nbsp;2: Agrupamiento no jerárquico (k-medias, k = 3) de las especies en 
 </div>
 </div>
 </section>
-<section id="índices-de-diversidad-funcional-por-zona" class="level3">
-<h3 class="anchored" data-anchor-id="índices-de-diversidad-funcional-por-zona">Índices de diversidad funcional por zona</h3>
+<section id="c.-índices-de-diversidad-funcional-por-zona" class="level3">
+<h3 class="anchored" data-anchor-id="c.-índices-de-diversidad-funcional-por-zona">c.&nbsp;Índices de diversidad funcional por zona</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -1451,8 +1460,8 @@ Figura&nbsp;1.1: Índices clásicos de diversidad funcional por zona. Los puntos
 </div>
 </div>
 </section>
-<section id="calidad-del-espacio-funcional" class="level3">
-<h3 class="anchored" data-anchor-id="calidad-del-espacio-funcional">Calidad del espacio funcional</h3>
+<section id="d.-calidad-del-espacio-funcional" class="level3">
+<h3 class="anchored" data-anchor-id="d.-calidad-del-espacio-funcional">d.&nbsp;Calidad del espacio funcional</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -1476,8 +1485,8 @@ Figura&nbsp;1.1: Índices clásicos de diversidad funcional por zona. Los puntos
 </div>
 </div>
 </section>
-<section id="mapa-espacial-de-los-índices-funcionales-por-sitio" class="level3">
-<h3 class="anchored" data-anchor-id="mapa-espacial-de-los-índices-funcionales-por-sitio">Mapa espacial de los índices funcionales por sitio</h3>
+<section id="e.-mapa-espacial-de-los-índices-funcionales-por-sitio" class="level3">
+<h3 class="anchored" data-anchor-id="e.-mapa-espacial-de-los-índices-funcionales-por-sitio">e. Mapa espacial de los índices funcionales por sitio</h3>
 <p>Para realizar este mapeo se requiere contar con varios sitios de muestreo y tener información de sus coordenadas o ubicación. Para este caso es interesante, porque permite evaluar la fluctuación desde la la cabecera del río (circulos a la izquierda de las figuras), hasta la desembocadura (circulos a la derecha - <a href="#fig-mapa-a1" class="quarto-xref">Figura&nbsp;<span>1.2</span></a>). Se reutiliza aquí con <code>coord</code>, el objeto que ya se construyó en el Taller 1.</p>
 <div class="cell">
 <details class="code-fold">
@@ -1558,8 +1567,8 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 </div>
 </div>
 </section>
-<section id="espacio-funcional-por-zona-vs.-por-clúster" class="level3">
-<h3 class="anchored" data-anchor-id="espacio-funcional-por-zona-vs.-por-clúster">Espacio funcional por zona (vs.&nbsp;por clúster)</h3>
+<section id="f.-espacio-funcional-por-zona-vs.-por-clúster" class="level3">
+<h3 class="anchored" data-anchor-id="f.-espacio-funcional-por-zona-vs.-por-clúster">f.&nbsp;Espacio funcional por zona (vs.&nbsp;por clúster)</h3>
 <p>Los índices de A1 <em>resumen</em> un espacio funcional multidimensional. Antes de seguir a A2, conviene <strong>verlo directamente</strong>: cada especie es un punto en el plano PCoA ya calculado (<code>pcoa_fd</code>), y la envolvente convexa de una zona sobre esos dos ejes es una representación visual simplificada de su espacio funcional — no el cálculo exacto que usa <code>dbFD()</code> internamente (ver advertencia abajo).</p>
 <div class="cell">
 <details class="code-fold">
@@ -1588,7 +1597,7 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 <span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">chull</span>(PCoA1, PCoA2))     <span class="co"># Conserva solo los puntos del borde convexo</span></span>
 <span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>hulls_zona <span class="sc">%&gt;%</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hulls_zona) <span class="sc">%&gt;%</span></span>
 <span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1661,87 +1670,6 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
    <td style="text-align:left;"> Msp. </td>
    <td style="text-align:left;"> 2 </td>
   </tr>
-  <tr>
-   <td style="text-align:left;"> P </td>
-   <td style="text-align:left;"> Lepomis macrochirus </td>
-   <td style="text-align:right;"> 81 </td>
-   <td style="text-align:right;"> -0.04 </td>
-   <td style="text-align:right;"> -0.13 </td>
-   <td style="text-align:left;"> Lpmm </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> P </td>
-   <td style="text-align:left;"> Oreochromis aureus </td>
-   <td style="text-align:right;"> 130 </td>
-   <td style="text-align:right;"> -0.27 </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:left;"> Orca </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> P </td>
-   <td style="text-align:left;"> Cyprinella lutrensis </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> -0.33 </td>
-   <td style="text-align:right;"> 0.26 </td>
-   <td style="text-align:left;"> Cypl </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> P </td>
-   <td style="text-align:left;"> Centropomus undecimalis </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> -0.01 </td>
-   <td style="text-align:left;"> Cntu </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RM </td>
-   <td style="text-align:left;"> Scomberomorus regalis </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.26 </td>
-   <td style="text-align:right;"> -0.02 </td>
-   <td style="text-align:left;"> Scmr </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RM </td>
-   <td style="text-align:left;"> Mycteroperca bonaci </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.11 </td>
-   <td style="text-align:right;"> -0.09 </td>
-   <td style="text-align:left;"> Mycb </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RM </td>
-   <td style="text-align:left;"> Brevoortia gunteri </td>
-   <td style="text-align:right;"> 9 </td>
-   <td style="text-align:right;"> -0.19 </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:left;"> Brvg </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RM </td>
-   <td style="text-align:left;"> Pogonias cromis </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:right;"> 0.19 </td>
-   <td style="text-align:left;"> Pgnc </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RM </td>
-   <td style="text-align:left;"> Anguilla rostrata </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> 0.59 </td>
-   <td style="text-align:left;"> Angr </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
 </tbody>
 </table>
 
@@ -1764,8 +1692,8 @@ Figura&nbsp;1.2: Distribución espacial de los índices clásicos de diversidad 
 </div>
 </div>
 </section>
-<section id="espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026" class="level3">
-<h3 class="anchored" data-anchor-id="espacio-total-vs.-ocupado-por-zona-estilo-tette-pomárico-et-al.-2026">Espacio total vs.&nbsp;ocupado, por zona (estilo Tette-Pomárico et al., 2026)</h3>
+<section id="g.-espacio-total-vs.-ocupado-por-zona-tomado-de-tette-pomárico-et-al.-2026" class="level3">
+<h3 class="anchored" data-anchor-id="g.-espacio-total-vs.-ocupado-por-zona-tomado-de-tette-pomárico-et-al.-2026">g. Espacio total vs.&nbsp;ocupado, por zona (tomado de: Tette-Pomárico et al., 2026)</h3>
 <p>Las siguientes figuras, ilustran lo que reporta <span class="citation" data-cites="tette2026beyond">Tette-Pomárico et al. (<a href="Taller2_Diversidad_Funcional1.html#ref-tette2026beyond" role="doc-biblioref">2026</a>)</span> (Gower + espacio reducido + envolvente convexa) con datos de <a href="https://www.sciencedirect.com/science/article/pii/S0141113626001261">zooplancton marino-costero de Santa Marta</a>, separando el <strong>espacio funcional total</strong> del espacio <strong>realmente ocupado</strong> por cada grupo, con el tamaño de los puntos proporcional a su abundancia. Esa variante se reproduce aquí con las tres zonas en vez de disturbio × estación.</p>
 <div class="cell">
 <details class="code-fold">
@@ -1844,14 +1772,14 @@ Figura&nbsp;1.3: Espacio funcional total (gris, de fondo; PCoA1–PCoA2) frente 
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>El gris de fondo es el techo funcional máximo del conjunto de datos; cuánto de ese gris se cubre de color en cada panel indica qué fracción del espacio disponible ocupa esa zona. El tamaño de los circulos (abundancia) añade una tercera lectura: una zona puede ocupar poco espacio con especies muy abundantes, o mucho espacio con especies raras.</p>
-<p>Un espacio más grande no implica “más” especies, sino especies más <strong>dispersas</strong> en el espacio de rasgos. Si <code>RM</code> se ve grande con solo 2 sitios, es la misma advertencia que se confirma numéricamente en B1/B2: puede parecer más diversa porque sus pocas muestras capturaron especies muy distintas entre sí.</p>
+<p>Un espacio más grande no implica “más” especies, sino especies más <strong>dispersas</strong> en el espacio de rasgos. Si <code>RM</code> se ve grande con solo 2 sitios, es la misma advertencia que se Confirmar numéricamente en B1/B2: puede parecer más diversa porque sus pocas muestras capturaron especies muy distintas entre sí.</p>
 <p><strong>Patrón encontrado:</strong> el espacio de <code>M</code> queda anidado dentro del de <code>P</code>, mientras <code>RM</code> ocupa una región que ninguna otra zona alcanza. Bajo el marco de <span class="citation" data-cites="boersma2016linking">Boersma et al. (<a href="Taller2_Diversidad_Funcional1.html#ref-boersma2016linking" role="doc-biblioref">2016</a>)</span>, esto es compatible con <strong>recambio funcional</strong> (el centroide de <code>RM</code> cae fuera del espacio de <code>M</code>) y <strong>divergencia funcional</strong> (rangos de espacio claramente distintos). <span class="citation" data-cites="mouillot2013functional">Mouillot et al. (<a href="Taller2_Diversidad_Funcional1.html#ref-mouillot2013functional" role="doc-biblioref">2013</a>)</span>, describen este solapamiento parcial entre superficies convexas como la forma más directa de visualizar erosión o expansión de riqueza funcional entre ensamblajes: aquí, el bajo solapamiento <code>M</code>–<code>RM</code> sugiere que la desembocadura aporta estrategias funcionales propias, no solo un subconjunto de <code>M</code>, hipótesis que debe leerse junto con la advertencia de esfuerzo de muestreo (sección B1/B2). Recordar que esta lectura es sobre el espacio proyectado en dos ejes, no el FRic multidimensional exacto de <code>dbFD()</code>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="rasgo-dominante-en-cada-zona-community-weighted-means-cwm" class="level3">
-<h3 class="anchored" data-anchor-id="rasgo-dominante-en-cada-zona-community-weighted-means-cwm">Rasgo dominante en cada zona: Community Weighted Means (CWM)</h3>
+<section id="h.-rasgo-dominante-en-cada-zona-community-weighted-means-cwm" class="level3">
+<h3 class="anchored" data-anchor-id="h.-rasgo-dominante-en-cada-zona-community-weighted-means-cwm">h. Rasgo dominante en cada zona: Community Weighted Means (CWM)</h3>
 <p>Los índices anteriores describen <em>cuánta</em> diversidad funcional hay en cada sitio. El CWM responde una pregunta distinta: dado un rasgo, <strong>¿cuál es su valor promedio en la comunidad, ponderado por la abundancia de cada especie?</strong> No es una medida de diversidad — es una medida de composición funcional dominante <span class="citation" data-cites="lavorel2008assessing">(<a href="Taller2_Diversidad_Funcional1.html#ref-lavorel2008assessing" role="doc-biblioref">Lavorel et al., 2008</a>)</span>.</p>
 <p><span class="math display">\[\text{CWM}_{rasgo} = \sum_{i=1}^{S} p_i \cdot rasgo_i\]</span></p>
 <p>donde <span class="math inline">\(p_i\)</span> es la abundancia relativa de la especie <span class="math inline">\(i\)</span> en el sitio.</p>
@@ -2053,7 +1981,6 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <div style="page-break-after: always;"></div>
 </section>
 </section>
-</section>
 <section id="a2.-entropía-cuadrática-de-rao-y-partición-αβγ" class="level1">
 <h1>A2. Entropía cuadrática de Rao y partición α–β–γ</h1>
 <div class="cell" data-layout-align="center">
@@ -2081,8 +2008,8 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <p><span class="math display">\[\gamma = \overline{\alpha} + \beta_{add}\]</span></p>
 <p>y</p>
 <p><span class="math display">\[\gamma = \overline{\alpha} \times \beta_{mult}\]</span> donde, <span class="math inline">\(\gamma\)</span> es la diversidad funcional total del conjunto de zonas (regional), <span class="math inline">\(\overline{\alpha}\)</span> es la diversidad funcional promedio dentro de cada zona (alfa media), <span class="math inline">\(\beta_{add}\)</span> es la diferenciación funcional entre zonas expresada como diferencia o el remanente de diversidad regional que no está contenido en la alfa media (<span class="math inline">\(\beta_{add} = \gamma - \overline{\alpha}\)</span>). <span class="math inline">\(\beta_{mult}\)</span> es esa misma diferenciación expresada como razón, es decir, cuántas veces la diversidad regional excede a la alfa media (<span class="math inline">\(\beta_{mult} = \gamma / \overline{\alpha}\)</span>).</p>
-<section id="diversidad-funcional-de-zonas" class="level3">
-<h3 class="anchored" data-anchor-id="diversidad-funcional-de-zonas">Diversidad funcional de zonas</h3>
+<section id="a.-diversidad-funcional-de-zonas" class="level3">
+<h3 class="anchored" data-anchor-id="a.-diversidad-funcional-de-zonas">a. Diversidad funcional de zonas</h3>
 <p>Para este ejercicio, la unidad de comparación es la zona. Se suman las abundancias de los sitios pertenecientes a cada zona.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2100,7 +2027,7 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()                          <span class="co"># Convierte a data.frame (formato que exige Rao())</span></span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Especies (filas) × zonas (columnas)</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol_zona)     <span class="co"># Confirma las dimensiones (87 especies x 3 zonas)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol_zona)     <span class="co"># Confirmar las dimensiones (87 especies x 3 zonas)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87  3</code></pre>
@@ -2167,9 +2094,8 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
-</section>
-<section id="ejecutar-rao" class="level3">
-<h3 class="anchored" data-anchor-id="ejecutar-rao">Ejecutar <code>Rao()</code></h3>
+<section id="a.1-ejecutar-rao" class="level4">
+<h4 class="anchored" data-anchor-id="a.1-ejecutar-rao">a.1 Ejecutar <code>Rao()</code></h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -2187,8 +2113,8 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 </details>
 </div>
 </section>
-<section id="diversidad-funcional-multiescalar-α-β-y-γ" class="level3">
-<h3 class="anchored" data-anchor-id="diversidad-funcional-multiescalar-α-β-y-γ">Diversidad funcional multiescalar: α, β y γ</h3>
+<section id="a.2-diversidad-funcional-multiescalar-α-β-y-γ" class="level4">
+<h4 class="anchored" data-anchor-id="a.2-diversidad-funcional-multiescalar-α-β-y-γ">a.2 Diversidad funcional multiescalar: α, β y γ</h4>
 <p>En lugar de dejar las salidas de <code>Rao()</code> como objetos aislados, se organizan los componentes principales en tablas para facilitar su lectura ecológica.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2396,8 +2322,8 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 </div>
 </div>
 </section>
-<section id="comparación-rápida-entre-td-y-fd" class="level3">
-<h3 class="anchored" data-anchor-id="comparación-rápida-entre-td-y-fd">Comparación rápida entre TD y FD</h3>
+<section id="a.3-comparación-rápida-entre-td-y-fd" class="level4">
+<h4 class="anchored" data-anchor-id="a.3-comparación-rápida-entre-td-y-fd">a.3 Comparación rápida entre TD y FD</h4>
 <p><code>Rao()</code> puede calcular simultáneamente la diversidad taxonómica (TD) asociada a una distancia de identidad y la diversidad funcional cuando se proporciona <code>dfunc</code>.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2464,6 +2390,7 @@ Figura&nbsp;1.4: Media Ponderada de la Comunidad- CWM de nivel trófico por zona
 <p>Si la zona con mayor diversidad taxonómica no coincide con la de mayor diversidad funcional, se debe discutir qué puede estar indicando esa diferencia sobre la <strong>redundancia funcional</strong> y la composición de rasgos.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd" class="level3">
 <h3 class="anchored" data-anchor-id="mapa-espacial-de-la-diversidad-alfa-por-sitio-td-y-fd">Mapa espacial de la diversidad alfa por sitio (TD y FD)</h3>
@@ -2982,16 +2909,16 @@ Figura&nbsp;3.2: Curvas de rarefacción/extrapolación de diversidad funcional a
 <summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>biol.dist.beta <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(rasgos.d)   <span class="co"># Convierte la distancia de Gower en matriz cuadrada</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(biol.dist.beta))             <span class="co"># Verifica que sea una matriz</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isSymmetric</span>(biol.dist.beta))           <span class="co"># Verifica la simetría de las distancias</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(biol.dist.beta))             <span class="co"># Verificar que sea una matriz</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">isSymmetric</span>(biol.dist.beta))           <span class="co"># Verificar la simetría de las distancias</span></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">rownames</span>(biol.dist.beta), </span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">colnames</span>(biol.dist.beta)))   <span class="co"># Verifica coherencia de nombres</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">colnames</span>(biol.dist.beta)))   <span class="co"># Verificar coherencia de nombres</span></span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(</span>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">all</span>(</span>
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_lgl</span>(</span>
 <span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>      biol_FD_beta,</span>
 <span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>      \(m) <span class="fu">identical</span>(<span class="fu">rownames</span>(m), </span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">rownames</span>(biol.dist.beta))   <span class="co"># Verifica que cada par comparta el mismo orden de especies</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">rownames</span>(biol.dist.beta))   <span class="co"># Verificar que cada par comparta el mismo orden de especies</span></span>
 <span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -3165,7 +3092,7 @@ Figura&nbsp;4.1: Curvas de rarefacción/extrapolación por cobertura para la div
 </div>
 </div>
 <p>La función <code>ggiNEXTbeta3D()</code> utiliza <code>type = "B"</code> para representar las curvas de gamma, alfa y beta bajo estandarización por cobertura. También permite <code>type = "D"</code> para los cuatro índices de disimilitud <span class="citation" data-cites="chao2023rarefaction">(<a href="Taller2_Diversidad_Funcional1.html#ref-chao2023rarefaction" role="doc-biblioref"><span class="nocase">Chao et al.</span>, 2023</a>)</span>.</p>
-<p><strong>La estandarización por cobertura</strong> confirma el patrón encontrado con Rao, pero con un matiz importante: en q = 0 (que pesa por igual todas las especies, incluidas las raras), la d.&nbsp;beta de M_vs_RM parte muy alta a coberturas bajas (~1.9) pero cae abruptamente y converge con las demás comparaciones cerca de cobertura = 1.0, mientras que P_vs_RM se mantiene relativamente alta y M_vs_P permanece baja durante todo el rango — es decir, buena parte de la enorme diferenciación observada en q = 0 para M_vs_RM depende de qué tan completo esté el muestreo, justo la sospecha que quedó pendiente al ver que RM tiene la cobertura y el tamaño de muestra más bajos.</p>
+<p><strong>La estandarización por cobertura</strong> Confirmar el patrón encontrado con Rao, pero con un matiz importante: en q = 0 (que pesa por igual todas las especies, incluidas las raras), la d.&nbsp;beta de M_vs_RM parte muy alta a coberturas bajas (~1.9) pero cae abruptamente y converge con las demás comparaciones cerca de cobertura = 1.0, mientras que P_vs_RM se mantiene relativamente alta y M_vs_P permanece baja durante todo el rango — es decir, buena parte de la enorme diferenciación observada en q = 0 para M_vs_RM depende de qué tan completo esté el muestreo, justo la sospecha que quedó pendiente al ver que RM tiene la cobertura y el tamaño de muestra más bajos.</p>
 <p>Sin embargo, en q = 1 y q = 2 (que dan más peso a las especies dominantes) el orden se mantiene estable y prácticamente plano en todo el rango de cobertura: M_vs_RM siempre por encima de P_vs_RM, y ambas muy por encima de M_vs_P. Esto separa dos conclusiones distintas: la diferenciación funcional entre M/P y RM basada en la composición dominante (q = 1, q = 2) es un patrón robusto y no un artefacto de muestreo, mientras que la magnitud extrema encontrada antes en q = 0 (equivalente a la beta no estandarizada de Rao) sí estaba inflada por la incompletitud del muestreo en RM.</p>
 <hr>
 </section>
@@ -3944,13 +3871,13 @@ framework in functional ecology. <em>Ecology</em>, <em>89</em>(8),
 </div>
 </div>
 <section id="guía-de-estudio" class="level3">
-<h3 class="anchored" data-anchor-id="guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="74"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/Guía%20de%20Estudio_%20Marco%20A1-A2-B1-B2.pdf">Guía de estudio</a></h3>
+<h3 class="anchored" data-anchor-id="guía-de-estudio"><img src="images/clipboard-2446997246.png" class="img-fluid" width="73"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/Guía%20de%20Estudio_%20Marco%20A1-A2-B1-B2.pdf">Guía de estudio</a></h3>
 </section>
 <section id="mapa-mental-fd" class="level3">
-<h3 class="anchored" data-anchor-id="mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="67"> <a href="https://notebook.google.com/notebook/50d90e03-6753-4cea-ad26-bbdabef77b64/artifact/e85065aa-4c01-4203-bbea-2774de64862d?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_">Mapa Mental FD</a></h3>
+<h3 class="anchored" data-anchor-id="mapa-mental-fd"><img src="images/clipboard-2126948035.png" class="img-fluid" width="69"> <a href="https://notebook.google.com/notebook/50d90e03-6753-4cea-ad26-bbdabef77b64/artifact/e85065aa-4c01-4203-bbea-2774de64862d?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_">Mapa Mental FD</a></h3>
 </section>
 <section id="flashcards" class="level3">
-<h3 class="anchored" data-anchor-id="flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="69"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/flashcards.html">Flashcards</a></h3>
+<h3 class="anchored" data-anchor-id="flashcards"><img src="images/clipboard-4123201659.png" class="img-fluid" width="71"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/flashcards.html">Flashcards</a></h3>
 </section>
 <section id="quiz-de-entrenamiento" class="level3">
 <h3 class="anchored" data-anchor-id="quiz-de-entrenamiento"><img src="images/clipboard-2408561300.png" class="img-fluid" width="67"><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/nblm/quiz.html">Quiz de entrenamiento</a></h3>
