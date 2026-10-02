@@ -2,124 +2,156 @@
    Estilos - Repositorio de Ecología 1
    Programa de Biología - Universidad del Magdalena
    ==========================================================================
-   Paleta central del repositorio. Los .qmd ya NO deben usar
-   <b style='color:#xxxxxx;'>...</b> ni <n style='color:#xxxxxx;'>...</n>.
+   Paleta sobria de tres colores:
+     - Primario (azul pizarra): títulos de capítulo y módulo.
+     - Acento (verde azulado):  subtemas, pasos y enlaces.
+     - Neutro (gris):           etiquetas, créditos, notas y texto secundario.
+
+   Los .qmd NO deben usar <b style='color:#xxxxxx;'> ni <n style='color:...'>.
    En su lugar:
-     - Para encabezados:  ## Mi titulo {.titulo-tema}
-     - Para texto en linea: <span class="etiqueta-periodo">(2025-I)</span>
+     - Encabezados:     ## Mi título {.titulo-tema}
+     - Texto en línea:  <span class="etiqueta-periodo">(2025-I)</span>
+
+   Para cambiar el aspecto de todo el repositorio basta con editar las
+   variables de :root; las clases no necesitan cambios.
    ========================================================================== */
 
 :root {
-  --color-azul:          #1f78b4; /* Titulos principales y creditos de imagen */
-  --color-naranja:       #d95f02; /* Subtemas dentro de un modulo */
-  --color-salmon:        #fc8d62; /* Etiqueta de periodo academico, ej. (2025-I) */
-  --color-morado:        #c994c7; /* Subsecciones de procedimiento, ej. 2.1, 2.2 */
-  --color-verde:         #2ca25f; /* Etiquetas de teoria */
-  --color-rojo:          #e41a1c; /* Encabezados de semana (Contenido) */
-  --color-rojo-claro:    #ff5656; /* Subtitulos de clase (Contenido) */
-  --color-naranja-claro: #fe8141; /* Sub-subtitulos a., b., c. (Contenido) */
+  /* Paleta base */
+  --color-primario: #1f3b57;  /* Azul pizarra */
+  --color-acento:   #2b7a78;  /* Verde azulado sobrio */
+  --color-neutro:   #5b6670;  /* Gris */
+
+  /* Derivados (tonos de apoyo, no cuentan como colores nuevos) */
+  --color-texto:       #2b2f33;
+  --color-fondo-suave: #f1f4f7;
+  --color-borde:       #d9dee4;
 }
 
-/* -------------------- Encabezados generales del documento -------------------- */
-h1 { color: #1a3552; text-align: left; }
-h2 { color: #d83838; text-align: left; }
-h3 { color: #018571; text-align: left; }
-h4 { color: #a6611a; text-align: left; }
-h5 { color: #fd8d3c; text-align: left; }
+/* -------------------- Encabezados generales -------------------- */
+h1, h2 { color: var(--color-primario); text-align: left; }
+h3     { color: var(--color-acento);   text-align: left; }
+h4, h5 { color: var(--color-neutro);   text-align: left; }
 
-/* -------------------- Listas -------------------- */
-ul {
-  color: #4CAF50;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+/* -------------------- Texto y listas -------------------- */
+/* Las listas heredan el color y la fuente del documento
+   (antes: verde Arial en <ul> y azul Verdana en <ol>). */
+body {
+  color: var(--color-texto);
 }
-ul li { margin-bottom: 5px; }
 
-ol {
-  color: #0571b0;
-  font-family: 'Verdana', sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
+ul, ol {
+  color: inherit;
+  line-height: 1.7;
 }
-ol li { margin-bottom: 8px; }
+ul li { margin-bottom: 4px; }
+ol li { margin-bottom: 6px; }
 
-/* -------------------- Texto justificado -------------------- */
+/* Texto justificado */
 body, p, .justified-text {
   text-align: justify;
 }
 
+/* -------------------- Enlaces del contenido -------------------- */
+main.content a {
+  color: var(--color-acento);
+  text-decoration-color: rgba(43, 122, 120, 0.35);
+  text-underline-offset: 2px;
+}
+main.content a:hover {
+  color: var(--color-primario);
+  text-decoration-color: currentColor;
+}
+
+/* -------------------- Índice lateral (TOC) -------------------- */
+#TOC .nav-link {
+  color: var(--color-neutro);
+}
+#TOC .nav-link.active,
+#TOC .nav-link:hover {
+  color: var(--color-primario);
+}
+
 /* ==========================================================================
-   Clases reutilizables (reemplazan los estilos en linea repetidos)
+   Clases reutilizables (los nombres se conservan; solo cambia el color)
    ========================================================================== */
 
-/* Titulo de capitulo/modulo. Antes: <b style='color:#1f78b4;'>...</b> */
+/* Título de capítulo o módulo */
 .titulo-capitulo,
 .titulo-modulo {
-  color: var(--color-azul);
-  font-weight: bold;
+  color: var(--color-primario);
+  font-weight: 700;
 }
 
-/* Credito de imagen ("Imagen tomada de..."). Antes: <n style='color:#1f78b4;'> */
-.credito-imagen {
-  color: var(--color-azul);
-  font-size: 0.9em;
-}
-
-/* Subtema dentro de un modulo. Antes: <b style='color:#d95f02;'>...</b> */
+/* Subtema dentro de un módulo */
 .titulo-tema {
-  color: var(--color-naranja);
-  font-weight: bold;
+  color: var(--color-acento);
+  font-weight: 600;
 }
 
-/* Etiqueta de periodo academico, ej. (2025-I). Antes: <n style='color:#fc8d62;'> */
-.etiqueta-periodo {
-  color: var(--color-salmon);
-  font-style: italic;
-}
-
-/* Subseccion de procedimiento, ej. "2.1 Hidrologicos". Antes: <b style='color:#c994c7;'> */
+/* Subsección de procedimiento, ej. "2.1 Hidrológicos" */
 .subseccion {
-  color: var(--color-morado);
-  font-weight: bold;
+  color: var(--color-neutro);
+  font-weight: 600;
 }
 
-/* "Paso X" de un procedimiento y terminos clave resaltados. Antes: <b style='color:#fc8d62;'> */
+/* Etiqueta de periodo académico, ej. (2025-I): rótulo discreto */
+.etiqueta-periodo {
+  display: inline-block;
+  color: var(--color-neutro);
+  background-color: var(--color-fondo-suave);
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  padding: 0.05em 0.55em;
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* "Paso X" de un procedimiento y términos clave resaltados */
 .paso-taller {
-  color: var(--color-salmon);
-  font-weight: bold;
+  color: var(--color-acento);
+  font-weight: 700;
 }
 
-/* Etiqueta de teoria. Antes: <n style='color:#2ca25f;'> */
+/* Etiqueta de teoría */
 .etiqueta-teoria {
-  color: var(--color-verde);
-  font-weight: bold;
+  color: var(--color-acento);
+  font-weight: 600;
 }
 
-/* Encabezado de semana en Contenido. Antes: <b style='color:#e41a1c;'> */
-.titulo-semana {
-  color: var(--color-rojo);
-  font-weight: bold;
-}
-
-/* Subtitulo de clase en Contenido. Antes: <b style='color:#ff5656;'> */
-.subtitulo-clase {
-  color: var(--color-rojo-claro);
-  font-weight: bold;
-}
-
-/* Sub-subtitulo (a., b., c. ...) en Contenido. Antes: <b style='color:#fe8141;'> */
-.subtitulo-material {
-  color: var(--color-naranja-claro);
-  font-weight: bold;
+/* Crédito de imagen ("Imagen tomada de...") */
+.credito-imagen {
+  color: var(--color-neutro);
+  font-size: 0.9em;
 }
 
 /* Nota para el estudiante */
 .nota-docente {
+  display: block;
+  color: var(--color-neutro);
   font-style: italic;
+  border-left: 3px solid var(--color-borde);
+  padding-left: 0.8em;
 }
 
+/* -------------------- Contenido de clases (Semana / clase / material) -------------------- */
+.titulo-semana {
+  color: var(--color-primario);
+  font-weight: 700;
+}
+
+.subtitulo-clase {
+  color: var(--color-acento);
+  font-weight: 600;
+}
+
+.subtitulo-material {
+  color: var(--color-neutro);
+  font-weight: 600;
+}
+
+/* -------------------- Portada -------------------- */
 .quarto-cover-image {
-  max-width: 450px !important;   /* ajusta este valor a tu gusto */
+  max-width: 450px !important;
 }
-
