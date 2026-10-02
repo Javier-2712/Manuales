@@ -1246,8 +1246,8 @@ Tabla&nbsp;6: Estimadores de estructura de estados a partir de la tabla de vida
 </div>
 <ul>
 <li><strong>Fecundidades.</strong> Los valores post-reproductivos alcanzan su máximo en C4 (31,50), lo que señala que los pocos individuos que llegan a ese estado tienen una altísima contribución reproductiva. En C5 la fecundidad que entra a la matriz es cero, porque ningún individuo avanza a una clase siguiente.</li>
-<li><strong>Distribución estable (<span class="math inline">c_x</span>).</strong> Cuando la población se estabiliza, 93 % de los individuos estaría en C1 y 6 % en C2; las clases superiores retienen una fracción marginal. Es una estructura piramidal: muchos individuos pequeños y pocos adultos grandes.</li>
-<li><strong>Valor reproductivo (<span class="math inline">v_x</span>).</strong> Aumenta con la cobertura y es máximo en C5 (13,61 veces el de C1). Aunque la población está dominada por individuos pequeños, el potencial reproductivo se concentra en los menos numerosos, que alcanzan las mayores coberturas.</li>
+<li><strong>Distribución estable (</strong><span class="math inline">c_x</span>). Cuando la población se estabiliza, 93 % de los individuos estaría en C1 y 6 % en C2; las clases superiores retienen una fracción marginal. Es una estructura piramidal: muchos individuos pequeños y pocos adultos grandes.</li>
+<li><strong>Valor reproductivo (</strong><span class="math inline">v_x</span>). Aumenta con la cobertura y es máximo en C5 (13,61 veces el de C1). Aunque la población está dominada por individuos pequeños, el potencial reproductivo se concentra en los menos numerosos, que alcanzan las mayores coberturas.</li>
 </ul>
 </section>
 <section id="paso-6.-matrices-por-estados-pre-y-post-reproductivas" class="level3 titulo-tema">
@@ -1589,8 +1589,8 @@ Estado_1 Estado_2 Estado_3 Estado_4 Estado_5
 <ul>
 <li><strong>Crecimiento.</strong> Se observa un crecimiento exponencial sostenido en todos los estados; en escala logarítmica las trayectorias se vuelven paralelas a partir de los primeros pasos, señal de que la población converge rápidamente a su distribución estable.</li>
 <li><strong>Tasa finita:</strong> <span class="math inline">\lambda \approx</span> 5,13; la población se multiplica por 5,13 en cada intervalo de cobertura (aumento de 413 %), con <span class="math inline">r \approx</span> 1,636 y <span class="math inline">t_{dup} \approx</span> 0,42 intervalos.</li>
-<li><strong>Distribución estable (<span class="math inline">c_x</span>):</strong> fuertemente dominada por el Estado 1 (93,9 %), seguido del Estado 2 (5,8 %); los estados 3 a 5 tienen proporciones cercanas a cero.</li>
-<li><strong>Valor reproductivo (<span class="math inline">v_x</span>):</strong> aumenta hasta el Estado 4 (6,14 veces el del Estado 1) y es cero en el Estado 5. Como en el Taller 6, en el censo post-reproductivo el valor reproductivo de un estado se “descuenta” por la supervivencia necesaria para volver a reproducirse, y los individuos de C5 no avanzan a otra clase.</li>
+<li><strong>Distribución estable (</strong><span class="math inline">c_x</span>): fuertemente dominada por el Estado 1 (93,9 %), seguido del Estado 2 (5,8 %); los estados 3 a 5 tienen proporciones cercanas a cero.</li>
+<li><strong>Valor reproductivo (</strong><span class="math inline">v_x</span>): aumenta hasta el Estado 4 (6,14 veces el del Estado 1) y es cero en el Estado 5. Como en el Taller 6, en el censo post-reproductivo el valor reproductivo de un estado se “descuenta” por la supervivencia necesaria para volver a reproducirse, y los individuos de C5 no avanzan a otra clase.</li>
 </ul>
 <p>En síntesis: muchos individuos pequeños sostienen la <strong>estructura</strong> de la población, mientras que pocos individuos grandes sostienen el <strong>motor reproductivo</strong> del crecimiento.</p>
 </section>
@@ -1773,7 +1773,7 @@ Tabla&nbsp;11: Tasa finita de crecimiento estimada por los tres procedimientos
 </figure>
 </div>
 </div>
-<p>Igual que en el Taller 6, las matrices pre y post-reproductiva producen el <strong>mismo <span class="math inline">\lambda</span></strong>, porque están parametrizadas de forma temporalmente coherente. Sin embargo, a diferencia del Taller 6, el <span class="math inline">\lambda</span> de la tabla de vida (4,63) <strong>no coincide</strong> con el de las matrices (5,13).</p>
+<p>Igual que en el Taller 6, las matrices pre y post-reproductiva producen el <strong>mismo</strong> <span class="math inline">\lambda</span>, porque están parametrizadas de forma temporalmente coherente. Sin embargo, a diferencia del Taller 6, el <span class="math inline">\lambda</span> de la tabla de vida (4,63) <strong>no coincide</strong> con el de las matrices (5,13).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2008,7 +2008,7 @@ Tabla&nbsp;13: Efecto de los escenarios de manejo sobre lambda (L_post)
 <ol type="1">
 <li><strong>Sin transiciones observadas.</strong> Una matriz por estados debería describir cómo cambian los individuos de estado entre dos censos consecutivos. Con un único censo no es posible cuantificar la <strong>permanencia</strong> (individuos que no crecen) ni los <strong>retrocesos</strong> (individuos que regresan a estados menores por pérdida de biomasa o fragmentación).</li>
 <li><strong>Matriz simplificada.</strong> En sentido estricto, el caso corresponde a una matriz por estados (Lefkovitch), porque las clases no son edades sino categorías de cobertura. Por falta de datos de transición, se usa una estructura simplificada, sin diagonal de permanencia.</li>
-<li><strong><span class="math inline">\lambda</span> y <span class="math inline">r</span> “por intervalo de estado”, no “por año”.</strong> La unidad de proyección es el paso entre clases de cobertura, no un intervalo de tiempo. Para una lectura temporal (por año o por estación) se requieren al menos dos censos y la estimación explícita de las transiciones entre ellos.</li>
+<li><span class="math inline">\lambda</span> y <span class="math inline">r</span> “por intervalo de estado”, no “por año”. La unidad de proyección es el paso entre clases de cobertura, no un intervalo de tiempo. Para una lectura temporal (por año o por estación) se requieren al menos dos censos y la estimación explícita de las transiciones entre ellos.</li>
 <li><strong>Supuestos sobre la fecundidad.</strong> El uso de <span class="math inline">s_0</span> asume que el valor de la literatura es transferible al sitio (suelo, clima, interacciones, régimen de perturbación) y que semillas × <span class="math inline">s_0</span> equivale a reclutas efectivos. Como <span class="math inline">s_0</span> puede variar en órdenes de magnitud entre microhábitats y años, los resultados de <span class="math inline">R_0</span>, <span class="math inline">r</span> y <span class="math inline">\lambda</span> son muy sensibles a este parámetro. Además, la fecundidad solo incluye la reproducción sexual; en parches sometidos a poda frecuente, la regeneración vegetativa (rebrotes basales, fragmentos de tallo, ramas en contacto con el suelo) puede ser una vía importante de reclutamiento que el modelo subestima.</li>
 <li><strong>Tasas constantes.</strong> Toda proyección matricial asume tasas vitales constantes. En poblaciones reales estas cambian por la variación climática, el régimen de disturbio, las interacciones, la limitación de recursos, la denso-dependencia y la heterogeneidad espacial. Por ello, <span class="math inline">c_x</span> debe entenderse como un resultado teórico.</li>
 </ol>
@@ -2030,7 +2030,7 @@ Tabla&nbsp;13: Efecto de los escenarios de manejo sobre lambda (L_post)
 <li><strong>Confundir una Lefkovitch completa con una matriz simplificada.</strong> Sin diagonal de permanencia, el modelo es una versión por estados tipo Leslie, útil con fines pedagógicos pero no equivalente a una Lefkovitch completa.</li>
 <li><strong>Leer los pasos de proyección como años.</strong> Sin censos repetidos, la unidad de proyección es la transición entre estados de cobertura, no un año calendario.</li>
 <li><strong>No diferenciar semillas totales de reclutas esperados.</strong> Usar las semillas sin ajustar por <span class="math inline">s_0</span> infla <span class="math inline">m_x</span>, <span class="math inline">R_0</span>, <span class="math inline">r</span> y <span class="math inline">\lambda</span>.</li>
-<li><strong>Usar <span class="math inline">s_0</span> de la literatura sin calibrarlo</strong> en el sitio evaluado (microhábitat, año climático, intensidad de disturbios), lo que puede sobreestimar <span class="math inline">\lambda</span>.</li>
+<li><strong>Usar</strong> <span class="math inline">s_0</span> de la literatura sin calibrarlo en el sitio evaluado (microhábitat, año climático, intensidad de disturbios), lo que puede sobreestimar <span class="math inline">\lambda</span>.</li>
 <li><strong>Mezclar la lógica pre y post-reproductiva</strong> al calcular las fecundidades, lo que sesga <span class="math inline">\lambda</span>.</li>
 <li><strong>Ignorar la reproducción asexual</strong> (rebrotes, fragmentación), que puede ser importante en ecosistemas sometidos a poda frecuente.</li>
 </ul>

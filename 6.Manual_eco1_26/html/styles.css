@@ -47,9 +47,22 @@ ul, ol {
 ul li { margin-bottom: 4px; }
 ol li { margin-bottom: 6px; }
 
-/* Texto justificado */
-body, p, .justified-text {
+/* Texto justificado: solo en el contenido principal del capítulo.
+   (Antes se aplicaba a todo el <body>, y eso justificaba también el
+   título del libro, la barra lateral y el índice de la derecha.) */
+main.content p,
+main.content li,
+.justified-text {
   text-align: justify;
+}
+
+/* Barra lateral, índice (TOC) y títulos: siempre alineados a la izquierda */
+#quarto-sidebar,
+#quarto-sidebar *,
+#quarto-margin-sidebar,
+#quarto-margin-sidebar *,
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
 }
 
 /* -------------------- Enlaces del contenido -------------------- */
