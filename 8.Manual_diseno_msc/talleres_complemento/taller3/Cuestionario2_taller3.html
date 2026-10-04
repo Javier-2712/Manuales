@@ -8,7 +8,7 @@
 
 <meta name="author" content="Nombre del Estudiante">
 
-<title>Cuestionario de Refuerzo · Regresión Lineal en R</title>
+<title>Cuestionario 2 · Regresión Lineal simple y múltiple</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -65,17 +65,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/popper.min.js"></script>
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Cuestionario_BE2_Regresion_Lineal_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Cuestionario2_taller3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Cuestionario2_taller3_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Cuestionario2_taller3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Cuestionario2_taller3_files/libs/quarto-html/popper.min.js"></script>
+<script src="Cuestionario2_taller3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Cuestionario2_taller3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Cuestionario2_taller3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Cuestionario2_taller3_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Cuestionario2_taller3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Cuestionario2_taller3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Cuestionario2_taller3_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>
 
       .quarto-title-block .quarto-title-banner {
@@ -91,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Cuestionario de Refuerzo · Regresión Lineal en R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Cuestionario 2 · Regresión Lineal simple y múltiple</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
             <p class="subtitle lead">Bioestadística · Semana 2 · 2026-II</p>
                       </div>
   </div>
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">1 de octubre de 2026</p>
+        <p class="date">3 de octubre de 2026</p>
       </div>
     </div>
     
@@ -856,7 +856,7 @@ Nota
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cuestionario de Refuerzo · Regresión Lineal en R"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cuestionario 2 · Regresión Lineal simple y múltiple"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Bioestadística · Semana 2 · 2026-II"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
