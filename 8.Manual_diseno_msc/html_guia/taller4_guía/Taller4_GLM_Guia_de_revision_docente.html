@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taller 4 · GLM — Guía de revisión docente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#152C4A; --sea:#3B7DC4; --mist:#EAF1F8; --line:#D5E3EF;
+  --gold:#C9952F; --teal:#167F73; --rose:#B23A48; --muted:#5E6E83;
+  --bg:#FBFCFE; --card:#FFFFFF; --code:#F1F5FA;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E3ECF7; --sea:#7FB0E8; --mist:#1B2A3D; --line:#2C3E55;
+    --gold:#E2B860; --teal:#5CC6B6; --rose:#F08A97; --muted:#9FB0C4;
+    --bg:#0F1A28; --card:#152234; --code:#1B2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E3ECF7; --sea:#7FB0E8; --mist:#1B2A3D; --line:#2C3E55;
+  --gold:#E2B860; --teal:#5CC6B6; --rose:#F08A97; --muted:#9FB0C4;
+  --bg:#0F1A28; --card:#152234; --code:#1B2A3D;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:1.05rem; line-height:1.6}
+img{max-width:100%}
+a{color:var(--sea)}
+a:focus-visible, summary:focus-visible, input:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+.wrap{max-width:62rem; margin:0 auto; padding:0 1.25rem}
+.prose{max-width:44rem}
+code{font-family:var(--mono); font-size:.86em; background:var(--code); padding:.08em .35em; border-radius:4px}
+
+/* Encabezado */
+header.hero{background:var(--ink); color:#fff; padding:3rem 0 2.6rem}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) header.hero{background:#0A1420} }
+:root[data-theme="dark"] header.hero{background:#0A1420}
+.kicker{font-variant:small-caps; letter-spacing:.14em; font-weight:700; font-size:.95rem; color:var(--gold); margin:0 0 .6rem}
+header.hero h1{font-family:var(--serif); font-weight:700; font-size:clamp(2rem,5vw,3.1rem); line-height:1.1; margin:0 0 .8rem; color:#fff}
+header.hero p{max-width:44rem; color:#C9D7E8; margin:0 0 .4rem}
+
+/* La tarde en una barra */
+.tarde{margin-top:2.2rem}
+.tarde h2{font-family:var(--serif); font-size:1.15rem; color:#fff; margin:0 0 .7rem; font-weight:600}
+.barra{display:flex; width:100%; border-radius:8px; overflow:hidden; min-height:4.6rem}
+.seg{padding:.55rem .6rem; font-size:.85rem; line-height:1.25; color:#fff; border-right:2px solid #0F2238; display:flex; flex-direction:column; justify-content:space-between}
+.seg:last-child{border-right:none}
+.seg b{display:block; font-size:.92rem}
+.seg span{opacity:.85}
+.s-diap{background:#3B7DC4} .s-bin{background:#2F6CA8} .s-poi{background:#28608F}
+.s-rec{background:#3D4C60} .s-p3{background:#167F73} .s-act{background:#8A6A1F} .s-mar{background:#2A3747}
+.escala{display:flex; justify-content:space-between; color:#9FB3CB; font-size:.8rem; margin-top:.35rem}
+@media (max-width:640px){
+  .barra{flex-direction:column}
+  .seg{flex-basis:auto !important; border-right:none; border-bottom:2px solid #0F2238; flex-direction:row; align-items:baseline; gap:.6rem}
+  .escala{display:none}
+}
+
+/* Secciones */
+main section{padding:2.6rem 0 .6rem; border-bottom:1px solid var(--line)}
+main section:last-of-type{border-bottom:none}
+h2.sec{font-family:var(--serif); font-size:clamp(1.5rem,3vw,1.9rem); line-height:1.2; margin:0 0 1rem; font-weight:700}
+h3{font-family:var(--serif); font-size:1.22rem; margin:1.8rem 0 .5rem; font-weight:600}
+p{margin:.5rem 0 .9rem}
+
+/* Mapa núcleo / complemento */
+.mapa{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:1rem 0 1.4rem; background:var(--card)}
+.mapa .col h4{margin:0; padding:.75rem 1rem; font-size:1rem; font-weight:700}
+.mapa .nucleo h4{background:var(--mist); color:var(--sea)}
+.mapa .comp h4{background:var(--mist); color:var(--teal); border-left:1px solid var(--line)}
+.mapa ul{margin:0; padding:.7rem 1rem 1rem 2rem}
+.mapa .comp ul{border-left:1px solid var(--line)}
+.mapa li{margin:.3rem 0}
+@media (max-width:640px){ .mapa{grid-template-columns:1fr} .mapa .comp h4,.mapa .comp ul{border-left:none} }
+
+/* Partes del taller */
+.parte{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--sea); border-radius:10px; padding:1.1rem 1.25rem .6rem; margin:1.2rem 0}
+.parte.p3{border-left-color:var(--teal)}
+.parte h3{margin-top:0}
+.parte dl{margin:.4rem 0 .6rem}
+.parte dt{font-weight:700; margin-top:.7rem}
+.parte dd{margin:.15rem 0 0 0}
+.cifras{display:flex; flex-wrap:wrap; gap:.5rem; margin:.5rem 0}
+.cifra{background:var(--mist); border-radius:6px; padding:.3rem .65rem; font-size:.92rem}
+.cifra strong{font-variant-numeric:tabular-nums}
+.error{color:var(--rose)}
+.flujo{counter-reset:paso; list-style:none; padding:0; margin:.6rem 0}
+.flujo li{counter-increment:paso; position:relative; padding:.45rem 0 .45rem 2.6rem; border-bottom:1px dashed var(--line)}
+.flujo li:last-child{border-bottom:none}
+.flujo li::before{content:counter(paso); position:absolute; left:0; top:.45rem; width:1.8rem; height:1.8rem; border-radius:50%; background:var(--teal); color:#fff; font-weight:700; display:grid; place-items:center; font-size:.9rem}
+
+/* Tablas */
+.tabla{overflow-x:auto; margin:.8rem 0 1.2rem}
+table{border-collapse:collapse; width:100%; min-width:32rem; background:var(--card); font-size:.95rem}
+th,td{text-align:left; padding:.55rem .7rem; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--mist); font-weight:700}
+td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* Preguntas */
+details{background:var(--card); border:1px solid var(--line); border-radius:8px; margin:.55rem 0; padding:0 1rem}
+summary{cursor:pointer; padding:.75rem 0; font-weight:600; list-style:none; position:relative; padding-right:1.6rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"; position:absolute; right:0; top:.6rem; font-size:1.3rem; color:var(--sea); font-weight:400}
+details[open] summary::after{content:"−"}
+details[open]{padding-bottom:.6rem}
+details p{margin:.2rem 0 .6rem}
+
+/* Pendientes */
+.pend{list-style:none; padding:0; margin:.6rem 0}
+.pend li{display:flex; gap:.75rem; align-items:flex-start; padding:.6rem 0; border-bottom:1px solid var(--line)}
+.pend input{width:1.15rem; height:1.15rem; margin-top:.25rem; accent-color:var(--teal); flex:none}
+.pend label{cursor:pointer}
+.pend li.hecho label{color:var(--muted); text-decoration:line-through}
+.urgente{display:inline-block; font-size:.78rem; font-weight:700; color:#fff; background:var(--rose); border-radius:4px; padding:0 .4rem; margin-right:.3rem}
+
+.nota{background:var(--mist); border-radius:8px; padding:.8rem 1rem; margin:1rem 0}
+footer{color:var(--muted); font-size:.9rem; padding:2rem 0 3rem}
+nav.indice{display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; font-size:.95rem; margin:1.6rem 0 0}
+nav.indice a{color:#C9D7E8}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Bioestadística · Semana 2 · 2026-II</p>
+    <h1>Taller 4 · GLM: guía de revisión para enseñarlo</h1>
+    <p>Qué se cambió en el taller y por qué, qué debes tener claro de cada parte, qué preguntas pueden hacerte los estudiantes y qué queda pendiente antes del sábado 17 de octubre.</p>
+
+    <div class="tarde" aria-label="Distribución de la sesión del sábado de 2:00 a 6:00 pm">
+      <h2>La tarde del sábado, 2:00–6:00 pm (240 min)</h2>
+      <div class="barra">
+        <div class="seg s-diap" style="flex:45"><b>Diapositivas</b><span>45 min</span></div>
+        <div class="seg s-bin" style="flex:40"><b>Parte 1 · Binomial</b><span>40 min</span></div>
+        <div class="seg s-poi" style="flex:25"><b>Parte 2 · Poisson</b><span>25 min</span></div>
+        <div class="seg s-rec" style="flex:15"><b>Receso</b><span>15</span></div>
+        <div class="seg s-p3" style="flex:45"><b>Parte 3 · Zonas y épocas</b><span>45 min</span></div>
+        <div class="seg s-act" style="flex:25"><b>Parte 4 + actividad</b><span>25 min</span></div>
+        <div class="seg s-mar" style="flex:45"><b>Margen</b><span>45 min para errores de R y preguntas</span></div>
+      </div>
+      <div class="escala"><span>2:00</span><span>3:00</span><span>4:00</span><span>5:00</span><span>6:00</span></div>
+    </div>
+
+    <nav class="indice" aria-label="Contenido">
+      <a href="#cambios">Qué cambió</a>
+      <a href="#partes">Lo que debes dominar</a>
+      <a href="#preguntas">Preguntas probables</a>
+      <a href="#complemento">El complemento</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#pendientes">Pendientes</a>
+      <a href="#funciones">Funciones de R</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="cambios">
+  <p class="kicker">Reestructuración</p>
+  <h2 class="sec">Qué cambió y por qué</h2>
+  <div class="prose">
+    <p>El taller original era correcto, pero intentaba cubrir en una tarde binomial, Poisson, sobredispersión, cuasi-Poisson, binomial negativa, offset, AIC y un estudio de caso integrador. Para estudiantes con manejo básico de R, eso no cabía en las 2,5 h de práctica que quedan después de las diapositivas.</p>
+    <p>El principio de la reestructuración fue <strong>no quitar contenido, sino cambiarlo de categoría</strong>: lo esencial se queda en clase y lo que amplía el análisis pasa a un material complementario, igual que en el Taller 2. Además, la Parte 3 se rehízo con el caso de uso más común en ecología: <strong>conteos comparados entre sitios y épocas</strong>, que es también el puente hacia PERMANOVA y ANOSIM en la Semana 4.</p>
+  </div>
+
+  <div class="mapa">
+    <div class="col nucleo">
+      <h4>Se queda en el taller (núcleo)</h4>
+      <ul>
+        <li>Tres componentes de un GLM y tabla de familias</li>
+        <li>Binomial: ajuste, razón de verosimilitud, devianza explicada, OR, probabilidades predichas, gráfico con <code>geom_smooth()</code></li>
+        <li>Poisson: razón de tasas y φ</li>
+        <li>Nueva Parte 3: pez loro en 3 zonas × 2 épocas, Poisson → φ → binomial negativa → interacción → razones de tasas</li>
+        <li>Lista de verificación (sin código)</li>
+        <li>Actividad en parejas sobre el propio proyecto</li>
+      </ul>
+    </div>
+    <div class="col comp">
+      <h4>Pasa al material complementario</h4>
+      <ul>
+        <li>Proporciones con <code>cbind()</code> (nuevo ejemplo de plántulas de mangle)</li>
+        <li>Centrado del predictor</li>
+        <li>Banda de IC construida a mano en escala logit</li>
+        <li>Cuasi-Poisson completo, Pearson vs. devianza, tabla de tres modelos (ejemplo de rugosidad)</li>
+        <li>Comparaciones por pares con <code>emmeans</code> (nuevo)</li>
+        <li>Offset y estudio de caso de la tortuga caguama</li>
+        <li>Función <code>checklist_glm()</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Dos correcciones conceptuales que conviene interiorizar</h3>
+  <div class="prose">
+    <p><strong>φ no tiene un corte rígido.</strong> El material decía "φ &gt; 1,2: sobredispersión" como si fuera una regla fija. Ahora se presenta así: φ cercano a 1 es compatible con Poisson; 1,2–1,5 es una regla práctica para empezar a revisar; 2 o más es una sobredispersión que no conviene ignorar. Lo que realmente importa es si al corregir cambian las conclusiones.</p>
+    <p><strong>El offset lo decide el diseño, no el AIC.</strong> Si el área, el tiempo o el esfuerzo varía entre unidades y la pregunta es sobre una tasa, el offset va en el modelo aunque no mejore el AIC. La binomial negativa, en cambio, sí se elige con criterios estadísticos (φ y AIC).</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="partes">
+  <p class="kicker">Contenido del núcleo</p>
+  <h2 class="sec">Lo que debes dominar de cada parte</h2>
+  <p class="prose">Las cifras son las que verán los estudiantes al ejecutar el taller (semillas fijas). Tenerlas a mano ayuda a detectar rápido si a alguien le sale algo distinto.</p>
+
+  <div class="parte">
+    <h3>Antes de empezar: qué es un GLM</h3>
+    <dl>
+      <dt>Idea clave</dt>
+      <dd>Un GLM tiene tres piezas: la distribución de Y (componente aleatorio), el predictor lineal igual al de <code>lm()</code> y la función de enlace que conecta la media con ese predictor.</dd>
+      <dt>Cómo explicarlo</dt>
+      <dd>"Transformar log(Y) cambia cada dato y se rompe con los ceros. El enlace log transforma el promedio esperado, no los datos: por eso un conteo de 0 no es problema."</dd>
+      <dt class="error">Error típico</dt>
+      <dd>Creer que un GLM Poisson es lo mismo que un <code>lm()</code> sobre <code>log(Y + 1)</code>.</dd>
+    </dl>
+  </div>
+
+  <div class="parte">
+    <h3>Parte 1 · Binomial: banda negra en coral y temperatura</h3>
+    <div class="cifras">
+      <span class="cifra">OR = <strong>1,65</strong> por °C (IC 1,18–2,38)</span>
+      <span class="cifra">χ²₁ = <strong>8,69</strong>; p = 0,003</span>
+      <span class="cifra">Devianza explicada <strong>7,9 %</strong></span>
+      <span class="cifra">P(enferma): 28 °C <strong>32 %</strong> · 29 °C 44 % · 30 °C 57 % · 31 °C 68 %</span>
+    </div>
+    <dl>
+      <dt>Idea clave</dt>
+      <dd>El coeficiente está en escala logit; <code>exp(β)</code> es el odds ratio, un cambio <em>multiplicativo en los odds</em>, no en la probabilidad.</dd>
+      <dt>Cómo explicarlo</dt>
+      <dd>Usar la tabla de probabilidades predichas: el OR es constante (1,65 por grado), pero la probabilidad sube unos 12 puntos por grado en el centro de la curva y menos en los extremos. Esa es la pregunta "Para discutir" del taller.</dd>
+      <dt>Segundo mensaje</dt>
+      <dd>"Significativo no es lo mismo que explicativo": p = 0,003, pero la temperatura solo explica el 7,9 % de la devianza. Es el mismo razonamiento de r² frente al valor p de la Semana 2.</dd>
+      <dt class="error">Error típico</dt>
+      <dd>Decir "la probabilidad aumenta 65 % por grado". Lo que aumenta 65 % son los odds.</dd>
+    </dl>
+  </div>
+
+  <div class="parte">
+    <h3>Parte 2 · Poisson: juveniles de langosta y densidad de pasto</h3>
+    <div class="cifras">
+      <span class="cifra">Razón de tasas = <strong>1,16</strong> (IC 1,10–1,23)</span>
+      <span class="cifra">φ = <strong>1,01</strong></span>
+      <span class="cifra">n = 32 parches</span>
+    </div>
+    <dl>
+      <dt>Idea clave</dt>
+      <dd>Con enlace log, <code>exp(β)</code> es una razón de tasas: por cada unidad del índice de pasto, la abundancia esperada se multiplica por 1,16 (+16 %). No son "1,16 juveniles más".</dd>
+      <dt>Cómo explicarlo</dt>
+      <dd>φ compara la variabilidad real con la que asume el Poisson (varianza = media). Aquí φ ≈ 1, así que el Poisson sirve. La pregunta "Para discutir" (langostas que se agrupan bajo un mismo refugio) prepara la Parte 3.</dd>
+    </dl>
+  </div>
+
+  <div class="parte p3">
+    <h3>Parte 3 · Pez loro (<em>Scarus iseri</em>) en 3 zonas × 2 épocas</h3>
+    <p>Es el "ANOVA de dos vías para conteos" y la parte donde más vale la pena invertir tiempo. 48 transectos: 8 por combinación de zona (uso intensivo, intermedia, protegida) y época (seca, lluviosa).</p>
+    <ol class="flujo">
+      <li><strong>Explorar media y varianza por grupo.</strong> En la zona protegida, época seca: media 10,4 y varianza 120. Una varianza mucho mayor que la media es la primera señal de sobredispersión.</li>
+      <li><strong>Poisson y φ.</strong> φ = 3,38: claramente mayor que 1. Los errores estándar del Poisson quedan subestimados (para la zona protegida, 0,21 frente a 0,36 en la binomial negativa).</li>
+      <li><strong>Binomial negativa.</strong> φ = 1,03; AIC baja de 295,1 a 252,8; θ = 2,82. Var = μ + μ²/θ: a menor θ, más agregación.</li>
+      <li><strong>¿Interacción?</strong> No significativa (χ²₂ = 1,05; p = 0,59): la diferencia entre zonas es similar en ambas épocas. Se pasa al modelo aditivo.</li>
+      <li><strong>Probar cada factor.</strong> Zona: χ²₂ = 18,7; p &lt; 0,001. Época: χ²₁ = 4,3; p = 0,038. Se usa <code>anova(..., test = "Chisq")</code> porque prueba el factor completo, no cada nivel por separado.</li>
+      <li><strong>Interpretar las razones de tasas</strong> (contra el nivel de referencia): protegida 3,05 veces la de uso intensivo (IC 1,78–5,28); intermedia 1,43 (IC 0,81–2,54, incluye 1: no difiere con claridad); época lluviosa 0,63 (37 % menos que la seca).</li>
+    </ol>
+    <dl>
+      <dt>Puente a la Semana 4</dt>
+      <dd>El GLM responde especie por especie. Si la pregunta es si cambia la comunidad completa, se usa PERMANOVA o ANOSIM. En un estudio de diversidad se complementan: el multivariado dice si la comunidad difiere, los GLM dicen qué especies explican la diferencia.</dd>
+      <dt class="error">Error típico</dt>
+      <dd>Leer el valor p de <code>zonaIntermedia</code> en <code>summary()</code> como si fuera "el efecto de la zona". Ese coeficiente solo compara intermedia contra uso intensivo.</dd>
+    </dl>
+  </div>
+
+  <div class="parte">
+    <h3>Parte 4 · Lista de verificación</h3>
+    <p>Seis preguntas antes de reportar: familia según el tipo real de respuesta; efecto en escala exp() con IC; prueba de razón de verosimilitud (sobre todo con factores); φ en conteos y corrección si es claramente mayor que 1; offset si el esfuerzo varía; no extrapolar. Es también la estructura que se espera en la Evidencia 2.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="preguntas">
+  <p class="kicker">Para no quedarse en blanco</p>
+  <h2 class="sec">Preguntas que probablemente te harán</h2>
+
+  <details>
+    <summary>Al correr el anova() de la Parte 3 en RStudio aparece "tests made without re-estimating 'theta'". ¿Es un error?</summary>
+    <p>No. En la página del taller no se ve porque los avisos están ocultos, pero en RStudio sí aparecerá. Significa que <code>anova()</code> compara los términos dejando θ fijo en el valor del modelo completo. Es una aproximación aceptable. Si alguien quiere la prueba exacta, se ajustan los dos modelos con <code>glm.nb()</code> (con y sin el término) y se comparan con <code>anova(mod1, mod2)</code>, que sí reestima θ.</p>
+  </details>
+
+  <details>
+    <summary>¿Por qué no aparece la comparación entre la zona intermedia y la protegida?</summary>
+    <p>Porque con factores cada coeficiente se compara contra el nivel de referencia (uso intensivo). Para todas las comparaciones se usa <code>emmeans(mod_loro, pairwise ~ zona, type = "response")</code>, que está en la sección 5 del complemento: la protegida difiere de las otras dos (p = 0,0002 y p = 0,011, ajuste de Tukey) y la intermedia no difiere de la de uso intensivo (p = 0,44).</p>
+  </details>
+
+  <details>
+    <summary>¿Por qué z y no t en el summary() de un GLM?</summary>
+    <p>Porque en binomial y Poisson la varianza la fija la familia y no se estima aparte. En cuasi-Poisson sí se estima (φ), y por eso su <code>summary()</code> muestra t.</p>
+  </details>
+
+  <details>
+    <summary>¿Cuasi-Poisson o binomial negativa?</summary>
+    <p>Las dos corrigen los errores estándar. La binomial negativa es una distribución completa, tiene verosimilitud y permite AIC; la cuasi-Poisson no (su AIC sale NA). En ecología la binomial negativa es la opción por defecto para conteos agregados. La comparación completa está en la sección 4 del complemento.</p>
+  </details>
+
+  <details>
+    <summary>¿Qué es θ y por qué en el ejemplo de rugosidad salió 6,1 si se simuló con 2?</summary>
+    <p>θ controla la agregación en la binomial negativa (Var = μ + μ²/θ). Con pocas unidades (40 transectos) θ se estima con mucha incertidumbre, así que es normal que difiera del valor con que se simularon los datos.</p>
+  </details>
+
+  <details>
+    <summary>¿Y si hay muchísimos ceros?</summary>
+    <p>El exceso de ceros también produce φ alto, y muchas veces la binomial negativa basta. Si no, existen modelos inflados en ceros o de barrera (paquetes <code>pscl</code> o <code>glmmTMB</code>). Están fuera del alcance del curso; basta con mencionarlos.</p>
+  </details>
+
+  <details>
+    <summary>¿Y si los transectos están anidados dentro de sitios?</summary>
+    <p>Entonces no son réplicas independientes del factor sitio: es el problema de pseudoreplicación del Taller 1. Se resuelve con modelos mixtos (<code>lme4::glmer</code> o <code>glmmTMB</code>), también fuera del alcance de esta sesión.</p>
+  </details>
+
+  <details>
+    <summary>¿Existe un R² para GLM?</summary>
+    <p>No el mismo de <code>lm()</code>. El análogo más usado es la proporción de devianza explicada, <code>1 − devianza residual / devianza nula</code>, que se calcula en la Parte 1.</p>
+  </details>
+
+  <details>
+    <summary>¿φ se calcula con residuos de Pearson o con la devianza?</summary>
+    <p>La forma estándar es con Pearson (es la que usa la función <code>phi()</code> del taller). La razón devianza residual / g.l. es una aproximación que suele dar valores parecidos.</p>
+  </details>
+
+  <details>
+    <summary>¿Por qué el OR del intercepto es prácticamente 0?</summary>
+    <p>Porque corresponde a 0 °C, una temperatura sin sentido biológico. No afecta la interpretación de la temperatura. Si se quiere un intercepto interpretable, se centra el predictor (sección 2 del complemento).</p>
+  </details>
+</section>
+
+<!-- 4 -->
+<section id="complemento">
+  <p class="kicker">Material complementario</p>
+  <h2 class="sec">A qué sección enviar a cada estudiante</h2>
+  <p class="prose">El complemento no se recorre en clase. Cada sección es independiente y responde a una situación concreta de un proyecto de grado.</p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Si el estudiante dice…</th><th>Sección</th><th>Ejemplo y cifra clave</th></tr></thead>
+      <tbody>
+        <tr><td>"Mi respuesta es cuántos sobrevivieron de un total"</td><td>1. Proporciones</td><td>Plántulas de mangle rojo y salinidad; OR = 0,61 por cada 5 ups; φ = 0,91</td></tr>
+        <tr><td>"El intercepto no tiene sentido"</td><td>2. Centrar el predictor</td><td>Temperatura centrada en 29 °C → P(enferma) = 44 %</td></tr>
+        <tr><td>"Quiero la curva con su IC sin ggplot2"</td><td>3. IC en escala logit</td><td>Se calcula en logit y se retransforma con <code>plogis()</code></td></tr>
+        <tr><td>"No sé si usar cuasi-Poisson o binomial negativa"</td><td>4. Sobredispersión a fondo</td><td>Rugosidad: φ = 2,22; AIC 230,3 → 217,8; RT = 1,20</td></tr>
+        <tr><td>"Tengo varios sitios y quiero saber cuáles difieren"</td><td>5. Comparaciones por pares</td><td><code>emmeans</code> con ajuste de Tukey sobre el ejemplo del pez loro</td></tr>
+        <tr><td>"Mis unidades tienen distinto tamaño o esfuerzo"</td><td>6. Offset</td><td>Tortuga caguama: RT pasa de 0,77 (sin offset) a 0,83 (con offset y binomial negativa)</td></tr>
+        <tr><td>"Quiero revisar rápido mi modelo"</td><td>7. Función de verificación</td><td><code>checklist_glm()</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">La sección 5 necesita el paquete <code>emmeans</code>. Conviene pedir que lo instalen antes de la sesión, aunque no se use en clase.</p>
+</section>
+
+<!-- 5 -->
+<section id="evaluacion">
+  <p class="kicker">Coherencia con lo enseñado</p>
+  <h2 class="sec">Evaluación</h2>
+  <div class="prose">
+    <p><strong>Cuestionario 1</strong> (12 preguntas, opción múltiple). Se mantuvieron las preguntas sobre el enlace, el OR, la devianza explicada, la razón de tasas y la comparación de cuasi-Poisson y binomial negativa. Las de proporciones, centrado, IC en escala logit y tortuga se reemplazaron por preguntas sobre <code>type = "response"</code>, φ como regla práctica, la señal de varianza mayor que la media, la prueba del factor completo, las razones de tasas con nivel de referencia y GLM frente a PERMANOVA. Además, la opción correcta ya no es casi siempre la más larga.</p>
+    <p><strong>Cuestionario 2</strong> (preguntas abiertas). Necesita tres cambios: la pregunta C2 (φ como regla práctica y referencia al ejemplo del pez loro), una nota en la retroalimentación de D1 que remita al complemento, y una nueva pregunta D2 sobre langostas por nasa en 3 zonas y 2 épocas.</p>
+    <p><strong>Evidencia 2.</strong> Debería evaluar solo el núcleo. El offset y las comparaciones por pares pueden valorarse como mérito adicional, no como requisito.</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="pendientes">
+  <p class="kicker">Antes del 17 de octubre</p>
+  <h2 class="sec">Pendientes</h2>
+  <p class="prose">Puedes marcar cada tarea; las marcas se guardan solo en este navegador.</p>
+  <ul class="pend" id="pendientes-lista">
+    <li><input type="checkbox" id="p1"><label for="p1"><span class="urgente">Roto</span> Corregir la imagen de Material de apoyo del taller publicado. La ruta quedó como <code>…/html/figuras_portadas/5_glm/3_hipotesis/9_material_apoyo.jpg</code> (da error 404). La correcta es <code>…/html/figuras_portadas/3_hipotesis/9_material_apoyo.jpg</code>.</label></li>
+    <li><input type="checkbox" id="p2"><label for="p2">Verificar el enlace de Slides.com del Taller 4: sigue apuntando a <code>rrKfVpI</code>, que parece ser el del Taller 3.</label></li>
+    <li><input type="checkbox" id="p3"><label for="p3">Diapositiva 10: cambiar "φ &gt; 1,2–2 sobredispersión" por "φ claramente &gt; 1: sobredispersión (regla práctica: revisar desde 1,2–1,5)".</label></li>
+    <li><input type="checkbox" id="p4"><label for="p4">Diapositiva 11: reemplazar el ejemplo de rugosidad por el del pez loro (Poisson φ = 3,38, AIC 295,1; binomial negativa φ = 1,03, AIC 252,8; RT protegida = 3,05).</label></li>
+    <li><input type="checkbox" id="p5"><label for="p5">Diapositivas 12 y 13: cambiar "φ &gt; 1,2" por "φ claramente &gt; 1".</label></li>
+    <li><input type="checkbox" id="p6"><label for="p6">Subir el Cuestionario 1 actualizado y aplicar los tres cambios del Cuestionario 2.</label></li>
+    <li><input type="checkbox" id="p7"><label for="p7">Actualizar el <code>.zip</code> de materiales en clase (<code>taller4_clase.zip</code>) con la nueva versión del taller.</label></li>
+    <li><input type="checkbox" id="p8"><label for="p8">Pedir a los estudiantes que instalen <code>MASS</code> (viene con R), <code>tidyverse</code>, <code>kableExtra</code> y <code>emmeans</code> antes de la sesión.</label></li>
+    <li><input type="checkbox" id="p9"><label for="p9">Opcional: una portada nueva para la Parte 3 con peces loro, si la actual muestra solo el arrecife de rugosidad.</label></li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section id="funciones">
+  <p class="kicker">Referencia rápida</p>
+  <h2 class="sec">Funciones de R del núcleo</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Función</th><th>Para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td><code>glm(y ~ x, family = binomial)</code></td><td>GLM para respuestas 0/1 (enlace logit)</td></tr>
+        <tr><td><code>glm(y ~ x, family = poisson)</code></td><td>GLM para conteos (enlace log)</td></tr>
+        <tr><td><code>MASS::glm.nb(y ~ zona * epoca)</code></td><td>Binomial negativa para conteos sobredispersos</td></tr>
+        <tr><td><code>anova(mod, test = "Chisq")</code></td><td>Prueba de razón de verosimilitud de cada término</td></tr>
+        <tr><td><code>exp(cbind(coef(mod), confint(mod)))</code></td><td>OR o razón de tasas con su IC 95 %</td></tr>
+        <tr><td><code>predict(mod, newdata, type = "response")</code></td><td>Predicción en la escala de la respuesta (probabilidad o conteo)</td></tr>
+        <tr><td><code>phi(mod)</code></td><td>Parámetro de dispersión (función definida en el taller)</td></tr>
+        <tr><td><code>geom_smooth(method = "glm", method.args = list(family = binomial))</code></td><td>Curva logística con IC en <code>ggplot2</code></td></tr>
+        <tr><td><code>1 - mod$deviance / mod$null.deviance</code></td><td>Proporción de devianza explicada</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Guía de uso docente · Bioestadística y Diseño Experimental · Maestría en Ecología y Biodiversidad, Universidad del Magdalena · 2026-II. Las cifras provienen de la ejecución del taller y del complemento con sus semillas fijas.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY = "guia-taller4-pendientes";
+  var estado = {};
+  try { estado = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { estado = {}; }
+  var cajas = document.querySelectorAll("#pendientes-lista input[type=checkbox]");
+  cajas.forEach(function(c){
+    if (estado[c.id]) { c.checked = true; c.closest("li").classList.add("hecho"); }
+    c.addEventListener("change", function(){
+      estado[c.id] = c.checked;
+      c.closest("li").classList.toggle("hecho", c.checked);
+      try { localStorage.setItem(KEY, JSON.stringify(estado)); } catch(e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
