@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ES-es" xml:lang="ES-es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Javier Rodríguez-Barrios">
+<meta name="author" content="Nombre del Estudiante">
 
 <title>Cuestionario · GLM Binomial y Poisson</title>
 <style>
@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -40,47 +75,64 @@ ul.task-list li input[type="checkbox"] {
 <link href="Cuestionario1_GLM_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Cuestionario1_GLM_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Cuestionario1_GLM_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Cuestionario1_GLM_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Cuestionario1_GLM_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #2098D9;
+      }
+</style>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Cuestionario · GLM Binomial y Poisson</h1>
-<p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 2 · 2026-II</p>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Javier Rodríguez-Barrios </p>
-          </div>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Cuestionario · GLM Binomial y Poisson</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
+            <p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 2 · 2026-II</p>
+                      </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de octubre de 2026</p>
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Autor/a</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://www.unimagdalena.edu.co/">Nombre del Estudiante</a> </p>
+            </div>
     </div>
-  </div>
-  
+      
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">4 de octubre de 2026</p>
+      </div>
+    </div>
     
-  </div>
+      
+    </div>
+    
   
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#instrucciones" id="toc-instrucciones" class="nav-link active" data-scroll-target="#instrucciones">Instrucciones</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</header>
+
 
 
 <div class="cell" data-layout-align="left">
@@ -94,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="instrucciones" class="level2">
 <h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
-<p>Este cuestionario acompaña el <code>Taller · GLM Binomial y Poisson en R</code> y cierra el bloque de bioestadística de la Semana 2. Son <strong>12 preguntas de opción múltiple</strong> basadas en las Partes 1 a 5 del taller: componentes de un GLM y elección de la familia, GLM binomial (odds ratio, prueba de razón de verosimilitud, devianza explicada), GLM Poisson (razón de tasas, equidispersión), sobredispersión (cuasi-Poisson y binomial negativa) y el estudio de caso de nidos de tortuga caguama con esfuerzo de muestreo desigual (offset).</p>
+<p>Este cuestionario acompaña el <code>Taller · GLM Binomial y Poisson en R</code> y cierra el bloque de bioestadística de la Semana 2. Son <strong>12 preguntas de opción múltiple</strong> basadas en las Partes 1 a 4 del taller: componentes de un GLM y elección de la familia, GLM binomial (odds ratio, predicciones, prueba de razón de verosimilitud, devianza explicada), GLM Poisson (razón de tasas, equidispersión) y conteos entre zonas y épocas (sobredispersión, binomial negativa, prueba del factor completo e interpretación de razones de tasas), con una pregunta final que conecta con los análisis multivariados de la Semana 4.</p>
 <p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve; se recomienda usarlas para repasar, no solo para obtener una calificación. El orden de las opciones cambia en cada intento.</p>
 <style>
   #quizApp{
@@ -160,29 +212,101 @@ ul.task-list li input[type="checkbox"] {
 
 <script id="qz-data" type="application/json">
 [
-{"question": "En un GLM, ¿sobre qué actúa la función de enlace y qué ventaja da frente a transformar log(Y) antes de un lm()?", "options": [{"text": "Actúa sobre cada observación de Y, igual que log(Y), pero corrige automáticamente los ceros sumando una constante pequeña", "correct": false}, {"text": "Actúa sobre la media esperada μ y no sobre cada dato: los ceros no generan problema y la varianza queda en su escala real", "correct": true}, {"text": "Actúa sobre los residuos del modelo, transformándolos para que sigan una distribución normal antes de estimar los coeficientes", "correct": false}, {"text": "Actúa sobre los predictores, llevándolos a una escala logarítmica para que su relación con la respuesta sea siempre lineal", "correct": false}], "hint": "¿Qué pasa con log(Y) cuando un cuadrante tiene 0 individuos?", "explain": "La función de enlace conecta μ = E(Y) con el predictor lineal: η = g(μ). Los datos no se transforman, así que un conteo de 0 no es problema (log 0 = −∞ sí lo sería) y la varianza se modela con la familia (Var = μ en Poisson)."},
+{"question":"En un GLM, ¿sobre qué actúa la función de enlace y qué ventaja da frente a transformar log(Y) antes de un lm()?",
+ "options":[{"text":"Actúa sobre cada observación de Y, igual que log(Y), pero corrige automáticamente los ceros sumando una constante pequeña","correct":false},
+            {"text":"Actúa sobre la media esperada μ y no sobre cada dato: los ceros no generan problema y la varianza queda en su escala real","correct":true},
+            {"text":"Actúa sobre los residuos del modelo, transformándolos para que sigan una distribución normal antes de estimar los coeficientes","correct":false},
+            {"text":"Actúa sobre los predictores, llevándolos a una escala logarítmica para que su relación con la respuesta sea siempre lineal","correct":false}],
+ "hint":"¿Qué pasa con log(Y) cuando un cuadrante tiene 0 individuos?",
+ "explain":"La función de enlace conecta μ = E(Y) con el predictor lineal: η = g(μ). Los datos no se transforman, así que un conteo de 0 no es problema (log 0 = −∞ sí lo sería) y la varianza se modela con la familia (Var = μ en Poisson)."},
 
-{"question": "Se registra, en cada uno de 12 tanques, cuántos juveniles de langosta sobrevivieron de un total sembrado que varía entre tanques (entre 8 y 30). ¿Cómo se modela la supervivencia?", "options": [{"text": "Regresión lineal sobre el porcentaje de supervivencia de cada tanque, porque la proporción ya es una variable continua", "correct": false}, {"text": "GLM Poisson sobre el número de vivos, porque la supervivencia es un conteo de individuos y no una variable binaria", "correct": false}, {"text": "GLM binomial con cbind(vivos, muertos) como respuesta, para que cada tanque pese según su número de juveniles sembrados", "correct": true}, {"text": "GLM binomial con cada juvenil como una réplica independiente, porque así el tamaño de muestra es mayor y hay más potencia", "correct": false}], "hint": "¿Informan lo mismo 3 vivos de 4 y 22 vivos de 30?", "explain": "Una proporción se modela con éxitos y fracasos: cbind(vivos, muertos). Así el modelo reconoce que un tanque con 30 juveniles aporta más información que uno con 8. Tratar cada juvenil como réplica sería pseudorreplicación: la unidad experimental es el tanque."},
+{"question":"En el modelo de banda negra se usa predict(mod_enf, newdata = nd, type = \"response\"). ¿Qué se obtiene si se omite type = \"response\"?",
+ "options":[{"text":"El predictor lineal en escala logit; habría que aplicar plogis() para obtener la probabilidad","correct":true},
+            {"text":"La misma probabilidad predicha, pero sin el intervalo de confianza, que solo se calcula con type = \"response\"","correct":false},
+            {"text":"El odds ratio de cada temperatura en lugar de la probabilidad predicha de enfermedad","correct":false},
+            {"text":"Un error, porque en un GLM binomial el argumento type es obligatorio para hacer predicciones","correct":false}],
+ "hint":"¿En qué escala trabaja internamente un GLM binomial?",
+ "explain":"Por defecto, predict() devuelve el predictor lineal η en la escala del enlace (logit). Con type = \"response\" se aplica la inversa del enlace, plogis(), y se obtiene la probabilidad entre 0 y 1."},
 
-{"question": "En el GLM binomial de la enfermedad de banda negra, OR = 1.65 por °C. ¿Cuál es la interpretación correcta?", "options": [{"text": "Por cada °C adicional, la probabilidad de enfermedad aumenta 65 puntos porcentuales en todo el rango de temperaturas", "correct": false}, {"text": "Por cada °C adicional, la probabilidad de enfermedad aumenta un 65 %, sin importar cuál sea la probabilidad de partida", "correct": false}, {"text": "La temperatura explica el 65 % de la variación en la presencia de la enfermedad entre las 80 colonias muestreadas", "correct": false}, {"text": "Por cada °C adicional, los odds de enfermedad se multiplican por 1.65; el cambio en la probabilidad depende del tramo de la curva", "correct": true}], "hint": "¿Qué se multiplica por 1.65: la probabilidad p o los odds p/(1 − p)?", "explain": "El OR es un cambio multiplicativo en los odds, no en la probabilidad. Como la relación entre odds y probabilidad no es lineal, la probabilidad predicha sube unos 12 puntos por grado en la zona media de la curva y menos en los extremos. La variación explicada se evalúa con la devianza."},
+{"question":"En el GLM binomial de la enfermedad de banda negra, OR = 1.65 por °C. ¿Cuál es la interpretación correcta?",
+ "options":[{"text":"Por cada °C adicional, la probabilidad de enfermedad aumenta 65 puntos porcentuales en todo el rango de temperaturas","correct":false},
+            {"text":"Por cada °C adicional, la probabilidad de enfermedad aumenta un 65 %, sin importar cuál sea la probabilidad de partida","correct":false},
+            {"text":"La temperatura explica el 65 % de la variación en la presencia de la enfermedad entre las 80 colonias muestreadas","correct":false},
+            {"text":"Los odds de enfermedad se multiplican por 1.65 por °C; el cambio en probabilidad depende del tramo de la curva","correct":true}],
+ "hint":"¿Qué se multiplica por 1.65: la probabilidad p o los odds p/(1 − p)?",
+ "explain":"El OR es un cambio multiplicativo en los odds, no en la probabilidad. Como la relación entre odds y probabilidad no es lineal, la probabilidad predicha sube unos 12 puntos por grado en la zona media de la curva y menos en los extremos. La variación explicada se evalúa con la devianza."},
 
-{"question": "La temperatura es significativa (prueba de razón de verosimilitud: χ² = 8.69, p = 0.003), pero solo reduce la devianza un 7.9 %. ¿Cómo se interpreta?", "options": [{"text": "El efecto de la temperatura es real, pero explica poco: otros factores no incluidos pesan más en la presencia de la enfermedad", "correct": true}, {"text": "Hay una contradicción: si la devianza explicada es tan baja, el valor p debe estar mal calculado y el efecto no es real", "correct": false}, {"text": "El modelo es inútil, porque un GLM solo se considera válido cuando explica al menos la mitad de la devianza del modelo nulo", "correct": false}, {"text": "El efecto es fuerte, porque con p = 0.003 la temperatura es el factor que más influye en la enfermedad de banda negra", "correct": false}], "hint": "Recordar la diferencia entre r² y valor p en la regresión lineal.", "explain": "El valor p indica si el efecto es distinguible del azar; la devianza explicada indica cuánto de la variación explica el predictor. Un efecto puede ser real y explicar poco, porque la especie hospedera, la sedimentación o los patógenos también influyen."},
+{"question":"La temperatura es significativa (prueba de razón de verosimilitud: χ² = 8.69, p = 0.003), pero solo reduce la devianza un 7.9 %. ¿Cómo se interpreta?",
+ "options":[{"text":"El efecto de la temperatura es real, pero explica poco: otros factores no incluidos pesan más","correct":true},
+            {"text":"Hay una contradicción: si la devianza explicada es tan baja, el valor p debe estar mal calculado y el efecto no es real","correct":false},
+            {"text":"El modelo es inútil, porque un GLM solo se considera válido cuando explica al menos la mitad de la devianza del modelo nulo","correct":false},
+            {"text":"El efecto es fuerte, porque con p = 0.003 la temperatura es el factor que más influye en la enfermedad de banda negra","correct":false}],
+ "hint":"Recordar la diferencia entre r² y valor p en la regresión lineal.",
+ "explain":"El valor p indica si el efecto es distinguible del azar; la devianza explicada indica cuánto de la variación explica el predictor. Un efecto puede ser real y explicar poco, porque la especie hospedera, la sedimentación o los patógenos también influyen."},
 
-{"question": "En el modelo de banda negra, el OR del intercepto es prácticamente 0. ¿Por qué, y qué se hace en el taller?", "options": [{"text": "Porque el modelo está mal ajustado: un OR del intercepto cercano a 0 indica que la temperatura no tiene efecto sobre la enfermedad", "correct": false}, {"text": "Porque corresponde a 0 °C, sin sentido biológico; centrar la temperatura en 29 °C vuelve interpretable el intercepto", "correct": true}, {"text": "Porque hay muy pocas colonias enfermas en la muestra; se corrige eliminando las colonias sanas para balancear los grupos", "correct": false}, {"text": "Porque R calcula el intercepto en escala de probabilidad; se corrige aplicando plogis() al OR para llevarlo a la escala logit", "correct": false}], "hint": "¿Qué valor del predictor corresponde al intercepto?", "explain": "El intercepto es el logit cuando el predictor vale 0, y 0 °C está muy lejos del rango observado (27–31.5 °C). Centrar la temperatura (temperatura − 29) no cambia la pendiente, solo hace que el intercepto sea el logit a 29 °C."},
+{"question":"En el modelo de juveniles de langosta, φ = 1.01. Otro estudiante obtiene φ = 1.15 en un Poisson parecido. ¿Qué es lo más razonable?",
+ "options":[{"text":"Cambiar obligatoriamente a binomial negativa, porque cualquier φ mayor que 1, por pequeño que sea, invalida el Poisson","correct":false},
+            {"text":"Considerar el Poisson razonable: φ está cerca de 1, y valores como 1,2 son una regla práctica, no un corte rígido","correct":true},
+            {"text":"Descartar el GLM y ajustar un lm() a log(Y + 1), porque así los residuos quedan normales y homogéneos","correct":false},
+            {"text":"Reportar el Poisson sin calcular φ, porque φ solo importa cuando hay más de 100 unidades de muestreo","correct":false}],
+ "hint":"¿Existe un valor exacto de φ a partir del cual el Poisson deja de servir?",
+ "explain":"No hay un corte único: φ cercano a 1 es compatible con el Poisson, y umbrales como 1,2–1,5 son reglas prácticas para empezar a revisar. Lo que preocupa son valores claramente mayores (2 o más), y si al corregir cambian las conclusiones."},
 
-{"question": "Para graficar la curva de probabilidad con su IC 95 %, el taller calcula el intervalo en escala logit y luego aplica plogis(). ¿Por qué no se calcula directamente en la escala de probabilidad?", "options": [{"text": "Porque predict() solo devuelve errores estándar en escala logit, y en escala de probabilidad el IC 95 % no se puede calcular", "correct": false}, {"text": "Porque en escala logit el intervalo es más angosto, y un IC más angosto da una representación más precisa de la curva ajustada", "correct": false}, {"text": "Porque, retransformado con plogis(), el intervalo nunca sale de [0, 1]; uno simétrico en probabilidad sí podría salir", "correct": true}, {"text": "Porque plogis() corrige la sobredispersión del modelo binomial, que de otro modo ensancharía el intervalo de confianza", "correct": false}], "hint": "¿Qué rango tiene una probabilidad, y qué rango tiene el logit?", "explain": "En escala logit el intervalo es simétrico y no tiene límites; al retransformarlo con plogis() queda siempre entre 0 y 1. Un intervalo simétrico construido en la escala de probabilidad podría dar límites negativos o mayores que 1 cerca de los extremos."},
+{"question":"Antes de ajustar el modelo de peces loro, la tabla de medias y varianzas muestra, por ejemplo, media 10.4 y varianza 120 en la zona protegida durante la época seca. ¿Qué anticipa eso?",
+ "options":[{"text":"Que los datos no son conteos y deberían analizarse con un GLM binomial de presencia/ausencia de peces","correct":false},
+            {"text":"Que hay un error de digitación en la zona protegida, porque en datos de conteo la varianza no puede superar a la media","correct":false},
+            {"text":"Sobredispersión: el Poisson supone varianza ≈ media, así que es probable que φ salga claramente mayor que 1","correct":true},
+            {"text":"Que la zona protegida tiene más transectos que las demás, y por eso su varianza es mucho mayor","correct":false}],
+ "hint":"¿Qué relación entre media y varianza supone el modelo Poisson?",
+ "explain":"El Poisson asume Var = μ. Una varianza mucho mayor que la media es la primera señal de sobredispersión, típica de peces que se agregan en grupos. Por eso, en el taller, φ del Poisson salió en 3.38."},
 
-{"question": "En el GLM Poisson de juveniles de langosta, exp(b) = 1.16 para el índice de densidad de pasto. ¿Qué significa?", "options": [{"text": "Por cada unidad adicional del índice, se espera encontrar 1.16 juveniles más por parche, en todo el rango de densidades", "correct": false}, {"text": "Por cada unidad adicional del índice, los odds de encontrar juveniles en el parche se multiplican por 1.16", "correct": false}, {"text": "La densidad de pasto explica el 16 % de la variación en el número de juveniles entre los 32 parches muestreados", "correct": false}, {"text": "Por cada unidad del índice, la abundancia esperada de juveniles por parche se multiplica por 1.16 (+16 %)", "correct": true}], "hint": "En un GLM Poisson, ¿los efectos son aditivos o multiplicativos en la escala original?", "explain": "Con enlace log, exp(b) es una razón de tasas: un factor multiplicativo sobre la abundancia esperada. No es un número fijo de individuos adicionales, no se habla de odds (eso es el modelo binomial) y no es una proporción de variación explicada."},
+{"question":"En el GLM Poisson de juveniles de langosta, exp(b) = 1.16 para el índice de densidad de pasto. ¿Qué significa?",
+ "options":[{"text":"Por cada unidad adicional del índice, se espera encontrar 1.16 juveniles más por parche, en todo el rango de densidades","correct":false},
+            {"text":"Por cada unidad adicional del índice, los odds de encontrar juveniles en el parche se multiplican por 1.16","correct":false},
+            {"text":"La densidad de pasto explica el 16 % de la variación en el número de juveniles entre los 32 parches muestreados","correct":false},
+            {"text":"Por cada unidad del índice, la abundancia esperada de juveniles por parche se multiplica por 1.16 (+16 %)","correct":true}],
+ "hint":"En un GLM Poisson, ¿los efectos son aditivos o multiplicativos en la escala original?",
+ "explain":"Con enlace log, exp(b) es una razón de tasas: un factor multiplicativo sobre la abundancia esperada. No es un número fijo de individuos adicionales, no se habla de odds (eso es el modelo binomial) y no es una proporción de variación explicada."},
 
-{"question": "En el ejemplo de los peces de arrecife, el Poisson da φ = 2.22. ¿Qué consecuencia tiene si se reporta ese modelo sin corregir?", "options": [{"text": "Los errores estándar quedan subestimados y los valores p exageran la evidencia, con riesgo de falsos positivos", "correct": true}, {"text": "Los coeficientes quedan sesgados hacia cero, así que el efecto de la complejidad estructural parece más débil de lo que es", "correct": false}, {"text": "El modelo predice abundancias negativas en los transectos con menor complejidad estructural del arrecife", "correct": false}, {"text": "No tiene consecuencias, porque φ solo afecta la bondad de ajuste y no la inferencia sobre los coeficientes del modelo", "correct": false}], "hint": "El Poisson asume Var = μ. Si la varianza real es mayor, ¿qué se subestima?", "explain": "Con sobredispersión, la variabilidad real es mayor que la que asume el Poisson, así que los EE son demasiado pequeños (0.024 frente a 0.035 en la binomial negativa) y los valores p, demasiado bajos. Los coeficientes cambian poco, y el enlace log impide predicciones negativas."},
+{"question":"En el ejemplo de los peces loro, el Poisson da φ = 3.38. ¿Qué consecuencia tiene si se reporta ese modelo sin corregir?",
+ "options":[{"text":"Los errores estándar quedan subestimados y los valores p exageran la evidencia, con riesgo de falsos positivos","correct":true},
+            {"text":"Los coeficientes quedan sesgados hacia cero, así que las diferencias entre zonas parecen más débiles de lo que son","correct":false},
+            {"text":"El modelo predice abundancias negativas en los transectos de la zona de uso intensivo","correct":false},
+            {"text":"No tiene consecuencias, porque φ solo afecta la bondad de ajuste y no la inferencia sobre los coeficientes del modelo","correct":false}],
+ "hint":"El Poisson asume Var = μ. Si la varianza real es mayor, ¿qué se subestima?",
+ "explain":"Con sobredispersión, la variabilidad real es mayor que la que asume el Poisson, así que los EE son demasiado pequeños (para la zona protegida, 0.21 frente a 0.36 en la binomial negativa) y los valores p, demasiado bajos. Los coeficientes cambian poco, y el enlace log impide predicciones negativas."},
 
-{"question": "Para corregir la sobredispersión se puede usar cuasi-Poisson o binomial negativa. ¿Cuál permite comparar modelos con AIC y por qué?", "options": [{"text": "La cuasi-Poisson, porque conserva los mismos coeficientes del Poisson y por eso su AIC es directamente comparable con él", "correct": false}, {"text": "La binomial negativa, porque es una distribución completa (Var = μ + μ²/θ) con verosimilitud; la cuasi-Poisson no la tiene", "correct": true}, {"text": "Ambas, porque las dos agregan un parámetro de dispersión y el AIC solo necesita contar cuántos parámetros tiene el modelo", "correct": false}, {"text": "Ninguna, porque el AIC solo se puede calcular en modelos Poisson y binomiales, que no tienen parámetros de dispersión", "correct": false}], "hint": "¿Qué necesita el AIC para calcularse?", "explain": "El AIC se basa en la verosimilitud. La cuasi-Poisson solo especifica media y varianza (Var = φμ), sin una distribución completa, así que R devuelve AIC = NA. La binomial negativa es una distribución de probabilidad y sí tiene AIC (217.8 frente a 230.3 del Poisson)."},
+{"question":"Para corregir la sobredispersión se puede usar cuasi-Poisson o binomial negativa. ¿Cuál permite comparar modelos con AIC y por qué?",
+ "options":[{"text":"La cuasi-Poisson, porque conserva los mismos coeficientes del Poisson y por eso su AIC es directamente comparable con él","correct":false},
+            {"text":"La binomial negativa, porque es una distribución completa (Var = μ + μ²/θ) con verosimilitud; la cuasi-Poisson no la tiene","correct":true},
+            {"text":"Ambas, porque las dos agregan un parámetro de dispersión y el AIC solo necesita contar cuántos parámetros tiene el modelo","correct":false},
+            {"text":"Ninguna, porque el AIC solo se puede calcular en modelos Poisson y binomiales, que no tienen parámetros de dispersión","correct":false}],
+ "hint":"¿Qué necesita el AIC para calcularse?",
+ "explain":"El AIC se basa en la verosimilitud. La cuasi-Poisson solo especifica media y varianza (Var = φμ), sin una distribución completa, así que R devuelve AIC = NA. La binomial negativa es una distribución de probabilidad y sí tiene AIC (252.8 frente a 295.1 del Poisson en el ejemplo de peces loro)."},
 
-{"question": "En el estudio de caso, los segmentos de playa miden entre menos de 1 km y más de 3 km. ¿Por qué se incluye offset(log(longitud_km)) en el modelo?", "options": [{"text": "Para corregir la sobredispersión, porque la longitud del segmento es la causa principal de la agregación de los nidos", "correct": false}, {"text": "Para agregar la longitud como un segundo predictor, cuyo coeficiente se estima y se interpreta junto al de la iluminación", "correct": false}, {"text": "Para modelar nidos por km: sin él, el efecto de la luz se mezcla con el de la longitud de los segmentos", "correct": true}, {"text": "Para transformar el conteo de nidos a escala logarítmica y cumplir así el supuesto de normalidad de los residuos", "correct": false}], "hint": "¿El número de nidos depende solo de la iluminación, o también del tamaño del tramo muestreado?", "explain": "El offset convierte el conteo en una tasa (nidos por km) con coeficiente fijo en 1. Como los segmentos iluminados son más cortos (r = −0.86), sin offset la razón de tasas de la luz se exagera (0.77 frente a 0.83 con offset y binomial negativa)."},
+{"question":"En el modelo de peces loro, la zona tiene tres niveles y en summary() aparece como dos coeficientes (zonaIntermedia y zonaProtegida). ¿Por qué se usa anova(..., test = \"Chisq\") para decidir si la zona importa?",
+ "options":[{"text":"Porque prueba el factor zona completo (χ² con 2 g.l.), mientras que cada coeficiente solo compara una zona con la de referencia","correct":true},
+            {"text":"Porque summary() no calcula valores p en los modelos de binomial negativa, solo los coeficientes y sus errores estándar","correct":false},
+            {"text":"Porque anova() corrige la sobredispersión que todavía queda después de ajustar la binomial negativa con glm.nb()","correct":false},
+            {"text":"Porque con predictores categóricos el GLM deja de ser válido y se debe reemplazar por un ANOVA clásico","correct":false}],
+ "hint":"¿Qué comparación representa el coeficiente zonaIntermedia?",
+ "explain":"Con un factor de k niveles, summary() muestra k − 1 coeficientes, cada uno contra el nivel de referencia. La prueba de razón de verosimilitud evalúa el factor como un todo, igual que la F de un ANOVA, comparando el modelo con y sin la zona."},
 
-{"question": "En el estudio de caso, después de incluir el offset el Poisson aún tiene φ = 4.66. ¿Cuál es el paso correcto?", "options": [{"text": "Quitar el offset, porque si la sobredispersión persiste significa que el offset no era necesario para estos datos", "correct": false}, {"text": "Reportar el Poisson con offset, porque el offset ya corrigió el problema principal y la sobredispersión es secundaria", "correct": false}, {"text": "Cambiar a un GLM binomial, porque con φ > 2 los conteos se deben convertir a presencia/ausencia de nidos", "correct": false}, {"text": "Ajustar una binomial negativa con el mismo offset, y confirmar que su φ queda cerca de 1 y que su AIC mejora", "correct": true}], "hint": "El offset y la binomial negativa resuelven problemas distintos.", "explain": "El offset corrige el esfuerzo desigual; la binomial negativa corrige la agregación. Son decisiones complementarias: el modelo final es MASS::glm.nb(nidos ~ iluminacion + offset(log(longitud_km))), con φ ≈ 1.03 y AIC de 279.5 → 210.4."},
+{"question":"En el modelo aditivo de peces loro, la razón de tasas de zonaProtegida es 3.05 (IC 95 %: 1.78–5.28) y la de zonaIntermedia es 1.43 (IC 95 %: 0.81–2.54). ¿Qué se concluye?",
+ "options":[{"text":"Ambas zonas tienen más peces que la de uso intensivo, porque sus razones de tasas son mayores que 1","correct":false},
+            {"text":"La zona protegida tiene 3.05 peces más por transecto que la zona intermedia, en las dos épocas","correct":false},
+            {"text":"La zona intermedia también difiere de la de uso intensivo, porque su IC no incluye el valor 0","correct":false},
+            {"text":"La protegida tiene unas 3 veces la abundancia de la de uso intensivo; la intermedia no difiere: su IC incluye 1","correct":true}],
+ "hint":"En escala exp(), ¿qué valor indica \"sin diferencia\": 0 o 1?",
+ "explain":"Las razones de tasas son multiplicativas y se comparan con el nivel de referencia (uso intensivo). Un IC que incluye 1 no permite afirmar diferencia; el valor 0 es la referencia para β, no para exp(β). La comparación intermedia–protegida requiere comparaciones por pares (material complementario)."},
 
-{"question": "En el estudio de caso, los AIC del Poisson sin offset (298.3), del Poisson con offset (279.5) y de la binomial negativa con offset (210.4), ¿son comparables?", "options": [{"text": "Sí, porque los tres modelan la misma respuesta (el conteo de nidos); el offset solo fija un término del predictor lineal", "correct": true}, {"text": "No, porque el offset convierte la respuesta en una tasa, y el AIC solo compara modelos con la misma variable respuesta", "correct": false}, {"text": "No, porque la binomial negativa tiene un parámetro más, y el AIC solo compara modelos con el mismo número de parámetros", "correct": false}, {"text": "Solo los dos Poisson, porque el AIC no puede comparar modelos que pertenecen a familias de distribuciones distintas", "correct": false}], "hint": "¿Cambia el vector de datos que se modela al agregar un offset?", "explain": "El AIC compara modelos ajustados a los mismos datos de respuesta. El offset no cambia la respuesta (sigue siendo el conteo), así que los tres son comparables; el AIC penaliza la diferencia en el número de parámetros y admite comparar familias distintas sobre la misma respuesta."}
+{"question":"Tras ajustar el GLM de peces loro, un estudiante quiere saber si la composición completa de la comunidad de peces (25 especies) difiere entre zonas. ¿Qué es lo más apropiado?",
+ "options":[{"text":"Ajustar un solo GLM con la suma de individuos de las 25 especies, porque la abundancia total ya resume la composición","correct":false},
+            {"text":"Un análisis multivariado como PERMANOVA sobre la matriz de abundancias; el GLM responde especie por especie","correct":true},
+            {"text":"Ajustar 25 GLM y reportar solo las especies con p < 0,05, sin ningún análisis de la comunidad completa","correct":false},
+            {"text":"Un GLM binomial con la presencia/ausencia de cada especie, porque así queda incluida toda la composición","correct":false}],
+ "hint":"¿La pregunta es sobre una especie o sobre todas a la vez?",
+ "explain":"El GLM modela una variable respuesta (una especie o un total). La composición de la comunidad es multivariada y se compara con PERMANOVA o ANOSIM (Semana 4). Ambos enfoques se complementan: el multivariado muestra si la comunidad difiere y los GLM muestran qué especies explican la diferencia."}
 ]
 </script>
 
@@ -278,6 +402,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
 <p>Las preguntas y escenarios de este cuestionario son de elaboración propia para este curso; no reproducen ejercicios ni datos de las fuentes citadas en el taller.</p>
+<!-- -->
+
 </section>
 
 </main>
@@ -352,6 +478,57 @@ ul.task-list li input[type="checkbox"] {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -681,7 +858,303 @@ ul.task-list li input[type="checkbox"] {
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Cuestionario · GLM Binomial y Poisson"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Bioestadística y Diseño Experimental · Semana 2 · 2026-II"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  name: Nombre del Estudiante</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  url: https://www.unimagdalena.edu.co/</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  afiliation: Grupo de Investigación</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  afiliation-url: https://</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> "#2098D9"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true    # Tabla de contenido</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-title: Menú flotante</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true     # Opción para descargar los códigos</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false     # Visualización de los códigos en el reporte</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    css: ["styles.css"]    # Colores del texto.</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> ES-es</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "0.85\\linewidth"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: left</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-pos: 'H'</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figuras_portadas/cuestionarios/1a_cuestionario_glm.jpg"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instrucciones</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Este cuestionario acompaña el <span class="in">`Taller · GLM Binomial y Poisson en R`</span> y cierra el bloque de bioestadística de la Semana 2. Son **12 preguntas de opción múltiple** basadas en las Partes 1 a 4 del taller: componentes de un GLM y elección de la familia, GLM binomial (odds ratio, predicciones, prueba de razón de verosimilitud, devianza explicada), GLM Poisson (razón de tasas, equidispersión) y conteos entre zonas y épocas (sobredispersión, binomial negativa, prueba del factor completo e interpretación de razones de tasas), con una pregunta final que conecta con los análisis multivariados de la Semana 4.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Cada pregunta tiene una pista opcional y, al responder, una explicación breve; se recomienda usarlas para repasar, no solo para obtener una calificación. El orden de las opciones cambia en cada intento.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp{</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">    --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="in">    --qz-white:#FFFFFF; --qz-muted:#6B7A8F; --qz-ok:#2E9E5B; --qz-bad:#C0392B;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">    max-width:680px; margin:1.5rem 0; font-family:inherit; color:var(--qz-navy);</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp *{box-sizing:border-box;}</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .progress-wrap{margin-bottom:1.1rem;}</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .progress-track{background:#D5E3EF; border-radius:6px; height:8px; overflow:hidden;}</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .progress-fill{background:var(--qz-blue); height:100%; width:0%; transition:width .3s;}</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .progress-label{font-size:.8rem; color:var(--qz-muted); margin-top:.4rem;}</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .qz-card{</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">    background:var(--qz-card); border-radius:14px; padding:1.5rem 1.4rem;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">    box-shadow:0 2px 10px rgba(21,44,74,.06);</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .question{font-size:1.08rem; line-height:1.5; margin:0 0 1.1rem; font-weight:700;}</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .options{display:flex; flex-direction:column; gap:.55rem;}</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt{</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">    text-align:left; border:1.5px solid #D5E3EF; background:var(--qz-white); border-radius:10px;</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">    padding:.7rem .9rem; font-size:.94rem; color:var(--qz-navy); cursor:pointer;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">    transition:border-color .15s, background .15s; font-family:inherit;</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt:hover:not(:disabled){border-color:var(--qz-blue);}</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt.correct{border-color:var(--qz-ok); background:#EAF7EF; font-weight:700;}</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt.incorrect{border-color:var(--qz-bad); background:#FBEAEA;}</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt.dim{opacity:.55;}</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .opt:disabled{cursor:default;}</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .hint-row{margin-top:.9rem;}</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .hint-btn{</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">    background:none; border:none; color:var(--qz-blue); font-size:.82rem; cursor:pointer;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">    padding:0; text-decoration:underline; font-family:inherit;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .hint-text{font-size:.85rem; color:var(--qz-muted); margin-top:.5rem; font-style:italic;}</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .feedback{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; font-size:.9rem; display:none;}</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .feedback.show{display:block;}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .feedback.ok{background:#EAF7EF; color:var(--qz-ok);}</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .feedback.bad{background:#FBEAEA; color:var(--qz-bad);}</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .explain{margin-top:.5rem; color:var(--qz-navy); font-style:normal;}</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .nav-row{margin-top:1.2rem; text-align:right;}</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .next-btn{</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="in">    background:var(--qz-navy); color:var(--qz-white); border:none; border-radius:8px;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; display:none; font-family:inherit;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .next-btn.show{display:inline-block;}</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .result{text-align:center; padding:.8rem 0;}</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .result .score{font-size:2.4rem; font-weight:700; color:var(--qz-navy); margin:0;}</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .result .score span{font-size:1.1rem; color:var(--qz-muted); font-weight:400;}</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .result p{color:var(--qz-muted); font-size:.92rem;}</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="in">  #quizApp .restart-btn{</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">    background:var(--qz-blue); color:var(--qz-white); border:none; border-radius:8px;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; margin-top:.6rem; font-family:inherit;</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div id="quizApp"&gt;</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="progress-wrap"&gt;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="progress-track"&gt;&lt;div class="progress-fill" id="qzFill"&gt;&lt;/div&gt;&lt;/div&gt;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="progress-label" id="qzLabel"&gt;Pregunta 1 de 12&lt;/div&gt;</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="qz-card" id="qzCard"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script id="qz-data" type="application/json"&gt;</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="in">[</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En un GLM, ¿sobre qué actúa la función de enlace y qué ventaja da frente a transformar log(Y) antes de un lm()?",</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Actúa sobre cada observación de Y, igual que log(Y), pero corrige automáticamente los ceros sumando una constante pequeña","correct":false},</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Actúa sobre la media esperada μ y no sobre cada dato: los ceros no generan problema y la varianza queda en su escala real","correct":true},</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Actúa sobre los residuos del modelo, transformándolos para que sigan una distribución normal antes de estimar los coeficientes","correct":false},</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Actúa sobre los predictores, llevándolos a una escala logarítmica para que su relación con la respuesta sea siempre lineal","correct":false}],</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Qué pasa con log(Y) cuando un cuadrante tiene 0 individuos?",</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"La función de enlace conecta μ = E(Y) con el predictor lineal: η = g(μ). Los datos no se transforman, así que un conteo de 0 no es problema (log 0 = −∞ sí lo sería) y la varianza se modela con la familia (Var = μ en Poisson)."},</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el modelo de banda negra se usa predict(mod_enf, newdata = nd, type = \"response\"). ¿Qué se obtiene si se omite type = \"response\"?",</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"El predictor lineal en escala logit; habría que aplicar plogis() para obtener la probabilidad","correct":true},</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La misma probabilidad predicha, pero sin el intervalo de confianza, que solo se calcula con type = \"response\"","correct":false},</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"El odds ratio de cada temperatura en lugar de la probabilidad predicha de enfermedad","correct":false},</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Un error, porque en un GLM binomial el argumento type es obligatorio para hacer predicciones","correct":false}],</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿En qué escala trabaja internamente un GLM binomial?",</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"Por defecto, predict() devuelve el predictor lineal η en la escala del enlace (logit). Con type = \"response\" se aplica la inversa del enlace, plogis(), y se obtiene la probabilidad entre 0 y 1."},</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el GLM binomial de la enfermedad de banda negra, OR = 1.65 por °C. ¿Cuál es la interpretación correcta?",</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Por cada °C adicional, la probabilidad de enfermedad aumenta 65 puntos porcentuales en todo el rango de temperaturas","correct":false},</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Por cada °C adicional, la probabilidad de enfermedad aumenta un 65 %, sin importar cuál sea la probabilidad de partida","correct":false},</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La temperatura explica el 65 % de la variación en la presencia de la enfermedad entre las 80 colonias muestreadas","correct":false},</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Los odds de enfermedad se multiplican por 1.65 por °C; el cambio en probabilidad depende del tramo de la curva","correct":true}],</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Qué se multiplica por 1.65: la probabilidad p o los odds p/(1 − p)?",</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"El OR es un cambio multiplicativo en los odds, no en la probabilidad. Como la relación entre odds y probabilidad no es lineal, la probabilidad predicha sube unos 12 puntos por grado en la zona media de la curva y menos en los extremos. La variación explicada se evalúa con la devianza."},</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"La temperatura es significativa (prueba de razón de verosimilitud: χ² = 8.69, p = 0.003), pero solo reduce la devianza un 7.9 %. ¿Cómo se interpreta?",</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"El efecto de la temperatura es real, pero explica poco: otros factores no incluidos pesan más","correct":true},</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Hay una contradicción: si la devianza explicada es tan baja, el valor p debe estar mal calculado y el efecto no es real","correct":false},</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"El modelo es inútil, porque un GLM solo se considera válido cuando explica al menos la mitad de la devianza del modelo nulo","correct":false},</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"El efecto es fuerte, porque con p = 0.003 la temperatura es el factor que más influye en la enfermedad de banda negra","correct":false}],</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"Recordar la diferencia entre r² y valor p en la regresión lineal.",</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"El valor p indica si el efecto es distinguible del azar; la devianza explicada indica cuánto de la variación explica el predictor. Un efecto puede ser real y explicar poco, porque la especie hospedera, la sedimentación o los patógenos también influyen."},</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el modelo de juveniles de langosta, φ = 1.01. Otro estudiante obtiene φ = 1.15 en un Poisson parecido. ¿Qué es lo más razonable?",</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Cambiar obligatoriamente a binomial negativa, porque cualquier φ mayor que 1, por pequeño que sea, invalida el Poisson","correct":false},</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Considerar el Poisson razonable: φ está cerca de 1, y valores como 1,2 son una regla práctica, no un corte rígido","correct":true},</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Descartar el GLM y ajustar un lm() a log(Y + 1), porque así los residuos quedan normales y homogéneos","correct":false},</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Reportar el Poisson sin calcular φ, porque φ solo importa cuando hay más de 100 unidades de muestreo","correct":false}],</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Existe un valor exacto de φ a partir del cual el Poisson deja de servir?",</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"No hay un corte único: φ cercano a 1 es compatible con el Poisson, y umbrales como 1,2–1,5 son reglas prácticas para empezar a revisar. Lo que preocupa son valores claramente mayores (2 o más), y si al corregir cambian las conclusiones."},</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"Antes de ajustar el modelo de peces loro, la tabla de medias y varianzas muestra, por ejemplo, media 10.4 y varianza 120 en la zona protegida durante la época seca. ¿Qué anticipa eso?",</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Que los datos no son conteos y deberían analizarse con un GLM binomial de presencia/ausencia de peces","correct":false},</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Que hay un error de digitación en la zona protegida, porque en datos de conteo la varianza no puede superar a la media","correct":false},</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Sobredispersión: el Poisson supone varianza ≈ media, así que es probable que φ salga claramente mayor que 1","correct":true},</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Que la zona protegida tiene más transectos que las demás, y por eso su varianza es mucho mayor","correct":false}],</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Qué relación entre media y varianza supone el modelo Poisson?",</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"El Poisson asume Var = μ. Una varianza mucho mayor que la media es la primera señal de sobredispersión, típica de peces que se agregan en grupos. Por eso, en el taller, φ del Poisson salió en 3.38."},</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el GLM Poisson de juveniles de langosta, exp(b) = 1.16 para el índice de densidad de pasto. ¿Qué significa?",</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Por cada unidad adicional del índice, se espera encontrar 1.16 juveniles más por parche, en todo el rango de densidades","correct":false},</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Por cada unidad adicional del índice, los odds de encontrar juveniles en el parche se multiplican por 1.16","correct":false},</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La densidad de pasto explica el 16 % de la variación en el número de juveniles entre los 32 parches muestreados","correct":false},</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Por cada unidad del índice, la abundancia esperada de juveniles por parche se multiplica por 1.16 (+16 %)","correct":true}],</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"En un GLM Poisson, ¿los efectos son aditivos o multiplicativos en la escala original?",</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"Con enlace log, exp(b) es una razón de tasas: un factor multiplicativo sobre la abundancia esperada. No es un número fijo de individuos adicionales, no se habla de odds (eso es el modelo binomial) y no es una proporción de variación explicada."},</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el ejemplo de los peces loro, el Poisson da φ = 3.38. ¿Qué consecuencia tiene si se reporta ese modelo sin corregir?",</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Los errores estándar quedan subestimados y los valores p exageran la evidencia, con riesgo de falsos positivos","correct":true},</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Los coeficientes quedan sesgados hacia cero, así que las diferencias entre zonas parecen más débiles de lo que son","correct":false},</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"El modelo predice abundancias negativas en los transectos de la zona de uso intensivo","correct":false},</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"No tiene consecuencias, porque φ solo afecta la bondad de ajuste y no la inferencia sobre los coeficientes del modelo","correct":false}],</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"El Poisson asume Var = μ. Si la varianza real es mayor, ¿qué se subestima?",</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"Con sobredispersión, la variabilidad real es mayor que la que asume el Poisson, así que los EE son demasiado pequeños (para la zona protegida, 0.21 frente a 0.36 en la binomial negativa) y los valores p, demasiado bajos. Los coeficientes cambian poco, y el enlace log impide predicciones negativas."},</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"Para corregir la sobredispersión se puede usar cuasi-Poisson o binomial negativa. ¿Cuál permite comparar modelos con AIC y por qué?",</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"La cuasi-Poisson, porque conserva los mismos coeficientes del Poisson y por eso su AIC es directamente comparable con él","correct":false},</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La binomial negativa, porque es una distribución completa (Var = μ + μ²/θ) con verosimilitud; la cuasi-Poisson no la tiene","correct":true},</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Ambas, porque las dos agregan un parámetro de dispersión y el AIC solo necesita contar cuántos parámetros tiene el modelo","correct":false},</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Ninguna, porque el AIC solo se puede calcular en modelos Poisson y binomiales, que no tienen parámetros de dispersión","correct":false}],</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Qué necesita el AIC para calcularse?",</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"El AIC se basa en la verosimilitud. La cuasi-Poisson solo especifica media y varianza (Var = φμ), sin una distribución completa, así que R devuelve AIC = NA. La binomial negativa es una distribución de probabilidad y sí tiene AIC (252.8 frente a 295.1 del Poisson en el ejemplo de peces loro)."},</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el modelo de peces loro, la zona tiene tres niveles y en summary() aparece como dos coeficientes (zonaIntermedia y zonaProtegida). ¿Por qué se usa anova(..., test = \"Chisq\") para decidir si la zona importa?",</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Porque prueba el factor zona completo (χ² con 2 g.l.), mientras que cada coeficiente solo compara una zona con la de referencia","correct":true},</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Porque summary() no calcula valores p en los modelos de binomial negativa, solo los coeficientes y sus errores estándar","correct":false},</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Porque anova() corrige la sobredispersión que todavía queda después de ajustar la binomial negativa con glm.nb()","correct":false},</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Porque con predictores categóricos el GLM deja de ser válido y se debe reemplazar por un ANOVA clásico","correct":false}],</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿Qué comparación representa el coeficiente zonaIntermedia?",</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"Con un factor de k niveles, summary() muestra k − 1 coeficientes, cada uno contra el nivel de referencia. La prueba de razón de verosimilitud evalúa el factor como un todo, igual que la F de un ANOVA, comparando el modelo con y sin la zona."},</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"En el modelo aditivo de peces loro, la razón de tasas de zonaProtegida es 3.05 (IC 95 %: 1.78–5.28) y la de zonaIntermedia es 1.43 (IC 95 %: 0.81–2.54). ¿Qué se concluye?",</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Ambas zonas tienen más peces que la de uso intensivo, porque sus razones de tasas son mayores que 1","correct":false},</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La zona protegida tiene 3.05 peces más por transecto que la zona intermedia, en las dos épocas","correct":false},</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La zona intermedia también difiere de la de uso intensivo, porque su IC no incluye el valor 0","correct":false},</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"La protegida tiene unas 3 veces la abundancia de la de uso intensivo; la intermedia no difiere: su IC incluye 1","correct":true}],</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"En escala exp(), ¿qué valor indica \"sin diferencia\": 0 o 1?",</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"Las razones de tasas son multiplicativas y se comparan con el nivel de referencia (uso intensivo). Un IC que incluye 1 no permite afirmar diferencia; el valor 0 es la referencia para β, no para exp(β). La comparación intermedia–protegida requiere comparaciones por pares (material complementario)."},</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="in">{"question":"Tras ajustar el GLM de peces loro, un estudiante quiere saber si la composición completa de la comunidad de peces (25 especies) difiere entre zonas. ¿Qué es lo más apropiado?",</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in"> "options":[{"text":"Ajustar un solo GLM con la suma de individuos de las 25 especies, porque la abundancia total ya resume la composición","correct":false},</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Un análisis multivariado como PERMANOVA sobre la matriz de abundancias; el GLM responde especie por especie","correct":true},</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Ajustar 25 GLM y reportar solo las especies con p &lt; 0,05, sin ningún análisis de la comunidad completa","correct":false},</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">            {"text":"Un GLM binomial con la presencia/ausencia de cada especie, porque así queda incluida toda la composición","correct":false}],</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in"> "hint":"¿La pregunta es sobre una especie o sobre todas a la vez?",</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="in"> "explain":"El GLM modela una variable respuesta (una especie o un total). La composición de la comunidad es multivariada y se compara con PERMANOVA o ANOSIM (Semana 4). Ambos enfoques se complementan: el multivariado muestra si la comunidad difiere y los GLM muestran qué especies explican la diferencia."}</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">]</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">(function(){</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">  const DATA = JSON.parse(document.getElementById('qz-data').textContent);</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">  let idx = 0, score = 0, answered = false, opciones = [];</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">  // Baraja las opciones (Fisher-Yates) para que la respuesta correcta</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">  // no quede siempre en la misma posición</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">  function barajar(arr){</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="in">    const a = arr.slice();</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">    for(let k = a.length - 1; k &gt; 0; k--){</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">      const r = Math.floor(Math.random() * (k + 1));</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">      [a[k], a[r]] = [a[r], a[k]];</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">    return a;</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="in">  const card = document.getElementById('qzCard');</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">  const fill = document.getElementById('qzFill');</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="in">  const label = document.getElementById('qzLabel');</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">  function render(){</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">    if(idx &gt;= DATA.length){ renderResult(); return; }</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">    answered = false;</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">    const q = DATA[idx];</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="in">    opciones = barajar(q.options);</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">    fill.style.width = (idx/DATA.length*100) + '%';</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="in">    label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="in">    card.innerHTML = `</span></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;p class="question"&gt;${q.question}&lt;/p&gt;</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="options"&gt;</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="in">        ${opciones.map((o,i)=&gt;`&lt;button class="opt" data-i="${i}"&gt;${o.text}&lt;/button&gt;`).join('')}</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="hint-row"&gt;</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;button class="hint-btn" id="qzHintBtn"&gt;Mostrar pista&lt;/button&gt;</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div class="hint-text" id="qzHintText" style="display:none;"&gt;${q.hint || ''}&lt;/div&gt;</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="feedback" id="qzFeedback"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="nav-row"&gt;&lt;button class="next-btn" id="qzNextBtn"&gt;Siguiente →&lt;/button&gt;&lt;/div&gt;</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">    `;</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">    document.getElementById('qzHintBtn').onclick = () =&gt; {</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="in">      const t = document.getElementById('qzHintText');</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="in">      t.style.display = t.style.display === 'none' ? 'block' : 'none';</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="in">    };</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">    card.querySelectorAll('.opt').forEach(btn=&gt;{</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="in">      btn.onclick = () =&gt; selectOption(parseInt(btn.dataset.i));</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">    });</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="in">    document.getElementById('qzNextBtn').onclick = () =&gt; { idx++; render(); };</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="in">  function selectOption(i){</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="in">    if(answered) return;</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="in">    answered = true;</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a><span class="in">    const q = DATA[idx];</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="in">    const opts = card.querySelectorAll('.opt');</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="in">    opts.forEach((btn,j)=&gt;{</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="in">      btn.disabled = true;</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a><span class="in">      if(opciones[j].correct) btn.classList.add('correct');</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="in">      else if(j===i) btn.classList.add('incorrect');</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a><span class="in">      else btn.classList.add('dim');</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="in">    });</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="in">    const fb = document.getElementById('qzFeedback');</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="in">    if(opciones[i].correct){</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="in">      score++;</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="in">      fb.innerHTML = '¡Correcto! &lt;div class="explain"&gt;' + q.explain + '&lt;/div&gt;';</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="in">      fb.className = 'feedback show ok';</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="in">    } else {</span></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="in">      fb.innerHTML = 'No es correcto. &lt;div class="explain"&gt;' + q.explain + '&lt;/div&gt;';</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="in">      fb.className = 'feedback show bad';</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="in">    document.getElementById('qzNextBtn').classList.add('show');</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="in">  function renderResult(){</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="in">    fill.style.width = '100%';</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="in">    label.textContent = `${DATA.length} de ${DATA.length}`;</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="in">    const pct = Math.round(score/DATA.length*100);</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="in">    card.innerHTML = `</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="result"&gt;</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;p class="score"&gt;${score}&lt;span&gt;/${DATA.length}&lt;/span&gt;&lt;/p&gt;</span></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;p&gt;${pct}% de aciertos. ${pct&gt;=80?'Excelente dominio de los modelos lineales generalizados.':pct&gt;=60?'Buen manejo general: conviene repasar los temas con errores.':'Vale la pena repasar el taller antes de la Semana 3.'}&lt;/p&gt;</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;button class="restart-btn" id="qzRestartBtn"&gt;Intentar de nuevo&lt;/button&gt;</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="in">    `;</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="in">    document.getElementById('qzRestartBtn').onclick = () =&gt; { idx=0; score=0; render(); };</span></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="in">  render();</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="in">})();</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## Referencias</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>Las preguntas y escenarios de este cuestionario son de elaboración propia para este curso; no reproducen ejercicios ni datos de las fuentes citadas en el taller.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

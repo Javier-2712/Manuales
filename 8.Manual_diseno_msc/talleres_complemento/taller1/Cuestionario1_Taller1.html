@@ -8,7 +8,7 @@
 
 <meta name="author" content="Javier Rodríguez-Barrios">
 
-<title>Cuestionario 1· Diseño Expeimental y Bioestadística</title>
+<title>Cuestionario 1· Diseño Experimental y Bioestadística</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -53,7 +53,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cuestionario 1· Diseño Expeimental y Bioestadística</h1>
+<h1 class="title">Cuestionario 1· Diseño Experimental y Bioestadística</h1>
 <p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 1 · 2026-II</p>
 </div>
 
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">3 de octubre de 2026</p>
+      <p class="date">4 de octubre de 2026</p>
     </div>
   </div>
   
@@ -160,82 +160,82 @@ ul.task-list li input[type="checkbox"] {
 <script id="qz-data" type="application/json">
 [
 {"question":"En el ejercicio de selección de 8 puntos de muestreo entre 20 candidatos (Parte 0), ¿por qué se usa sample() en vez de elegir \"a mano\" los sitios más accesibles?",
- "options":[{"text":"Porque sample() es más rápido de escribir en R","correct":false},
-            {"text":"Porque evita que factores no controlados favorezcan sistemáticamente ciertos sitios, permitiendo atribuir diferencias al tratamiento y no a un sesgo de selección","correct":true},
-            {"text":"Porque garantiza que todos los sitios tengan exactamente la misma riqueza","correct":false},
-            {"text":"Porque reduce el número de réplicas necesarias","correct":false}],
+ "options":[{"text":"Para que factores no controlados no favorezcan sistemáticamente a ciertos sitios y las diferencias puedan atribuirse al tratamiento","correct":true},
+            {"text":"Porque reduce el número de réplicas necesarias, al asegurar que los 8 puntos elegidos representen bien a los 20 candidatos","correct":false},
+            {"text":"Porque hace que los sitios seleccionados tengan una riqueza similar, eliminando la variación natural entre puntos","correct":false},
+            {"text":"Porque es más rápido de programar en R que una selección manual","correct":false}],
  "hint":"Pensar en qué principio de diseño se practicó en la Parte 0.",
  "explain":"Ese es el principio de aleatorización: protege contra sesgos de selección, conocidos o no, y es lo que permite atribuir diferencias al tratamiento y no a cómo se eligieron las unidades."},
 
 {"question":"En el cultivo de langosta espinosa (Parte 3), cada tanque es una réplica. Si en vez de usar 4 tanques por combinación se hubiera usado 1 solo tanque por combinación, pero midiendo 4 langostas dentro de ese tanque, ¿qué error se estaría cometiendo?",
- "options":[{"text":"Ninguno — 4 langostas siguen siendo 4 réplicas","correct":false},
-            {"text":"Pseudoreplicación: las langostas del mismo tanque no son independientes entre sí","correct":true},
-            {"text":"Confusión de factores (confounding)","correct":false},
-            {"text":"Falta de control","correct":false}],
+ "options":[{"text":"Ninguno: se mantienen 4 mediciones por combinación, así que el tamaño de muestra efectivo no cambia","correct":false},
+            {"text":"Falta de control, porque ningún tanque quedaría sin refugio para servir de línea base","correct":false},
+            {"text":"Pseudoreplicación: las langostas de un tanque comparten ambiente y no son réplicas independientes","correct":true},
+            {"text":"Un sesgo de aleatorización, porque con un solo tanque ya no es posible asignar los tratamientos al azar","correct":false}],
  "hint":"¿Recibieron las 4 langostas el tratamiento de forma independiente, o comparten el mismo tanque?",
  "explain":"Las langostas de un mismo tanque comparten el mismo ambiente y no reciben el tratamiento de forma independiente — son submuestras, no réplicas. Tratarlas como réplicas es pseudoreplicación."},
 
-{"question":"En el diseño de restauración de manglares (Parte 4), el nivel \"Control\" del factor tratamiento cumple qué función?",
- "options":[{"text":"Es una réplica adicional de los otros tratamientos","correct":false},
-            {"text":"Sirve como línea base para saber si el cambio observado se debe a los tratamientos activos o habría ocurrido de todas formas","correct":true},
-            {"text":"Bloquea el efecto de la exposición al oleaje","correct":false},
-            {"text":"Aumenta artificialmente la potencia estadística","correct":false}],
+{"question":"En el diseño de restauración de manglares (Parte 4), ¿qué función cumple el nivel \"Control\" del factor tratamiento?",
+ "options":[{"text":"Funciona como una réplica adicional de los tratamientos activos, aumentando el número de unidades por tratamiento","correct":false},
+            {"text":"Actúa como bloque, porque absorbe la variación asociada a la exposición al oleaje entre sitios","correct":false},
+            {"text":"Su función principal es aumentar la potencia, al sumar un nivel más al factor y más grados de libertad al modelo","correct":false},
+            {"text":"Sirve de línea base: muestra qué habría pasado sin ninguna intervención","correct":true}],
  "hint":"¿Qué principio de diseño responde a la pregunta \"¿comparado con qué?\"?",
  "explain":"Sin un control, no hay línea base: no se puede saber si el crecimiento observado se debe a la siembra/fertilización o habría pasado igual sin intervención."},
 
 {"question":"En el ejemplo de artes de pesca (Parte 2), la SC del arte fue idéntica en el ANOVA sin bloqueo y en el ANOVA con bloqueo, pero el F del arte aumentó mucho al bloquear. ¿Por qué?",
- "options":[{"text":"Porque el bloqueo aumentó el efecto real del arte de pesca","correct":false},
-            {"text":"Porque la variación entre temporadas dejó de contarse como error, y el CM residual (denominador de F) bajó","correct":true},
-            {"text":"Porque al incluir la temporada se agregaron réplicas al experimento","correct":false},
-            {"text":"Porque el bloqueo cambió qué arte se asignó a cada faena","correct":false}],
+ "options":[{"text":"Porque al bloquear se estimó con más precisión el efecto real del arte, y así aumentó la variación que explica","correct":false},
+            {"text":"Porque la variación entre temporadas salió del error y así bajó el CM residual (denominador de F)","correct":true},
+            {"text":"Porque incluir la temporada agregó réplicas y, con ellas, grados de libertad al error","correct":false},
+            {"text":"Porque el bloqueo reorganizó la asignación de las artes a las faenas, equilibrándolas entre temporadas","correct":false}],
  "hint":"F = CM del tratamiento / CM residual. ¿Cuál de los dos cambió?",
  "explain":"El bloqueo no cambia la señal del tratamiento (su SC), sino el ruido: la variación asociada a la temporada se separa del error, el CM residual baja y el F del arte sube. Por eso, con el mismo número de faenas, aumenta la potencia para detectar el efecto."},
 
 {"question":"En el diseño factorial de langosta espinosa (refugio × densidad), ¿cuál es la unidad experimental?",
- "options":[{"text":"Cada langosta juvenil individual","correct":false},
-            {"text":"Cada tanque, porque recibe la combinación de refugio y densidad de forma independiente","correct":true},
-            {"text":"Cada combinación de refugio × densidad, en abstracto","correct":false},
-            {"text":"El experimento completo","correct":false}],
+ "options":[{"text":"Cada langosta juvenil, porque es el organismo en el que se registra la respuesta","correct":false},
+            {"text":"Cada combinación de refugio × densidad, ya que define el tratamiento que se compara en el ANOVA","correct":false},
+            {"text":"Cada tanque, porque es lo que recibe de forma independiente la combinación de tratamientos","correct":true},
+            {"text":"El conjunto de tanques de cada combinación, tratado como una sola unidad de análisis por nivel","correct":false}],
  "hint":"¿A qué nivel se asignó el tratamiento: langosta o tanque?",
  "explain":"El tratamiento (una combinación específica de refugio y densidad) se asigna a nivel de tanque, no de langosta individual — por eso el tanque es la unidad experimental."},
 
 {"question":"¿Cuál de las siguientes situaciones justifica usar un diseño completamente al azar (CA) en vez de bloques al azar?",
- "options":[{"text":"Cuando hay una fuente de variación conocida (sitio, temporada) que se quiere controlar","correct":false},
-            {"text":"Cuando las unidades experimentales son razonablemente homogéneas y no hay ninguna fuente de variación conocida que controlar","correct":true},
-            {"text":"Cuando interesa la interacción entre dos factores","correct":false},
-            {"text":"Cuando un factor solo puede manipularse a una escala espacial mayor que otro","correct":false}],
+ "options":[{"text":"Cuando las unidades son razonablemente homogéneas y no hay fuentes de variación conocidas que controlar","correct":true},
+            {"text":"Cuando hay una fuente de variación conocida, como el sitio o la temporada, que conviene controlar en el análisis","correct":false},
+            {"text":"Cuando la pregunta central es si el efecto de un factor cambia según los niveles de un segundo factor","correct":false},
+            {"text":"Cuando un factor solo puede manipularse a una escala espacial mayor que la del otro factor","correct":false}],
  "hint":"Revisar la tabla de \"¿qué diseño elijo?\" de las diapositivas.",
  "explain":"El CA es la opción por defecto cuando no hay ninguna fuente de variación conocida que amenace con \"tapar\" el efecto del tratamiento — como en la riqueza de macroalgas de la Parte 1."},
 
 {"question":"En el diseño factorial de langosta (Parte 3), el término refugio:densidad resultó significativo. ¿Qué significa esto en la práctica?",
- "options":[{"text":"Que ni el refugio ni la densidad afectan la supervivencia","correct":false},
-            {"text":"Que el efecto del tipo de refugio sobre la supervivencia depende de la densidad de siembra — no es el mismo en todos los niveles","correct":true},
-            {"text":"Que hay que ignorar los efectos principales y quedarse solo con la interacción","correct":false},
-            {"text":"Que el diseño tiene un error de pseudoreplicación","correct":false}],
+ "options":[{"text":"Que ni el refugio ni la densidad afectan por sí solos la supervivencia; solo importa su combinación","correct":false},
+            {"text":"Que los efectos principales deben ignorarse y la interpretación debe basarse únicamente en la interacción","correct":false},
+            {"text":"Que el diseño presenta pseudoreplicación, porque los mismos tanques aparecen en ambos factores","correct":false},
+            {"text":"Que el efecto del tipo de refugio sobre la supervivencia depende de la densidad: no es igual en todos sus niveles","correct":true}],
  "hint":"¿Qué significa \"interacción\" entre dos factores?",
  "explain":"Una interacción significativa significa que la brecha entre refugios cambia según la densidad — a baja densidad ambos refugios rinden parecido, a alta densidad la brecha se dispara."},
 
 {"question":"En el diseño de parcelas divididas de manglares (Parte 4), ¿por qué el modelo usa aov(crecimiento ~ exposicion * tratamiento + Error(sitio)) en vez de un aov() simple?",
- "options":[{"text":"Porque R exige usar Error() en cualquier modelo con dos factores","correct":false},
-            {"text":"Porque el diseño tiene dos escalas de aleatorización distintas — exposición a nivel de sitio, tratamiento a nivel de subparcela — que necesitan dos términos de error separados","correct":true},
-            {"text":"Porque exposicion es una variable continua","correct":false},
-            {"text":"Porque Error() calcula automáticamente los supuestos de normalidad","correct":false}],
+ "options":[{"text":"Porque R exige el término Error() en cualquier ANOVA con dos factores cruzados y su interacción","correct":false},
+            {"text":"Porque hay dos escalas de aleatorización (sitio y subparcela), cada una con su propio término de error","correct":true},
+            {"text":"Porque exposición se trata como covariable continua y Error() la ajusta antes de estimar el tratamiento","correct":false},
+            {"text":"Porque Error() verifica automáticamente la normalidad y la homogeneidad de varianzas en cada estrato","correct":false}],
  "hint":"¿A qué escala se asignó cada factor: sitio completo o subparcela?",
  "explain":"Sin Error(), R usaría un solo error para todo el modelo, subestimando la incertidumbre del factor de parcela grande (exposición) e inflando artificialmente su significancia."},
 
 {"question":"Un equipo va a desplegar módulos de arrecife artificial en 4 sitios de despliegue, y sabe de antemano que esos 4 sitios difieren en corrientes y complejidad del fondo. Ese dato debería llevar a proponer…",
- "options":[{"text":"Un diseño completamente al azar, ignorando el sitio","correct":false},
-            {"text":"Un diseño de bloques al azar, con el sitio como bloque","correct":true},
-            {"text":"Un diseño factorial, tratando sitio y módulo como dos factores de interés igual de importantes","correct":false},
-            {"text":"Un diseño de parcelas divididas, con el sitio como parcela grande","correct":false}],
+ "options":[{"text":"Un diseño de bloques al azar, con el sitio como bloque","correct":true},
+            {"text":"Un diseño completamente al azar, porque la aleatorización por sí sola compensa las diferencias entre sitios","correct":false},
+            {"text":"Un diseño factorial, tratando sitio y tipo de módulo como dos factores de interés igual de importantes","correct":false},
+            {"text":"Un diseño de parcelas divididas, con el sitio como parcela grande y el módulo como subparcela","correct":false}],
  "hint":"¿El sitio es algo que interesa estudiar por sí mismo, o algo que se busca controlar?",
  "explain":"El sitio es una fuente de variación conocida de antemano pero no es el foco de la pregunta — la firma exacta de cuándo bloquear. No es factorial porque el sitio no es un factor de interés propio, y no es parcelas divididas porque el módulo sí pudo asignarse al azar dentro de cada sitio."},
 
 {"question":"Un colega va a comparar la cobertura de coral en 3 zonas de manejo, tomando 1 sitio por zona pero fotografiando 15 cuadrantes dentro de ese sitio, y trata cada cuadrante como una réplica independiente en el ANOVA. ¿Cuál es el problema?",
- "options":[{"text":"Ninguno — 15 cuadrantes por zona es una muestra suficientemente grande","correct":false},
-            {"text":"Pseudoreplicación: los cuadrantes están anidados dentro de 1 solo sitio por zona, así que no son réplicas verdaderamente independientes del tratamiento \"zona\"","correct":true},
-            {"text":"Debería usar un diseño factorial en vez de esto","correct":false},
-            {"text":"El problema es que le faltan controles","correct":false}],
+ "options":[{"text":"Ninguno: 15 cuadrantes por zona dan un tamaño de muestra suficiente para un ANOVA de una vía","correct":false},
+            {"text":"Falta de controles, porque ninguna de las 3 zonas es un área sin manejo que sirva de referencia","correct":false},
+            {"text":"Pseudoreplicación: con un solo sitio por zona, los cuadrantes son submuestras y no réplicas de la zona","correct":true},
+            {"text":"Debería usar un diseño factorial, cruzando zona de manejo y cuadrante como dos factores fijos","correct":false}],
  "hint":"¿Cuántos sitios independientes hay realmente por zona?",
  "explain":"El tratamiento (\"zona\") se aplicó a nivel de sitio, no de cuadrante. Con 1 sitio por zona, no hay réplicas verdaderas del tratamiento — solo submuestras dentro de una única réplica, sin importar cuántos cuadrantes se midan."}
 ]
