@@ -229,6 +229,18 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 6.1 CLA Bahías</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6.2 CLA Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pautas Estudios de Caso</span></a>
   </div>
@@ -586,7 +598,7 @@ Tabla&nbsp;1: Comparación de estrategias visuales para análisis ecológico exp
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>])            <span class="co"># Matriz de Correlación (M)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La <a href="#fig-fig1a" class="quarto-xref">Figura&nbsp;<span>1</span></a> muestra la relación entre las variables, a partir de figuras de elipses y de circulos.</p>
+<p>La <a href="#fig-fig1a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig1a</span></a> muestra la relación entre las variables, a partir de figuras de elipses y de circulos.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
@@ -610,7 +622,7 @@ Figura&nbsp;1: Relación de variables ambientales y los taxones en las veinte qu
 </div>
 </div>
 </div>
-<p>La <a href="#fig-fig2a" class="quarto-xref">Figura&nbsp;<span>2</span></a> muestra la relación entre las variables, a partir de figuras de elipses, además incorpora al nivel de correlación entre las parejas de variables con los coeficientes de Pearson.</p>
+<p>La <a href="#fig-fig2a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig2a</span></a> muestra la relación entre las variables, a partir de figuras de elipses, además incorpora al nivel de correlación entre las parejas de variables con los coeficientes de Pearson.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M, <span class="at">upper=</span><span class="st">"ellipse"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -627,7 +639,7 @@ Figura&nbsp;2: Relación de variables ambientales y los taxones en las veinte qu
 </div>
 </div>
 </div>
-<p>La siguiente opción de correlación (<a href="#fig-fig3a" class="quarto-xref">Figura&nbsp;<span>3</span></a>), presenta un código más compejo que las anteriores, pero permite generar una visualización más completa de las relaciones entre parejas de variables y sus coeficientes de correlación de Pearson (también se pueden probar otros coeficientes como Spearman o Kendall).</p>
+<p>La siguiente opción de correlación (<a href="#fig-fig3a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig3a</span></a>), presenta un código más compejo que las anteriores, pero permite generar una visualización más completa de las relaciones entre parejas de variables y sus coeficientes de correlación de Pearson (también se pueden probar otros coeficientes como Spearman o Kendall).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"lower"</span>, <span class="at">insig=</span><span class="st">"blank"</span>,    <span class="co"># Forma del panel</span></span>
@@ -648,7 +660,7 @@ Figura&nbsp;3: Relación de variables ambientales y los taxones en las veinte qu
 </div>
 </div>
 </div>
-<p>La siguiente figura de correlaciones (<a href="#fig-fig4a" class="quarto-xref">Figura&nbsp;<span>4</span></a>) es apropiada para casos en los que tenemos muchas variables biológicas (ej. tipos de taxones) e interesa evaluar su relación con las variables ambientales.</p>
+<p>La siguiente figura de correlaciones (<a href="#fig-fig4a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig4a</span></a>) es apropiada para casos en los que tenemos muchas variables biológicas (ej. tipos de taxones) e interesa evaluar su relación con las variables ambientales.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos[,<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>], datos[,<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>])            <span class="co"># Matriz de Correlación (M)</span></span>
@@ -675,8 +687,8 @@ Figura&nbsp;4: Relación de variables ambientales y los taxones en las veinte qu
 <p><a href="https://r-charts.com/es/correlacion/pairs/"><strong>pairs</strong></a></p>
 <p>Otro enlace a <strong>pairs</strong>:</p>
 <p><a href="https://r-coder.com/grafico-correlacion-r/"><strong>pairs</strong></a></p>
-<p>Los gráficos de pares son complementarios a los de correlación, pero permiten conocer otros detalles en las relaciones entre parejas de variables (ej. relaciones lineaes vs.&nbsp;suavizadas o loess). En la siguiente figura (<a href="#fig-fig5a" class="quarto-xref">Figura&nbsp;<span>5</span></a>), además de visualizar si la dispersión de los puntos se orienta hacia una relación positiva o negativa, entre más se ajuste la línea verde (tendencia lineal), con la negativa (tendencia no lineal, suavizada o loess), se puede precisar mejor, si hay una verdadera relación lineal entre las parejas de variables en comparación.</p>
-<p>A continuación se presenta una variante a las figuras de pares (<a href="#fig-fig5a" class="quarto-xref">Figura&nbsp;<span>5</span></a>), que por medio de la función <code>panel</code>, permite incorporar otros elementos en la matriz gráfica, como histogramas para visualizar el patrón de simetría de cada variable y el valor de correlación con coeficientes como el de Pearson. Las líneas rojas definen la relación no lineal o suavizada (loess o lowess) entre las parejas de variables.</p>
+<p>Los gráficos de pares son complementarios a los de correlación, pero permiten conocer otros detalles en las relaciones entre parejas de variables (ej. relaciones lineaes vs.&nbsp;suavizadas o loess). En la siguiente figura (<a href="#fig-fig5a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig5a</span></a>), además de visualizar si la dispersión de los puntos se orienta hacia una relación positiva o negativa, entre más se ajuste la línea verde (tendencia lineal), con la negativa (tendencia no lineal, suavizada o loess), se puede precisar mejor, si hay una verdadera relación lineal entre las parejas de variables en comparación.</p>
+<p>A continuación se presenta una variante a las figuras de pares (<a href="#fig-fig5a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig5a</span></a>), que por medio de la función <code>panel</code>, permite incorporar otros elementos en la matriz gráfica, como histogramas para visualizar el patrón de simetría de cada variable y el valor de correlación con coeficientes como el de Pearson. Las líneas rojas definen la relación no lineal o suavizada (loess o lowess) entre las parejas de variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlaciones de Pearson</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SciViews)</span>
@@ -711,7 +723,7 @@ Figura&nbsp;5: Relación de variables ambientales y algunos taxones en las veint
 </section>
 <section id="histogramas" class="level3">
 <h3 class="anchored" data-anchor-id="histogramas">3. Histogramas</h3>
-<p>Las dos figuras que siguen (<a href="#fig-fig15a" class="quarto-xref">Figura&nbsp;<span>6</span></a> y <span class="quarto-unresolved-ref">?fig-fig16a</span>), utilizan comandos del paquete <code>ggplot2</code> para visualizar de una forma más compacta a la distribución de frecuencias de la variable abundancia de insectos (AB) en las cuatro cuencas evaluadas.</p>
+<p>Las dos figuras que siguen (<a href="#fig-fig15a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig15a</span></a> y <a href="#fig-fig16a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig16a</span></a>), utilizan comandos del paquete <code>ggplot2</code> para visualizar de una forma más compacta a la distribución de frecuencias de la variable abundancia de insectos (AB) en las cuatro cuencas evaluadas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias de abundancias por densidad</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> datos, <span class="fu">aes</span>(<span class="at">x =</span> Ab, <span class="at">color =</span> cuenca)) <span class="sc">+</span></span>
@@ -763,7 +775,7 @@ Figura&nbsp;7: Patrón de distribución contínuo de la abundancia de insectos e
 <p><a href="https://rpubs.com/odenipinedo/introduction-to-data-visualization-with-ggplot2#:~:text=The%20diamonds%20dataset%20contains%20details,as%20in%20a%20scatter%20plot"><strong>RPubs</strong></a>.</p>
 <p>Otro enlace a <strong>ggplot2</strong>:</p>
 <p><a href="https://r-graph-gallery.com/scatterplot.html"><strong>ggplot2</strong></a></p>
-<p>Las tres figuras que siguen, muestran opciones más compactas que la grafica anterior, para visualizar relaciones bivariadas en los descriptores en estudio, permitiendo también analizar el patrón de dispersión de los datos para cada cuenca evaluada (colores). La <a href="#fig-fig18a" class="quarto-xref">Figura&nbsp;<span>8</span></a> permite visualizar la relación lineal incluyendo bandas grises que representan los límites de confianza de la proyección realizada.</p>
+<p>Las tres figuras que siguen, muestran opciones más compactas que la grafica anterior, para visualizar relaciones bivariadas en los descriptores en estudio, permitiendo también analizar el patrón de dispersión de los datos para cada cuenca evaluada (colores). La <a href="#fig-fig18a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig18a</span></a> permite visualizar la relación lineal incluyendo bandas grises que representan los límites de confianza de la proyección realizada.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones lineales (Esquema ggplot2) </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos,<span class="fu">aes</span>(<span class="at">x =</span> pH,<span class="at">y =</span> Efem)) <span class="sc">+</span>   </span>
@@ -788,7 +800,7 @@ Figura&nbsp;8: Relación Lineal entre el pH y la abundancia de Efemerópteros en
 </div>
 </div>
 </div>
-<p>La <a href="#fig-fig19a" class="quarto-xref">Figura&nbsp;<span>9</span></a>, a diferencia de la anterior, permite visualizar una relación suavizada en la pareja de variables en comparación. Esta relación no lineal es conocida como <code>Loess</code> o <code>Lowess</code>.</p>
+<p>La <a href="#fig-fig19a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig19a</span></a>, a diferencia de la anterior, permite visualizar una relación suavizada en la pareja de variables en comparación. Esta relación no lineal es conocida como <code>Loess</code> o <code>Lowess</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones suavizadas - Loess o Lowess (Esquema ggplot2) </span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos,<span class="fu">aes</span>(<span class="at">x =</span> pH, <span class="at">y =</span> Efem)) <span class="sc">+</span>   </span>
@@ -813,7 +825,7 @@ Figura&nbsp;9: Relación Suavizada (Loess) entre el pH y la abundancia de Efemer
 </div>
 </div>
 </div>
-<p>En la <a href="#fig-fig20a" class="quarto-xref">Figura&nbsp;<span>10</span></a> se eliminan los intervalos de confianza (bandas grises) y aumenta el suavizamiento con el comando <code>span = 0.4</code>.</p>
+<p>En la <a href="#fig-fig20a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig20a</span></a> se eliminan los intervalos de confianza (bandas grises) y aumenta el suavizamiento con el comando <code>span = 0.4</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones suavizadas (Loess)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos,<span class="fu">aes</span>(<span class="at">x =</span> pH, <span class="at">y =</span> Efem)) <span class="sc">+</span>   </span>
@@ -852,7 +864,7 @@ Figura&nbsp;10: Relación Suavizada (Loess) entre el pH y la abundancia de Efeme
 <p><a href="https://colorbrewer2.org/#type=qualitative&amp;scheme=Set2&amp;n=4">coolors</a></p>
 <section id="cajas-con-un-factor-cuencas." class="level4">
 <h4 class="anchored" data-anchor-id="cajas-con-un-factor-cuencas.">Cajas con un factor: Cuencas.</h4>
-<p>A continuación se visualiza el patrón de variación en la abundancia de los insectos (<a href="#fig-fig22a" class="quarto-xref">Figura&nbsp;<span>11</span></a>), para las cuatro cuencas evaluadas, adicionando colores especificos, tomados de los enlaces anteriores.</p>
+<p>A continuación se visualiza el patrón de variación en la abundancia de los insectos (<a href="#fig-fig22a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig22a</span></a>), para las cuatro cuencas evaluadas, adicionando colores especificos, tomados de los enlaces anteriores.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscar en google: colorbrewer2</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x=</span>cuenca, <span class="at">y=</span>Ab)) <span class="sc">+</span> </span>
@@ -877,7 +889,7 @@ Figura&nbsp;11: Variación en la abundancia de insectos para las cuatro cuencas 
 </div>
 </div>
 </div>
-<p><strong>Paréntesis</strong> Base de datos de lirios (iris) para figura de violín (<a href="#fig-fig24a" class="quarto-xref">Figura&nbsp;<span>12</span></a>). Estas figuras permiten visualizar la simetría en la distribución de las frecuencias de las variables.</p>
+<p><strong>Paréntesis</strong> Base de datos de lirios (iris) para figura de violín (<a href="#fig-fig24a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig24a</span></a>). Estas figuras permiten visualizar la simetría en la distribución de las frecuencias de las variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># violin: como histograma acostado</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> </span>
@@ -900,7 +912,7 @@ Figura&nbsp;12: Variación en la abundancia de insectos para las cuatro cuencas 
 </div>
 </div>
 </div>
-<p>La <a href="#fig-fig25a" class="quarto-xref">Figura&nbsp;<span>13</span></a> muestra su versatilidad en que permite incorporar diferentes variables por cada panel presentado. Las cajas de colores representan a los grupos en comparación (cuencas).</p>
+<p>La <a href="#fig-fig25a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig25a</span></a> muestra su versatilidad en que permite incorporar diferentes variables por cada panel presentado. Las cajas de colores representan a los grupos en comparación (cuencas).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figuras multivariadas de Cajas y bigotes</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -932,7 +944,7 @@ Figura&nbsp;13: Variación en la abundancia de diferentes taxones de insectos pa
 </section>
 <section id="coplot" class="level3">
 <h3 class="anchored" data-anchor-id="coplot">6. Coplot</h3>
-<p>Las figuras de <code>coplot</code>, permiten relacionar a tres variables, en donde una de ellas puede ser continua o discreta, mediante segmentaciones.En la <a href="#fig-fig26a" class="quarto-xref">Figura&nbsp;<span>14</span></a> se incorporan regresiones suavizadas (loess). Seis páneles en la relación pH y Efemerópteros se asocian a seis barras de temperatura, en donde el primer panel de la parte inferior se correlaciona con la primera barra de temperatura, ubicada a la izquierda y así sucesivamnte.</p>
+<p>Las figuras de <code>coplot</code>, permiten relacionar a tres variables, en donde una de ellas puede ser continua o discreta, mediante segmentaciones.En la <a href="#fig-fig26a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig26a</span></a> se incorporan regresiones suavizadas (loess). Seis páneles en la relación pH y Efemerópteros se asocian a seis barras de temperatura, en donde el primer panel de la parte inferior se correlaciona con la primera barra de temperatura, ubicada a la izquierda y así sucesivamnte.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coplot con líneas de ajuste suavizado (loess)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(datos, {</span>
@@ -951,7 +963,7 @@ Figura&nbsp;14: Figura trivariada, en la que se intenta categorizar a la tempera
 </div>
 </div>
 </div>
-<p>Para este caso (<span class="quarto-unresolved-ref">?fig-fig27a</span>), se realiza una categorización de dos variables contínuas, que permitirán construir el coplot sin solapamiento de las barras de la tercera variable. Las relaciones se proyectan de forma lineal y el la siguiente ifura serán de forma suavizada.</p>
+<p>Para este caso (<a href="#fig-fig27a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig27a</span></a>), se realiza una categorización de dos variables contínuas, que permitirán construir el coplot sin solapamiento de las barras de la tercera variable. Las relaciones se proyectan de forma lineal y el la siguiente ifura serán de forma suavizada.</p>
 </section>
 <section id="categorización-de-las-variables-ambientales" class="level3">
 <h3 class="anchored" data-anchor-id="categorización-de-las-variables-ambientales">Categorización de las variables ambientales</h3>
@@ -1169,7 +1181,7 @@ Figura&nbsp;16: Figura trivariada, Con la variable temperatura categorizada y re
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>datos.m<span class="sc">-</span>datos.ee, </span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>datos.m<span class="sc">+</span>datos.ee),<span class="at">width=</span><span class="fl">0.2</span>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La asignación (<code>DatosPlot</code>), es graficada con el siguiente comando, en el que se incluyen elementos como los rótulos de los ejes (<code>labs</code>) y el tema de fondo (<code>theme_classic()</code>) (<a href="#fig-fig29a" class="quarto-xref">Figura&nbsp;<span>17</span></a>).</p>
+<p>La asignación (<code>DatosPlot</code>), es graficada con el siguiente comando, en el que se incluyen elementos como los rótulos de los ejes (<code>labs</code>) y el tema de fondo (<code>theme_classic()</code>) (<a href="#fig-fig29a" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig29a</span></a>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la figura de promedios con errores estándar</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> (DatosPlot <span class="sc">+</span> </span>
@@ -1717,7 +1729,7 @@ Figura&nbsp;20: Differencias en la abundancia de insectos, los periodos de lluvi
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(biol1[,<span class="dv">8</span><span class="sc">:</span><span class="dv">20</span>])            <span class="co"># Matriz de Correlación (M)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La <a href="#fig-fig1b" class="quarto-xref">Figura&nbsp;<span>21</span></a> muestra la relación entre las variables, a partir de figuras de elipses y de circulos.</p>
+<p>La <a href="#fig-fig1b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig1b</span></a> muestra la relación entre las variables, a partir de figuras de elipses y de circulos.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method =</span> <span class="st">"ellipse"</span>)  <span class="co"># Figura de correlaciones con elipses</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1734,7 +1746,7 @@ Figura&nbsp;21: Relación de variables ambientales y los taxones en las veinte q
 </div>
 </div>
 </div>
-<p>La <a href="#fig-fig2b" class="quarto-xref">Figura&nbsp;<span>22</span></a> muestra la relación entre las variables, a partir de figuras de elipses, además incorpora al nivel de correlación entre las parejas de variables con los coeficientes de Pearson.</p>
+<p>La <a href="#fig-fig2b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig2b</span></a> muestra la relación entre las variables, a partir de figuras de elipses, además incorpora al nivel de correlación entre las parejas de variables con los coeficientes de Pearson.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M, <span class="at">upper=</span><span class="st">"ellipse"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1751,7 +1763,7 @@ Figura&nbsp;22: Relación de variables ambientales y los taxones en las veinte q
 </div>
 </div>
 </div>
-<p>La siguiente opción de correlación (<a href="#fig-fig3b" class="quarto-xref">Figura&nbsp;<span>23</span></a>), presenta un código más compejo que las anteriores, pero permite generar una visualización más completa de las relaciones entre parejas de variables y sus coeficientes de correlación de Pearson (también se pueden probar otros coeficientes como Spearman o Kendall).</p>
+<p>La siguiente opción de correlación (<a href="#fig-fig3b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig3b</span></a>), presenta un código más compejo que las anteriores, pero permite generar una visualización más completa de las relaciones entre parejas de variables y sus coeficientes de correlación de Pearson (también se pueden probar otros coeficientes como Spearman o Kendall).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"lower"</span>, <span class="at">insig=</span><span class="st">"blank"</span>,    <span class="co"># Forma del panel</span></span>
@@ -1772,7 +1784,7 @@ Figura&nbsp;23: Relación de variables ambientales y los taxones en las veinte q
 </div>
 </div>
 </div>
-<p>La siguiente figura de correlaciones (<a href="#fig-fig4b" class="quarto-xref">Figura&nbsp;<span>24</span></a>) es apropiada para casos en los que tenemos muchas variables biológicas (ej. tipos de taxones) e interesa evaluar su relación con las variables ambientales.</p>
+<p>La siguiente figura de correlaciones (<a href="#fig-fig4b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig4b</span></a>) es apropiada para casos en los que tenemos muchas variables biológicas (ej. tipos de taxones) e interesa evaluar su relación con las variables ambientales.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(biol1[,<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>], biol1[,<span class="dv">8</span><span class="sc">:</span><span class="dv">20</span>])            <span class="co"># Matriz de Correlación (M)</span></span>
@@ -1795,7 +1807,7 @@ Figura&nbsp;24: Relación de variables ambientales y los taxones en las veinte q
 </section>
 <section id="figuras-de-dispersión-por-pares-de-variables-pairs-1" class="level3">
 <h3 class="anchored" data-anchor-id="figuras-de-dispersión-por-pares-de-variables-pairs-1">2. Figuras de Dispersión por pares de variables (pairs)</h3>
-<p>A continuación se presenta una variante a las figuras de pares (<a href="#fig-fig7b" class="quarto-xref">Figura&nbsp;<span>25</span></a>), que por medio de la función <code>panel</code>, permite incorporar otros elementos en la matriz gráfica, como histogramas para visualizar el patrón de simetría de cada variable y el valor de correlación con coeficientes como el de Pearson. Las líneas rojas definen la relación no lineal o suavizada (loess o lowess) entre las parejas de variables.</p>
+<p>A continuación se presenta una variante a las figuras de pares (<a href="#fig-fig7b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig7b</span></a>), que por medio de la función <code>panel</code>, permite incorporar otros elementos en la matriz gráfica, como histogramas para visualizar el patrón de simetría de cada variable y el valor de correlación con coeficientes como el de Pearson. Las líneas rojas definen la relación no lineal o suavizada (loess o lowess) entre las parejas de variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlaciones de Pearson</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SciViews)</span>
@@ -1823,7 +1835,7 @@ Figura&nbsp;25: Relación de variables ambientales y algunos taxones en las vein
 </section>
 <section id="histogramas-1" class="level3">
 <h3 class="anchored" data-anchor-id="histogramas-1">3. Histogramas</h3>
-<p>Las dos figuras que siguen (<a href="#fig-fig15b" class="quarto-xref">Figura&nbsp;<span>26</span></a> y <a href="#fig-fig16b" class="quarto-xref">Figura&nbsp;<span>27</span></a>), utilizan comandos del paquete <code>ggplot2</code> para visualizar de una forma más compacta a la distribución de frecuencias de la variable abundancia de insectos (AB) en las cuatro cuencas evaluadas.</p>
+<p>Las dos figuras que siguen (<a href="#fig-fig15b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig15b</span></a> y <a href="#fig-fig16b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig16b</span></a>), utilizan comandos del paquete <code>ggplot2</code> para visualizar de una forma más compacta a la distribución de frecuencias de la variable abundancia de insectos (AB) en las cuatro cuencas evaluadas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias de abundancias por densidad</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> biol1, <span class="fu">aes</span>(<span class="at">x =</span> Ab, <span class="at">color =</span> Layers)) <span class="sc">+</span></span>
@@ -1871,7 +1883,7 @@ Figura&nbsp;27: Patrón de distribución contínuo de la abundancia de insectos 
 <h3 class="anchored" data-anchor-id="dispersión-x-y-1">4. Dispersión X-Y</h3>
 <section id="dispersión-x-y-con-ggplot2-1" class="level4">
 <h4 class="anchored" data-anchor-id="dispersión-x-y-con-ggplot2-1">Dispersión X-Y con <strong>ggplot2</strong></h4>
-<p>Las tres figuras que siguen, muestran opciones más compactas que la grafica anterior, para visualizar relaciones bivariadas en los descriptores en estudio, permitiendo también analizar el patrón de dispersión de los datos para cada cuenca evaluada (colores). La <a href="#fig-fig18b" class="quarto-xref">Figura&nbsp;<span>28</span></a> permite visualizar la relación lineal incluyendo bandas grises que representan los límites de confianza de la proyección realizada.</p>
+<p>Las tres figuras que siguen, muestran opciones más compactas que la grafica anterior, para visualizar relaciones bivariadas en los descriptores en estudio, permitiendo también analizar el patrón de dispersión de los datos para cada cuenca evaluada (colores). La <a href="#fig-fig18b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig18b</span></a> permite visualizar la relación lineal incluyendo bandas grises que representan los límites de confianza de la proyección realizada.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones lineales (Esquema ggplot2) </span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(biol1,<span class="fu">aes</span>(<span class="at">x =</span> Density, <span class="at">y =</span> Ab)) <span class="sc">+</span>   </span>
@@ -1896,7 +1908,7 @@ Figura&nbsp;28: Relación Lineal entre el pH y la abundancia de Efemerópteros e
 </div>
 </div>
 </div>
-<p>La <a href="#fig-fig19b" class="quarto-xref">Figura&nbsp;<span>29</span></a>, a diferencia de la anterior, permite visualizar una relación suavizada en la pareja de variables en comparación. Esta relación no lineal es conocida como <code>Loess</code> o <code>Lowess</code>.</p>
+<p>La <a href="#fig-fig19b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig19b</span></a>, a diferencia de la anterior, permite visualizar una relación suavizada en la pareja de variables en comparación. Esta relación no lineal es conocida como <code>Loess</code> o <code>Lowess</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones suavizadas - Loess o Lowess (Esquema ggplot2) </span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(biol1,<span class="fu">aes</span>(<span class="at">x =</span> Density, <span class="at">y =</span> Ab)) <span class="sc">+</span>   </span>
@@ -1921,7 +1933,7 @@ Figura&nbsp;29: Relación Suavizada (Loess) entre el pH y la abundancia de Efeme
 </div>
 </div>
 </div>
-<p>En la <a href="#fig-fig20b" class="quarto-xref">Figura&nbsp;<span>30</span></a> se eliminan los intervalos de confianza (bandas grises) y aumenta el suavizamiento con el comando <code>span = 0.4</code>.</p>
+<p>En la <a href="#fig-fig20b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig20b</span></a> se eliminan los intervalos de confianza (bandas grises) y aumenta el suavizamiento con el comando <code>span = 0.4</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresiones suavizadas (Loess)</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(biol1,<span class="fu">aes</span>(<span class="at">x =</span> Density, <span class="at">y =</span> Ab)) <span class="sc">+</span>   </span>
@@ -1952,7 +1964,7 @@ Figura&nbsp;30: Relación Suavizada (Loess) entre el pH y la abundancia de Efeme
 <h3 class="anchored" data-anchor-id="cajas-y-bigotes-1">5. Cajas y Bigotes</h3>
 <section id="cajas-con-un-factor-estaciones." class="level4">
 <h4 class="anchored" data-anchor-id="cajas-con-un-factor-estaciones.">Cajas con un factor: Estaciones.</h4>
-<p>A continuación se visualiza el patrón de variación en la abundancia de los insectos (<a href="#fig-fig22b" class="quarto-xref">Figura&nbsp;<span>31</span></a>), para las cuatro cuencas evaluadas, adicionando colores especificos, tomados de los enlaces anteriores.</p>
+<p>A continuación se visualiza el patrón de variación en la abundancia de los insectos (<a href="#fig-fig22b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig22b</span></a>), para las cuatro cuencas evaluadas, adicionando colores especificos, tomados de los enlaces anteriores.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir variables a factores en caso que se requiera</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>biol1 <span class="ot">&lt;-</span> </span>
@@ -2074,7 +2086,7 @@ introduced infinite values.</code></pre>
 </section>
 <section id="cajas-con-diferentes-variables-ambientales" class="level4">
 <h4 class="anchored" data-anchor-id="cajas-con-diferentes-variables-ambientales">Cajas con diferentes variables: Ambientales</h4>
-<p>La <a href="#fig-fig25b" class="quarto-xref">Figura&nbsp;<span>32</span></a> muestra su versatilidad en que permite incorporar diferentes variables por cada panel presentado. Las cajas de colores representan a los grupos en comparación (cuencas).</p>
+<p>La <a href="#fig-fig25b" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig25b</span></a> muestra su versatilidad en que permite incorporar diferentes variables por cada panel presentado. Las cajas de colores representan a los grupos en comparación (cuencas).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figuras multivariadas de Cajas y bigotes</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">melt</span>(biol1[,<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>)]), <span class="fu">aes</span>(<span class="at">x=</span>Station, <span class="at">y=</span>value)) <span class="sc">+</span>  <span class="co"># Usar Station en el eje X</span></span>

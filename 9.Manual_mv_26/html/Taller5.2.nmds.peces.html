@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Pautas_Estudio_Caso.html" rel="next">
+<link href="./Taller6.1.cla.bahías.html" rel="next">
 <link href="./Taller4.2.pca.tayrona.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -205,6 +205,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./Taller5.2.nmds.peces.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Taller5.2 NMDS Peces Francia</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.1.cla.bahías.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 6.1 CLA Bahías</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6.2.cla.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller6.2 CLA Peces</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -734,7 +746,7 @@ Figura&nbsp;1.3: Relaciones entre las variables ambientales y biológicas en el 
 </section>
 <section id="generación-de-factores" class="level2">
 <h2 class="anchored" data-anchor-id="generación-de-factores">2) Generación de factores</h2>
-<p>Este procedimiento es válido para los casos en que no se cuenta con un factor o variable agrupadora, como ocurre con estos datos (<span class="quarto-unresolved-ref">?fig-fig6</span>). A continuación <strong>se formaran 4 grupos</strong> insertando a la variable agrupadora o factor <strong>gr</strong> (<a href="#tbl-tbl1" class="quarto-xref">Tabla&nbsp;<span>1.1</span></a>), con el método de clasificación jerárquico de ward (que se verá en el tema de clasificación con clúster), teniendo en cuenta un agrupamiento de las localidades, descrito en el libro de Borcard et al.&nbsp;(2018).</p>
+<p>Este procedimiento es válido para los casos en que no se cuenta con un factor o variable agrupadora, como ocurre con estos datos (<a href="#fig-fig6" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig6</span></a>). A continuación <strong>se formaran 4 grupos</strong> insertando a la variable agrupadora o factor <strong>gr</strong> (<a href="#tbl-tbl1" class="quarto-xref">Tabla&nbsp;<span class="quarto-unresolved-ref">tbl-tbl1</span></a>), con el método de clasificación jerárquico de ward (que se verá en el tema de clasificación con clúster), teniendo en cuenta un agrupamiento de las localidades, descrito en el libro de Borcard et al.&nbsp;(2018).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datos.w <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">vegdist</span>(spe), <span class="st">"ward.D"</span>)  <span class="co"># Grupos con Cluster con ward</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>gr <span class="ot">&lt;-</span> <span class="fu">cutree</span>(datos.w, <span class="at">k =</span> <span class="dv">4</span>)        <span class="co"># Generar 4 grupos (factor gr)</span></span>
@@ -1123,12 +1135,12 @@ Tabla&nbsp;1.1: Datos de abundancia de insectos en los diez primeros sitios
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        NMDS1      NMDS2 sitio grp
-1 -1.92606422  0.4813376     1   1
-2 -1.12716327 -0.3197003     2   1
-3 -0.99053503 -0.3658574     3   1
-4 -0.45588342 -0.1221037     4   1
-5  0.08810674 -0.2492277     5   2
-6 -0.21919082 -0.1484976     6   1</code></pre>
+1 -1.93156404  0.4679384     1   1
+2 -1.12754337 -0.3184578     2   1
+3 -0.99109750 -0.3640954     3   1
+4 -0.45567886 -0.1205602     4   1
+5  0.08780393 -0.2490389     5   2
+6 -0.21935300 -0.1477492     6   1</code></pre>
 </div>
 </div>
 </section>
@@ -1141,12 +1153,12 @@ Tabla&nbsp;1.1: Datos de abundancia de insectos en los diez primeros sitios
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.esp)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          NMDS1       NMDS2 especies
-Cogo -0.8780280  0.38213818     Cogo
-Satr -1.1843594 -0.05052429     Satr
-Phph -0.7413377 -0.24199518     Phph
-Babl -0.5295728 -0.23920872     Babl
-Thth -0.9068049  0.36327199     Thth
-Teso -0.4225688  0.63816388     Teso</code></pre>
+Cogo -0.8777137  0.38829449     Cogo
+Satr -1.1855327 -0.05110668     Satr
+Phph -0.7414769 -0.23831013     Phph
+Babl -0.5296627 -0.23641751     Babl
+Thth -0.9064811  0.36961081     Thth
+Teso -0.4219104  0.64257681     Teso</code></pre>
 </div>
 </div>
 </section>
@@ -1159,12 +1171,12 @@ Teso -0.4225688  0.63816388     Teso</code></pre>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          NMDS1      NMDS2 amb
-dfs  0.73830832  0.4641942 dfs
-ele -0.64598090 -0.5240123 ele
-slo -0.51606756  0.2494066 slo
-dis  0.54661764  0.5475121 dis
-pH  -0.02828574  0.1366591  pH
-har  0.58986395  0.1894019 har</code></pre>
+dfs  0.73838104  0.4638792 dfs
+ele -0.64551076 -0.5251864 ele
+slo -0.51944454  0.2413007 slo
+dis  0.54642151  0.5478526 dis
+pH  -0.02794762  0.1385234  pH
+har  0.58926518  0.1932853 har</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para los casos en los que "vectors" no funcione, aplicar:</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># coord.amb = as.data.frame(amb$vectors$arrows)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1172,7 +1184,7 @@ har  0.58986395  0.1894019 har</code></pre>
 </section>
 <section id="figura-con-de-elipses-por-concavidades---geom_mark_elipse" class="level3">
 <h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_elipse"><strong>4.4 Figura con de elipses por concavidades - geom_mark_elipse</strong></h3>
-<p>La <a href="#fig-fig7" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> muestra la ordenación de las localidades, las especes de peces y los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<p>La <a href="#fig-fig7" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig7</span></a> muestra la ordenación de las localidades, las especes de peces y los cuatro grupos formados en la columna <strong>gr</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Figura con con elipses - geom_mark_ellipse</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1212,7 +1224,7 @@ Figura&nbsp;1.4: Ordenación de las localidades, los cuatro grupos y las especie
 </section>
 <section id="figura-con-de-elipses-por-concavidades---geom_mark_hull" class="level3">
 <h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>4.5 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
-<p>La <a href="#fig-fig8" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<p>La <a href="#fig-fig8" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig8</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
@@ -1250,7 +1262,7 @@ Figura&nbsp;1.5: Ordenación de las localidades, los cuatro grupos y las especie
 </section>
 <section id="figura-con-vectores-de-especies-y-variables-ambientales" class="level3">
 <h3 class="anchored" data-anchor-id="figura-con-vectores-de-especies-y-variables-ambientales"><strong>4.6 Figura con vectores de especies y variables ambientales</strong></h3>
-<p>La <a href="#fig-fig9" class="quarto-xref">Figura&nbsp;<span>1.6</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
+<p>La <a href="#fig-fig9" class="quarto-xref">Figura&nbsp;<span class="quarto-unresolved-ref">fig-fig9</span></a> muestra como un cambio en la capa del factor, genera un agrupamiento diferente de los cuatro grupos formados en la columna <strong>gr</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
@@ -1715,8 +1727,8 @@ Figura&nbsp;1.6: Ordenación de las localidades, los cuatro grupos, las especies
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Pautas_Estudio_Caso.html" class="pagination-link" aria-label="Pautas Estudios de Caso">
-        <span class="nav-page-text">Pautas Estudios de Caso</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Taller6.1.cla.bahías.html" class="pagination-link" aria-label="Taller 6.1 CLA Bahías">
+        <span class="nav-page-text">Taller 6.1 CLA Bahías</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
