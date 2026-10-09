@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Javier Rodríguez-Barrios">
 
-<title>Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</title>
+<title>Pautas de evaluación – Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,27 +26,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -57,7 +36,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Videos_clases.html" rel="next">
+<link href="./Taller1_Diseno_Exp1.html" rel="next">
+<link href="./Videos_clases.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -116,7 +96,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Resumen</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Pautas_Evaluacion.html"><strong>Pautas de evaluación</strong></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -143,7 +123,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resumen</span></a>
   </div>
 </li>
@@ -155,7 +135,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pautas_Evaluacion.html" class="sidebar-item-text sidebar-link">
+  <a href="./Pautas_Evaluacion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><strong>Pautas de evaluación</strong></span></a>
   </div>
 </li>
@@ -181,8 +161,17 @@ div.csl-indent {
     <h2 id="toc-title">Menú flotante</h2>
    
   <ul>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Referencias Bibliográficas</a></li>
+  <li><a href="#estudio-de-caso" id="toc-estudio-de-caso" class="nav-link active" data-scroll-target="#estudio-de-caso">4. Estudio de caso</a>
+  <ul>
+  <li><a href="#a.-propósito" id="toc-a.-propósito" class="nav-link" data-scroll-target="#a.-propósito">a. Propósito</a></li>
+  <li><a href="#b.-grupos" id="toc-b.-grupos" class="nav-link" data-scroll-target="#b.-grupos">b. Grupos</a></li>
+  <li><a href="#c.-elección-del-caso-y-requisitos-de-la-base-de-datos" id="toc-c.-elección-del-caso-y-requisitos-de-la-base-de-datos" class="nav-link" data-scroll-target="#c.-elección-del-caso-y-requisitos-de-la-base-de-datos">c.&nbsp;Elección del caso y requisitos de la base de datos</a></li>
+  <li><a href="#d.-ruta-mínima-de-análisis" id="toc-d.-ruta-mínima-de-análisis" class="nav-link" data-scroll-target="#d.-ruta-mínima-de-análisis">d.&nbsp;Ruta mínima de análisis</a></li>
+  <li><a href="#e.-documento-final" id="toc-e.-documento-final" class="nav-link" data-scroll-target="#e.-documento-final">e. Documento final</a></li>
+  <li><a href="#f.-sustentación-final" id="toc-f.-sustentación-final" class="nav-link" data-scroll-target="#f.-sustentación-final">f.&nbsp;Sustentación final</a></li>
+  <li><a href="#g.-lista-de-chequeo-antes-de-entregar" id="toc-g.-lista-de-chequeo-antes-de-entregar" class="nav-link" data-scroll-target="#g.-lista-de-chequeo-antes-de-entregar">g. Lista de chequeo antes de entregar</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
 </nav>
     </div>
@@ -191,27 +180,14 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</h1>
-<p class="subtitle lead">Maestría en Ecología - Universidad del Magdalena</p>
+<h1 class="title"><strong>Pautas de evaluación</strong></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Javier Rodríguez-Barrios </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">8 de octubre de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -221,47 +197,213 @@ div.csl-indent {
 </header>
 
 
-
-<section id="resumen" class="level1 unnumbered">
-<h1 class="unnumbered">Resumen</h1><p><img src="portada.repo.png" title="Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026" class="quarto-cover-image nolightbox img-fluid" alt="Alternative text describing the book cover "></p>
-<p><u>Repositorio de Clases y Actividades de Bioestadística y Diseño Experimental - 2026-II</u></p>
-<p><u>Javier Rodríguez-Barrios</u></p>
-<p><u>Maestría en Ecología y Biodiversidad - Universidad del Magdalena</u></p>
-<p>El siguiente documento es un compendio de los temas vistos en el componente teórico y práctico de la asignatura Bioestadística y Diseño Experimental, durante el periodo 2026-II. La asignatura se desarrolla en cuatro fines de semana (48 horas de acompañamiento directo), con énfasis aplicado en R y con ejemplos de ecosistemas marinos y costeros del Caribe colombiano. Se fundamenta en cuatro grandes módulos:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📋 Resumen de las actividades evaluativas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La asignatura se evalúa sobre <strong>500 puntos</strong>, distribuidos en cuatro evidencias del microdiseño y un seminario. Cada actividad se entrega en el aula virtual (Moodle), donde también se encuentra su rúbrica de calificación.</p>
 <ul>
-<li><p><strong>Semana 1. Diseño experimental e inferencia estadística:</strong> principios y tipos de diseño, estimación por intervalos, pruebas de hipótesis, potencia y tamaño de muestra <span class="citation" data-cites="quinn2024experimental logan2010biostatistical">(<a href="#ref-logan2010biostatistical" role="doc-biblioref">Logan, 2010</a>; <a href="#ref-quinn2024experimental" role="doc-biblioref">Quinn y Keough, 2024</a>)</span>.</p></li>
-<li><p><strong>Semana 2. Modelos lineales:</strong> regresión lineal simple y múltiple, diagnóstico y selección de modelos, y modelos lineales generalizados binomial y Poisson <span class="citation" data-cites="quinn2024experimental zuur2009mixed">(<a href="#ref-quinn2024experimental" role="doc-biblioref">Quinn y Keough, 2024</a>; <a href="#ref-zuur2009mixed" role="doc-biblioref">Zuur et al., 2009</a>)</span>.</p></li>
-<li><p><strong>Semana 3. Bases de datos y exploración gráfica multivariada:</strong> manipulación de datos con tidyverse y reportes reproducibles en Quarto <span class="citation" data-cites="wickham2023r">(<a href="#ref-wickham2023r" role="doc-biblioref">Wickham et al., 2023</a>)</span>.</p></li>
-<li><p><strong>Semana 4. Ordenación, clasificación y pruebas de hipótesis multivariadas:</strong> PCA, NMDS, CA, RDA, CCA, CLA, LDA, MANOVA y PERMANOVA <span class="citation" data-cites="legendre2012numerical borcard2018numerical">(<a href="#ref-borcard2018numerical" role="doc-biblioref">Borcard et al., 2018</a>; <a href="#ref-legendre2012numerical" role="doc-biblioref">Legendre y Legendre, 2012</a>)</span>.</p></li>
-<li><p><strong>Semanas 1 - 4. Integración:</strong> estudio de caso con datos ecológicos reales, donde se aplican el diseño, el análisis univariado y el multivariado.</p></li>
+<li><strong>Trabajo individual (260 puntos):</strong> cuestionarios de los talleres y cuestionarios Quarto.</li>
+<li><strong>Trabajo grupal con sustentación individual (240 puntos):</strong> seminario de distancias y estudio de caso. De estos, 95 puntos se califican por estudiante en las sustentaciones.</li>
 </ul>
-<p>A partir de ello, el enfoque de este trabajo consiste en ofrecer a los estudiantes una compilación de los materiales entregados durante la asignatura, como videos y presentaciones de las clases y talleres de cómputo en R/Quarto, por lo que este documento se constituye en un repositorio de los materiales vistos en clase.</p>
-<p>Para un mejor entendimiento de este documento, se sugiere complementar la información con las referencias bibliográficas sugeridas en cada capítulo descrito a continuación.</p>
-
-
+</div>
+</div>
+<p><em>Nota: esta distribución es una propuesta del docente a validar institucionalmente, porque el microdiseño oficial no define porcentajes para las evidencias.</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Evidencia</th>
+<th>Actividad</th>
+<th>Modalidad</th>
+<th style="text-align: right;">Puntos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Inferencia y regresión</td>
+<td>Cuestionarios de los Talleres 1, 2 y 3 (45 c/u)</td>
+<td>Individual</td>
+<td style="text-align: right;">135</td>
+</tr>
+<tr class="even">
+<td>2. GLM</td>
+<td>Cuestionario del Taller 4</td>
+<td>Individual</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="odd">
+<td>3. Cuestionarios Quarto</td>
+<td>CQ1. Manipulación de bases de datos + CQ2. Visualización multivariada</td>
+<td>Individual</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td>4. Seminario</td>
+<td>Distancias y coeficientes de similitud</td>
+<td>Grupal + individual</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td>5. Estudio de caso</td>
+<td>Avances, documento final y sustentaciones</td>
+<td>Grupal + individual</td>
+<td style="text-align: right;">200</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"><strong>500</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Regla de coherencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si en una sustentación un estudiante no logra explicar una parte de lo que entregó por escrito, el puntaje de esa parte se ajusta <strong>para ese estudiante</strong>. Por eso las sustentaciones (A2, seminario y final) se califican de forma individual. Los <strong>criterios de evaluación</strong> de cada evidencia o actividad se definn en las rubricas asociadas a estas y documentadas en la plataforma.</p>
+</div>
+</div>
+<hr>
+<section id="estudio-de-caso" class="level2">
+<h2 class="anchored" data-anchor-id="estudio-de-caso">4. Estudio de caso</h2>
+<section id="a.-propósito" class="level3">
+<h3 class="anchored" data-anchor-id="a.-propósito">a. Propósito</h3>
+<p>El estudio de caso integra los temas de toda la asignatura sobre un <strong>estudio publicado con su base de datos pública</strong>. A partir de esos datos, cada grupo reconstruye el diseño del estudio, aplica análisis univariados (inferencia, regresión o GLM) y multivariados (ordenación, clasificación o pruebas de hipótesis), y contrasta sus resultados con las conclusiones del artículo original.</p>
+<p>El bloque «Proyecto propio» de los cuestionarios de los talleres (sección 1) se articula al razonamiento sobre el diseño y los modelos con datos simulados de la idea de investigación de cada estudiante. El estudio de caso hace lo mismo pero con datos reales ya publicados.</p>
 </section>
-<section id="bibliography" class="level1 unnumbered">
-<h1 class="unnumbered">Referencias Bibliográficas</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-borcard2018numerical" class="csl-entry" role="listitem">
-Borcard, D., Gillet, F., y Legendre, P. (2018). <em>Numerical Ecology with <span>R</span></em> (2.ª ed.). Springer.
+<section id="b.-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="b.-grupos">b. Grupos</h3>
+<p>Grupos de <strong>2 o 3 estudiantes</strong>, conformados en la primera sesión (vie 9 oct).</p>
+</section>
+<section id="c.-elección-del-caso-y-requisitos-de-la-base-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="c.-elección-del-caso-y-requisitos-de-la-base-de-datos">c.&nbsp;Elección del caso y requisitos de la base de datos</h3>
+<p>El caso se elige en el <a href="https://forms.gle/9q1uKcaViFyVgbjYA">formulario de selección</a>, entre los nueve casos del <a href="https://universidadmag-my.sharepoint.com/:f:/g/personal/jrodriguez_unimagdalena_edu_co/IgAi43jOG2EHTbe59hw0ZlD_ASAGnH025LduWWSEV8UmknQ?e=afNu8e">banco de casos</a> o con un caso propio que cumpla los requisitos mínimos. Cada caso se asigna a un solo grupo, por orden de envío del formulario. En este <a href="https://docs.google.com/spreadsheets/d/18VLrFgn6rKEB8jYy83kn1-E4-KIZ6hklJpv0p-SimRA/edit?usp=sharing">enlace de temas</a> se puede hacer seguimiento a los temas seleccionados.</p>
+<p>Cada carpeta del banco contiene el artículo, la base de datos y el enlace a la fuente original. El archivo «LEEME» de la carpeta resume cada caso y las advertencias sobre sus datos.</p>
+<p>La base de datos debe cumplir los siguientes <strong>requisitos mínimos</strong>:</p>
+<ul>
+<li>Estar publicada en un repositorio (ej. Dryad, Zenodo, Figshare, PANGAEA u otro) o como material suplementario del artículo.</li>
+<li>Tener al menos 20 observaciones.</li>
+<li>Contar con una unidad muestral identificable y réplicas reales (no submuestras de una misma unidad).</li>
+<li>Incluir al menos un factor con 5 o más observaciones por nivel. En caso que no se cuente con este, se puede categorizar alguna variable (ej. ambiental) para generar el factor.</li>
+<li>Contener una matriz de al menos 5 variables respuesta (p.&nbsp;ej., abundancias de especies o variables morfométricas) y, preferiblemente, variables ambientales medidas en las mismas unidades.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-legendre2012numerical" class="csl-entry" role="listitem">
-Legendre, P., y Legendre, L. (2012). <em>Numerical Ecology</em> (3.ª ed.). Elsevier.
-</div>
-<div id="ref-logan2010biostatistical" class="csl-entry" role="listitem">
-Logan, M. (2010). <em>Biostatistical Design and Analysis Using <span>R</span>: A Practical Guide</em>. Wiley-Blackwell.
-</div>
-<div id="ref-quinn2024experimental" class="csl-entry" role="listitem">
-Quinn, G. P., y Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2.ª ed.). Cambridge University Press.
-</div>
-<div id="ref-wickham2023r" class="csl-entry" role="listitem">
-Wickham, H., Çetinkaya-Rundel, M., y Grolemund, G. (2023). <em><span>R</span> for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em> (2.ª ed.). O’Reilly Media.
-</div>
-<div id="ref-zuur2009mixed" class="csl-entry" role="listitem">
-Zuur, A. F., Ieno, E. N., Walker, N. J., Saveliev, A. A., y Smith, G. M. (2009). <em>Mixed Effects Models and Extensions in Ecology with <span>R</span></em>. Springer.
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿De dónde sale la variable para el bloque univariado?
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Casi cualquier matriz de comunidad permite derivar variables para el análisis univariado: la <strong>riqueza</strong> por sitio (GLM Poisson), la <strong>abundancia</strong> de una especie dominante (GLM binomial negativo), la <strong>presencia/ausencia</strong> de una especie (GLM binomial), o un índice comparado entre niveles de un factor (t-test, ANOVA, Kruskal-Wallis) o frente a una variable ambiental (regresión).</p>
+</div>
+</div>
+</section>
+<section id="d.-ruta-mínima-de-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="d.-ruta-mínima-de-análisis">d.&nbsp;Ruta mínima de análisis</h3>
+<p>No se exige aplicar todas las técnicas vistas en clase: se pide un mínimo por bloque y se califica la <strong>justificación</strong> de lo que se eligió.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloque</th>
+<th>Ruta mínima</th>
+<th>Nivel avanzado (opcional)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Diseño</td>
+<td>Unidad muestral, réplicas, factores y tipo de diseño del estudio, con diagrama de flujo</td>
+<td>Discusión de la pseudorreplicación y de la potencia del diseño original</td>
+</tr>
+<tr class="even">
+<td>Univariado</td>
+<td>Una prueba de hipótesis, regresión o GLM elegida según el tipo de variable, con supuestos verificados</td>
+<td>Comparación de dos modelos (p.&nbsp;ej., Poisson frente a binomial negativa) o selección por AIC</td>
+</tr>
+<tr class="odd">
+<td>Multivariado</td>
+<td>Una ordenación (PCA, NMDS, CA, RDA o CCA) y una clasificación o prueba (CLA, LDA, MANOVA o PERMANOVA)</td>
+<td>Ordenación restringida con selección de variables, o PERMANOVA con betadisper y comparaciones pareadas</td>
+</tr>
+<tr class="even">
+<td>Integración</td>
+<td>Un párrafo que responda la pregunta con ambos bloques y contraste con el artículo</td>
+<td>Explicación de coincidencias y diferencias con el artículo y del efecto de las limitaciones</td>
+</tr>
+<tr class="odd">
+<td>Reproducibilidad</td>
+<td>El <code>.qmd</code> renderiza limpio desde los datos publicados</td>
+<td>Declaración de <code>sessionInfo()</code> y semilla</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e.-documento-final" class="level3">
+<h3 class="anchored" data-anchor-id="e.-documento-final">e. Documento final</h3>
+<p><strong>Entrega:</strong> Cargar el archivo <code>.qmd</code>, su render (HTML o PDF) y los datos publicados que usa el documento. La extensión orientativa es de <strong>máximo 12 páginas</strong>, sin contar el código plegado ni las referencias. Los criterios de la rubrica serán definidos en la asignación cargada en campus.virtual. Estructura básica del documento final:</p>
+<ol type="1">
+<li><strong>Introducción:</strong> contexto del estudio original, pregunta e hipótesis estadísticas.</li>
+<li><strong>Diseño y datos:</strong> reconstrucción del diseño (con diagrama de flujo), descripción de la base y decisiones de preparación.</li>
+<li><strong>Análisis univariado:</strong> exploración, prueba o modelo elegido, supuestos y resultados.</li>
+<li><strong>Análisis multivariado:</strong> transformación y distancia, ordenación, clasificación o prueba, y diagnósticos.</li>
+<li><strong>Discusión:</strong> integración de ambos bloques, contraste con el artículo original y limitaciones.</li>
+<li><strong>Referencias</strong>.</li>
+</ol>
+</section>
+<section id="f.-sustentación-final" class="level3">
+<h3 class="anchored" data-anchor-id="f.-sustentación-final">f.&nbsp;Sustentación final</h3>
+<p><strong>Fecha:</strong> Cada grupo expone durante <strong>10 minutos</strong>; luego cada integrante responde preguntas individuales (unos 4 minutos por estudiante) sobre su parte del documento y sobre cómo cambiarían los resultados ante una modificación del análisis.</p>
+<hr>
+</section>
+<section id="g.-lista-de-chequeo-antes-de-entregar" class="level3">
+<h3 class="anchored" data-anchor-id="g.-lista-de-chequeo-antes-de-entregar">g. Lista de chequeo antes de entregar</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">El <code>.qmd</code> renderiza sin errores desde la carpeta entregada, sin pasos manuales.</label></li>
+<li><label><input type="checkbox">Los datos son los publicados (o se documenta cada cambio hecho sobre ellos).</label></li>
+<li><label><input type="checkbox">El diagrama de flujo del diseño está incluido y es coherente con el análisis.</label></li>
+<li><label><input type="checkbox">Cada prueba o modelo tiene sus supuestos verificados y reportados.</label></li>
+<li><label><input type="checkbox">Se justifican la transformación y la distancia de cada técnica multivariada.</label></li>
+<li><label><input type="checkbox">La discusión responde la pregunta y contrasta con el artículo original.</label></li>
+<li><label><input type="checkbox">Cada integrante puede explicar cualquier parte del documento.</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p>Borcard, D., Gillet, F., y Legendre, P. (2018). <em>Numerical Ecology with R</em> (2.ª ed.). Springer.</p>
+<p>Legendre, P., y Legendre, L. (2012). <em>Numerical Ecology</em> (3.ª ed.). Elsevier.</p>
+<p>Quinn, G. P., y Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2.ª ed.). Cambridge University Press.</p>
+<p>Rodríguez-Barrios, J. (2023). <em>Análisis de datos ecológicos y ambientales: aplicaciones con el programa R</em>. Ediciones Díaz de Santos.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -674,10 +816,13 @@ Zuur, A. F., Ieno, E. N., Walker, N. J., Saveliev, A. A., y Smith, G. M. (2009).
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Videos_clases.html" class="pagination-link" aria-label="**Videos y presentaciones de las clases**">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><strong>Videos y presentaciones de las clases</strong></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Videos_clases.html" class="pagination-link" aria-label="**Videos y presentaciones de las clases**">
-        <span class="nav-page-text"><strong>Videos y presentaciones de las clases</strong></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Taller1_Diseno_Exp1.html" class="pagination-link" aria-label="Taller 1. Diseño Experimental">
+        <span class="nav-page-text">Taller 1. Diseño Experimental</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

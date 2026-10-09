@@ -20,6 +20,8 @@
                                          ### Objetivo de la actividad {.titulo-objetivo}
      - Para creditos de imagen:         <span class="credito-imagen">Imágen tomada de ...</span>
      - Para etiqueta de periodo (en Videos_clases): <span class="etiqueta-periodo">(2025-I)</span>
+     - Para avisos de recurso pendiente (en Videos_clases): [Texto]{.aviso-pendiente}
+     - Para listas de enlaces con ícono propio (en Videos_clases): ::: {.lista-recursos}
    ========================================================================== */
 
 :root {
@@ -59,6 +61,14 @@ ol li { margin-bottom: 8px; }
 /* -------------------- Texto justificado -------------------- */
 body, p, .justified-text {
   text-align: justify;
+}
+
+/* Las listas se alinean a la izquierda: sus ítems suelen ser cortos o
+   contener enlaces largos (títulos de secciones, URLs), y con el texto
+   justificado el navegador estira los espacios entre palabras para llenar
+   cada renglón. Los párrafos normales siguen justificados. */
+ul, ol, li {
+  text-align: left;
 }
 
 /* -------------------- Sidebar de navegación (capítulos del libro) --------------------
@@ -123,6 +133,26 @@ body, p, .justified-text {
 .titulo-tema {
   color: var(--color-naranja);
   font-weight: bold;
+}
+
+/* Aviso de recurso aún no publicado, para Videos_clases.qmd.
+   Gris claro y en cursiva, para que una sesión sin enlaces se lea como
+   "próximamente" y no compita visualmente con los enlaces ya disponibles. */
+.aviso-pendiente {
+  color: #8a8a8a;
+  font-style: italic;
+  font-size: 0.92em;
+}
+
+/* Lista de enlaces de una sesión (videos y presentaciones), para
+   Videos_clases.qmd. Cada ítem trae su propio ícono, así que se quita
+   la viñeta para no duplicar marcadores. */
+.lista-recursos ul {
+  list-style: none;
+  padding-left: 0.4em;
+}
+.lista-recursos li {
+  margin-bottom: 4px;
 }
 
 /* Nota para el estudiante */
