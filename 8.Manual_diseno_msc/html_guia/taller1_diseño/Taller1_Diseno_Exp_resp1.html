@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Fecha de publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">3 de octubre de 2026</p>
+        <p class="date">10 de octubre de 2026</p>
       </div>
     </div>
     
@@ -152,8 +152,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#paso-5.-fue-cuestión-de-suerte-potencia-por-simulación" id="toc-paso-5.-fue-cuestión-de-suerte-potencia-por-simulación" class="nav-link" data-scroll-target="#paso-5.-fue-cuestión-de-suerte-potencia-por-simulación">Paso 5. ¿Fue cuestión de suerte? Potencia por simulación</a></li>
   <li><a href="#paso-6.-el-efecto-del-arte-es-el-mismo-en-ambas-temporadas" id="toc-paso-6.-el-efecto-del-arte-es-el-mismo-en-ambas-temporadas" class="nav-link" data-scroll-target="#paso-6.-el-efecto-del-arte-es-el-mismo-en-ambas-temporadas">Paso 6. ¿El efecto del arte es el mismo en ambas temporadas?</a></li>
   </ul></li>
-  <li><a href="#sec-factorial" id="toc-sec-factorial" class="nav-link" data-scroll-target="#sec-factorial">Parte 3 — Diseño factorial: refugio × densidad en langosta espinosa</a></li>
-  <li><a href="#sec-splitplot" id="toc-sec-splitplot" class="nav-link" data-scroll-target="#sec-splitplot">Parte 4 — Parcelas divididas: restauración de manglares</a></li>
+  <li><a href="#sec-factorial" id="toc-sec-factorial" class="nav-link" data-scroll-target="#sec-factorial">Parte 3 — Diseño factorial: refugio × densidad en langosta espinosa</a>
+  <ul>
+  <li><a href="#tukey-para-comparar-densidades-dentro-de-cada-refugio" id="toc-tukey-para-comparar-densidades-dentro-de-cada-refugio" class="nav-link" data-scroll-target="#tukey-para-comparar-densidades-dentro-de-cada-refugio">Tukey para comparar densidades dentro de cada refugio</a></li>
+  <li><a href="#tukey-para-comparar-refugios-dentro-de-cada-densidad" id="toc-tukey-para-comparar-refugios-dentro-de-cada-densidad" class="nav-link" data-scroll-target="#tukey-para-comparar-refugios-dentro-de-cada-densidad">2. Tukey para comparar refugios dentro de cada densidad</a></li>
+  <li><a href="#cuál-sería-la-mejor-combinación-para-la-restauración-o-el-cultivo" id="toc-cuál-sería-la-mejor-combinación-para-la-restauración-o-el-cultivo" class="nav-link" data-scroll-target="#cuál-sería-la-mejor-combinación-para-la-restauración-o-el-cultivo">3. ¿Cuál sería la mejor combinación para la restauración o el cultivo?</a></li>
+  </ul></li>
+  <li><a href="#sec-splitplot" id="toc-sec-splitplot" class="nav-link" data-scroll-target="#sec-splitplot">Parte 4 — Parcelas divididas: restauración de manglares</a>
+  <ul>
+  <li><a href="#tukey-para-probar-qué-tratamiento-presenta-mejor-desempeño" id="toc-tukey-para-probar-qué-tratamiento-presenta-mejor-desempeño" class="nav-link" data-scroll-target="#tukey-para-probar-qué-tratamiento-presenta-mejor-desempeño">Tukey para probar qué tratamiento presenta mejor desempeño</a></li>
+  </ul></li>
   <li><a href="#cierre-el-diseño-de-un-estudio-propio" id="toc-cierre-el-diseño-de-un-estudio-propio" class="nav-link" data-scroll-target="#cierre-el-diseño-de-un-estudio-propio">Cierre — El diseño de un estudio propio</a></li>
   <li><a href="#sec-apoyo" id="toc-sec-apoyo" class="nav-link" data-scroll-target="#sec-apoyo">Material de apoyo</a></li>
   </ul>
@@ -257,9 +265,10 @@ Nota
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sitios_candidatos <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"P"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(sitios_candidatos, <span class="at">size =</span> <span class="dv">8</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección aleatoria de sitios de muestreo</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sitios_candidatos <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"P"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) <span class="co"># Genera 20 sitios candidatos</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">sample</span>(sitios_candidatos, <span class="at">size =</span> <span class="dv">8</span>)) <span class="co"># Selecciona 8 sitios al azar y los ordena</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sitios_seleccionados <span class="co"># Muestra los sitios seleccionados</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "P1"  "P11" "P12" "P13" "P15" "P4"  "P5"  "P6" </code></pre>
 </div>
@@ -267,9 +276,10 @@ Nota
 <p>Cada vez que se ejecute esta línea sin fijar la semilla, se obtendrá una selección distinta — así es como debe ser: ni quien ejecuta el análisis ni un evaluador externo puede acusar a la muestra de estar sesgada por conveniencia.</p>
 <p>También es posible usar <code>sample()</code> para <strong>aleatorizar la asignación de tratamientos</strong> a unidades experimentales ya organizadas físicamente (por ejemplo, tanques en una fila):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TRAT <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">24</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>asignacion <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">as.character</span>(TRAT)), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>asignacion</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignación aleatoria de tratamientos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>TRAT <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">24</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>)) <span class="co"># Define 4 tratamientos con 6 réplicas</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>asignacion <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">as.character</span>(TRAT)), <span class="at">nrow =</span> <span class="dv">4</span>) <span class="co"># Aleatoriza y organiza en una matriz</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>asignacion <span class="co"># Muestra la asignación resultante</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
 [1,] "B"  "C"  "A"  "A"  "A"  "A" 
@@ -1397,7 +1407,124 @@ Natural    56.825 42.950 19.475</code></pre>
 </div>
 </div>
 <p><strong>Fíjate en el término <code>refugio:densidad</code></strong>: es significativo. Eso significa que no basta con decir “el refugio artificial es mejor” — hay que decir <em>cuánto</em> mejor depende de la densidad. A baja densidad, ambos refugios rinden parecido; a alta densidad, la brecha se dispara. Esa es la información que un diseño factorial captura y que dos experimentos separados (uno por refugio, otro por densidad) jamás hubieran mostrado.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Opción resumida del anova
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_fact)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+refugio           1 3006.1  3006.1  124.99 1.56e-09 ***
+densidad          2 1681.1   840.5   34.95 6.33e-07 ***
+refugio:densidad  2 1200.6   600.3   24.96 6.45e-06 ***
+Residuals        18  432.9    24.1                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<section id="tukey-para-comparar-densidades-dentro-de-cada-refugio" class="level3">
+<h3 class="anchored" data-anchor-id="tukey-para-comparar-densidades-dentro-de-cada-refugio">Tukey para comparar densidades dentro de cada refugio</h3>
+<p>Paquete <code>emmeans</code>, que permite realizar estas comparaciones teniendo en cuenta la interacción del modelo factorial.</p>
+<p>Este análisis responde: - Con refugio artificial, ¿la supervivencia difiere entre densidades baja, media y alta? - Con refugio natural, ¿qué densidades presentan diferencias significativas?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparaciones múltiples de Tukey</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar densidades dentro de cada tipo de refugio</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod_fact, pairwise <span class="sc">~</span> densidad <span class="sc">|</span> refugio,</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">adjust =</span> <span class="st">"tukey"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$emmeans
+refugio = Artificial:
+ densidad emmean   SE df lower.CL upper.CL
+ Baja       64.4 2.45 18     59.2     69.5
+ Media      61.1 2.45 18     56.0     66.3
+ Alta       60.9 2.45 18     55.7     66.1
+
+refugio = Natural:
+ densidad emmean   SE df lower.CL upper.CL
+ Baja       56.8 2.45 18     51.7     62.0
+ Media      43.0 2.45 18     37.8     48.1
+ Alta       19.5 2.45 18     14.3     24.6
+
+Confidence level used: 0.95 
+
+$contrasts
+refugio = Artificial:
+ contrast     estimate   SE df t.ratio p.value
+ Baja - Media    3.250 3.47 18   0.937  0.6245
+ Baja - Alta     3.475 3.47 18   1.002  0.5850
+ Media - Alta    0.225 3.47 18   0.065  0.9977
+
+refugio = Natural:
+ contrast     estimate   SE df t.ratio p.value
+ Baja - Media   13.875 3.47 18   4.001  0.0023
+ Baja - Alta    37.350 3.47 18  10.771  &lt;.0001
+ Media - Alta   23.475 3.47 18   6.770  &lt;.0001
+
+P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
+</div>
+</div>
+<p><strong>Sustratos arificiales:</strong> No se detectaron diferencias estadísticamente significativas entre las tres densidades. La supervivencia media se mantuvo entre 60,9 % y 64,4 %.</p>
+<p><strong>Interpretación ecológica</strong>: bajo las condiciones simuladas, el refugio artificial podría amortiguar los efectos negativos asociados con una mayor densidad de siembra.</p>
+</section>
+<section id="tukey-para-comparar-refugios-dentro-de-cada-densidad" class="level3">
+<h3 class="anchored" data-anchor-id="tukey-para-comparar-refugios-dentro-de-cada-densidad">2. Tukey para comparar refugios dentro de cada densidad</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar refugios en cada nivel de densidad</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mod_fact, pairwise <span class="sc">~</span> refugio <span class="sc">|</span> densidad,</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">adjust =</span> <span class="st">"tukey"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$emmeans
+densidad = Baja:
+ refugio    emmean   SE df lower.CL upper.CL
+ Artificial   64.4 2.45 18     59.2     69.5
+ Natural      56.8 2.45 18     51.7     62.0
+
+densidad = Media:
+ refugio    emmean   SE df lower.CL upper.CL
+ Artificial   61.1 2.45 18     56.0     66.3
+ Natural      43.0 2.45 18     37.8     48.1
+
+densidad = Alta:
+ refugio    emmean   SE df lower.CL upper.CL
+ Artificial   60.9 2.45 18     55.7     66.1
+ Natural      19.5 2.45 18     14.3     24.6
+
+Confidence level used: 0.95 
+
+$contrasts
+densidad = Baja:
+ contrast             estimate   SE df t.ratio p.value
+ Artificial - Natural     7.55 3.47 18   2.177  0.0430
+
+densidad = Media:
+ contrast             estimate   SE df t.ratio p.value
+ Artificial - Natural    18.18 3.47 18   5.241  0.0001
+
+densidad = Alta:
+ contrast             estimate   SE df t.ratio p.value
+ Artificial - Natural    41.42 3.47 18  11.946  &lt;.0001</code></pre>
+</div>
+</div>
+<p><strong>Resultado ecológico:</strong> el refugio artificial mantiene una supervivencia relativamente alta incluso a densidad elevada, mientras que con refugio natural la supervivencia disminuye significativamente al aumentar la densidad.</p>
+</section>
+<section id="cuál-sería-la-mejor-combinación-para-la-restauración-o-el-cultivo" class="level3">
+<h3 class="anchored" data-anchor-id="cuál-sería-la-mejor-combinación-para-la-restauración-o-el-cultivo">3. ¿Cuál sería la mejor combinación para la restauración o el cultivo?</h3>
+<p>La combinación con refugio artificial y densidad baja tuvo la media más alta. Sin embargo, no podemos afirmar que sea estadísticamente superior a las otras dos densidades con refugio artificial: las comparaciones de Tukey dentro de ese refugio no fueron significativas.</p>
+<p>Si el objetivo fuera maximizar la supervivencia usando una densidad alta, los resultados favorecerían claramente el refugio artificial frente al natural.</p>
+<p>La densidad parece tener un efecto mucho más pronunciado con refugio natural que con refugio artificial.</p>
 <hr>
+</section>
 </section>
 <section id="sec-splitplot" class="level2">
 <h2 class="anchored" data-anchor-id="sec-splitplot">Parte 4 — Parcelas divididas: restauración de manglares</h2>
@@ -1413,44 +1540,44 @@ Natural    56.825 42.950 19.475</code></pre>
 <p><strong>Pregunta:</strong> ¿el tratamiento de restauración afecta el crecimiento de plántulas, y depende esto del nivel de exposición al oleaje del sitio?</p>
 <p>Aquí hay una complicación logística real: el nivel de exposición (expuesto / protegido) solo puede asignarse a <strong>sitios completos</strong> (no es posible que la mitad de un sitio esté “protegida” y la otra mitad “expuesta”). Sin embargo, dentro de cada sitio sí es posible aplicar los 3 tratamientos de restauración a subparcelas distintas. Esta es la firma de un <strong>diseño de parcelas divididas</strong>: exposición = factor de parcela grande; tratamiento = factor de subparcela.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)   <span class="co"># Fijar la semilla</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>exposicion <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">18</span>, </span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Expuesto"</span>, <span class="st">"Protegido"</span>)) <span class="co"># Crea exposiciones</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>sitio2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">3</span>))                  <span class="co"># Crea sitios</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 sitios: 3 por exposición, con 3 subparcelas c/u</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>tratamiento <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">18</span>, </span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Siembra"</span>, </span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Fertilizacion"</span>))        <span class="co"># Crea tratamientos</span></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>efecto_exposicion <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)[<span class="fu">as.integer</span>(exposicion)] <span class="co"># Define efectos</span></span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>efecto_tratamiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">9</span>)[<span class="fu">as.integer</span>(tratamiento)] <span class="co"># Define efectos</span></span>
-<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>efecto_sitio <span class="ot">&lt;-</span> <span class="fu">rep</span>(</span>
-<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
-<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">each =</span> <span class="dv">3</span></span>
-<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Añade variación</span></span>
-<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>crecimiento <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
-<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">25</span> <span class="sc">+</span> efecto_exposicion <span class="sc">+</span> efecto_tratamiento <span class="sc">+</span> </span>
-<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>    efecto_sitio <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">18</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
-<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
-<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Genera crecimiento</span></span>
-<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>manglar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>  exposicion, sitio2, tratamiento, crecimiento</span>
-<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Crea tabla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)   <span class="co"># Fijar la semilla</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>exposicion <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">18</span>, </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Expuesto"</span>, <span class="st">"Protegido"</span>)) <span class="co"># Crea exposiciones</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>sitio2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">3</span>))                  <span class="co"># Crea sitios</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 sitios: 3 por exposición, con 3 subparcelas c/u</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>tratamiento <span class="ot">&lt;-</span> <span class="fu">gl</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">18</span>, </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Siembra"</span>, </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Fertilizacion"</span>))        <span class="co"># Crea tratamientos</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>efecto_exposicion <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)[<span class="fu">as.integer</span>(exposicion)] <span class="co"># Define efectos</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>efecto_tratamiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">9</span>)[<span class="fu">as.integer</span>(tratamiento)] <span class="co"># Define efectos</span></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>efecto_sitio <span class="ot">&lt;-</span> <span class="fu">rep</span>(</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">each =</span> <span class="dv">3</span></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Añade variación</span></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>crecimiento <span class="ot">&lt;-</span> <span class="fu">round</span>(</span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">25</span> <span class="sc">+</span> efecto_exposicion <span class="sc">+</span> efecto_tratamiento <span class="sc">+</span> </span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a>    efecto_sitio <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">18</span>, <span class="at">sd =</span> <span class="dv">2</span>), </span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span></span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Genera crecimiento</span></span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>manglar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>  exposicion, sitio2, tratamiento, crecimiento</span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Crea tabla</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>manglar <span class="sc">%&gt;%</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span>   </span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>manglar <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span>   </span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -1577,12 +1704,12 @@ Natural    56.825 42.950 19.475</code></pre>
 </div>
 <p>El análisis de un split-plot necesita <strong>dos términos de error distintos</strong>: uno para el factor de parcela grande (<code>sitio</code>) y otro para el factor de subparcela. En R, eso se indica con <code>Error()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>mod_split <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  crecimiento <span class="sc">~</span> exposicion <span class="sc">*</span> tratamiento <span class="sc">+</span> <span class="fu">Error</span>(sitio2), </span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> manglar</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Ajusta modelo con error</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_split)                                   <span class="co"># Muestra ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>mod_split <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  crecimiento <span class="sc">~</span> exposicion <span class="sc">*</span> tratamiento <span class="sc">+</span> <span class="fu">Error</span>(sitio2), </span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> manglar</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>)                                                    <span class="co"># Ajusta modelo con error</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod_split)                                   <span class="co"># Muestra ANOVA</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Error: sitio2
@@ -1602,7 +1729,92 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>Obsérvese que el resultado sale en <strong>dos bloques separados</strong> (<code>Error: sitio2</code> y <code>Error: Within</code>). Si se ejecutara un <code>aov()</code> normal sin el término <code>Error()</code>, R usaría un solo error para todo — y eso subestimaría la incertidumbre del factor de parcela grande (<code>exposicion</code>), inflando artificialmente su significancia. Por eso la estructura del diseño determina el modelo, no al revés.</p>
+<section id="tukey-para-probar-qué-tratamiento-presenta-mejor-desempeño" class="level3">
+<h3 class="anchored" data-anchor-id="tukey-para-probar-qué-tratamiento-presenta-mejor-desempeño">Tukey para probar qué tratamiento presenta mejor desempeño</h3>
+<p><strong>¿Podemos determinar qué tratamiento funciona mejor en cada sitio?</strong> Aquí hay una limitación importante de tu diseño actual: tienes una sola observación por combinación de sitio y tratamiento. Por eso, no puedes estimar un error independiente para comparar los tres tratamientos dentro de cada sitio.</p>
+<p>Con los datos actuales puedes evaluar el efecto promedio de los tratamientos entre los seis sitios, controlando las diferencias entre ellos. Pero para determinar con rigor cuál tratamiento funciona mejor en cada sitio, necesitarías varias unidades experimentales independientes por combinación de sitio y tratamiento.</p>
+<p><strong>1. Código en R: Tukey para comparar los tratamientos</strong></p>
+<p>Aquí sitio2 controla las diferencias entre sitios, mientras que exposicion:tratamiento permite conservar la interacción en el modelo. La comparación de Tukey utiliza el error residual del modelo para contrastar las medias de los tratamientos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparaciones múltiples de Tukey entre tratamientos</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>mod_trat <span class="ot">&lt;-</span> <span class="fu">aov</span>(</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  crecimiento <span class="sc">~</span> sitio2 <span class="sc">+</span> tratamiento <span class="sc">+</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    exposicion<span class="sc">:</span>tratamiento,</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> manglar</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(mod_trat, <span class="st">"tratamiento"</span>) <span class="co"># Compara los tratamientos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = crecimiento ~ sitio2 + tratamiento + exposicion:tratamiento, data = manglar)
+
+$tratamiento
+                          diff        lwr       upr     p adj
+Siembra-Control       5.766667  2.2326311  9.300702 0.0040771
+Fertilizacion-Control 8.766667  5.2326311 12.300702 0.0002672
+Fertilizacion-Siembra 3.000000 -0.5340356  6.534036 0.0943316</code></pre>
+</div>
+</div>
+<p><strong>2. Obtener las medias y ordenarlas por desempeño</strong></p>
+<p>Esto permite identificar cuál tratamiento presenta el mayor crecimiento promedio observado. La prueba de Tukey indicará cuáles diferencias entre tratamientos son estadísticamente significativas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crecimiento medio por tratamiento</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>manglar1 <span class="ot">&lt;-</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>manglar <span class="sc">%&gt;%</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(tratamiento) <span class="sc">%&gt;%</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> <span class="fu">mean</span>(crecimiento),</span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(crecimiento),</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb62-12"><a href="#cb62-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(media))</span>
+<span id="cb62-13"><a href="#cb62-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-14"><a href="#cb62-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Impresión de la tabla con los datos</span></span>
+<span id="cb62-15"><a href="#cb62-15" aria-hidden="true" tabindex="-1"></a>manglar1 <span class="sc">%&gt;%</span></span>
+<span id="cb62-16"><a href="#cb62-16" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span>   </span>
+<span id="cb62-17"><a href="#cb62-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> F, <span class="at">longtable =</span> <span class="cn">FALSE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-18"><a href="#cb62-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">html_font =</span> <span class="st">"Cambria"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-19"><a href="#cb62-19" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">tratamiento</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">media</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">sd</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Fertilizacion</td>
+<td style="text-align: right;">37.18</td>
+<td style="text-align: right;">6.47</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Siembra</td>
+<td style="text-align: right;">34.18</td>
+<td style="text-align: right;">5.95</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Control</td>
+<td style="text-align: right;">28.42</td>
+<td style="text-align: right;">5.79</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="cierre-el-diseño-de-un-estudio-propio" class="level2">
 <h2 class="anchored" data-anchor-id="cierre-el-diseño-de-un-estudio-propio">Cierre — El diseño de un estudio propio</h2>
