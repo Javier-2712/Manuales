@@ -878,5 +878,155 @@
     "crumbs": [
       "Guía complementos estudios de caso FD y PD"
     ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html",
+    "href": "Taller3_Diversidad_Filogenetica.html",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "",
+    "text": "Materiales requeridos para el taller en clase\nLos datos de este y el resto de talleres con peces, son tomados del manuscrito de Ruiz-Campos et al. (2021) (enlace_manuscrito).\nEn el siguiente enlace se puede descargar el archivo comprimido del taller, donde se aplican procedimientos de diversidad filogenética - PD en RStudio, con el mismo caso guiado de peces de México de los talleres anteriores (📰 Taller3_Diversidad_Filogenetica).\nNota: una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos. La carpeta contiene datos.xlsx, arbol_filo_beta.rds, Rao.R, alineador.R y la carpeta fig_portada/.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#materiales-requeridos-para-el-taller-en-clase",
+    "href": "Taller3_Diversidad_Filogenetica.html#materiales-requeridos-para-el-taller-en-clase",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "",
+    "text": "Taller3_Diversidad_Filogenetica_A1_A2_B1_B\n\n\n\n\n\nDiapositivas en vivo - Slides.com\n *Pendiente de cargar el taller\n\n\n Diapositivas del Taller3_Diversidad_Filogenetica *Pendiente de cargar diapositivas\n\n\n\nLos temas de profundización (modelos nulos, perfil de tiempo, espacio filogenético, puente entre FD y PD, entre otros) están en la guía complementaria al final del taller.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#mapa-conceptual-del-taller",
+    "href": "Taller3_Diversidad_Filogenetica.html#mapa-conceptual-del-taller",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Mapa conceptual del taller",
+    "text": "Mapa conceptual del taller\n\n\n\n\n\n\nNota\n\n\n\nLa multidimensionalidad responde a qué dimensión de la biodiversidad se estudia (TD, FD o PD) y la multiescalaridad a a qué escala se descompone (α, β y γ). En este taller la dimensión es PD, con los mismos bloques del Taller 2:\n\nA1 — Métricas clásicas de PD: PD de Faith y MPD.\nA2 — Entropía cuadrática de Rao: partición de PD en α, β y γ con la misma función Rao().\nB1 — Números efectivos de Hill para PD alfa: iNEXT3D() a cobertura común.\nB2 — Números efectivos de Hill para PD beta: iNEXTbeta3D() a cobertura común.\n\n\n\n\n\n\n\n\n\nImportanteLo que cambia y lo que no cambia respecto al Taller 2\n\n\n\nLa lógica es la misma; cambia el insumo que describe qué tan distintas son dos especies.\n\n\n\n\n\n\n\n\nPaso\nTaller 2 (FD)\nTaller 3 (PD)\n\n\n\n\nInsumo de diferencias\nRasgos → distancia de Gower (rasgos.d)\nÁrbol → distancia cofenética (phylo.d)\n\n\nVisualización base\nDendrograma funcional\nEl árbol mismo\n\n\nA1\ndbFD(): FRic, FEve, FDiv, FDis, RaoQ\npicante: PD de Faith, MPD\n\n\nA2\nRao(dfunc = rasgos.d)\nRao(dphyl = phylo.d)\n\n\nB1\niNEXT3D(FDdistM, FDtype = \"AUC\")\niNEXT3D(PDtree, PDtype = \"meanPD\")\n\n\nB2\niNEXTbeta3D(FDdistM, ...)\niNEXTbeta3D(PDtree, ...)\n\n\n\n\n\n\n\n\n\n\n\nAdvertenciaQué tipo de árbol se usa aquí\n\n\n\nEl árbol del caso guiado se construyó a partir de la clasificación taxonómica de las especies (clase, orden, familia, género), no a partir de ADN. Sus ramas no representan tiempo evolutivo: la PD que se calcula mide, en sentido estricto, distinción taxonómica, y así debe interpretarse.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#a.-cargar-el-árbol",
+    "href": "Taller3_Diversidad_Filogenetica.html#a.-cargar-el-árbol",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "a. Cargar el árbol",
+    "text": "a. Cargar el árbol\n\n\nCódigo\narbol_raw &lt;- readRDS(\"arbol_filo_beta.rds\")   # Árbol taxonómico (objeto 'phylo')\narbol_raw                                     # Puntas, nodos y longitudes de rama\n\n\n\nPhylogenetic tree with 86 tips and 55 internal nodes.\n\nTip labels:\n  Hyps, Elps, Mgla, Albv, Angr, Myrp, ...\nNode labels:\n  Gnathostomata, Teleostei, Elopomorpha, Clupeocephala, Eurypterygia, Otomorpha, ...\n\nRooted; includes branch length(s).\n\n\nCódigo\nis.ultrametric(arbol_raw)                     # ¿Todas las puntas a la misma distancia de la raíz?\n\n\n[1] TRUE\n\n\nCódigo\nmax(node.depth.edgelength(arbol_raw))         # Profundidad del árbol (raíz -&gt; puntas)\n\n\n[1] 50\n\n\nCódigo\nhead(arbol_raw$tip.label, 6)                  # ¡Las puntas son abreviaturas, no nombres científicos!\n\n\n[1] \"Hyps\" \"Elps\" \"Mgla\" \"Albv\" \"Angr\" \"Myrp\"\n\n\n\n\n\n\n\n\nNotaTres cosas que hay que notar\n\n\n\nEl árbol es ultramétrico (todas las especies a 50 unidades de la raíz), tiene politomías (las especies de un mismo género salen del mismo nodo, porque la clasificación no dice cuál es más cercana) y sus puntas están en abreviaturas. Sin armonizar los nombres, ningún cálculo de PD funcionaría.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#b.-armonizar-los-nombres-del-árbol-con-los-de-las-abundancias",
+    "href": "Taller3_Diversidad_Filogenetica.html#b.-armonizar-los-nombres-del-árbol-con-los-de-las-abundancias",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "b. Armonizar los nombres del árbol con los de las abundancias",
+    "text": "b. Armonizar los nombres del árbol con los de las abundancias\nSe usa la hoja tax1, que relaciona cada abreviatura con su nombre científico.\n\n\nCódigo\ntax1 &lt;- read_xlsx(ruta_datos, sheet = \"tax1\") %&gt;%\n  mutate(LatinName = str_squish(LatinName))\ndic &lt;- setNames(tax1$LatinName, tax1$Abrev)            # dic[\"Hyps\"] = \"Hypanus sabinus\"\n\narbol_filo &lt;- arbol_raw\narbol_filo$tip.label &lt;- unname(ifelse(\n  arbol_filo$tip.label %in% names(dic),                # Si la punta es una abreviatura conocida...\n  dic[arbol_filo$tip.label],                           # ...se reemplaza por el nombre científico\n  arbol_filo$tip.label))                               # ...si no, se deja para revisarla\n\n# El \"detective\" del Taller 1, ahora con el árbol:\nsetdiff(colnames(biol1), arbol_filo$tip.label)   # Especies con abundancia que NO están en el árbol\n\n\n[1] \"Notropis aguirrepequenoi\" \"Dajaus monticola\"        \n[3] \"Symphurus civitatum\"     \n\n\nCódigo\nsetdiff(arbol_filo$tip.label, colnames(biol1))   # Puntas del árbol que NO están en las abundancias\n\n\n[1] \"Agonostomus monticola\" \"Symphurus civitatium\" \n\n\nLos dos setdiff() revelan tres errores frecuentes en cualquier base de datos real:\n\n\n\n\n\n\n\n\nAbundancias (biol1)\nÁrbol\nTipo de problema\n\n\n\n\nDajaus monticola\nAgonostomus monticola\nSinónimo (el nombre aceptado es Dajaus monticola)\n\n\nSymphurus civitatum\nSymphurus civitatium\nError tipográfico\n\n\nNotropis aguirrepequenoi\n—\nEspecie ausente (no reconocida por la base taxonómica)\n\n\n\nUn cuarto problema ya lo resolvió str_squish(): Astyanax mexicanus venía escrita con dos espacios en la hoja tax. Sin esa corrección, los sitios 25M y 28M (donde es la única especie) se habrían quedado sin especies para PD.\n\n\nCódigo\ncorrecciones &lt;- c(\n  \"Agonostomus monticola\" = \"Dajaus monticola\",     # Sinónimo -&gt; nombre aceptado\n  \"Symphurus civitatium\"  = \"Symphurus civitatum\"   # Error tipográfico -&gt; nombre correcto\n)\narbol_filo$tip.label &lt;- recode(arbol_filo$tip.label, !!!correcciones)\n\nsetdiff(colnames(biol1), arbol_filo$tip.label)     # Queda solo Notropis aguirrepequenoi\n\n\n[1] \"Notropis aguirrepequenoi\"",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#c.-ubicar-la-especie-que-falta",
+    "href": "Taller3_Diversidad_Filogenetica.html#c.-ubicar-la-especie-que-falta",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "c. Ubicar la especie que falta",
+    "text": "c. Ubicar la especie que falta\nNotropis aguirrepequenoi aporta casi 1.000 individuos en la zona M: excluirla cambiaría las métricas ponderadas por abundancia. Como el árbol es taxonómico, se ubica con el mismo criterio con que se construyó: en su clado más cercano disponible, la subfamilia Pogonichthyinae (junto con Cyprinella, Campostoma y Dionda).\n\n\nCódigo\nnodo &lt;- which(arbol_filo$node.label == \"Pogonichthyinae\") + Ntip(arbol_filo)   # Nodo del clado\nprof_total &lt;- max(node.depth.edgelength(arbol_filo))                           # Profundidad (50)\nprof_nodo  &lt;- node.depth.edgelength(arbol_filo)[nodo]                          # Profundidad del nodo\n\narbol_filo &lt;- phytools::bind.tip(\n  arbol_filo,\n  tip.label   = \"Notropis aguirrepequenoi\",   # Nombre exacto, igual al de biol1\n  edge.length = prof_total - prof_nodo,       # Mantiene el árbol ultramétrico\n  where       = nodo                          # Se une al nodo (politomía)\n)\n\nstopifnot(setequal(arbol_filo$tip.label, colnames(biol1)),   # Mismas especies en árbol y datos\n          is.ultrametric(arbol_filo))\nNtip(arbol_filo)   # 87 especies: las mismas del Taller 2\n\n\n[1] 87\n\n\n\n\n\n\n\n\nTipPor qué ubicarla y no excluirla\n\n\n\n\n\nCon el árbol completo, TD, FD y PD se calculan con las mismas 87 especies: los valores de TD y FD de este taller son idénticos a los del Taller 2, y cualquier diferencia con PD se debe a la dimensión. Cuánto cambiaría el resultado si se excluyera se analiza en la guía complementaria (sección 1).",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#d.-el-árbol-de-las-especies-y-su-presencia-por-zona",
+    "href": "Taller3_Diversidad_Filogenetica.html#d.-el-árbol-de-las-especies-y-su-presencia-por-zona",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "d. El árbol de las especies y su presencia por zona",
+    "text": "d. El árbol de las especies y su presencia por zona\nEn el Taller 2 el dendrograma funcional permitía ver el espacio funcional antes de resumirlo; aquí esa función la cumple el propio árbol.\n\n\nCódigo\n# Abundancias por zona (zonas x especies)\nbiol_zona_sp &lt;- biol1 %&gt;%\n  rownames_to_column(\"Sites\") %&gt;%\n  left_join(zonas, by = \"Sites\") %&gt;%\n  dplyr::select(-Sites) %&gt;%\n  group_by(Zona) %&gt;%\n  summarise(across(everything(), sum), .groups = \"drop\") %&gt;%\n  column_to_rownames(\"Zona\")\n\nzonas_id  &lt;- rownames(biol_zona_sp)                                  # Nombres de las zonas (de los datos)\ncols_zona &lt;- setNames(RColorBrewer::brewer.pal(max(3, length(zonas_id)), \"Dark2\")[seq_along(zonas_id)],\n                      zonas_id)                                      # Un color por zona\n\npres &lt;- (biol_zona_sp &gt; 0)[, arbol_filo$tip.label]                   # Presencia, en el orden del árbol\n\npar(mar = c(1, 1, 1, 1))\nplot(arbol_filo, cex = 0.55, font = 3, label.offset = 8,\n     edge.width = 0.8, x.lim = c(0, 95), no.margin = TRUE)\nfor (i in seq_along(zonas_id)) {\n  z &lt;- zonas_id[i]\n  tiplabels(pch = ifelse(pres[z, ], 15, 0), col = cols_zona[z],      # Relleno = presente\n            cex = 0.8, offset = 1.5 + (i - 1) * 2.2)                 # Una columna por zona\n}\nnodelabels(arbol_filo$node.label, frame = \"none\",\n           cex = 0.4, col = \"grey45\", adj = c(1.05, -0.4))\nlegend(\"topleft\", legend = zonas_id, pch = 15, col = cols_zona,\n       bty = \"n\", title = \"Zona\", cex = 0.85)\n\n\n\n\n\n\n\n\nFigura 1: Árbol taxonómico de las 87 especies con la presencia (cuadro relleno) o ausencia (cuadro vacío) de cada especie en cada zona. Los rótulos grises son los clados de la clasificación.\n\n\n\n\n\n\n\n\n\n\n\nTipCómo leer este árbol\n\n\n\nLos linajes de agua dulce (bagres, carácidos, ciprínidos, poecílidos y cíclidos, en la mitad superior) están en M y P, mientras que RM está ocupada casi por completo por linajes marino-estuarinos (corvinas, pargos, jureles, mojarras, sábalos y anguilas). La desembocadura no tiene “más de lo mismo”, sino ramas del árbol que las otras zonas no tienen. Esta lectura visual es la hipótesis que los bloques A1–B2 van a cuantificar.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#e.-distancia-filogenética-cofenética",
+    "href": "Taller3_Diversidad_Filogenetica.html#e.-distancia-filogenética-cofenética",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "e. Distancia filogenética (cofenética)",
+    "text": "e. Distancia filogenética (cofenética)\nLa distancia cofenética entre dos especies es la longitud de rama que hay que recorrer para ir de una a la otra pasando por su ancestro común. Se reescala a [0, 1], igual que la distancia de Gower.\n\n\nCódigo\nphydist &lt;- cophenetic(arbol_filo)[colnames(biol1), colnames(biol1)]   # Especie x especie, orden de biol1\nphylo.d &lt;- as.dist(phydist / max(phydist))                           # Distancia filogenética en [0, 1]\n\nround(as.matrix(phylo.d)[1:4, 1:4], 3)   # Fragmento 4x4\n\n\n                    Hypanus sabinus Elops saurus Megalops atlanticus\nHypanus sabinus                   0        1.000               1.000\nElops saurus                      1        0.000               0.280\nMegalops atlanticus               1        0.280               0.000\nAlbula vulpes                     1        0.323               0.323\n                    Albula vulpes\nHypanus sabinus             1.000\nElops saurus                0.323\nMegalops atlanticus         0.323\nAlbula vulpes               0.000",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#del-a1-funcional-al-a1-filogenético",
+    "href": "Taller3_Diversidad_Filogenetica.html#del-a1-funcional-al-a1-filogenético",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Del A1 funcional al A1 filogenético",
+    "text": "Del A1 funcional al A1 filogenético\nEl marco de Villéger et al. (2008) se diseñó para el espacio de rasgos y no incluye PD. Pero Tucker et al. (2017) mostraron que las métricas filogenéticas responden a las mismas tres preguntas que los índices de Villéger, de modo que el bloque A1 se traslada casi uno a uno:\n\n\n\n\n\n\n\n\n\nFaceta (Tucker et al., 2017)\nPregunta\nA1 funcional (Taller 2)\nA1 filogenético (este taller)\n\n\n\n\nRiqueza\n¿Cuánto espacio, o cuánto árbol, ocupa la comunidad?\nFRic\nPD de Faith (Faith, 1992)\n\n\nDivergencia\n¿Qué tan distintas son las especies entre sí?\nFDiv, FDis, RaoQ\nMPD (Webb et al., 2002)\n\n\nRegularidad\n¿Qué tan uniforme es el reparto?\nFEve\nPSE, PSV (guía complementaria)\n\n\n\nEn este taller se trabajan las dos primeras facetas con el paquete picante (Kembel et al., 2010).\n\nPD de Faith: suma de las longitudes de todas las ramas que conectan a las especies presentes.\nMPD (mean pairwise distance): distancia filogenética promedio entre pares de individuos. Ponderada por abundancia, es la misma entropía de Rao que dbFD() reportaba como RaoQ en el Taller 2, ahora con distancias filogenéticas (se comprueba en A2).\n\n\na. PD de Faith y riqueza de especies\n\n\nCódigo\npd_faith &lt;- pd(biol1, arbol_filo, include.root = TRUE)   # PD de Faith (PD) y riqueza (SR) por sitio\n\ncor(pd_faith$PD, pd_faith$SR)   # ¿Cuánto se parece PD a la simple riqueza?\n\n\n[1] 0.9850338\n\n\n\n\nCódigo\npd_faith %&gt;%\n  rownames_to_column(\"Sitio\") %&gt;%\n  left_join(zonas, by = c(\"Sitio\" = \"Sites\")) %&gt;%\n  ggplot(aes(SR, PD, color = Zona)) +\n  geom_point(size = 2.6, alpha = 0.85) +\n  scale_color_manual(values = cols_zona) +\n  labs(x = \"Riqueza de especies (SR)\", y = \"PD de Faith\",\n       title = \"PD de Faith frente a riqueza\") +\n  theme_classic(base_size = 13) +\n  theme(plot.title = element_text(face = \"bold\", hjust = 0.5))\n\n\n\n\n\n\n\n\nFigura 1.1: Relación entre la riqueza de especies y la PD de Faith por sitio.\n\n\n\n\n\n\n\n\n\n\n\nAdvertenciaLa PD de Faith casi repite la riqueza\n\n\n\nCon una correlación cercana a 0,98, la PD de Faith dice poco que no diga ya la riqueza: cada especie nueva agrega su rama al total. Por eso se acompaña de una métrica que no crece automáticamente con el número de especies: el MPD.\n\n\n\n\nb. MPD por zona\n\n\nCódigo\npd_a1_zona &lt;- tibble(\n  Zona = zonas_id,\n  SR   = pd(biol_zona_sp, arbol_filo)$SR,                          # Riqueza por zona\n  PD   = pd(biol_zona_sp, arbol_filo)$PD,                          # PD de Faith por zona\n  MPD  = mpd(biol_zona_sp, phydist, abundance.weighted = TRUE),    # MPD ponderado por abundancia\n  MPD_presencia = mpd(biol_zona_sp, phydist, abundance.weighted = FALSE)   # MPD solo con presencias\n)\n\npd_a1_zona %&gt;%\n  kbl(booktabs = TRUE, digits = 2, align = \"c\",\n      caption = \"Métricas clásicas de PD por zona (abundancias sumadas)\") %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"),\n                full_width = FALSE, position = \"center\") %&gt;%\n  row_spec(0, bold = TRUE, color = \"white\", background = \"#2E4057\") %&gt;%\n  column_spec(1, bold = TRUE)\n\n\n\nMétricas clásicas de PD por zona (abundancias sumadas)\n\n\nZona\nSR\nPD\nMPD\nMPD_presencia\n\n\n\n\nM\n30\n364.81\n45.02\n58.97\n\n\nP\n30\n456.83\n48.92\n61.90\n\n\nRM\n53\n861.17\n62.03\n65.27\n\n\n\n\n\n\n\n\n\n\n\nImportanteInterpretación de A1\n\n\n\n\nRM tiene la mayor PD de Faith (más especies y más ramas) y también el mayor MPD: sus especies vienen de linajes profundamente distintos (rayas, sábalos, clupeidos y muchos percomorfos marinos).\nM y P tienen la misma riqueza (30 especies), pero P tiene mayor PD de Faith: sus 30 especies cubren más ramas del árbol.\nEn las tres zonas el MPD ponderado es menor que el de presencias, sobre todo en M y P: las especies dominantes están más emparentadas entre sí que el conjunto de especies presentes (unos pocos linajes concentran la mayoría de los individuos).\n¿Un MPD de 45 es alto o bajo? Responderlo exige compararlo con lo esperado por azar (modelos nulos, SES, NRI y NTI). Ese análisis se desarrolla en la guía complementaria (sección 3).\n\n\n\n\n\n\n\n\n\nNotaPregunta ecológica de A1\n\n\n\n¿Qué tan emparentadas están las especies que coexisten en cada zona? A1 todavía no dice cuánto de la PD regional se debe a diferencias entre zonas. Esa pregunta se aborda en A2.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#ejercicio-1-bloque-a1",
+    "href": "Taller3_Diversidad_Filogenetica.html#ejercicio-1-bloque-a1",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Ejercicio 1 — Bloque A1",
+    "text": "Ejercicio 1 — Bloque A1\nCalcular el MPD por sitio (no por zona) con mpd(biol1, phydist, abundance.weighted = TRUE) y resumirlo por zona. ¿Se mantiene el orden M &lt; P &lt; RM que se obtuvo con las zonas agregadas? ¿Por qué los sitios con una sola especie aparecen como NA?",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#ejercicio-2-bloque-a2",
+    "href": "Taller3_Diversidad_Filogenetica.html#ejercicio-2-bloque-a2",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Ejercicio 2 — Bloque A2",
+    "text": "Ejercicio 2 — Bloque A2\nRepetir la partición de Rao con Jost = TRUE. ¿Qué ventaja tiene expresar Rao como número efectivo cuando se quiere comparar con los números de Hill de B1?",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#ejercicio-3-bloque-b1",
+    "href": "Taller3_Diversidad_Filogenetica.html#ejercicio-3-bloque-b1",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Ejercicio 3 — Bloque B1",
+    "text": "Ejercicio 3 — Bloque B1\nRepetir estimate3D() con PDtype = \"PD\" en lugar de \"meanPD\". ¿Qué relación numérica hay entre ambos resultados? (pista: revisar la columna Reftime).",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#ejercicio-4-bloque-b2",
+    "href": "Taller3_Diversidad_Filogenetica.html#ejercicio-4-bloque-b2",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Ejercicio 4 — Bloque B2",
+    "text": "Ejercicio 4 — Bloque B2\nIdentificar qué comparación entre zonas tiene la mayor beta filogenética en cada orden q y compararla con la beta funcional del Taller 2 en el mismo orden. Responder en un párrafo la pregunta 2 de la discusión.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#ejercicio-5-transferencia-al-estudio-de-caso",
+    "href": "Taller3_Diversidad_Filogenetica.html#ejercicio-5-transferencia-al-estudio-de-caso",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Ejercicio 5 — Transferencia al estudio de caso",
+    "text": "Ejercicio 5 — Transferencia al estudio de caso\nPara el grupo taxonómico del estudio de caso, definir:\n\nde dónde saldrá el árbol (ver la Guía de complementos FD y PD para los estudios de caso) y qué niveles taxonómicos tendrá;\nqué nombres hay que verificar (sinónimos, errores, morfoespecies) y qué hacer con las especies que no estén en el árbol;\nqué unidades se compararán y si habrá sitios con una o ninguna especie que deban filtrarse.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
+  },
+  {
+    "objectID": "Taller3_Diversidad_Filogenetica.html#sec-apoyo",
+    "href": "Taller3_Diversidad_Filogenetica.html#sec-apoyo",
+    "title": "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2",
+    "section": "Material de apoyo",
+    "text": "Material de apoyo\n\nPara repasar y profundizar después de la sesión:\n\n\nGuía complementaria · Diversidad filogenética — los temas que no caben en la sesión (modelos nulos, perfil de tiempo, espacio filogenético, puente FD–PD, elección de la cobertura), más 4 escenarios para elegir el bloque correcto y 4 interpretaciones con errores para identificar.",
+    "crumbs": [
+      "Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2"
+    ]
   }
 ]
