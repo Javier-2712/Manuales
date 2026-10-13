@@ -228,12 +228,6 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Guia_complementos_FD_PD_estudios_caso.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Guía complementos estudios de caso FD y PD</strong></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Taller1_bases_datos_diversidad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller1. Organización de matrices</span></a>
   </div>
@@ -271,7 +265,7 @@ window.Quarto = {
   <li><a href="#cargar-librerías-y-datos" id="toc-cargar-librerías-y-datos" class="nav-link" data-scroll-target="#cargar-librerías-y-datos">Cargar librerías y datos</a>
   <ul>
   <li><a href="#cargar-librerías" id="toc-cargar-librerías" class="nav-link" data-scroll-target="#cargar-librerías">1. Cargar librerías</a></li>
-  <li><a href="#reconstruir-los-objetos-del-taller-2" id="toc-reconstruir-los-objetos-del-taller-2" class="nav-link" data-scroll-target="#reconstruir-los-objetos-del-taller-2">2. Reconstruir los objetos del Taller 2</a></li>
+  <li><a href="#cargar-bases-de-datos-tax-rasgos_raw-coord" id="toc-cargar-bases-de-datos-tax-rasgos_raw-coord" class="nav-link" data-scroll-target="#cargar-bases-de-datos-tax-rasgos_raw-coord">2. Cargar bases de datos (tax, rasgos_raw, coord)</a></li>
   </ul></li>
   <li><a href="#del-árbol-a-la-distancia-filogenética" id="toc-del-árbol-a-la-distancia-filogenética" class="nav-link" data-scroll-target="#del-árbol-a-la-distancia-filogenética">Del árbol a la distancia filogenética</a>
   <ul>
@@ -533,8 +527,8 @@ Nota
 </div>
 </div>
 </section>
-<section id="reconstruir-los-objetos-del-taller-2" class="level3">
-<h3 class="anchored" data-anchor-id="reconstruir-los-objetos-del-taller-2">2. Reconstruir los objetos del Taller 2</h3>
+<section id="cargar-bases-de-datos-tax-rasgos_raw-coord" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-bases-de-datos-tax-rasgos_raw-coord">2. Cargar bases de datos (tax, rasgos_raw, coord)</h3>
 <p>Es el mismo procedimiento del Taller 2 (abundancias, zonas, rasgos, distancia de Gower y coordenadas). Lo único nuevo es <code>str_squish()</code>, que elimina espacios dobles en los nombres de las especies: con PD, un espacio de más basta para que una especie “desaparezca” del árbol.</p>
 <div class="cell">
 <details class="code-fold">
@@ -558,30 +552,34 @@ Nota
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LatinName =</span> <span class="fu">str_squish</span>(LatinName))</span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>rasgos1 <span class="ot">&lt;-</span> rasgos_raw <span class="sc">%&gt;%</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"LatinName"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(TrophicLevel, BodyLength, BodyLengthMax, ShapeFactor,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                omnivory, detritivory, herbivory, invertivory, piscivory, carnivory)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>rasgos1 <span class="ot">&lt;-</span> rasgos1[<span class="fu">colnames</span>(biol1), ]                                 <span class="co"># Mismo orden que biol1</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>vars_bin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"omnivory"</span>, <span class="st">"detritivory"</span>, <span class="st">"herbivory"</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>              <span class="st">"invertivory"</span>, <span class="st">"piscivory"</span>, <span class="st">"carnivory"</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>rasgos.d <span class="ot">&lt;-</span> <span class="fu">gowdis</span>(rasgos1, <span class="at">asym.bin =</span> <span class="fu">match</span>(vars_bin, <span class="fu">colnames</span>(rasgos1)))   <span class="co"># Gower (Taller 2)</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Coordenadas ---</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, <span class="at">sheet =</span> <span class="st">"coord"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Code =</span> <span class="fu">str_remove_all</span>(Code, <span class="st">"[^A-Za-z0-9]"</span>)) <span class="sc">%&gt;%</span>            <span class="co"># Caracteres ocultos (Taller 1)</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Code, Longitude, Latitude) <span class="sc">%&gt;%</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"Code"</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> coord[<span class="fu">rownames</span>(biol1), ]</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>escalar_cex <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">min_cex =</span> <span class="fl">0.4</span>, <span class="at">max_cex =</span> <span class="fl">3.2</span>) {           <span class="co"># Escala de círculos (Taller 2)</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  rango <span class="ot">&lt;-</span> <span class="fu">range</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">diff</span>(rango) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="fu">rep</span>(<span class="fu">mean</span>(<span class="fu">c</span>(min_cex, max_cex)), <span class="fu">length</span>(x)))</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  min_cex <span class="sc">+</span> (x <span class="sc">-</span> rango[<span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">diff</span>(rango) <span class="sc">*</span> (max_cex <span class="sc">-</span> min_cex)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeos duros</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">colnames</span>(biol1), <span class="fu">rownames</span>(rasgos1)),</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>          <span class="fu">identical</span>(<span class="fu">rownames</span>(biol1), <span class="fu">rownames</span>(coord)))</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)   <span class="co"># 42 sitios x 87 especies</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(TrophicLevel, BodyLength, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                BodyLengthMax, ShapeFactor,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                omnivory, detritivory, herbivory, </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                invertivory, piscivory, carnivory)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>rasgos1 <span class="ot">&lt;-</span> rasgos1[<span class="fu">colnames</span>(biol1), ]                                 <span class="co"># Mismo orden que biol1</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>vars_bin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"omnivory"</span>, <span class="st">"detritivory"</span>, <span class="st">"herbivory"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>              <span class="st">"invertivory"</span>, <span class="st">"piscivory"</span>, <span class="st">"carnivory"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>rasgos.d <span class="ot">&lt;-</span> <span class="fu">gowdis</span>(rasgos1, </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                   <span class="at">asym.bin =</span> <span class="fu">match</span>(vars_bin, <span class="fu">colnames</span>(rasgos1)))   <span class="co"># Gower (Taller 2)</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Coordenadas ---</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(ruta_datos, <span class="at">sheet =</span> <span class="st">"coord"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Code =</span> <span class="fu">str_remove_all</span>(Code, <span class="st">"[^A-Za-z0-9]"</span>)) <span class="sc">%&gt;%</span>            <span class="co"># Caracteres ocultos (Taller 1)</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Code, Longitude, Latitude) <span class="sc">%&gt;%</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"Code"</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>coord <span class="ot">&lt;-</span> coord[<span class="fu">rownames</span>(biol1), ]</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>escalar_cex <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">min_cex =</span> <span class="fl">0.4</span>, <span class="at">max_cex =</span> <span class="fl">3.2</span>) {           <span class="co"># Escala de círculos (Taller 2)</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  rango <span class="ot">&lt;-</span> <span class="fu">range</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">diff</span>(rango) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="fu">rep</span>(<span class="fu">mean</span>(<span class="fu">c</span>(min_cex, max_cex)), </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">length</span>(x)))</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  min_cex <span class="sc">+</span> (x <span class="sc">-</span> rango[<span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">diff</span>(rango) <span class="sc">*</span> (max_cex <span class="sc">-</span> min_cex)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeos duros</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">identical</span>(<span class="fu">colnames</span>(biol1), <span class="fu">rownames</span>(rasgos1)),</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>          <span class="fu">identical</span>(<span class="fu">rownames</span>(biol1), <span class="fu">rownames</span>(coord)))</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(biol1)   <span class="co"># 42 sitios x 87 especies</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42 87</code></pre>
@@ -975,19 +973,21 @@ Figura&nbsp;1.1: Relación entre la riqueza de especies y la PD de Faith por sit
 <summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pd_a1_zona <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Zona =</span> zonas_id,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">SR   =</span> <span class="fu">pd</span>(biol_zona_sp, arbol_filo)<span class="sc">$</span>SR,                          <span class="co"># Riqueza por zona</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PD   =</span> <span class="fu">pd</span>(biol_zona_sp, arbol_filo)<span class="sc">$</span>PD,                          <span class="co"># PD de Faith por zona</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">MPD  =</span> <span class="fu">mpd</span>(biol_zona_sp, phydist, <span class="at">abundance.weighted =</span> <span class="cn">TRUE</span>),    <span class="co"># MPD ponderado por abundancia</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">MPD_presencia =</span> <span class="fu">mpd</span>(biol_zona_sp, phydist, <span class="at">abundance.weighted =</span> <span class="cn">FALSE</span>)   <span class="co"># MPD solo con presencias</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>pd_a1_zona <span class="sc">%&gt;%</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">"c"</span>,</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Métricas clásicas de PD por zona (abundancias sumadas)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>),</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#2E4057"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">SR   =</span> <span class="fu">pd</span>(biol_zona_sp, arbol_filo)<span class="sc">$</span>SR,           <span class="co"># Riqueza por zona</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PD   =</span> <span class="fu">pd</span>(biol_zona_sp, arbol_filo)<span class="sc">$</span>PD,           <span class="co"># PD de Faith por zona</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">MPD  =</span> <span class="fu">mpd</span>(biol_zona_sp, phydist, </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">abundance.weighted =</span> <span class="cn">TRUE</span>),    <span class="co"># MPD ponderado por abundancia</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">MPD_presencia =</span> <span class="fu">mpd</span>(biol_zona_sp, phydist, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">abundance.weighted =</span> <span class="cn">FALSE</span>)   <span class="co"># MPD solo con presencias</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>pd_a1_zona <span class="sc">%&gt;%</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Métricas clásicas de PD por zona (abundancias sumadas)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>),</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#2E4057"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="table table-striped table-hover table-condensed caption-top table-sm small">
@@ -1245,18 +1245,23 @@ Figura&nbsp;1.1: Relación entre la riqueza de especies y la PD de Faith por sit
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>biol1_ok <span class="ot">&lt;-</span> biol1[<span class="fu">rowSums</span>(biol1) <span class="sc">&gt;</span> <span class="dv">0</span>, ]   <span class="co"># Rao() no admite sitios vacíos (aquí no hay, pero se verifica)</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>rao_sitios <span class="ot">&lt;-</span> <span class="fu">Rao</span>(<span class="at">sample =</span> <span class="fu">t</span>(biol1_ok), <span class="at">dfunc =</span> rasgos.d, <span class="at">dphyl =</span> phylo.d,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weight =</span> <span class="cn">FALSE</span>, <span class="at">Jost =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">4.5</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.lab =</span> <span class="fl">1.1</span>, <span class="at">cex.main =</span> <span class="fl">1.1</span>)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>)) {</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(coord[<span class="fu">rownames</span>(biol1_ok), ], <span class="at">asp =</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">bg =</span> <span class="st">"brown"</span>,</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fu">escalar_cex</span>(rao_sitios[[d]]<span class="sc">$</span>Alpha),</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste0</span>(<span class="st">"Diversidad alfa ("</span>, d, <span class="st">")"</span>), <span class="at">xlab =</span> <span class="st">"Longitud"</span>, <span class="at">ylab =</span> <span class="st">"Latitud"</span>)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(coord[<span class="fu">rownames</span>(biol1_ok), ], <span class="at">col =</span> <span class="st">"light blue"</span>)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rao() no admite sitios vacíos (aquí no hay, pero se verifica)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>biol1_ok <span class="ot">&lt;-</span> biol1[<span class="fu">rowSums</span>(biol1) <span class="sc">&gt;</span> <span class="dv">0</span>, ]   </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>rao_sitios <span class="ot">&lt;-</span> <span class="fu">Rao</span>(<span class="at">sample =</span> <span class="fu">t</span>(biol1_ok), </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">dfunc =</span> rasgos.d, <span class="at">dphyl =</span> phylo.d,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weight =</span> <span class="cn">FALSE</span>, <span class="at">Jost =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">4.5</span>, <span class="fl">4.5</span>, <span class="dv">3</span>, <span class="dv">1</span>), </span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.lab =</span> <span class="fl">1.1</span>, <span class="at">cex.main =</span> <span class="fl">1.1</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>)) {</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(coord[<span class="fu">rownames</span>(biol1_ok), ], </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">asp =</span> <span class="dv">1</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">bg =</span> <span class="st">"brown"</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fu">escalar_cex</span>(rao_sitios[[d]]<span class="sc">$</span>Alpha),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste0</span>(<span class="st">"Diversidad alfa ("</span>, d, <span class="st">")"</span>), </span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Longitud"</span>, <span class="at">ylab =</span> <span class="st">"Latitud"</span>)</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(coord[<span class="fu">rownames</span>(biol1_ok), ], <span class="at">col =</span> <span class="st">"light blue"</span>)</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-mapa-a2-3d" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -2044,6 +2049,7 @@ Figura&nbsp;4.1: Curvas por cobertura de la PD gamma, alfa y beta en cada par de
 <div class="material-apoyo">
 <ul>
 <li><p><i class="bi bi-pencil-square"></i><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/guias_complemento/2.pd/1.guia_complementaria/Guia_complementaria_Taller3_PD.html">Guía complementaria · Diversidad filogenética</a> — los temas que no caben en la sesión (modelos nulos, perfil de tiempo, espacio filogenético, puente FD–PD, elección de la cobertura), más 4 escenarios para elegir el bloque correcto y 4 interpretaciones con errores para identificar.</p></li>
+<li><p><i class="bi bi-pencil-square"></i><a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/guias_complemento/2.pd/3.ficha_arboles/Ficha_arbol_taxonomico_o_molecular.html">Guía complementaria · Ficha orientadora para decidir entre árboles taxonómicos y moleculares</a> — En el Taller 3 (PD) se trabajó con un árbol construido a partir de la <strong>clasificación taxonómica</strong> de las especies, no a partir de ADN. Esta ficha explica qué limita ese tipo de árbol, cómo se redactan los resultados obtenidos con él y qué se puede hacer si el grupo decide usar una filogenia molecular en el estudio de caso.</p></li>
 <li><p><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/guias_complemento/2.pd/2.cuestionario_pd/Cuestionario_Diversidad_filogenetica.html"><strong>Cuestionario de profundización · Diversidad filogenética (PD)</strong></a> — con datos simulados del caribe colombiano.</p></li>
 </ul>
 </div>
