@@ -2453,7 +2453,7 @@ max-width: 450px !important;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Guía complementaria · Regresión lineal</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Guía complementaria · Regresión lineal</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Código</button></div></div>
             <p class="subtitle lead">Bioestadística · Semana 2 · 2026-II</p>
                       </div>
   </div>
@@ -2533,8 +2533,6 @@ max-width: 450px !important;
 </ol>
 <p>Se recrean los datos del taller con las mismas semillas, así que todos los números coinciden con los de la sesión.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pwr)   <span class="co"># pwr.f2.test()</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)   <span class="co"># durbinWatsonTest()</span></span>
@@ -2544,13 +2542,10 @@ max-width: 450px !important;
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># pwr.f2.test() devuelve v (gl del error), no n</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>n_desde_v <span class="ot">&lt;-</span> <span class="cf">function</span>(v, u) <span class="fu">ceiling</span>(v) <span class="sc">+</span> u <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <section id="los-datos-del-taller" class="level3">
 <h3 class="anchored" data-anchor-id="los-datos-del-taller">Los datos del taller</h3>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manglar: riqueza de peces vs. área del parche (Parte 2 del taller)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">344</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
@@ -2574,7 +2569,6 @@ max-width: 450px !important;
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">77</span>)</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>coral<span class="sc">$</span>turbidez <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(n, <span class="dv">1</span>, <span class="dv">12</span>), <span class="dv">1</span>)</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>mod_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(crecimiento <span class="sc">~</span> temperatura <span class="sc">+</span> profundidad <span class="sc">+</span> turbidez, <span class="at">data =</span> coral)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <hr>
 </section>
@@ -2584,12 +2578,9 @@ max-width: 450px !important;
 <p>En el taller se calculó cuántas unidades se necesitan <strong>antes</strong> de salir a campo. La pregunta inversa también es útil: con las unidades que ya se tienen, <strong>¿qué probabilidad había de detectar un efecto de cierto tamaño?</strong></p>
 <p>¿Qué potencia tenían los dos ejemplos del taller para un efecto mediano de Cohen (f² = 0.15, R² ≈ 0.13)?</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manglar: n = 20, u = 1  |  Coral: n = 32, u = 2   (v = n − u − 1)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">manglar =</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">v =</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.15</span>)<span class="sc">$</span>power,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">coral   =</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">2</span>, <span class="at">v =</span> <span class="dv">32</span> <span class="sc">-</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.15</span>)<span class="sc">$</span>power)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  manglar     coral 
 0.3745851 0.4450485 </code></pre>
@@ -2598,8 +2589,6 @@ max-width: 450px !important;
 <p>Con 20 parches, un efecto mediano se detectaría solo en un 37 % de los estudios; con 32 colonias, en un 45 %. En ambos casos, <strong>un efecto de ese tamaño pasaría desapercibido más de la mitad de las veces</strong>. Los efectos del taller se detectaron porque eran grandes (r² = 0.79 en el manglar y R² = 0.72 en el coral), no porque el n fuera holgado.</p>
 <p>La curva de potencia muestra cómo crece la potencia con el n para tres tamaños de efecto:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia en función de n para u = 1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_grid <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">120</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pot <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.25</span>, <span class="fl">0.43</span>), <span class="cf">function</span>(f2_ef)</span>
@@ -2613,7 +2602,6 @@ max-width: 450px !important;
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gray50&quot;</span>, <span class="st">&quot;steelblue&quot;</span>, <span class="st">&quot;firebrick&quot;</span>),</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;f² = 0.15 (R² ≈ 0.13)&quot;</span>, <span class="st">&quot;f² = 0.25 (R² ≈ 0.20)&quot;</span>, <span class="st">&quot;f² = 0.43 (R² ≈ 0.30)&quot;</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2629,15 +2617,12 @@ max-width: 450px !important;
 <h2 class="anchored" data-anchor-id="efecto-mínimo-detectable">2. Efecto mínimo detectable</h2>
 <p>Si el n ya está fijado (por presupuesto, logística o permisos), se invierte la pregunta: <strong>¿cuál es el efecto más pequeño que el diseño puede detectar con una potencia del 80 %?</strong> En <code>pwr.f2.test()</code> basta con dejar <code>f2</code> sin valor:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se deja f2 sin valor y se fijan u, v y la potencia</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mde <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">manglar =</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">v =</span> <span class="dv">18</span>, <span class="at">power =</span> <span class="fl">0.80</span>)<span class="sc">$</span>f2,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">coral   =</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">2</span>, <span class="at">v =</span> <span class="dv">29</span>, <span class="at">power =</span> <span class="fl">0.80</span>)<span class="sc">$</span>f2)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Se traduce a R² para interpretarlo</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">f2 =</span> mde, <span class="at">R2 =</span> mde <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> mde)), <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   manglar coral
 f2    0.44  0.33
@@ -2651,29 +2636,20 @@ R2    0.31  0.25</code></pre>
 <h2 class="anchored" data-anchor-id="el-caso-de-la-turbidez-no-significativo-no-es-no-hay-efecto">3. El caso de la turbidez: «no significativo» no es «no hay efecto»</h2>
 <p>En la Parte 6 del taller, agregar la turbidez no mejoró el modelo (p = 0.48). ¿Significa eso que la turbidez no influye en el crecimiento coralino? Se calcula cuánta potencia tenía esa prueba:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aporte parcial de la turbidez sobre temperatura + profundidad</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>f2_turb <span class="ot">&lt;-</span> <span class="fu">f2_cohen</span>(<span class="at">R2_AB =</span> <span class="fu">summary</span>(mod_full)<span class="sc">$</span>r.squared,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">R2_A  =</span> <span class="fu">summary</span>(mod_coral)<span class="sc">$</span>r.squared)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>f2_turb</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01862735</code></pre>
 </div>
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia con 32 colonias (modelo con 3 predictores: v = 32 − 3 − 1)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">v =</span> <span class="dv">32</span> <span class="sc">-</span> <span class="dv">3</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">f2 =</span> f2_turb)<span class="sc">$</span>power</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.111555</code></pre>
 </div>
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Colonias necesarias para llegar a 80 %</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">n_desde_v</span>(<span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">f2 =</span> f2_turb, <span class="at">power =</span> <span class="fl">0.80</span>)<span class="sc">$</span>v, <span class="at">u =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 424</code></pre>
 </div>
@@ -2691,12 +2667,9 @@ R2    0.31  0.25</code></pre>
 <div class="callout-body-container callout-body">
 <p>Para un predictor añadido, el f² parcial es F × u / v de la comparación de modelos anidados:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F de la comparación de modelos anidados (Parte 6 del taller)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>F_turb <span class="ot">&lt;-</span> <span class="fu">anova</span>(mod_coral, mod_full)<span class="sc">$</span>F[<span class="dv">2</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>F_turb <span class="sc">*</span> <span class="dv">1</span> <span class="sc">/</span> mod_full<span class="sc">$</span>df.residual</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01862735</code></pre>
 </div>
@@ -2705,11 +2678,8 @@ R2    0.31  0.25</code></pre>
 </div>
 <p><strong>La alternativa: reformular como estimación.</strong> En lugar de un «sí o no», se reporta el coeficiente con su intervalo de confianza:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IC 95 % del coeficiente de la turbidez</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(mod_full)[<span class="st">&quot;turbidez&quot;</span>, ], <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5 % 97.5 % 
 -0.035  0.072 </code></pre>
@@ -2731,8 +2701,6 @@ R2    0.31  0.25</code></pre>
 <p>Cuanto más se separen los valores de X, más pequeña es la incertidumbre de la pendiente y más fácil es detectarla. Esto <strong>no depende de tener más unidades, sino de dónde se ubican</strong>. Es una palanca de diseño propia de la regresión (RA1).</p>
 <p><strong>El escenario.</strong> Se retoma el bentos de fondos blandos de la Parte 7 del taller: la diversidad funcional (FD) disminuye 0.10 unidades por cada punto porcentual de materia orgánica (MO), y la dispersión natural alrededor de la recta es σ = 0.42. Se comparan tres formas de ubicar las <strong>mismas 20 estaciones</strong> a lo largo del gradiente de MO:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tres formas de repartir 20 estaciones a lo largo de la MO (%)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>disenos <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">parejo   =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">20</span>),</span>
@@ -2743,7 +2711,6 @@ R2    0.31  0.25</code></pre>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>sxx <span class="ot">&lt;-</span> <span class="fu">sapply</span>(disenos, <span class="cf">function</span>(x) <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">suma_cuadrados_X =</span> sxx,</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">error_estandar_b1 =</span> <span class="fl">0.42</span> <span class="sc">/</span> <span class="fu">sqrt</span>(sxx)), <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   parejo estrecho extremos
 suma_cuadrados_X  149.211   16.579  405.000
@@ -2755,8 +2722,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <h3 class="anchored" data-anchor-id="un-estudio-de-cada-diseño">4.2 Un estudio de cada diseño</h3>
 <p>Antes de calcular la potencia, conviene ver cómo luce <strong>un</strong> estudio simulado con cada diseño. La relación verdadera (línea gris punteada) es la misma en los tres:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Un estudio simulado por diseño</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">52</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">4.2</span>, <span class="fl">4.2</span>, <span class="fl">2.5</span>, <span class="dv">1</span>))</span>
@@ -2771,7 +2736,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">a =</span> <span class="fl">2.4</span>, <span class="at">b =</span> <span class="sc">-</span><span class="fl">0.10</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;gray50&quot;</span>)</span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(m, <span class="at">col =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2779,10 +2743,7 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>En el rango estrecho, la FD verdadera solo baja 0.3 unidades entre 4 y 7 % de MO: menos que el ruido (σ = 0.42). En este estudio, la recta ajustada (roja) quedó casi plana y la pendiente no fue significativa, aunque la relación verdadera existe. En el rango parejo, la caída verdadera es de 0.9 unidades, más del doble del ruido, y la tendencia se ve con claridad.</p>
 </section>
@@ -2790,8 +2751,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <h3 class="anchored" data-anchor-id="la-potencia-por-simulación">4.3 La potencia, por simulación</h3>
 <p>Un estudio aislado puede salir bien o mal por azar. La potencia es la proporción de estudios que detectan la pendiente cuando se repite el muestreo muchas veces:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia por simulación para una pendiente concreta</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pot_pendiente <span class="ot">&lt;-</span> <span class="cf">function</span>(x, b1, sigma, <span class="at">nsim =</span> <span class="dv">5000</span>) {</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(nsim, {</span>
@@ -2805,7 +2764,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Misma pendiente (−0.10 FD por % de MO) y misma σ (0.42)</span></span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sapply</span>(disenos, pot_pendiente, <span class="at">b1 =</span> <span class="sc">-</span><span class="fl">0.10</span>, <span class="at">sigma =</span> <span class="fl">0.42</span>), <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  parejo estrecho extremos 
     0.79     0.15     0.99 </code></pre>
@@ -2817,15 +2775,12 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <h3 class="anchored" data-anchor-id="el-r²-cambia-la-pendiente-no">4.4 El R² cambia; la pendiente no</h3>
 <p>La pendiente y σ son las mismas en los tres diseños, pero el R² esperado no lo es, porque depende de cuánto varía X en la muestra:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R² esperado = varianza explicada / varianza total</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>r2_esperado <span class="ot">&lt;-</span> <span class="fu">sapply</span>(disenos, <span class="cf">function</span>(x) {</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  vx <span class="ot">&lt;-</span> <span class="fu">mean</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  (<span class="fl">0.10</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> vx) <span class="sc">/</span> (<span class="fl">0.10</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> vx <span class="sc">+</span> <span class="fl">0.42</span><span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r2_esperado, <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  parejo estrecho extremos 
     0.30     0.04     0.53 </code></pre>
@@ -2837,8 +2792,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <h3 class="anchored" data-anchor-id="la-trampa-de-los-extremos">4.5 La trampa de los extremos</h3>
 <p>Ubicar todas las estaciones en los dos extremos da la máxima potencia, pero <strong>sin puntos intermedios no se puede saber si la relación es una recta</strong>. Se simula una relación con umbral: la FD cae rápido hasta 4 % de MO y luego se estabiliza.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Relación verdadera con umbral (no lineal)</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fd_umbral <span class="ot">&lt;-</span> <span class="cf">function</span>(mo) <span class="fl">2.4</span> <span class="sc">-</span> <span class="fl">0.25</span> <span class="sc">*</span> <span class="fu">pmin</span>(mo, <span class="dv">4</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2852,7 +2805,6 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">fd_umbral</span>(x), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;gray50&quot;</span>)</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">col =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2860,10 +2812,7 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Con solo extremos, la recta (roja) parece un ajuste aceptable y no hay forma de ver que la relación real (gris) tiene un umbral. Con el diseño parejo, los puntos intermedios muestran que la FD deja de bajar a partir de 4 % de MO, y la recta deja de ser un buen resumen. Es la misma lección del parche M15 del taller: <strong>muestrear el gradiente de forma pareja, en la escala en que se va a analizar</strong>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -2886,11 +2835,8 @@ error_estandar_b1   0.034    0.103    0.021</code></pre>
 <h2 class="anchored" data-anchor-id="independencia-de-los-residuos-durbin-watson">5. Independencia de los residuos: Durbin-Watson</h2>
 <p>En el taller, la independencia se asegura <strong>desde el diseño</strong>. El estadístico de Durbin-Watson puede complementarlo cuando las observaciones tienen un orden espacial o temporal:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Independencia de los residuos del modelo del manglar</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">durbinWatsonTest</span>(mod_sp)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> lag Autocorrelation D-W Statistic p-value
    1     -0.06045647      2.107866   0.746
@@ -2916,11 +2862,8 @@ Nota
 <h2 class="anchored" data-anchor-id="selección-automática-de-modelos-con-step">6. Selección automática de modelos con <code>step()</code></h2>
 <p>En la Parte 6 del taller se compararon los modelos candidatos con AIC y con <code>anova()</code>. <code>step()</code> automatiza esa búsqueda por eliminación hacia atrás:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección por eliminación hacia atrás, desde el modelo con turbidez</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mod_step <span class="ot">&lt;-</span> <span class="fu">step</span>(mod_full, <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>, <span class="at">trace =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Start:  AIC=-47.16
 crecimiento ~ temperatura + profundidad + turbidez
@@ -2939,11 +2882,8 @@ crecimiento ~ temperatura + profundidad
 - profundidad  1    6.8898 12.7050 -25.560
 - temperatura  1   12.4624 18.2775 -13.922</code></pre>
 </div>
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo seleccionado</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">formula</span>(mod_step)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>crecimiento ~ temperatura + profundidad</code></pre>
 </div>
@@ -2970,8 +2910,6 @@ Nota
 <h2 class="anchored" data-anchor-id="la-misma-cuenta-sin-paquetes-opcional">7. La misma cuenta sin paquetes (opcional)</h2>
 <p><code>pwr.f2.test()</code> usa la distribución F no central, con parámetro de no centralidad f² · n. Se puede comprobar en R base:</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia del contraste F con n unidades, u predictores y tamaño del efecto f²</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>pot_F <span class="ot">&lt;-</span> <span class="cf">function</span>(n, u, f2_ef, <span class="at">alfa =</span> <span class="fl">0.05</span>) {</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> n <span class="sc">-</span> u <span class="sc">-</span> <span class="dv">1</span></span>
@@ -2980,7 +2918,6 @@ Nota
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bentos del taller: n = 21, u = 1, R² esperado 0.30</span></span>
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pot_F</span>(<span class="dv">21</span>, <span class="at">u =</span> <span class="dv">1</span>, <span class="at">f2_ef =</span> <span class="fu">f2_cohen</span>(<span class="fl">0.30</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8120654</code></pre>
 </div>
@@ -3490,7 +3427,7 @@ Nota
 <span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
 <span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
 <span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-title: &quot;Contenido&quot;</span></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
 <span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co">    code-summary: &quot;Código&quot;</span></span>
 <span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
 <span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
