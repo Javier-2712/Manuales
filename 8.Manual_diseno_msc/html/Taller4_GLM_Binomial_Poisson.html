@@ -121,35 +121,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -245,7 +216,7 @@ window.Quarto = {
   <li><a href="#diapositivas-en-vivo---slides.com" id="toc-diapositivas-en-vivo---slides.com" class="nav-link" data-scroll-target="#diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</a></li>
   </ul></li>
   <li><a href="#objetivos-del-taller" id="toc-objetivos-del-taller" class="nav-link" data-scroll-target="#objetivos-del-taller">Objetivos del taller</a></li>
-  <li><a href="#sec-fundamentos" id="toc-sec-fundamentos" class="nav-link" data-scroll-target="#sec-fundamentos">Antes de empezar: ¿qué es un GLM?</a></li>
+  <li><a href="#sec-fundamentos" id="toc-sec-fundamentos" class="nav-link" data-scroll-target="#sec-fundamentos">Antes de empezar: familias y dispersión</a></li>
   <li><a href="#sec-binomial" id="toc-sec-binomial" class="nav-link" data-scroll-target="#sec-binomial">Parte 1 — GLM binomial: enfermedad de coral y temperatura</a>
   <ul>
   <li><a href="#prueba-de-razón-de-verosimilitud" id="toc-prueba-de-razón-de-verosimilitud" class="nav-link" data-scroll-target="#prueba-de-razón-de-verosimilitud">Prueba de razón de verosimilitud</a></li>
@@ -265,10 +236,14 @@ window.Quarto = {
   <li><a href="#paso-4-hay-diferencias-entre-zonas-y-épocas" id="toc-paso-4-hay-diferencias-entre-zonas-y-épocas" class="nav-link" data-scroll-target="#paso-4-hay-diferencias-entre-zonas-y-épocas">Paso 4 — ¿Hay diferencias entre zonas y épocas?</a></li>
   <li><a href="#paso-5-interpretar-razones-de-tasas" id="toc-paso-5-interpretar-razones-de-tasas" class="nav-link" data-scroll-target="#paso-5-interpretar-razones-de-tasas">Paso 5 — Interpretar: razones de tasas</a></li>
   </ul></li>
-  <li><a href="#sec-checklist" id="toc-sec-checklist" class="nav-link" data-scroll-target="#sec-checklist">Parte 4 — Lista de verificación antes de reportar el GLM</a></li>
+  <li><a href="#sec-potencia" id="toc-sec-potencia" class="nav-link" data-scroll-target="#sec-potencia">Parte 4 — Planear antes de salir a campo: potencia en GLM</a>
+  <ul>
+  <li><a href="#binomial-cuántas-colonias" id="toc-binomial-cuántas-colonias" class="nav-link" data-scroll-target="#binomial-cuántas-colonias">4.1 Binomial: ¿cuántas colonias?</a></li>
+  <li><a href="#conteos-cuántos-transectos-por-zona" id="toc-conteos-cuántos-transectos-por-zona" class="nav-link" data-scroll-target="#conteos-cuántos-transectos-por-zona">4.2 Conteos: ¿cuántos transectos por zona?</a></li>
+  </ul></li>
+  <li><a href="#sec-checklist" id="toc-sec-checklist" class="nav-link" data-scroll-target="#sec-checklist">Parte 5 — Lista de verificación antes de reportar el GLM</a></li>
   <li><a href="#cierre-una-base-para-el-futuro-proyecto-de-grado" id="toc-cierre-una-base-para-el-futuro-proyecto-de-grado" class="nav-link" data-scroll-target="#cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</a>
   <ul>
-  <li><a href="#actividad-en-clase-10-minutos-sin-código" id="toc-actividad-en-clase-10-minutos-sin-código" class="nav-link" data-scroll-target="#actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</a></li>
   <li><a href="#antes-de-la-próxima-sesión-tarea-corta" id="toc-antes-de-la-próxima-sesión-tarea-corta" class="nav-link" data-scroll-target="#antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</a></li>
   </ul></li>
   <li><a href="#sec-apoyo" id="toc-sec-apoyo" class="nav-link" data-scroll-target="#sec-apoyo">Material de apoyo</a></li>
@@ -302,7 +277,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="figuras_portadas/5_glm/portada_glm.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:92.0%" data-fig-pos="H"></p>
+<p><img src="figuras_portadas/5_glm/portada_glm.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:85.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
@@ -335,8 +310,9 @@ window.Quarto = {
 <li>Ajustar e interpretar un <strong>GLM binomial</strong> (enlace logit, odds ratio, prueba de razón de verosimilitud).</li>
 <li>Ajustar e interpretar un <strong>GLM Poisson</strong> (enlace log, razón de tasas).</li>
 <li>Comparar conteos <strong>entre sitios y épocas</strong>, diagnosticar <strong>sobredispersión</strong> (φ) y corregirla con la <strong>binomial negativa</strong>.</li>
+<li>Estimar por <strong>simulación</strong> cuántas unidades de muestreo se necesitan para un GLM, antes de salir a campo.</li>
 </ul>
-<p>Se usan los mismos tres ejemplos de las diapositivas, con las mismas semillas, de modo que los resultados coinciden con los que aparecen en ellas.</p>
+<p>La banda negra y la langosta son los mismos ejemplos de las diapositivas, con las mismas semillas, de modo que los resultados coinciden. La Parte 3 lleva la sobredispersión a un diseño con factores (pez loro, zonas y épocas); el ejemplo del arrecife y la complejidad estructural de las diapositivas, con la comparación completa entre Poisson, cuasi-Poisson y binomial negativa, está en el material complementario (sección 4).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -347,7 +323,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este taller cubre lo esencial para la sesión. Los temas que amplían el análisis (proporciones, centrado de predictores, intervalos construidos a mano, cuasi-Poisson en detalle, comparaciones por pares, offset y el estudio de caso de la tortuga caguama) están en el <a href="#sec-apoyo">Material complementario</a>, para consultarlos cuando el propio proyecto los requiera.</p>
+<p>Este taller cubre lo esencial para la sesión. Los temas que amplían el análisis (proporciones, centrado de predictores, intervalos en escala logit, cuasi-Poisson con el ejemplo del arrecife, comparaciones por pares, offset con el estudio de caso de la tortuga caguama, una función de verificación y la potencia ampliada) están en el <a href="#sec-apoyo">Material complementario</a>, para consultarlos cuando el propio proyecto los requiera.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -360,7 +336,7 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los datos siguen siendo <strong>simulados</strong> con <code>set.seed()</code> fijando la semilla en cada sección. Construidos para ilustrar cada modelo con claridad, no para representar mediciones reales.</p>
+<p>Los datos son <strong>simulados</strong> con <code>set.seed()</code>, fijando la semilla en cada sección. Se construyeron para ilustrar cada modelo con claridad, no para representar mediciones reales.</p>
 </div>
 </div>
 <div class="cell">
@@ -378,32 +354,14 @@ Nota
 <hr>
 </section>
 <section id="sec-fundamentos" class="level2">
-<h2 class="anchored" data-anchor-id="sec-fundamentos">Antes de empezar: ¿qué es un GLM?</h2>
-<p>Un Modelo Lineal Generalizado tiene tres componentes:</p>
-<ol type="1">
-<li><strong>Componente aleatorio</strong>: la distribución de la variable respuesta dentro de la familia exponencial. La varianza queda ligada a la media: binomial Var = np(1 − p); Poisson Var = μ.</li>
-<li><strong>Componente sistemático</strong>: el predictor lineal <span class="math inline">\(\eta = \beta_0 + \beta_1X_1 + \dots\)</span>, igual que en <code>lm()</code>.</li>
-<li><strong>Función de enlace</strong> <span class="math inline">\(g(\mu)\)</span>: conecta la media esperada con el predictor lineal, <span class="math inline">\(\eta = g(\mu)\)</span>.</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>No es lo mismo que transformar Y
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Transformar <code>log(Y)</code> antes de un <code>lm()</code> altera cada observación y falla con los ceros (log 0 = −∞), lo que obliga a recursos como <code>log(Y + 1)</code>. En un GLM, la función de enlace actúa sobre el <strong>valor esperado</strong> <span class="math inline">\(\mu\)</span> y no sobre los datos: la varianza se modela en su escala real.</p>
-</div>
-</div>
+<h2 class="anchored" data-anchor-id="sec-fundamentos">Antes de empezar: familias y dispersión</h2>
+<p>Los tres componentes de un GLM (aleatorio, sistemático y función de enlace) se presentaron en las diapositivas. Para el taller basta tener a mano qué familia corresponde a cada tipo de dato:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -440,7 +398,7 @@ Nota
 </tr>
 </tbody>
 </table>
-<p>Las proporciones (p.&nbsp;ej., juveniles vivos de un total por tanque) también se modelan con la familia binomial; la forma de hacerlo está en el material complementario.</p>
+<p>La función de enlace actúa sobre el <strong>valor esperado</strong> μ y no sobre los datos: por eso un GLM no necesita recursos como <code>log(Y + 1)</code>. Las proporciones (p.&nbsp;ej., juveniles vivos de un total por tanque) también se modelan con la familia binomial; se trabajan en el material complementario.</p>
 <p>Se define desde ya una función para el parámetro de dispersión, que se usará en las Partes 2 y 3:</p>
 <div class="cell">
 <details class="code-fold">
@@ -485,7 +443,7 @@ Nota
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla con los datos</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coral_enf, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -661,7 +619,7 @@ temperatura 1.650694e+00 1.178433e+00 2.376990861</code></pre>
 </div>
 </div>
 <p>Por cada +1 °C, los odds de que la colonia esté enferma se multiplican por 1.65 (IC 95 %: 1.18–2.38). Como el IC del OR no incluye 1, la asociación es estadísticamente significativa.</p>
-<p>El OR del intercepto es prácticamente 0 porque corresponde a una temperatura de 0 °C, que no tiene sentido biológico. No afecta la interpretación de la temperatura (en el material complementario se muestra cómo volverlo interpretable centrando el predictor).</p>
+<p>El OR del intercepto es prácticamente 0 porque corresponde a una temperatura de 0 °C, que no tiene sentido biológico. No afecta la interpretación de la temperatura; en el material complementario (sección 2) se muestra cómo volverlo interpretable centrando el predictor.</p>
 </section>
 <section id="probabilidades-predichas" class="level3">
 <h3 class="anchored" data-anchor-id="probabilidades-predichas">Probabilidades predichas</h3>
@@ -705,9 +663,9 @@ Nota
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span>   <span class="co"># Curva logística e IC 95 %</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas de ejes</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>, </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probabilidad de banda negra"</span>) <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar tema</span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -786,7 +744,7 @@ Nota
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla con los datos</span></span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(langosta, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -933,7 +891,7 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si las unidades de muestreo difieren en área, tiempo o esfuerzo (parches de distinto tamaño, nasas caladas distinto número de horas), el modelo debe incluir un <strong>offset</strong>. Se explica en el material complementario.</p>
+<p>Si las unidades de muestreo difieren en área, tiempo o esfuerzo (parches de distinto tamaño, nasas caladas distinto número de horas), el modelo debe incluir un <strong>offset</strong>: <code>glm(y ~ x + offset(log(area)), family = poisson)</code>. El ejemplo completo está en el material complementario (sección 6).</p>
 </div>
 </div>
 <p><strong>Para discutir:</strong> los juveniles de langosta suelen refugiarse en grupos bajo una misma estructura. Si eso ocurriera en estos parches, ¿qué se esperaría que pasara con φ? ¿Qué consecuencia tendría sobre los valores p del Poisson?</p>
@@ -974,89 +932,8 @@ Nota
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>abundancia <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="dv">48</span>, <span class="at">mu =</span> mu, <span class="at">size =</span> <span class="fl">2.5</span>)</span>
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear base de datos</span></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>loro <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">transecto =</span> <span class="fu">paste0</span>(<span class="st">"T"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">48</span>), zona, epoca, abundancia)</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla con los datos</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(loro, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>loro <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">transecto =</span> <span class="fu">paste0</span>(<span class="st">"T"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">48</span>), zona, epoca, abundancia)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;font-weight: bold;"> transecto </th>
-   <th style="text-align:left;font-weight: bold;"> zona </th>
-   <th style="text-align:left;font-weight: bold;"> epoca </th>
-   <th style="text-align:right;font-weight: bold;"> abundancia </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> T1 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T2 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T3 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T4 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T5 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T6 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T7 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T8 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Seca </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T9 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Lluviosa </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> T10 </td>
-   <td style="text-align:left;"> Uso intensivo </td>
-   <td style="text-align:left;"> Lluviosa </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
 </div>
 <section id="paso-1-explorar-media-y-varianza-por-grupo" class="level3">
 <h3 class="anchored" data-anchor-id="paso-1-explorar-media-y-varianza-por-grupo">Paso 1 — Explorar: media y varianza por grupo</h3>
@@ -1068,7 +945,7 @@ Nota
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(zona, epoca) <span class="sc">%&gt;%</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(abundancia), <span class="dv">1</span>),</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">varianza =</span> <span class="fu">round</span>(<span class="fu">var</span>(abundancia), <span class="dv">1</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1141,7 +1018,7 @@ Nota
 </div>
 </div>
 </div>
-<p>En un Poisson, la varianza debería parecerse a la media. Aquí, en varios grupos, la varianza es bastante mayor que la media: es la primera señal de <strong>sobredispersión</strong>, típica de peces que se mueven en grupos.</p>
+<p>En un Poisson, la varianza debería parecerse a la media. Aquí, en varios grupos, la varianza es bastante mayor que la media (en la zona protegida, época seca, la varianza es más de 10 veces la media): es la primera señal de <strong>sobredispersión</strong>, típica de peces que se mueven en grupos.</p>
 </section>
 <section id="paso-2-ajustar-el-poisson-e-inspeccionar-φ" class="level3">
 <h3 class="anchored" data-anchor-id="paso-2-ajustar-el-poisson-e-inspeccionar-φ">Paso 2 — Ajustar el Poisson e inspeccionar φ</h3>
@@ -1198,7 +1075,7 @@ Nota
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">phi =</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">phi</span>(mod_loro_p), <span class="fu">phi</span>(mod_loro_nb)), <span class="dv">2</span>),</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">AIC =</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">AIC</span>(mod_loro_p), <span class="fu">AIC</span>(mod_loro_nb)), <span class="dv">1</span>)</span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">longtable =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1227,60 +1104,99 @@ Nota
 
 </div>
 </div>
-<p>Con la binomial negativa, φ queda cerca de 1 y el AIC baja de 295.1 a 252.8: es el modelo adecuado para estos datos. Otra alternativa es el <strong>cuasi-Poisson</strong> (<code>family = quasipoisson</code>), que corrige los errores estándar pero no permite calcular AIC; se compara con la binomial negativa en el material complementario.</p>
+<p>Con la binomial negativa, φ queda cerca de 1 y el AIC baja de 295.1 a 252.8: es el modelo adecuado para estos datos. La otra alternativa, el <strong>cuasi-Poisson</strong>, se compara con la binomial negativa en el material complementario (sección 4).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo se documenta la sobredispersión en un artículo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Usar la binomial negativa no basta: los evaluadores suelen preguntar <strong>cómo se detectó</strong> la sobredispersión y <strong>por qué se eligió</strong> esa familia. En la sección de métodos conviene declarar tres cosas:</p>
+<ol type="1">
+<li><strong>La variable respuesta de cada modelo</strong>: «abundancia de <em>S. iseri</em> por transecto», no solo «la abundancia».</li>
+<li><strong>La evidencia de sobredispersión</strong>: φ del Poisson, la relación media–varianza por grupo (Paso 1) y la comparación por AIC.</li>
+<li><strong>El modelo que se reporta</strong>: una vez documentada la sobredispersión, se reportan solo los resultados de la binomial negativa. Los valores p del Poisson no se presentan como un resultado más.</li>
+</ol>
+<blockquote class="blockquote">
+<p>La abundancia de <em>S. iseri</em> por transecto se analizó con un GLM con enlace log. El modelo Poisson presentó sobredispersión (φ = 3,4; en algunos grupos la varianza superó 10 veces la media), por lo que se usó la binomial negativa (<code>MASS::glm.nb()</code>), que redujo φ a 1,0 y el AIC de 295,1 a 252,8.</p>
+</blockquote>
+</div>
+</div>
 </section>
 <section id="paso-4-hay-diferencias-entre-zonas-y-épocas" class="level3">
 <h3 class="anchored" data-anchor-id="paso-4-hay-diferencias-entre-zonas-y-épocas">Paso 4 — ¿Hay diferencias entre zonas y épocas?</h3>
-<p>Como en un ANOVA, primero se revisa la interacción con la <strong>prueba de razón de verosimilitud</strong>:</p>
+<p>Como en un ANOVA, primero se revisa la interacción y luego cada factor con la <strong>prueba de razón de verosimilitud</strong>. Con la binomial negativa, la prueba se hace comparando dos modelos ajustados por separado, <code>anova(modelo_sin, modelo_con)</code>, porque así R vuelve a estimar θ en cada uno.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Cuidado con <code>anova(modelo_nb, test = "Chisq")</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con un solo modelo de <code>glm.nb()</code>, esa instrucción mantiene θ fijo en el valor del modelo completo (R lo advierte con un mensaje). Las conclusiones de este ejemplo no cambian, pero los χ² salen algo inflados. Con la binomial negativa se prefiere comparar pares de modelos.</p>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de razón de verosimilitud para cada término</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_loro_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo aditivo: zona + época (sin interacción)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>mod_loro <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(abundancia <span class="sc">~</span> zona <span class="sc">+</span> epoca, <span class="at">data =</span> loro)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Aporta la interacción?</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_loro, mod_loro_nb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Deviance Table
-
-Model: Negative Binomial(2.8202), link: log
+<pre><code>Likelihood ratio tests of Negative Binomial Models
 
 Response: abundancia
-
-Terms added sequentially (first to last)
-
-           Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
-NULL                          47     79.443              
-zona        2  19.0481        45     60.395 7.307e-05 ***
-epoca       1   4.3762        44     56.019   0.03644 *  
-zona:epoca  2   1.0481        42     54.971   0.59211    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+         Model    theta Resid. df    2 x log-lik.   Test    df LR stat.
+1 zona + epoca 2.729961        44       -239.8607                      
+2 zona * epoca 2.820247        42       -238.8215 1 vs 2     2 1.039247
+    Pr(Chi)
+1          
+2 0.5947444</code></pre>
 </div>
 </div>
-<p>La interacción no es significativa (p = 0.59): la diferencia entre zonas es similar en las dos épocas. Se ajusta entonces el modelo aditivo, más sencillo, y se prueba cada factor:</p>
+<p>La interacción no es significativa (p = 0.59): la diferencia entre zonas es similar en las dos épocas. Se trabaja entonces con el modelo aditivo, más sencillo, y se prueba cada factor quitándolo del modelo:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo aditivo: zona + época</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>mod_loro <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(abundancia <span class="sc">~</span> zona <span class="sc">+</span> epoca, <span class="at">data =</span> loro)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de razón de verosimilitud para cada factor</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_loro, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Efecto de la zona (con la época en el modelo)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(MASS<span class="sc">::</span><span class="fu">glm.nb</span>(abundancia <span class="sc">~</span> epoca, <span class="at">data =</span> loro), mod_loro)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Deviance Table
-
-Model: Negative Binomial(2.73), link: log
+<pre><code>Likelihood ratio tests of Negative Binomial Models
 
 Response: abundancia
+         Model    theta Resid. df    2 x log-lik.   Test    df LR stat.
+1        epoca 1.618619        46       -255.3031                      
+2 zona + epoca 2.729961        44       -239.8607 1 vs 2     2 15.44234
+       Pr(Chi)
+1             
+2 0.0004433408</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Efecto de la época (con la zona en el modelo)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(MASS<span class="sc">::</span><span class="fu">glm.nb</span>(abundancia <span class="sc">~</span> zona, <span class="at">data =</span> loro), mod_loro)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Likelihood ratio tests of Negative Binomial Models
 
-Terms added sequentially (first to last)
-
-      Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
-NULL                     47     78.074              
-zona   2  18.6535        45     59.420 8.901e-05 ***
-epoca  1   4.2923        44     55.128   0.03829 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+Response: abundancia
+         Model    theta Resid. df    2 x log-lik.   Test    df LR stat.
+1         zona 2.367576        45       -243.9683                      
+2 zona + epoca 2.729961        44       -239.8607 1 vs 2     1 4.107593
+     Pr(Chi)
+1           
+2 0.04269108</code></pre>
 </div>
 </div>
 <p>Se usa esta prueba, y no los valores p de <code>summary()</code>, porque la zona tiene tres niveles: la prueba evalúa el factor completo (χ² con 2 g.l.), mientras que cada coeficiente de <code>summary()</code> solo compara una zona con la de referencia.</p>
@@ -1290,8 +1206,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Razones de tasas e IC 95 %</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">RT =</span> <span class="fu">coef</span>(mod_loro), <span class="fu">confint</span>(mod_loro)))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Razones de tasas e IC 95 %</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">RT =</span> <span class="fu">coef</span>(mod_loro), <span class="fu">confint</span>(mod_loro)))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      RT     2.5 %    97.5 %
@@ -1307,7 +1223,7 @@ epocaLluviosa  0.6276598 0.4029492 0.9751767</code></pre>
 <li>La zona <strong>intermedia</strong> no difiere con claridad de la de uso intensivo: su IC (0.81–2.54) incluye 1.</li>
 <li>En la época <strong>lluviosa</strong>, la abundancia esperada es 0.63 veces la de la época seca, es decir, un 37 % menor.</li>
 </ul>
-<p>La comparación entre la zona intermedia y la protegida no aparece en esta tabla; las <strong>comparaciones por pares</strong> entre todas las zonas están en el material complementario.</p>
+<p>La comparación entre la zona intermedia y la protegida no aparece en esta tabla; las <strong>comparaciones por pares</strong> entre todas las zonas están en el material complementario (sección 5).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1319,7 +1235,7 @@ epocaLluviosa  0.6276598 0.4029492 0.9751767</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <blockquote class="blockquote">
-<p>La abundancia de <em>S. iseri</em> difirió entre zonas (GLM binomial negativa, enlace log; χ²<sub>2</sub> = 18,7; p &lt; 0,001) y entre épocas (χ²<sub>1</sub> = 4,3; p = 0,038), sin interacción entre ambos factores. En la zona protegida, la abundancia esperada fue 3,1 veces la de la zona de uso intensivo (IC 95 %: 1,8–5,3). Se descartó el modelo Poisson por sobredispersión (φ = 3,4; ΔAIC = 42,3).</p>
+<p>La abundancia de <em>S. iseri</em> difirió entre zonas (GLM binomial negativa, enlace log; χ²<sub>2</sub> = 15,4; p &lt; 0,001) y entre épocas (χ²<sub>1</sub> = 4,1; p = 0,043), sin interacción entre ambos factores (χ²<sub>2</sub> = 1,0; p = 0,59). En la zona protegida, la abundancia esperada fue 3,1 veces la de la zona de uso intensivo (IC 95 %: 1,8–5,3). Se descartó el modelo Poisson por sobredispersión (φ = 3,4; ΔAIC = 42,3).</p>
 </blockquote>
 </div>
 </div>
@@ -1329,51 +1245,168 @@ epocaLluviosa  0.6276598 0.4029492 0.9751767</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Del GLM a PERMANOVA (Semana 4)
+<span class="screen-reader-only">Nota</span>Del GLM a la comunidad completa (Semana 4)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este GLM responde la pregunta <strong>especie por especie</strong>: ¿cambia la abundancia del pez loro entre zonas y épocas? Si la pregunta es si cambia la <strong>comunidad completa</strong> (todas las especies a la vez), se necesita un análisis multivariado como PERMANOVA o ANOSIM, que se trabaja en la Semana 4. En un estudio de diversidad, ambos enfoques se complementan: el multivariado muestra si la comunidad difiere y el GLM muestra qué especies explican esa diferencia.</p>
+<p>Este GLM responde la pregunta <strong>especie por especie</strong>: ¿cambia la abundancia del pez loro entre zonas y épocas? Si la pregunta es si cambia la <strong>comunidad completa</strong> (todas las especies a la vez), hay dos caminos, que se trabajan en la Semana 4:</p>
+<ul>
+<li><strong>PERMANOVA</strong>, basada en distancias (p.&nbsp;ej., Bray-Curtis).</li>
+<li><strong>GLM multivariado</strong> con <code>mvabund::manyglm()</code>: ajusta este mismo GLM a cada taxón (en la binomial negativa, cada uno con su propio θ), suma los estadísticos de todos y calcula el valor p por remuestreo, lo que respeta la correlación entre taxones. Con <code>p.uni = "adjusted"</code> indica además qué taxones cambian. <code>manyglm()</code> no ofrece cuasi-Poisson, así que la binomial negativa es su opción para abundancias de taxones o grupos funcionales con sobredispersión.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vista previa (Semana 4): matriz de conteos con un taxón por columna</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvabund)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>comunidad <span class="ot">&lt;-</span> <span class="fu">mvabund</span>(conteos)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>mod_mv <span class="ot">&lt;-</span> <span class="fu">manyglm</span>(comunidad <span class="sc">~</span> zona <span class="sc">+</span> epoca, <span class="at">family =</span> <span class="st">"negative.binomial"</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod_mv)                                     <span class="co"># residuos sin forma de abanico</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod_mv, <span class="at">nBoot =</span> <span class="dv">999</span>, <span class="at">p.uni =</span> <span class="st">"adjusted"</span>)   <span class="co"># razón de verosimilitud</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para probar los efectos se usa <code>anova()</code>, que emplea la razón de verosimilitud. <code>summary()</code> usa por defecto la prueba de Wald, que falla cuando un taxón está ausente en todas las muestras de un grupo, algo frecuente en datos de comunidades.</p>
 </div>
 </div>
 <hr>
 </section>
 </section>
+<section id="sec-potencia" class="level2">
+<h2 class="anchored" data-anchor-id="sec-potencia">Parte 4 — Planear antes de salir a campo: potencia en GLM</h2>
+<p>En la regresión lineal, el tamaño de muestra se calculó con <code>pwr.f2.test()</code>. Para los GLM no hay una función equivalente en <code>pwr</code>, pero la potencia se puede estimar <strong>por simulación</strong>, con la misma lógica de la guía complementaria del Taller 3:</p>
+<ol type="1">
+<li>Se fija el <strong>efecto</strong> en la escala biológica (OR por °C, razón de tasas entre zonas), tomado de un piloto, de la literatura o del <strong>efecto mínimo con relevancia biológica o de manejo</strong>.</li>
+<li>Se fijan los demás parámetros que condicionan la potencia: la <strong>prevalencia base</strong> (binomial), la <strong>media base</strong> y la <strong>agregación θ</strong> (conteos).</li>
+<li>Se simulan muchos estudios con ese n, se ajusta el GLM a cada uno y se cuenta qué proporción da p &lt; 0,05 en la prueba de razón de verosimilitud. Esa proporción es la potencia.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>No se planea con el efecto observado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El OR de 1,65 de la Parte 1 salió de <strong>estos</strong> datos. Usarlo para calcular la potencia del mismo estudio es circular («potencia observada»): solo repite el valor p con otras palabras. Para planear un estudio nuevo se usa un efecto definido de antemano.</p>
+</div>
+</div>
+<section id="binomial-cuántas-colonias" class="level3">
+<h3 class="anchored" data-anchor-id="binomial-cuántas-colonias">4.1 Binomial: ¿cuántas colonias?</h3>
+<p><strong>Escenario.</strong> Se planea un monitoreo de banda negra en otro sector del Parque Tayrona. Un piloto sugiere que la prevalencia ronda el 45 % a 29 °C y la literatura, un OR de 1,5 por °C. Las temperaturas esperadas van de 27 a 31,5 °C.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia de un GLM binomial por simulación</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fijos en cada estudio: OR por °C, prevalencia a 29 °C y rango de temperatura</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>pot_logit <span class="ot">&lt;-</span> <span class="cf">function</span>(n, OR, p29, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">log</span>(OR)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  b0 <span class="ot">&lt;-</span> <span class="fu">qlogis</span>(p29) <span class="sc">-</span> b1 <span class="sc">*</span> <span class="dv">29</span>          <span class="co"># intercepto que da la prevalencia a 29 °C</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(nsim, {</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    temp <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="dv">27</span>, <span class="fl">31.5</span>)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="fu">plogis</span>(b0 <span class="sc">+</span> b1 <span class="sc">*</span> temp))</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># suppressWarnings(): con n pequeño, algunos estudios simulados dan avisos de ajuste</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(<span class="fu">glm</span>(y <span class="sc">~</span> temp, <span class="at">family =</span> binomial))</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prueba de razón de verosimilitud (devianza nula − devianza del modelo)</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pchisq</span>(m<span class="sc">$</span>null.deviance <span class="sc">-</span> m<span class="sc">$</span>deviance, <span class="at">df =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  }))</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1710</span>)</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia con 60, 120 y 180 colonias (tarda unos segundos)</span></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">120</span>, <span class="dv">180</span>), pot_logit, <span class="at">OR =</span> <span class="fl">1.5</span>, <span class="at">p29 =</span> <span class="fl">0.45</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.524 0.809 0.940</code></pre>
+</div>
+</div>
+<p>Con 60 colonias, el efecto se detectaría en la mitad de los estudios; con <strong>unas 120 colonias</strong> se llega al 80 %. La potencia depende del OR <strong>y</strong> de la prevalencia: con el mismo OR y una prevalencia de 10 %, harían falta unas 280 colonias (material complementario, sección 8).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La regla de 10 eventos por predictor no es un cálculo de potencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La diapositiva «De la tabla a sus proyectos» recomienda al menos 10 presencias por predictor. Esa regla protege la <strong>estabilidad</strong> de las estimaciones, no garantiza potencia: con prevalencia de 10 % y 120 colonias se esperan unas 14 enfermas (la regla se cumple), pero la potencia ronda el 45 %.</p>
+</div>
+</div>
+</section>
+<section id="conteos-cuántos-transectos-por-zona" class="level3">
+<h3 class="anchored" data-anchor-id="conteos-cuántos-transectos-por-zona">4.2 Conteos: ¿cuántos transectos por zona?</h3>
+<p><strong>Escenario.</strong> Se quiere detectar si la zona protegida tiene al menos <strong>50 % más</strong> peces loro que la de uso intensivo (razón de tasas = 1,5, el efecto mínimo que importaría para el manejo). Un piloto dio una media de 4 peces por transecto en la zona de uso intensivo y θ ≈ 2,5 (agregación fuerte, como en la Parte 3).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potencia para comparar conteos entre dos zonas por simulación</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fijos: media en la zona de referencia (mu0), razón de tasas (RT) y θ</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># theta = Inf significa datos Poisson (sin agregación)</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>pot_conteo <span class="ot">&lt;-</span> <span class="cf">function</span>(k, mu0, RT, <span class="at">theta =</span> <span class="cn">Inf</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  zona <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Uso intensivo"</span>, <span class="st">"Protegida"</span>), <span class="at">each =</span> k),</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Uso intensivo"</span>, <span class="st">"Protegida"</span>))</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> mu0 <span class="sc">*</span> <span class="fu">ifelse</span>(zona <span class="sc">==</span> <span class="st">"Protegida"</span>, RT, <span class="dv">1</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">replicate</span>(nsim, {</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.infinite</span>(theta)) {</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>      y <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">2</span> <span class="sc">*</span> k, mu)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>      m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> zona, <span class="at">family =</span> poisson)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>      m0 <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> poisson)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>      y <span class="ot">&lt;-</span> <span class="fu">rnbinom</span>(<span class="dv">2</span> <span class="sc">*</span> k, <span class="at">mu =</span> mu, <span class="at">size =</span> theta)</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># suppressWarnings(): en algunos estudios simulados θ tarda en converger</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>      m1 <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(MASS<span class="sc">::</span><span class="fu">glm.nb</span>(y <span class="sc">~</span> zona))</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>      m0 <span class="ot">&lt;-</span> <span class="fu">suppressWarnings</span>(MASS<span class="sc">::</span><span class="fu">glm.nb</span>(y <span class="sc">~</span> <span class="dv">1</span>))</span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Prueba de razón de verosimilitud</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pchisq</span>(<span class="dv">2</span> <span class="sc">*</span> (<span class="fu">logLik</span>(m1) <span class="sc">-</span> <span class="fu">logLik</span>(m0)), <span class="at">df =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="sc">&lt;</span> <span class="fl">0.05</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>  }))</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducibilidad</span></span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1711</span>)</span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Misma media (4) y misma razón de tasas (1,5); cambia la agregación</span></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">poisson_20    =</span> <span class="fu">pot_conteo</span>(<span class="dv">20</span>, <span class="at">mu0 =</span> <span class="dv">4</span>, <span class="at">RT =</span> <span class="fl">1.5</span>),</span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">binneg_20     =</span> <span class="fu">pot_conteo</span>(<span class="dv">20</span>, <span class="at">mu0 =</span> <span class="dv">4</span>, <span class="at">RT =</span> <span class="fl">1.5</span>, <span class="at">theta =</span> <span class="fl">2.5</span>),</span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">binneg_60     =</span> <span class="fu">pot_conteo</span>(<span class="dv">60</span>, <span class="at">mu0 =</span> <span class="dv">4</span>, <span class="at">RT =</span> <span class="fl">1.5</span>, <span class="at">theta =</span> <span class="fl">2.5</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>poisson_20  binneg_20  binneg_60 
+     0.819      0.350      0.828 </code></pre>
+</div>
+</div>
+<p>Si los peces se distribuyeran al azar (Poisson), <strong>20 transectos por zona</strong> bastarían para una potencia del 80 %. Con la agregación del piloto (θ = 2,5), esos mismos 20 transectos solo detectan el efecto en un tercio de los estudios, y hacen falta <strong>unos 60 por zona</strong>. La sobredispersión no es solo un problema del análisis: <strong>triplica el esfuerzo de campo</strong> necesario.</p>
+<p><strong>Para discutir:</strong> el piloto de la zona protegida tuvo transectos con 0 y con 40 peces. ¿Qué decisiones de diseño (longitud del transecto, número de réplicas, estratificar por hábitat) podrían reducir la agregación entre unidades de muestreo y, con ello, el n necesario?</p>
+<hr>
+</section>
+</section>
 <section id="sec-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="sec-checklist">Parte 4 — Lista de verificación antes de reportar el GLM</h2>
+<h2 class="anchored" data-anchor-id="sec-checklist">Parte 5 — Lista de verificación antes de reportar el GLM</h2>
 <p>Antes de reportar cualquier GLM, conviene verificar:</p>
 <ul>
 <li>¿Se eligió la familia según el tipo real de la variable respuesta?</li>
 <li>¿Se reportaron los efectos en escala interpretable (OR o razón de tasas) con su IC 95 %?</li>
-<li>¿Se evaluó el efecto con la prueba de razón de verosimilitud (<code>anova(..., test = "Chisq")</code>), sobre todo si el predictor es un factor con más de dos niveles?</li>
-<li>En los modelos de conteo, ¿se calculó φ? Si es claramente mayor que 1, ¿se corrigió con binomial negativa (o cuasi-Poisson)?</li>
-<li>Si las unidades de muestreo difieren en área, tiempo o esfuerzo, ¿se incluyó un offset? (ver material complementario)</li>
+<li>¿Se evaluó el efecto con la prueba de razón de verosimilitud, sobre todo si el predictor es un factor con más de dos niveles? Con binomial negativa, ¿se compararon modelos con <code>anova(modelo_sin, modelo_con)</code>?</li>
+<li>En los modelos de conteo, ¿se calculó φ? Si es claramente mayor que 1, ¿se corrigió con binomial negativa (o cuasi-Poisson) y se documentaron en métodos la variable respuesta de cada modelo y la evidencia de la sobredispersión (φ, media–varianza, AIC)?</li>
+<li>Si las unidades de muestreo difieren en área, tiempo o esfuerzo, ¿se incluyó un offset? (material complementario, sección 6)</li>
 <li>¿Se evitó extrapolar fuera del rango observado de los predictores?</li>
+<li>¿Se planeó el n con un efecto definido de antemano (piloto, literatura o efecto mínimo relevante), y no con el efecto observado?</li>
 </ul>
 <hr>
 </section>
 <section id="cierre-una-base-para-el-futuro-proyecto-de-grado" class="level2">
 <h2 class="anchored" data-anchor-id="cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</h2>
-<section id="actividad-en-clase-10-minutos-sin-código" class="level3">
-<h3 class="anchored" data-anchor-id="actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</h3>
-<p>En parejas, se responde sobre el proyecto de grado de cada integrante:</p>
-<ol type="1">
-<li>¿La variable de interés es presencia/ausencia, una proporción o un conteo?</li>
-<li>Según eso, ¿qué familia y qué función de enlace corresponden?</li>
-<li>¿Qué predictores se incluirían (continuos como temperatura o profundidad, o factores como sitio y época), y con qué justificación?</li>
-<li>Si es un conteo, ¿se esperaría sobredispersión (agregación, parches, exceso de ceros)?</li>
-</ol>
-<p>Luego, se escribe la ecuación del GLM en palabras: “la probabilidad / el conteo de ___ depende de ___, y se espera que [aumente/disminuya] porque ___”.</p>
-</section>
+<p>La actividad en parejas sobre el GLM del proyecto de grado se hace en clase con la diapositiva «Ejercicio en parejas» de la presentación, para no repetirla aquí.</p>
 <section id="antes-de-la-próxima-sesión-tarea-corta" class="level3">
 <h3 class="anchored" data-anchor-id="antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</h3>
 <p>Se puede adaptar el código de este taller a la propia idea, con <strong>valores simulados pero plausibles</strong> para el sistema de estudio:</p>
 <ol type="1">
 <li>Se copia la sección más parecida a la variable propia (binaria → <a href="#sec-binomial">Parte 1</a>; conteo con un predictor continuo → <a href="#sec-poisson">Parte 2</a>; conteo entre sitios o épocas → <a href="#sec-sobredispersion">Parte 3</a>).</li>
 <li>Se cambian los nombres de las variables y los coeficientes simulados por los esperados en el propio tema.</li>
-<li>Se ejecutan <code>anova(..., test = "Chisq")</code> y <code>phi()</code> sobre el modelo, y se revisa la lista de verificación (<a href="#sec-checklist">Parte 4</a>). ¿La salida de R es coherente con lo planteado?</li>
+<li>Se ejecutan la prueba de razón de verosimilitud y <code>phi()</code> sobre el modelo, y se revisa la lista de verificación (<a href="#sec-checklist">Parte 5</a>). ¿La salida de R es coherente con lo planteado?</li>
+<li>Con <code>pot_logit()</code> o <code>pot_conteo()</code> (<a href="#sec-potencia">Parte 4</a>), se estima cuántas unidades de muestreo harían falta para el efecto mínimo que tendría relevancia en el propio tema.</li>
 </ol>
-<p>Con esto se cierran las Evidencias 1 y 2 (inferencia, regresión y GLM) y se completa el flujo: elegir familia → ajustar → interpretar en escala exp() → diagnosticar → comparar modelos.</p>
+<p>Con esto se cierran las Evidencias 1 y 2 (inferencia, regresión y GLM) y se completa el flujo: planear el n → elegir familia → ajustar → interpretar en escala exp() → diagnosticar → comparar modelos.</p>
 <hr>
 </section>
 </section>
@@ -1383,9 +1416,9 @@ epocaLluviosa  0.6276598 0.4029492 0.9751767</code></pre>
 <p>Para repasar y profundizar después de la sesión:</p>
 <div class="material-apoyo">
 <ul>
-<li><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller4/Cuestionario1_GLM.html"><strong>Cuestionario 1 · GLM binomial y Poisson</strong></a> — 12 preguntas de opción múltiple con pista y explicación, basadas en las Partes 1 a 4 de este taller.</li>
+<li><i class="bi bi-journal-text"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller4/Complemento_Taller4.html"><strong>Material complementario · Cuando el GLM se complica</strong></a> — proporciones (incluidas réplicas no independientes en tanques), centrado de predictores, intervalos en escala logit, cuasi-Poisson frente a binomial negativa (ejemplo del arrecife), comparaciones por pares entre zonas, offset con el estudio de caso de nidos de tortuga caguama, una función de verificación y potencia ampliada (prevalencia, fórmulas de verificación, error tipo I del Poisson).</li>
+<li><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller4/Cuestionario1_GLM.html"><strong>Cuestionario 1 · GLM binomial y Poisson</strong></a> — preguntas de opción múltiple con pista y explicación, basadas en las Partes 1 a 5 de este taller.</li>
 <li><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller4/Cuestionario2_GLM.html"><strong>Cuestionario 2 · GLM binomial y Poisson</strong></a> — escenarios nuevos con preguntas abiertas para interpretar salidas de modelos, con retroalimentación al final.</li>
-<li><i class="bi bi-journal-text"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller4/Complemento_Taller4.html"><strong>Material complementario · GLM binomial y Poisson</strong></a> — proporciones, centrado de predictores, intervalos en escala logit, sobredispersión a fondo (cuasi-Poisson y binomial negativa), comparaciones por pares entre sitios, offset y el estudio de caso de nidos de tortuga caguama.</li>
 </ul>
 </div>
 <hr>
@@ -1396,6 +1429,7 @@ epocaLluviosa  0.6276598 0.4029492 0.9751767</code></pre>
 <li><p>Quinn, G. P., &amp; Keough, M. J. (2024). <em>Experimental Design and Data Analysis for Biologists</em> (2nd ed.). Cambridge University Press. <a href="https://mjkeough.github.io/examples.html">enlace_ejercicios</a></p></li>
 <li><p>Logan, M. (2011). <em>Biostatistical Design and Analysis Using R</em>. Wiley-Blackwell. <a href="https://bcs.wiley.com/he-bcs/Books?action=index&amp;bcsId=5684&amp;itemId=1405190086">enlace_ejercicios</a>; <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9781444319620">enlace_libro</a></p></li>
 <li><p>Calvo Sendín, J. F. (2025). <em>Análisis estadístico de datos biológicos en R</em>. Universidad de Murcia. — Referencia técnica para GLM binomial/Poisson y sobredispersión. <a href="https://webs.um.es/jfcalvo/aedbr.html?utm_source=acortador&amp;utm_medium=referral&amp;utm_campaign=acortador_url&amp;utm_id=aedbr">enlace</a></p></li>
+<li><p>Venables, W. N., &amp; Ripley, B. D. (2002). <em>Modern Applied Statistics with S</em> (4th ed.). Springer. — Paquete <code>MASS</code> (<code>glm.nb()</code>).</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
