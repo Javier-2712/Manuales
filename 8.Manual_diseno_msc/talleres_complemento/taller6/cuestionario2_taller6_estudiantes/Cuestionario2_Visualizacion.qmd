@@ -1,0 +1,234 @@
+---
+title: "Cuestionario 2 · Visualización multivariada — Clave docente"
+subtitle: "Bioestadística · Semana 3 · 2026-II"
+date: today
+title-block-banner: "#2098D9"
+
+author: 
+  name: Nombre del Estudiante
+  url: https://www.unimagdalena.edu.co/
+  afiliation: Grupo de Investigación
+  afiliation-url: https://
+
+format:
+  html:
+    toc: true    # Tabla de contenido
+    toc-title: Menú flotante
+    code-fold: true     # Visualización de los códigos en el reporte
+    embed-resources: true   # Un solo HTML autocontenido por versión
+    css: ["styles.css"]    # Colores del texto.
+    code-tools: false
+    html-table-processing: none
+
+execute:
+  echo: true
+  warning: false
+  message: false
+    
+lang: ES-es
+---
+
+```{r}
+#| echo: false
+#| out-width: "860px"
+
+knitr::include_graphics("figuras_portadas/cuestionario2_exploracion.jpg")
+```
+
+## Instrucciones
+
+-   **Entrega:** el archivo `.qmd` ejecutado y su render en HTML, en la actividad «E3 · Cuestionario Quarto CQ2 · Visualización» de Moodle. **Cierra el domingo 1 de noviembre a las 23:59.**
+-   El documento debe renderizar sin errores desde los archivos de datos (`plancton.xlsx` e `Insectos.xlsx`) ubicados en la misma carpeta, sin pasos manuales.
+-   Cada pregunta se responde con **código propio comentado** (un comentario `# …` antes de cada bloque) y una **respuesta escrita** en el espacio «Respuesta». La respuesta debe explicar qué se hizo y **por qué** (qué figura responde a qué pregunta), no solo describir la salida.
+-   Los valores que se mencionen en las respuestas deben salir del propio código.
+
+--------------------
+
+::: material-apoyo
+<i class="bi bi-file-earmark-zip"></i> [Descargar materiales del cuestionario ](https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller6/cuestionario2_taller6.zip)
+
+**Nota:** descomprimir el **.zip** para poderlo trabajar en R
+:::
+---------------------
+
+::: callout-note
+## Criterios de la rúbrica R2
+
+| Criterio | Puntos |
+|----|---:|
+| 1\. Reproducibilidad: renderiza limpio desde los datos y el código está comentado | 10 |
+| 2\. Respuestas correctas, obtenidas con el propio código | 20 |
+| 3\. Interpretación de decisiones: qué hace cada paso y por qué | 10 |
+| **Total** | **40** |
+:::
+
+## Preparación (resuelta)
+
+El siguiente bloque deja listas las bases. Es el mismo de la Parte 0 del Taller 6; no se modifica.
+
+```{r}
+# Librerías
+library(tidyverse)
+library(readxl)
+library(kableExtra)
+library(corrplot)
+
+# Plancton: base larga depurada
+biol <- read_xlsx("plancton.xlsx", sheet = "Riqueza") %>%
+  mutate(Groups = str_trim(Groups), Station = factor(Station), Size = factor(Size),
+         Layers = recode_factor(Layers, Depth = "Profunda", Surface = "Superficial"))
+taxones <- unique(biol$Groups)
+
+# Plancton: base ancha por muestra
+pl_ancho <- biol %>%
+  group_by(Station, Size, Layers) %>%
+  summarise(across(c(Temperature, Salinity, Density), mean), .groups = "drop") %>%
+  left_join(biol %>%
+              group_by(Station, Size, Layers, Groups) %>%
+              summarise(Abundance = sum(Abundance), .groups = "drop") %>%
+              pivot_wider(names_from = Groups, values_from = Abundance, values_fill = 0),
+            by = c("Station", "Size", "Layers")) %>%
+  mutate(Ab = rowSums(across(all_of(taxones))),
+         Sal_niv = cut(Salinity, quantile(Salinity, c(0, 1/3, 2/3, 1)),
+                       labels = c("Baja", "Media", "Alta"), include.lowest = TRUE))
+
+# Insectos: base hipotética de 4 cuencas × 5 quebradas
+ins <- read_excel("Insectos.xlsx", sheet = "Insectos") %>%
+  mutate(cuenca = factor(cuenca))
+taxa_ins <- c("Efem", "Plec", "Tric", "Dipt", "Cole")
+```
+
+## Sección A — Figuras de burbujas
+
+### Pregunta 1 · Burbujas frente a un gradiente
+
+Construya una figura de burbujas de los **8 taxones más abundantes** del mesozooplancton frente a la **densidad del agua** (`Density`), con el tamaño proporcional a la abundancia y el color según la **capa** (`Layers`). Use la base larga `biol`.
+
+*Explique:* ¿por qué conviene ordenar los taxones por abundancia total y por qué se excluyen los registros con abundancia cero?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 2 · Escalas y líneas de referencia
+
+A la figura de la Pregunta 1, ajuste el rango de tamaños de las burbujas (`scale_size()`), fije los límites y cortes del eje X según el rango observado de la densidad y agregue líneas verticales de referencia en gris claro.
+
+*Explique:* ¿qué mejora cada ajuste en la lectura de la figura?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 3 · Leyenda
+
+Ubique la leyenda **dentro del panel**, en una zona sin burbujas, y haga que la leyenda de tamaño muestre círculos vacíos.
+
+*Explique:* ¿por qué eligió esa posición?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 4 · Colores y transparencia
+
+Aplique una paleta de colores distinguible por personas con daltonismo y una transparencia adecuada.
+
+*Explique:* ¿qué problema resuelve la transparencia en esta figura?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 5 · ¿Registro o muestra?
+
+Repita la figura usando la base ancha `pl_ancho` (pase los 8 taxones a formato largo con `pivot_longer()`), de modo que cada burbuja sea **una muestra**. Cuente cuántas burbujas tiene cada versión.
+
+*Explique:* ¿cuál de las dos versiones representa mejor las unidades muestrales y por qué?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+## Sección B — Mapa de exploración
+
+### Pregunta 6 · Correlograma con otro coeficiente
+
+Con la base de insectos, construya un correlograma de **círculos** con las 8 variables cuantitativas (pH, temperatura, los 5 órdenes y `Ab`), usando el coeficiente de **Spearman**, en el triángulo inferior, ordenado con `order = "AOE"` y con los coeficientes escritos. Identifique con código el par con mayor |ρ| y compare su valor con el r de Pearson.
+
+*Explique:* ¿en qué se diferencian Spearman y Pearson? ¿Qué indica que den valores parecidos o distintos para ese par?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 7 · ¿Correlación o diferencia entre grupos?
+
+Con la base de insectos, construya la dispersión de la abundancia de Diptera frente a la temperatura, con ajuste lineal y loess y los puntos coloreados por cuenca. Calcule r con todas las quebradas y dentro de cada cuenca, y presente los valores en una tabla.
+
+*Explique:* ¿la relación se mantiene dentro de las cuencas? ¿Qué se concluye del r global? ¿Qué limita la lectura de los r por cuenca?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 8 · Diferencias con un factor
+
+Con plancton, compare la abundancia total (log10) entre los dos **tamaños de malla** con curvas de densidad y con cajas que muestren los datos individuales. Presente una tabla con n, mediana, mínimo y máximo por malla.
+
+*Explique:* describa posición, dispersión y tamaño de muestra. ¿Por qué se dibujan los puntos sobre las cajas?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 9 · Varias variables a la vez
+
+Con la base de insectos, construya una figura con un panel por variable para la temperatura, Plecoptera y Coleoptera, comparando las cuatro cuencas, con los datos individuales sobre las cajas. Presente las medianas por cuenca.
+
+*Explique:* ¿alguna variable separa una cuenca de las demás o todas se solapan? ¿Por qué no basta con comparar medianas?
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
+### Pregunta 10 · Dos factores y reporte
+
+Con plancton, construya barras de la abundancia media (en miles) ± error estándar según el nivel de salinidad (`Sal_niv`) y la capa, con una tabla que muestre n por combinación.
+
+*Explique:* ¿hay indicio de interacción? Redacte un párrafo de reporte (3 a 5 líneas) como el del recuadro «Cómo reportar el resultado» del Taller 6, que mencione el n por combinación y la limitación de usar un factor derivado de una variable continua.
+
+```{r}
+# Escriba aquí su código (comente cada bloque con # …)
+
+```
+
+**Respuesta:** 
+
