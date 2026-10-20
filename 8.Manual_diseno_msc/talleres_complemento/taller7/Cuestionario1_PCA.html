@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez Barrios">
+
+<title>Cuestionario 1 · Análisis de Componentes Principales</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Cuestionario1_PCA_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Cuestionario1_PCA_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Cuestionario1_PCA_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Cuestionario1_PCA_files/libs/quarto-html/popper.min.js"></script>
+<script src="Cuestionario1_PCA_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Cuestionario1_PCA_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Cuestionario1_PCA_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Cuestionario1_PCA_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Cuestionario1_PCA_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Cuestionario1_PCA_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Cuestionario1_PCA_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cuestionario 1 · Análisis de Componentes Principales</h1>
+<p class="subtitle lead">Bioestadística y Diseño Experimental · Semana 3 · 2026-II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez Barrios </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">20 de octubre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figuras_portadas/portada_cuestionario1_pca.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:91.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="instrucciones">Instrucciones</h2>
+<p>Este cuestionario acompaña el <code>Taller 7 · Análisis de Componentes Principales</code> de la Semana 3. Son <strong>12 preguntas de opción múltiple</strong> basadas en las Partes 1 a 5 del taller y en el estudio de caso: escalas y estandarización, transformación previa, redundancia entre variables, autovalores y criterios de retención, contribuciones y signo de los ejes, escalamientos del biplot, elipses de confianza, <code>envfit()</code> del tributario y de los géneros (pruebas múltiples) y el PCA que no aporta en el ambiente del mesozooplancton.</p>
+<p>Cada pregunta tiene una pista opcional y, al responder, una explicación breve; se recomienda usarlas para repasar, no solo para obtener una calificación. El orden de las opciones cambia en cada intento. Es una práctica sin nota; la misma práctica está en Moodle (<code>Cuestionario1_T7</code>) y sirve de repaso antes de elegir y reportar la ordenación del estudio de caso (A3).</p>
+<style>
+  #quizApp{
+    --qz-navy:#152C4A; --qz-blue:#3B7DC4; --qz-light-blue:#AFC7E3; --qz-card:#EAF1F8;
+    --qz-white:#FFFFFF; --qz-muted:#6B7A8F; --qz-ok:#2E9E5B; --qz-bad:#C0392B;
+    max-width:680px; margin:1.5rem 0; font-family:inherit; color:var(--qz-navy);
+  }
+  #quizApp *{box-sizing:border-box;}
+  #quizApp .progress-wrap{margin-bottom:1.1rem;}
+  #quizApp .progress-track{background:#D5E3EF; border-radius:6px; height:8px; overflow:hidden;}
+  #quizApp .progress-fill{background:var(--qz-blue); height:100%; width:0%; transition:width .3s;}
+  #quizApp .progress-label{font-size:.8rem; color:var(--qz-muted); margin-top:.4rem;}
+  #quizApp .qz-card{
+    background:var(--qz-card); border-radius:14px; padding:1.5rem 1.4rem;
+    box-shadow:0 2px 10px rgba(21,44,74,.06);
+  }
+  #quizApp .question{font-size:1.08rem; line-height:1.5; margin:0 0 1.1rem; font-weight:700;}
+  #quizApp .options{display:flex; flex-direction:column; gap:.55rem;}
+  #quizApp .opt{
+    text-align:left; border:1.5px solid #D5E3EF; background:var(--qz-white); border-radius:10px;
+    padding:.7rem .9rem; font-size:.94rem; color:var(--qz-navy); cursor:pointer;
+    transition:border-color .15s, background .15s; font-family:inherit;
+  }
+  #quizApp .opt:hover:not(:disabled){border-color:var(--qz-blue);}
+  #quizApp .opt.correct{border-color:var(--qz-ok); background:#EAF7EF; font-weight:700;}
+  #quizApp .opt.incorrect{border-color:var(--qz-bad); background:#FBEAEA;}
+  #quizApp .opt.dim{opacity:.55;}
+  #quizApp .opt:disabled{cursor:default;}
+  #quizApp code{font-size:.9em;}
+  #quizApp .hint-row{margin-top:.9rem;}
+  #quizApp .hint-btn{
+    background:none; border:none; color:var(--qz-blue); font-size:.82rem; cursor:pointer;
+    padding:0; text-decoration:underline; font-family:inherit;
+  }
+  #quizApp .hint-text{font-size:.85rem; color:var(--qz-muted); margin-top:.5rem; font-style:italic;}
+  #quizApp .feedback{margin-top:1rem; padding:.8rem 1rem; border-radius:8px; font-size:.9rem; display:none;}
+  #quizApp .feedback.show{display:block;}
+  #quizApp .feedback.ok{background:#EAF7EF; color:var(--qz-ok);}
+  #quizApp .feedback.bad{background:#FBEAEA; color:var(--qz-bad);}
+  #quizApp .explain{margin-top:.5rem; color:var(--qz-navy); font-style:normal;}
+  #quizApp .nav-row{margin-top:1.2rem; text-align:right;}
+  #quizApp .next-btn{
+    background:var(--qz-navy); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; display:none; font-family:inherit;
+  }
+  #quizApp .next-btn.show{display:inline-block;}
+  #quizApp .result{text-align:center; padding:.8rem 0;}
+  #quizApp .result .score{font-size:2.4rem; font-weight:700; color:var(--qz-navy); margin:0;}
+  #quizApp .result .score span{font-size:1.1rem; color:var(--qz-muted); font-weight:400;}
+  #quizApp .result p{color:var(--qz-muted); font-size:.92rem;}
+  #quizApp .restart-btn{
+    background:var(--qz-blue); color:var(--qz-white); border:none; border-radius:8px;
+    padding:.6rem 1.2rem; font-size:.88rem; cursor:pointer; margin-top:.6rem; font-family:inherit;
+  }
+</style>
+
+<div id="quizApp">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="qzFill"></div></div>
+    <div class="progress-label" id="qzLabel">Pregunta 1 de 12</div>
+  </div>
+  <div class="qz-card" id="qzCard"></div>
+</div>
+
+<script id="qz-data" type="application/json">
+[
+{"question": "En un PCA de covarianza con los datos crudos de microalgas, la luz aporta el 100 % del CP1 (varianza ≈ 1.9 × 10⁸ frente a ≈ 0.05 del nitrito). ¿Qué se concluye?", "options": [{"text": "El eje refleja las unidades de medida, no un gradiente ecológico; hay que estandarizar (PCA de correlación)", "correct": true}, {"text": "La luz es la variable ecológicamente más importante para las microalgas", "correct": false}, {"text": "Hay que eliminar la luz del análisis", "correct": false}, {"text": "El PCA de covarianza es siempre el correcto para variables ambientales", "correct": false}], "hint": "¿Por qué la luz tiene una varianza tan grande?", "explain": "Con variables en unidades distintas, la que tiene números más grandes domina la varianza total. Estandarizar (media 0, d.e. 1) da a cada variable el mismo peso: prcomp(X, scale. = TRUE)."},
+
+{"question": "Antes de estandarizar, se aplicó log10(x + 1) a todas las variables ambientales salvo el pH. ¿Por qué se excluye el pH?", "options": [{"text": "Porque el pH ya está en una escala logarítmica", "correct": true}, {"text": "Porque el pH tiene valores negativos", "correct": false}, {"text": "Porque el pH no es una variable continua", "correct": false}, {"text": "Porque el pH no se correlaciona con las demás variables", "correct": false}], "hint": "¿Cómo se define el pH?", "explain": "El pH es el logaritmo negativo de la concentración de iones hidrógeno; transformarlo de nuevo no tiene sentido. Las demás variables se transforman para reducir la asimetría (la luz pasa de 2.75 a 0.08)."},
+
+{"question": "Si las 10 variables ambientales fueran independientes entre sí (todas las r ≈ 0), ¿qué pasaría con el PCA de correlación?", "options": [{"text": "Cada eje recogería cerca del 10 % de la varianza y el PCA no resumiría nada", "correct": true}, {"text": "El CP1 recogería casi el 100 % de la varianza", "correct": false}, {"text": "Los autovalores sumarían cero", "correct": false}, {"text": "El PCA separaría mejor los tributarios", "correct": false}], "hint": "¿De dónde sale la capacidad del PCA para resumir?", "explain": "El PCA resume cuando hay redundancia (variables que cambian juntas, como conductividad y caudal, r = 0.83). Sin correlaciones, cada eje equivale a una variable original y no hay reducción de dimensiones."},
+
+{"question": "En el PCA de correlación de microalgas, los diez autovalores suman 10. ¿Por qué?", "options": [{"text": "Cada variable estandarizada tiene varianza 1, y los autovalores reparten esa varianza total entre los ejes", "correct": true}, {"text": "Porque hay 10 muestras por tributario", "correct": false}, {"text": "Porque prcomp() normaliza los autovalores para que sumen 10", "correct": false}, {"text": "Es una coincidencia de estos datos", "correct": false}], "hint": "¿Cuál es la varianza de una variable estandarizada?", "explain": "Con 10 variables estandarizadas, la varianza total es 10. Cada autovalor es la porción de esa varianza que recoge un eje: λ₁ = 3.12 equivale al 31.2 %."},
+
+{"question": "El criterio de Kaiser retiene 4 ejes y la vara quebrada solo 1 (λ₁ = 3.12 > 2.93; λ₂ = 1.77 < 1.93). ¿Cuál es la decisión más defendible?", "options": [{"text": "Graficar el plano CP1–CP2, interpretar el CP1 con confianza y el CP2 con cautela, y declarar el criterio usado", "correct": true}, {"text": "Interpretar los 4 ejes con igual confianza porque Kaiser es el criterio estándar", "correct": false}, {"text": "Descartar el PCA porque los criterios no coinciden", "correct": false}, {"text": "Retener los 10 ejes para no perder información", "correct": false}], "hint": "¿Qué hay que reportar cuando dos criterios no coinciden?", "explain": "Los criterios no siempre coinciden. Kaiser tiende a retener de más con muchas variables; la vara quebrada es más conservadora. Se reporta el criterio y se interpreta con cautela lo que no lo cumple."},
+
+{"question": "En fviz_contrib(), la línea roja está en 10 % y la conductividad aporta el 28.2 % del CP1. ¿Qué significa la línea roja?", "options": [{"text": "La contribución esperada si las 10 variables pesaran igual en el eje (100 / 10)", "correct": true}, {"text": "El umbral de significancia estadística de la contribución", "correct": false}, {"text": "El porcentaje de varianza del CP1", "correct": false}, {"text": "El valor mínimo para que una variable entre al PCA", "correct": false}], "hint": "¿Cuántas variables hay y cuánto suman las contribuciones?", "explain": "La contribución es carga² × 100 y suma 100 % en cada eje. Si todas pesaran igual, cada una aportaría 10 %; las que superan ese valor son las que construyen el eje."},
+
+{"question": "Un compañero corre el mismo PCA en otra versión de R y obtiene el CP1 con la conductividad en −0.53 y la luz en +0.38. ¿Qué ocurrió?", "options": [{"text": "Nada grave: el signo de un eje es arbitrario; la oposición entre conductividad y luz se mantiene", "correct": true}, {"text": "El compañero cometió un error en los datos", "correct": false}, {"text": "El gradiente ecológico se invirtió", "correct": false}, {"text": "La conductividad pasó a correlacionarse positivamente con la luz", "correct": false}], "hint": "¿Cambia algo si se multiplica todo un eje por −1?", "explain": "Multiplicar un eje completo (cargas y coordenadas) por −1 da el mismo PCA. Lo que se interpreta son las oposiciones dentro del eje, no si una variable es positiva o negativa."},
+
+{"question": "En un biplot con escalamiento 2, ¿qué se puede leer?", "options": [{"text": "Los ángulos entre flechas aproximan las correlaciones entre variables", "correct": true}, {"text": "Las distancias entre puntos aproximan las distancias euclidianas entre muestras", "correct": false}, {"text": "El largo de cada flecha es su valor p", "correct": false}, {"text": "Los ángulos entre flechas no tienen interpretación", "correct": false}], "hint": "El escalamiento 2 se usa cuando la pregunta es sobre las variables.", "explain": "El escalamiento 2 privilegia las variables: un ángulo agudo indica correlación positiva, recto ≈ 0 y obtuso negativa. Las distancias entre puntos no son euclidianas; para eso está el escalamiento 1."},
+
+{"question": "En el biplot, las elipses se dibujaron con ellipse.type = \"confidence\". ¿Qué representan?", "options": [{"text": "La región de confianza del 95 % para la media (centroide) de cada tributario", "correct": true}, {"text": "La región que contiene el 95 % de las muestras de cada tributario", "correct": false}, {"text": "El área de muestreo de cada tributario", "correct": false}, {"text": "Una prueba formal de diferencias entre tributarios", "correct": false}], "hint": "¿Se achica la elipse si hay más visitas?", "explain": "La elipse de confianza se achica al aumentar n porque describe la incertidumbre de la media. La elipse de dispersión (\"norm\") rodea a la mayoría de las muestras y no se achica con n. Se declara cuál se usó."},
+
+{"question": "El envfit del tributario da r² = 0.58 y p = 0.001 (999 permutaciones). ¿Cuál es la lectura adecuada?", "options": [{"text": "El tributario se asocia con el plano CP1–CP2, pero el p es optimista porque las visitas no son réplicas independientes; la prueba formal es la PERMANOVA con la visita como bloque", "correct": true}, {"text": "Queda demostrado que los tres tributarios difieren en todas sus variables ambientales", "correct": false}, {"text": "El tributario explica el 58 % de la variación de las diez variables originales", "correct": false}, {"text": "Como p < 0.05, ya no hace falta la PERMANOVA", "correct": false}], "hint": "¿Son independientes las 8 visitas de un tributario?", "explain": "envfit() permuta las muestras libremente, como si fueran intercambiables, y solo usa los dos ejes graficados. Las 8 visitas son semanas sucesivas de colonización, tomadas en las mismas fechas en los tres tributarios (Taller 10)."},
+
+{"question": "Al proyectar los 21 géneros con envfit(), Amphora tiene p = 0.009 sin corregir y 0.19 con Holm. ¿Qué se concluye?", "options": [{"text": "Ninguna asociación se sostiene al controlar las 21 pruebas; la lectura es exploratoria y la prueba formal es la RDA", "correct": true}, {"text": "Amphora responde significativamente al gradiente hidráulico", "correct": false}, {"text": "El ajuste de Holm es demasiado estricto y se debe ignorar", "correct": false}, {"text": "Hay que repetir el envfit con más permutaciones hasta que p < 0.05", "correct": false}], "hint": "¿Cuántas pruebas se hicieron?", "explain": "Con 21 pruebas al 5 %, se espera en promedio una «significativa» por azar. Holm controla la probabilidad de al menos un falso positivo en la familia. La RDA de Hellinger (Taller 9) hace una sola prueba global."},
+
+{"question": "En el PCA ambiental del plancton, salinidad y densidad del agua (σt) tienen r = 1.00 y el CP1 recoge el 67.2 % de la varianza. ¿Qué se concluye?", "options": [{"text": "El PCA no aporta: el CP1 es la salinidad contada dos veces; basta con reportar la salinidad (y la temperatura)", "correct": true}, {"text": "El PCA es un éxito porque el CP1 supera el 60 %", "correct": false}, {"text": "Hay que retener los tres ejes", "correct": false}, {"text": "La temperatura es la variable que más estructura el estuario", "correct": false}], "hint": "¿Cuántas variables distintas hay realmente en la matriz?", "explain": "σt se calcula a partir de la salinidad y la temperatura, y en este estuario depende casi solo de la salinidad. El CP3 recoge ≈ 0 %. La salinidad sola explica más de la diferencia entre zonas (R² = 0.77) que el plano CP1–CP2 (r² = 0.54)."}
+]
+</script>
+
+<script>
+(function(){
+  const DATA = JSON.parse(document.getElementById('qz-data').textContent);
+  let idx = 0, score = 0, answered = false, opciones = [];
+
+  // Escapa el texto (hay símbolos como <- en las preguntas) y marca
+  // como código las llamadas a funciones, p. ej. read_csv2()
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const fmt = s => esc(s).replace(/\b([A-Za-z_][A-Za-z0-9_.]*\([^()]*\))/g, '<code>$1</code>');
+
+  // Baraja las opciones (Fisher-Yates) para que la respuesta correcta
+  // no quede siempre en la misma posición
+  function barajar(arr){
+    const a = arr.slice();
+    for(let k = a.length - 1; k > 0; k--){
+      const r = Math.floor(Math.random() * (k + 1));
+      [a[k], a[r]] = [a[r], a[k]];
+    }
+    return a;
+  }
+  const card = document.getElementById('qzCard');
+  const fill = document.getElementById('qzFill');
+  const label = document.getElementById('qzLabel');
+
+  function render(){
+    if(idx >= DATA.length){ renderResult(); return; }
+    answered = false;
+    const q = DATA[idx];
+    opciones = barajar(q.options);
+    fill.style.width = (idx/DATA.length*100) + '%';
+    label.textContent = `Pregunta ${idx+1} de ${DATA.length}`;
+    card.innerHTML = `
+      <p class="question">${fmt(q.question)}</p>
+      <div class="options">
+        ${opciones.map((o,i)=>`<button class="opt" data-i="${i}">${fmt(o.text)}</button>`).join('')}
+      </div>
+      <div class="hint-row">
+        <button class="hint-btn" id="qzHintBtn">Mostrar pista</button>
+        <div class="hint-text" id="qzHintText" style="display:none;">${fmt(q.hint || '')}</div>
+      </div>
+      <div class="feedback" id="qzFeedback"></div>
+      <div class="nav-row"><button class="next-btn" id="qzNextBtn">Siguiente →</button></div>
+    `;
+    document.getElementById('qzHintBtn').onclick = () => {
+      const t = document.getElementById('qzHintText');
+      t.style.display = t.style.display === 'none' ? 'block' : 'none';
+    };
+    card.querySelectorAll('.opt').forEach(btn=>{
+      btn.onclick = () => selectOption(parseInt(btn.dataset.i));
+    });
+    document.getElementById('qzNextBtn').onclick = () => { idx++; render(); };
+  }
+
+  function selectOption(i){
+    if(answered) return;
+    answered = true;
+    const q = DATA[idx];
+    const opts = card.querySelectorAll('.opt');
+    opts.forEach((btn,j)=>{
+      btn.disabled = true;
+      if(opciones[j].correct) btn.classList.add('correct');
+      else if(j===i) btn.classList.add('incorrect');
+      else btn.classList.add('dim');
+    });
+    const fb = document.getElementById('qzFeedback');
+    if(opciones[i].correct){
+      score++;
+      fb.innerHTML = '¡Correcto! <div class="explain">' + fmt(q.explain) + '</div>';
+      fb.className = 'feedback show ok';
+    } else {
+      fb.innerHTML = 'No es correcto. <div class="explain">' + fmt(q.explain) + '</div>';
+      fb.className = 'feedback show bad';
+    }
+    document.getElementById('qzNextBtn').classList.add('show');
+  }
+
+  function renderResult(){
+    fill.style.width = '100%';
+    label.textContent = `${DATA.length} de ${DATA.length}`;
+    const pct = Math.round(score/DATA.length*100);
+    card.innerHTML = `
+      <div class="result">
+        <p class="score">${score}<span>/${DATA.length}</span></p>
+        <p>${pct}% de aciertos. ${pct>=80?'Excelente lectura del PCA.':pct>=60?'Buen manejo general: conviene repasar los temas con errores.':'Vale la pena repasar el taller antes de reportar el PCA del estudio de caso.'}</p>
+        <button class="restart-btn" id="qzRestartBtn">Intentar de nuevo</button>
+      </div>
+    `;
+    document.getElementById('qzRestartBtn').onclick = () => { idx=0; score=0; render(); };
+  }
+
+  render();
+})();
+</script>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p>Las preguntas de este cuestionario son de elaboración propia para este curso, a partir de las bases de datos del Taller 7 (Osorio Ávila et al., 2015, y Vargas-Ospina et al., 2025); no reproducen ejercicios ni datos de las fuentes citadas en el taller.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
