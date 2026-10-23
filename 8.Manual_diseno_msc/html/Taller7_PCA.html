@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Taller 7. Análisis de Componentes Principales (PCA) – Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller8_NMDS_CA.html" rel="next">
+<link href="./Taller6_Exploracion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ea061be198c2aecd6f2dfc699520ccf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller7_PCA.html">Taller 7. Análisis de Componentes Principales (PCA)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Diseño Experimental y Bioestadística - 2026</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Videos y presentaciones de las clases</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pautas_Evaluacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Pautas de evaluación</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1_Diseno_Exp1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 1. Diseño Experimental</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2_Pruebas_Hipotesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 2. Pruebas de Hipótesis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3_Regresion_Lineal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 3. Regresión Lineal Simple y Múltiple</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4_GLM_Binomial_Poisson.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 4. GLM Binomial y Poisson</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller5_Bases_Datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 5. Manipulación de bases de Datos Multivariadas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller6_Exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 6. Exploración Gráfica Multivariada</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller7_PCA.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Taller 7. Análisis de Componentes Principales (PCA)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller8_NMDS_CA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 8. Escalamiento (NMDS) y Correspondencia (CA)</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#materiales-requeridos-para-el-taller-en-clase" id="toc-materiales-requeridos-para-el-taller-en-clase" class="nav-link active" data-scroll-target="#materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</a>
+  <ul>
+  <li><a href="#diapositivas-en-vivo---slides.com" id="toc-diapositivas-en-vivo---slides.com" class="nav-link" data-scroll-target="#diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</a></li>
+  </ul></li>
+  <li><a href="#objetivos-del-taller" id="toc-objetivos-del-taller" class="nav-link" data-scroll-target="#objetivos-del-taller">Objetivos del taller</a></li>
+  <li><a href="#sec-fundamentos" id="toc-sec-fundamentos" class="nav-link" data-scroll-target="#sec-fundamentos">Antes de empezar: qué hace un PCA</a></li>
+  <li><a href="#sec-parte1" id="toc-sec-parte1" class="nav-link" data-scroll-target="#sec-parte1">Parte 1 — De X a una matriz lista para el PCA: microalgas</a>
+  <ul>
+  <li><a href="#escalas-distintas" id="toc-escalas-distintas" class="nav-link" data-scroll-target="#escalas-distintas">Escalas distintas</a></li>
+  <li><a href="#asimetría-transformar-antes-de-estandarizar" id="toc-asimetría-transformar-antes-de-estandarizar" class="nav-link" data-scroll-target="#asimetría-transformar-antes-de-estandarizar">Asimetría: transformar antes de estandarizar</a></li>
+  <li><a href="#redundancia-la-condición-para-resumir" id="toc-redundancia-la-condición-para-resumir" class="nav-link" data-scroll-target="#redundancia-la-condición-para-resumir">Redundancia: la condición para resumir</a></li>
+  </ul></li>
+  <li><a href="#sec-parte2" id="toc-sec-parte2" class="nav-link" data-scroll-target="#sec-parte2">Parte 2 — Ajuste y autovalores: cuántos ejes retener</a>
+  <ul>
+  <li><a href="#la-idea-con-dos-variables" id="toc-la-idea-con-dos-variables" class="nav-link" data-scroll-target="#la-idea-con-dos-variables">La idea con dos variables</a></li>
+  <li><a href="#pca-de-las-diez-variables" id="toc-pca-de-las-diez-variables" class="nav-link" data-scroll-target="#pca-de-las-diez-variables">PCA de las diez variables</a></li>
+  <li><a href="#tres-criterios-de-retención" id="toc-tres-criterios-de-retención" class="nav-link" data-scroll-target="#tres-criterios-de-retención">Tres criterios de retención</a></li>
+  </ul></li>
+  <li><a href="#sec-parte3" id="toc-sec-parte3" class="nav-link" data-scroll-target="#sec-parte3">Parte 3 — Cargas y contribuciones: qué dice cada eje</a>
+  <ul>
+  <li><a href="#cargas" id="toc-cargas" class="nav-link" data-scroll-target="#cargas">Cargas</a></li>
+  <li><a href="#contribuciones" id="toc-contribuciones" class="nav-link" data-scroll-target="#contribuciones">Contribuciones</a></li>
+  <li><a href="#de-las-cargas-a-las-coordenadas" id="toc-de-las-cargas-a-las-coordenadas" class="nav-link" data-scroll-target="#de-las-cargas-a-las-coordenadas">De las cargas a las coordenadas</a></li>
+  </ul></li>
+  <li><a href="#sec-parte4" id="toc-sec-parte4" class="nav-link" data-scroll-target="#sec-parte4">Parte 4 — Biplot: escalamientos, elipses y el tributario</a>
+  <ul>
+  <li><a href="#escalamiento-1-frente-a-escalamiento-2" id="toc-escalamiento-1-frente-a-escalamiento-2" class="nav-link" data-scroll-target="#escalamiento-1-frente-a-escalamiento-2">Escalamiento 1 frente a escalamiento 2</a></li>
+  <li><a href="#biplot-con-elipses-por-tributario" id="toc-biplot-con-elipses-por-tributario" class="nav-link" data-scroll-target="#biplot-con-elipses-por-tributario">Biplot con elipses por tributario</a></li>
+  <li><a href="#cuánto-del-plano-explica-el-tributario-envfit-del-factor" id="toc-cuánto-del-plano-explica-el-tributario-envfit-del-factor" class="nav-link" data-scroll-target="#cuánto-del-plano-explica-el-tributario-envfit-del-factor">¿Cuánto del plano explica el tributario? envfit del factor</a></li>
+  </ul></li>
+  <li><a href="#sec-parte5" id="toc-sec-parte5" class="nav-link" data-scroll-target="#sec-parte5">Parte 5 — Variables suplementarias: géneros y riqueza</a></li>
+  <li><a href="#sec-checklist" id="toc-sec-checklist" class="nav-link" data-scroll-target="#sec-checklist">Lista de verificación antes de reportar un PCA</a></li>
+  <li><a href="#sec-caso" id="toc-sec-caso" class="nav-link" data-scroll-target="#sec-caso">Estudio de caso — ¿Cuándo un PCA no aporta? Ambiente del mesozooplancton</a>
+  <ul>
+  <li><a href="#paso-1-base-ancha-del-plancton" id="toc-paso-1-base-ancha-del-plancton" class="nav-link" data-scroll-target="#paso-1-base-ancha-del-plancton">Paso 1 — Base ancha del plancton</a></li>
+  <li><a href="#paso-2-correlaciones-y-rangos" id="toc-paso-2-correlaciones-y-rangos" class="nav-link" data-scroll-target="#paso-2-correlaciones-y-rangos">Paso 2 — Correlaciones y rangos</a></li>
+  <li><a href="#paso-3-pca-de-las-tres-variables" id="toc-paso-3-pca-de-las-tres-variables" class="nav-link" data-scroll-target="#paso-3-pca-de-las-tres-variables">Paso 3 — PCA de las tres variables</a></li>
+  <li><a href="#paso-4-biplot-por-zona" id="toc-paso-4-biplot-por-zona" class="nav-link" data-scroll-target="#paso-4-biplot-por-zona">Paso 4 — Biplot por zona</a></li>
+  </ul></li>
+  <li><a href="#cierre-una-base-para-el-futuro-proyecto-de-grado" id="toc-cierre-una-base-para-el-futuro-proyecto-de-grado" class="nav-link" data-scroll-target="#cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</a>
+  <ul>
+  <li><a href="#actividad-en-clase-10-minutos-sin-código" id="toc-actividad-en-clase-10-minutos-sin-código" class="nav-link" data-scroll-target="#actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</a></li>
+  <li><a href="#antes-de-la-próxima-sesión-tarea-corta" id="toc-antes-de-la-próxima-sesión-tarea-corta" class="nav-link" data-scroll-target="#antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</a></li>
+  </ul></li>
+  <li><a href="#sec-apoyo" id="toc-sec-apoyo" class="nav-link" data-scroll-target="#sec-apoyo">Material de apoyo</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 7. Análisis de Componentes Principales (PCA)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/portada_pca.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="materiales-requeridos-para-el-taller-en-clase" class="level2">
+<h2 class="anchored" data-anchor-id="materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</h2>
+<p>En el siguiente enlace se puede descargar el archivo comprimido del taller, con las bases de datos de microalgas perifíticas y de mesozooplancton estuarino (📰 Taller 7. Análisis de componentes principales).</p>
+<div class="material-apoyo">
+<ul>
+<li><i class="bi bi-file-earmark-zip"></i> <a href="../talleres_clase/taller7_clase.zip">Taller 7. Análisis de componentes principales</a></li>
+</ul>
+</div>
+<p><strong>Nota:</strong> una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos.</p>
+<section id="diapositivas-en-vivo---slides.com" class="level3">
+<h3 class="anchored" data-anchor-id="diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</h3>
+<p><img src="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/figuras/slides.com.jpg" class="img-fluid" width="110"></p>
+<ul>
+<li>Diapositivas del Taller 7. Análisis de componentes principales — <em>Pendiente de incluir</em>.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="objetivos-del-taller" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-del-taller">Objetivos del taller</h2>
+<p>Este taller acompaña la sesión del sábado en la tarde de la Semana 3 (S9) y la presentación 07 (<em>“Ordenación lineal: Análisis de Componentes Principales”</em>). Usa las matrices F, X y Y de microalgas construidas en el Taller 5 y la exploración del Taller 6 (RA2, con lectura ecológica RA3). Al terminar, se podrá:</p>
+<ul>
+<li>Preparar una matriz ambiental para el PCA: decidir qué variables transformar y por qué se estandariza (PCA de correlación).</li>
+<li>Ajustar un PCA en R e interpretar sus cuatro productos: autovalores, cargas, coordenadas (<em>scores</em>) y contribuciones.</li>
+<li>Decidir cuántos ejes retener con más de un criterio y declarar el criterio usado.</li>
+<li>Leer un biplot según el escalamiento, añadir elipses por grupo y proyectar variables suplementarias con <code>envfit()</code>, sin confundir una figura descriptiva con una prueba formal.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Bases de datos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Microalgas</strong> (<code>Microalgas.xlsx</code>): microalgas perifíticas en tres tributarios del río Gaira, Sierra Nevada de Santa Marta (Osorio Ávila et al., 2015). Cada fila es un sustrato artificial en un tributario (T1 a T3) y una visita semanal de colonización (1 a 8).</li>
+<li><strong>Plancton</strong> (hoja <code>Riqueza</code> de <code>plancton.xlsx</code>): mesozooplancton del estuario del golfo de Urabá, Caribe colombiano (Vargas-Ospina et al., 2025). Se usa en el estudio de caso.</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Paletas del módulo</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>col_trib <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">T1 =</span> <span class="st">"#2C6FB7"</span>, <span class="at">T2 =</span> <span class="st">"#E3A33B"</span>, <span class="at">T3 =</span> <span class="st">"#3E9C8F"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>col_zona <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Fluvial =</span> <span class="st">"#A6761D"</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">Estuarina =</span> <span class="st">"#66A61E"</span>, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">Marina =</span> <span class="st">"#1F78B4"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Números con dos decimales fijos para el texto (−0.60 y no −0.6)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">formatC</span>(x, <span class="at">format =</span> <span class="st">"f"</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrices F, X y Y de microalgas (igual que en la Parte 4 del Taller 5)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>alg <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Microalgas.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Microalgas"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Fragilaria =</span> Fragillaria, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Nitzschia  =</span> Nitzchia,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Surirella  =</span> Surilella,   </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gyrosigma  =</span> Girosigma,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Achnanthes =</span> Achnantes) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tributario =</span> <span class="fu">factor</span>(Tributario),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Visita     =</span> <span class="fu">factor</span>(<span class="fu">as.integer</span>(<span class="fu">sub</span>(<span class="st">".*</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">""</span>, Cod))))   <span class="co"># T1.3 → 3</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>F_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Cod, Tributario, Visita)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>X_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Amonio<span class="sc">:</span>Temp)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Y_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Fragilaria<span class="sc">:</span>Pinnularia)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Control: mismas filas en las tres matrices</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">F =</span> <span class="fu">nrow</span>(F_alg), <span class="at">X =</span> <span class="fu">nrow</span>(X_alg), <span class="at">Y =</span> <span class="fu">nrow</span>(Y_alg))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> F  X  Y 
+24 24 24 </code></pre>
+</div>
+</div>
+<p>La base tiene 24 muestras (3 tributarios × 8 visitas), 10 variables ambientales (matriz X, la que entra al PCA) y 21 géneros (matriz Y, que se usa como suplementaria en la Parte 5).</p>
+<hr>
+</section>
+<section id="sec-fundamentos" class="level2">
+<h2 class="anchored" data-anchor-id="sec-fundamentos">Antes de empezar: qué hace un PCA</h2>
+<p>Un PCA <strong>gira los ejes</strong> de la nube de muestras: el primer componente principal (CP1) sigue la dirección en la que las muestras varían más; el segundo (CP2) es perpendicular al primero y recoge la mayor parte de lo que queda, y así sucesivamente. Con 10 variables salen 10 ejes, ordenados de mayor a menor varianza. Si las variables son redundantes (cambian juntas), los primeros ejes concentran casi toda la información y se pueden graficar en un plano.</p>
+<p>Todo PCA entrega cuatro productos:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Producto</th>
+<th>Qué dice</th>
+<th>Objeto en R (<code>prcomp</code>)</th>
+<th>Se usa para</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Autovalor</strong> (λ)</td>
+<td>Varianza que recoge cada eje; en un PCA de correlación suman el número de variables</td>
+<td><code>pca$sdev^2</code></td>
+<td>Decidir cuántos ejes retener (Parte 2)</td>
+</tr>
+<tr class="even">
+<td><strong>Carga</strong> (autovector)</td>
+<td>Peso de cada variable en el eje; el signo da la dirección</td>
+<td><code>pca$rotation</code></td>
+<td>Nombrar los ejes (Parte 3)</td>
+</tr>
+<tr class="odd">
+<td><strong>Contribución</strong></td>
+<td>Porcentaje con que cada variable construye un eje (carga² × 100)</td>
+<td><code>fviz_contrib()</code></td>
+<td>Comparar con lo esperado si todas pesaran igual (Parte 3)</td>
+</tr>
+<tr class="even">
+<td><strong>Coordenada</strong> (<em>score</em>)</td>
+<td>Posición de cada muestra en los ejes nuevos</td>
+<td><code>pca$x</code></td>
+<td>Graficar las muestras y sus grupos (Parte 4)</td>
+</tr>
+</tbody>
+</table>
+<p>El PCA es una ordenación <strong>no restringida</strong>: los ejes resumen la variación de una sola matriz (aquí X) sin mirar otras variables. Los factores (tributario) y las especies (Y) se proyectan <strong>después</strong>, para interpretar el patrón, no para construirlo. Cuando la pregunta es cuánto de Y explica X, la técnica es una ordenación restringida (RDA o CCA, Taller 9).</p>
+<hr>
+</section>
+<section id="sec-parte1" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parte1">Parte 1 — De X a una matriz lista para el PCA: microalgas</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/1_pca_parte1_matriz.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿Pueden entrar las diez variables ambientales al PCA tal como se midieron?</p>
+<section id="escalas-distintas" class="level3">
+<h3 class="anchored" data-anchor-id="escalas-distintas">Escalas distintas</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianza de cada variable ambiental (datos crudos)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>var_crudo <span class="ot">&lt;-</span> <span class="fu">sapply</span>(X_alg, var)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">signif</span>(<span class="fu">sort</span>(var_crudo, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Luz Conductividad        Amonio       Nitrato          Temp 
+      1.9e+08       2.4e+02       1.6e+00       1.6e+00       1.1e+00 
+      Oxigeno            pH        Caudal Vel_Corriente       Nitrito 
+      9.7e-01       7.9e-01       3.1e-01       2.1e-01       5.4e-02 </code></pre>
+</div>
+</div>
+<p>La varianza de la luz (≈ 1.9e+08) es miles de millones de veces la del nitrito (≈ 0.054), solo porque se mide en unidades más grandes. Un PCA calculado sobre estos valores (PCA de <strong>covarianza</strong>) dejaría a la luz sola en el primer eje:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA de covarianza con los datos crudos: contribución de cada variable al CP1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pca_crudo <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X_alg)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> pca_crudo<span class="sc">$</span>rotation[, <span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Amonio       Nitrito       Nitrato       Oxigeno            pH 
+            0             0             0             0             0 
+Conductividad        Caudal Vel_Corriente           Luz          Temp 
+            0             0             0           100             0 </code></pre>
+</div>
+</div>
+<p>La luz aporta el 100 % del CP1: ese eje mide unidades, no ecología. Por eso, cuando las variables están en unidades distintas, se <strong>estandarizan</strong> (media 0, desviación estándar 1) y el PCA se calcula sobre la matriz de <strong>correlación</strong>, en la que cada variable pesa lo mismo (presentación 07, diap. 8).</p>
+</section>
+<section id="asimetría-transformar-antes-de-estandarizar" class="level3">
+<h3 class="anchored" data-anchor-id="asimetría-transformar-antes-de-estandarizar">Asimetría: transformar antes de estandarizar</h3>
+<p>Estandarizar iguala las escalas, pero no corrige la forma de la distribución. Unos pocos valores muy altos (por ejemplo, días de mucha luz o un pulso de amonio) pesan demasiado en las correlaciones. Se mide la asimetría de cada variable y se compara antes y después de log10(x + 1):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficiente de asimetría (0 = simétrica; &gt; 1 o &lt; −1 = muy asimétrica)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>asimetria <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">mean</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">3</span>) <span class="sc">/</span> <span class="fu">sd</span>(x)<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># X transformada: log10(x + 1) a todas las variables salvo el pH (ya es logarítmico)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>X_log <span class="ot">&lt;-</span> X_alg <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>pH, <span class="sc">~</span> <span class="fu">log10</span>(.x <span class="sc">+</span> <span class="dv">1</span>)))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Asimetría antes y después</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>asim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Variable  =</span> <span class="fu">names</span>(X_alg),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">Crudos    =</span> <span class="fu">sapply</span>(X_alg, asimetria),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">`</span><span class="at">log10(x + 1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sapply</span>(X_log, asimetria))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>asim <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Variable </th>
+   <th style="text-align:right;font-weight: bold;"> Crudos </th>
+   <th style="text-align:right;font-weight: bold;"> log10(x + 1) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Amonio </td>
+   <td style="text-align:right;"> 3.02 </td>
+   <td style="text-align:right;"> 1.96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.52 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrato </td>
+   <td style="text-align:right;"> 1.49 </td>
+   <td style="text-align:right;"> 1.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oxigeno </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> -0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pH </td>
+   <td style="text-align:right;"> -0.20 </td>
+   <td style="text-align:right;"> -0.20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conductividad </td>
+   <td style="text-align:right;"> 0.65 </td>
+   <td style="text-align:right;"> 0.64 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caudal </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Vel_Corriente </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Luz </td>
+   <td style="text-align:right;"> 2.75 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temp </td>
+   <td style="text-align:right;"> -0.74 </td>
+   <td style="text-align:right;"> -0.84 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogramas de luz, amonio y caudal: crudos frente a transformados</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(<span class="at">Crudos =</span> X_alg, <span class="st">`</span><span class="at">log10(x + 1)</span><span class="st">`</span> <span class="ot">=</span> X_log, <span class="at">.id =</span> <span class="st">"Datos"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Datos, Luz, Amonio, Caudal) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Datos, <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Valor"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Valor)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"#9DBFE3"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Datos <span class="sc">~</span> Variable, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Muestras"</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-asimetria" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-asimetria-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-asimetria-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-asimetria-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Distribución de tres variables ambientales de las 24 muestras de microalgas, con datos crudos y transformados con log10(x + 1).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La luz pasa de una asimetría de 2.75 a 0.08. El amonio mejora (de 3.02 a 1.96), pero sigue sesgado: la transformación reduce el problema, no siempre lo elimina. El pH no se transforma porque ya es una escala logarítmica.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Para variables positivas sin ceros
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En esta base no hay ceros, así que log10(x) daría casi lo mismo. El <code>+ 1</code> se mantiene por consistencia con las abundancias (Taller 5), pero cambia la forma de la transformación cuando los valores son menores que 1 (como el caudal o el nitrito). En una base propia, la decisión se declara en los métodos.</p>
+</div>
+</div>
+</section>
+<section id="redundancia-la-condición-para-resumir" class="level3">
+<h3 class="anchored" data-anchor-id="redundancia-la-condición-para-resumir">Redundancia: la condición para resumir</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de correlación de X transformada</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>R_X <span class="ot">&lt;-</span> <span class="fu">cor</span>(X_log)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(R_X, <span class="at">upper =</span> <span class="st">"ellipse"</span>, <span class="at">lower =</span> <span class="st">"number"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">tl.col =</span> <span class="st">"black"</span>, <span class="at">tl.pos =</span> <span class="st">"lt"</span>, <span class="at">number.cex =</span> <span class="fl">0.7</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-corr-X" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-corr-X-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-corr-X-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-corr-X-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Correlaciones de Pearson entre las diez variables ambientales transformadas (log10(x + 1), salvo el pH).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Con 10 variables hay 45 pares de dispersión: demasiados para verlos uno a uno. Pero hay bloques redundantes: conductividad y caudal tienen r = 0.83, y la luz se opone a la conductividad (r = -0.60). El PCA aprovecha esa redundancia: si dos variables cuentan casi la misma historia, un solo eje puede representarlas.</p>
+<p><strong>Para discutir:</strong> si las 10 variables fueran independientes entre sí (todas las r ≈ 0), ¿qué porcentaje de varianza recogería cada eje? ¿Tendría sentido hacer un PCA?</p>
+<hr>
+</section>
+</section>
+<section id="sec-parte2" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parte2">Parte 2 — Ajuste y autovalores: cuántos ejes retener</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/2_pca_parte2_autovalores.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿Cuántos ejes hacen falta para resumir las diez variables ambientales?</p>
+<section id="la-idea-con-dos-variables" class="level3">
+<h3 class="anchored" data-anchor-id="la-idea-con-dos-variables">La idea con dos variables</h3>
+<p>Antes del PCA completo, se rota el par más redundante (conductividad y caudal). Estandarizadas, el CP1 sigue la diagonal de la nube:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA de dos variables (transformadas y estandarizadas)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pca_par <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X_log[, <span class="fu">c</span>(<span class="st">"Conductividad"</span>, <span class="st">"Caudal"</span>)], <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> pca_par<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">sum</span>(pca_par<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>), <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 91.4  8.6</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestras estandarizadas y direcciones de los dos ejes</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>par_z <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">scale</span>(X_log[, <span class="fu">c</span>(<span class="st">"Conductividad"</span>, <span class="st">"Caudal"</span>)])) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tributario =</span> F_alg<span class="sc">$</span>Tributario)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> pca_par<span class="sc">$</span>rotation</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(par_z, <span class="fu">aes</span>(<span class="at">x =</span> Conductividad, <span class="at">y =</span> Caudal, <span class="at">color =</span> Tributario)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> v[<span class="dv">2</span>, <span class="dv">1</span>] <span class="sc">/</span> v[<span class="dv">1</span>, <span class="dv">1</span>], <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> v[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">/</span> v[<span class="dv">1</span>, <span class="dv">2</span>], <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> col_trib) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Conductividad (z)"</span>, <span class="at">y =</span> <span class="st">"Caudal (z)"</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-par" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-par-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-par-1.png" class="img-fluid figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-par-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Conductividad frente a caudal (log10, estandarizados) en las 24 muestras. La línea continua es la dirección del CP1 y la discontinua la del CP2.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El CP1 recoge el 91 % de la varianza del par y el CP2 el 9 % restante: dos variables se resumen casi en una. Con diez variables se hace lo mismo en diez dimensiones.</p>
+</section>
+<section id="pca-de-las-diez-variables" class="level3">
+<h3 class="anchored" data-anchor-id="pca-de-las-diez-variables">PCA de las diez variables</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA de correlación: X transformada y estandarizada dentro de prcomp()</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X_log, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2    PC3    PC4     PC5     PC6     PC7
+Standard deviation     1.7659 1.3301 1.2211 1.1653 0.92853 0.73171 0.65006
+Proportion of Variance 0.3118 0.1769 0.1491 0.1358 0.08622 0.05354 0.04226
+Cumulative Proportion  0.3118 0.4887 0.6379 0.7736 0.85986 0.91340 0.95566
+                           PC8     PC9    PC10
+Standard deviation     0.51040 0.34017 0.25921
+Proportion of Variance 0.02605 0.01157 0.00672
+Cumulative Proportion  0.98171 0.99328 1.00000</code></pre>
+</div>
+</div>
+<p><code>scale. = TRUE</code> estandariza cada variable antes de rotar, así que no hace falta llamar a <code>scale()</code> antes. La primera fila de <code>summary()</code> es la desviación estándar de cada eje; su cuadrado es el autovalor.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Autovalores, porcentaje, acumulado y vara quebrada</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>autoval <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Eje        =</span> <span class="fu">paste0</span>(<span class="st">"CP"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Autovalor  =</span> pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Porcentaje =</span> <span class="dv">100</span> <span class="sc">*</span> Autovalor <span class="sc">/</span> <span class="fu">sum</span>(Autovalor),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Acumulado  =</span> <span class="fu">cumsum</span>(Porcentaje),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                  <span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">bstick</span>(pca))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>autoval <span class="sc">%&gt;%</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Eje </th>
+   <th style="text-align:right;font-weight: bold;"> Autovalor </th>
+   <th style="text-align:right;font-weight: bold;"> Porcentaje </th>
+   <th style="text-align:right;font-weight: bold;"> Acumulado </th>
+   <th style="text-align:right;font-weight: bold;"> Vara quebrada </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> CP1 </td>
+   <td style="text-align:right;"> 3.12 </td>
+   <td style="text-align:right;"> 31.2 </td>
+   <td style="text-align:right;"> 31.2 </td>
+   <td style="text-align:right;"> 2.93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP2 </td>
+   <td style="text-align:right;"> 1.77 </td>
+   <td style="text-align:right;"> 17.7 </td>
+   <td style="text-align:right;"> 48.9 </td>
+   <td style="text-align:right;"> 1.93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP3 </td>
+   <td style="text-align:right;"> 1.49 </td>
+   <td style="text-align:right;"> 14.9 </td>
+   <td style="text-align:right;"> 63.8 </td>
+   <td style="text-align:right;"> 1.43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP4 </td>
+   <td style="text-align:right;"> 1.36 </td>
+   <td style="text-align:right;"> 13.6 </td>
+   <td style="text-align:right;"> 77.4 </td>
+   <td style="text-align:right;"> 1.10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP5 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 8.6 </td>
+   <td style="text-align:right;"> 86.0 </td>
+   <td style="text-align:right;"> 0.85 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP6 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 5.4 </td>
+   <td style="text-align:right;"> 91.3 </td>
+   <td style="text-align:right;"> 0.65 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP7 </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 4.2 </td>
+   <td style="text-align:right;"> 95.6 </td>
+   <td style="text-align:right;"> 0.48 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP8 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 98.2 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP9 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 99.3 </td>
+   <td style="text-align:right;"> 0.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP10 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.7 </td>
+   <td style="text-align:right;"> 100.0 </td>
+   <td style="text-align:right;"> 0.10 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Los autovalores suman 10, el número de variables: cada variable estandarizada aporta una unidad de varianza. El CP1 tiene λ₁ = 3.12 (31.2 %) y el plano CP1–CP2 acumula el 48.9 %.</p>
+</section>
+<section id="tres-criterios-de-retención" class="level3">
+<h3 class="anchored" data-anchor-id="tres-criterios-de-retención">Tres criterios de retención</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kaiser: ejes con λ &gt; 1 (recogen más que una variable original)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>n_kaiser <span class="ot">&lt;-</span> <span class="fu">sum</span>(autoval<span class="sc">$</span>Autovalor <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vara quebrada: ejes consecutivos que superan lo esperado si la varianza se repartiera al azar</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>n_vara <span class="ot">&lt;-</span> <span class="fu">which</span>(autoval<span class="sc">$</span>Autovalor <span class="sc">&lt;=</span> autoval<span class="sc">$</span><span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span>)[<span class="dv">1</span>] <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Kaiser =</span> n_kaiser, <span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span> <span class="ot">=</span> n_vara)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Kaiser Vara quebrada.PC2 
+                4                 1 </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sedimentación con los dos criterios</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(autoval, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_inorder</span>(Eje))) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">y =</span> Autovalor), <span class="at">fill =</span> <span class="st">"#9DBFE3"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span>, <span class="at">group =</span> <span class="dv">1</span>), <span class="at">color =</span> <span class="st">"#C0392B"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"#C0392B"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Autovalor (λ)"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-sedimentacion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sedimentacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-sedimentacion-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sedimentacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4: Gráfico de sedimentación del PCA ambiental de microalgas: autovalores (barras), modelo de la vara quebrada (línea roja) y criterio de Kaiser (λ = 1, línea discontinua).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Los criterios no coinciden. Kaiser retiene 4 ejes; la vara quebrada solo 1 (λ₁ = 3.12 supera a 2.93, pero λ₂ = 1.77 no alcanza 1.93); en la sedimentación, el codo aparece después del CP1. El CP3 y el CP4 vuelven a superar la línea roja (1.49 &gt; 1.43 y 1.36 &gt; 1.10), pero la regla se aplica en orden: se retienen los ejes hasta el primero que no la supera. Kaiser suele retener de más cuando hay muchas variables; la vara quebrada es más conservadora (Jackson, 1993).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Decisión y reporte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se grafica el plano CP1–CP2 (48.9 %), se interpreta el CP1 con confianza y el CP2 con cautela, y se declara el criterio: «Según la vara quebrada, solo el CP1 superó lo esperado por azar». El atajo de <code>factoextra</code> para la sedimentación es <code>fviz_eig(pca, addlabels = TRUE)</code>, que grafica el porcentaje de varianza, pero no la vara quebrada.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> el plano CP1–CP2 deja fuera la mitad de la varianza. ¿Qué podría haber en el CP3 y el CP4 (14.9 y 13.6 %)? ¿Cómo se revisaría sin graficar todos los planos?</p>
+<hr>
+</section>
+</section>
+<section id="sec-parte3" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parte3">Parte 3 — Cargas y contribuciones: qué dice cada eje</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/3_pca_parte3_contribuciones.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿Qué variables construyen el CP1 y el CP2, y qué gradiente ecológico representa cada uno?</p>
+<section id="cargas" class="level3">
+<h3 class="anchored" data-anchor-id="cargas">Cargas</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargas y contribuciones (carga² × 100) en los dos primeros ejes</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>cargas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Variable =</span> <span class="fu">rownames</span>(pca<span class="sc">$</span>rotation),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Carga_CP1 =</span> pca<span class="sc">$</span>rotation[, <span class="dv">1</span>], <span class="at">Carga_CP2 =</span> pca<span class="sc">$</span>rotation[, <span class="dv">2</span>],</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Contr_CP1 =</span> <span class="dv">100</span> <span class="sc">*</span> pca<span class="sc">$</span>rotation[, <span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Contr_CP2 =</span> <span class="dv">100</span> <span class="sc">*</span> pca<span class="sc">$</span>rotation[, <span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Contr_CP1))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>cargas <span class="sc">%&gt;%</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Carga CP1"</span>, <span class="st">"Carga CP2"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Contribución CP1 (%)"</span>, <span class="st">"Contribución CP2 (%)"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Variable </th>
+   <th style="text-align:right;font-weight: bold;"> Carga CP1 </th>
+   <th style="text-align:right;font-weight: bold;"> Carga CP2 </th>
+   <th style="text-align:right;font-weight: bold;"> Contribución CP1 (%) </th>
+   <th style="text-align:right;font-weight: bold;"> Contribución CP2 (%) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Conductividad </td>
+   <td style="text-align:right;"> 0.53 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 28.2 </td>
+   <td style="text-align:right;"> 1.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Caudal </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 23.8 </td>
+   <td style="text-align:right;"> 2.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Vel_Corriente </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 17.9 </td>
+   <td style="text-align:right;"> 5.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Luz </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 14.6 </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> 4.8 </td>
+   <td style="text-align:right;"> 23.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temp </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 1.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrato </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> -0.51 </td>
+   <td style="text-align:right;"> 3.6 </td>
+   <td style="text-align:right;"> 26.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amonio </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.51 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 26.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Oxigeno </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 5.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pH </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.6 </td>
+   <td style="text-align:right;"> 8.1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores para el texto</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>crg <span class="ot">&lt;-</span> <span class="cf">function</span>(v, eje) <span class="fu">f2</span>(pca<span class="sc">$</span>rotation[v, eje])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<ul>
+<li><strong>CP1 (31.2 %) — gradiente hidráulico y de conductividad:</strong> conductividad (0.53), caudal (0.49) y velocidad de corriente (0.42) en el extremo positivo, frente a la luz (-0.38). Las muestras con mayor caudal y conductividad reciben menos luz.</li>
+<li><strong>CP2 (17.7 %) — gradiente de nutrientes nitrogenados:</strong> amonio (-0.51), nitrato (-0.51) y nitrito (-0.48) en el extremo negativo; pH (0.29) y oxígeno (0.23) en el positivo.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>El signo de un eje es arbitrario
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si se multiplica un eje completo por −1 (cargas y coordenadas), el PCA es el mismo. Otro programa, otra versión de R o una muestra más pueden invertir el signo. Lo que se interpreta son las <strong>oposiciones</strong> dentro del eje (conductividad y caudal frente a luz), no si una variable es «positiva».</p>
+</div>
+</div>
+</section>
+<section id="contribuciones" class="level3">
+<h3 class="anchored" data-anchor-id="contribuciones">Contribuciones</h3>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contribuciones al CP1 y al CP2</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-contrib-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-contrib-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-contrib-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contrib-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5: Contribución de cada variable ambiental al CP1 (izquierda) y al CP2 (derecha). La línea roja marca la contribución esperada si las diez variables pesaran igual (100 / 10 = 10 %).
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-contrib-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-contrib-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-contrib-2.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contrib-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6: Contribución de cada variable ambiental al CP1 (izquierda) y al CP2 (derecha). La línea roja marca la contribución esperada si las diez variables pesaran igual (100 / 10 = 10 %).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>La conductividad aporta el 28.2 % del CP1, casi tres veces lo esperado (10 %). Cuatro variables superan esa referencia en el CP1 (conductividad, caudal, velocidad de corriente y luz) y tres en el CP2 (amonio, nitrato y nitrito).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Control: fviz_contrib() calcula lo mismo que carga² × 100</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">get_pca_var</span>(pca)<span class="sc">$</span>contrib[<span class="st">"Conductividad"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dim.1 Dim.2 
+ 28.2   1.5 </code></pre>
+</div>
+</div>
+</section>
+<section id="de-las-cargas-a-las-coordenadas" class="level3">
+<h3 class="anchored" data-anchor-id="de-las-cargas-a-las-coordenadas">De las cargas a las coordenadas</h3>
+<p>La coordenada de una muestra en un eje es la suma de sus valores estandarizados ponderados por las cargas:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores estandarizados de la muestra T1.1</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>z_T11 <span class="ot">&lt;-</span> <span class="fu">scale</span>(X_log)[<span class="dv">1</span>, ]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenada en el CP1 y el CP2 a mano y la que entrega prcomp()</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="at">a_mano  =</span> <span class="fu">c</span>(<span class="fu">sum</span>(z_T11 <span class="sc">*</span> pca<span class="sc">$</span>rotation[, <span class="dv">1</span>]), <span class="fu">sum</span>(z_T11 <span class="sc">*</span> pca<span class="sc">$</span>rotation[, <span class="dv">2</span>])),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">prcomp  =</span> pca<span class="sc">$</span>x[<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        PC1 PC2
+a_mano 1.24 0.2
+prcomp 1.24 0.2</code></pre>
+</div>
+</div>
+<p>La muestra T1.1 queda en (CP1 = 1.24; CP2 = 0.2): su conductividad y su caudal están por encima de la media, y por eso se ubica en el lado positivo del CP1. El álgebra completa (autovectores de la matriz de correlación) está en el material complementario.</p>
+<p><strong>Para discutir:</strong> la temperatura casi no contribuye a los dos primeros ejes (4.4 y 1.6 %). ¿Significa que no importa para las microalgas? ¿Qué otra razón explicaría su bajo peso?</p>
+<hr>
+</section>
+</section>
+<section id="sec-parte4" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parte4">Parte 4 — Biplot: escalamientos, elipses y el tributario</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/4_pca_parte4_biplot.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿Se separan los tres tributarios en el plano CP1–CP2? ¿Qué variables los distinguen?</p>
+<section id="escalamiento-1-frente-a-escalamiento-2" class="level3">
+<h3 class="anchored" data-anchor-id="escalamiento-1-frente-a-escalamiento-2">Escalamiento 1 frente a escalamiento 2</h3>
+<p>Un biplot superpone muestras (puntos) y variables (flechas). Cómo se reparte la varianza entre unas y otras define el <strong>escalamiento</strong>, y con él lo que se puede leer. <code>vegan</code> lo controla con el argumento <code>scaling</code>; se ajusta el mismo PCA con <code>rda()</code>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El mismo PCA de correlación con vegan</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pca_v <span class="ot">&lt;-</span> <span class="fu">rda</span>(X_log, <span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Control: autovalores iguales a los de prcomp()</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">rbind</span>(<span class="at">prcomp =</span> pca<span class="sc">$</span>sdev[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]<span class="sc">^</span><span class="dv">2</span>, <span class="at">vegan =</span> <span class="fu">eigenvals</span>(pca_v)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]), <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        PC1  PC2  PC3  PC4
+prcomp 3.12 1.77 1.49 1.36
+vegan  3.12 1.77 1.49 1.36</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dos biplots lado a lado: puntos (muestras) y flechas (variables) con cada escalamiento</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (esc <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  sc_m <span class="ot">&lt;-</span> <span class="fu">scores</span>(pca_v, <span class="at">display =</span> <span class="st">"sites"</span>,   <span class="at">scaling =</span> esc, <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)   <span class="co"># Muestras</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  sc_v <span class="ot">&lt;-</span> <span class="fu">scores</span>(pca_v, <span class="at">display =</span> <span class="st">"species"</span>, <span class="at">scaling =</span> esc, <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)   <span class="co"># Variables</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  lim  <span class="ot">&lt;-</span> <span class="fu">range</span>(sc_m, sc_v) <span class="sc">*</span> <span class="fl">1.15</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(sc_m, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> col_trib[F_alg<span class="sc">$</span>Tributario], <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlim =</span> lim, <span class="at">ylim =</span> lim, <span class="at">xlab =</span> <span class="st">"CP1"</span>, <span class="at">ylab =</span> <span class="st">"CP2"</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Escalamiento"</span>, esc))</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"grey60"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, sc_v[, <span class="dv">1</span>], sc_v[, <span class="dv">2</span>], <span class="at">length =</span> <span class="fl">0.07</span>, <span class="at">col =</span> <span class="st">"grey25"</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(sc_v <span class="sc">*</span> <span class="fl">1.12</span>, <span class="at">labels =</span> <span class="fu">rownames</span>(sc_v), <span class="at">cex =</span> <span class="fl">0.75</span>, <span class="at">col =</span> <span class="st">"grey25"</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-escalamientos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-escalamientos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-escalamientos-1.png" class="img-fluid figure-img" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-escalamientos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7: Biplots del PCA ambiental de microalgas. Izquierda: escalamiento 1 (las distancias entre puntos aproximan las distancias entre muestras). Derecha: escalamiento 2 (los ángulos entre flechas aproximan las correlaciones). Colores: T1 azul, T2 naranja, T3 verde.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>En vegan, las variables se llaman «species»
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En <code>rda()</code>, las columnas de la matriz se llaman <code>species</code>, aunque sean variables ambientales. Por eso las flechas se piden con <code>display = "species"</code>.</p>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Escalamiento</th>
+<th>Interesan</th>
+<th>Se lee</th>
+<th>No se lee</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 (<code>scaling = 1</code>)</td>
+<td>Las muestras</td>
+<td>Distancias entre puntos ≈ distancias euclidianas entre muestras</td>
+<td>Los ángulos entre flechas</td>
+</tr>
+<tr class="even">
+<td>2 (<code>scaling = 2</code>)</td>
+<td>Las variables</td>
+<td>Ángulo entre flechas ≈ correlación (agudo +, recto ≈ 0, obtuso −)</td>
+<td>Las distancias entre puntos</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Escalamiento 2: coseno del ángulo entre las flechas de luz y conductividad</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fl <span class="ot">&lt;-</span> <span class="fu">scores</span>(pca_v, <span class="at">display =</span> <span class="st">"species"</span>, <span class="at">scaling =</span> <span class="dv">2</span>, <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>cos_ang <span class="ot">&lt;-</span> <span class="fu">sum</span>(fl[<span class="st">"Luz"</span>, ] <span class="sc">*</span> fl[<span class="st">"Conductividad"</span>, ]) <span class="sc">/</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">sqrt</span>(<span class="fu">sum</span>(fl[<span class="st">"Luz"</span>, ]<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(fl[<span class="st">"Conductividad"</span>, ]<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">coseno_plano =</span> <span class="fu">round</span>(cos_ang, <span class="dv">2</span>), </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">r_real =</span> <span class="fu">round</span>(R_X[<span class="st">"Luz"</span>, <span class="st">"Conductividad"</span>], <span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>coseno_plano       r_real 
+       -0.98        -0.60 </code></pre>
+</div>
+</div>
+<p>En el escalamiento 2, luz y conductividad apuntan en sentidos opuestos: el coseno de su ángulo en el plano (-0.98) indica una correlación negativa, que en los datos es r = -0.60. El plano exagera la correlación porque deja fuera la mitad de la varianza: el ángulo es una aproximación, mejor cuanto más largas son las flechas.</p>
+</section>
+<section id="biplot-con-elipses-por-tributario" class="level3">
+<h3 class="anchored" data-anchor-id="biplot-con-elipses-por-tributario">Biplot con elipses por tributario</h3>
+<p>Para la figura de resultados se usa <code>fviz_pca_biplot()</code>, que añade elipses y centroides por grupo. Los puntos son las coordenadas de las muestras (como en el escalamiento 1) y las flechas, las correlaciones de cada variable con los ejes, reescaladas para caber en la figura.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Centroides de cada tributario en los dos primeros ejes</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>centroides <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(pca<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tributario =</span> F_alg<span class="sc">$</span>Tributario) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Tributario) <span class="sc">%&gt;%</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">CP1 =</span> <span class="fu">mean</span>(PC1), <span class="at">CP2 =</span> <span class="fu">mean</span>(PC2))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>centroides <span class="sc">%&gt;%</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Tributario </th>
+   <th style="text-align:right;font-weight: bold;"> n </th>
+   <th style="text-align:right;font-weight: bold;"> CP1 </th>
+   <th style="text-align:right;font-weight: bold;"> CP2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> T1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 2.29 </td>
+   <td style="text-align:right;"> 0.28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> T2 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> -1.39 </td>
+   <td style="text-align:right;"> -0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> T3 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> -0.90 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Biplot con elipses de confianza por tributario</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca, <span class="at">geom.ind =</span> <span class="st">"point"</span>, <span class="at">pointsize =</span> <span class="fl">2.5</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> F_alg<span class="sc">$</span>Tributario, <span class="at">palette =</span> col_trib,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>, <span class="at">ellipse.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean.point =</span> <span class="cn">FALSE</span>, <span class="at">col.var =</span> <span class="st">"grey25"</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.title =</span> <span class="st">"Tributario"</span>, <span class="at">title =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Centroides como cruces (mean.point = TRUE añade también un punto para las variables)</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> centroides, <span class="fu">aes</span>(<span class="at">x =</span> CP1, <span class="at">y =</span> CP2, <span class="at">color =</span> Tributario),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">stroke =</span> <span class="fl">1.8</span>, </span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"CP1 ("</span>, <span class="fu">round</span>(autoval<span class="sc">$</span>Porcentaje[<span class="dv">1</span>], <span class="dv">1</span>), <span class="st">" %)"</span>),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"CP2 ("</span>, <span class="fu">round</span>(autoval<span class="sc">$</span>Porcentaje[<span class="dv">2</span>], <span class="dv">1</span>), <span class="st">" %)"</span>)) <span class="sc">+</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-biplot-elipses" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-biplot-elipses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-biplot-elipses-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-biplot-elipses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8: Biplot del PCA ambiental de microalgas con elipses de confianza del 95 % para la media de cada tributario. La cruz es el centroide del tributario.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>T1 se separa sobre el CP1 (centroide = 2.29): sus visitas tienen más conductividad, caudal y corriente. T2 (-1.39) y T3 (-0.90) quedan del lado de la luz y sus elipses se solapan. En el CP2, los tres centroides están cerca de cero: los nutrientes varían más entre visitas que entre tributarios.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Elipse de confianza frente a elipse de dispersión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ellipse.type = "confidence"</code> dibuja la región de confianza de la <strong>media</strong> del grupo: se achica al aumentar n.&nbsp;Una elipse de dispersión (<code>"norm"</code>) rodea a la mayoría de las <strong>muestras</strong> del grupo y no se achica con n.&nbsp;Si dos elipses de confianza no se solapan, sus centroides difieren en ese plano; si se usan las de dispersión, hay que decirlo en el pie de figura.</p>
+</div>
+</div>
+</section>
+<section id="cuánto-del-plano-explica-el-tributario-envfit-del-factor" class="level3">
+<h3 class="anchored" data-anchor-id="cuánto-del-plano-explica-el-tributario-envfit-del-factor">¿Cuánto del plano explica el tributario? envfit del factor</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste del factor sobre el plano CP1–CP2 (999 permutaciones)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ef_trib <span class="ot">&lt;-</span> <span class="fu">envfit</span>(pca <span class="sc">~</span> Tributario, </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> F_alg, <span class="at">permutations =</span> <span class="dv">999</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ef_trib</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+***FACTORS:
+
+Centroids:
+                 PC1     PC2
+TributarioT1  2.2881  0.2827
+TributarioT2 -1.3928 -0.3060
+TributarioT3 -0.8952  0.0233
+
+Goodness of fit:
+               r2 Pr(&gt;r)    
+Tributario 0.5801  0.001 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Permutation: free
+Number of permutations: 999</code></pre>
+</div>
+</div>
+<p>El tributario explica el 58 % de la variación de las coordenadas en el plano (r² = 0.58; p = 0.001, 999 permutaciones). Los centroides que imprime <code>envfit()</code> son los mismos de la tabla anterior.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Diseño (RA1): la figura describe, no prueba
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las 8 visitas de un tributario son semanas sucesivas de colonización sobre los mismos sustratos: no son réplicas independientes, y las visitas de distintos tributarios se tomaron en las mismas fechas. <code>envfit()</code> permuta las muestras libremente, como si fueran intercambiables, así que su p es optimista. Además, el r² se calcula solo con los dos ejes graficados. La prueba formal de diferencias entre tributarios, con la visita como bloque, es la PERMANOVA del Taller 10.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo reportar el resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>El PCA de correlación de las diez variables ambientales (transformadas con log10(x + 1), salvo el pH) retuvo un eje según la vara quebrada. El CP1 (31,2 %) ordenó las visitas según un gradiente de conductividad, caudal y velocidad de corriente, opuesto a la luz, que separó al tributario T1 de T2 y T3; el CP2 (17,7 %) reflejó la concentración de nutrientes nitrogenados (biplot con escalamiento 2). El tributario se asoció con el plano CP1–CP2 (envfit: r² = 0,58; p = 0,001; 999 permutaciones).</p>
+</blockquote>
+<p>El párrafo nombra la matriz, la transformación, el criterio de retención, los porcentajes, la interpretación de cada eje, el escalamiento y la prueba (diap. 14).</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> T2 y T3 se solapan en el ambiente. ¿Significa que sus comunidades de microalgas también serán parecidas? ¿Qué análisis lo respondería?</p>
+<hr>
+</section>
+</section>
+<section id="sec-parte5" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parte5">Parte 5 — Variables suplementarias: géneros y riqueza</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/5_pca_parte5_suplementarias.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Pregunta:</strong> ¿Qué géneros de microalgas acompañan los gradientes ambientales del PCA?</p>
+<p>Los géneros no construyeron los ejes: se proyectan <strong>después</strong>, como variables suplementarias. <code>envfit()</code> busca, para cada género, la dirección del plano en la que su abundancia aumenta más, y mide con r² qué tan bien la explica el plano. Las abundancias se transforman con Hellinger (Taller 5, Parte 5) y se agrega la riqueza (número de géneros por muestra).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Géneros con Hellinger y riqueza por muestra</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>Y_hel   <span class="ot">&lt;-</span> <span class="fu">decostand</span>(Y_alg, <span class="at">method =</span> <span class="st">"hellinger"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>riqueza <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(Y_alg)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste de los 21 géneros y la riqueza sobre el plano CP1–CP2</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>ef_sup <span class="ot">&lt;-</span> <span class="fu">envfit</span>(pca, <span class="fu">data.frame</span>(Y_hel, <span class="at">Riqueza =</span> riqueza), <span class="at">permutations =</span> <span class="dv">999</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla: r², p y p ajustado (Holm) sobre la familia de los 21 géneros</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>tab_sup <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Variable =</span> <span class="fu">names</span>(ef_sup<span class="sc">$</span>vectors<span class="sc">$</span>r),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">r2 =</span> ef_sup<span class="sc">$</span>vectors<span class="sc">$</span>r,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">p  =</span> ef_sup<span class="sc">$</span>vectors<span class="sc">$</span>pvals)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>tab_gen <span class="ot">&lt;-</span> tab_sup <span class="sc">%&gt;%</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Variable <span class="sc">!=</span> <span class="st">"Riqueza"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_Holm =</span> <span class="fu">p.adjust</span>(p, <span class="at">method =</span> <span class="st">"holm"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(p)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>tab_gen <span class="sc">%&gt;%</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Género"</span>, <span class="st">"r²"</span>, <span class="st">"p"</span>, <span class="st">"p (Holm)"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Género </th>
+   <th style="text-align:right;font-weight: bold;"> r² </th>
+   <th style="text-align:right;font-weight: bold;"> p </th>
+   <th style="text-align:right;font-weight: bold;"> p (Holm) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Amphora </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.009 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Gyrosigma </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.012 </td>
+   <td style="text-align:right;"> 0.24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Surirella </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.014 </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Closterium </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.052 </td>
+   <td style="text-align:right;"> 0.94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cocconeis </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.058 </td>
+   <td style="text-align:right;"> 0.99 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Fragilaria </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.069 </td>
+   <td style="text-align:right;"> 1.00 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Riqueza (prueba aparte)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>tab_sup <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Variable <span class="sc">==</span> <span class="st">"Riqueza"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  Variable     r2     p
+  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 Riqueza  0.0748 0.449</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestras por tributario y géneros con p &lt; 0.05 (sin ajustar)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pca<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> col_trib[F_alg<span class="sc">$</span>Tributario], <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">paste0</span>(<span class="st">"CP1 ("</span>, <span class="fu">round</span>(autoval<span class="sc">$</span>Porcentaje[<span class="dv">1</span>], <span class="dv">1</span>), <span class="st">" %)"</span>),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="fu">paste0</span>(<span class="st">"CP2 ("</span>, <span class="fu">round</span>(autoval<span class="sc">$</span>Porcentaje[<span class="dv">2</span>], <span class="dv">1</span>), <span class="st">" %)"</span>))</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">"grey60"</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ef_sup, <span class="at">p.max =</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"#C0392B"</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">names</span>(col_trib), </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> col_trib, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-envfit-gen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-envfit-gen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-envfit-gen-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-envfit-gen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9: Muestras de microalgas en el plano CP1–CP2 del PCA ambiental, con las flechas de los géneros cuyo ajuste tuvo p &lt; 0.05 sin corregir (envfit, 999 permutaciones).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Amphora</em> (r² = 0.41; p = 0.009), <em>Gyrosigma</em> (r² = 0.39; p = 0.012) y <em>Surirella</em> (r² = 0.34; p = 0.014) tienen p &lt; 0.05 sin corregir. Pero se hicieron 21 pruebas con los géneros: al ajustar con Holm, el menor p pasa a 0.19 y <strong>ninguno se sostiene</strong>. La riqueza tampoco se asocia con el plano (r² = 0.07; p = 0.449).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Pruebas múltiples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con 21 pruebas al 5 %, se esperaría en promedio una «significativa» aunque ningún género respondiera al ambiente. El ajuste de Holm controla la probabilidad de al menos un falso positivo en la familia de pruebas. Cuando se ajusta, se declara cuál es la familia (aquí, los 21 géneros; la riqueza se probó aparte).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>De envfit a la RDA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La lectura de esta Parte es <strong>exploratoria</strong>: sugiere que <em>Amphora</em> es más abundante del lado de la luz (T2 y T3) y <em>Gyrosigma</em> y <em>Surirella</em> del lado de la conductividad y el caudal (T1). La pregunta «¿cuánto de la composición de microalgas explican las variables ambientales?» se responde con una ordenación restringida, la RDA de Hellinger del Taller 9, que hace una sola prueba global en lugar de 21.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> ¿por qué se transformaron los géneros con Hellinger antes de proyectarlos? ¿Qué pasaría con la flecha de <em>Melosira</em>, el género más abundante, si se usaran conteos crudos?</p>
+<hr>
+</section>
+<section id="sec-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="sec-checklist">Lista de verificación antes de reportar un PCA</h2>
+<ul>
+<li>¿Todas las variables son continuas y medidas sobre la misma unidad muestral?</li>
+<li>¿Se revisó la asimetría y se declaró qué variables se transformaron y con qué?</li>
+<li>¿Se justificó el PCA de correlación (unidades distintas) o de covarianza (mismas unidades)?</li>
+<li>¿Hay redundancia suficiente entre variables para que el PCA resuma (correlaciones moderadas o altas)?</li>
+<li>¿Se reportaron los autovalores, el porcentaje de varianza y el acumulado de los ejes graficados?</li>
+<li>¿Se declaró el criterio de retención (Kaiser, vara quebrada, sedimentación) y se interpretó con cautela lo que no lo cumple?</li>
+<li>¿Se interpretaron los ejes por sus cargas o contribuciones, como oposiciones y no por el signo?</li>
+<li>¿Se declaró el escalamiento del biplot y se leyó solo lo que ese escalamiento permite?</li>
+<li>¿Se indicó si las elipses son de confianza o de dispersión?</li>
+<li>¿Las variables suplementarias se reportaron con r², p, número de permutaciones y p ajustado?</li>
+<li>¿Se aclaró que las elipses y <code>envfit()</code> son descriptivos y cuál es la prueba formal?</li>
+</ul>
+<hr>
+</section>
+<section id="sec-caso" class="level2">
+<h2 class="anchored" data-anchor-id="sec-caso">Estudio de caso — ¿Cuándo un PCA no aporta? Ambiente del mesozooplancton</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="figuras_portadas/8_pca/6_pca_estudio_caso.jpg" class="img-fluid figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En el estuario del golfo de Urabá se registraron tres variables ambientales en cada muestra de mesozooplancton: temperatura, salinidad y densidad del agua (σt). Se quiere saber si un PCA de esas tres variables resume el ambiente de las seis estaciones, ubicadas en las zonas fluvial, estuarina y marina.</p>
+<p><strong>Antes de correr el código</strong>, se responde por escrito:</p>
+<ol type="1">
+<li>La densidad del agua (σt) se calcula a partir de la salinidad y la temperatura. ¿Qué correlación se espera entre σt y la salinidad? ¿Y entre σt y la temperatura en un estuario tropical?</li>
+<li>Si dos de las tres variables son casi la misma, ¿cuántos ejes «reales» tiene la matriz?</li>
+<li>¿Qué porcentaje de la varianza esperaría recoger el CP1? ¿Sería un buen resultado?</li>
+<li>¿Qué ganaría un artículo con este PCA frente a reportar la salinidad sola?</li>
+</ol>
+<section id="paso-1-base-ancha-del-plancton" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-base-ancha-del-plancton">Paso 1 — Base ancha del plancton</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hoja «Riqueza» depurada y base ancha (igual que en la Parte 3 del Taller 5)</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>biol <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"plancton.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Riqueza"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Groups  =</span> <span class="fu">str_trim</span>(Groups),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Station =</span> <span class="fu">factor</span>(Station),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Size    =</span> <span class="fu">factor</span>(Size),</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Layers  =</span> <span class="fu">recode_factor</span>(Layers, </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">Depth =</span> <span class="st">"Profunda"</span>, </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">Surface =</span> <span class="st">"Superficial"</span>))</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>taxones <span class="ot">&lt;-</span> <span class="fu">unique</span>(biol<span class="sc">$</span>Groups)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">&lt;-</span> biol <span class="sc">%&gt;%</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Station, Size, Layers) <span class="sc">%&gt;%</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(Temperature, Salinity, Density), mean), </span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>tax <span class="ot">&lt;-</span> biol <span class="sc">%&gt;%</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Station, Size, Layers, Groups) <span class="sc">%&gt;%</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Abundance =</span> <span class="fu">sum</span>(Abundance), </span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Groups, </span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> Abundance, </span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>)</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>zonas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Station =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">15</span>)),</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>                <span class="at">Zona    =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Fluvial"</span>, <span class="st">"Estuarina"</span>, <span class="st">"Marina"</span>), <span class="at">each =</span> <span class="dv">2</span>),</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Fluvial"</span>, <span class="st">"Estuarina"</span>, <span class="st">"Marina"</span>)))</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>pl_ancho <span class="ot">&lt;-</span> amb <span class="sc">%&gt;%</span></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(tax, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Station"</span>, <span class="st">"Size"</span>, <span class="st">"Layers"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Ab =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(taxones)))) <span class="sc">%&gt;%</span></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(zonas, <span class="at">by =</span> <span class="st">"Station"</span>)</span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz ambiental del plancton</span></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>X_pl <span class="ot">&lt;-</span> pl_ancho <span class="sc">%&gt;%</span> <span class="fu">select</span>(Temperature, Salinity, Density)</span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X_pl)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24  3</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-2-correlaciones-y-rangos" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-correlaciones-y-rangos">Paso 2 — Correlaciones y rangos</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlaciones y rango de cada variable</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>R_pl <span class="ot">&lt;-</span> <span class="fu">cor</span>(X_pl)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(R_pl, <span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Temperature Salinity Density
+Temperature       1.000    0.093    0.08
+Salinity          0.093    1.000    1.00
+Density           0.080    1.000    1.00</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(X_pl, range)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Temperature Salinity   Density
+[1,]    29.09276 15.46101  7.449451
+[2,]    29.98974 33.74799 21.008433</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-3-pca-de-las-tres-variables" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-pca-de-las-tres-variables">Paso 3 — PCA de las tres variables</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA de correlación (sin transformar: variables simétricas y sin ceros)</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>pca_pl <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(X_pl, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>autoval_pl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Eje =</span> <span class="fu">paste0</span>(<span class="st">"CP"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Autovalor =</span> pca_pl<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Porcentaje =</span> <span class="dv">100</span> <span class="sc">*</span> Autovalor <span class="sc">/</span> <span class="fu">sum</span>(Autovalor),</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">`</span><span class="at">Vara quebrada</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">bstick</span>(pca_pl))</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>autoval_pl <span class="sc">%&gt;%</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Eje </th>
+   <th style="text-align:right;font-weight: bold;"> Autovalor </th>
+   <th style="text-align:right;font-weight: bold;"> Porcentaje </th>
+   <th style="text-align:right;font-weight: bold;"> Vara quebrada </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> CP1 </td>
+   <td style="text-align:right;"> 2.015 </td>
+   <td style="text-align:right;"> 67.15 </td>
+   <td style="text-align:right;"> 1.83 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP2 </td>
+   <td style="text-align:right;"> 0.985 </td>
+   <td style="text-align:right;"> 32.84 </td>
+   <td style="text-align:right;"> 0.83 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CP3 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.33 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca_pl<span class="sc">$</span>rotation, <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>              PC1   PC2   PC3
+Temperature -0.12  0.99  0.01
+Salinity    -0.70 -0.08 -0.71
+Density     -0.70 -0.09  0.71</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-4-biplot-por-zona" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-biplot-por-zona">Paso 4 — Biplot por zona</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Centroides de cada zona</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>cent_zona <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(pca_pl<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Zona =</span> pl_ancho<span class="sc">$</span>Zona) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Zona) <span class="sc">%&gt;%</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">CP1 =</span> <span class="fu">mean</span>(PC1), <span class="at">CP2 =</span> <span class="fu">mean</span>(PC2))</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Biplot con elipses por zona y centroides como cruces</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca_pl, <span class="at">geom.ind =</span> <span class="st">"point"</span>, <span class="at">pointsize =</span> <span class="fl">2.5</span>,</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> pl_ancho<span class="sc">$</span>Zona, <span class="at">palette =</span> col_zona,</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">mean.point =</span> <span class="cn">FALSE</span>, <span class="at">col.var =</span> <span class="st">"grey25"</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">legend.title =</span> <span class="st">"Zona"</span>, <span class="at">title =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> cent_zona, <span class="fu">aes</span>(<span class="at">x =</span> CP1, <span class="at">y =</span> CP2, <span class="at">color =</span> Zona),</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">stroke =</span> <span class="fl">1.8</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"CP1 ("</span>, <span class="fu">round</span>(autoval_pl<span class="sc">$</span>Porcentaje[<span class="dv">1</span>], <span class="dv">1</span>), <span class="st">" %)"</span>),</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"CP2 ("</span>, <span class="fu">round</span>(autoval_pl<span class="sc">$</span>Porcentaje[<span class="dv">2</span>], <span class="dv">1</span>), <span class="st">" %)"</span>)) <span class="sc">+</span></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-caso-biplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-caso-biplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller7_PCA_files/figure-html/fig-caso-biplot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caso-biplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10: Biplot del PCA de las variables ambientales del mesozooplancton (24 muestras), con elipses de confianza del 95 % por zona del estuario y centroides (cruces).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zona sobre el plano CP1–CP2 y, como comparación, R² de la salinidad sola frente a la zona</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>ef_zona <span class="ot">&lt;-</span> <span class="fu">envfit</span>(pca_pl <span class="sc">~</span> Zona, </span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> pl_ancho, </span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">permutations =</span> <span class="dv">999</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>r2_sal  <span class="ot">&lt;-</span> <span class="fu">summary</span>(<span class="fu">lm</span>(Salinity <span class="sc">~</span> Zona, </span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> pl_ancho))<span class="sc">$</span>r.squared</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">r2_plano =</span> <span class="fu">round</span>(ef_zona<span class="sc">$</span>factors<span class="sc">$</span>r, <span class="dv">2</span>), </span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">r2_salinidad =</span> <span class="fu">round</span>(r2_sal, <span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>r2_plano.Zona  r2_salinidad 
+         0.54          0.77 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Verificación (desplegar después de responder)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>σt y salinidad tienen r = 1.000: son, en la práctica, la misma variable. La temperatura apenas se correlaciona con ellas (r = 0.09 con la salinidad) porque varía muy poco (de 29.1 a 30.0 °C); en este estuario, σt depende casi solo de la salinidad.</li>
+<li>Dos: un eje de salinidad (con σt) y otro de temperatura. El CP3 recoge el 0.006 % de la varianza: es la diferencia mínima entre salinidad y σt, prácticamente cero.</li>
+<li>El CP1 recoge el 67.2 %, un valor alto, pero no por un buen motivo: con cargas de -0.70 (salinidad) y -0.70 (σt), es solo la salinidad contada dos veces. El CP2 (32.8 %) es la temperatura sola (carga = 0.99). Los criterios tampoco coinciden: Kaiser retiene 1 eje (λ₂ = 0.985, apenas por debajo de 1) y la vara quebrada retiene 2 (λ₁ = 2.01 &gt; 1.83 y λ₂ = 0.99 &gt; 0.83), es decir, los dos ejes «reales».</li>
+<li>Casi nada. El plano CP1–CP2 separa las zonas (envfit: r² = 0.54), pero la salinidad sola explica <strong>más</strong> de la diferencia entre zonas (R² = 0.77, con un modelo lineal de un factor), porque el CP2 añade la temperatura, que casi no cambia entre zonas, y se interpreta directamente en unidades. Un PCA aporta cuando hay <strong>muchas</strong> variables <strong>parcialmente</strong> correlacionadas, como en las microalgas; con tres variables, dos de ellas redundantes, basta con reportar la salinidad (y, si interesa, la temperatura).</li>
+</ol>
+<p>Lección para el estudio de caso: antes de un PCA se revisa la matriz de correlación. Si una variable es una función de otras (σt de salinidad y temperatura, biomasa de abundancia por talla, porcentajes que suman 100), se deja una sola.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="cierre-una-base-para-el-futuro-proyecto-de-grado" class="level2">
+<h2 class="anchored" data-anchor-id="cierre-una-base-para-el-futuro-proyecto-de-grado">Cierre — Una base para el futuro proyecto de grado</h2>
+<section id="actividad-en-clase-10-minutos-sin-código" class="level3">
+<h3 class="anchored" data-anchor-id="actividad-en-clase-10-minutos-sin-código">Actividad en clase (10 minutos, sin código)</h3>
+<p>En parejas, se responde sobre el proyecto de grado de cada integrante o sobre una base de su línea de investigación (diap. 17):</p>
+<ol type="1">
+<li>¿Qué variables entrarían a un PCA? ¿Son continuas y medidas sobre la misma unidad muestral? ¿Cuántas filas y columnas tendría la matriz?</li>
+<li>¿Se estandarizarían? ¿Hace falta log10(x + 1) en alguna variable? ¿Alguna es redundante o se calcula a partir de otras?</li>
+<li>¿Qué factor se usaría para colorear el biplot (sitio, época, tratamiento, nivel de perturbación) y qué patrón se esperaría ver?</li>
+<li>Si se quisiera saber si ese factor <strong>explica</strong> las diferencias, ¿qué análisis seguiría al PCA?</li>
+</ol>
+</section>
+<section id="antes-de-la-próxima-sesión-tarea-corta" class="level3">
+<h3 class="anchored" data-anchor-id="antes-de-la-próxima-sesión-tarea-corta">Antes de la próxima sesión (tarea corta)</h3>
+<p>Con una base propia (o con datos simulados plausibles del propio tema):</p>
+<ol type="1">
+<li>Se prepara la matriz X: transformación y estandarización (<a href="#sec-parte1">Parte 1</a>).</li>
+<li>Se ajusta el PCA y se reportan autovalores, criterio de retención y contribuciones (<a href="#sec-parte2">Partes 2</a> y <a href="#sec-parte3">3</a>).</li>
+<li>Se construye un biplot con elipses por un factor y se escribe un párrafo como el del recuadro «Cómo reportar el resultado» (<a href="#sec-parte4">Parte 4</a>); se revisa la <a href="#sec-checklist">lista de verificación</a>.</li>
+</ol>
+<p>Este material es insumo de A3 (resultados preliminares, jueves 29 de octubre) y ayuda a elegir la ordenación del estudio de caso.</p>
+<hr>
+</section>
+</section>
+<section id="sec-apoyo" class="level2">
+<h2 class="anchored" data-anchor-id="sec-apoyo">Material de apoyo</h2>
+<p><img src="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/figuras/9_material_apoyo.png" class="img-fluid" width="140"></p>
+<p>Para repasar y profundizar después de la sesión:</p>
+<div class="material-apoyo">
+<ul>
+<li><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller7/Cuestionario1_PCA.html"><strong>Cuestionario 1 · Análisis de componentes principales</strong></a> — 12 preguntas de opción múltiple con pista y explicación, basadas en las Partes 1 a 5 y en el estudio de caso. Práctica sin nota.</li>
+<li><i class="bi bi-pencil-square"></i> <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/talleres_complemento/taller7/Complemento_Taller7.html"><strong>Material complementario · PCA</strong></a> — álgebra del PCA (autovectores de la matriz de correlación con <code>eigen()</code>), PCA de las variables fisicoquímicas de bahías del Caribe (<code>FQmarino.csv</code>), PCA de Hellinger de macroinvertebrados de quebradas del PNN Tayrona (<code>Tayrona.csv</code>), biplot construido con <code>ggplot2</code> y guardado automático de figuras y tablas.</li>
+</ul>
+</div>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li><p>Borcard, D., Gillet, F., &amp; Legendre, P. (2018). <em>Numerical Ecology with R</em> (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-3-319-71404-2" class="uri">https://doi.org/10.1007/978-3-319-71404-2</a></p></li>
+<li><p>Jackson, D. A. (1993). Stopping rules in principal components analysis: a comparison of heuristical and statistical approaches. <em>Ecology</em>, 74(8), 2204–2214. <a href="https://doi.org/10.2307/1939574" class="uri">https://doi.org/10.2307/1939574</a></p></li>
+<li><p>Kassambara, A., &amp; Mundt, F. (2020). <em>factoextra: Extract and Visualize the Results of Multivariate Data Analyses</em>. <a href="https://CRAN.R-project.org/package=factoextra" class="uri">https://CRAN.R-project.org/package=factoextra</a></p></li>
+<li><p>Legendre, P., &amp; Gallagher, E. D. (2001). Ecologically meaningful transformations for ordination of species data. <em>Oecologia</em>, 129(2), 271–280. <a href="https://doi.org/10.1007/s004420100716" class="uri">https://doi.org/10.1007/s004420100716</a></p></li>
+<li><p>Legendre, P., &amp; Legendre, L. (2012). <em>Numerical Ecology</em> (3rd ed.). Elsevier.</p></li>
+<li><p>Oksanen, J., Simpson, G. L., Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., et al.&nbsp;(2025). <em>vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan" class="uri">https://CRAN.R-project.org/package=vegan</a></p></li>
+<li><p>Osorio Ávila, F. J., Rodríguez Barrios, J., &amp; Montoya Moreno, Y. (2015). Sucesión de microalgas perifíticas en tributarios del río Gaira, Sierra Nevada de Santa Marta-Colombia. <em>Acta Biológica Colombiana</em>, 20(2), 119–131. <a href="https://doi.org/10.15446/abc.v20n2.41932" class="uri">https://doi.org/10.15446/abc.v20n2.41932</a> — Base de datos <code>Microalgas</code>.</p></li>
+<li><p>Vargas-Ospina, B., Córdoba-Bejarano, J. A., Riquelme-Bugueño, R., Flórez-Leiva, L., &amp; Rodríguez-Barrios, J. (2025). Short-term variations of mesozooplankton in a tropical estuary, Caribbean Colombia. <em>Wetlands</em>, 45, 83. <a href="https://doi.org/10.1007/s13157-025-01951-7" class="uri">https://doi.org/10.1007/s13157-025-01951-7</a> — Base de datos <code>plancton.xlsx</code>.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las figuras y el código de este taller son de elaboración propia a partir de las bases citadas; no reproducen ejercicios ni código de las fuentes bibliográficas.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller6_Exploracion.html" class="pagination-link" aria-label="Taller 6. Exploración Gráfica Multivariada">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller 6. Exploración Gráfica Multivariada</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Taller8_NMDS_CA.html" class="pagination-link" aria-label="Taller 8. Escalamiento (NMDS) y Correspondencia (CA)">
+        <span class="nav-page-text">Taller 8. Escalamiento (NMDS) y Correspondencia (CA)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

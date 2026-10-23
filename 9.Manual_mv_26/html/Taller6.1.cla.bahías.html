@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-ea061be198c2aecd6f2dfc699520ccf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -173,6 +173,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Pautas del estudio de caso</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Taller1.Introducción.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Taller1. Intro_multivariados</span></a>
   </div>
@@ -227,8 +233,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Pautas_Estudio_Caso.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pautas Estudios de Caso</span></a>
+  <a href="./Taller8.1.manova.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller8. MANOVAS Peces</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller9.1.permanova.peces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller9. PERMANOVAS Peces</span></a>
   </div>
 </li>
     </ul>
@@ -470,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elipses con colores</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos[,<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>])            <span class="co"># Matriz de Correlación (M)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>La <a href="Taller7.1.lda.peces.html#fig-figura1" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
+<p>La <a href="Taller9.1.permanova.peces.html#fig-figura1" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> permite visualizar las relaciones lineales entre todas las parejas de variables, incluyendo a los coeficientes de correlación de Pearson.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M,  <span class="at">method =</span> <span class="st">"circle"</span>,            <span class="co"># Correlaciones con circulos</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"lower"</span>, <span class="at">insig=</span><span class="st">"blank"</span>,    <span class="co"># Forma del panel</span></span>
@@ -491,7 +503,7 @@ Figura&nbsp;1.1: Correlaciones y coeficientes de correlación.
 </div>
 </div>
 </div>
-<p>La <a href="Taller7.1.lda.peces.html#fig-figura2" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> es otra posigilidad para visualizar la relación entre las parejas de variables, pero además incluye páneles que visualizan la dispersión de los datos.</p>
+<p>La <a href="Taller9.1.permanova.peces.html#fig-figura2" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> es otra posigilidad para visualizar la relación entre las parejas de variables, pero además incluye páneles que visualizan la dispersión de los datos.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -514,7 +526,7 @@ Figura&nbsp;1.2: Correlaciones, dispersión y coeficientes de correlación.
 </div>
 </div>
 </div>
-<p>La <a href="Taller7.1.lda.peces.html#fig-figura3" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
+<p>La <a href="Taller8.1.manova.peces.html#fig-figura3" class="quarto-xref">Figura&nbsp;<span>2.2</span></a> a diferencia de la anterior, clasifica a los grupos por colores y además incluye a sus coeficientes de correlación y el patrón de distribución de cada variable mediante histogramas de densidad.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -688,7 +700,7 @@ Figura&nbsp;1.7: Diferencias entre cada grupo asignado (Sitios), con base en las
 </section>
 <section id="figuras-de-los-dendogramas-con-los-siete-métodos-de-agrupamiento" class="level3">
 <h3 class="anchored" data-anchor-id="figuras-de-los-dendogramas-con-los-siete-métodos-de-agrupamiento">2.2 Figuras de los dendogramas con los siete métodos de agrupamiento</h3>
-<p>A continuación se realizará un panel que contenga hasta 4 figuras de dendogramas (<a href="#fig-figura8" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> y <a href="#fig-figura9" class="quarto-xref">Figura&nbsp;<span>2.2</span></a>), lo cual permite resumir al número de gráficas generadas, el comando que se empleará para incluir a varias figuras en un mismo panel grafico es <code>grid.arrange()</code> del paquete <code>gridextra</code>.</p>
+<p>A continuación se realizará un panel que contenga hasta 4 figuras de dendogramas (<a href="Taller6.2.cla.peces.html#fig-figura8" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> y <a href="Taller6.2.cla.peces.html#fig-figura9" class="quarto-xref">Figura&nbsp;<span>1.6</span></a>), lo cual permite resumir al número de gráficas generadas, el comando que se empleará para incluir a varias figuras en un mismo panel grafico es <code>grid.arrange()</code> del paquete <code>gridextra</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="fu">fviz_dend</span>(Cl.single, <span class="at">k =</span> <span class="dv">2</span>,        <span class="co"># k grupos (opcionales)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.7</span>,               <span class="co"># tamaño del texto de las ramas</span></span>
@@ -849,7 +861,7 @@ wpgma    5 0.024</code></pre>
 <ul>
 <li>2.3.3 Figuras de algunas correlaciones cofenéticas vs.&nbsp;matriz de distancia</li>
 </ul>
-<p>A continuación se presenta una muestra de la relación entre las matrices de distancia cofenética y de distancia euclínea, que permitió seleccionar al mejor método de agrupamiento (<a href="#fig-figura10" class="quarto-xref">Figura&nbsp;<span>2.3</span></a>).</p>
+<p>A continuación se presenta una muestra de la relación entre las matrices de distancia cofenética y de distancia euclínea, que permitió seleccionar al mejor método de agrupamiento (<a href="Taller6.2.cla.peces.html#fig-figura10" class="quarto-xref">Figura&nbsp;<span>1.7</span></a>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convertir matricesde distancia a vectores</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>d.euclid <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(d.euclid)</span>
@@ -945,7 +957,7 @@ Figura&nbsp;2.3: Cuatro regresiones entre la distancia euclídea empleada y las 
 <p>La definición de los grupos formados, representan un insumo importante de información, debido a que permiten generar los k cluster en los que se agrupan las observaciones, basado en las variables que las caracterizan. Este insumo es relevante además, como paso previo a otras técnicas que requieren los grupos definidos a priori, como los análisis discriminantes lineales (lda) o los análisis de varianza multivariados (manovas), de igual forma, a partir de los grupos se pueden responder hipótesis enfocadas en las variaciones que pueden presentar las variables a lo largo de gradientes discretos o en cluster.</p>
 <section id="opción-1.-niveles-de-fusión." class="level3">
 <h3 class="anchored" data-anchor-id="opción-1.-niveles-de-fusión.">Opción 1. Niveles de Fusión.</h3>
-<p>La figura de niveles de fusión es una de las más utilizadas para la generación de grupos o de cluster, debido a la sencillez del componente gráfico, en el cual se definen los cluster o grupos (eje Y), dependiendo del escalón de mayor amplitud o distancia horizontal (eje X). En la <a href="#fig-figura11" class="quarto-xref">Figura&nbsp;<span>2.4</span></a> se observa que la mayor amplitud se presenta en 2 k cluster, por lo cual, el dendograma seleccionado en el paso anterior se puede clasificar en dos grupos de observaciones.</p>
+<p>La figura de niveles de fusión es una de las más utilizadas para la generación de grupos o de cluster, debido a la sencillez del componente gráfico, en el cual se definen los cluster o grupos (eje Y), dependiendo del escalón de mayor amplitud o distancia horizontal (eje X). En la <a href="Taller6.2.cla.peces.html#fig-figura11" class="quarto-xref">Figura&nbsp;<span>1.8</span></a> se observa que la mayor amplitud se presenta en 2 k cluster, por lo cual, el dendograma seleccionado en el paso anterior se puede clasificar en dos grupos de observaciones.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base de variables a relacionar (amb)</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>amb <span class="ot">&lt;-</span> datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1102,7 +1114,7 @@ Figura&nbsp;2.5: Dendograma jerárquico final con los dos grupos asignados.
 <ul>
 <li>Generación del clúster No Jerárquico (<strong>K-Means</strong>)</li>
 </ul>
-<p>La <a href="#fig-figura13" class="quarto-xref">Figura&nbsp;<span>2.6</span></a> es la forma no jerárquica de presentar los resultados del cluster definido por el método de agrupamiento <code>upgma</code>.</p>
+<p>La <a href="Taller6.2.cla.peces.html#fig-figura13" class="quarto-xref">Figura&nbsp;<span>1.9</span></a> es la forma no jerárquica de presentar los resultados del cluster definido por el método de agrupamiento <code>upgma</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(<span class="fu">list</span>(<span class="at">data =</span> amb, <span class="at">cluster =</span> grp),</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#2E9FDF"</span>, <span class="st">"#FC4E07"</span>),  <span class="co"># Colores para cada grupo</span></span>
@@ -1128,7 +1140,7 @@ Figura&nbsp;2.6: Dendograma no jerárquico final con los dos grupos asignados.
 </section>
 <section id="paso-4.-variables-de-mayor-contrinución-a-la-clasificación" class="level2">
 <h2 class="anchored" data-anchor-id="paso-4.-variables-de-mayor-contrinución-a-la-clasificación">Paso 4. Variables de mayor contrinución a la clasificación</h2>
-<p>A continuación se realizan diferentes opciones de <strong>mapas de calor</strong> (<a href="#fig-figura14" class="quarto-xref">Figura&nbsp;<span>2.7</span></a>, <a href="#fig-figura15" class="quarto-xref">Figura&nbsp;<span>2.8</span></a>), para identifiar a las variables con mayor relevancia en la clasificación realizada anteriormente en el dendograma seleccionado. Este paso es relevante cuando se quiere ponderar o seleecionar a las variables que aportan al análisis, resumiento de esta forma, la dimensionalidad del problema (número de variables).</p>
+<p>A continuación se realizan diferentes opciones de <strong>mapas de calor</strong> (<a href="Taller6.2.cla.peces.html#fig-figura14" class="quarto-xref">Figura&nbsp;<span>1.10</span></a>, <a href="#fig-figura15" class="quarto-xref">Figura&nbsp;<span>2.8</span></a>), para identifiar a las variables con mayor relevancia en la clasificación realizada anteriormente en el dendograma seleccionado. Este paso es relevante cuando se quiere ponderar o seleecionar a las variables que aportan al análisis, resumiento de esta forma, la dimensionalidad del problema (número de variables).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>amb1 <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(amb)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
