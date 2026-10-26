@@ -1,0 +1,518 @@
+---
+title: "Guía complementaria · Integración TD + FD + PD (Taller 4)"
+subtitle: "Diversidad multidimensional · Semana 13 · 2026-II"
+date: last-modified
+description: "Guía de consulta con los temas del Taller 4 que no caben en la sesión, con el mismo caso guiado de peces de México y pensada para el estudio de caso."
+author:
+  name: Javier Rodríguez-Barrios
+  url: https://www.unimagdalena.edu.co/
+  afiliation: Grupo GIEN
+  afiliation-url: https://grupogien.jimdofree.com/
+title-block-banner: "#1B7F79"
+format:
+  html:
+    toc: true
+    toc-title: Menú flotante
+    code-tools: true
+    code-fold: true
+    embed-resources: true
+    css: ["styles.css"]
+
+execute:
+  echo: true
+  warning: false
+  message: false
+
+lang: es-ES
+
+bibliography: biblio_taller4.bib
+csl: apa.csl
+---
+
+```{r}
+#| include: false
+
+# portada(): muestra la imagen si existe (PNG o JPG); si no existe, no muestra nada
+portada <- function(ruta, ancho = 1400, calidad = 80) {
+  jpg <- sub("\\.png$", ".jpg", ruta)
+  hay_png <- file.exists(ruta); hay_jpg <- file.exists(jpg)
+  if (!hay_png && !hay_jpg) return(invisible(NULL))
+  if (!hay_png) return(knitr::include_graphics(jpg))
+  if (requireNamespace("magick", quietly = TRUE)) {
+    if (!hay_jpg || file.mtime(jpg) < file.mtime(ruta)) {
+      magick::image_read(ruta) |> magick::image_scale(paste0(ancho, ">")) |>
+        magick::image_background("white") |> magick::image_flatten() |>
+        magick::image_write(jpg, format = "jpeg", quality = calidad)
+    }
+    knitr::include_graphics(jpg)
+  } else knitr::include_graphics(ruta)
+}
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| out-width: "0.95\\linewidth"
+#| fig-align: center
+portada("fig_portada/portada_guia_t4.png")
+```
+
+::: callout-note
+## Cómo usar esta guía
+
+Esta guía reúne los temas del Taller 4 que **no caben en la sesión de clase** pero que ayudan a defender la integración TD + FD + PD en el estudio de caso. Cada sección es independiente y responde una pregunta concreta.
+
+| Sección | Pregunta que responde | Sección del taller |
+|---|---|---|
+| 1 | ¿Las tres dimensiones responden igual a lo largo del río? | Escala de sitio |
+| 2 | ¿Las brechas entre dimensiones son reales o efecto del azar? | 4 y 5 |
+| 3 | ¿Cuánto depende la integración de la calidad de los rasgos? | 3 y 4 |
+| 4 | ¿Cómo se reportan las diferencias en una escala de 0 a 1? | 4.2 |
+| 5 | ¿Cómo se presenta la integración en el documento del estudio de caso? | 7 |
+| 6 | Escenarios y redacciones para practicar | Todas |
+:::
+
+Para ejecutarla se necesitan en la misma carpeta los archivos del taller (`datos.xlsx`, `arbol_filo_beta.rds`, `Rao.R`, `alineador.R`, `preparar_taller3.R`) y `integrar_3d.R`, que trae la misma función de la sección 4 del taller.
+
+```{r}
+#| label: preparar
+
+source("preparar_taller3.R")   # Crea biol1, zonas, rasgos1, rasgos.d, arbol_filo, phylo.d, biol_zona, zonas_id, cols_zona...
+source("Rao.R")                # Rao(): partición de Rao (TD, FD, PD)
+source("alineador.R")          # alinear_beta(): pares alineados con el árbol
+source("integrar_3d.R")        # integrar_3d(): Hill alfa y beta a cobertura común (sección 4 del taller)
+
+suppressPackageStartupMessages({
+  library(kableExtra); 
+  library(iNEXT.3D); 
+  library(iNEXT.beta3D)
+})
+
+# Formato común de tablas (coma decimal)
+source("formato.R")
+```
+
+```{r}
+#| label: integrar-base
+#| cache: true
+
+int3d <- integrar_3d(biol_zona, rasgos.d, arbol_filo)   # El mismo resultado de la sección 4 del taller
+```
+
+------------------------------------------------------------------------
+
+# 1. ¿Las tres dimensiones responden igual a lo largo del río?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| out-width: "0.95\\linewidth"
+#| fig-align: center
+portada("fig_portada/portada_guia_t4_gradiente.png")
+```
+
+En el taller se compararon tres zonas. Con 42 sitios se puede preguntar algo distinto: **¿las tres dimensiones varían juntas a lo largo del río?** Se usa la alfa de Rao por sitio en números equivalentes y la altitud de la hoja `amb` como eje del gradiente.
+
+## 1.1 Alfa por sitio y correlaciones
+
+```{r}
+#| label: rao-sitios
+
+rao_sitios <- Rao(t(biol1),                # Especies (filas) x sitios (columnas): escala de sitio
+                  dfunc = rasgos.d, 
+                  dphyl = phylo.d,
+                  weight = FALSE, 
+                  Jost = TRUE)             # Números equivalentes: comparables entre dimensiones
+
+amb <- read_xlsx("datos.xlsx", sheet = "amb") %>%
+  transmute(Sites = str_remove_all(Sites, 
+                                   "[^A-Za-z0-9]"),   # Quita caracteres ocultos (Taller 1)
+            Altitud = Altitude1)                      # Altitud del sitio (m s. n. m.)
+
+sitios_3d <- tibble(
+  Sites = rownames(biol1),
+  S  = rowSums(biol1 > 0),                 # Riqueza observada
+  TD = as.numeric(rao_sitios$TD$Alpha),    # Simpson inverso (especies efectivas)
+  FD = as.numeric(rao_sitios$FD$Alpha),    # Rao funcional en números equivalentes
+  PD = as.numeric(rao_sitios$PD$Alpha)     # Rao filogenético en números equivalentes
+) %>%
+  left_join(zonas, by = "Sites") %>%       # Zona de cada sitio
+  left_join(amb, by = "Sites")             # Altitud de cada sitio
+
+stopifnot(!anyNA(sitios_3d$Altitud))       # Todos los sitios deben tener altitud
+
+cor(sitios_3d[, c("S", "TD", "FD", 
+                  "PD", "Altitud")], 
+    method = "spearman") %>%               # Rangos: robusto a valores extremos
+  round(2) %>%
+  tabla("Correlación de Spearman entre dimensiones y con la altitud (42 sitios)", digits = 2)
+```
+
+```{r}
+#| label: fig-gradiente
+#| fig-cap: "Diversidad alfa de Rao por sitio (números equivalentes) en cada dimensión frente a la altitud. La línea es una tendencia lineal de referencia."
+#| fig-width: 9
+#| fig-height: 3.6
+
+sitios_3d %>%
+  pivot_longer(c(TD, FD, PD), 
+               names_to = "Dimension", 
+               values_to = "Valor") %>%   # Formato largo para facetas
+  mutate(Dimension = factor(Dimension, 
+                            levels = c("TD", "FD", "PD"))) %>%
+  ggplot(aes(Altitud, Valor)) +
+  geom_smooth(method = "lm", 
+              formula = y ~ x, 
+              se = FALSE, 
+              color = "grey40", 
+              linewidth = 0.7) +
+  geom_point(aes(color = Zona), 
+             size = 2.3, 
+             alpha = 0.85) +
+  facet_wrap(~ Dimension, 
+             scales = "free_y") +
+  scale_color_manual(values = cols_zona) +
+  scale_y_continuous(labels = coma) +
+  labs(x = "Altitud (m s. n. m.)", 
+       y = "Número equivalente") +
+  theme_bw(base_size = 11)
+```
+
+::: callout-note
+## Lectura del gradiente
+
+- Las tres dimensiones **disminuyen río arriba** y están correlacionadas entre sí (ρ entre `r dec(cor(sitios_3d$TD, sitios_3d$FD, method = "spearman"), 2)` y `r dec(cor(sitios_3d$FD, sitios_3d$PD, method = "spearman"), 2)`): a escala de sitio, la respuesta principal es **congruente** [@devictor2010spatial].
+- La PD es la que **menos** responde a la altitud (ρ = `r dec(cor(sitios_3d$PD, sitios_3d$Altitud, method = "spearman"), 2)`, frente a `r dec(cor(sitios_3d$TD, sitios_3d$Altitud, method = "spearman"), 2)` en TD): incluso en los sitios de montaña coexisten unos pocos linajes antiguos (bagres, carácidos, ciprínidos, poecílidos), aunque con pocas especies cada uno.
+- La escala de FD es muy estrecha (de 1 a `r dec(max(sitios_3d$FD), 2)`): con una distancia de Gower cuyos valores son bajos para la mayoría de los pares, el número equivalente de Rao funcional apenas se separa de 1. Es otra cara de la redundancia, y una razón más para comparar con Hill y no con magnitudes brutas.
+:::
+
+::: callout-warning
+## Congruencia no es señal filogenética
+
+Que FD y PD se correlacionen por sitio **no** demuestra que los rasgos estén conservados en la filogenia: ambas dependen de cuántas especies hay en cada sitio, que cambia con la altitud. La señal filogenética se evalúa con otras herramientas (Mantel entre distancias, *K* de Blomberg; sección 8 de la guía complementaria del Taller 3).
+:::
+
+## 1.2 Redundancia por sitio
+
+```{r}
+#| label: redundancia-sitio
+
+rq_sitios <- Rao(t(biol1), 
+                 dfunc = rasgos.d, 
+                 dphyl = phylo.d,
+                 weight = FALSE, 
+                 Jost = FALSE)            # Q sin transformar: el cociente U necesita Q, no números equivalentes
+
+red_sitios <- sitios_3d %>%
+  mutate(U_FD = as.numeric(rq_sitios$FD$Alpha / rq_sitios$TD$Alpha),   # Originalidad funcional por sitio
+         U_PD = as.numeric(rq_sitios$PD$Alpha / rq_sitios$TD$Alpha))   # Originalidad filogenética por sitio
+
+red_sitios %>% 
+  filter(is.nan(U_FD)) %>% 
+  dplyr::select(Sites, Zona, S)          # Sitios donde U no está definida
+```
+
+Los sitios con *U* = `NaN` tienen **una sola especie**: Q~TD~ = 0 y el cociente 0/0 no está definido. No es un error del código, sino una advertencia sobre la unidad de análisis: con una especie no hay diversidad que repartir.
+
+```{r}
+#| label: fig-redundancia-sitio
+#| fig-cap: "Originalidad funcional y filogenética por sitio (U = Q de la dimensión / Q taxonómica) frente a la altitud. Se excluyen los sitios con una sola especie."
+#| fig-width: 8
+#| fig-height: 3.6
+
+red_sitios %>%
+  filter(!is.nan(U_FD)) %>%                                         # Sin los sitios de una especie
+  pivot_longer(c(U_FD, U_PD), 
+               names_to = "Indice", 
+               values_to = "U") %>%
+  mutate(Indice = recode(Indice, 
+                         U_FD = "Originalidad funcional", 
+                         U_PD = "Originalidad filogenética")) %>%
+  ggplot(aes(Altitud, U, color = Zona)) +
+  geom_point(size = 2.3, alpha = 0.85) +
+  facet_wrap(~ Indice) +
+  scale_color_manual(values = cols_zona) +
+  scale_y_continuous(limits = c(0, 1), labels = coma) +
+  labs(x = "Altitud (m s. n. m.)", 
+       y = "U (0 = redundante, 1 = original)") +
+  theme_bw(base_size = 11)
+```
+
+## 1.3 Sitios que se salen del patrón
+
+Si FD acompaña a TD, un sitio con más FD de la que "le tocaría" por su TD tiene especies funcionalmente más distintas que el promedio. Una regresión simple sirve para encontrarlos (es exploratoria: no reemplaza un modelo nulo de rasgos).
+
+```{r}
+#| label: residuos
+
+modelo <- lm(FD ~ TD, data = sitios_3d)            # FD esperada según la TD del sitio
+sitios_3d$residuo_FD <- resid(modelo)              # Positivo: más FD de la esperada
+
+bind_rows(
+  sitios_3d %>% slice_max(residuo_FD, n = 3) %>% 
+    mutate(Tipo = "Más FD de la esperada"),
+  sitios_3d %>% slice_min(residuo_FD, n = 3) %>% 
+    mutate(Tipo = "Menos FD de la esperada")
+) %>%
+  dplyr::select(Tipo, Sites, Zona, S, TD, FD, residuo_FD) %>%
+  tabla("Sitios con los mayores residuos de la regresión FD ~ TD", digits = 2)
+```
+
+::: callout-tip
+## Cómo leerlo
+
+Los sitios con más FD de la esperada son de la planicie (`P`), donde conviven herbívoros, omnívoros e invertívoros (el CWM del Taller 2 lo mostró). Los de menos FD de la esperada tienen especies de dietas muy parecidas para su número de especies efectivas. Para el estudio de caso, esta tabla es un buen punto de partida para elegir **qué sitios describir en detalle** en la discusión.
+:::
+
+------------------------------------------------------------------------
+
+# 2. ¿Las brechas entre dimensiones son reales?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| out-width: "0.95\\linewidth"
+#| fig-align: center
+portada("fig_portada/portada_guia_t4_ic.png")
+```
+
+En el taller se usó `nboot = 0` para que todo corriera en segundos. Sin réplicas no hay intervalos de confianza, y una diferencia de 0,05 entre dos betas puede ser azar. Aquí se repite la beta de Hill con 20 réplicas *bootstrap* (en el informe conviene usar 50 o más).
+
+```{r}
+#| label: beta-bootstrap
+#| cache: true
+
+set.seed(2026)                                        # El bootstrap usa números aleatorios: semilla fija
+nivel <- int3d$cobertura_beta                          # La misma cobertura común del taller
+
+pares <- combn(zonas_id, 2, simplify = FALSE) %>%      # Matrices de dos columnas por par de zonas
+  set_names(map_chr(., paste, collapse = "_vs_")) %>%
+  purrr::map(\(p) biol_zona[, p, drop = FALSE])
+ali <- alinear_beta(pares, arbol_filo)                 # Para PD
+
+# Conserva Beta, LCL y UCL (límites del intervalo de confianza del 95 %)
+con_ic <- function(res, dim) map_dfr(res, ~ .x$beta) %>%
+  transmute(Par = Dataset, Order.q, Dimension = dim, Beta, LCL, UCL)
+
+beta_ic <- bind_rows(
+  iNEXTbeta3D(pares, 
+              diversity = "TD", 
+              datatype = "abundance", 
+              base = "coverage",
+              level = nivel, nboot = 20) %>% 
+              con_ic("TD"),
+  iNEXTbeta3D(pares, 
+              diversity = "FD", 
+              datatype = "abundance", 
+              base = "coverage",
+              level = nivel, 
+              nboot = 20, 
+              FDdistM = as.matrix(rasgos.d),
+              FDtype = "AUC", FDcut_number = 15) %>% 
+              con_ic("FD"),
+  iNEXTbeta3D(ali$pairs_aligned, 
+              diversity = "PD", 
+              datatype = "abundance", 
+              base = "coverage",
+              level = nivel, 
+              nboot = 20, 
+              PDtree = ali$tree_aligned, 
+              PDtype = "meanPD") %>% 
+              con_ic("PD")
+)
+```
+
+```{r}
+#| label: fig-beta-ic
+#| fig-cap: "Beta de Hill a cobertura común con su intervalo de confianza del 95 % (20 réplicas bootstrap), por par de zonas, dimensión y orden q."
+#| fig-width: 9
+#| fig-height: 3.8
+
+beta_ic %>%
+  mutate(Dimension = factor(Dimension, levels = c("TD", "FD", "PD"))) %>%
+  ggplot(aes(factor(Order.q), 
+             Beta, color = Dimension)) +
+  geom_pointrange(aes(ymin = LCL, ymax = UCL),                     # Punto = estimación; línea = intervalo
+                  position = position_dodge(width = 0.5)) +
+  facet_wrap(~ Par) +
+  scale_color_manual(values = cols_dim) +
+  scale_y_continuous(labels = coma) +
+  labs(x = "Orden q", 
+       y = "Beta de Hill", 
+       color = "Dimensión") +
+  theme_bw(base_size = 11)
+```
+
+::: callout-important
+## Lectura
+
+- En `M_vs_RM` con q = 0, el intervalo de la beta funcional (`r dec(beta_ic$LCL[beta_ic$Par == "M_vs_RM" & beta_ic$Order.q == 0 & beta_ic$Dimension == "FD"], 2)` a `r dec(beta_ic$UCL[beta_ic$Par == "M_vs_RM" & beta_ic$Order.q == 0 & beta_ic$Dimension == "FD"], 2)`) no se solapa con el de la taxonómica: el **reemplazo funcional** que se leyó en el taller es real.
+- Cuando dos intervalos sí se solapan (revise en la figura FD y PD con q = 2), la conclusión correcta es "**no se distinguen**", no "son iguales".
+- Las tablas y figuras del estudio de caso deben llevar estos intervalos. Es uno de los elementos del nivel avanzado de la ruta mínima.
+:::
+
+------------------------------------------------------------------------
+
+# 3. ¿Cuánto depende la integración de la calidad de los rasgos?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| out-width: "0.95\\linewidth"
+#| fig-align: center
+portada("fig_portada/portada_guia_t4_rasgos.png")
+```
+
+En el Taller 2 se advirtió que `BodyLength`, `BodyLengthMax` y `ShapeFactor` tienen **valores de relleno** repetidos en casi todas las especies. Si esos rasgos hacen que las especies parezcan más similares de lo que son, la redundancia funcional del taller estaría inflada. Se comprueba repitiendo el análisis **sin** ellos.
+
+```{r}
+#| label: sensibilidad-rasgos
+#| cache: true
+
+rasgos_sin <- rasgos1[, c("TrophicLevel", vars_bin)]          # Solo nivel trófico y los seis hábitos de dieta
+dist_sin   <- FD::gowdis(rasgos_sin,
+                         asym.bin = match(vars_bin, colnames(rasgos_sin)))   # Mismos binarios asimétricos
+
+rao_con <- Rao(biol_zona, 
+               dfunc = rasgos.d, 
+               dphyl = NULL, 
+               Jost = FALSE)  # Con los 10 rasgos (taller)
+rao_sin <- Rao(biol_zona, 
+               dfunc = dist_sin, 
+               dphyl = NULL, 
+               Jost = FALSE)  # Sin los rasgos de relleno
+
+int_sin <- integrar_3d(biol_zona, 
+                       dist_sin, 
+                       arbol_filo)       # Hill con la nueva distancia
+
+sens_red <- tibble(
+  Zona = zonas_id,
+  `R funcional (10 rasgos)` = 1 - as.numeric(rao_con$FD$Alpha / rao_con$TD$Alpha),
+  `R funcional (7 rasgos)`  = 1 - as.numeric(rao_sin$FD$Alpha / rao_sin$TD$Alpha)
+)
+tabla(sens_red, "Redundancia funcional por zona con y sin los rasgos de relleno", digits = 2)
+
+sens_beta <- int3d$beta %>% 
+             filter(Dimension == "FD") %>%
+  dplyr::select(Par, Order.q, `β FD (10 rasgos)` = Beta) %>%
+  left_join(int_sin$beta %>% 
+              filter(Dimension == "FD") %>%
+              dplyr::select(Par, Order.q, `β FD (7 rasgos)` = Beta),
+            by = c("Par", "Order.q"))
+tabla(sens_beta, "Beta funcional de Hill a cobertura común con y sin los rasgos de relleno", digits = 2)
+```
+
+::: callout-important
+## Lección para el estudio de caso
+
+- La **magnitud** de la redundancia sí depende de los rasgos: sin los valores de relleno, la redundancia funcional de `RM` baja de `r dec(sens_red[[2]][3], 2)` a `r dec(sens_red[[3]][3], 2)`. Lo mismo pasa con la FD alfa.
+- El **patrón** de la beta funcional casi no cambia: `M_vs_RM` con q = 0 pasa de `r dec(sens_beta[[3]][sens_beta$Par == "M_vs_RM" & sens_beta$Order.q == 0], 2)` a `r dec(sens_beta[[4]][sens_beta$Par == "M_vs_RM" & sens_beta$Order.q == 0], 2)` y el orden de los pares se mantiene. El reemplazo funcional es robusto.
+- En el documento del estudio de caso, un análisis de sensibilidad como este (con y sin los rasgos dudosos) convierte una limitación en un resultado defendible.
+:::
+
+------------------------------------------------------------------------
+
+# 4. Reportar la beta en una escala de 0 a 1
+
+La beta de Hill para dos unidades va de 1 a 2, una escala poco intuitiva fuera del curso. `iNEXTbeta3D()` también devuelve **disimilitudes** de 0 (idénticas) a 1 (nada en común) [@chao2023rarefaction]. En el taller, `integrar_3d()` ya guarda la de tipo Sørensen (`1-C`):
+
+```{r}
+#| label: disimilitud
+
+int3d$beta %>%
+  dplyr::select(-Beta) %>%                                          # Solo la disimilitud 1-C
+  pivot_wider(names_from = Dimension, 
+              values_from = Disimilitud) %>%
+  arrange(Order.q, Par) %>%
+  tabla("Disimilitud tipo Sørensen (1-C) entre pares de zonas, a cobertura común", digits = 2)
+```
+
+::: callout-tip
+## Cómo redactarlo
+
+"Montaña y desembocadura no comparten especies (1-C = 1 en TD), pero con q = 0 solo el `r round(100 * int3d$beta$Disimilitud[int3d$beta$Par == "M_vs_RM" & int3d$beta$Order.q == 0 & int3d$beta$Dimension == "FD"])` % de su diversidad funcional es exclusiva de una de las dos zonas." La disimilitud se lee como una **proporción no compartida**, lo que facilita comunicar el resultado a un público no especializado. `iNEXTbeta3D()` devuelve además `1-U` (tipo Jaccard), `1-V` y `1-S`; en el informe basta con declarar cuál se usa.
+:::
+
+------------------------------------------------------------------------
+
+# 5. La integración en el documento del estudio de caso
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| out-width: "0.95\\linewidth"
+#| fig-align: center
+portada("fig_portada/portada_guia_t4_informe.png")
+```
+
+La ruta mínima pide **una tabla o figura que compare TD, FD y PD para la misma pregunta** y **un párrafo** que diga dónde coinciden y dónde divergen. Esta función arma la tabla a partir de la salida de `integrar_3d()`:
+
+```{r}
+#| label: tabla-informe
+
+# tabla_integracion(): una fila por unidad (alfa) o por par (beta); columnas TD, FD y PD para q = 0, 1, 2
+tabla_integracion <- function(int) {
+  alfa <- int$alfa %>%
+    mutate(Escala = "Alfa (números efectivos)", 
+           Comparacion = Unidad)
+  beta <- int$beta %>%
+    mutate(Escala = "Beta de Hill (1 a 2)", 
+           Comparacion = Par, Valor = Beta)
+  bind_rows(alfa, beta) %>%
+    mutate(Columna = paste0(Dimension, 
+                            " q=", Order.q)) %>%                     # p. ej. "FD q=1"
+    dplyr::select(Escala, Comparacion, 
+                  Columna, Valor) %>%
+    pivot_wider(names_from = Columna, 
+                values_from = Valor) %>%
+    dplyr::select(Escala, Comparacion,
+                  starts_with("TD"), starts_with("FD"), 
+                  starts_with("PD"))     # Agrupa por dimensión
+}
+
+ti <- tabla_integracion(int3d)
+ti %>%
+  dplyr::select(-Escala) %>%
+  tabla(paste0("TD, FD y PD a cobertura común (alfa: ", dec(int3d$cobertura_alfa, 3),
+               "; beta: ", dec(int3d$cobertura_beta, 3), ")"), 
+                digits = 2) %>%
+  pack_rows(index = table(fct_inorder(ti$Escala))) %>%      # Bloque alfa y bloque beta
+  add_header_above(c(" " = 1, "TD" = 3, 
+                     "FD" = 3, "PD" = 3))                   # Encabezado por dimensión
+```
+
+::: callout-note
+## Qué debe acompañar a la tabla
+
+1. **Las coberturas comunes** (en el título, como aquí).
+2. **Los intervalos de confianza** si se usó bootstrap (sección 2).
+3. **El párrafo de integración** (plantilla del recuadro ✍️ 4 del taller).
+4. **Las limitaciones**: calidad de los rasgos (sección 3), tipo de árbol y esfuerzo de muestreo.
+:::
+
+------------------------------------------------------------------------
+
+# 6. Escenarios y redacciones para practicar
+
+## 6.1 Cuatro escenarios: ¿qué herramienta responde la pregunta?
+
+1. Una corporación ambiental quiere saber si **una ciénaga restaurada recuperó las funciones** de una ciénaga de referencia, aunque tenga otras especies.
+2. Un grupo de estudiantes tiene 6 sitios de bosque seco con esfuerzo muy distinto y quiere comparar **cuántos linajes** hay en cada uno.
+3. Se pide una sola cifra para decir **qué fracción de la diversidad funcional regional** se debe a diferencias entre tipos de hábitat.
+4. Se quiere saber si en un arrecife **las especies raras aportan funciones nuevas** o repiten las de las dominantes.
+
+::: {.callout-tip collapse="true"}
+## Respuestas sugeridas
+
+1. **B2 funcional** (`iNEXTbeta3D(diversity = "FD")`) entre las dos ciénagas, junto a la TD: una beta TD alta con beta FD baja indicaría reemplazo funcional (las funciones se recuperaron con otras especies).
+2. **B1 filogenético** (`estimate3D(diversity = "PD", base = "coverage")`): corrige el esfuerzo. Con 6 sitios conviene revisar que ninguno tenga muy pocas especies.
+3. **A2** con números equivalentes (`Rao(..., Jost = TRUE)`): la beta proporcional de FD.
+4. **B1 funcional comparando q = 0 y q = 2** (o la razón FD/TD en cada q): si FD crece mucho al pasar de q = 2 a q = 0, las raras aportan funciones nuevas; si casi no crece, las repiten.
+:::
+
+## 6.2 Redacciones: recomendada frente a evitar
+
+| Redacción recomendada | Redacción que se debe evitar |
+|---|---|
+| «La desembocadura reúne más especies, linajes y grupos funcionales efectivos que la montaña, pero su ventaja es mucho menor en FD (2,2 veces) que en TD (5,4 veces).» | «La desembocadura es la zona más diversa.» |
+| «Montaña y desembocadura no comparten especies, pero con q = 0 comparten buena parte de sus funciones: hay reemplazo funcional.» | «Las tres dimensiones muestran lo mismo.» |
+| «La redundancia funcional es alta, aunque está inflada por rasgos con valores de relleno; sin ellos baja de 0,77 a 0,47 en la desembocadura.» | «La desembocadura es poco redundante y por eso es frágil.» |
+| «La beta se comparó a una cobertura común de 0,996, con 20 réplicas bootstrap.» | Reportar betas sin indicar la cobertura ni el método. |
+
+------------------------------------------------------------------------
+
+# Lecturas de referencia {.unnumbered}
+
+::: {#refs}
+:::

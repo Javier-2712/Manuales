@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Taller 3. Taller 4. Integración TD + FD + PD – Repositorio de Talleres de Diversidad Multidimensional - 2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Taller3_Diversidad_Filogenetica.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ea061be198c2aecd6f2dfc699520ccf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Taller4_Integracion_TD_FD_PD.html">Taller 3. Taller 4. Integración TD + FD + PD</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Repositorio de Talleres de Diversidad Multidimensional - 2026</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Videos_clases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Videos y presentaciones de las clases</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Pautas_estudio_caso1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Pautas del estudio de caso</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller1_bases_datos_diversidad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller1. Organización de matrices</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller2_Diversidad_Funcional1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 2. Diversidad funcional: bloques A1, A2, B1 y B2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller3_Diversidad_Filogenetica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Taller4_Integracion_TD_FD_PD.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Taller 3. Taller 4. Integración TD + FD + PD</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#materiales-requeridos-para-el-taller-en-clase" id="toc-materiales-requeridos-para-el-taller-en-clase" class="nav-link active" data-scroll-target="#materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</a>
+  <ul>
+  <li><a href="#diapositivas-en-vivo---slides.com" id="toc-diapositivas-en-vivo---slides.com" class="nav-link" data-scroll-target="#diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</a></li>
+  </ul></li>
+  <li><a href="#para-tener-en-cuenta" id="toc-para-tener-en-cuenta" class="nav-link" data-scroll-target="#para-tener-en-cuenta">Para tener en cuenta</a>
+  <ul>
+  <li><a href="#mapa-conceptual" id="toc-mapa-conceptual" class="nav-link" data-scroll-target="#mapa-conceptual">Mapa conceptual</a></li>
+  </ul></li>
+  <li><a href="#los-tres-insumos-alineados" id="toc-los-tres-insumos-alineados" class="nav-link" data-scroll-target="#los-tres-insumos-alineados">1. Los tres insumos, alineados</a></li>
+  <li><a href="#partición-de-rao-para-td-fd-y-pd-a-la-vez-a2" id="toc-partición-de-rao-para-td-fd-y-pd-a-la-vez-a2" class="nav-link" data-scroll-target="#partición-de-rao-para-td-fd-y-pd-a-la-vez-a2">2. Partición de Rao para TD, FD y PD a la vez (A2)</a></li>
+  <li><a href="#redundancia-y-originalidad-cuánta-diversidad-de-especies-es-nueva" id="toc-redundancia-y-originalidad-cuánta-diversidad-de-especies-es-nueva" class="nav-link" data-scroll-target="#redundancia-y-originalidad-cuánta-diversidad-de-especies-es-nueva">3. Redundancia y originalidad: cuánta diversidad de especies es “nueva”</a></li>
+  <li><a href="#las-tres-dimensiones-en-números-de-hill-a-la-misma-cobertura-b1-b2" id="toc-las-tres-dimensiones-en-números-de-hill-a-la-misma-cobertura-b1-b2" class="nav-link" data-scroll-target="#las-tres-dimensiones-en-números-de-hill-a-la-misma-cobertura-b1-b2">4. Las tres dimensiones en números de Hill, a la misma cobertura (B1 + B2)</a>
+  <ul>
+  <li><a href="#alfa-las-tres-dimensiones-a-cobertura-común" id="toc-alfa-las-tres-dimensiones-a-cobertura-común" class="nav-link" data-scroll-target="#alfa-las-tres-dimensiones-a-cobertura-común">4.1 Alfa: las tres dimensiones a cobertura común</a></li>
+  <li><a href="#beta-las-tres-dimensiones-en-la-misma-escala" id="toc-beta-las-tres-dimensiones-en-la-misma-escala" class="nav-link" data-scroll-target="#beta-las-tres-dimensiones-en-la-misma-escala">4.2 Beta: las tres dimensiones en la misma escala</a></li>
+  </ul></li>
+  <li><a href="#matriz-de-coincidencias-y-divergencias" id="toc-matriz-de-coincidencias-y-divergencias" class="nav-link" data-scroll-target="#matriz-de-coincidencias-y-divergencias">5. Matriz de coincidencias y divergencias</a></li>
+  <li><a href="#lectura-crítica-cinco-interpretaciones-con-errores" id="toc-lectura-crítica-cinco-interpretaciones-con-errores" class="nav-link" data-scroll-target="#lectura-crítica-cinco-interpretaciones-con-errores">6. Lectura crítica: cinco interpretaciones con errores</a></li>
+  <li><a href="#del-caso-guiado-al-estudio-de-caso-6.2-semana-14" id="toc-del-caso-guiado-al-estudio-de-caso-6.2-semana-14" class="nav-link" data-scroll-target="#del-caso-guiado-al-estudio-de-caso-6.2-semana-14">7. Del caso guiado al estudio de caso (6.2, semana 14)</a></li>
+  <li><a href="#ejercicios-de-práctica-dirigida-individual" id="toc-ejercicios-de-práctica-dirigida-individual" class="nav-link" data-scroll-target="#ejercicios-de-práctica-dirigida-individual">Ejercicios de práctica dirigida (individual)</a>
+  <ul>
+  <li><a href="#ejercicio-1-partición-de-rao-con-ponderación-a2" id="toc-ejercicio-1-partición-de-rao-con-ponderación-a2" class="nav-link" data-scroll-target="#ejercicio-1-partición-de-rao-con-ponderación-a2">Ejercicio 1 — Partición de Rao con ponderación (A2)</a></li>
+  <li><a href="#ejercicio-2-las-diferencias-son-reales-b1-b2" id="toc-ejercicio-2-las-diferencias-son-reales-b1-b2" class="nav-link" data-scroll-target="#ejercicio-2-las-diferencias-son-reales-b1-b2">Ejercicio 2 — ¿Las diferencias son reales? (B1 + B2)</a></li>
+  </ul></li>
+  <li><a href="#sec-apoyo" id="toc-sec-apoyo" class="nav-link" data-scroll-target="#sec-apoyo">Material de apoyo y cuestionario</a></li>
+  <li><a href="#lecturas-de-referencia" id="toc-lecturas-de-referencia" class="nav-link" data-scroll-target="#lecturas-de-referencia">Lecturas de referencia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 3. Taller 4. Integración TD + FD + PD</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_taller4.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los datos del caso guiado provienen de <span class="citation" data-cites="ruiz2021diversity">Ruiz-Campos et al. (<a href="Pautas_estudio_caso1.html#ref-ruiz2021diversity" role="doc-biblioref">2021</a>)</span>. Como en los talleres anteriores, son el <strong>modelo metodológico</strong>: lo que importa aquí es el flujo de trabajo, que en la semana 14 se aplica a los datos reales de cada grupo (asignación 6.2).</p>
+<hr>
+<section id="materiales-requeridos-para-el-taller-en-clase" class="level2 titulo-seccion">
+<h2 class="titulo-seccion anchored" data-anchor-id="materiales-requeridos-para-el-taller-en-clase">Materiales requeridos para el taller en clase</h2>
+<p>En el siguiente enlace se puede descargar el archivo comprimido del taller de integración TD + FD + PD, con el mismo caso guiado de peces de México de los talleres anteriores (📰 Taller4_Integracion_PD_FD_PD).</p>
+<div class="material-apoyo">
+<ul>
+<li><i class="bi bi-file-earmark-zip"></i> <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/talleres/Taller4_integracion.zip">Taller4_Integracion_PD_FD_PD</a><br>
+</li>
+</ul>
+</div>
+<p><strong>Nota:</strong> una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos.</p>
+<section id="diapositivas-en-vivo---slides.com" class="level3">
+<h3 class="anchored" data-anchor-id="diapositivas-en-vivo---slides.com">Diapositivas en vivo - Slides.com</h3>
+<p><img src="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/figuras/slides.com.jpg" class="img-fluid" width="110"> *Pendiente de cargar el taller</p>
+<div class="material-apoyo">
+<ul>
+<li><i class="bi bi-easel"></i> <a href="https://slides.com/d/z4umHdM/live">Diapositivas del Taller4_Integracion_PD_FD_PD</a></li>
+</ul>
+</div>
+<p>Los temas de profundización y el cuestionario de refuerzo, están en la <a href="#sec-apoyo">guía complementaria</a> y el <a href="#sec-apoyo">Cuestionario de profundización</a> al final del taller.</p>
+<hr>
+</section>
+</section>
+<section id="para-tener-en-cuenta" class="level1 unnumbered">
+<h1 class="unnumbered">Para tener en cuenta</h1>
+<ul>
+<li><strong>Semana 13 · Asignación 5.5 (taller en clase, individual, 10 pts).</strong> Cierra la Unidad IV y abre la Unidad V.</li>
+<li><strong>Resultados de aprendizaje:</strong>
+<ul>
+<li><strong>RA1:</strong> calcular e interpretar TD, FD y PD (alfa y beta) con índices clásicos y números de Hill.</li>
+<li><strong>RA2:</strong> diseñar un flujo reproducible que integre abundancias, rasgos y árbol, y comunicar los resultados con criterio ecológico.</li>
+</ul></li>
+<li><strong>Pregunta de la sesión</strong> (microdiseño, semana 13): <em>¿cuándo coinciden y cuándo divergen las tres dimensiones?</em>, con la partición aditiva de Rao para las tres dimensiones a la vez y una <strong>lectura crítica</strong> de los resultados.</li>
+<li><strong>Requisito:</strong> haber terminado los Talleres 2 (FD) y 3 (PD). En la misma carpeta de este <code>.qmd</code> deben estar <code>datos.xlsx</code>, <code>arbol_filo_beta.rds</code>, <code>Rao.R</code>, <code>alineador.R</code>, <code>preparar_taller3.R</code>, <code>styles.css</code>, <code>apa.csl</code>, <code>biblio_taller4.bib</code> y la carpeta <code>fig_portada/</code> (archivo comprimido del taller, compartido en el aula virtual).</li>
+<li>Los temas que no caben en la sesión (escala de sitio y gradiente altitudinal, intervalos de confianza, sensibilidad a los rasgos) están en la <a href="#sec-apoyo">guía complementaria y el cuestionario de entrenamiento</a> al final del taller.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Qué se entrega en la plataforma campus.virtual
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El <code>.qmd</code> de esta sesión y su versión renderizada (HTML o PDF), hasta las 23:59 del mismo día. Las secciones 2, 3 y 4 tienen un recuadro <strong>✍️ Tu interpretación</strong>: escriba allí, con sus palabras, lo que significa el resultado. La rúbrica de los talleres en clase pide <strong>todos los bloques ejecutados y al menos un comentario propio de interpretación</strong>.</p>
+<p>Mientras se avanza en el taller, el docente realiza la sustentación oral individual del <strong>Cuestionario 8 (PD)</strong> (≈3 min por estudiante).</p>
+</div>
+</div>
+<section id="mapa-conceptual" class="level2">
+<h2 class="anchored" data-anchor-id="mapa-conceptual">Mapa conceptual</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Coincidir no es “dar el mismo número”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TD, FD y PD <strong>no están en la misma escala</strong>: un número de especies, uno de grupos funcionales y uno de linajes no se restan entre sí. Por eso, en este taller “coincidir” y “divergir” se leen en dos planos:</p>
+<ol type="1">
+<li><strong>Patrón (orden):</strong> ¿las tres dimensiones ordenan igual a las zonas (alfa) o a los pares de zonas (beta)?</li>
+<li><strong>Magnitud relativa:</strong> ¿cuánta de la diversidad de especies se traduce en diversidad funcional o filogenética? (redundancia y originalidad).</li>
+</ol>
+<p>Cuando el orden coincide pero la magnitud diverge, la diferencia entre dimensiones <strong>es</strong> el resultado ecológico <span class="citation" data-cites="devictor2010spatial">(<a href="Pautas_estudio_caso1.html#ref-devictor2010spatial" role="doc-biblioref"><strong>devictor2010spatial?</strong></a>)</span>.</p>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Si TD…</th>
+<th>…y FD…</th>
+<th>…y PD…</th>
+<th>Lectura ecológica posible</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>alta</td>
+<td>baja</td>
+<td>baja</td>
+<td>Muchas especies emparentadas y con roles parecidos: <strong>redundancia</strong></td>
+</tr>
+<tr class="even">
+<td>alta</td>
+<td>baja</td>
+<td>alta</td>
+<td>Linajes distintos que cumplen funciones parecidas: <strong>convergencia funcional</strong></td>
+</tr>
+<tr class="odd">
+<td>media</td>
+<td>alta</td>
+<td>baja</td>
+<td>Parientes cercanos con rasgos muy distintos: <strong>divergencia de rasgos</strong> dentro de linajes</td>
+</tr>
+<tr class="even">
+<td>β alta</td>
+<td>β baja</td>
+<td>—</td>
+<td>Cambian las especies pero se mantienen los roles: <strong>reemplazo funcional</strong></td>
+</tr>
+<tr class="odd">
+<td>β alta</td>
+<td>β alta</td>
+<td>β alta</td>
+<td>Cambian especies, funciones y linajes: <strong>recambio completo</strong> del ensamblaje</td>
+</tr>
+</tbody>
+</table>
+<p>Ninguna fila es una prueba: son <strong>hipótesis</strong> que hay que contrastar con la biología del grupo, con la calidad de los rasgos y con el tipo de árbol <span class="citation" data-cites="cavender2009merging">(<a href="Pautas_estudio_caso1.html#ref-cavender2009merging" role="doc-biblioref">Cavender-Bares et al., 2009</a>)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="los-tres-insumos-alineados" class="level1">
+<h1>1. Los tres insumos, alineados</h1>
+<p>TD necesita la matriz de abundancias; FD, además, la distancia funcional; PD, el árbol. Los tres ya se construyeron en los Talleres 2 y 3, así que se reconstruyen en un solo paso con <code>preparar_taller3.R</code> (es el mismo código, sin explicaciones).</p>
+<p>Primero, un chequeo de que todos los archivos están en la carpeta del <code>.qmd</code>. Si falta alguno, el render se detiene aquí con un mensaje que dice cuál.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Archivos que el taller necesita en la MISMA carpeta del .qmd</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>necesarios <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"datos.xlsx"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"arbol_filo_beta.rds"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Rao.R"</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"alineador.R"</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"preparar_taller3.R"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"biblio_taller4.bib"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">"apa.csl"</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">"styles.css"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>faltan <span class="ot">&lt;-</span> necesarios[<span class="sc">!</span><span class="fu">file.exists</span>(necesarios)]   <span class="co"># Los que no encuentra en la carpeta de trabajo</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(faltan) <span class="sc">&gt;</span> <span class="dv">0</span>) {                         <span class="co"># Si falta alguno, se detiene con un mensaje claro</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"Faltan en la carpeta del .qmd: "</span>, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       <span class="fu">paste</span>(faltan, <span class="at">collapse =</span> <span class="st">", "</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="st">"</span><span class="sc">\n</span><span class="st">Carpeta en la que está buscando R: "</span>, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       <span class="fu">getwd</span>(), <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)      <span class="co"># dplyr, tidyr, ggplot2, purrr</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)         <span class="co"># Lectura de .xlsx</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)     <span class="co"># Tablas con formato</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT<span class="fl">.3</span>D)       <span class="co"># estimate3D(), DataInfo3D(): Hill alfa (B1)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(iNEXT.beta3D)   <span class="co"># iNEXTbeta3D(): Hill beta (B2)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"preparar_taller3.R"</span>)   <span class="co"># Reconstruye biol1, zonas, rasgos.d, arbol_filo, phylo.d, biol_zona, zonas_id, cols_zona</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Rao.R"</span>)                <span class="co"># Carga Rao(): partición de Rao para TD, FD y PD</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"alineador.R"</span>)          <span class="co"># Carga alinear_beta(): pares de zonas alineados con el árbol (B2 de PD)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Formato común de tablas: coma decimal y encabezado azul</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"formato.R"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Antes de integrar, la regla de oro: <strong>las tres fuentes deben hablar de las mismas especies, en el mismo orden</strong>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chequeo <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Insumo   =</span> <span class="fu">c</span>(<span class="st">"Abundancias (biol1)"</span>, <span class="st">"Distancia funcional (rasgos.d)"</span>, <span class="st">"Árbol (arbol_filo)"</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Especies =</span> <span class="fu">c</span>(<span class="fu">ncol</span>(biol1),                    <span class="co"># Columnas de la matriz = especies</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">attr</span>(rasgos.d, <span class="st">"Size"</span>),         <span class="co"># Tamaño de la matriz de distancias</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">Ntip</span>(arbol_filo)),              <span class="co"># Puntas del árbol</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ¿Las mismas especies, sin importar el orden?</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Mismo conjunto que biol1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">setequal</span>(<span class="fu">labels</span>(rasgos.d), </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">colnames</span>(biol1)),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">setequal</span>(arbol_filo<span class="sc">$</span>tip.label, </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">colnames</span>(biol1))),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ¿Y en el mismo orden? Rao() empareja por posición, no por nombre</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Mismo orden que biol1</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">identical</span>(<span class="fu">labels</span>(rasgos.d), </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">colnames</span>(biol1)),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">identical</span>(<span class="fu">labels</span>(phylo.d), </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">colnames</span>(biol1)))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">tabla</span>(chequeo, <span class="st">"Chequeo de alineación de los tres insumos"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Chequeo de alineación de los tres insumos</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Insumo</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Especies</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Mismo conjunto que biol1</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Mismo orden que biol1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Abundancias (biol1)</td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Distancia funcional (rasgos.d)</td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Árbol (arbol_filo)</td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">TRUE</td>
+<td style="text-align: center;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(chequeo<span class="sc">$</span><span class="st">`</span><span class="at">Mismo conjunto que biol1</span><span class="st">`</span>),   <span class="co"># Chequeo duro: si algo falla, el render se detiene</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>          <span class="fu">all</span>(chequeo<span class="sc">$</span><span class="st">`</span><span class="at">Mismo orden que biol1</span><span class="st">`</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Por qué el árbol se compara a través de <code>phylo.d</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El árbol no tiene “orden” de especies como una matriz; lo que entra a <code>Rao()</code> es su distancia cofenética (<code>phylo.d</code>), que sí debe seguir el orden de <code>biol1</code>. Para los números de Hill, en cambio, <code>iNEXT.3D</code> recibe el árbol completo y busca las especies por nombre.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="partición-de-rao-para-td-fd-y-pd-a-la-vez-a2" class="level1">
+<h1>2. Partición de Rao para TD, FD y PD a la vez (A2)</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_rao.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>Rao()</code> recibe la distancia funcional (<code>dfunc</code>) y la filogenética (<code>dphyl</code>) y devuelve <strong>las tres dimensiones en una sola llamada</strong> <span class="citation" data-cites="de2010partitioning">(<a href="Pautas_estudio_caso1.html#ref-de2010partitioning" role="doc-biblioref">De Bello et al., 2010</a>)</span>. Para TD usa una distancia de identidad (1 entre especies distintas, 0 consigo misma).</p>
+<p>Se ejecuta dos veces: con la entropía de Rao tal cual (<code>Jost = FALSE</code>, como en los Talleres 2 y 3) y en <strong>números equivalentes</strong> (<code>Jost = TRUE</code>), que transforma cada valor <em>Q</em> en <span class="math inline">\(1/(1-Q)\)</span> <span class="citation" data-cites="jost2007partitioning">(<a href="Pautas_estudio_caso1.html#ref-jost2007partitioning" role="doc-biblioref"><strong>jost2007partitioning?</strong></a>)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Misma función, mismos datos; solo cambia la escala de salida</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rao_Q    <span class="ot">&lt;-</span> <span class="fu">Rao</span>(biol_zona,            <span class="co"># Especies (filas) x zonas (columnas)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">dfunc  =</span> rasgos.d,    <span class="co"># Distancia funcional (Gower) -&gt; FD</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">dphyl  =</span> phylo.d,     <span class="co"># Distancia filogenética (cofenética en [0, 1]) -&gt; PD</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">weight =</span> <span class="cn">FALSE</span>,       <span class="co"># Cada zona pesa igual (definición original de Rao)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">Jost   =</span> <span class="cn">FALSE</span>)       <span class="co"># Resultado en Q de Rao (entre 0 y 1)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>rao_jost <span class="ot">&lt;-</span> <span class="fu">Rao</span>(biol_zona, <span class="at">dfunc =</span> rasgos.d, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">dphyl =</span> phylo.d,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">weight =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">Jost   =</span> <span class="cn">TRUE</span>)        <span class="co"># Resultado en números equivalentes: 1 / (1 - Q)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Función que resume la partición de un objeto Rao() en una tabla</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>particion <span class="ot">&lt;-</span> <span class="cf">function</span>(r, escala) {</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(<span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>), <span class="cf">function</span>(d) <span class="fu">tibble</span>(   <span class="co"># Una fila por dimensión</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Escala           =</span> escala,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Dimension        =</span> d,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Alfa media</span><span class="st">`</span>     <span class="ot">=</span> r[[d]]<span class="sc">$</span>Mean_Alpha,              <span class="co"># Diversidad promedio dentro de las zonas</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gamma            =</span> r[[d]]<span class="sc">$</span>Gamma,                   <span class="co"># Diversidad de la región (las tres zonas juntas)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Beta aditiva</span><span class="st">`</span>   <span class="ot">=</span> r[[d]]<span class="sc">$</span>Beta_add,                <span class="co"># Gamma - alfa media</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Beta prop. (%)</span><span class="st">`</span> <span class="ot">=</span> r[[d]]<span class="sc">$</span>Beta_prop,               <span class="co"># 100 x beta / gamma: % de gamma que se debe a diferencias entre zonas</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Beta mult.</span><span class="st">`</span>     <span class="ot">=</span> r[[d]]<span class="sc">$</span>Gamma <span class="sc">/</span> r[[d]]<span class="sc">$</span>Mean_Alpha  <span class="co"># Gamma / alfa media</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>part_rao <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">particion</span>(rao_Q, <span class="st">"Q de Rao"</span>),               <span class="co"># Las dos escalas en una tabla</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">particion</span>(rao_jost, <span class="st">"Números equivalentes"</span>))</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>part_rao <span class="sc">%&gt;%</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="st">"Partición alfa-beta-gamma de Rao entre las tres zonas, para TD, FD y PD"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="at">index =</span> <span class="fu">table</span>(<span class="fu">fct_inorder</span>(part_rao<span class="sc">$</span>Escala))) <span class="sc">%&gt;%</span>      <span class="co"># Agrupa las filas por escala</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#FDF3E7"</span>)              <span class="co"># Resalta la beta proporcional</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Partición alfa-beta-gamma de Rao entre las tres zonas, para TD, FD y PD</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Escala</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Dimension</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Alfa media</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Gamma</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta aditiva</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta prop. (%)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Beta mult.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid"><strong>Q de Rao</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Q de Rao</td>
+<td style="text-align: center;">TD</td>
+<td style="text-align: center;">0,872</td>
+<td style="text-align: center;">0,931</td>
+<td style="text-align: center;">0,059</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">6,304</td>
+<td style="text-align: center;">1,067</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Q de Rao</td>
+<td style="text-align: center;">FD</td>
+<td style="text-align: center;">0,152</td>
+<td style="text-align: center;">0,175</td>
+<td style="text-align: center;">0,023</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">13,106</td>
+<td style="text-align: center;">1,151</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Q de Rao</td>
+<td style="text-align: center;">PD</td>
+<td style="text-align: center;">0,520</td>
+<td style="text-align: center;">0,573</td>
+<td style="text-align: center;">0,053</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">9,247</td>
+<td style="text-align: center;">1,102</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid"><strong>Números equivalentes</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Números equivalentes</td>
+<td style="text-align: center;">TD</td>
+<td style="text-align: center;">7,843</td>
+<td style="text-align: center;">14,535</td>
+<td style="text-align: center;">6,692</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">46,039</td>
+<td style="text-align: center;">1,853</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Números equivalentes</td>
+<td style="text-align: center;">FD</td>
+<td style="text-align: center;">1,179</td>
+<td style="text-align: center;">1,212</td>
+<td style="text-align: center;">0,033</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">2,705</td>
+<td style="text-align: center;">1,028</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">Números equivalentes</td>
+<td style="text-align: center;">PD</td>
+<td style="text-align: center;">2,083</td>
+<td style="text-align: center;">2,341</td>
+<td style="text-align: center;">0,258</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 243, 231, 255) !important;">11,033</td>
+<td style="text-align: center;">1,124</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>part_rao <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Dimension =</span> <span class="fu">factor</span>(Dimension, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>)),     <span class="co"># Orden fijo de las barras</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Escala =</span> <span class="fu">factor</span>(Escala, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Q de Rao"</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"Números equivalentes"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Dimension, <span class="st">`</span><span class="at">Beta prop. (%)</span><span class="st">`</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> Dimension)) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.6</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">dec</span>(<span class="st">`</span><span class="at">Beta prop. (%)</span><span class="st">`</span>, <span class="dv">1</span>)), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">3.6</span>) <span class="sc">+</span>                       <span class="co"># Valor sobre cada barra</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Escala, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span>                   <span class="co"># Un panel por escala</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cols_dim) <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> coma, </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>))) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Beta proporcional (%)"</span>) <span class="sc">+</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-trampa-escala" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trampa-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller4_Integracion_TD_FD_PD_files/figure-html/fig-trampa-escala-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trampa-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Beta proporcional de Rao (porcentaje de la diversidad regional que se debe a diferencias entre zonas) en cada dimensión, con Q sin transformar y en números equivalentes.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>La trampa de la escala: el orden se invierte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con <em>Q</em> sin transformar, la beta proporcional parece <strong>mayor en FD que en PD, y mayor en PD que en TD</strong>. En números equivalentes el orden se invierte: <strong>TD &gt; PD &gt; FD</strong>. ¿Cuál creer?</p>
+<ul>
+<li>La <em>Q</em> de TD es el índice de Gini-Simpson, que se <strong>satura cerca de 1</strong> cuando hay muchas especies (aquí, la alfa media ya vale 0,87). Si la alfa está pegada al techo, a la beta no le queda espacio: la beta proporcional de TD queda <strong>comprimida artificialmente</strong>. Es el problema que <span class="citation" data-cites="jost2007partitioning">(<a href="Pautas_estudio_caso1.html#ref-jost2007partitioning" role="doc-biblioref"><strong>jost2007partitioning?</strong></a>)</span> mostró para Gini-Simpson y Shannon, y por el que <span class="citation" data-cites="de2010partitioning">De Bello et al. (<a href="Pautas_estudio_caso1.html#ref-de2010partitioning" role="doc-biblioref">2010</a>)</span> recomiendan los números equivalentes para comparar dimensiones.</li>
+<li>En la sección 4 se comprueba con los números de Hill a cobertura común, que ponen la beta de las tres dimensiones en <strong>la misma escala (1 a 2 para dos zonas)</strong>.</li>
+</ul>
+<p><strong>Regla:</strong> la partición de Rao sin transformar sirve para comparar zonas <strong>dentro</strong> de una misma dimensión; para comparar <strong>entre</strong> dimensiones hay que pasar a números equivalentes o de Hill.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Revisando una lectura del Taller 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el Taller 3 (A2) se leyó que, entre <code>M</code> y <code>RM</code>, “la diferencia es mayor en FD y PD que en TD”. Esa lectura comparaba <em>Q</em> sin transformar <strong>entre</strong> dimensiones, justo lo que la regla anterior desaconseja. La conclusión que sí se sostiene es la de <strong>dentro</strong> de cada dimensión: en las tres, <code>M_vs_RM</code> es el par más diferenciado y <code>M_vs_P</code> el menos. Revisar las propias conclusiones con un método más adecuado es parte del trabajo científico, no un error del que avergonzarse.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>✍️ Tu interpretación (sección 2)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En dos o tres frases: ¿por qué la beta taxonómica “se ve” pequeña con <em>Q</em> de Rao? ¿Qué decisión tomaría en el estudio de caso para comparar las tres dimensiones?</p>
+<p><em>Escriba aquí…</em></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="redundancia-y-originalidad-cuánta-diversidad-de-especies-es-nueva" class="level1">
+<h1>3. Redundancia y originalidad: cuánta diversidad de especies es “nueva”</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_redundancia.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Como todas las distancias están entre 0 y 1, <strong>la <em>Q</em> funcional o filogenética nunca puede superar a la taxonómica</strong>. Que TD sea mayor que FD no es un hallazgo; es matemática. Lo informativo es <strong>cuánto menor</strong> es. <span class="citation" data-cites="ricotta2016functionalredundancy">Ricotta et al. (<a href="Pautas_estudio_caso1.html#ref-ricotta2016functionalredundancy" role="doc-biblioref">2016</a>)</span> lo expresan como:</p>
+<p><span class="math display">\[U = \frac{Q_{\text{FD}}}{Q_{\text{TD}}} \qquad\qquad R = 1 - U\]</span></p>
+<p>donde <em>U</em> (originalidad, <em>uniqueness</em>) es la fracción de la diferencia entre especies que también es una diferencia funcional, y <em>R</em> es la <strong>redundancia</strong>. Con la distancia filogenética se obtiene lo mismo para PD.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>redundancia <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Zona =</span> <span class="fu">c</span>(zonas_id, <span class="st">"Región (gamma)"</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Q_TD =</span> <span class="fu">c</span>(rao_Q<span class="sc">$</span>TD<span class="sc">$</span>Alpha, rao_Q<span class="sc">$</span>TD<span class="sc">$</span>Gamma),   <span class="co"># Gini-Simpson por zona y de la región</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Q_FD =</span> <span class="fu">c</span>(rao_Q<span class="sc">$</span>FD<span class="sc">$</span>Alpha, rao_Q<span class="sc">$</span>FD<span class="sc">$</span>Gamma),   <span class="co"># Rao funcional</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Q_PD =</span> <span class="fu">c</span>(rao_Q<span class="sc">$</span>PD<span class="sc">$</span>Alpha, rao_Q<span class="sc">$</span>PD<span class="sc">$</span>Gamma)    <span class="co"># Rao filogenético</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">U_FD =</span> Q_FD <span class="sc">/</span> Q_TD, <span class="at">R_FD =</span> <span class="dv">1</span> <span class="sc">-</span> U_FD,     <span class="co"># Originalidad y redundancia funcional</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">U_PD =</span> Q_PD <span class="sc">/</span> Q_TD, <span class="at">R_PD =</span> <span class="dv">1</span> <span class="sc">-</span> U_PD)     <span class="co"># Originalidad y redundancia filogenética</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tabla</span>(redundancia, <span class="st">"Originalidad (U) y redundancia (R) funcional y filogenética, a partir de la Q de Rao"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>), <span class="at">bold =</span> <span class="cn">TRUE</span>)               <span class="co"># Resalta las dos columnas de redundancia</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Originalidad (U) y redundancia (R) funcional y filogenética, a partir de la Q de Rao</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Zona</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Q_TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Q_FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Q_PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">U_FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">R_FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">U_PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">R_PD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">0,788</td>
+<td style="text-align: center;">0,083</td>
+<td style="text-align: center;">0,450</td>
+<td style="text-align: center;">0,106</td>
+<td style="text-align: center; font-weight: bold;">0,894</td>
+<td style="text-align: center;">0,571</td>
+<td style="text-align: center; font-weight: bold;">0,429</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">0,894</td>
+<td style="text-align: center;">0,154</td>
+<td style="text-align: center;">0,489</td>
+<td style="text-align: center;">0,172</td>
+<td style="text-align: center; font-weight: bold;">0,828</td>
+<td style="text-align: center;">0,547</td>
+<td style="text-align: center; font-weight: bold;">0,453</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">RM</td>
+<td style="text-align: center;">0,935</td>
+<td style="text-align: center;">0,219</td>
+<td style="text-align: center;">0,620</td>
+<td style="text-align: center;">0,234</td>
+<td style="text-align: center; font-weight: bold;">0,766</td>
+<td style="text-align: center;">0,663</td>
+<td style="text-align: center; font-weight: bold;">0,337</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Región (gamma)</td>
+<td style="text-align: center;">0,931</td>
+<td style="text-align: center;">0,175</td>
+<td style="text-align: center;">0,573</td>
+<td style="text-align: center;">0,188</td>
+<td style="text-align: center; font-weight: bold;">0,812</td>
+<td style="text-align: center;">0,615</td>
+<td style="text-align: center; font-weight: bold;">0,385</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Qué dice la tabla
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>La redundancia <strong>funcional</strong> es muy alta en las tres zonas (<em>R</em> entre 0,77 y 0,89): muchas especies comparten nivel trófico y hábitos de dieta. Recordar que en este caso guiado tres rasgos morfológicos tienen valores de relleno (Taller 2), lo cual <strong>infla la redundancia</strong> (la guía complementaria lo cuantifica).</li>
+<li>La redundancia <strong>filogenética</strong> es mucho menor: dos especies tomadas al azar suelen pertenecer a linajes bastante distintos aunque cumplan funciones parecidas.</li>
+<li><code>M</code> es la zona más redundante en FD: pocas estrategias tróficas sostienen a casi todos sus individuos. <code>RM</code> es la menos redundante en las dos dimensiones.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>✍️ Tu interpretación (sección 3)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si en una ciénaga del Magdalena se perdieran las especies más abundantes de un grupo muy redundante, ¿qué esperaría que pasara con su función? ¿Y si el grupo fuera poco redundante?</p>
+<p><em>Escriba aquí…</em></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="las-tres-dimensiones-en-números-de-hill-a-la-misma-cobertura-b1-b2" class="level1">
+<h1>4. Las tres dimensiones en números de Hill, a la misma cobertura (B1 + B2)</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_hill.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Rao no corrige el esfuerzo de muestreo (<code>M</code> tiene 24 sitios, <code>P</code> 16 y <code>RM</code> solo 2). Los números de Hill de <code>iNEXT.3D</code> y <code>iNEXT.beta3D</code> sí lo hacen, y además expresan las tres dimensiones como <strong>números efectivos</strong> (de especies, de grupos funcionales y de linajes) a la <strong>misma cobertura</strong> <span class="citation" data-cites="chao2021measuring chao2023rarefaction">(<a href="Pautas_estudio_caso1.html#ref-chao2021measuring" role="doc-biblioref">Chao et al., 2021</a>; <a href="Pautas_estudio_caso1.html#ref-chao2023rarefaction" role="doc-biblioref"><span class="nocase">Chao et al.</span>, 2023</a>)</span>.</p>
+<p>En lugar de repetir seis llamadas casi iguales, se escribe <strong>una función</strong> que hace todo el flujo. Es la misma lógica de los Talleres 2 y 3, empaquetada para reutilizarla en el estudio de caso.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># integrar_3d(): TD, FD y PD alfa y beta (números de Hill) a una cobertura común</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   abund     : data.frame especies (filas) x unidades (columnas), con nombres de especie en rownames</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   dist_func : objeto 'dist' con la distancia funcional entre las mismas especies</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   arbol     : objeto 'phylo' cuyas puntas son las mismas especies</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   q, nboot  : órdenes de Hill y réplicas bootstrap (0 en clase; &gt;= 50 para el informe)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   cut       : número de umbrales de distancia para la FD (AUC), como en el Taller 2</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>integrar_3d <span class="ot">&lt;-</span> <span class="cf">function</span>(abund, dist_func, arbol, <span class="at">q =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">nboot =</span> <span class="dv">0</span>, <span class="at">cut =</span> <span class="dv">15</span>) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 0. Chequeos duros: mismas especies en las tres fuentes</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">setequal</span>(<span class="fu">rownames</span>(abund), </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">labels</span>(dist_func)),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">setequal</span>(<span class="fu">rownames</span>(abund), </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                     arbol<span class="sc">$</span>tip.label))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  dmat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist_func)[<span class="fu">rownames</span>(abund), </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">rownames</span>(abund)]   <span class="co"># Distancia en el orden de abund</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. ALFA (B1). Cobertura común = la menor cobertura observada entre las unidades</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  info  <span class="ot">&lt;-</span> <span class="fu">DataInfo3D</span>(abund, <span class="at">diversity =</span> <span class="st">"TD"</span>, <span class="at">datatype =</span> <span class="st">"abundance"</span>)   <span class="co"># n, S.obs y SC(n) por unidad</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  c_alf <span class="ot">&lt;-</span> <span class="fu">min</span>(info<span class="sc">$</span><span class="st">`</span><span class="at">SC(n)</span><span class="st">`</span>)                                             <span class="co"># La unidad menos completa fija el nivel</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  alfa <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">estimate3D</span>(abund, <span class="at">diversity =</span> <span class="st">"TD"</span>, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">q =</span> q, <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>               <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">level =</span> c_alf, </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">nboot =</span> nboot) <span class="sc">%&gt;%</span>            <span class="co"># Especies efectivas</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">transmute</span>(<span class="at">Unidad =</span> Assemblage, </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                Order.q, <span class="at">Dimension =</span> <span class="st">"TD"</span>, </span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">Valor =</span> qTD),</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">estimate3D</span>(abund, <span class="at">diversity =</span> <span class="st">"FD"</span>, </span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">q =</span> q, <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">level =</span> c_alf, </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">nboot =</span> nboot,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">FDdistM =</span> dmat, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>               <span class="at">FDtype =</span> <span class="st">"AUC"</span>, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>               <span class="at">FDcut_number =</span> cut) <span class="sc">%&gt;%</span>          <span class="co"># Grupos funcionales efectivos</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">transmute</span>(<span class="at">Unidad =</span> Assemblage, </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                Order.q, <span class="at">Dimension =</span> <span class="st">"FD"</span>, </span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                <span class="at">Valor =</span> qFD),</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">estimate3D</span>(abund, <span class="at">diversity =</span> <span class="st">"PD"</span>, </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>               <span class="at">q =</span> q, <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">level =</span> c_alf, </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>               <span class="at">nboot =</span> nboot,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">PDtree =</span> arbol, </span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">PDtype =</span> <span class="st">"meanPD"</span>) <span class="sc">%&gt;%</span>                           <span class="co"># Linajes efectivos</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>      <span class="fu">transmute</span>(<span class="at">Unidad =</span> Assemblage, </span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>                Order.q, </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>                <span class="at">Dimension =</span> <span class="st">"PD"</span>, </span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>                <span class="at">Valor =</span> qPD)</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. BETA (B2). Una matriz de dos columnas por cada par de unidades</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  pares <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="fu">colnames</span>(abund), </span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_names</span>(<span class="fu">map_chr</span>(., paste, </span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                      <span class="at">collapse =</span> <span class="st">"_vs_"</span>)) <span class="sc">%&gt;%</span>       <span class="co"># Nombres tipo "M_vs_P"</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">map</span>(\(p) abund[, p, <span class="at">drop =</span> <span class="cn">FALSE</span>])</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cobertura común para beta = la menor cobertura OBSERVADA entre los pares (no el 0,5 de la curva)</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  c_beta <span class="ot">&lt;-</span> <span class="fu">iNEXTbeta3D</span>(pares, </span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>                        <span class="at">diversity =</span> <span class="st">"TD"</span>, </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>                        <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>                        <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>                        <span class="at">nboot =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_dfr</span>(<span class="sc">~</span> .x<span class="sc">$</span>beta) <span class="sc">%&gt;%</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Method <span class="sc">==</span> <span class="st">"Observed_SC(n, alpha)"</span>) <span class="sc">%&gt;%</span>             <span class="co"># Fila de la cobertura observada de cada par</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SC) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">min</span>()</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>  ali <span class="ot">&lt;-</span> <span class="fu">alinear_beta</span>(pares, arbol)                           <span class="co"># Para PD: pares y árbol con las mismas especies</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(ali<span class="sc">$</span>report<span class="sc">$</span>species_kept <span class="sc">==</span> ali<span class="sc">$</span>report<span class="sc">$</span>species_union)   <span class="co"># Ninguna especie perdida al alinear</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extrae de cada par la beta (1 a 2) y la disimilitud 1-C (0 a 1)</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>  extraer <span class="ot">&lt;-</span> <span class="cf">function</span>(res, dim) <span class="fu">map_dfr</span>(<span class="fu">names</span>(res), \(p) <span class="fu">tibble</span>(</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">Par =</span> p, <span class="at">Order.q =</span> res[[p]]<span class="sc">$</span>beta<span class="sc">$</span>Order.q, <span class="at">Dimension =</span> dim,</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">Beta =</span> res[[p]]<span class="sc">$</span>beta<span class="sc">$</span>Beta,                              <span class="co"># 1 (idénticas) a 2 (nada en común)</span></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">Disimilitud =</span> res[[p]]<span class="sc">$</span><span class="st">`</span><span class="at">1-C</span><span class="st">`</span><span class="sc">$</span>Dissimilarity))            <span class="co"># 0 a 1, tipo Sørensen</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>  beta <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">iNEXTbeta3D</span>(pares, </span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                <span class="at">diversity =</span> <span class="st">"TD"</span>, </span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                <span class="at">q =</span> q, </span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>                <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>                <span class="at">level =</span> c_beta, </span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>                <span class="at">nboot =</span> nboot) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>      <span class="fu">extraer</span>(<span class="st">"TD"</span>),</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">iNEXTbeta3D</span>(pares, </span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>                <span class="at">diversity =</span> <span class="st">"FD"</span>, </span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>                <span class="at">q =</span> q, </span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>                <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>                <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>                <span class="at">level =</span> c_beta, </span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>                <span class="at">nboot =</span> nboot,</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>                <span class="at">FDdistM =</span> dmat, </span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>                <span class="at">FDtype =</span> <span class="st">"AUC"</span>, </span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>                <span class="at">FDcut_number =</span> cut) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>      <span class="fu">extraer</span>(<span class="st">"FD"</span>),</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>    <span class="fu">iNEXTbeta3D</span>(ali<span class="sc">$</span>pairs_aligned, </span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>                <span class="at">diversity =</span> <span class="st">"PD"</span>, </span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>                <span class="at">q =</span> q, </span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>                <span class="at">datatype =</span> <span class="st">"abundance"</span>,</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>                <span class="at">base =</span> <span class="st">"coverage"</span>, </span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>                <span class="at">level =</span> c_beta, </span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>                <span class="at">nboot =</span> nboot,</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                <span class="at">PDtree =</span> ali<span class="sc">$</span>tree_aligned, </span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                <span class="at">PDtype =</span> <span class="st">"meanPD"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>      <span class="fu">extraer</span>(<span class="st">"PD"</span>)</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Devuelve todo en una lista: tablas largas + coberturas usadas + reportes</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">alfa =</span> alfa, </span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>       <span class="at">beta =</span> beta, </span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>       <span class="at">cobertura_alfa =</span> c_alf, </span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>       <span class="at">cobertura_beta =</span> c_beta,</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>       <span class="at">info =</span> info, </span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>       <span class="at">reporte_arbol =</span> ali<span class="sc">$</span>report)</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>int3d <span class="ot">&lt;-</span> <span class="fu">integrar_3d</span>(biol_zona,      <span class="co"># Abundancias por zona (especies x zonas)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                     rasgos.d,       <span class="co"># Distancia de Gower del Taller 2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                     arbol_filo)     <span class="co"># Árbol armonizado del Taller 3</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Alfa =</span> int3d<span class="sc">$</span>cobertura_alfa, <span class="at">Beta =</span> int3d<span class="sc">$</span>cobertura_beta)   <span class="co"># Coberturas comunes usadas</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Alfa      Beta 
+0.9614576 0.9964068 </code></pre>
+</div>
+</div>
+<section id="alfa-las-tres-dimensiones-a-cobertura-común" class="level2">
+<h2 class="anchored" data-anchor-id="alfa-las-tres-dimensiones-a-cobertura-común">4.1 Alfa: las tres dimensiones a cobertura común</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>alfa_ancha <span class="ot">&lt;-</span> int3d<span class="sc">$</span>alfa <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Dimension, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> Valor) <span class="sc">%&gt;%</span>   <span class="co"># Una columna por dimensión</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">FD/TD</span><span class="st">`</span> <span class="ot">=</span> FD <span class="sc">/</span> TD,     <span class="co"># Fracción de las especies efectivas que son grupos funcionales efectivos</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">PD/TD</span><span class="st">`</span> <span class="ot">=</span> PD <span class="sc">/</span> TD) <span class="sc">%&gt;%</span> <span class="co"># ... y que son linajes efectivos</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Order.q, Unidad)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tabla</span>(alfa_ancha, <span class="fu">paste0</span>(<span class="st">"Diversidad alfa en números de Hill a cobertura común ("</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">dec</span>(int3d<span class="sc">$</span>cobertura_alfa, <span class="dv">4</span>), <span class="st">")"</span>), </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="at">index =</span> <span class="fu">table</span>(<span class="fu">paste</span>(<span class="st">"q ="</span>, alfa_ancha<span class="sc">$</span>Order.q)))     <span class="co"># Agrupa las filas por orden q</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Diversidad alfa en números de Hill a cobertura común (0,9615)</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Unidad</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Order.q</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FD/TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD/TD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid"><strong>q = 0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">9,75</td>
+<td style="text-align: center;">1,95</td>
+<td style="text-align: center;">3,66</td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">0,38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">16,84</td>
+<td style="text-align: center;">3,16</td>
+<td style="text-align: center;">6,12</td>
+<td style="text-align: center;">0,19</td>
+<td style="text-align: center;">0,36</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">RM</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">53,00</td>
+<td style="text-align: center;">4,30</td>
+<td style="text-align: center;">17,22</td>
+<td style="text-align: center;">0,08</td>
+<td style="text-align: center;">0,32</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid"><strong>q = 1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">5,87</td>
+<td style="text-align: center;">1,51</td>
+<td style="text-align: center;">2,24</td>
+<td style="text-align: center;">0,26</td>
+<td style="text-align: center;">0,38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">11,14</td>
+<td style="text-align: center;">1,99</td>
+<td style="text-align: center;">2,87</td>
+<td style="text-align: center;">0,18</td>
+<td style="text-align: center;">0,26</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">RM</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24,47</td>
+<td style="text-align: center;">2,91</td>
+<td style="text-align: center;">5,18</td>
+<td style="text-align: center;">0,12</td>
+<td style="text-align: center;">0,21</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="7" style="border-bottom: 1px solid"><strong>q = 2</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4,49</td>
+<td style="text-align: center;">1,39</td>
+<td style="text-align: center;">1,80</td>
+<td style="text-align: center;">0,31</td>
+<td style="text-align: center;">0,40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8,82</td>
+<td style="text-align: center;">1,67</td>
+<td style="text-align: center;">1,94</td>
+<td style="text-align: center;">0,19</td>
+<td style="text-align: center;">0,22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">RM</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">15,39</td>
+<td style="text-align: center;">2,58</td>
+<td style="text-align: center;">2,63</td>
+<td style="text-align: center;">0,17</td>
+<td style="text-align: center;">0,17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>int3d<span class="sc">$</span>alfa <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Dimension =</span> <span class="fu">factor</span>(Dimension, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"TD (especies efectivas)"</span>, <span class="st">"FD (grupos funcionales efectivos)"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"PD (linajes efectivos)"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Order.q, Valor, <span class="at">color =</span> Unidad)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.6</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Dimension, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span>   <span class="co"># Escala propia por dimensión: las unidades no se mezclan</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cols_zona) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> coma) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Orden q"</span>, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Número efectivo"</span>, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Zona"</span>) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-perfil-alfa" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-perfil-alfa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller4_Integracion_TD_FD_PD_files/figure-html/fig-perfil-alfa-1.png" class="img-fluid figure-img" width="864">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perfil-alfa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.1: Perfil de Hill (q = 0, 1, 2) de la diversidad alfa por zona en cada dimensión, a cobertura común. Cada panel tiene su propia escala: especies, grupos funcionales o linajes efectivos.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Lectura de la alfa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Coinciden en el orden:</strong> en las tres dimensiones y en los tres órdenes de q, <code>RM</code> &gt; <code>P</code> &gt; <code>M</code>. Ahora a cobertura común, así que no es un efecto del esfuerzo.</li>
+<li><strong>Divergen en la magnitud:</strong> con q = 0, <code>RM</code> tiene unas 5,4 veces más especies efectivas que <code>M</code>, pero solo 2,2 veces más grupos funcionales efectivos y 4,7 veces más linajes efectivos.</li>
+<li>La columna <code>FD/TD</code> de <code>RM</code> con q = 0 es la más baja de la tabla: sus especies <strong>raras</strong> agregan linajes (PD/TD se mantiene) pero casi no agregan funciones. Es la firma de la <strong>convergencia funcional</strong> de la segunda fila del mapa conceptual: peces marino-estuarinos de familias distintas con dietas parecidas.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="beta-las-tres-dimensiones-en-la-misma-escala" class="level2">
+<h2 class="anchored" data-anchor-id="beta-las-tres-dimensiones-en-la-misma-escala">4.2 Beta: las tres dimensiones en la misma escala</h2>
+<p>Para dos zonas, la beta de Hill va de <strong>1</strong> (comparten todo) a <strong>2</strong> (no comparten nada) <strong>en las tres dimensiones</strong>. Esta es la comparación entre dimensiones que la partición de Rao sin transformar no permitía.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>beta_ancha <span class="ot">&lt;-</span> int3d<span class="sc">$</span>beta <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Disimilitud) <span class="sc">%&gt;%</span>                                <span class="co"># Aquí solo se usa la beta (1 a 2)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Dimension, <span class="at">values_from =</span> Beta) <span class="sc">%&gt;%</span>    <span class="co"># Una columna por dimensión</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Order.q, Par)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tabla</span>(beta_ancha, <span class="fu">paste0</span>(<span class="st">"Beta de Hill entre pares de zonas a cobertura común ("</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">dec</span>(int3d<span class="sc">$</span>cobertura_beta, <span class="dv">4</span>), <span class="st">")"</span>), </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="at">index =</span> <span class="fu">table</span>(<span class="fu">paste</span>(<span class="st">"q ="</span>, beta_ancha<span class="sc">$</span>Order.q)))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Beta de Hill entre pares de zonas a cobertura común (0,9964)</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Par</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Order.q</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="3">
+<td colspan="5" style="border-bottom: 1px solid"><strong>q = 0</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_P</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1,29</td>
+<td style="text-align: center;">1,06</td>
+<td style="text-align: center;">1,21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_RM</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,22</td>
+<td style="text-align: center;">1,81</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P_vs_RM</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1,84</td>
+<td style="text-align: center;">1,16</td>
+<td style="text-align: center;">1,63</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="5" style="border-bottom: 1px solid"><strong>q = 1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_P</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1,35</td>
+<td style="text-align: center;">1,13</td>
+<td style="text-align: center;">1,18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_RM</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,82</td>
+<td style="text-align: center;">1,88</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P_vs_RM</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1,98</td>
+<td style="text-align: center;">1,63</td>
+<td style="text-align: center;">1,71</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="5" style="border-bottom: 1px solid"><strong>q = 2</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_P</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1,42</td>
+<td style="text-align: center;">1,23</td>
+<td style="text-align: center;">1,22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">M_vs_RM</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,93</td>
+<td style="text-align: center;">1,93</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; padding-left: 2em;" data-indentlevel="1">P_vs_RM</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,81</td>
+<td style="text-align: center;">1,80</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>int3d<span class="sc">$</span>beta <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Dimension =</span> <span class="fu">factor</span>(Dimension, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"TD"</span>, <span class="st">"FD"</span>, <span class="st">"PD"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Order.q, Beta, <span class="at">color =</span> Par)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"grey60"</span>) <span class="sc">+</span>          <span class="co"># Límites teóricos para dos zonas</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.6</span>) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Dimension) <span class="sc">+</span>                                                    <span class="co"># Misma escala en los tres paneles</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> coma) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cols_par) <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Orden q"</span>, <span class="at">y =</span> <span class="st">"Beta de Hill"</span>, </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Par de zonas"</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-beta-3d" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-beta-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Taller4_Integracion_TD_FD_PD_files/figure-html/fig-beta-3d-1.png" class="img-fluid figure-img" width="864">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beta-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.2: Beta de Hill (1 = ensamblajes idénticos, 2 = sin nada en común) entre pares de zonas para TD, FD y PD, a cobertura común.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Lectura de la beta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Coinciden en el orden de los pares:</strong> en las tres dimensiones, <code>M_vs_RM</code> ≥ <code>P_vs_RM</code> &gt; <code>M_vs_P</code>.</li>
+<li><strong>Divergen en la magnitud, sobre todo con q = 0:</strong> <code>M</code> y <code>RM</code> no comparten <strong>ninguna especie</strong> (beta TD = 2), pero la beta FD con q = 0 es apenas 1,22: muchas especies de la desembocadura, sobre todo las raras, <strong>repiten funciones</strong> que ya existen río arriba. Es un <strong>reemplazo funcional</strong> (cuarta fila del mapa conceptual).</li>
+<li>La PD queda en medio: las especies que cambian pertenecen en gran parte a <strong>linajes distintos</strong>.</li>
+<li>Con q = 2 (especies dominantes) las tres dimensiones casi se igualan cerca de 2: los peces que dominan en <code>M</code> y en <code>RM</code> difieren en todo.</li>
+<li>Esto confirma la sección 2: en una escala común, la beta <strong>taxonómica es la mayor</strong> en todos los pares y órdenes q, y la funcional la menor con q = 0 y 1 (con q = 2, FD y PD prácticamente se igualan). La partición de Rao sin transformar sugería lo contrario.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>✍️ Tu interpretación (sección 4)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Escriba el párrafo de integración que pide la ruta mínima del estudio de caso, usando esta plantilla:</p>
+<blockquote class="blockquote">
+<p><em>“Entre [unidades], TD, FD y PD coinciden en [el orden…], pero divergen en [la magnitud…], lo que sugiere [mecanismo: redundancia, convergencia, reemplazo funcional…]. Esta lectura está limitada por [rasgos, tipo de árbol, esfuerzo…].”</em></p>
+</blockquote>
+<p><em>Escriba aquí…</em></p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="matriz-de-coincidencias-y-divergencias" class="level1">
+<h1>5. Matriz de coincidencias y divergencias</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_coincidencias.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Con las tablas anteriores se puede automatizar la pregunta de la sesión. Para cada orden q, se compara el orden que cada dimensión asigna a las zonas (alfa) y a los pares de zonas (beta).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convierte un vector de valores en un texto con el orden de mayor a menor, p. ej. "RM &gt; P &gt; M"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>orden_txt <span class="ot">&lt;-</span> <span class="cf">function</span>(valor, nombre) <span class="fu">paste</span>(nombre[<span class="fu">order</span>(<span class="sc">-</span>valor)], <span class="at">collapse =</span> <span class="st">" &gt; "</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>matriz <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  int3d<span class="sc">$</span>alfa <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="at">Escala =</span> <span class="st">"Alfa"</span>, </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                          Order.q, </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                          Dimension) <span class="sc">%&gt;%</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Orden =</span> <span class="fu">orden_txt</span>(Valor, Unidad), </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">.groups =</span> <span class="st">"drop"</span>),                 <span class="co"># Orden de las zonas</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  int3d<span class="sc">$</span>beta <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="at">Escala =</span> <span class="st">"Beta"</span>, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                          Order.q, </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                          Dimension) <span class="sc">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Orden =</span> <span class="fu">orden_txt</span>(Beta, Par), </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">.groups =</span> <span class="st">"drop"</span>)                  <span class="co"># Orden de los pares de zonas</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Dimension, </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> Orden) <span class="sc">%&gt;%</span>       <span class="co"># Una columna por dimensión</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">¿Coinciden?</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">if_else</span>(TD <span class="sc">==</span> FD <span class="sc">&amp;</span> TD <span class="sc">==</span> PD,                <span class="co"># Coinciden solo si los tres textos son iguales</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Coinciden"</span>, <span class="st">"Divergen"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Escala, Order.q, TD, FD, PD, <span class="st">`</span><span class="at">¿Coinciden?</span><span class="st">`</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tabla</span>(matriz, <span class="st">"¿Las tres dimensiones ordenan igual las zonas (alfa) y los pares de zonas (beta)?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">6</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="fu">if_else</span>(matriz<span class="sc">$</span><span class="st">`</span><span class="at">¿Coinciden?</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Coinciden"</span>, </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"#1B7F79"</span>, <span class="st">"#B03A2E"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>¿Las tres dimensiones ordenan igual las zonas (alfa) y los pares de zonas (beta)?</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Escala</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Order.q</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">¿Coinciden?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alfa</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Alfa</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Alfa</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center;">RM &gt; P &gt; M</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Beta</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Beta</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Beta</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center;">M_vs_RM &gt; P_vs_RM &gt; M_vs_P</td>
+<td style="text-align: center; font-weight: bold; color: rgba(27, 127, 121, 255) !important;">Coinciden</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>En el caso guiado el <strong>orden coincide en todas las filas</strong>. La divergencia, entonces, hay que buscarla en la magnitud: ¿en qué par y en qué orden q se separan más las dimensiones?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>beta_ancha <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">TD - FD</span><span class="st">`</span> <span class="ot">=</span> TD <span class="sc">-</span> FD,         <span class="co"># Cuánto menos difieren las funciones que las especies</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">TD - PD</span><span class="st">`</span> <span class="ot">=</span> TD <span class="sc">-</span> PD,         <span class="co"># Cuánto menos difieren los linajes que las especies</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">PD - FD</span><span class="st">`</span> <span class="ot">=</span> PD <span class="sc">-</span> FD) <span class="sc">%&gt;%</span>     <span class="co"># Cuánto más difieren los linajes que las funciones</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">TD - FD</span><span class="st">`</span>)) <span class="sc">%&gt;%</span>        <span class="co"># Primero el par y el q con la mayor brecha</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="st">"Brecha entre dimensiones en la beta de Hill, ordenada de mayor a menor TD - FD"</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#FDECEC"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<caption>Brecha entre dimensiones en la beta de Hill, ordenada de mayor a menor TD - FD</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Par</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">Order.q</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD - FD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">TD - PD</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; color: white !important; background-color: rgba(46, 64, 87, 255) !important;">PD - FD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">M_vs_RM</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">0</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">2,00</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">1,22</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">1,81</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">0,78</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">0,19</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(253, 236, 236, 255) !important;">0,59</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P_vs_RM</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1,84</td>
+<td style="text-align: center;">1,16</td>
+<td style="text-align: center;">1,63</td>
+<td style="text-align: center;">0,69</td>
+<td style="text-align: center;">0,21</td>
+<td style="text-align: center;">0,48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">P_vs_RM</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1,98</td>
+<td style="text-align: center;">1,63</td>
+<td style="text-align: center;">1,71</td>
+<td style="text-align: center;">0,35</td>
+<td style="text-align: center;">0,27</td>
+<td style="text-align: center;">0,08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">M_vs_P</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1,29</td>
+<td style="text-align: center;">1,06</td>
+<td style="text-align: center;">1,21</td>
+<td style="text-align: center;">0,23</td>
+<td style="text-align: center;">0,08</td>
+<td style="text-align: center;">0,15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">M_vs_P</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1,35</td>
+<td style="text-align: center;">1,13</td>
+<td style="text-align: center;">1,18</td>
+<td style="text-align: center;">0,22</td>
+<td style="text-align: center;">0,17</td>
+<td style="text-align: center;">0,05</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">M_vs_P</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1,42</td>
+<td style="text-align: center;">1,23</td>
+<td style="text-align: center;">1,22</td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">-0,01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">P_vs_RM</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,81</td>
+<td style="text-align: center;">1,80</td>
+<td style="text-align: center;">0,19</td>
+<td style="text-align: center;">0,20</td>
+<td style="text-align: center;">-0,01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">M_vs_RM</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,82</td>
+<td style="text-align: center;">1,88</td>
+<td style="text-align: center;">0,18</td>
+<td style="text-align: center;">0,12</td>
+<td style="text-align: center;">0,06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">M_vs_RM</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2,00</td>
+<td style="text-align: center;">1,93</td>
+<td style="text-align: center;">1,93</td>
+<td style="text-align: center;">0,07</td>
+<td style="text-align: center;">0,07</td>
+<td style="text-align: center;">0,00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Cómo usar esta matriz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si una fila dice <strong>Divergen</strong>, revisar primero si las diferencias son reales: con <code>nboot = 0</code> no hay intervalos de confianza y dos valores muy cercanos pueden cambiar de orden por azar (Ejercicio 2 y sección 2 de la guía complementaria). Si dice <strong>Coinciden</strong>, la conversación pasa a la <strong>magnitud</strong> (secciones 3 y 4): ahí suele estar la ecología. El cuestionario de entrenamiento trae un caso en el que el orden <strong>sí</strong> diverge.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="lectura-crítica-cinco-interpretaciones-con-errores" class="level1">
+<h1>6. Lectura crítica: cinco interpretaciones con errores</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_lectura.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En grupos de dos o tres, identificar <strong>qué está mal</strong> en cada afirmación y reescribirla correctamente. Todas usan resultados reales de este taller.</p>
+<ol type="1">
+<li><em>“En <code>RM</code>, la alfa de Rao taxonómica es 0,94 y la funcional 0,22. Por lo tanto <code>RM</code> tiene más diversidad taxonómica que funcional.”</em></li>
+<li><em>“Según la partición de Rao, la beta proporcional es 13 % en FD y 6 % en TD: las zonas del río se diferencian más por sus funciones que por sus especies.”</em></li>
+<li><em>“La beta taxonómica entre <code>M</code> y <code>RM</code> es 2 y la filogenética casi 2. Las tres dimensiones dicen lo mismo, así que en el estudio de caso basta con calcular TD.”</em></li>
+<li><em>“<code>M</code> es la zona con mayor redundancia funcional (R = 0,89); por lo tanto, es la zona que mejor resistiría la pérdida de especies.”</em></li>
+<li><em>“Como <code>RM</code> es la zona más diversa en las tres dimensiones, es la que más aporta a la diversidad de la cuenca y la única que habría que proteger.”</em></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Qué está mal en cada una (abrir después de discutir)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Con distancias entre 0 y 1, <strong>la <em>Q</em> funcional nunca supera a la taxonómica</strong>: la comparación no informa nada. Lo informativo es la originalidad (<em>U</em> = 0,22/0,94 ≈ 0,23) o la redundancia (<em>R</em> ≈ 0,77), y su comparación con las otras zonas.</li>
+<li>Compara <em>Q</em> sin transformar <strong>entre</strong> dimensiones. La <em>Q</em> de TD (Gini-Simpson) está saturada y comprime su beta. En números equivalentes y en números de Hill el orden se invierte: la beta taxonómica pasa a ser la mayor y la funcional la menor.</li>
+<li>Coinciden en el <strong>orden</strong>, pero no en la <strong>magnitud</strong>: con q = 0 la beta funcional es mucho menor que la taxonómica (reemplazo funcional). Esa diferencia es justamente lo que TD sola no muestra.</li>
+<li>La redundancia de Rao describe cuánto se parecen, en promedio, los pares de individuos <strong>presentes</strong>; no predice qué pasa cuando se pierden especies. La resistencia depende de <strong>cuáles</strong> se pierden (dominantes o raras), de si las especies redundantes responden igual a la perturbación (rasgos de respuesta, no solo de efecto) y, en este caso, de rasgos con valores de relleno que inflan la redundancia.</li>
+<li>Tres problemas: <code>RM</code> tiene solo 2 sitios (la alfa a cobertura común confirma el orden, pero con una sola zona estuarina); la contribución a la diversidad regional depende también de la <strong>beta</strong> y de la <strong>complementariedad</strong> (<code>M</code> aporta linajes de agua dulce que <code>RM</code> no tiene); y priorizar áreas exige criterios que van más allá de la diversidad (amenazas, endemismos, conectividad).</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="del-caso-guiado-al-estudio-de-caso-6.2-semana-14" class="level1">
+<h1>7. Del caso guiado al estudio de caso (6.2, semana 14)</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_portada/integracion/portada_t4_estudio_caso.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>integrar_3d()</code> no depende de los peces de México. Para aplicarla a la comunidad del grupo (peces arrecifales, bosque seco, hormigas u otro grupo del Caribe colombiano) se necesitan los mismos tres insumos, con los mismos chequeos:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Plantilla para el estudio de caso (no se ejecuta en este taller) ---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Rao.R"</span>); <span class="fu">source</span>(<span class="st">"alineador.R"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>abund_ec  <span class="ot">&lt;-</span> ...   <span class="co"># data.frame: especies (filas) x unidades a comparar (columnas)</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>rasgos_ec <span class="ot">&lt;-</span> ...   <span class="co"># data.frame: especies (filas) x rasgos, mismas especies que abund_ec</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>dist_ec   <span class="ot">&lt;-</span> FD<span class="sc">::</span><span class="fu">gowdis</span>(rasgos_ec[<span class="fu">rownames</span>(abund_ec), ])   <span class="co"># Distancia funcional (declarar binarios asimétricos si los hay)</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>arbol_ec  <span class="ot">&lt;-</span> ...   <span class="co"># 'phylo' publicado o construido desde la clasificación (Ficha del árbol)</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Chequeos: setdiff() en ambos sentidos debe dar vacío</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(<span class="fu">rownames</span>(abund_ec), arbol_ec<span class="sc">$</span>tip.label)   <span class="co"># Especies sin punta en el árbol</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(arbol_ec<span class="sc">$</span>tip.label, <span class="fu">rownames</span>(abund_ec))   <span class="co"># Puntas sin especie en la matriz</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Distancia filogenética en el orden de la matriz y reescalada a [0, 1]</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>phy_ec <span class="ot">&lt;-</span> <span class="fu">cophenetic</span>(arbol_ec)[<span class="fu">rownames</span>(abund_ec), <span class="fu">rownames</span>(abund_ec)]</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>phy_ec <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(phy_ec <span class="sc">/</span> <span class="fu">max</span>(phy_ec))</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co"># A2: partición de Rao en las tres dimensiones (números equivalentes para comparar entre dimensiones)</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>rao_ec <span class="ot">&lt;-</span> <span class="fu">Rao</span>(abund_ec, </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">dfunc =</span> dist_ec, </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">dphyl =</span> phy_ec, </span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>              <span class="at">weight =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">Jost =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># B1 + B2: Hill a cobertura común (nboot &gt;= 50 para el informe)</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)                                    <span class="co"># El bootstrap usa números aleatorios</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>int_ec <span class="ot">&lt;-</span> <span class="fu">integrar_3d</span>(abund_ec, dist_ec, arbol_ec, <span class="at">nboot =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Antes de correr <code>integrar_3d()</code> con datos propios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Unidades con datos suficientes:</strong> cada columna de <code>abund_ec</code> debe tener individuos de varias especies; unidades con una sola especie no permiten beta ni cobertura fiables. Si las hay, agrupar sitios en unidades mayores (como aquí se agruparon en zonas).</li>
+<li><strong>Datos de incidencia:</strong> si la base es de presencia/ausencia, cambiar <code>datatype = "abundance"</code> por <code>"incidence_raw"</code> y revisar la estructura que exige <code>iNEXT.3D</code>.</li>
+<li><strong>Rasgos:</strong> declarar cuáles son cuantitativos y cuáles categóricos, y si alguno tiene valores de relleno (inflan la redundancia, como en este caso guiado).</li>
+<li><strong>Árbol:</strong> declarar si es taxonómico o molecular; si es taxonómico, la PD mide <strong>distinción taxonómica</strong>.</li>
+<li><strong>Bases de fuera del Caribe colombiano:</strong> agregar una frase que explique por qué el flujo es transferible a una comunidad del Caribe y qué cambiaría.</li>
+<li><strong>Reproducibilidad:</strong> al final del documento, <code>sessionInfo()</code> y la semilla (<code>set.seed()</code>) si hay bootstrap.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="ejercicios-de-práctica-dirigida-individual" class="level1">
+<h1>Ejercicios de práctica dirigida (individual)</h1>
+<section id="ejercicio-1-partición-de-rao-con-ponderación-a2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-1-partición-de-rao-con-ponderación-a2">Ejercicio 1 — Partición de Rao con ponderación (A2)</h2>
+<p>Repetir la sección 2 con <code>weight = TRUE</code> (corrección de Villéger y Mouillot, que pondera cada zona por su abundancia total). ¿Cambia el orden TD &gt; PD &gt; FD en números equivalentes? ¿Por qué podría cambiar, sabiendo que <code>M</code> tiene 13.166 individuos y <code>RM</code> 414?</p>
+</section>
+<section id="ejercicio-2-las-diferencias-son-reales-b1-b2" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2-las-diferencias-son-reales-b1-b2">Ejercicio 2 — ¿Las diferencias son reales? (B1 + B2)</h2>
+<p>Ejecutar <code>integrar_3d(biol_zona, rasgos.d, arbol_filo, nboot = 20)</code> (tarda unos 3 a 4 minutos) y revisar los intervalos de confianza de la beta (<code>LCL</code> y <code>UCL</code> en las salidas de <code>iNEXTbeta3D()</code>; puede modificar <code>extraer()</code> para conservarlos). ¿La beta FD con q = 0 de <code>M_vs_RM</code> se separa de la beta TD? La sección 2 de la guía complementaria trae la solución completa.</p>
+<hr>
+</section>
+</section>
+<section id="sec-apoyo" class="level1">
+<h1>Material de apoyo y cuestionario</h1>
+<p><img src="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/figuras/9_material_apoyo.jpg" class="img-fluid" width="200"></p>
+<p>Para repasar y profundizar después de la sesión:</p>
+<div class="material-apoyo">
+<ul>
+<li><p><i class="bi bi-pencil-square"></i> <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/guias_complemento/4.integracion/1.guia_complementaria/Guia_complementaria_Taller4.html"><strong>Guía complementaria · Integración TD + FD + PD</strong></a> — los temas que no caben en la sesión: la escala de sitio y el gradiente altitudinal, intervalos de confianza para las brechas entre dimensiones, cuánto cambia la integración si se quitan los rasgos de relleno, las disimilitudes en escala 0–1 y una tabla de integración lista para el documento del estudio de caso.</p></li>
+<li><p><i class="bi bi-ui-checks"></i> <a href="https://javier-2712.github.io/Manuales/9.Manual_d_multidim_26/guias_complemento/4.integracion/2.cuestionario/Cuestionario_Integracion_TD_FD_PD.html"><strong>Cuestionario de entrenamiento · Integración TD + FD + PD</strong></a> — con peces simulados de manglar, pastos marinos y arrecife del Caribe colombiano, en un caso donde las tres dimensiones <strong>sí</strong> cuentan historias distintas. Es la práctica más cercana a lo que pide la asignación 6.2.</p></li>
+</ul>
+</div>
+<hr>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()   <span class="co"># Versiones de R y paquetes con que se renderizó este documento</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=Spanish_Spain.utf8  LC_CTYPE=Spanish_Spain.utf8   
+[3] LC_MONETARY=Spanish_Spain.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=Spanish_Spain.utf8    
+
+time zone: America/Bogota
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] FD_1.0-12.3        geometry_0.5.2     ade4_1.7-23        picante_1.8.2     
+ [5] nlme_3.1-168       vegan_2.7-1        permute_0.9-8      phytools_2.5-2    
+ [9] maps_3.4.3         ape_5.8-1          iNEXT.beta3D_1.0.2 iNEXT.3D_1.0.10   
+[13] kableExtra_1.4.0   readxl_1.4.5       lubridate_1.9.4    forcats_1.0.0     
+[17] stringr_1.5.2      dplyr_1.1.4        purrr_1.2.2        readr_2.1.5       
+[21] tidyr_1.3.1        tibble_3.3.0       ggplot2_4.0.3      tidyverse_2.0.0   
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1        viridisLite_0.4.2       farver_2.1.2           
+ [4] S7_0.2.0                optimParallel_1.0-3     fastmap_1.2.0          
+ [7] lazyeval_0.2.2          combinat_0.0-9          digest_0.6.37          
+[10] timechange_0.3.0        lifecycle_1.0.5         cluster_2.1.8.1        
+[13] tidytree_0.4.6          magrittr_2.0.3          compiler_4.5.1         
+[16] rlang_1.1.6             tools_4.5.1             igraph_2.1.4           
+[19] yaml_2.3.10             phangorn_2.12.1         knitr_1.50             
+[22] clusterGeneration_1.3.8 labeling_0.4.3          htmlwidgets_1.6.4      
+[25] scatterplot3d_0.3-44    mnormt_2.1.1            plyr_1.8.9             
+[28] xml2_1.3.8              RColorBrewer_1.1-3      abind_1.4-8            
+[31] expm_1.0-1              numDeriv_2016.8-1.1     withr_3.0.2            
+[34] grid_4.5.1              future_1.70.0           globals_0.19.1         
+[37] scales_1.4.0            iterators_1.0.14        MASS_7.3-65            
+[40] cli_3.6.5               rmarkdown_2.30          generics_0.1.4         
+[43] rstudioapi_0.17.1       future.apply_1.20.0     reshape2_1.4.4         
+[46] tzdb_0.5.0              magic_1.6-1             splines_4.5.1          
+[49] parallel_4.5.1          cellranger_1.1.0        yulab.utils_0.2.1      
+[52] vctrs_0.6.5             Matrix_1.7-3            jsonlite_2.0.0         
+[55] hms_1.1.4               listenv_0.10.0          systemfonts_1.3.2      
+[58] foreach_1.5.2           glue_1.8.0              parallelly_1.45.1      
+[61] codetools_0.2-20        DEoptim_2.2-8           stringi_1.8.7          
+[64] gtable_0.3.6            quadprog_1.5-8          pillar_1.11.1          
+[67] rappdirs_0.3.3          htmltools_0.5.8.1       R6_2.6.1               
+[70] textshaping_1.0.1       doParallel_1.0.17       evaluate_1.0.5         
+[73] lattice_0.22-7          phyclust_0.1-34         fastmatch_1.1-6        
+[76] Rcpp_1.1.0              svglite_2.2.1           coda_0.19-4.1          
+[79] mgcv_1.9-3              xfun_0.52               fs_1.6.6               
+[82] pkgconfig_2.0.3        </code></pre>
+</div>
+</div>
+</section>
+<section id="lecturas-de-referencia" class="level1 unnumbered">
+<h1 class="unnumbered">Lecturas de referencia</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-cavender2009merging" class="csl-entry" role="listitem">
+Cavender-Bares, J., Kozak, K. H., Fine, P. V. A., y Kembel, S. W. (2009). The merging of community ecology and phylogenetic biology. <em>Ecology Letters</em>, <em>12</em>(7), 693-715.
+</div>
+<div id="ref-chao2021measuring" class="csl-entry" role="listitem">
+Chao, A., Henderson, P. A., Chiu, C.-H., Moyes, F., Hu, K.-H., Dornelas, M., y Magurran, A. E. (2021). Measuring temporal change in alpha diversity: A framework integrating taxonomic, phylogenetic and functional diversity and the iNEXT. 3D standardization. <em>Methods in Ecology and Evolution</em>, <em>12</em>(10), 1926-1940.
+</div>
+<div id="ref-chao2023rarefaction" class="csl-entry" role="listitem">
+<span class="nocase">Chao, A., Thorn, S., Chiu, C.-H., Moyes, F., Hu, K.-H., Chazdon, R. L., Wu, J., Magnago, L. F. S., Dornelas, M., Zelenỳ, D., et al.</span> (2023). Rarefaction and extrapolation with beta diversity under a framework of H ill numbers: The iNEXT. beta3D standardization. <em>Ecological Monographs</em>, <em>93</em>(4), e1588.
+</div>
+<div id="ref-de2010partitioning" class="csl-entry" role="listitem">
+De Bello, F., Lavergne, S., Meynard, C. N., Lepš, J., y Thuiller, W. (2010). The partitioning of diversity: showing Theseus a way out of the labyrinth. <em>Journal of Vegetation Science</em>, <em>21</em>(5), 992-1000.
+</div>
+<div id="ref-ricotta2016functionalredundancy" class="csl-entry" role="listitem">
+Ricotta, C., Pavoine, S., Bacaro, G., y Acosta, A. T. R. (2016). Measuring the functional redundancy of biological communities: A quantitative guide. <em>Methods in Ecology and Evolution</em>, <em>7</em>(11), 1385-1395. <a href="https://doi.org/10.1111/2041-210X.12604">https://doi.org/10.1111/2041-210X.12604</a>
+</div>
+<div id="ref-ruiz2021diversity" class="csl-entry" role="listitem">
+Ruiz-Campos, G., Martı́nez-Vázquez, A. V., Contreras-Catala, F., Hernández-Guzmán, R., y Garcı́a-De León, F. J. (2021). Diversity and longitudinal distribution of fishes in the Soto La Marina River basin, Mexico, and relationship with environmental variables. <em>Environmental Biology of Fishes</em>, <em>104</em>(10), 1321-1339.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Taller3_Diversidad_Filogenetica.html" class="pagination-link" aria-label="Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Taller 3. Diversidad filogenética: bloques A1, A2, B1 y B2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
