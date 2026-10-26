@@ -672,71 +672,71 @@
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html",
     "href": "Taller4_Integracion_TD_FD_PD.html",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "",
     "text": "Materiales requeridos para el taller en clase\nLos datos del caso guiado provienen de Ruiz-Campos et al. (2021). Como en los talleres anteriores, son el modelo metodológico: lo que importa aquí es el flujo de trabajo, que en la semana 14 se aplica a los datos reales de cada grupo (asignación 6.2).\nEn el siguiente enlace se puede descargar el archivo comprimido del taller de integración TD + FD + PD, con el mismo caso guiado de peces de México de los talleres anteriores (📰 Taller4_Integracion_PD_FD_PD).\nNota: una vez se descarguen los materiales, se requiere descomprimirlos antes de realizar cualquier procedimiento y seguir las orientaciones del docente para realizar los ejercicios requeridos.",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#materiales-requeridos-para-el-taller-en-clase",
     "href": "Taller4_Integracion_TD_FD_PD.html#materiales-requeridos-para-el-taller-en-clase",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "",
     "text": "Taller4_Integracion_PD_FD_PD\n\n\n\n\n\nDiapositivas en vivo - Slides.com\n *Pendiente de cargar el taller\n\n\n Diapositivas del Taller4_Integracion_PD_FD_PD\n\n\nLos temas de profundización y el cuestionario de refuerzo, están en la guía complementaria y el Cuestionario de profundización al final del taller.",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#mapa-conceptual",
     "href": "Taller4_Integracion_TD_FD_PD.html#mapa-conceptual",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "Mapa conceptual",
     "text": "Mapa conceptual\n\n\n\n\n\n\nImportanteCoincidir no es “dar el mismo número”\n\n\n\nTD, FD y PD no están en la misma escala: un número de especies, uno de grupos funcionales y uno de linajes no se restan entre sí. Por eso, en este taller “coincidir” y “divergir” se leen en dos planos:\n\nPatrón (orden): ¿las tres dimensiones ordenan igual a las zonas (alfa) o a los pares de zonas (beta)?\nMagnitud relativa: ¿cuánta de la diversidad de especies se traduce en diversidad funcional o filogenética? (redundancia y originalidad).\n\nCuando el orden coincide pero la magnitud diverge, la diferencia entre dimensiones es el resultado ecológico (devictor2010spatial?).\n\n\n\n\n\n\n\n\n\n\n\nSi TD…\n…y FD…\n…y PD…\nLectura ecológica posible\n\n\n\n\nalta\nbaja\nbaja\nMuchas especies emparentadas y con roles parecidos: redundancia\n\n\nalta\nbaja\nalta\nLinajes distintos que cumplen funciones parecidas: convergencia funcional\n\n\nmedia\nalta\nbaja\nParientes cercanos con rasgos muy distintos: divergencia de rasgos dentro de linajes\n\n\nβ alta\nβ baja\n—\nCambian las especies pero se mantienen los roles: reemplazo funcional\n\n\nβ alta\nβ alta\nβ alta\nCambian especies, funciones y linajes: recambio completo del ensamblaje\n\n\n\nNinguna fila es una prueba: son hipótesis que hay que contrastar con la biología del grupo, con la calidad de los rasgos y con el tipo de árbol (Cavender-Bares et al., 2009).",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#alfa-las-tres-dimensiones-a-cobertura-común",
     "href": "Taller4_Integracion_TD_FD_PD.html#alfa-las-tres-dimensiones-a-cobertura-común",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "4.1 Alfa: las tres dimensiones a cobertura común",
     "text": "4.1 Alfa: las tres dimensiones a cobertura común\n\n\nCódigo\nalfa_ancha &lt;- int3d$alfa %&gt;%\n  pivot_wider(names_from = Dimension, \n              values_from = Valor) %&gt;%   # Una columna por dimensión\n  mutate(`FD/TD` = FD / TD,     # Fracción de las especies efectivas que son grupos funcionales efectivos\n         `PD/TD` = PD / TD) %&gt;% # ... y que son linajes efectivos\n  arrange(Order.q, Unidad)\n\ntabla(alfa_ancha, paste0(\"Diversidad alfa en números de Hill a cobertura común (\",\n                         dec(int3d$cobertura_alfa, 4), \")\"), \n      digits = 2) %&gt;%\n  pack_rows(index = table(paste(\"q =\", alfa_ancha$Order.q)))     # Agrupa las filas por orden q\n\n\n\nDiversidad alfa en números de Hill a cobertura común (0,9615)\n\n\nUnidad\nOrder.q\nTD\nFD\nPD\nFD/TD\nPD/TD\n\n\n\n\nq = 0\n\n\nM\n0\n9,75\n1,95\n3,66\n0,20\n0,38\n\n\nP\n0\n16,84\n3,16\n6,12\n0,19\n0,36\n\n\nRM\n0\n53,00\n4,30\n17,22\n0,08\n0,32\n\n\nq = 1\n\n\nM\n1\n5,87\n1,51\n2,24\n0,26\n0,38\n\n\nP\n1\n11,14\n1,99\n2,87\n0,18\n0,26\n\n\nRM\n1\n24,47\n2,91\n5,18\n0,12\n0,21\n\n\nq = 2\n\n\nM\n2\n4,49\n1,39\n1,80\n0,31\n0,40\n\n\nP\n2\n8,82\n1,67\n1,94\n0,19\n0,22\n\n\nRM\n2\n15,39\n2,58\n2,63\n0,17\n0,17\n\n\n\n\n\n\n\nCódigo\nint3d$alfa %&gt;%\n  mutate(Dimension = factor(Dimension, levels = c(\"TD\", \"FD\", \"PD\"),\n                            labels = c(\"TD (especies efectivas)\", \"FD (grupos funcionales efectivos)\",\n                                       \"PD (linajes efectivos)\"))) %&gt;%\n  ggplot(aes(Order.q, Valor, color = Unidad)) +\n  geom_line(linewidth = 0.9) + geom_point(size = 2.6) +\n  facet_wrap(~ Dimension, scales = \"free_y\") +   # Escala propia por dimensión: las unidades no se mezclan\n  scale_color_manual(values = cols_zona) +\n  scale_x_continuous(breaks = 0:2) +\n  scale_y_continuous(labels = coma) +\n  labs(x = \"Orden q\", \n       y = \"Número efectivo\", \n       color = \"Zona\") +\n  theme_bw(base_size = 11)\n\n\n\n\n\n\n\n\nFigura 4.1: Perfil de Hill (q = 0, 1, 2) de la diversidad alfa por zona en cada dimensión, a cobertura común. Cada panel tiene su propia escala: especies, grupos funcionales o linajes efectivos.\n\n\n\n\n\n\n\n\n\n\n\nNotaLectura de la alfa\n\n\n\n\nCoinciden en el orden: en las tres dimensiones y en los tres órdenes de q, RM &gt; P &gt; M. Ahora a cobertura común, así que no es un efecto del esfuerzo.\nDivergen en la magnitud: con q = 0, RM tiene unas 5,4 veces más especies efectivas que M, pero solo 2,2 veces más grupos funcionales efectivos y 4,7 veces más linajes efectivos.\nLa columna FD/TD de RM con q = 0 es la más baja de la tabla: sus especies raras agregan linajes (PD/TD se mantiene) pero casi no agregan funciones. Es la firma de la convergencia funcional de la segunda fila del mapa conceptual: peces marino-estuarinos de familias distintas con dietas parecidas.",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#beta-las-tres-dimensiones-en-la-misma-escala",
     "href": "Taller4_Integracion_TD_FD_PD.html#beta-las-tres-dimensiones-en-la-misma-escala",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "4.2 Beta: las tres dimensiones en la misma escala",
     "text": "4.2 Beta: las tres dimensiones en la misma escala\nPara dos zonas, la beta de Hill va de 1 (comparten todo) a 2 (no comparten nada) en las tres dimensiones. Esta es la comparación entre dimensiones que la partición de Rao sin transformar no permitía.\n\n\nCódigo\nbeta_ancha &lt;- int3d$beta %&gt;%\n  dplyr::select(-Disimilitud) %&gt;%                                # Aquí solo se usa la beta (1 a 2)\n  pivot_wider(names_from = Dimension, values_from = Beta) %&gt;%    # Una columna por dimensión\n  arrange(Order.q, Par)\n\ntabla(beta_ancha, paste0(\"Beta de Hill entre pares de zonas a cobertura común (\",\n                         dec(int3d$cobertura_beta, 4), \")\"), \n      digits = 2) %&gt;%\n  pack_rows(index = table(paste(\"q =\", beta_ancha$Order.q)))\n\n\n\nBeta de Hill entre pares de zonas a cobertura común (0,9964)\n\n\nPar\nOrder.q\nTD\nFD\nPD\n\n\n\n\nq = 0\n\n\nM_vs_P\n0\n1,29\n1,06\n1,21\n\n\nM_vs_RM\n0\n2,00\n1,22\n1,81\n\n\nP_vs_RM\n0\n1,84\n1,16\n1,63\n\n\nq = 1\n\n\nM_vs_P\n1\n1,35\n1,13\n1,18\n\n\nM_vs_RM\n1\n2,00\n1,82\n1,88\n\n\nP_vs_RM\n1\n1,98\n1,63\n1,71\n\n\nq = 2\n\n\nM_vs_P\n2\n1,42\n1,23\n1,22\n\n\nM_vs_RM\n2\n2,00\n1,93\n1,93\n\n\nP_vs_RM\n2\n2,00\n1,81\n1,80\n\n\n\n\n\n\n\nCódigo\nint3d$beta %&gt;%\n  mutate(Dimension = factor(Dimension, \n                            levels = c(\"TD\", \"FD\", \"PD\"))) %&gt;%\n  ggplot(aes(Order.q, Beta, color = Par)) +\n  geom_hline(yintercept = c(1, 2), \n             linetype = \"dashed\", \n             color = \"grey60\") +          # Límites teóricos para dos zonas\n  geom_line(linewidth = 0.9) + \n  geom_point(size = 2.6) +\n  facet_wrap(~ Dimension) +                                                    # Misma escala en los tres paneles\n  scale_x_continuous(breaks = 0:2) +\n  scale_y_continuous(limits = c(1, 2), \n                     labels = coma) +\n  scale_color_manual(values = cols_par) +\n  labs(x = \"Orden q\", y = \"Beta de Hill\", \n       color = \"Par de zonas\") +\n  theme_bw(base_size = 11)\n\n\n\n\n\n\n\n\nFigura 4.2: Beta de Hill (1 = ensamblajes idénticos, 2 = sin nada en común) entre pares de zonas para TD, FD y PD, a cobertura común.\n\n\n\n\n\n\n\n\n\n\n\nImportanteLectura de la beta\n\n\n\n\nCoinciden en el orden de los pares: en las tres dimensiones, M_vs_RM ≥ P_vs_RM &gt; M_vs_P.\nDivergen en la magnitud, sobre todo con q = 0: M y RM no comparten ninguna especie (beta TD = 2), pero la beta FD con q = 0 es apenas 1,22: muchas especies de la desembocadura, sobre todo las raras, repiten funciones que ya existen río arriba. Es un reemplazo funcional (cuarta fila del mapa conceptual).\nLa PD queda en medio: las especies que cambian pertenecen en gran parte a linajes distintos.\nCon q = 2 (especies dominantes) las tres dimensiones casi se igualan cerca de 2: los peces que dominan en M y en RM difieren en todo.\nEsto confirma la sección 2: en una escala común, la beta taxonómica es la mayor en todos los pares y órdenes q, y la funcional la menor con q = 0 y 1 (con q = 2, FD y PD prácticamente se igualan). La partición de Rao sin transformar sugería lo contrario.\n\n\n\n\n\n\n\n\n\nTip✍️ Tu interpretación (sección 4)\n\n\n\nEscriba el párrafo de integración que pide la ruta mínima del estudio de caso, usando esta plantilla:\n\n“Entre [unidades], TD, FD y PD coinciden en [el orden…], pero divergen en [la magnitud…], lo que sugiere [mecanismo: redundancia, convergencia, reemplazo funcional…]. Esta lectura está limitada por [rasgos, tipo de árbol, esfuerzo…].”\n\nEscriba aquí…",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#ejercicio-1-partición-de-rao-con-ponderación-a2",
     "href": "Taller4_Integracion_TD_FD_PD.html#ejercicio-1-partición-de-rao-con-ponderación-a2",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "Ejercicio 1 — Partición de Rao con ponderación (A2)",
     "text": "Ejercicio 1 — Partición de Rao con ponderación (A2)\nRepetir la sección 2 con weight = TRUE (corrección de Villéger y Mouillot, que pondera cada zona por su abundancia total). ¿Cambia el orden TD &gt; PD &gt; FD en números equivalentes? ¿Por qué podría cambiar, sabiendo que M tiene 13.166 individuos y RM 414?",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   },
   {
     "objectID": "Taller4_Integracion_TD_FD_PD.html#ejercicio-2-las-diferencias-son-reales-b1-b2",
     "href": "Taller4_Integracion_TD_FD_PD.html#ejercicio-2-las-diferencias-son-reales-b1-b2",
-    "title": "Taller 3. Taller 4. Integración TD + FD + PD",
+    "title": "Taller 4. Integración TD + FD + PD",
     "section": "Ejercicio 2 — ¿Las diferencias son reales? (B1 + B2)",
     "text": "Ejercicio 2 — ¿Las diferencias son reales? (B1 + B2)\nEjecutar integrar_3d(biol_zona, rasgos.d, arbol_filo, nboot = 20) (tarda unos 3 a 4 minutos) y revisar los intervalos de confianza de la beta (LCL y UCL en las salidas de iNEXTbeta3D(); puede modificar extraer() para conservarlos). ¿La beta FD con q = 0 de M_vs_RM se separa de la beta TD? La sección 2 de la guía complementaria trae la solución completa.",
     "crumbs": [
-      "Taller 3. Taller 4. Integración TD + FD + PD"
+      "Taller 4. Integración TD + FD + PD"
     ]
   }
 ]
