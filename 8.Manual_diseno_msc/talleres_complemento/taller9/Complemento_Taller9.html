@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez-Barrios">
+
+<title>Material complementario · Taller 9</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Complemento_Taller9_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Complemento_Taller9_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Complemento_Taller9_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Complemento_Taller9_files/libs/quarto-html/popper.min.js"></script>
+<script src="Complemento_Taller9_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Complemento_Taller9_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Complemento_Taller9_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Complemento_Taller9_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Complemento_Taller9_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Complemento_Taller9_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Complemento_Taller9_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Complemento_Taller9_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="Complemento_Taller9_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menú flotante</h2>
+   
+  <ul>
+  <li><a href="#cómo-usar-este-material" id="toc-cómo-usar-este-material" class="nav-link active" data-scroll-target="#cómo-usar-este-material">Cómo usar este material</a></li>
+  <li><a href="#sec-forward" id="toc-sec-forward" class="nav-link" data-scroll-target="#sec-forward">1. Selección con <code>forward.sel()</code></a></li>
+  <li><a href="#sec-coef" id="toc-sec-coef" class="nav-link" data-scroll-target="#sec-coef">2. Coeficientes canónicos</a>
+  <ul class="collapse">
+  <li><a href="#coeficientes-comparables-x-estandarizada" id="toc-coeficientes-comparables-x-estandarizada" class="nav-link" data-scroll-target="#coeficientes-comparables-x-estandarizada">2.1 Coeficientes comparables: X estandarizada</a></li>
+  </ul></li>
+  <li><a href="#sec-base" id="toc-sec-base" class="nav-link" data-scroll-target="#sec-base">3. El triplot con <code>vegan</code> base: sitios «wa» o «lc»</a></li>
+  <li><a href="#sec-varpart" id="toc-sec-varpart" class="nav-link" data-scroll-target="#sec-varpart">4. Partición de la varianza: ambiente, visita y tributario</a></li>
+  <li><a href="#sec-dbrda" id="toc-sec-dbrda" class="nav-link" data-scroll-target="#sec-dbrda">5. db-RDA: la RDA sobre la disimilitud del NMDS</a>
+  <ul class="collapse">
+  <li><a href="#selección-en-la-db-rda" id="toc-selección-en-la-db-rda" class="nav-link" data-scroll-target="#selección-en-la-db-rda">5.1 Selección en la db-RDA</a></li>
+  </ul></li>
+  <li><a href="#sec-bioenv" id="toc-sec-bioenv" class="nav-link" data-scroll-target="#sec-bioenv">6. BIOENV y la prueba de Mantel</a>
+  <ul class="collapse">
+  <li><a href="#mantel-después-de-bioenv-un-p-sesgado" id="toc-mantel-después-de-bioenv-un-p-sesgado" class="nav-link" data-scroll-target="#mantel-después-de-bioenv-un-p-sesgado">6.1 Mantel después de BIOENV: un p sesgado</a></li>
+  </ul></li>
+  <li><a href="#sec-cuadratico" id="toc-sec-cuadratico" class="nav-link" data-scroll-target="#sec-cuadratico">7. ¿Una respuesta no lineal? Términos cuadráticos</a></li>
+  <li><a href="#sec-doubs" id="toc-sec-doubs" class="nav-link" data-scroll-target="#sec-doubs">8. RDA de los peces del río Doubs</a>
+  <ul class="collapse">
+  <li><a href="#modelo-completo-y-colinealidad" id="toc-modelo-completo-y-colinealidad" class="nav-link" data-scroll-target="#modelo-completo-y-colinealidad">8.1 Modelo completo y colinealidad</a></li>
+  <li><a href="#selección-y-modelo-parsimonioso" id="toc-selección-y-modelo-parsimonioso" class="nav-link" data-scroll-target="#selección-y-modelo-parsimonioso">8.2 Selección y modelo parsimonioso</a></li>
+  <li><a href="#triplot" id="toc-triplot" class="nav-link" data-scroll-target="#triplot">8.3 Triplot</a></li>
+  </ul></li>
+  <li><a href="#sec-practica" id="toc-sec-practica" class="nav-link" data-scroll-target="#sec-practica">9. Ejercicios de práctica (sin nota)</a></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Material complementario · Taller 9</h1>
+<p class="subtitle lead">Más allá del núcleo de la RDA y la CCA · Multivariados II · Semana 4 · 2026-II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez-Barrios </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 de octubre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figuras_portadas/portada_complemento_rda_cca.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:95.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="cómo-usar-este-material" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-usar-este-material">Cómo usar este material</h2>
+<p>Este documento amplía el <a href="https://javier-2712.github.io/Manuales/8.Manual_diseno_msc/html/Taller9_RDA_CCA.html">Taller 9 · Ordenación restringida: RDA y CCA</a>. No es necesario recorrerlo completo: cada sección es independiente y responde a una situación que puede aparecer al preparar el estudio de caso o el propio proyecto de grado.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situación</th>
+<th>Sección</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Se quiere seleccionar variables con <code>forward.sel()</code>, como en el taller de 2024</td>
+<td><a href="#sec-forward">1. Selección con <code>forward.sel()</code></a></td>
+</tr>
+<tr class="even">
+<td>Se quiere saber qué son los coeficientes que da <code>coef()</code> y cómo leerlos</td>
+<td><a href="#sec-coef">2. Coeficientes canónicos</a></td>
+</tr>
+<tr class="odd">
+<td>Se quiere dibujar el triplot con <code>vegan</code> y decidir entre sitios «wa» y «lc»</td>
+<td><a href="#sec-base">3. El triplot con <code>vegan</code> base</a></td>
+</tr>
+<tr class="even">
+<td>Se necesita repartir la variación entre el ambiente, el tiempo y el sitio</td>
+<td><a href="#sec-varpart">4. Partición de la varianza</a></td>
+</tr>
+<tr class="odd">
+<td>Se quiere una RDA con Bray-Curtis u otra distancia no euclidiana</td>
+<td><a href="#sec-dbrda">5. db-RDA</a></td>
+</tr>
+<tr class="even">
+<td>Se quiere el mejor subconjunto de variables para una matriz de distancias</td>
+<td><a href="#sec-bioenv">6. BIOENV y la prueba de Mantel</a></td>
+</tr>
+<tr class="odd">
+<td>Se sospecha que una variable actúa de forma no lineal</td>
+<td><a href="#sec-cuadratico">7. Términos cuadráticos</a></td>
+</tr>
+<tr class="even">
+<td>Se quiere una RDA completa de otra comunidad, de principio a fin</td>
+<td><a href="#sec-doubs">8. RDA de los peces del río Doubs</a></td>
+</tr>
+<tr class="odd">
+<td>Se quiere practicar antes del estudio de caso</td>
+<td><a href="#sec-practica">9. Ejercicios de práctica</a></td>
+</tr>
+</tbody>
+</table>
+<p>El guardado automático de figuras y tablas está en los materiales complementarios de los Talleres 6, 7 y 8; con los objetos de este documento funciona igual.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerías requeridas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)      <span class="co"># Rótulos sin superposición</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Formato común de números y tablas</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"formato.R"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Paletas del módulo</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>col_trib  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">T1 =</span> <span class="st">"#2C6FB7"</span>, <span class="at">T2 =</span> <span class="st">"#E3A33B"</span>, <span class="at">T3 =</span> <span class="st">"#3E9C8F"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>col_tramo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Alto =</span> <span class="st">"#3E9C8F"</span>, <span class="at">Medio =</span> <span class="st">"#E3A33B"</span>, <span class="at">Bajo =</span> <span class="st">"#2C6FB7"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Microalgas: matrices F, X y Y como en el Taller 9</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>alg <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">ruta_datos</span>(<span class="st">"Microalgas.xlsx"</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">"Microalgas"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Fragilaria =</span> Fragillaria,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Nitzschia  =</span> Nitzchia,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Surirella  =</span> Surilella,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gyrosigma  =</span> Girosigma,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Achnanthes =</span> Achnantes) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tributario =</span> <span class="fu">factor</span>(Tributario),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Visita     =</span> <span class="fu">factor</span>(<span class="fu">as.integer</span>(<span class="fu">sub</span>(<span class="st">".*</span><span class="sc">\\</span><span class="st">."</span>, <span class="st">""</span>, Cod))))   <span class="co"># T1.3 → 3</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>F_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Cod, Tributario, Visita)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>X_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Amonio<span class="sc">:</span>Temp)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Y_alg <span class="ot">&lt;-</span> alg <span class="sc">%&gt;%</span> <span class="fu">select</span>(Fragilaria<span class="sc">:</span>Pinnularia)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Y con Hellinger y X con log10(x + 1) salvo el pH</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Y_hel <span class="ot">&lt;-</span> <span class="fu">decostand</span>(Y_alg, <span class="at">method =</span> <span class="st">"hellinger"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>X_log <span class="ot">&lt;-</span> X_alg <span class="sc">%&gt;%</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>pH, <span class="sc">~</span> <span class="fu">log10</span>(.x <span class="sc">+</span> <span class="dv">1</span>)))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelos del Taller 9: completo y parsimonioso</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>rda_full <span class="ot">&lt;-</span> <span class="fu">rda</span>(Y_hel <span class="sc">~</span> ., <span class="at">data =</span> X_log)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>rda_pars <span class="ot">&lt;-</span> <span class="fu">rda</span>(Y_hel <span class="sc">~</span> Conductividad <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Temp,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> X_log)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="sec-forward" class="level2">
+<h2 class="anchored" data-anchor-id="sec-forward">1. Selección con <code>forward.sel()</code></h2>
+<p><strong>Pregunta:</strong> ¿Qué hace <code>forward.sel()</code> del paquete <code>adespatial</code> y en qué se parece a <code>ordiR2step()</code>?</p>
+<p>En el taller de 2024, la selección de variables se hacía con <code>forward.sel()</code> (Blanchet et al., 2008). Su lógica es la misma de <code>ordiR2step()</code>, que se usó en el Taller 9: avanza agregando la variable que más aumenta el R² y se detiene cuando se cumple <strong>cualquiera</strong> de dos condiciones:</p>
+<ol type="1">
+<li>la variable que entra ya no es significativa (<code>alpha = 0.05</code>), o</li>
+<li>el R² ajustado del modelo supera el del modelo completo (<code>adjR2thresh</code>).</li>
+</ol>
+<p>El segundo criterio es el que evita el sobreajuste: un modelo reducido no debería explicar más que el modelo con todas las variables.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección hacia adelante con doble criterio (requiere el paquete adespatial)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(adespatial)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>R2a_full <span class="ot">&lt;-</span> <span class="fu">RsquareAdj</span>(rda_full)<span class="sc">$</span>adj.r.squared   <span class="co"># umbral: R² ajustado del modelo completo</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">forward.sel</span>(<span class="at">Y =</span> Y_hel,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">X =</span> X_log,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">adjR2thresh =</span> R2a_full,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">nperm =</span> <span class="dv">999</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El mismo doble criterio con ordiR2step() de vegan</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>rda0 <span class="ot">&lt;-</span> <span class="fu">rda</span>(Y_hel <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> X_log)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sel_r2 <span class="ot">&lt;-</span> <span class="fu">ordiR2step</span>(rda0,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">scope =</span> <span class="fu">formula</span>(rda_full),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">R2scope =</span> <span class="cn">TRUE</span>,                  <span class="co"># no superar el R² ajustado del completo</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Pin =</span> <span class="fl">0.05</span>,                      <span class="co"># p de entrada</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">trace =</span> <span class="dv">0</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>sel_r2<span class="sc">$</span>anova <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Paso"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Paso </th>
+   <th style="text-align:right;font-weight: bold;"> R2.adj </th>
+   <th style="text-align:right;font-weight: bold;"> Df </th>
+   <th style="text-align:right;font-weight: bold;"> AIC </th>
+   <th style="text-align:right;font-weight: bold;"> F </th>
+   <th style="text-align:right;font-weight: bold;"> Pr(&gt;F) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> + Conductividad </td>
+   <td style="text-align:right;"> 0.076 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -46.682 </td>
+   <td style="text-align:right;"> 2.882 </td>
+   <td style="text-align:right;"> 0.011 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> + Vel_Corriente </td>
+   <td style="text-align:right;"> 0.128 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -47.204 </td>
+   <td style="text-align:right;"> 2.327 </td>
+   <td style="text-align:right;"> 0.037 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> &lt;All variables&gt; </td>
+   <td style="text-align:right;"> 0.182 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>En el taller de 2024, <code>forward.sel()</code> llegó a las mismas dos variables que <code>ordiR2step()</code>: la conductividad y la velocidad de la corriente (R² ajustado = 0.128). Las diferencias prácticas entre las dos funciones son pocas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><code>forward.sel()</code> (<code>adespatial</code>)</th>
+<th><code>ordiR2step()</code> (<code>vegan</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entrada</td>
+<td>Matrices numéricas Y y X</td>
+<td>Una fórmula y un modelo nulo</td>
+</tr>
+<tr class="even">
+<td>Factores</td>
+<td>No los acepta</td>
+<td>Los acepta (por ejemplo, el tributario)</td>
+</tr>
+<tr class="odd">
+<td>Salida</td>
+<td>Tabla con R², R² ajustado y p acumulados</td>
+<td>Modelo <code>rda</code> listo para graficar y probar</td>
+</tr>
+<tr class="even">
+<td>Instalación</td>
+<td>Paquete adicional, con muchas dependencias</td>
+<td>Viene con <code>vegan</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Por qué el Taller 9 usa <code>ordiR2step()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Da el mismo resultado sin instalar otro paquete, acepta factores y devuelve un modelo que se puede probar con <code>anova()</code> y graficar directamente. <code>forward.sel()</code> sigue siendo útil cuando se seleccionan cientos de variables (por ejemplo, vectores espaciales), para lo que fue diseñada.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> si <code>forward.sel()</code> y <code>ordistep()</code> dieran modelos distintos con los mismos datos, ¿cuál se reportaría y qué se diría del otro?</p>
+<hr>
+</section>
+<section id="sec-coef" class="level2">
+<h2 class="anchored" data-anchor-id="sec-coef">2. Coeficientes canónicos</h2>
+<p><strong>Pregunta:</strong> ¿Qué son los números que entrega <code>coef()</code> sobre una RDA?</p>
+<p>En el taller de 2024 se leía <code>coef()</code> como un modelo lineal de la comunidad: «microalgas = 0.01·amonio − 0.18·nitrito + …». Esa lectura no es correcta. Los coeficientes canónicos son los pesos con que se combinan las variables X para construir cada <strong>eje</strong> restringido:</p>
+<p><span class="math display">\[
+\text{RDA1}_i = b_1\,\text{Conductividad}_i + b_2\,\text{Velocidad}_i + b_3\,\text{Temperatura}_i
+\]</span></p>
+<p>con las variables centradas. Se comprueba con el modelo parsimonioso:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes canónicos del modelo parsimonioso</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b_pars <span class="ot">&lt;-</span> <span class="fu">coef</span>(rda_pars)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables X centradas, multiplicadas por los coeficientes</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>X3_c <span class="ot">&lt;-</span> X_log <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Conductividad, Vel_Corriente, Temp) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>(<span class="at">scale =</span> <span class="cn">FALSE</span>)                              <span class="co"># solo centrar</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>lc_mano <span class="ot">&lt;-</span> X3_c <span class="sc">%*%</span> b_pars</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenadas «lc» de los sitios sin escalamiento</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>lc_vegan <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_pars,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">display =</span> <span class="st">"lc"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">scaling =</span> <span class="dv">0</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">iguales =</span> <span class="fu">all.equal</span>(<span class="fu">unname</span>(lc_mano), <span class="fu">unname</span>(lc_vegan), <span class="at">check.attributes =</span> <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>iguales 
+   TRUE </code></pre>
+</div>
+</div>
+<p>Los coeficientes reproducen exactamente las coordenadas «lc»: dicen <strong>cómo se construye el eje</strong>, no cuánto cambia la abundancia de cada género.</p>
+<section id="coeficientes-comparables-x-estandarizada" class="level3">
+<h3 class="anchored" data-anchor-id="coeficientes-comparables-x-estandarizada">2.1 Coeficientes comparables: X estandarizada</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes con las X en sus escalas (log10) y con las X estandarizadas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X3_z <span class="ot">&lt;-</span> X_log <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Conductividad, Vel_Corriente, Temp) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>rda_pars_z <span class="ot">&lt;-</span> <span class="fu">rda</span>(Y_hel <span class="sc">~</span> Conductividad <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Temp,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> X3_z)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Variable    =</span> <span class="fu">rownames</span>(b_pars),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">DE de X</span><span class="st">`</span>   <span class="ot">=</span> <span class="fu">unname</span>(<span class="fu">apply</span>(X3_c, <span class="dv">2</span>, sd)),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">RDA1        =</span> <span class="fu">unname</span>(b_pars[, <span class="dv">1</span>]),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">RDA1_estand =</span> <span class="fu">unname</span>(<span class="fu">coef</span>(rda_pars_z)[, <span class="dv">1</span>]),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">RDA2_estand =</span> <span class="fu">unname</span>(<span class="fu">coef</span>(rda_pars_z)[, <span class="dv">2</span>])) <span class="sc">%&gt;%</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"DE de X"</span>, <span class="st">"RDA1 (escala de X)"</span>, </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"RDA1 (X estandarizada)"</span>, </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"RDA2 (X estandarizada)"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Variable </th>
+   <th style="text-align:right;font-weight: bold;"> DE de X </th>
+   <th style="text-align:right;font-weight: bold;"> RDA1 (escala de X) </th>
+   <th style="text-align:right;font-weight: bold;"> RDA1 (X estandarizada) </th>
+   <th style="text-align:right;font-weight: bold;"> RDA2 (X estandarizada) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Conductividad </td>
+   <td style="text-align:right;"> 0.112 </td>
+   <td style="text-align:right;"> -2.714 </td>
+   <td style="text-align:right;"> -0.303 </td>
+   <td style="text-align:right;"> -0.188 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Vel_Corriente </td>
+   <td style="text-align:right;"> 0.120 </td>
+   <td style="text-align:right;"> 1.626 </td>
+   <td style="text-align:right;"> 0.195 </td>
+   <td style="text-align:right;"> 0.184 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temp </td>
+   <td style="text-align:right;"> 0.025 </td>
+   <td style="text-align:right;"> 1.016 </td>
+   <td style="text-align:right;"> 0.026 </td>
+   <td style="text-align:right;"> 0.252 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores para el texto</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>bz <span class="ot">&lt;-</span> <span class="fu">coef</span>(rda_pars_z)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Con X en su escala, la temperatura tiene coeficientes grandes solo porque su desviación estándar es pequeña (0.025 en log10). Al estandarizar, los coeficientes se vuelven comparables: la conductividad pesa más en el RDA1 (-0.30) y la temperatura en el RDA2 (0.25), lo mismo que mostraban las flechas del triplot. Las flechas (<code>display = "bp"</code>) son correlaciones entre cada X y los ejes, y suelen ser más fáciles de leer que los coeficientes; cuando las X están correlacionadas, los coeficientes pueden incluso cambiar de signo respecto de las flechas.</p>
+<p><strong>Para discutir:</strong> ¿qué ventaja tendría reportar las correlaciones (flechas) en lugar de los coeficientes en un artículo?</p>
+<hr>
+</section>
+</section>
+<section id="sec-base" class="level2">
+<h2 class="anchored" data-anchor-id="sec-base">3. El triplot con <code>vegan</code> base: sitios «wa» o «lc»</h2>
+<p><strong>Pregunta:</strong> ¿Qué cambia en el triplot si los sitios se dibujan como combinaciones lineales de X («lc») en lugar de promedios ponderados de las especies («wa»)?</p>
+<p>El Taller 9 grafica los sitios «wa», que es lo que hace <code>plot()</code> de <code>vegan</code> por defecto. En el taller de 2024 se usaban los «lc» (<code>display = c("sp", "lc", "cn")</code>). Las dos opciones son válidas y responden cosas distintas:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Coordenadas</th>
+<th>Cómo se calculan</th>
+<th>Muestran</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>«wa»</td>
+<td>Promedios ponderados de las coordenadas de los géneros</td>
+<td>Dónde queda cada sitio según su <strong>comunidad</strong></td>
+</tr>
+<tr class="even">
+<td>«lc»</td>
+<td>Combinación lineal de las X con los coeficientes canónicos</td>
+<td>Dónde lo <strong>ubica el modelo</strong> según su ambiente</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenadas que no cambian entre los dos paneles</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sp2 <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_pars, <span class="at">display =</span> <span class="st">"species"</span>, <span class="at">scaling =</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>bp2 <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_pars, <span class="at">display =</span> <span class="st">"bp"</span>, <span class="at">scaling =</span> <span class="dv">2</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Dos triplots con vegan base: sitios «wa» y «lc»</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (tipo <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"wa"</span>, <span class="st">"lc"</span>)) {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  sit2 <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_pars, <span class="at">display =</span> tipo, <span class="at">scaling =</span> <span class="dv">2</span>)        <span class="co"># sitios «wa» o «lc»</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  mult <span class="ot">&lt;-</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">max</span>(<span class="fu">abs</span>(sit2)) <span class="sc">/</span> <span class="fu">max</span>(<span class="fu">abs</span>(bp2))                  <span class="co"># flechas a la escala de los sitios</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(sit2,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">"n"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">asp =</span> <span class="dv">1</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlim =</span> <span class="fu">range</span>(<span class="fu">c</span>(sit2[, <span class="dv">1</span>], bp2[, <span class="dv">1</span>] <span class="sc">*</span> mult <span class="sc">*</span> <span class="fl">1.2</span>)),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylim =</span> <span class="fu">range</span>(<span class="fu">c</span>(sit2[, <span class="dv">2</span>], bp2[, <span class="dv">2</span>] <span class="sc">*</span> mult <span class="sc">*</span> <span class="fl">1.2</span>)),</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Sitios"</span>, tipo))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>         sp2[, <span class="dv">1</span>],</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>         sp2[, <span class="dv">2</span>],</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">length =</span> <span class="dv">0</span>,                                            <span class="co"># géneros como líneas desde el origen</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">"#C0392B"</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(sit2,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> col_trib[F_alg<span class="sc">$</span>Tributario])</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>         bp2[, <span class="dv">1</span>] <span class="sc">*</span> mult,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>         bp2[, <span class="dv">2</span>] <span class="sc">*</span> mult,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">length =</span> <span class="fl">0.08</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="st">"#2C3E80"</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(bp2 <span class="sc">*</span> mult <span class="sc">*</span> <span class="fl">1.12</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">rownames</span>(bp2),</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"#2C3E80"</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">cex =</span> <span class="fl">0.9</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-wa-lc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wa-lc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Complemento_Taller9_files/figure-html/fig-wa-lc-1.png" class="img-fluid figure-img" width="1056">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wa-lc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Triplot de la RDA parsimoniosa de las microalgas (escalamiento 2) con los sitios «wa» (izquierda) y «lc» (derecha). Puntos: sitios coloreados por tributario; líneas rojas: géneros; flechas azules: variables ambientales.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlación entre las coordenadas «lc» y «wa» en cada eje</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>r_lc_wa <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">cor</span>(<span class="fu">scores</span>(rda_pars, <span class="at">display =</span> <span class="st">"lc"</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">scores</span>(rda_pars, <span class="at">display =</span> <span class="st">"wa"</span>)))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(r_lc_wa, <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>RDA1 RDA2 
+0.78 0.67 </code></pre>
+</div>
+</div>
+<p>Con este modelo, las dos versiones se parecen poco: la correlación entre «lc» y «wa» es 0.78 en el RDA1 y 0.67 en el RDA2. Con «lc», los sitios se ordenan solo por su ambiente: los de T1 forman una franja a la izquierda, del lado de la conductividad, y quedan más cerca del origen, porque dependen de tres variables; con «wa», se dispersan más, según lo que cada sustrato tenía en realidad (por ejemplo, las dos primeras visitas de T1 se alejan mucho más). Cuanto menor es el R² del modelo, más se separan las dos versiones.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cuál usar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si la pregunta es <strong>qué predice el ambiente</strong>, se grafican los «lc» (Legendre y Legendre, 2012, los recomiendan para el triplot). Si la pregunta es <strong>dónde queda cada comunidad</strong> respecto del ambiente, se grafican los «wa», que además son más robustos al ruido en X. En cualquier caso, se declara cuál se usó.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Géneros como líneas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En una RDA, cada género se dibuja como una línea desde el origen: su abundancia (Hellinger) aumenta en esa dirección, porque la RDA supone respuestas lineales. En la CCA, el punto de cada género marca su óptimo. Las funciones auxiliares de Borcard et al.&nbsp;(2018), como <code>triplot.rda()</code>, dibujan así los géneros; en R 4.2 o posterior esa función se detiene con el error «the condition has length &gt; 1» y por eso no se usa en el módulo.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> en una figura de tesis, ¿qué ventaja tendría mostrar los dos paneles de la <a href="#fig-wa-lc" class="quarto-xref">Figura&nbsp;1</a> juntos?</p>
+<hr>
+</section>
+<section id="sec-varpart" class="level2">
+<h2 class="anchored" data-anchor-id="sec-varpart">4. Partición de la varianza: ambiente, visita y tributario</h2>
+<p><strong>Pregunta:</strong> ¿Cuánto de la composición explica cada conjunto de variables por sí solo, y cuánto comparten?</p>
+<p>En el Taller 9, la RDA parcial removió la visita para ver el efecto del ambiente. <code>varpart()</code> generaliza esa idea a dos, tres o cuatro conjuntos de variables explicativas y reparte la variación en fracciones (Peres-Neto et al., 2006):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partición entre el ambiente (3 X), la visita y el tributario</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>X3 <span class="ot">&lt;-</span> X_log <span class="sc">%&gt;%</span> <span class="fu">select</span>(Conductividad, Vel_Corriente, Temp)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>vp <span class="ot">&lt;-</span> <span class="fu">varpart</span>(Y_hel,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>              X3,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span> Visita,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>              <span class="sc">~</span> Tributario,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> F_alg)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>vp<span class="sc">$</span>part<span class="sc">$</span>indfract <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Fracción"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Fracción, Df, Adj.R.square, Testable) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Fracción"</span>, <span class="st">"gl"</span>, <span class="st">"R² ajustado"</span>, <span class="st">"Se puede probar"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Fracción </th>
+   <th style="text-align:right;font-weight: bold;"> gl </th>
+   <th style="text-align:right;font-weight: bold;"> R² ajustado </th>
+   <th style="text-align:left;font-weight: bold;"> Se puede probar </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> [a] = X1 | X2+X3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.038 </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [b] = X2 | X1+X3 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.246 </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [c] = X3 | X1+X2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.003 </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [d] </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.054 </td>
+   <td style="text-align:left;"> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [e] </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.045 </td>
+   <td style="text-align:left;"> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [f] </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0.234 </td>
+   <td style="text-align:left;"> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [g] </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> -0.143 </td>
+   <td style="text-align:left;"> FALSE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [h] = Residuals </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.523 </td>
+   <td style="text-align:left;"> FALSE </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagrama de Venn de las fracciones</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vp,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">Xnames =</span> <span class="fu">c</span>(<span class="st">"Ambiente"</span>, <span class="st">"Visita"</span>, <span class="st">"Tributario"</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">"#C0392B"</span>, <span class="st">"#E3A33B"</span>, <span class="st">"#2C6FB7"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">alpha =</span> <span class="dv">80</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">cutoff =</span> <span class="sc">-</span><span class="cn">Inf</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-varpart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-varpart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Complemento_Taller9_files/figure-html/fig-varpart-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-varpart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Partición de la variación de la composición de microalgas (R² ajustados) entre el ambiente (conductividad, velocidad y temperatura), la visita y el tributario. Los valores negativos se muestran pero se leen como cero.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba de las fracciones puras del ambiente y del tributario</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>d_alg <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(X3, F_alg)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>p_amb_pura <span class="ot">&lt;-</span> <span class="fu">anova</span>(<span class="fu">rda</span>(Y_hel <span class="sc">~</span> Conductividad <span class="sc">+</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                          Vel_Corriente <span class="sc">+</span> Temp <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">Condition</span>(Visita) <span class="sc">+</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">Condition</span>(Tributario),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> d_alg),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>p_trib_pura <span class="ot">&lt;-</span> <span class="fu">anova</span>(<span class="fu">rda</span>(Y_hel <span class="sc">~</span> Tributario <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">Condition</span>(Visita) <span class="sc">+</span> </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">Condition</span>(Conductividad <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Temp),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> d_alg),</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores para el texto</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>fr <span class="ot">&lt;-</span> vp<span class="sc">$</span>part<span class="sc">$</span>indfract<span class="sc">$</span>Adj.R.square</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">p_ambiente_pura =</span> <span class="fu">p_de</span>(p_amb_pura), </span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_tributario_pura =</span> <span class="fu">p_de</span>(p_trib_pura))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  p_ambiente_pura p_tributario_pura 
+            0.201             0.402 </code></pre>
+</div>
+</div>
+<p>Tres lecturas:</p>
+<ul>
+<li><strong>La visita es la fracción pura más grande</strong> (0.246): el tiempo de colonización estructura la comunidad por sí solo, como mostró la RDA parcial del Taller 9.</li>
+<li><strong>El ambiente y el tributario comparten casi todo</strong> (fracción [f] = 0.234). Sus fracciones puras son pequeñas y no significativas (ambiente: 0.038, p = 0.201; tributario: 0.003, p = 0.402). Las tres variables ambientales describen a los tributarios: conocer la conductividad, la velocidad y la temperatura equivale casi a saber de qué tributario viene la muestra.</li>
+<li><strong>La fracción [g]</strong>, común a los tres conjuntos, es negativa (-0.143). Las fracciones compartidas se obtienen por resta y no se prueban; un valor negativo indica que los conjuntos se «suprimen» entre sí y se interpreta como cero.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Diseño (RA1): lo que la partición no puede separar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con tres tributarios, el ambiente y el tributario están confundidos: la partición no puede decir si las diferencias entre tributarios se deben a su química o a cualquier otra cosa propia de cada cauce (sombra, sustrato, historia de colonización). Separarlos exigiría más tributarios, con ambientes que se crucen. La partición describe ese límite; no lo resuelve.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> en un estudio de macroalgas con tres ecorregiones y variables de nutrientes medidas en cada sitio, ¿qué fracción se esperaría que fuera grande? ¿Qué diseño permitiría separar la ecorregión de los nutrientes?</p>
+<hr>
+</section>
+<section id="sec-dbrda" class="level2">
+<h2 class="anchored" data-anchor-id="sec-dbrda">5. db-RDA: la RDA sobre la disimilitud del NMDS</h2>
+<p><strong>Pregunta:</strong> ¿Qué pasa si la RDA se hace con la misma disimilitud de Bray-Curtis del NMDS del Taller 8, en lugar de Hellinger?</p>
+<p>La RDA basada en distancias (db-RDA; Legendre y Anderson, 1999) hace un PCoA de cualquier matriz de distancias y luego una RDA sobre sus coordenadas. Así se combina una distancia con sentido ecológico (Bray-Curtis, Jaccard, Gower) con todo lo visto en el Taller 9: R² ajustado, pruebas por permutación, VIF y selección.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz con la transformación del NMDS del Taller 8 (raíz cuadrada y Wisconsin)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Y_wis <span class="ot">&lt;-</span> <span class="fu">wisconsin</span>(<span class="fu">sqrt</span>(Y_alg))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># db-RDA completa y con las tres variables del Taller 9</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>db_full <span class="ot">&lt;-</span> <span class="fu">dbrda</span>(Y_wis <span class="sc">~</span> .,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> X_log,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">distance =</span> <span class="st">"bray"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>db_pars <span class="ot">&lt;-</span> <span class="fu">dbrda</span>(Y_wis <span class="sc">~</span> Conductividad <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> Temp,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> X_log,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">distance =</span> <span class="st">"bray"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>db_full</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call: dbrda(formula = Y_wis ~ Amonio + Nitrito + Nitrato + Oxigeno + pH +
+Conductividad + Caudal + Vel_Corriente + Luz + Temp, data = X_log, distance
+= "bray")
+
+              Inertia Proportion Rank RealDims
+Total          1.3423     1.0000              
+Constrained    0.7286     0.5428   10        9
+Unconstrained  0.6137     0.4572   13       10
+
+Inertia is squared Bray distance
+
+Eigenvalues for constrained axes:
+  dbRDA1   dbRDA2   dbRDA3   dbRDA4   dbRDA5   dbRDA6   dbRDA7   dbRDA8 
+ 0.27960  0.21802  0.08035  0.05234  0.04297  0.02807  0.01935  0.00966 
+  dbRDA9  idbRDA1 
+ 0.00248 -0.00423 
+
+Eigenvalues for unconstrained axes:
+   MDS1    MDS2    MDS3    MDS4    MDS5    MDS6    MDS7    MDS8    MDS9   MDS10 
+ 0.3352  0.1121  0.0600  0.0380  0.0328  0.0185  0.0135  0.0101  0.0040  0.0029 
+  iMDS1   iMDS2   iMDS3 
+-0.0006 -0.0017 -0.0109 </code></pre>
+</div>
+</div>
+<p>La salida trae dos novedades frente a una RDA:</p>
+<ul>
+<li><strong><code>RealDims</code></strong> y los ejes con prefijo <code>i</code> (<code>idbRDA1</code>, <code>iMDS1</code>…): son los autovalores <strong>negativos</strong>, la parte de Bray-Curtis que no cabe en un espacio euclidiano (como en el PCoA del material complementario del Taller 8). Aquí son 4 y pequeños.</li>
+<li><strong><code>Inertia is squared Bray distance</code></strong>: la inercia ya no es una varianza de Hellinger, sino la suma de distancias de Bray-Curtis al cuadrado.</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R², pruebas y comparación con la RDA de Hellinger</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>glob_db_full <span class="ot">&lt;-</span> <span class="fu">anova</span>(db_full, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>glob_db_pars <span class="ot">&lt;-</span> <span class="fu">anova</span>(db_pars, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>glob_rda_full <span class="ot">&lt;-</span> <span class="fu">anova</span>(rda_full, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>glob_rda_pars <span class="ot">&lt;-</span> <span class="fu">anova</span>(rda_pars, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Indicador =</span> <span class="fu">c</span>(<span class="st">"Modelo completo: R² (fracción restringida)"</span>,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Modelo completo: R² ajustado"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Modelo completo: p global"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Modelo con 3 X: R² ajustado"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Modelo con 3 X: p global"</span>),</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">RDA (Hellinger)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(rda_full<span class="sc">$</span>CCA<span class="sc">$</span>tot.chi <span class="sc">/</span> rda_full<span class="sc">$</span>tot.chi,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">RsquareAdj</span>(rda_full)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">p_de</span>(glob_rda_full),</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">RsquareAdj</span>(rda_pars)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">p_de</span>(glob_rda_pars)),</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>       <span class="st">`</span><span class="at">db-RDA (Bray-Curtis)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(db_full<span class="sc">$</span>CCA<span class="sc">$</span>tot.chi <span class="sc">/</span> db_full<span class="sc">$</span>tot.chi,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">RsquareAdj</span>(db_full)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">p_de</span>(glob_db_full),</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">RsquareAdj</span>(db_pars)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">p_de</span>(glob_db_pars))) <span class="sc">%&gt;%</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Indicador </th>
+   <th style="text-align:right;font-weight: bold;"> RDA (Hellinger) </th>
+   <th style="text-align:right;font-weight: bold;"> db-RDA (Bray-Curtis) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Modelo completo: R² (fracción restringida) </td>
+   <td style="text-align:right;"> 0.538 </td>
+   <td style="text-align:right;"> 0.543 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Modelo completo: R² ajustado </td>
+   <td style="text-align:right;"> 0.182 </td>
+   <td style="text-align:right;"> 0.191 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Modelo completo: p global </td>
+   <td style="text-align:right;"> 0.060 </td>
+   <td style="text-align:right;"> 0.064 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Modelo con 3 X: R² ajustado </td>
+   <td style="text-align:right;"> 0.183 </td>
+   <td style="text-align:right;"> 0.196 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Modelo con 3 X: p global </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Concordancia entre las configuraciones de sitios de las dos técnicas</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>pro_db <span class="ot">&lt;-</span> <span class="fu">protest</span>(rda_pars, db_pars, <span class="at">permutations =</span> <span class="dv">999</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">r =</span> pro_db<span class="sc">$</span>t0, <span class="at">p =</span> pro_db<span class="sc">$</span>signif)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       r        p 
+0.962357 0.001000 </code></pre>
+</div>
+</div>
+<p>Las dos técnicas cuentan la misma historia: la db-RDA con tres variables explica el 19.6 % (R² ajustado; p = 0.001) y su configuración de sitios coincide con la de la RDA (Procrustes r = 0.962). El modelo completo vuelve a quedar en la frontera del 5 % (p = 0.064), como en el Taller 9.</p>
+<section id="selección-en-la-db-rda" class="level3">
+<h3 class="anchored" data-anchor-id="selección-en-la-db-rda">5.1 Selección en la db-RDA</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección desde el modelo nulo con cuatro semillas</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>db0 <span class="ot">&lt;-</span> <span class="fu">dbrda</span>(Y_wis <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> X_log,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">distance =</span> <span class="st">"bray"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>sel_db <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(<span class="fu">c</span>(<span class="dv">2026</span>, <span class="dv">123</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="cf">function</span>(s) {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(s)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  st <span class="ot">&lt;-</span> <span class="fu">ordistep</span>(db0,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scope =</span> <span class="fu">formula</span>(db_full),</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace =</span> <span class="dv">0</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">Semilla =</span> s,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Variables =</span> <span class="fu">paste</span>(<span class="fu">sub</span>(<span class="st">"^</span><span class="sc">\\</span><span class="st">+ "</span>, <span class="st">""</span>, <span class="fu">rownames</span>(st<span class="sc">$</span>anova)), <span class="at">collapse =</span> <span class="st">" + "</span>),</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">p de la última</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">tail</span>(st<span class="sc">$</span>anova<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>, <span class="dv">1</span>))</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>sel_db <span class="sc">%&gt;%</span> <span class="fu">tabla</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;font-weight: bold;"> Semilla </th>
+   <th style="text-align:left;font-weight: bold;"> Variables </th>
+   <th style="text-align:right;font-weight: bold;"> p de la última </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 2026 </td>
+   <td style="text-align:left;"> Temp + Nitrito </td>
+   <td style="text-align:right;"> 0.028 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 123 </td>
+   <td style="text-align:left;"> Conductividad + Temp + Vel_Corriente </td>
+   <td style="text-align:right;"> 0.039 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Conductividad + Temp + Vel_Corriente </td>
+   <td style="text-align:right;"> 0.039 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Temp + Nitrito </td>
+   <td style="text-align:right;"> 0.032 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primer paso: p de cada variable al entrar sola</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>paso1_db <span class="ot">&lt;-</span> <span class="fu">add1</span>(db0,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scope =</span> <span class="fu">formula</span>(db_full),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">test =</span> <span class="st">"permutation"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>paso1_db[<span class="fu">c</span>(<span class="st">"Temp"</span>, <span class="st">"Conductividad"</span>, <span class="st">"Nitrito"</span>), <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"Pr(&gt;F)"</span>)]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   F Pr(&gt;F)  
+Temp          3.0459  0.018 *
+Conductividad 2.8596  0.020 *
+Nitrito       2.3912  0.038 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>La selección depende de la semilla: con unas entra el mismo trío del Taller 9 y con otras se detiene en temperatura + nitrito. Al revisar los p del primer paso, la temperatura (p = 0.018) y la conductividad (p = 0.020) están muy cerca, y el orden en que entran cambia lo que se agrega después. Es la misma lección de la CCA en el Taller 9: cuando dos candidatas están empatadas, el modelo «seleccionado» no es único, y conviene reportar los candidatos razonables, no uno solo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span><code>capscale()</code> frente a <code>dbrda()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>vegan</code> tiene dos funciones de db-RDA. <code>capscale()</code> descarta los autovalores negativos y permite proyectar las especies; <code>dbrda()</code> los conserva y es la implementación fiel de Legendre y Anderson (1999). Con pocos autovalores negativos, como aquí, dan casi lo mismo. Con Gower u otras distancias muy poco euclidianas, se prefiere <code>dbrda()</code> o una corrección de Lingoes o Cailliez (<code>add = TRUE</code>).</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> en un estudio de bentos de fondos blandos con muchos ceros, ¿por qué se preferiría una db-RDA con Bray-Curtis a una RDA de Hellinger? ¿Qué se pierde?</p>
+<hr>
+</section>
+</section>
+<section id="sec-bioenv" class="level2">
+<h2 class="anchored" data-anchor-id="sec-bioenv">6. BIOENV y la prueba de Mantel</h2>
+<p><strong>Pregunta:</strong> ¿Qué subconjunto de variables ambientales reproduce mejor las disimilitudes de la comunidad, y se puede probar esa relación?</p>
+<p>BIOENV (Clarke y Ainsworth, 1993) prueba todos los subconjuntos posibles de X: para cada uno calcula la distancia euclidiana entre las muestras (con X estandarizada) y su correlación de Spearman (ρ) con la disimilitud de la comunidad. Devuelve el subconjunto con la mayor ρ.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Disimilitud de la comunidad (la del NMDS del Taller 8)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d_bray <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Y_wis, <span class="at">method =</span> <span class="st">"bray"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># BIOENV con las 10 variables ambientales (1023 subconjuntos)</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>bio <span class="ot">&lt;-</span> <span class="fu">bioenv</span>(d_bray,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>              X_log)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>1023 possible subsets (this may take time...)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>res_bio <span class="ot">&lt;-</span> <span class="fu">summary</span>(bio)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Variables   =</span> res_bio<span class="sc">$</span>variables,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>       Tamaño      <span class="ot">=</span> res_bio<span class="sc">$</span>size,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">rho         =</span> res_bio<span class="sc">$</span>correlation) <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Mejor subconjunto"</span>, <span class="st">"Variables"</span>, <span class="st">"ρ de Spearman"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Mejor subconjunto </th>
+   <th style="text-align:right;font-weight: bold;"> Variables </th>
+   <th style="text-align:right;font-weight: bold;"> ρ de Spearman </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Luz </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.192 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito Luz </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.233 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito Conductividad Luz </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.236 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito Conductividad Luz Temp </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.225 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito pH Conductividad Luz Temp </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.198 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nitrito pH Conductividad Caudal Luz Temp </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.171 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amonio Nitrito pH Conductividad Caudal Luz Temp </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.152 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amonio Nitrito Oxigeno pH Conductividad Caudal Luz Temp </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.129 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amonio Nitrito Nitrato Oxigeno pH Conductividad Caudal Luz Temp </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.093 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Amonio Nitrito Nitrato Oxigeno pH Conductividad Caudal Vel_Corriente Luz Temp </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.058 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mejor subconjunto global</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mejor <span class="ot">&lt;-</span> <span class="fu">names</span>(X_log)[bio<span class="sc">$</span>models[[bio<span class="sc">$</span>whichbest]]<span class="sc">$</span>best]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>rho_mejor <span class="ot">&lt;-</span> <span class="fu">max</span>(res_bio<span class="sc">$</span>correlation)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>mejor</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Nitrito"       "Conductividad" "Luz"          </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># El mismo análisis con las variables en sus unidades</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>bio_u <span class="ot">&lt;-</span> <span class="fu">bioenv</span>(d_bray,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                X_alg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>1023 possible subsets (this may take time...)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mejor_u <span class="ot">&lt;-</span> <span class="fu">names</span>(X_alg)[bio_u<span class="sc">$</span>models[[bio_u<span class="sc">$</span>whichbest]]<span class="sc">$</span>best]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>rho_u <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">summary</span>(bio_u)<span class="sc">$</span>correlation)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>El mejor subconjunto es Nitrito + Conductividad + Luz (ρ = 0.236). No coincide con la RDA (conductividad, velocidad y temperatura) porque busca otra cosa: concordancia de <strong>rangos</strong> entre dos matrices de distancias, no varianza explicada. Además, depende de la escala de X: con <code>X_alg</code> en sus unidades, el mejor subconjunto es Nitrito + Conductividad + Luz con ρ = 0.280, así que se declara qué matriz se usó.</p>
+<section id="mantel-después-de-bioenv-un-p-sesgado" class="level3">
+<h3 class="anchored" data-anchor-id="mantel-después-de-bioenv-un-p-sesgado">6.1 Mantel después de BIOENV: un p sesgado</h3>
+<p>La tentación es probar ese ρ con una prueba de Mantel:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mantel entre la comunidad y el mejor subconjunto de BIOENV</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>mant_mejor <span class="ot">&lt;-</span> <span class="fu">mantel</span>(d_bray,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">dist</span>(<span class="fu">scale</span>(X_log[, mejor])),</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">"spearman"</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">permutations =</span> <span class="dv">999</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">rho =</span> mant_mejor<span class="sc">$</span>statistic, <span class="at">p =</span> mant_mejor<span class="sc">$</span>signif)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      rho         p 
+0.2358608 0.0420000 </code></pre>
+</div>
+</div>
+<p>El p (0.042) parece significativo, pero no es válido: el subconjunto se eligió <strong>porque</strong> tenía la ρ más alta entre 1023. Para ver cuánto puede dar el azar, se repite BIOENV con 10 variables de números aleatorios:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BIOENV con 10 variables aleatorias (30 repeticiones)</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>rho_azar <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">30</span>, {</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  X_azar <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="fu">nrow</span>(Y_alg) <span class="sc">*</span> <span class="dv">10</span>), <span class="at">ncol =</span> <span class="dv">10</span>))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>(<span class="fu">summary</span>(<span class="fu">bioenv</span>(d_bray, X_azar))<span class="sc">$</span>correlation)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)
+1023 possible subsets (this may take time...)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">mediana =</span> <span class="fu">median</span>(rho_azar), <span class="at">maximo =</span> <span class="fu">max</span>(rho_azar),</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">prop_mayor =</span> <span class="fu">mean</span>(rho_azar <span class="sc">&gt;=</span> rho_mejor))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   mediana     maximo prop_mayor 
+ 0.2491971  0.4137686  0.5666667 </code></pre>
+</div>
+</div>
+<p>Con variables que no tienen nada que ver con las microalgas, el mejor subconjunto alcanza una ρ mediana de 0.249, y en el 57 % de las repeticiones supera a la ρ real (0.236). La relación encontrada por BIOENV <strong>no es mayor que la que daría el azar</strong> con 10 variables. BIOENV es una herramienta exploratoria; si se quiere un p, se usa una ordenación restringida con selección (Taller 9) o una prueba de Mantel con un subconjunto definido <strong>antes</strong> de mirar los datos.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mantel con las tres variables del Taller 9, definidas por otro criterio</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>mant_tres <span class="ot">&lt;-</span> <span class="fu">mantel</span>(d_bray,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">dist</span>(<span class="fu">scale</span>(X3)),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"spearman"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">permutations =</span> <span class="dv">999</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">rho =</span> mant_tres<span class="sc">$</span>statistic, <span class="at">p =</span> mant_tres<span class="sc">$</span>signif)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       rho          p 
+0.07698064 0.19600000 </code></pre>
+</div>
+</div>
+<p>Con las tres variables de la RDA, la correlación de Mantel es baja (ρ = 0.077; p = 0.196). No contradice a la RDA: Mantel resume la relación entre todas las distancias en un solo número y tiene poca potencia (Legendre et al., 2015). Por eso se prefiere la RDA o la db-RDA para preguntas sobre la composición.</p>
+<p><strong>Para discutir:</strong> si un artículo reporta «BIOENV seleccionó salinidad y profundidad (ρ = 0.45; Mantel p = 0.01)», ¿qué se le preguntaría a los autores?</p>
+<hr>
+</section>
+</section>
+<section id="sec-cuadratico" class="level2">
+<h2 class="anchored" data-anchor-id="sec-cuadratico">7. ¿Una respuesta no lineal? Términos cuadráticos</h2>
+<p><strong>Pregunta:</strong> En el Taller 8, <code>ordisurf()</code> sugirió que la temperatura se relaciona de forma no lineal con el NMDS. ¿Mejora la RDA si se agrega un término cuadrático?</p>
+<p>La RDA supone respuestas lineales, pero se puede incluir la curvatura agregando el cuadrado de una variable como otra columna de X. <code>poly()</code> lo hace con polinomios ortogonales, que no están correlacionados entre sí:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RDA con la temperatura lineal y cuadrática</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>rda_cuad <span class="ot">&lt;-</span> <span class="fu">rda</span>(Y_hel <span class="sc">~</span> Conductividad <span class="sc">+</span> Vel_Corriente <span class="sc">+</span> <span class="fu">poly</span>(Temp, <span class="dv">2</span>),</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> X_log)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>marg_cuad <span class="ot">&lt;-</span> <span class="fu">anova</span>(rda_cuad,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">by =</span> <span class="st">"margin"</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">R2_aj_lineal =</span> <span class="fu">RsquareAdj</span>(rda_pars)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2_aj_cuadratico =</span> <span class="fu">RsquareAdj</span>(rda_cuad)<span class="sc">$</span>adj.r.squared)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    R2_aj_lineal R2_aj_cuadratico 
+       0.1829084        0.1789253 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>marg_cuad</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for rda under reduced model
+Marginal effects of terms
+Permutation: free
+Number of permutations: 999
+
+Model: rda(formula = Y_hel ~ Conductividad + Vel_Corriente + poly(Temp, 2), data = X_log)
+              Df Variance      F Pr(&gt;F)   
+Conductividad  1 0.021722 4.2600  0.005 **
+Vel_Corriente  1 0.012739 2.4984  0.035 * 
+poly(Temp, 2)  2 0.016811 1.6484  0.099 . 
+Residual      19 0.096881                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>El término cuadrático no mejora el modelo: el R² ajustado baja de 0.183 a 0.179, y la temperatura con sus dos términos deja de ser significativa (p = 0.099). La curvatura que mostró <code>ordisurf()</code> estaba en la relación de la temperatura con el <strong>mapa</strong> del NMDS, no en la respuesta de cada género; con 24 muestras, un parámetro más cuesta más de lo que aporta.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cuándo vale la pena
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los términos cuadráticos sirven cuando hay razones para esperar un óptimo dentro del gradiente medido (por ejemplo, la salinidad en un estuario para especies estuarinas) y hay suficientes muestras. Si muchas especies tienen óptimos, el gradiente probablemente es largo, y la CCA es la opción natural (Taller 9, Parte 5).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="sec-doubs" class="level2">
+<h2 class="anchored" data-anchor-id="sec-doubs">8. RDA de los peces del río Doubs</h2>
+<p><strong>Pregunta:</strong> ¿Qué variables ambientales explican la composición de peces a lo largo del río Doubs, y cuánto?</p>
+<p>El material complementario del Taller 8 ordenó esta comunidad con un NMDS y le ajustó las variables con <code>envfit()</code>. Ahora se hace el análisis directo, con los mismos datos: 29 sitios con peces, 27 especies y 11 variables ambientales (Verneaux, 1973; datos en Borcard et al., 2018).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Especies y variables ambientales, sin el sitio sin peces</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">ruta_datos</span>(<span class="st">"peces_francia.xlsx"</span>),</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">"DoubsSpe"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">ruta_datos</span>(<span class="st">"peces_francia.xlsx"</span>),</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">"DoubsEnv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(spe) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(env) <span class="ot">&lt;-</span> spe<span class="sc">$</span>Sites</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> spe <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Sites)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> env <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Sites)</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> spe[<span class="fu">rowSums</span>(spe) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>env <span class="ot">&lt;-</span> env[<span class="fu">rownames</span>(spe), ]</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo por la distancia a la fuente (como en el complemento del Taller 8)</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>tramo <span class="ot">&lt;-</span> <span class="fu">cut</span>(env<span class="sc">$</span>dfs,</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">250</span>, <span class="cn">Inf</span>),</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Alto"</span>, <span class="st">"Medio"</span>, <span class="st">"Bajo"</span>))</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Longitud del gradiente y matriz de Hellinger</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>dca_d <span class="ot">&lt;-</span> <span class="fu">decorana</span>(spe)</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>spe_hel <span class="ot">&lt;-</span> <span class="fu">decostand</span>(spe, <span class="at">method =</span> <span class="st">"hellinger"</span>)</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sitios =</span> <span class="fu">nrow</span>(spe),</span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">especies =</span> <span class="fu">ncol</span>(spe),</span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">DCA1 =</span> <span class="fu">round</span>(<span class="fu">diff</span>(<span class="fu">range</span>(<span class="fu">scores</span>(dca_d, <span class="at">display =</span> <span class="st">"sites"</span>)[, <span class="dv">1</span>])), <span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  sitios especies     DCA1 
+   29.00    27.00     3.86 </code></pre>
+</div>
+</div>
+<p>El primer eje del DCA mide 3.9 DE: un gradiente intermedio, en el que la RDA de Hellinger y la CCA son razonables. Se usa la RDA para seguir los mismos pasos del Taller 9.</p>
+<section id="modelo-completo-y-colinealidad" class="level3">
+<h3 class="anchored" data-anchor-id="modelo-completo-y-colinealidad">8.1 Modelo completo y colinealidad</h3>
+<p>La distancia a la fuente (<code>dfs</code>) se excluye: no es una condición del agua sino la posición en el río, y casi todas las demás variables cambian con ella.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RDA con las 10 variables ambientales (sin la distancia a la fuente)</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>env_d <span class="ot">&lt;-</span> env <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>dfs)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>rda_d_full <span class="ot">&lt;-</span> <span class="fu">rda</span>(spe_hel <span class="sc">~</span> .,</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> env_d)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>glob_d_full <span class="ot">&lt;-</span> <span class="fu">anova</span>(rda_d_full, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>vif_d <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">vif.cca</span>(rda_d_full), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">R2 =</span> <span class="fu">RsquareAdj</span>(rda_d_full)<span class="sc">$</span>r.squared,</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">R2_aj =</span> <span class="fu">RsquareAdj</span>(rda_d_full)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> <span class="fu">p_de</span>(glob_d_full))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       R2     R2_aj         p 
+0.7341007 0.5863788 0.0010000 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Variable =</span> <span class="fu">names</span>(vif_d),</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">VIF =</span> <span class="fu">unname</span>(vif_d)) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>(<span class="at">digits =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Variable </th>
+   <th style="text-align:right;font-weight: bold;"> VIF </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> amm </td>
+   <td style="text-align:right;"> 30.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pho </td>
+   <td style="text-align:right;"> 25.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bod </td>
+   <td style="text-align:right;"> 17.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ele </td>
+   <td style="text-align:right;"> 16.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nit </td>
+   <td style="text-align:right;"> 16.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> oxy </td>
+   <td style="text-align:right;"> 6.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dis </td>
+   <td style="text-align:right;"> 6.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> har </td>
+   <td style="text-align:right;"> 3.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> slo </td>
+   <td style="text-align:right;"> 1.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pH </td>
+   <td style="text-align:right;"> 1.2 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>A diferencia de las microalgas, aquí el ambiente explica mucho (R² ajustado = 0.586; p = 0.001) y hay colinealidad grave: el amonio (VIF = 30.7) y los fosfatos (25.4) superan 10. Los dos miden lo mismo: los vertimientos del tramo bajo que se vieron en el complemento del Taller 8.</p>
+</section>
+<section id="selección-y-modelo-parsimonioso" class="level3">
+<h3 class="anchored" data-anchor-id="selección-y-modelo-parsimonioso">8.2 Selección y modelo parsimonioso</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección con ordiR2step() y con ordistep()</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>rda_d0 <span class="ot">&lt;-</span> <span class="fu">rda</span>(spe_hel <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> env_d)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>sel_d_r2 <span class="ot">&lt;-</span> <span class="fu">ordiR2step</span>(rda_d0,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">scope =</span> <span class="fu">formula</span>(rda_d_full),</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>),</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">trace =</span> <span class="dv">0</span>)</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>sel_d_p <span class="ot">&lt;-</span> <span class="fu">ordistep</span>(rda_d0,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">scope =</span> <span class="fu">formula</span>(rda_d_full),</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>),</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trace =</span> <span class="dv">0</span>)</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>sel_d_r2<span class="sc">$</span>anova <span class="sc">%&gt;%</span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Paso"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabla</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;font-weight: bold;"> Paso </th>
+   <th style="text-align:right;font-weight: bold;"> R2.adj </th>
+   <th style="text-align:right;font-weight: bold;"> Df </th>
+   <th style="text-align:right;font-weight: bold;"> AIC </th>
+   <th style="text-align:right;font-weight: bold;"> F </th>
+   <th style="text-align:right;font-weight: bold;"> Pr(&gt;F) </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> + ele </td>
+   <td style="text-align:right;"> 0.303 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -28.504 </td>
+   <td style="text-align:right;"> 13.183 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> + oxy </td>
+   <td style="text-align:right;"> 0.453 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -34.617 </td>
+   <td style="text-align:right;"> 8.393 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> + bod </td>
+   <td style="text-align:right;"> 0.540 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -38.786 </td>
+   <td style="text-align:right;"> 5.926 </td>
+   <td style="text-align:right;"> 0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> &lt;All variables&gt; </td>
+   <td style="text-align:right;"> 0.586 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables que agrega ordistep()</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(sel_d_p<span class="sc">$</span>anova)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "+ ele" "+ oxy" "+ bod" "+ slo"</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagnóstico del modelo elegido por ordiR2step()</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>rda_d <span class="ot">&lt;-</span> sel_d_r2</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2026</span>)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>ejes_d <span class="ot">&lt;-</span> <span class="fu">anova</span>(rda_d, <span class="at">by =</span> <span class="st">"axis"</span>, <span class="at">permutations =</span> <span class="fu">how</span>(<span class="at">nperm =</span> <span class="dv">999</span>))</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>pct_d <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fu">eigenvals</span>(rda_d) <span class="sc">/</span> rda_d<span class="sc">$</span>tot.chi</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">R2_aj =</span> <span class="fu">RsquareAdj</span>(rda_d)<span class="sc">$</span>adj.r.squared,</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">VIF_max =</span> <span class="fu">max</span>(<span class="fu">vif.cca</span>(rda_d)),</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">RDA1 =</span> <span class="fu">unname</span>(pct_d[<span class="st">"RDA1"</span>]),</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">RDA2 =</span> <span class="fu">unname</span>(pct_d[<span class="st">"RDA2"</span>]),</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">PC1 =</span> <span class="fu">unname</span>(pct_d[<span class="st">"PC1"</span>]))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     R2_aj    VIF_max       RDA1       RDA2        PC1 
+ 0.5401062  3.5443168 43.3847353 10.1230411 11.6127938 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>ejes_d</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for rda under reduced model
+Forward tests for axes
+Permutation: free
+Number of permutations: 999
+
+Model: rda(formula = spe_hel ~ ele + oxy + bod, data = env_d)
+         Df Variance       F Pr(&gt;F)    
+RDA1      1 0.218013 26.4142  0.001 ***
+RDA2      1 0.050869  6.1633  0.001 ***
+RDA3      1 0.027288  3.3062  0.004 ** 
+Residual 25 0.206340                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p><code>ordiR2step()</code> se detiene en la elevación, el oxígeno y la DBO (R² ajustado = 0.540, frente a 0.586 del modelo completo); <code>ordistep()</code> agrega además la pendiente. Las tres variables dibujan los dos gradientes del río: el <strong>longitudinal</strong> (elevación, de la cabecera a la desembocadura) y el de <strong>contaminación orgánica</strong> (oxígeno frente a DBO). Ninguna tiene VIF mayor que 3.5, y los tres ejes son significativos.</p>
+</section>
+<section id="triplot" class="level3">
+<h3 class="anchored" data-anchor-id="triplot">8.3 Triplot</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordenadas de sitios, especies y variables (escalamiento 2)</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>sit_d <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_d,</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">display =</span> <span class="st">"sites"</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">scaling =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Sitio"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Tramo =</span> tramo)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>esp_d <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_d,</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">display =</span> <span class="st">"species"</span>,</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">scaling =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Especie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Largo =</span> <span class="fu">sqrt</span>(RDA1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> RDA2<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(Largo, <span class="at">n =</span> <span class="dv">10</span>)                     <span class="co"># las 10 especies mejor representadas</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>bp_d <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_d,</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">display =</span> <span class="st">"bp"</span>,</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">scaling =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Variable"</span>)</span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Factores comunes para llevar especies y flechas a la escala de los sitios</span></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>lim_sit <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(<span class="fu">c</span>(sit_d<span class="sc">$</span>RDA1, sit_d<span class="sc">$</span>RDA2)))</span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>mult_esp <span class="ot">&lt;-</span> <span class="fl">0.9</span> <span class="sc">*</span> lim_sit <span class="sc">/</span> <span class="fu">max</span>(esp_d<span class="sc">$</span>Largo)</span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>mult_bp  <span class="ot">&lt;-</span> <span class="fl">0.8</span> <span class="sc">*</span> lim_sit <span class="sc">/</span> <span class="fu">max</span>(<span class="fu">sqrt</span>(bp_d<span class="sc">$</span>RDA1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> bp_d<span class="sc">$</span>RDA2<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>,</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> esp_d,</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> RDA1 <span class="sc">*</span> mult_esp, </span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> RDA2 <span class="sc">*</span> mult_esp),</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"grey55"</span>) <span class="sc">+</span></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> esp_d,</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> RDA1 <span class="sc">*</span> mult_esp, </span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> RDA2 <span class="sc">*</span> mult_esp, </span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> Especie),</span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fontface =</span> <span class="st">"italic"</span>,</span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> <span class="fl">3.2</span>,</span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">"grey25"</span>) <span class="sc">+</span></span>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> sit_d,</span>
+<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> RDA1, <span class="at">y =</span> RDA2, <span class="at">colour =</span> Tramo),</span>
+<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb57-21"><a href="#cb57-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> bp_d,</span>
+<span id="cb57-22"><a href="#cb57-22" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb57-23"><a href="#cb57-23" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> RDA1 <span class="sc">*</span> mult_bp, </span>
+<span id="cb57-24"><a href="#cb57-24" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> RDA2 <span class="sc">*</span> mult_bp),</span>
+<span id="cb57-25"><a href="#cb57-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>, <span class="st">"cm"</span>),</span>
+<span id="cb57-26"><a href="#cb57-26" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),</span>
+<span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="fl">0.8</span>,</span>
+<span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">"#C0392B"</span>) <span class="sc">+</span></span>
+<span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> bp_d,</span>
+<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> RDA1 <span class="sc">*</span> mult_bp, </span>
+<span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> RDA2 <span class="sc">*</span> mult_bp, </span>
+<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> Variable),</span>
+<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">"#C0392B"</span>,</span>
+<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb57-35"><a href="#cb57-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb57-36"><a href="#cb57-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> col_tramo) <span class="sc">+</span></span>
+<span id="cb57-37"><a href="#cb57-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb57-38"><a href="#cb57-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">"RDA1 ("</span>, <span class="fu">f1</span>(pct_d[<span class="st">"RDA1"</span>]), <span class="st">" %)"</span>),</span>
+<span id="cb57-39"><a href="#cb57-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">paste0</span>(<span class="st">"RDA2 ("</span>, <span class="fu">f1</span>(pct_d[<span class="st">"RDA2"</span>]), <span class="st">" %)"</span>),</span>
+<span id="cb57-40"><a href="#cb57-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">"Tramo"</span>) <span class="sc">+</span></span>
+<span id="cb57-41"><a href="#cb57-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb57-42"><a href="#cb57-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-doubs-rda" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-doubs-rda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Complemento_Taller9_files/figure-html/fig-doubs-rda-1.png" class="img-fluid figure-img" width="816">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-doubs-rda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Triplot de la RDA de los peces del río Doubs (Hellinger ~ elevación + oxígeno + DBO; escalamiento 2). Puntos: sitios coloreados por tramo; líneas grises: las 10 especies mejor representadas; flechas rojas: variables ambientales. Especies y flechas se multiplican por factores comunes para caber en la figura.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Especies en los extremos del RDA1</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>esp_ord <span class="ot">&lt;-</span> <span class="fu">scores</span>(rda_d, <span class="at">display =</span> <span class="st">"species"</span>, <span class="at">scaling =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames =</span> <span class="st">"Especie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(RDA1)</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">lado_negativo =</span> <span class="fu">head</span>(esp_ord<span class="sc">$</span>Especie, <span class="dv">3</span>),</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">lado_positivo =</span> <span class="fu">tail</span>(esp_ord<span class="sc">$</span>Especie, <span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$lado_negativo
+[1] "Satr" "Phph" "Babl"
+
+$lado_positivo
+[1] "Gyce" "Ruru" "Alal"</code></pre>
+</div>
+</div>
+<p>El RDA1 (43.4 % de la inercia) sigue a la elevación: los sitios del tramo alto quedan del lado negativo, con la trucha (<em>Satr</em>) y el piscardo (<em>Phph</em>), y los del tramo bajo del lado positivo, con especies de aguas cálidas y lentas como el alburno (<em>Alal</em>) y el rutilo (<em>Ruru</em>). El RDA2 (10.1 %) separa los sitios oxigenados de los que tienen alta DBO: los sitios con vertimientos del tramo bajo se apartan hacia la flecha de la DBO.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cómo reportar el resultado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>La composición de peces de 29 sitios del río Doubs (transformación de Hellinger) se relacionó con 10 variables ambientales mediante un análisis de redundancia. El modelo completo explicó el 58,6 % de la variación (R² ajustado; p = 0,001; 999 permutaciones), con colinealidad entre el amonio y los fosfatos (VIF &gt; 10). La selección hacia adelante con doble criterio (<code>ordiR2step()</code>) retuvo la elevación, el oxígeno disuelto y la DBO (R² ajustado = 0,540; VIF ≤ 3,5), con tres ejes significativos que representaron el gradiente longitudinal del río y el de contaminación orgánica.</p>
+</blockquote>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Diseño (RA1): sitios que son vecinos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los sitios del Doubs son puntos sucesivos de un mismo río: los vecinos se parecen por estar cerca, no solo por su ambiente (autocorrelación espacial). Las permutaciones libres tratan a los sitios como independientes, y los p son optimistas. Borcard et al.&nbsp;(2018, cap. 7) muestran cómo incorporar el espacio con vectores espaciales (MEM) y partición de la varianza; ese es el uso para el que se diseñó <code>forward.sel()</code>.</p>
+</div>
+</div>
+<p><strong>Para discutir:</strong> en un río de la Sierra Nevada de Santa Marta, ¿qué variables harían el papel de la elevación y de la DBO? ¿Qué sitios se esperaría que se apartaran sobre el segundo eje?</p>
+<hr>
+</section>
+</section>
+<section id="sec-practica" class="level2">
+<h2 class="anchored" data-anchor-id="sec-practica">9. Ejercicios de práctica (sin nota)</h2>
+<p>Para practicar antes del estudio de caso:</p>
+<ol type="1">
+<li>Repita la partición de la sección 4 con solo dos conjuntos: el ambiente y la visita. Compare la fracción pura del ambiente con el R² ajustado de la RDA parcial del Taller 9 (0.272).</li>
+<li>Ajuste la db-RDA de la sección 5 con Jaccard (<code>distance = "jaccard"</code>, <code>binary = TRUE</code>). ¿Qué variables selecciona <code>ordiR2step()</code>?</li>
+<li>Dibuje el triplot de la sección 3 con escalamiento 1. ¿Cuál de las dos versiones (sitios «wa» o «lc») separa mejor a T1?</li>
+<li>Ajuste una CCA del Doubs con las mismas tres variables (<code>cca(spe ~ ele + oxy + bod, data = env)</code>) y compárela con la RDA mediante <code>protest()</code>. ¿Qué indica la longitud del DCA sobre el resultado esperado?</li>
+<li>Ajuste la RDA del Doubs incluyendo la distancia a la fuente. ¿Qué variable desplaza a la elevación en la selección y por qué?</li>
+<li>Con el mesozooplancton del estudio de caso del Taller 9, haga la partición de la varianza entre la salinidad y la malla. ¿Qué fracción es mayor?</li>
+</ol>
+<hr>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li><p>Blanchet, F. G., Legendre, P., &amp; Borcard, D. (2008). Forward selection of explanatory variables. <em>Ecology</em>, 89(9), 2623–2632. <a href="https://doi.org/10.1890/07-0986.1" class="uri">https://doi.org/10.1890/07-0986.1</a></p></li>
+<li><p>Borcard, D., Gillet, F., &amp; Legendre, P. (2018). <em>Numerical Ecology with R</em> (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-3-319-71404-2" class="uri">https://doi.org/10.1007/978-3-319-71404-2</a> — Fuente de los datos del río Doubs.</p></li>
+<li><p>Clarke, K. R., &amp; Ainsworth, M. (1993). A method of linking multivariate community structure to environmental variables. <em>Marine Ecology Progress Series</em>, 92, 205–219. <a href="https://doi.org/10.3354/meps092205" class="uri">https://doi.org/10.3354/meps092205</a></p></li>
+<li><p>Dray, S., Bauman, D., Blanchet, G., Borcard, D., Clappe, S., Guénard, G., et al.&nbsp;(2024). <em>adespatial: Multivariate Multiscale Spatial Analysis</em>. <a href="https://CRAN.R-project.org/package=adespatial" class="uri">https://CRAN.R-project.org/package=adespatial</a></p></li>
+<li><p>Legendre, P., &amp; Anderson, M. J. (1999). Distance-based redundancy analysis: testing multispecies responses in multifactorial ecological experiments. <em>Ecological Monographs</em>, 69(1), 1–24. <a href="https://doi.org/10.1890/0012-9615(1999)069%5B0001:DBRATM%5D2.0.CO;2" class="uri">https://doi.org/10.1890/0012-9615(1999)069[0001:DBRATM]2.0.CO;2</a></p></li>
+<li><p>Legendre, P., Fortin, M.-J., &amp; Borcard, D. (2015). Should the Mantel test be used in spatial analysis? <em>Methods in Ecology and Evolution</em>, 6(11), 1239–1247. <a href="https://doi.org/10.1111/2041-210X.12425" class="uri">https://doi.org/10.1111/2041-210X.12425</a></p></li>
+<li><p>Legendre, P., &amp; Legendre, L. (2012). <em>Numerical Ecology</em> (3rd ed.). Elsevier.</p></li>
+<li><p>Oksanen, J., Simpson, G. L., Blanchet, F. G., Kindt, R., Legendre, P., Minchin, P. R., et al.&nbsp;(2025). <em>vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan" class="uri">https://CRAN.R-project.org/package=vegan</a></p></li>
+<li><p>Osorio Ávila, F. J., Rodríguez Barrios, J., &amp; Montoya Moreno, Y. (2015). Sucesión de microalgas perifíticas en tributarios del río Gaira, Sierra Nevada de Santa Marta-Colombia. <em>Acta Biológica Colombiana</em>, 20(2), 119–131. <a href="https://doi.org/10.15446/abc.v20n2.41932" class="uri">https://doi.org/10.15446/abc.v20n2.41932</a> — Base de datos <code>Microalgas</code>.</p></li>
+<li><p>Peres-Neto, P. R., Legendre, P., Dray, S., &amp; Borcard, D. (2006). Variation partitioning of species data matrices: estimation and comparison of fractions. <em>Ecology</em>, 87(10), 2614–2625. <a href="https://doi.org/10.1890/0012-9658(2006)87%5B2614:VPOSDM%5D2.0.CO;2" class="uri">https://doi.org/10.1890/0012-9658(2006)87[2614:VPOSDM]2.0.CO;2</a></p></li>
+<li><p>Rodríguez-Barrios, J. (2023). <em>Análisis de datos ecológicos y ambientales: aplicaciones con el programa R</em>. Díaz de Santos. — Base de datos <code>peces_francia.xlsx</code>.</p></li>
+<li><p>Verneaux, J. (1973). <em>Cours d’eau de Franche-Comté (Massif du Jura). Recherches écologiques sur le réseau hydrographique du Doubs. Essai de biotypologie</em>. Thèse d’État, Université de Besançon.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las figuras y el código de este material son de elaboración propia a partir de las bases citadas; las variables aleatorias de la sección 6 son simuladas. No reproducen ejercicios ni código de las fuentes bibliográficas.</p>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
